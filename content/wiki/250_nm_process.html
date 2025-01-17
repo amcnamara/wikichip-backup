@@ -1,7 +1,7 @@
 <!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
 <script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=30', true, [], true, false, true, false);</script>
-<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"page_view_id":"94966ab9-5180-4559-77bf-0af3b6d42b58","response_size_orig":58508,"response_time_orig":171,"template_id":5,"url":"https://en.wikichip.org/wiki/250_nm_process","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
-<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=23', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,f){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===f&&(f=!1),parseInt(__ez.dot.getTargeting(t,"ap"));var p=__ez.dot.getSlotIID(t),s=__ez.dot.getAdUnit(t,f),u=parseInt(__ez.dot.getTargeting(t,"compid")),l=0,g=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(g=z.creative_id),void 0!==z.line_item_id&&(l=z.line_item_id)),__ez.dot.isDefined(p,s)&&__ez.dot.isValid(o)&&("0"===p&&!0!==f||""===s||i.push({type:"impression",impression_id:p,domain_id:__ez.dot.getDID(),unit:s,t_epoch:__ez.dot.getEpoch(0),revenue:d,bid_floor_filled:n,stat_source_id:a,pageview_id:__ez.dot.getPageviewId(),comp_id:u,line_item_id:l,creative_id:g,data:__ez.dot.dataToStr(o),is_orig:f||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d,_){var n=e.split("/");if(__ez.dot.isDefined(e)&&3===n.length&&__ez.dot.isValid(t)){var r=n[0],a={type:"impression",impression_id:n[2],domain_id:__ez.dot.getDID(),unit:r,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(a.revenue=d),void 0!==_&&(a.bid_floor_filled=_),i.push(a)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/250_nm_process"/>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"page_view_id":"94966ab9-5180-4559-77bf-0af3b6d42b58","response_size_orig":58508,"response_time_orig":171,"template_id":5,"url":"/wiki/250_nm_process","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=23', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,f){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===f&&(f=!1),parseInt(__ez.dot.getTargeting(t,"ap"));var p=__ez.dot.getSlotIID(t),s=__ez.dot.getAdUnit(t,f),u=parseInt(__ez.dot.getTargeting(t,"compid")),l=0,g=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(g=z.creative_id),void 0!==z.line_item_id&&(l=z.line_item_id)),__ez.dot.isDefined(p,s)&&__ez.dot.isValid(o)&&("0"===p&&!0!==f||""===s||i.push({type:"impression",impression_id:p,domain_id:__ez.dot.getDID(),unit:s,t_epoch:__ez.dot.getEpoch(0),revenue:d,bid_floor_filled:n,stat_source_id:a,pageview_id:__ez.dot.getPageviewId(),comp_id:u,line_item_id:l,creative_id:g,data:__ez.dot.dataToStr(o),is_orig:f||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d,_){var n=e.split("/");if(__ez.dot.isDefined(e)&&3===n.length&&__ez.dot.isValid(t)){var r=n[0],a={type:"impression",impression_id:n[2],domain_id:__ez.dot.getDID(),unit:r,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(a.revenue=d),void 0!==_&&(a.bid_floor_filled=_),i.push(a)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="/wiki/250_nm_process"/>
 
 <title>250 nm lithography process - WikiChip</title>
 <script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
@@ -21,11 +21,11 @@ mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","cs
 <link rel="edit" title="Edit" href="/w/index.php?title=250_nm_lithography_process&amp;action=edit"/>
 <link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
 <link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
-<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
-<link rel="canonical" href="https://en.wikichip.org/wiki/250_nm_lithography_process"/>
+<link rel="EditURI" type="application/rsd+xml" href="/w/api.php?action=rsd"/>
+<link rel="canonical" href="/wiki/250_nm_lithography_process"/>
 <meta name="twitter:site" content="@WikiChip"/>
-<meta name="twitter:image" content="https://en.wikichip.org/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
-<meta property="og:image" content="https://en.wikichip.org/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
+<meta name="twitter:image" content="/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
+<meta property="og:image" content="/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
 <meta property="og:title" content="250 nm lithography process - WikiChip"/>
 <meta name="twitter:card" content="summary"/>
 <meta property="og:type" content="article"/>
@@ -42,7 +42,7 @@ var did = 86609;
 var ezdomain = 'wikichip.org';
 var ezoicSearchable = 1;
 </script>
-<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod173-c","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"94966ab9-5180-4559-77bf-0af3b6d42b58","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":58508,"response_time_orig":171,"serverid":"i-0f0f2928d3998cede","state":"VA","t_epoch":1701738780,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/250_nm_process","word_count":1053,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod173-c","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"94966ab9-5180-4559-77bf-0af3b6d42b58","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":58508,"response_time_orig":171,"serverid":"i-0f0f2928d3998cede","state":"VA","t_epoch":1701738780,"template_id":5,"time_on_site_visit":0,"url":"/wiki/250_nm_process","word_count":1053,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
 <script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
 function create_ezolpl() {
 	var d = new Date();
@@ -91,9 +91,9 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                 <div style="display: flex;">
                     <ul class="items">
                         <li>
-                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <h5><a href="/wiki/WikiChip">WikiChip</a></h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/WikiChip">Home</a></li>
                                     <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
                                     <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
                                     <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
@@ -128,28 +128,28 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>Companies</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                    <li><a href="/wiki/intel">Intel</a></li>
+                                    <li><a href="/wiki/amd">AMD</a></li>
+                                    <li><a href="/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="/wiki/qualcomm">Qualcomm</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>Microarchitectures</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
                                 </ul>
                         </li>
                         <li>
-                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <h5><a href="/wiki/technology_node">Technology Nodes</a></h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                    <li><a href="/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="/wiki/7_nm_lithography_process">7 nm</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -172,35 +172,35 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                                     <li>
                                         Client
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         Server
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         Big Cores
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         Small Cores
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -208,10 +208,10 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>AMD</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -228,26 +228,26 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                                     <li>
                                         Server
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         Big
                                         <ul><!--
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
-					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
 
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         Little
                                         <ul>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
-                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -255,16 +255,16 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>Cavium</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                    <li><a href="/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>Samsung</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                    <li><a href="/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -284,28 +284,28 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>Intel</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                    <li><a href="/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>AMD</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                    <li><a href="/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -317,32 +317,32 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>Ampere</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                    <li><a href="/wiki/ampere_computing/emag">eMAG</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>Apple</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                    <li><a href="/wiki/apple/ax">Ax</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>Cavium</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
-                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                    <li><a href="/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="/wiki/cavium/thunderx2">ThunderX2</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>HiSilicon</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                    <li><a href="/wiki/hisilicon/kirin">Kirin</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>MediaTek</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                    <li><a href="/wiki/mediatek/helio">Helio</a></li>
                                 </ul>
                         </li>
                         <li>
@@ -364,13 +364,13 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
                         <li>
                                 <h5>Renesas</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                    <li><a href="/wiki/renesas/r-car">R-Car</a></li>
                                 </ul>
                         </li>
                         <li>
                                 <h5>Samsung</h5>
                                 <ul style="list-style:none; display: flex; flex-direction: column;">
-                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                    <li><a href="/wiki/samsung/exynos">Exynos</a></li>
                                 </ul>
                         </li>
                     </ul>
@@ -486,7 +486,7 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
 <li> <a href="/wiki/16_%C2%B5m_lithography_process" title="16 µm lithography process">16 µm</a></li>
 <li> <a href="/wiki/20_%C2%B5m_lithography_process" title="20 µm lithography process">20 µm</a></li>
 <li> <a href="/wiki/50_%C2%B5m_lithography_process" title="50 µm lithography process">50 µm</a></li></ul></dd></dl>
-</td></tr></tbody></table><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="View this template">v</span></a><span style=""> <b>·</b> </span><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="Discuss this template">d</span></a><span style=""> <b>·</b> </span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:lithography_processes&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</td></tr></tbody></table><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="View this template">v</span></a><span style=""> <b>·</b> </span><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="Discuss this template">d</span></a><span style=""> <b>·</b> </span><a rel="nofollow" class="external text" href="/w/index.php?title=Template:lithography_processes&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
 </div>
 <p>The <b>250 nanometer (250 nm) lithography process</b> is a <a href="/wiki/technology_node" title="technology node">full node</a> semiconductor manufacturing process following the <a href="/wiki/350_nm_lithography_process" title="350 nm lithography process">350 nm process</a> node. Commercial <a href="/wiki/integrated_circuit" title="integrated circuit">integrated circuit</a> manufacturing using 250 nm process began in 1997 and was eventually replaced by <a href="/wiki/180_nm" class="mw-redirect" title="180 nm">180 nm</a> by 1999.
 </p>
@@ -854,7 +854,7 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
 <li> Sun
 <ul><li> <a href="/w/index.php?title=sun_microsystems/ultrasparc_ii&amp;action=edit&amp;redlink=1" class="new" title="sun microsystems/ultrasparc ii (page does not exist)">UltraSPARC II</a></li>
 <li> <a href="/w/index.php?title=sun_microsystems/ultrasparc_iii&amp;action=edit&amp;redlink=1" class="new" title="sun microsystems/ultrasparc iii (page does not exist)">UltraSPARC IIi</a></li></ul></li></ul>
-<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=250_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="/w/index.php?title=250_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
 </p>
 <h2><span class="mw-headline" id="250_nm_Microarchitectures">250 nm Microarchitectures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=250_nm_lithography_process&amp;action=edit&amp;section=4" title="Edit section: 250 nm Microarchitectures">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
 <ul><li> AMD
@@ -866,7 +866,7 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
 <ul><li> <a href="/wiki/arm_holdings/microarchitectures/arm7" title="arm holdings/microarchitectures/arm7">ARM7</a></li></ul></li>
 <li> Intel
 <ul><li> <a href="/wiki/intel/p6" class="mw-redirect" title="intel/p6">P6</a></li></ul></li></ul>
-<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=250_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="/w/index.php?title=250_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
 </p><p><br/>
 </p>
 <h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=250_nm_lithography_process&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
@@ -877,7 +877,7 @@ __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchic
 
 <!-- Saved in parser cache with key wikichip:pcache:idhash:6936-0!*!0!!en!5!* and timestamp 20231204223802 and revision id 100455
  -->
-</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=250_nm_lithography_process&amp;oldid=100455">https://en.wikichip.org/w/index.php?title=250_nm_lithography_process&amp;oldid=100455</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:lithography" title="Category:lithography">lithography</a></li></ul></div></div>				</div>
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="/w/index.php?title=250_nm_lithography_process&amp;oldid=100455">/w/index.php?title=250_nm_lithography_process&amp;oldid=100455</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:lithography" title="Category:lithography">lithography</a></li></ul></div></div>				</div>
 				
 </div> <!-- mw-body-content END -->
 </div> <!-- mw-body-content enclosure END -->
