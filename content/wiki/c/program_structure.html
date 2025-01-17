@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Program Structure - C - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="c/program structure" href="/w/index.php?title=Special:ExportRDF/c/program_structure&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=c/program_structure&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=c/program_structure&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/c/program_structure" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/program_structure","wgTitle":"c/program structure","wgCurRevisionId":15872,"wgRevisionId":15872,"wgArticleId":336,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["C programming language"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"c/program_structure","wgRelevantArticleId":336,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_program_structure skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Program Structure - C</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/c" title="c">c</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The way a program is written and its makeup is usually referred to as <b>program structure</b>. Understanding the general flow a C code is crucial to being able to read and understand any piece of C code.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Reserved_Words"><span class="tocnumber">1</span> <span class="toctext">Reserved Words</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.22Hello.2C_World.21.22_Example"><span class="tocnumber">2</span> <span class="toctext">"Hello, World!" Example</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Program_Explanation"><span class="tocnumber">2.1</span> <span class="toctext">Program Explanation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Formatting_Style"><span class="tocnumber">3</span> <span class="toctext">Formatting Style</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Comments"><span class="tocnumber">4</span> <span class="toctext">Comments</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Single-line_Comments"><span class="tocnumber">4.1</span> <span class="toctext">Single-line Comments</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Reserved_Words">Reserved Words</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=1" title="Edit section: Reserved Words">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Main article: <a href="/wiki/c/reserved_words" title="c/reserved words" class="mw-redirect">Reserved words</a></i>
+</p><p>C programs are made up of a series of grouped characters and symbols known as tokens. <a href="/wiki/c/reserved_words" title="c/reserved words" class="mw-redirect">Reserved words</a> are a set of words that have special meaning within your <a href="/wiki/C" title="C" class="mw-redirect">C</a> program; they make up the basic functionality of your program. Reserved words may only be used within their appropriate context - they <b>may be not</b> be used as <i>variable names</i>, or <i>any other type of identifier</i>; we will expand on that later.
+</p>
+<h2><span class="mw-headline" id=".22Hello.2C_World.21.22_Example">"Hello, World!" Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=2" title="Edit section: &quot;Hello, World!&quot; Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let's look at the famous "Hello, World!" program. The "Hello, World!" program is very important, in that you are able to create the program text, compile it, run it, and find the output generated by the program. Below is the source code for the "Hello, World!" program:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>The exact way on how you build and run the program depends on the system and the utilities you are using. For example, if you are using Visual Studio on Windows, all it takes is clicking on the green play button, or using the Ctrl+F5 shortcut. If you are using a UNIX or Linux system, you should be able to compile the program using the following command:
+</p>
+<pre>gcc hello.c
+</pre>
+<p>If everything goes as planned, an executable output file will be generated. Traditionally, the executable has been named 'a.out'. If you receive an error during the compilation process, double check your code for omitted characters or misspelling. You should be able to run the file by typing:
+</p>
+<pre>./a.out
+</pre>
+<p>Other operating systems might have different rules on how you should compile and run the program. Consult your operating system's documentation, or an expert familiar with your system's environment, for more detailed information.
+</p><p>Regardless of the compiler and operating system used, the output should be identical for everyone:
+</p>
+<pre>Hello, World!
+</pre>
+<h3><span class="mw-headline" id="Program_Explanation">Program Explanation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=3" title="Edit section: Program Explanation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>C programs consists of functions and variables.
+</p>
+<ul><li> <b>functions</b>: Contain statements that specify the operation to be performed.</li>
+<li> <a href="/wiki/c/variables" title="c/variables">Variables</a>: A way of naming and storing values for later use by the program.</li></ul>
+<p>In our "Hello, World!" example program, main is a function that we defined. Normally, you would be allowed to name your functions whatever you like, but "<b>main</b>" happens to be a special function. All C programs begin executing at the beginning of function <b>main()</b>; as a corollary, this also means that every program must have a <b>main()</b> function somewhere.
+</p><p>The first line of our sample program,
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span></pre></div></div>
+<p>tells the compiler to include information about the standard <b>I/O</b> (<i>Input/Output</i>) library; that line is part of the <a href="/wiki/c/preprocessor" title="c/preprocessor">preprocessor</a>.
+</p><p>One way that functions communicate with one another is calling a function in order to provide a list of values to the function being called; these values are called <b><a href="/w/index.php?title=arguments&amp;action=edit&amp;redlink=1" class="new" title="arguments (page does not exist)">arguments</a></b>. The parenthesis after a function name are used to surround the <i>argument list</i>. In our "Hello, World!" example, "<b>()</b>" is used to indicate an empty list of arguments. A function has the ability to return a value back to its caller. The type of value a function returns is specified in front of the function name. In our example, we return an <code>int</code> - this is a <i>requirement</i> when you define function <b>main()</b>.
+</p><p>The statements of a function are enclosed within a pair of curly brackets, <b>{ }</b>. The function <b>main()</b> contains two statements:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span></pre></div></div>
+<p>Generally speaking, every statement in a C program should end with a semicolon, <b>;</b>. 
+</p><p>A function, in C, is called by simply naming it and adding a list of arguments (if any) in the parentheses directly after the name. In our example program,
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div>
+<p>calls the function <b>puts()</b> with the argument "Hello, World!". <b>puts()</b> is a standard library function that prints output - in this case a string of characters between the double quotes. 
+</p><p>In C, a sequence of characters surrounded by double quotes like "Hello, World!" is called a <b><a href="/w/index.php?title=c/string_constant&amp;action=edit&amp;redlink=1" class="new" title="c/string constant (page does not exist)">string constant</a></b>. For the time being, the only use of strings is that they be printed out by the <b>puts()</b> function, or as argument to other functions. 
+</p><p>The last statement of <b>main()</b>,
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span></pre></div></div>
+<p>is the <b>return statement</b>. The return statement terminates the execution of a function and returns control to the calling function. Because <b>main()</b> is the first function to be executed, the control returns to the host environment. A value of <b>0</b> indicates a successful termination of the program.
+</p>
+<h2><span class="mw-headline" id="Formatting_Style">Formatting Style</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=4" title="Edit section: Formatting Style">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The indentations, which we used in our code, are meant to provide us a much more pleasurable visual layout for reading, thus allowing for a better grasp on the meaning of the code. Character spaces, horizontal tabs, new-lines, vertical tabs, and form-feeding are collectively called <a href="/w/index.php?title=white_space&amp;action=edit&amp;redlink=1" class="new" title="white space (page does not exist)">white space</a>. Because the compiler works on a series of tokens and ignores all extra white space, you have a considerable amount of freedom concerning how you format your program. C is a <a href="/w/index.php?title=free-format_language&amp;action=edit&amp;redlink=1" class="new" title="free-format language (page does not exist)">free-format language</a> - the positioning of characters in the source file is insignificant. There are no rules for where you should place brackets or how you should indent your code. As you will see, this is both a blessing and a curse. In fact, the following rewrite of the example program we have above is perfectly legal in C:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span><span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span><span class="br0">&#125;</span></pre></div></div>
+<p>Another legal, but ugly, example is:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span>
+main
+<span class="br0">&#40;</span>
+<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw3">puts</span>
+<span class="br0">&#40;</span>
+<span class="st0">&quot;Hello, World!&quot;</span>
+<span class="br0">&#41;</span>
+<span class="sy0">;</span>
+<span class="kw1">return</span>
+<span class="nu0">0</span>
+<span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>You should be able to compile and run both of the above programs. At this point in time, you should not be too worried about the formatting of your program. You will develop a style of your own as you continue to learn the language. 
+</p><p>Keeping these two examples in mind, we will note that there are many different coding styles in existence. Everyone has an opinion about which is best. Regardless of which coding style you end up relying on, it is extremely important that you keep it consistent.
+</p>
+<h2><span class="mw-headline" id="Comments">Comments</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=5" title="Edit section: Comments">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Main article: <a href="/w/index.php?title=c/comments&amp;action=edit&amp;redlink=1" class="new" title="c/comments (page does not exist)">Comments</a></i>
+</p><p>Even though our "Hello, World!" example works, it lacks one very important thing: documentation. Every program should be documented enough so that in the future you, or, more importantly, other programmers know some general things about, such as: the author, what the program does, and, perhaps, the license associated with the program. In C, such information is placed in <a href="/w/index.php?title=c/comments&amp;action=edit&amp;redlink=1" class="new" title="c/comments (page does not exist)">comments</a>. The characters <b>/*</b> introduce a comment and the characters <b>*/</b> terminate it. For example:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="coMULTI">/* This is a comment. */</span>
+&#160;
+<span class="coMULTI">/*
+and
+so 
+is
+this
+*/</span></pre></div></div>
+<p><b>Comments</b> do not change the meaning of a program - they are simply for the programmer's information. Comments are treated as if they were a single space, and they may appear almost anywhere in your code. Comments may not appear within character constants, string literals, or other comments. Therefore, comments can not nest.
+</p><p>Here is our "Hello, World!" example, with some added comments:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="coMULTI">/*
+    Name:        hello.c
+    Description: Prints &quot;Hello, World!&quot;
+    Author:      John Doe
+*/</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<h3><span class="mw-headline" id="Single-line_Comments">Single-line Comments</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/program_structure&amp;action=edit&amp;section=6" title="Edit section: Single-line Comments">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/C99" title="C99" class="mw-redirect">C99</a> introduced a second style of comments, which begin with <b>//</b>, and terminate automatically at the new-line character. These comments are referred to as <b>Single-line Comments</b>. 
+</p><p>Our "Hello, World!" example program could be written as:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co1">// Name:        hello.c</span>
+<span class="co1">// Description: Prints &quot;Hello, World!&quot;</span>
+<span class="co1">// Author:      David</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">puts</span><span class="br0">&#40;</span><span class="st0">&quot;Hello, World!&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>Note how we have replaced the previous comment blocks, <b>/* */</b>, with the <b>single-line comments</b>.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.123 seconds
+Real time usage: 0.133 seconds
+Preprocessor visited node count: 307/1000000
+Preprocessor generated node count: 1167/1000000
+Post‐expand include size: 514/2097152 bytes
+Template argument size: 413/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   65.817      1 - -total
+ 25.63%   16.867      5 - Template:C
+ 14.44%    9.504      2 - Template:main
+  7.51%    4.943      5 - Template:url_parse_article
+  6.94%    4.569      1 - Template:c_title
+  6.58%    4.328      5 - Template:url_parse_anchor
+  2.63%    1.730      1 - Template:c_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:336-0!*!0!!en!*!* and timestamp 20160402140212 and revision id 15872
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=c/program_structure&amp;oldid=15872">http://en.wikichip.org/w/index.php?title=c/program_structure&amp;oldid=15872</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:C_programming_language" title="Category:C programming language">C programming language</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fprogram+structure&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fprogram+structure" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/c/program_structure"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:c/program_structure"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/c/program_structure" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=c/program_structure&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=c/program_structure&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-C' aria-labelledby='p-C-label'>
+			<h3 id='p-C-label'>C</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Introduction"><a href="/wiki/c/introduction">Introduction</a></li>
+													<li id="n-Program-structure"><a href="/wiki/c/program_structure">Program structure</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/c/variables">Variables</a></li>
+													<li id="n-Basic-I/O"><a href="/wiki/c/basic_i/o">Basic I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Math' aria-labelledby='p-Math-label'>
+			<h3 id='p-Math-label'>Math</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Basic-Arithmetics"><a href="/wiki/c/basic_arithmetics">Basic Arithmetics</a></li>
+													<li id="n-Math-functions"><a href="/wiki/c/math_functions">Math functions</a></li>
+													<li id="n-Complex-Numbers"><a href="/wiki/c/complex_numbers">Complex Numbers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Conditional-statements"><a href="/wiki/c/conditional_statements">Conditional statements</a></li>
+													<li id="n-Loop-Constructs"><a href="/wiki/c/loop_constructs">Loop Constructs</a></li>
+													<li id="n-Goto-Statements"><a href="/wiki/c/goto_statements">Goto Statements</a></li>
+													<li id="n-Nonlocal-Jumps"><a href="/wiki/c/Nonlocal_jumps">Nonlocal Jumps</a></li>
+													<li id="n-Functions"><a href="/wiki/c/functions">Functions</a></li>
+													<li id="n-Error-Handling"><a href="/wiki/c/error_handling">Error Handling</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Operators' aria-labelledby='p-Operators-label'>
+			<h3 id='p-Operators-label'>Operators</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Operators"><a href="/wiki/c/operators">Operators</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Arrays_.26_Pointers' aria-labelledby='p-Arrays_.26_Pointers-label'>
+			<h3 id='p-Arrays_.26_Pointers-label'>Arrays &amp; Pointers</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Arrays"><a href="/wiki/c/arrays">Arrays</a></li>
+													<li id="n-Pointers"><a href="/wiki/c/pointers">Pointers</a></li>
+													<li id="n-Memory-management"><a href="/wiki/c/memory_management">Memory management</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Strings' aria-labelledby='p-Strings-label'>
+			<h3 id='p-Strings-label'>Strings</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Character-Handling"><a href="/wiki/c/character_handling">Character Handling</a></li>
+													<li id="n-Strings-Handling"><a href="/wiki/c/strings_handling">Strings Handling</a></li>
+													<li id="n-Wide-Strings"><a href="/wiki/c/wide_strings">Wide Strings</a></li>
+													<li id="n-Unicode"><a href="/wiki/c/unicode">Unicode</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Date_and_Time' aria-labelledby='p-Date_and_Time-label'>
+			<h3 id='p-Date_and_Time-label'>Date and Time</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Date-and-Time"><a href="/wiki/c/date_and_time">Date and Time</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Structured_Types' aria-labelledby='p-Structured_Types-label'>
+			<h3 id='p-Structured_Types-label'>Structured Types</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Structures"><a href="/wiki/c/structures">Structures</a></li>
+													<li id="n-Unions"><a href="/wiki/c/unions">Unions</a></li>
+													<li id="n-Bitfields"><a href="/wiki/c/bitfields">Bitfields</a></li>
+													<li id="n-Enums"><a href="/wiki/c/enumerated_types">Enums</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-I.2FO' aria-labelledby='p-I.2FO-label'>
+			<h3 id='p-I.2FO-label'>I/O</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Standard-Streams"><a href="/wiki/c/Standard_Streams">Standard Streams</a></li>
+													<li id="n-File-I/O"><a href="/wiki/c/file_i/o">File I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Concurrency' aria-labelledby='p-Concurrency-label'>
+			<h3 id='p-Concurrency-label'>Concurrency</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Concurrency"><a href="/wiki/c/concurrency">Concurrency</a></li>
+													<li id="n-Inter‐Thread-Communication"><a href="/wiki/c/inter%E2%80%90thread_communication">Inter‐Thread Communication</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Other' aria-labelledby='p-Other-label'>
+			<h3 id='p-Other-label'>Other</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Data-Types"><a href="/wiki/c/data_types">Data Types</a></li>
+													<li id="n-Static-Assertions"><a href="/wiki/c/static_assertions">Static Assertions</a></li>
+													<li id="n-Generic-Selections"><a href="/wiki/c/generic_selections">Generic Selections</a></li>
+													<li id="n-Preprocessor"><a href="/wiki/c/preprocessor">Preprocessor</a></li>
+													<li id="n-Standard-Library"><a href="/wiki/c/standard_library">Standard Library</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/c/program_structure" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/c/program_structure" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=c/program_structure&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=c/program_structure&amp;oldid=15872" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=c/program_structure&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/c-2Fprogram_structure" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 9 March 2016, at 15:16.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":534});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>TCP Sockets - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/sockets/tcp","wgTitle":"mirc/sockets/tcp","wgCurRevisionId":64742,"wgRevisionId":64742,"wgArticleId":36,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/sockets/tcp","wgRelevantArticleId":36,"wgRequestId":"d82f7beeb02ed9efaf0bbbf0","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"TCP_Sockets_-_mIRC","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/mirc/sockets/tcp"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@0pv4jey",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip&amp;only=styles&amp;skin=WikiChip"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/sockets/tcp" href="/w/index.php?title=Special:ExportRDF/mirc/sockets/tcp&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/mirc/sockets/tcp"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="TCP Sockets - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="mIRC has built-in support for TCP Sockets. This tutorial is the TCP Sockets continuation of the Sockets (Intro) tutorial. If you haven't read that, please do so first before moving on to this one." />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_sockets_tcp rootpage-mirc skin-WikiChip action-view">		<div id="mw-wrapper">
+			<div class="mw-body" role="main">
+				<div id="wikichip-header">
+<div class="wgrid-container">
+	<div class="wgrid-row">
+		<div class="wgrid-col-2">
+			<a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo2.svg" width="200px"></a>
+		</div>
+		<div class="wgrid-col-10">
+
+<div id="nav">
+    <div id="nav-wrapper">
+        <ul>
+            <li class="mob-collapse"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent</a></li>
+            <li class="mob-collapse"><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Rand</a></li>
+            <li><a><i class="fa fa-wrench" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Tools&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+              <ul>
+                <li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li>              </ul>
+	    </li>
+            <li><a><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                <ul>
+                    <li><a href="/wiki/WikiChip:chip_feed"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Chip Feed</a></li>
+                    <li><a href="/wiki/WikiChip:welcome"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Welcome</a></li>
+                    <li><a href="/wiki/WikiChip_talk:general_discussion"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;General Discussion</a></li>
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Personal&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-createaccount pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&returnto=mirc%2Fsockets%2Ftcp"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create account</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fsockets%2Ftcp"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+            <li><a href="/wiki/Special:Search">Search</a></li>
+                <li class="wikichip-search-li">
+                <form class="navbar-form pull-right mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists" id="search-button"><i class="fa fa-search" aria-hidden="true"></i>Go!</button>
+</form>
+
+                </li>
+
+	</ul>
+    </div>
+</div>
+
+
+<div id="tagline-ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1951113009523412"
+        data-ad-slot="1822985275"
+        data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+		</div> <!-- <div class="wgrid-col-7"> -->
+	</div> <!-- <div class="wgrid-row"> -->
+</div> <!-- <div class="wgrid-container"> -->
+
+</div>
+<nav id="primary_nav_wrap">
+<span id="tagline">Semiconductor &amp; Computer Engineering</span>
+<ul>
+<li class="selected"><a href="/wiki/mirc/sockets/tcp">Page</a></li><li class=""><a href="/wiki/Talk:mirc/sockets/tcp">Discussion</a></li><li class="selected"><a href="/wiki/mirc/sockets/tcp" >&nbsp;View</a></li><li class=""><a href="/w/index.php?title=mirc/sockets/tcp&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Edit</span></a></li><li class=""><a href="/w/index.php?title=mirc/sockets/tcp&action=history" ><i class="fa fa-history" aria-hidden="true"></i><span class="mob-collapse">&nbsp;History</span></a></li><li><a><i class="fa fa-cogs" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Options&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/sockets/tcp"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/sockets/tcp"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/sockets/tcp&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/sockets/tcp&oldid=64742"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/sockets/tcp&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fsockets-2Ftcp"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Accessibility&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+</nav>
+				<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>										<div id="article-title">TCP Sockets - mIRC<span id="article-indicator"><div class="mw-indicators">
+</div>
+</span></div>
+									<div id="article-breadcrumbs">
+						<span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a>&lrm; | <a href="/wiki/mirc/sockets" title="mirc/sockets">sockets</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=TCP_Sockets_-_mIRC&amp;redirect=no" class="mw-redirect" title="TCP Sockets - mIRC">TCP Sockets - mIRC</a>)</span></span>
+					</div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <strong class="selflink">TCP Sockets</strong></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual Profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">Ipv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<div style="margin-left: auto; margin-right: auto; white-space: pre-wrap; overflow: visible;background: #F8F8F8; width: 600px; border: 1px solid #D3DCE2; padding: 10px;"><b>Prerequisite knowledge:</b><br />This article assumes that you have intermediate to advanced knowledge of the <a href="/wiki/mIRC_Scripting_Language" class="mw-redirect" title="mIRC Scripting Language">mIRC Scripting Language</a> and familiarity with <a href="/wiki/mirc/on_events" title="mirc/on events">on events</a> and <a href="/wiki/mirc/aliases" title="mirc/aliases">custom aliases</a>.</div>
+<p>mIRC has built-in support for <b>TCP Sockets</b>. This tutorial is the <b>TCP Sockets</b> continuation of the <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one.
+</p><p>Now that you have some familiarity with the different types of sockets we can go into the scripting aspect of things. The most common task scripters want to perform is retrieving a piece data from some website.
+</p><p>Throughout this tutorial we will create two complete scripts, one which will go to our very own example page and a second one that will go to <a rel="nofollow" class="external text" href="http://www.youtube.com/">YouTube</a> and get the title of the page and the view count.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Creating_a_Connection"><span class="tocnumber">1</span> <span class="toctext">Creating a Connection</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Creating_a_secured_Connection"><span class="tocnumber">1.1</span> <span class="toctext">Creating a secured Connection</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#IPv4_vs._IPv6_Sockets"><span class="tocnumber">1.2</span> <span class="toctext">IPv4 vs. IPv6 Sockets</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Connection_Example"><span class="tocnumber">1.3</span> <span class="toctext">Connection Example</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Example_1"><span class="tocnumber">1.3.1</span> <span class="toctext">Example 1</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Example_2_.28YouTube.29"><span class="tocnumber">1.3.2</span> <span class="toctext">Example 2 (YouTube)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#The_Socket_Mark"><span class="tocnumber">2</span> <span class="toctext">The Socket Mark</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Transmitting_a_Request_After_a_Successful_Connection"><span class="tocnumber">3</span> <span class="toctext">Transmitting a Request After a Successful Connection</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#The_Sockwrite_-n_Switch_and_.24crlf"><span class="tocnumber">3.1</span> <span class="toctext">The Sockwrite -n Switch and $crlf</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#.2Fsockwrite.27s_limit"><span class="tocnumber">3.2</span> <span class="toctext">/sockwrite's limit</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Sending_Data_Example"><span class="tocnumber">3.3</span> <span class="toctext">Sending Data Example</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#Example_1_.28Continue.29"><span class="tocnumber">3.3.1</span> <span class="toctext">Example 1 (Continue)</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Example_2_.28YouTube.2C_Continue.29"><span class="tocnumber">3.3.2</span> <span class="toctext">Example 2 (YouTube, Continue)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#URL_Encoding"><span class="tocnumber">4</span> <span class="toctext">URL Encoding</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#POST_vs_GET.3F"><span class="tocnumber">5</span> <span class="toctext">POST vs GET?</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Reading_Incoming_Data"><span class="tocnumber">6</span> <span class="toctext">Reading Incoming Data</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#Debugging"><span class="tocnumber">6.1</span> <span class="toctext">Debugging</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Dealing_with_HTML_code"><span class="tocnumber">6.2</span> <span class="toctext">Dealing with HTML code</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Error_Handling"><span class="tocnumber">6.3</span> <span class="toctext">Error Handling</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Reading_Data_Example"><span class="tocnumber">6.4</span> <span class="toctext">Reading Data Example</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="#Example_1_.28Continue.29_2"><span class="tocnumber">6.4.1</span> <span class="toctext">Example 1 (Continue)</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#Example_2_.28YouTube.2C_Continue.29_2"><span class="tocnumber">6.4.2</span> <span class="toctext">Example 2 (YouTube, Continue)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Connection_Terminated"><span class="tocnumber">7</span> <span class="toctext">Connection Terminated</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Creating_a_Connection">Creating a Connection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=1" title="Edit section: Creating a Connection">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Before we can do anything else we must first create a new connection to a specific address on a given port. This is done using the <a href="/wiki/mirc/commands/sockopen" title="mirc/commands/sockopen">/sockopen</a> command:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockopen" title="/sockopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockopen</span></a> &lt;handle&gt; &lt;address&gt; &lt;port&gt;</span></pre>
+<p>A <b>handle</b> simply is a unique name by which we can refer to this exact socket.
+</p>
+<h3><span class="mw-headline" id="Creating_a_secured_Connection">Creating a secured Connection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=2" title="Edit section: Creating a secured Connection">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>I am sure you are very familiar with the padlock icon next to the URL in your browser. That icon indicated that website uses secure http (also known as HTTPS). The default port for HTTPS is 443. The /sockopen command can also be used to create secured SSL connections as well using the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockopen" title="/sockopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockopen</span></a> -e &lt;handle&gt; &lt;address&gt; &lt;port&gt;</span></pre>
+<h3><span class="mw-headline" id="IPv4_vs._IPv6_Sockets">IPv4 vs. IPv6 Sockets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=3" title="Edit section: IPv4 vs. IPv6 Sockets">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The /sockopen command is directly influenced by the Ipv6 mode you have going on. Check <a href="/wiki/mirc/ipv6" title="mirc/ipv6">this page</a> for more informations about IPv6.
+</p>
+<h3><span class="mw-headline" id="Connection_Example">Connection Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=4" title="Edit section: Connection Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Example_1">Example 1</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=5" title="Edit section: Example 1">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Since we want to socket to our silly demo page, <a rel="nofollow" class="external free" href="http://www.zigwap.com/mirc/sockets_demo">http://www.zigwap.com/mirc/sockets_demo</a>, our sockopen command will look something like this:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>example1</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockopen" title="/sockopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockopen</span></a> example1 www.zigwap.com 80</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The above alias will create a socket by the name "example1". We can use that name to manipulate our socket later on. As a precaution, in order to not attempt to open an already opened socket, we will close it. If the socket is not open, mIRC will simply do nothing. In the advanced part of this tutorial we will explain how to handle this situation more gracefully by creating dynamic names which will give us the ability to create as many sockets as we need.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>example1</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockclose</span></a> example1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockopen" title="/sockopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockopen</span></a> example1 www.zigwap.com 80</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h4><span class="mw-headline" id="Example_2_.28YouTube.29">Example 2 (YouTube)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=6" title="Edit section: Example 2 (YouTube)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>In this example I thought we would do something different. Providing a YouTube link like <a rel="nofollow" class="external free" href="http://www.youtube.com/watch?v=FDw0NdhK6QU">http://www.youtube.com/watch?v=FDw0NdhK6QU</a> and the script will return information on the video.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>YouTube</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">   <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>-, /\Qyoutube.com/watch?v=\E<span class="mirc_bracket">&#x28;</span>\w+<span class="mirc_bracket">&#x29;</span>$/<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">     sockclose</span></a> YouTube</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockopen" title="/sockopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">     sockopen</span></a> YouTube www.youtube.com 80</span>
+<span class="code_line"><span class="mirc_comment">    &#160;; keep the video ID for later on</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockmark" title="/sockmark - mIRC Command" style="text-decoration: none"><span class="mirc_command">     sockmark</span></a> YouTube <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">   <span class="mirc_bracket">}</span></span>
+<span class="code_line">   <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">     echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aef /YouTube: invalid youtube link</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">     halt</span></a></span>
+<span class="code_line">   <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="The_Socket_Mark">The Socket Mark</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=7" title="Edit section: The Socket Mark">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the example above we introduced another command, the <a href="/wiki/mirc/commands/sockmark" title="mirc/commands/sockmark">/sockmark</a> command. The <a href="/wiki/mirc/commands/sockmark" title="mirc/commands/sockmark">/sockmark</a> command lets you store some text for that socket which can easily be retrieved using the <a href="/wiki/mirc/identifiers/$sock" title="mirc/identifiers/$sock">$sock().mark</a> identifier later on. This is a better alternative to using global variables (or any other kind of global storage method) because you don't need to clean it up later. The socket mark goes away automatically with the socket when it is closed.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockmark" title="/sockmark - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockmark</span></a> &lt;handle&gt; &lt;value&gt;</span>
+<span class="code_line"><span class="mirc_comment">; The following will clear the mark:</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockmark" title="/sockmark - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockmark</span></a> &lt;handle&gt;</span></pre>
+<p>The socket mark is restricted to the same line limit as the rest of mIRC (just under 4,150 bytes). A wildcard pattern can be used in the handle parameter to set the value of multiple sockets at once.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; Our socket mark value:</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span>&lt;handle&gt;<span class="mirc_bracket">&#x29;</span>.mark</span></pre>
+<h2><span class="mw-headline" id="Transmitting_a_Request_After_a_Successful_Connection">Transmitting a Request After a Successful Connection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=8" title="Edit section: Transmitting a Request After a Successful Connection">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>When a successful connection to the remote end-point has been established, the <a href="/wiki/mirc/on_events/on_sockopen" title="mirc/on events/on sockopen">on sockopen</a> event will trigger. Inside the on sockopen event we must send our initial request which would depend on what our script wants to do. A typical script that utilizes the HTTP protocol must send its headers in this event.
+</p><p><b>Note:</b> If a connection failed, on sockopen will also trigger, the difference this time is that $sockerr is set, see the Error Handling section below for more informations.
+</p><p>The typical syntax for the on sockopen event is: 
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockopen</span>:&lt;handle&gt;: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;Your requests goes here</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>As we said before, from within the sockopen event we must send our request to the remote end-point. To send data to the remote end-point through the socket we use the <a href="/wiki/mirc/commands/sockwrite" title="mirc/commands/sockwrite">/sockwrite</a> command. The sockwrite command has the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> [-tn] &lt;name&gt; &lt;text|%var|&amp;binvar&gt;</span>
+<span class="code_line"><span class="mirc_comment">; You can limit the amount of data sent using the following syntax:</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> -b[tn] &lt;name&gt; &lt;numbytes&gt; &lt;text|%var|&amp;binvar&gt;</span></pre>
+<p>By default, all space-delimited tokens that begin with the '&amp;' symbol are treated as binary variables. The -t switch can be used to make the /sockwrite command treat it all as plain text instead.
+</p>
+<h3><span class="mw-headline" id="The_Sockwrite_-n_Switch_and_.24crlf">The Sockwrite -n Switch and $crlf</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=9" title="Edit section: The Sockwrite -n Switch and $crlf">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Because the sockwrite command can be used to send any type of data you must be very explicit about the data you are sending. If you want to send multiple lines, you must append a $crlf to the end of your data. Alternatively you can also use the -n switch which will append a $crlf automatically for you if the line doesn't already ends with a $crlf. 
+</p><p>Consider the following piece of code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> AAAAA</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> BBBBB</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> CCCCC</span></pre>
+<p>Even though we have used three distinct sockwrite calls to send the data, the exact data we sent is:
+</p>
+<pre>AAAAABBBBBCCCCC</pre>
+<p>On the other hand, the following code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> -n <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> AAAAA</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> -n <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> BBBBB</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockwrite</span></a> -n <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> CCCCC</span>
+<span class="code_line"><span class="mirc_comment">/* Or:</span></span>
+<span class="code_line"><span class="mirc_comment">  sockwrite $sockname AAAAA $+ $crlf</span></span>
+<span class="code_line"><span class="mirc_comment">  sockwrite $sockname BBBBB $+ $crlf</span></span>
+<span class="code_line"><span class="mirc_comment">  sockwrite $sockname CCCCC $+ $crlf</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span></pre>
+<p>Sent the following data:
+</p>
+<pre>AAAAA
+BBBBB
+CCCCC</pre>
+<p>Understanding this concept is important to understanding how to send data correctly via protocols like HTTP.
+</p>
+<h3><span class="mw-headline" id=".2Fsockwrite.27s_limit">/sockwrite's limit</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=10" title="Edit section: /sockwrite's limit">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Just like anywhere in the mIRC Scripting language, there is a limit on the number of bytes you can send using /sockwrite. A socket in mIRC has two buffers, one for the receiving and one for the sending.
+The sending buffer is limited to 16384 bytes. /sockwrite will produce an error if you try to add more in the buffer. However, if the buffer is empty, it won't produce an error and will work.
+</p><p>In a typical script using HTTP and the <a href="/w/index.php?title=mirc/tcp_sockets&amp;action=edit&amp;redlink=1" class="new" title="mirc/tcp sockets (page does not exist)">GET method</a> to grab something from a website, it's unlikely that you will reach this limit but note that when using <a href="/w/index.php?title=mirc/tcp_sockets&amp;action=edit&amp;redlink=1" class="new" title="mirc/tcp sockets (page does not exist)">POST</a>, it's more likely to reach that limit, you can find an example on how to workaround this by using the on sockwrite event <a href="/wiki/mirc/on_events/on_sockwrite#Examples" title="mirc/on events/on sockwrite">here</a>
+</p>
+<h3><span class="mw-headline" id="Sending_Data_Example">Sending Data Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=11" title="Edit section: Sending Data Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Example_1_.28Continue.29">Example 1 (Continue)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=12" title="Edit section: Example 1 (Continue)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Remember that the page we want to socket to is <a rel="nofollow" class="external free" href="http://www.zigwap.com/mirc/sockets_demo">http://www.zigwap.com/mirc/sockets_demo</a>. Our sockopen event will look something like this: (In this example I will be using version 1.0 of HTTP)
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockopen</span>:example1: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n example1 GET /mirc/sockets_demo HTTP/1.0</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n example1 Host: www.zigwap.com</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n example1</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><b>Note:</b> In HTTP, we must send a blank line at the end of our request to indicate that we are done with the header part, that's our 'sockwrite -n example1': remember -n appends a $crlf.
+</p>
+<h4><span class="mw-headline" id="Example_2_.28YouTube.2C_Continue.29">Example 2 (YouTube, Continue)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=13" title="Edit section: Example 2 (YouTube, Continue)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>We will now add the sockopen part of our YouTube script. Recall that we stored the video ID in the socket mark? Well, we will now retrieve that ID using the $sock identifier and its mark property.
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockopen</span>:YouTube: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n YouTube GET /watch?v= <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>.mark HTTP/1.1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n YouTube Host: www.youtube.com</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockwrite</span></a> -n YouTube</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="URL_Encoding">URL Encoding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=14" title="Edit section: URL Encoding">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some characters have special meanings when used in the URL. You might be familiar with URLs that look like this:
+</p>
+<pre>http://www.example.com/foo.php?request&amp;name=value</pre>
+<p>If we want to send something that includes characters like the '=', '?' and '&amp;' we must escape them before they can be safely used. The exact rules are specified by the RFC 1738 (Top of page 3).
+</p><p>We will use the following aliases to encode and decode URLs:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; Encodes URLs</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>urlEncode</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, /<span class="mirc_bracket">&#x28;</span>\W<span class="mirc_bracket">&#x29;</span>/g, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>%, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$asc" title="$asc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$asc</span></a><span class="mirc_bracket">&#x28;</span>\t<span class="mirc_bracket">&#x29;</span>, 10, 16, 2<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; Decode encoded URLs</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>urlDecode</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, +, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>32<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>, /<span class="mirc_variable">%<span class="mirc_bracket">&#x28;</span>[A-F\d]<span class="mirc_bracket">{</span>2<span class="mirc_bracket">}</span><span class="mirc_bracket">&#x29;</span>/gi</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>\1, 16, 10<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment">; Since mIRC 7.x, mIRC is Unicode, since the percent encoding is byte based, you must decode the byte to utf8 with <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfdecode" title="$utfdecode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfdecode</span></a> after decoding the percent encoding:</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>urlDecode</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfdecode" title="$utfdecode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfdecode</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, +, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>32<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>, /<span class="mirc_variable">%<span class="mirc_bracket">&#x28;</span>[A-F\d]<span class="mirc_bracket">{</span>2<span class="mirc_bracket">}</span><span class="mirc_bracket">&#x29;</span>/gi</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>\1, 16, 10<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Consider the following example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$urlEncode" title="$urlEncode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$urlEncode</span></a><span class="mirc_bracket">&#x28;</span>Hello &amp; Goodbye?<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$urlDecode" title="$urlDecode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$urlDecode</span></a><span class="mirc_bracket">&#x28;</span>Hello%20%26%20Goodbye%3F<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Will print:
+</p>
+<pre>Hello%20%26%20Goodbye%3F
+Hello &amp; Goodbye?</pre>
+<p>Note the escaped characters. You should almost always encode all user input:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">SockOpen</span>:example: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockwrite</span></a> -n example GET /foo/bar.php?foo= <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$urlEncode" title="$urlEncode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$urlEncode</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%input<span class="mirc_bracket">&#x29;</span></span> HTTP/1.1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockwrite</span></a> -n example Host: www.example.com</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockwrite" title="/sockwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockwrite</span></a> -n example <a href="http://en.wikichip.org/wiki/mirc/identifiers/$crlf" title="$crlf - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$crlf</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="POST_vs_GET.3F">POST vs GET?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=15" title="Edit section: POST vs GET?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>By now you are probably asking yourself why did I use GET in our sockopen and how do you know what to use. In HTTP, there are two methods for sending data to the server: <b>POST</b> and <b>GET</b>. They only differ in the format we send that data. When requesting a normal page, you will most likely be using the GET method, when submitting a form; however, it might get a little tricky. When dealing with forms, by simply looking at the source code you can tell if it's a POST or a GET method:
+</p>
+<pre>&lt;form id="FooBar" <b>method="post"</b> action=""&gt;
+   ...
+&lt;/form&gt;
+</pre>
+<p>The most basic GET request will follow this basic syntax:
+</p>
+<pre>GET /folder/file.html HTTP/1.1
+Host: www.example.com
+&lt;blank line&gt;
+</pre>
+<p>Let's take a look at the header a little closer:
+</p>
+<pre>GET /folder/file.html HTTP/1.1
+</pre>
+<p>This line is made up of three parts: method, path and version. The "GET", which SHOULD be always in uppercase letters, is the method. For more information about the POST method see the advanced part of this tutorial. The next part is the path, relative to the root folder of the website. If our webpage is www.example.com/pub/foo/bar.html, our path would be /pub/foo/bar.html. Lastly, the final part of this line is the HTTP version, for all practical reasons, you will probably using version 1.0. Sometimes we might need to use version 1.1 if we want features that are only available in that version.
+</p><p><b>Note:</b> For all practical purposes the HTTP RFC states that casing should not matter. Unfortunately, I came across multiple web servers that only accepted it in the exact casing we present in here. It's best to follow that rule as well.
+</p><p>Next is the Host header:
+</p>
+<pre>Host: www.example.com
+</pre>
+<p>The Host header is required in HTTP version 1.1. Once again, although it should not cause any issues it best to use "Host:", not "host:" or "HOST:". If you forget to include this line, the server will most likely send you an error 400 (Bad Request) status code.
+</p>
+<h2><span class="mw-headline" id="Reading_Incoming_Data">Reading Incoming Data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=16" title="Edit section: Reading Incoming Data">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Once the server receives your request, it will send the response back to you. This will trigger the <a href="/wiki/mirc/on_events/on_sockread" title="mirc/on events/on sockread">on sockread</a> event. The basic syntax of the on sockread event is:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockread</span>:&lt;handle&gt;: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;;Your code goes here</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The on sockread will most likely be the hardest and longest part of your code. When the on sockread event triggers, you have to read the data and decide what to do with it. If your script just needs some information from that page you will have to find and parse the appropriate line. 
+</p><p>When it comes to HTTP, the data you will receive from the server will contain a header followed by a blank line which will be followed by the content of the page. The content of the page will look identical to that text you find when you right click on a web page and click on view source code.
+</p><p>Reading data that has been sent from the server is done with the <a href="/wiki/mirc/commands/sockread" title="mirc/commands/sockread">/sockread</a> command. That command is powerful because it allows you to read the data in a lot of ways, with HTTP, you'll likely want to get the data line by line.
+</p><p>To read a single line from the socket, we use the /sockread command that way:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockread</span></a> &lt;<span class="mirc_variable">%var&gt;</span></span></pre>
+<p>That sockread command actually reads up to a $crlf. This is important to know because many web pages don't end with a $crlf which means the last line won't be read. The -f switch can be used to force the sockread command to read the line even if it does not end with a $crlf.
+</p><p><b>Note:</b> If the variable does not exist, a global variable gets created. It is therefore advised to declare a local variable beforehand. 
+</p><p>When working with binary data or if the line is too long to be read into an ordinary variable, you can read the data into a binary variable using the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">sockread</span></a> [numbytes] &lt;&amp;binvar&gt;</span></pre>
+<p>Reading into a binary variable will by default reads 4096 bytes unless you specify [numbytes] the number of byte to be read, there is a -n switch which can be used to read $crlf-terminated lines into the binary variable as well.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Debugging">Debugging</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=17" title="Edit section: Debugging">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Because the on sockread triggers when we get our data, it is the most interesting part of our script. Many people find it easier to script and debug when they can see the entire page source code. The script below can be used to see everything the server sent us in a custom window (@ $+ sockname):
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;Print the entire server's reply to a custom window</span></span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockread</span>:Example1: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/window" title="/window - mIRC Command" style="text-decoration: none"><span class="mirc_command">  window</span></a> -deC @ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> -1 -1 700 700</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%read</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockread</span></a> -f <span class="mirc_variable">%read</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/aline" title="/aline - mIRC Command" style="text-decoration: none"><span class="mirc_command">  aline</span></a> -p @ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a>&#160;: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_variable">%read</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="Dealing_with_HTML_code">Dealing with HTML code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=18" title="Edit section: Dealing with HTML code">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One of the first things you will have to deal with when writing HTTP scripts is HTML code and lots of it. The single most common task is to simply get rid of some unwanted HTML tags that enclose your code. Below is a very small, yet extremely handy alias that will strip most HTML tags away:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>noHTML</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, /&lt;[^&gt;]+<span class="mirc_bracket">&#x28;</span>?:&gt;|$<span class="mirc_bracket">&#x29;</span>|^[^&lt;&gt;]+&gt;/g, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$null" title="$null - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$null</span></a><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Consider this simple example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$noHTML" title="$noHTML - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$noHTML</span></a><span class="mirc_bracket">&#x28;</span>&lt;strong&gt;Example&lt;/strong&gt; - &lt;p&gt;This is an &lt;em&gt;example&lt;/em&gt;&lt;/p&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Will print the following result:
+</p>
+<pre>Example - This is an example
+</pre>
+<p>Keep this alias safe. Trust me, this tiny alias will become one of your most precious possessions.
+</p>
+<h3><span class="mw-headline" id="Error_Handling">Error Handling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=19" title="Edit section: Error Handling">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Errors happen! It's a fact of life. It is your responsibility to check for them and gracefully handle them! The $sockerr identifier must be checked after every socket operations. If the value of $sockerr is greater than zero, an error has occurred and we MUST stop whatever it is we were going to do with the socket, cleanup, perhaps display an error message etc.
+Remember, inside the on sockopen event, $sockerr allows you to know if the connection was sucessful or not.
+</p><p>A basic example would look like this:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockread</span>:example: <span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockerr" title="$sockerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockerr</span></a><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span> </span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -sef Socket Error: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>.wsmsg</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -sef Socket Error Number: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>.wserr Socket: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;my code goes here...</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Checking for an error gives you the opportunity to handle it in a sane way. Most scripts report that an error has occurred instead of simply stopping in their tracks.
+</p>
+<h3><span class="mw-headline" id="Reading_Data_Example">Reading Data Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=20" title="Edit section: Reading Data Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Example_1_.28Continue.29_2">Example 1 (Continue)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=21" title="Edit section: Example 1 (Continue)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>When I printed out the entire source the server sent us. The first part is the header, follows by a blank space, and follows by the actual page data. It should look something like this:
+</p>
+<pre>
+:HTTP/1.1 200 OK
+:Date: Sun, 11 Mar 2012 10:42:05 GMT
+:Server: Apache
+:X-Powered-By: PHP/5.2.17
+:Connection: close
+:Content-Type: text/html
+:
+:&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+:   &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+:       &lt;head&gt;
+:           &lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+:           &lt;meta name="robots" content="noindex,follow" /&gt;
+:           &lt;title&gt;ZigWap - Demo Page&lt;/title&gt;
+:       &lt;/head&gt;
+:       &lt;body&gt;
+:           &lt;div align="center"&gt;
+:               &lt;p&gt;This is an example page!&lt;/p&gt;
+:               &lt;p&gt;This webpage is dedicated for the socket tutorial purpose. &lt;/p&gt;
+:           &lt;/div&gt;
+:       &lt;p&gt;Your random color is: Pink&lt;/p&gt;        
+:       &lt;/body&gt;
+:   &lt;/html&gt;
+</pre>
+<p>The first part is the header, follows by a blank space, and follows by the actual page data. In this example we will be trying to retrieve the random color line. A simple if statement to check for *Your random colors is* should be sufficient enough.
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockread</span>:example1: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%read</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockread</span></a> <span class="mirc_variable">%read</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; check if this is the line we want</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>*Your random color is: * iswm <span class="mirc_variable">%read<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; break down our line into words</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/tokenize" title="/tokenize - mIRC Command" style="text-decoration: none"><span class="mirc_command">    tokenize</span></a> 32 <span class="mirc_variable">%read</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; get the color and remove the html tab</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -a Random Color: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$noHTML" title="$noHTML - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$noHTML</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$5" title="$5 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$5</span></a><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; close the socket, it's not needed</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    sockclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h4><span class="mw-headline" id="Example_2_.28YouTube.2C_Continue.29_2">Example 2 (YouTube, Continue)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=22" title="Edit section: Example 2 (YouTube, Continue)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>If you tried to print the youtube page we did (<a rel="nofollow" class="external free" href="http://www.youtube.com/watch?v=FDw0NdhK6QU">http://www.youtube.com/watch?v=FDw0NdhK6QU</a>) you will quickly realize how long the youtube webpage is. For this reason I will not show it here. The way we parse that page is very much like the one we did for the first example:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockread</span>:YouTube: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockread</span></a> <span class="mirc_variable">%x</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x</span>, &lt;meta name=&quot;title&quot; content=&quot;<span class="mirc_bracket">&#x28;</span>.+<span class="mirc_bracket">&#x29;</span>&quot;&gt;<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; parse the title</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">    set</span></a> <span class="mirc_variable">%title.</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockName" title="$sockName - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockName</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span> </span>
+<span class="code_line">  <span class="mirc_control">else</span> if <span class="mirc_bracket">&#x28;</span>watch-view-count isin <span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; read the next line</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">    sockread</span></a> <span class="mirc_variable">%x</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; make sure it's a number</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; the <span class="mirc_bracket">&#x28;</span>*UTF8<span class="mirc_bracket">&#x29;</span> in the expression is required for the regex engine to interpret utf8 sequences, which is what mIRC use <span class="mirc_bracket">&#x28;</span>here for a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>160<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x</span>,/<span class="mirc_bracket">&#x28;</span>*UTF8<span class="mirc_bracket">&#x29;</span>^ *<span class="mirc_bracket">&#x28;</span>[\d\xA0]+<span class="mirc_bracket">&#x29;</span>/<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">      set</span></a> <span class="mirc_variable">%view.</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span>,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>160<span class="mirc_bracket">&#x29;</span>,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>32<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;if we find the username of the uploader, we are done</span></span>
+<span class="code_line">  <span class="mirc_control">else</span> if <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x</span>,/&lt;\/a&gt;&lt;a&#160;?href=&quot;\/user\/<span class="mirc_bracket">&#x28;</span>[^&quot;]+<span class="mirc_bracket">&#x29;</span>/<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span>   </span>
+<span class="code_line"><span class="mirc_comment">   &#160;; print out the info</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> -a Title: $<span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>%, title., <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>, 2<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$&amp;" title="$&amp; - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$&amp;</span></a></span>
+<span class="code_line">      Uploader: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span> Views: $<span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>%, view., <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>, 2<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; cleanup</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/unset" title="/unset - mIRC Command" style="text-decoration: none"><span class="mirc_command">    unset</span></a> <span class="mirc_variable">%*.</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; close the socket, no need to read anymore</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    sockclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Connection_Terminated">Connection Terminated</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/tcp&amp;action=edit&amp;section=23" title="Edit section: Connection Terminated">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>It is possible for the remote end-point to terminate a connection, the same way you can /sockclose a connection early. When this happens the on sockclose event will trigger. The syntax for that event is:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockclose</span>:&lt;handle&gt;: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;;Your code goes here</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><b>Note:</b> Only the remote end-port, not you, can trigger this event.
+</p>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:36-0!*!0!!en!*!* and timestamp 20180908074347 and revision id 64742
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/sockets/tcp&amp;oldid=64742">https://en.wikichip.org/w/index.php?title=mirc/sockets/tcp&amp;oldid=64742</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>				</div>
+			</div>
+
+
+
+<script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+
+
+						<div id="wiki-footer2">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-1951113009523412"
+				     data-ad-slot="3591436790"
+				     data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>			</div>
+			
+			<div id="mw-footer">
+                                <div id="footer-icons">
+                                <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31"/></a><a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a><a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31"/></a>				<a href="https://www.linode.com/?r=f471c5ec549e4b7101502a8c241b2b6e288ff306">
+					<img src="/w/resources/assets/poweredby_linode.svg" alt="This website is powered by Linode!" width="88" height="31">
+				</a>
+				</div>
+				<div id="footer-last-mod">
+				 This page was last modified on 22 September 2017, at 09:42.				</div>
+				<div id="footer-copyright">
+				Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.				</div>
+				<div id="footer-places"><ul>
+				<li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>				</ul></div>
+			</div>
+		</div>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":394});});</script>		</body>
+		</html>
+
+		

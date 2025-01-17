@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData)});}}
+function AddPixelById(impFullId,pixelData){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=2', false, [], true, false, true, false);</script>
+
+<title>Snapdragon 712  - Qualcomm - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"qualcomm/snapdragon_700/712","wgTitle":"qualcomm/snapdragon 700/712","wgCurRevisionId":97902,"wgRevisionId":97902,"wgArticleId":32756,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor models","microprocessor models by qualcomm","microprocessor models by qualcomm based on cortex-a75","microprocessor models by qualcomm based on cortex-a55","microprocessor models by arm holdings","microprocessor models by arm holdings based on cortex-a75","microprocessor models by arm holdings based on cortex-a55","microprocessor models by samsung"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"qualcomm/snapdragon_700/712","wgRelevantArticleId":32756,"wgRequestId":"02aeb4852708abbf975a2a8b","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"qualcomm_snapdragon_712","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/qualcomm/snapdragon_700/712"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@16x7iwb",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="qualcomm/snapdragon 700/712" href="/w/index.php?title=Special:ExportRDF/qualcomm/snapdragon_700/712&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/qualcomm/snapdragon_700/712"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Snapdragon 712  - Qualcomm - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Snapdragon 712 is a mid-range 64-bit ARM LTE system on a chip designed by Qualcomm and introduced in early 2019. Fabricated on Samsung's 10nm LPP process, the 712 features six Kryo 360 Silver high-efficiency cores operating at 1.7 GHz along with two high-performance Kryo 360 Gold operating at 2.3 GHz. The Snapdragon 712 integrates the Adreno 616 GPU operation at 550 MHz and features an X15 LTE modem supporting Cat 13 uplink and Cat 15 downlink. This chip supports up to 8 GiB of dual-channel LPDDR4X-3733 memory." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod1',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/qualcomm_snapdragon_712"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"04a5adc3-2650-467b-7966-8dac62019223","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":130,"serverid":"3.236.164.82:19327","state":"VA","t_epoch":1601422196,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/qualcomm_snapdragon_712","user_id":0,"word_count":1030,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["04a5adc3-2650-467b-7966-8dac62019223", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-qualcomm_snapdragon_700_712 rootpage-qualcomm skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/qualcomm/snapdragon_700/712">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:qualcomm/snapdragon_700/712"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=qualcomm/snapdragon_700/712&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=qualcomm/snapdragon_700/712&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=qualcomm%2Fsnapdragon+700%2F712"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/qualcomm/snapdragon_700/712"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/qualcomm/snapdragon_700/712"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=qualcomm/snapdragon_700/712&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=qualcomm/snapdragon_700/712&oldid=97902"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=qualcomm/snapdragon_700/712&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:qualcomm-2Fsnapdragon-5F700-2F712"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Snapdragon 712  - Qualcomm    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/qualcomm" title="qualcomm">qualcomm</a>&lrm; | <a href="/wiki/qualcomm/snapdragon_700" title="qualcomm/snapdragon 700">snapdragon 700</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=qualcomm_snapdragon_712&amp;redirect=no" class="mw-redirect" title="qualcomm snapdragon 712">qualcomm snapdragon 712</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/chip/qualcomm/snapdragon_700/712" title="Special:FormEdit/chip/qualcomm/snapdragon 700/712"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Snapdragon 712</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/Qualcomm" class="mw-redirect" title="Qualcomm">Qualcomm</a>,<br /><a href="/wiki/ARM_Holdings" class="mw-redirect" title="ARM Holdings">ARM Holdings</a></td></tr><tr><td class="label">Manufacturer</td><td><a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a></td></tr><tr><td class="label">Model Number</td><td style="width: 99%;">SDM712</td></tr><tr><td class="label">Market</td><td>Mobile</td></tr><tr><td class="label">Introduction</td><td>February 6, 2019 (announced)<br />February 6, 2019 (launched)</td></tr><tr><td class="header" colspan="2">General Specs</td></tr><tr><td class="label">Family</td><td><a href="/wiki/qualcomm/snapdragon_700" title="qualcomm/snapdragon 700">Snapdragon 700</a></td></tr><tr><td class="label">Frequency</td><td>2,300 MHz, 1,700 MHz</td></tr><tr><td class="header" colspan="2">Microarchitecture</td></tr><tr><td class="label">ISA</td><td>ARMv8&#160;(ARM)</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/qualcomm/microarchitectures/cortex-a75" class="mw-redirect" title="qualcomm/microarchitectures/cortex-a75">Cortex-A75</a>, <a href="/wiki/qualcomm/microarchitectures/cortex-a55" class="mw-redirect" title="qualcomm/microarchitectures/cortex-a55">Cortex-A55</a></td></tr><tr><td class="label">Core Name</td><td><a href="/wiki/qualcomm/cores/kryo_360_gold" class="mw-redirect" title="qualcomm/cores/kryo 360 gold">Kryo 360 Gold</a>, <a href="/wiki/qualcomm/cores/kryo_360_silver" class="mw-redirect" title="qualcomm/cores/kryo 360 silver">Kryo 360 Silver</a></td></tr><tr><td class="label">Process</td><td><a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm</a></td></tr><tr><td class="label">Technology</td><td>CMOS</td></tr><tr><td class="label">Word Size</td><td>64 bit</td></tr><tr><td class="label">Cores</td><td>8</td></tr><tr><td class="label">Threads</td><td>8</td></tr><tr><td class="label">Max Memory</td><td>8 GiB</td></tr><tr><td class="header" colspan="2">Multiprocessing</td></tr><tr><td class="label">Max SMP</td><td>1-Way (Uniprocessor)</td></tr><tr><td class="header" colspan="2">Packaging</td></tr><tr><td colspan="2" style="text-align: center;"><img alt="snapdragon 710 (back).png" src="/w/images/thumb/a/a2/snapdragon_710_%28back%29.png/200px-snapdragon_710_%28back%29.png" width="200" height="215" srcset="/w/images/thumb/a/a2/snapdragon_710_%28back%29.png/300px-snapdragon_710_%28back%29.png 1.5x, /w/images/thumb/a/a2/snapdragon_710_%28back%29.png/400px-snapdragon_710_%28back%29.png 2x" /></td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/qualcomm/snapdragon_700/710" title="qualcomm/snapdragon 700/710">Snapdragon 710</a></div></div><div style="display: inline-flex; float: right;"></div></td></tr></table>
+<p><b>Snapdragon 712</b> is a mid-range <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a> <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> <a href="/wiki/LTE" class="mw-redirect" title="LTE">LTE</a> <a href="/w/index.php?title=system_on_a_chip&amp;action=edit&amp;redlink=1" class="new" title="system on a chip (page does not exist)">system on a chip</a> designed by <a href="/wiki/Qualcomm" class="mw-redirect" title="Qualcomm">Qualcomm</a> and introduced in early <a href="/wiki/2019" title="2019">2019</a>. Fabricated on Samsung's <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10nm LPP process</a>, the 712 features six <a href="/wiki/Kryo_360_Silver" class="mw-redirect" title="Kryo 360 Silver">Kryo 360 Silver</a> high-efficiency cores operating at 1.7 GHz along with two high-performance <a href="/wiki/Kryo_360_Gold" class="mw-redirect" title="Kryo 360 Gold">Kryo 360 Gold</a> operating at 2.3 GHz. The Snapdragon 712 integrates the <a href="/w/index.php?title=qualcomm/adreno_616&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/adreno 616 (page does not exist)">Adreno 616</a> <a href="/w/index.php?title=GPU&amp;action=edit&amp;redlink=1" class="new" title="GPU (page does not exist)">GPU</a> operation at 550 MHz and features an X15 LTE modem supporting Cat 13 uplink and Cat 15 downlink. This chip supports up to 8 GiB of dual-channel LPDDR4X-3733 memory.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Memory_controller"><span class="tocnumber">1</span> <span class="toctext">Memory controller</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#DSP"><span class="tocnumber">2</span> <span class="toctext">DSP</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Graphics"><span class="tocnumber">3</span> <span class="toctext">Graphics</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Audio"><span class="tocnumber">4</span> <span class="toctext">Audio</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#ISP"><span class="tocnumber">5</span> <span class="toctext">ISP</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Connectivity"><span class="tocnumber">6</span> <span class="toctext">Connectivity</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Location"><span class="tocnumber">7</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Utilizing_devices"><span class="tocnumber">8</span> <span class="toctext">Utilizing devices</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Documents"><span class="tocnumber">9</span> <span class="toctext">Documents</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Memory_controller">Memory controller</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=1" title="Edit section: Memory controller">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/memory_controller/qualcomm/snapdragon_700/712" title="Special:FormEdit/memory controller/qualcomm/snapdragon 700/712">[Edit/Modify Memory Info]</a></span>
+</p>
+<table>
+<tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="ram icons.svg" src="/w/images/thumb/a/af/ram_icons.svg/75px-ram_icons.svg.png" width="75" height="69" srcset="/w/images/thumb/a/af/ram_icons.svg/113px-ram_icons.svg.png 1.5x, /w/images/thumb/a/af/ram_icons.svg/150px-ram_icons.svg.png 2x" /></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Memory Controller</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="margin-left: 10px;"><tr><th style="width: 200px;">Max Type</th><td style="min-width: 100px;">LPDDR4X-3733</td></tr><tr><th>Supports ECC</th><td>No</td></tr><tr><th style="width: 200px;">Max Mem</th><td>8 Tn</td></tr><tr><th style="width: 200px;">Frequency</th><td>1866 MHz</td></tr><tr><th>Controllers</th><td>1</td></tr><tr><th>Channels</th><td>2</td></tr><tr><th style="width: 200px;">Width</th><td>16 bit</td></tr><tr><th>Max Bandwidth</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="24.203&amp;#160;GB/s 14,243.84&amp;#160;MiB/s 0.0136&amp;#160;TiB/s 0.0149&amp;#160;TB/s "><span class="smwtext">13.91 GiB/s</span><div class="smwttcontent">24.203&#160;GB/s <br />14,243.84&#160;MiB/s <br />0.0136&#160;TiB/s <br />0.0149&#160;TB/s <br /></div></span></td></tr><tr><th>Bandwidth</th>
+<td>
+<div style="float: left; width: 150px;"><b>Single</b> 6.95 GiB/s</div><div style="float: left; width: 150px;"><b>Double</b> 13.91 GiB/s</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<h2><span class="mw-headline" id="DSP">DSP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=2" title="Edit section: DSP">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This chip features <a href="/wiki/Qualcomm" class="mw-redirect" title="Qualcomm">Qualcomm</a>'s <a href="/wiki/qualcomm/hexagon" class="mw-redirect" title="qualcomm/hexagon">Hexagon</a> <a href="/w/index.php?title=qualcomm/hexagon_685&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/hexagon 685 (page does not exist)">685</a> DSP with a Hexagon Vector Processor.
+</p>
+<h2><span class="mw-headline" id="Graphics">Graphics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=3" title="Edit section: Graphics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/integrated_graphics/qualcomm/snapdragon_700/712" title="Special:FormEdit/integrated graphics/qualcomm/snapdragon 700/712">[Edit/Modify IGP Info]</a></span>
+</p>
+<table>
+<tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="screen icon.svg" src="/w/images/thumb/2/29/screen_icon.svg/75px-screen_icon.svg.png" width="75" height="75" srcset="/w/images/thumb/2/29/screen_icon.svg/113px-screen_icon.svg.png 1.5x, /w/images/thumb/2/29/screen_icon.svg/150px-screen_icon.svg.png 2x" /></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Graphics Information</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1 tl3" style="margin-left: 10px;">
+<tr><th style="width: 150px;">GPU</th><td colspan="3"><a href="/w/index.php?title=qualcomm/adreno_616&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/adreno 616 (page does not exist)">Adreno 616</a></td></tr>
+<tr><th style="width: 150px;">Designer</th><td>Qualcomm</td></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr><tr><th style="width: 150px;">Frequency</th><td>550 MHz<span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.55&amp;#160;GHz 550,000&amp;#160;KHz "><span class="smwtext"></span><div class="smwttcontent">0.55&#160;GHz <br />550,000&#160;KHz <br /></div></span></td></tr><tr><th>Output</th><td colspan="3"><a href="/w/index.php?title=dsi&amp;action=edit&amp;redlink=1" class="new" title="dsi (page does not exist)">DSI</a></td></tr><tr><td colspan="4"><hr /></td></tr><tr><th>Standards</th><td colspan="3"><table><tr><th>DirectX</th><td>12</td></tr> <tr><th>OpenCL</th><td>2.0</td></tr> <tr><th>OpenGL ES</th><td>3.2</td></tr>       <tr><th>Vulkan</th><td>1.0</td></tr> </table></td></tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<ul><li> Hardware Acceleration</li>
+<li> 4K HDR video playback (10-bit color depth, Rec. 2020 color gamut)</li>
+<li> Decode: H.264 (AVC), H.265 (HEVC) and VP9</li></ul>
+<ul><li> Up to 4K Ultra HD video capture @ 30FPS</li>
+<li> Up to 1080p video capture @120 FPS</li></ul>
+<h2><span class="mw-headline" id="Audio">Audio</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=4" title="Edit section: Audio">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Aqstic audio codec and Aqstic smart speaker amplifier
+<ul><li> Up to native DSD support, PCM up to 384 kHz/32-bit</li></ul></li>
+<li> Qualcomm aptX audio playback with support for aptX Classic and HD</li></ul>
+<h2><span class="mw-headline" id="ISP">ISP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=5" title="Edit section: ISP">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Qualcomm <a href="/w/index.php?title=qualcomm/spectra&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/spectra (page does not exist)">Spectra</a> <a href="/w/index.php?title=qualcomm/spectra_250&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/spectra 250 (page does not exist)">250</a> image sensor processor</li></ul>
+<ul><li> 2x Image Sensor Processor (ISP)</li>
+<li> 14-bit</li></ul>
+<p>Megapixel: 
+</p>
+<ul><li> Up to 20 MP dual camera</li>
+<li> Up to 32 MP single camera</li></ul>
+<h2><span class="mw-headline" id="Connectivity">Connectivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=6" title="Edit section: Connectivity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> WiFi
+<ul><li> Integrated 802.11ac 2 x 2 with MU-MIMO</li>
+<li> Tri-band Wi-Fi: 2.4 GHz and 5 GHz with Dual Band Simultaneous (DBS) + 60 GHz</li>
+<li> 802.11k/r/v: Enhanced mobility, fast acquisition and congestion mitigation for carrier Wi-Fi</li></ul></li>
+<li> Bluetooth 5.0</li>
+<li> RF Front End</li>
+<li> LTE Modem
+<ul><li> Snapdragon X15
+<ul><li> Downlink:
+<ul><li> Category 15 up to 800 Mbps</li>
+<li> 3 x 20 MHz carrier aggregation, up to 256-QAM</li>
+<li> Up to 4 x 4 MIMO on two aggregated carriers</li></ul></li>
+<li> Uplink:
+<ul><li> Category 13 up to 150 Mbps</li>
+<li> 2 x 20 MHz carrier aggregation, up to 64-QAM</li></ul></li></ul></li></ul></li></ul>
+<h2><span class="mw-headline" id="Location">Location</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=7" title="Edit section: Location">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> GPS
+<ul><li> Glonass, BeiDou, Galileo, QZSS, and SBAS</li></ul></li>
+<li> Low power geofencing and tracking, sensor assisted navigation</li></ul>
+<h2><span class="mw-headline" id="Utilizing_devices">Utilizing devices</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=8" title="Edit section: Utilizing devices">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Xiaomi Mi 9 SE</li>
+<li> Vivo Z1 Pro</li>
+<li> Realme 5 Pro</li>
+<li> Realme XT</li>
+<li> Vivo Z1x</li>
+<li> vivo s5</li>
+<li> Vivo Z5x (2020)</li>
+<li> Vivo V19</li></ul>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit">expanding it</a>.</i>
+</p>
+<h2><span class="mw-headline" id="Documents">Documents</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=qualcomm/snapdragon_700/712&amp;action=edit&amp;section=9" title="Edit section: Documents">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/File:sdm712-brief.pdf" title="File:sdm712-brief.pdf">Product Brief</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:32756-0!*!0!!en!5!* and timestamp 20200928235611 and revision id 97902
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=qualcomm/snapdragon_700/712&amp;oldid=97902">https://en.wikichip.org/w/index.php?title=qualcomm/snapdragon_700/712&amp;oldid=97902</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:all_microprocessor_models" title="Category:all microprocessor models">all microprocessor models</a></li><li><a href="/wiki/Category:microprocessor_models_by_qualcomm" title="Category:microprocessor models by qualcomm">microprocessor models by qualcomm</a></li><li><a href="/w/index.php?title=Category:microprocessor_models_by_qualcomm_based_on_cortex-a75&amp;action=edit&amp;redlink=1" class="new" title="Category:microprocessor models by qualcomm based on cortex-a75 (page does not exist)">microprocessor models by qualcomm based on cortex-a75</a></li><li><a href="/wiki/Category:microprocessor_models_by_qualcomm_based_on_cortex-a55" title="Category:microprocessor models by qualcomm based on cortex-a55">microprocessor models by qualcomm based on cortex-a55</a></li><li><a href="/wiki/Category:microprocessor_models_by_arm_holdings" title="Category:microprocessor models by arm holdings">microprocessor models by arm holdings</a></li><li><a href="/w/index.php?title=Category:microprocessor_models_by_arm_holdings_based_on_cortex-a75&amp;action=edit&amp;redlink=1" class="new" title="Category:microprocessor models by arm holdings based on cortex-a75 (page does not exist)">microprocessor models by arm holdings based on cortex-a75</a></li><li><a href="/wiki/Category:microprocessor_models_by_arm_holdings_based_on_cortex-a55" title="Category:microprocessor models by arm holdings based on cortex-a55">microprocessor models by arm holdings based on cortex-a55</a></li><li><a href="/wiki/Category:microprocessor_models_by_samsung" title="Category:microprocessor models by samsung">microprocessor models by samsung</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:qualcomm-2Fsnapdragon-20700-2F712" title="Special:Browse/:qualcomm-2Fsnapdragon-20700-2F712">Snapdragon 712  - Qualcomm</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/qualcomm/snapdragon_700/712" title="Special:ExportRDF/qualcomm/snapdragon 700/712">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:back_image" title="Property:back image">back&#160;image</a></td><td class="smwprops"><a href="/wiki/File:snapdragon_710_(back).png" class="image" title="File:snapdragon 710 (back).png"><img alt="File:snapdragon 710 (back).png" src="/w/images/thumb/a/a2/snapdragon_710_%28back%29.png/300px-snapdragon_710_%28back%29.png" width="300" height="322" style="vertical-align: text-top" class="thumbborder" srcset="/w/images/thumb/a/a2/snapdragon_710_%28back%29.png/450px-snapdragon_710_%28back%29.png 1.5x, /w/images/thumb/a/a2/snapdragon_710_%28back%29.png/600px-snapdragon_710_%28back%29.png 2x" /></a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:back-20image/File:snapdragon-20710-20(back).png" title="Special:SearchByProperty/:back-20image/File:snapdragon-20710-20(back).png">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:base_frequency" title="Property:base frequency">base&#160;frequency</a></td><td class="smwprops">2,300&#160;MHz (2.3&#160;GHz, 2,300,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:base-20frequency/2300-20MHz" title="Special:SearchByProperty/:base-20frequency/2300-20MHz">+</a></span> and 1,700&#160;MHz (1.7&#160;GHz, 1,700,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:base-20frequency/1700-20MHz" title="Special:SearchByProperty/:base-20frequency/1700-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core&#160;count</a></td><td class="smwprops">8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/8" title="Special:SearchByProperty/:core-20count/8">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_name" title="Property:core name">core&#160;name</a></td><td class="smwprops">Kryo 360 Gold  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20name/Kryo-20360-20Gold" title="Special:SearchByProperty/:core-20name/Kryo-20360-20Gold">+</a></span> and Kryo 360 Silver  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20name/Kryo-20360-20Silver" title="Special:SearchByProperty/:core-20name/Kryo-20360-20Silver">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Qualcomm  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Qualcomm" title="Special:SearchByProperty/:designer/Qualcomm">+</a></span> and ARM Holdings  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/ARM-20Holdings" title="Special:SearchByProperty/:designer/ARM-20Holdings">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:dsp" title="Property:dsp">dsp</a></td><td class="smwprops">Hexagon 685 DSP  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:dsp/Hexagon-20685-20DSP" title="Special:SearchByProperty/:dsp/Hexagon-20685-20DSP">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:family" title="Property:family">family</a></td><td class="smwprops">Snapdragon 700  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:family/Snapdragon-20700" title="Special:SearchByProperty/:family/Snapdragon-20700">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first&#160;announced</a></td><td class="smwprops">February 6, 2019  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/6-20February-202019" title="Special:SearchByProperty/:first-20announced/6-20February-202019">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">February 6, 2019  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/6-20February-202019" title="Special:SearchByProperty/:first-20launched/6-20February-202019">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full&#160;page&#160;name</a></td><td class="smwprops">qualcomm/snapdragon 700/712  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/qualcomm-2Fsnapdragon-20700-2F712" title="Special:SearchByProperty/:full-20page-20name/qualcomm-2Fsnapdragon-20700-2F712">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_ecc_memory_support" title="Property:has ecc memory support">has&#160;ecc&#160;memory support</a></td><td class="smwprops">false  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20ecc-20memory-20support/false" title="Special:SearchByProperty/:has-20ecc-20memory-20support/false">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">microprocessor  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor" title="Special:SearchByProperty/:instance-20of/microprocessor">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu" title="Property:integrated gpu">integrated&#160;gpu</a></td><td class="smwprops">Adreno 616  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu/Adreno-20616" title="Special:SearchByProperty/:integrated-20gpu/Adreno-20616">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_base_frequency" title="Property:integrated gpu base frequency">integrated&#160;gpu&#160;base frequency</a></td><td class="smwprops">550&#160;MHz (0.55&#160;GHz, 550,000&#160;KHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20base-20frequency/550-20MHz" title="Special:SearchByProperty/:integrated-20gpu-20base-20frequency/550-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_designer" title="Property:integrated gpu designer">integrated&#160;gpu&#160;designer</a></td><td class="smwprops">Qualcomm  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20designer/Qualcomm" title="Special:SearchByProperty/:integrated-20gpu-20designer/Qualcomm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:isa" title="Property:isa">isa</a></td><td class="smwprops">ARMv8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa/ARMv8" title="Special:SearchByProperty/:isa/ARMv8">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:isa_family" title="Property:isa family">isa&#160;family</a></td><td class="smwprops">ARM  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa-20family/ARM" title="Special:SearchByProperty/:isa-20family/ARM">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:ldate" title="Property:ldate">ldate</a></td><td class="smwprops">February 6, 2019  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:ldate/6-20February-202019" title="Special:SearchByProperty/:ldate/6-20February-202019">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">Samsung  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Samsung" title="Special:SearchByProperty/:manufacturer/Samsung">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market&#160;segment</a></td><td class="smwprops">Mobile  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Mobile" title="Special:SearchByProperty/:market-20segment/Mobile">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_cpu_count" title="Property:max cpu count">max&#160;cpu&#160;count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20cpu-20count/1" title="Special:SearchByProperty/:max-20cpu-20count/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory" title="Property:max memory">max&#160;memory</a></td><td class="smwprops">8,192&#160;MiB (8,388,608&#160;KiB, 8,589,934,592&#160;B, 8&#160;GiB, 0.00781&#160;TiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory/8192-20MiB" title="Special:SearchByProperty/:max-20memory/8192-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_memory_bandwidth" title="Property:max memory bandwidth">max&#160;memory&#160;bandwidth</a></td><td class="smwprops">13.91&#160;GiB/s (24.203&#160;GB/s, 14,243.84&#160;MiB/s, 0.0136&#160;TiB/s, 0.0149&#160;TB/s)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20bandwidth/13.91-20GiB-2Fs" title="Special:SearchByProperty/:max-20memory-20bandwidth/13.91-20GiB-2Fs">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory_channels" title="Property:max memory channels">max&#160;memory&#160;channels</a></td><td class="smwprops">2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20channels/2" title="Special:SearchByProperty/:max-20memory-20channels/2">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Cortex-A75  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Cortex-2DA75" title="Special:SearchByProperty/:microarchitecture/Cortex-2DA75">+</a></span> and Cortex-A55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Cortex-2DA55" title="Special:SearchByProperty/:microarchitecture/Cortex-2DA55">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:model_number" title="Property:model number">model&#160;number</a></td><td class="smwprops">SDM712  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:model-20number/SDM712" title="Special:SearchByProperty/:model-20number/SDM712">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Snapdragon 712  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Snapdragon-20712" title="Special:SearchByProperty/:name/Snapdragon-20712">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">10&#160;nm (0.01&#160;μm, 1.0e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/10-20nm" title="Special:SearchByProperty/:process/10-20nm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/w/index.php?title=Property:smp_max_ways&amp;action=edit&amp;redlink=1" class="new" title="Property:smp max ways (page does not exist)">smp&#160;max&#160;ways</a></td><td class="smwprops"><a href="/w/index.php?title=1&amp;action=edit&amp;redlink=1" class="new" title="1 (page does not exist)">1</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:smp-20max-20ways/1" title="Special:SearchByProperty/:smp-20max-20ways/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:supported_memory_type" title="Property:supported memory type">supported&#160;memory&#160;type</a></td><td class="smwprops">LPDDR4X-3733  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:supported-20memory-20type/LPDDR4X-2D3733" title="Special:SearchByProperty/:supported-20memory-20type/LPDDR4X-2D3733">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:thread_count" title="Property:thread count">thread&#160;count</a></td><td class="smwprops">8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:thread-20count/8" title="Special:SearchByProperty/:thread-20count/8">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:used_by" title="Property:used by">used&#160;by</a></td><td class="smwprops">Xiaomi Mi 9 SE  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Xiaomi-20Mi-209-20SE" title="Special:SearchByProperty/:used-20by/Xiaomi-20Mi-209-20SE">+</a></span>, Vivo Z1 Pro  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Vivo-20Z1-20Pro" title="Special:SearchByProperty/:used-20by/Vivo-20Z1-20Pro">+</a></span>, Realme 5 Pro  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Realme-205-20Pro" title="Special:SearchByProperty/:used-20by/Realme-205-20Pro">+</a></span>, Realme XT  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Realme-20XT" title="Special:SearchByProperty/:used-20by/Realme-20XT">+</a></span>, Vivo Z1x  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Vivo-20Z1x" title="Special:SearchByProperty/:used-20by/Vivo-20Z1x">+</a></span>, vivo s5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/vivo-20s5" title="Special:SearchByProperty/:used-20by/vivo-20s5">+</a></span>, Vivo V19  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Vivo-20V19" title="Special:SearchByProperty/:used-20by/Vivo-20V19">+</a></span> and Vivo Z5x (2020)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:used-20by/Vivo-20Z5x-20(2020)" title="Special:SearchByProperty/:used-20by/Vivo-20Z5x-20(2020)">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word&#160;size</a></td><td class="smwprops">64&#160;bit (8&#160;octets, 16&#160;nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 13 September 2020, at 22:34.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":90});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

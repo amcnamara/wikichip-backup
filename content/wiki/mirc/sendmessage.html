@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SendMessage() - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/sendmessage","wgTitle":"mirc/sendmessage","wgCurRevisionId":66378,"wgRevisionId":66378,"wgArticleId":1312,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC","interprocess communication"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/sendmessage","wgRelevantArticleId":1312,"wgRequestId":"beb503a9e266d12612c4074b","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1a8vx7j",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip&amp;only=styles&amp;skin=WikiChip"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/sendmessage" href="/w/index.php?title=Special:ExportRDF/mirc/sendmessage&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/sendmessage&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/sendmessage&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="SendMessage() - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="The SendMessage() function can be used to communicate with mIRC from your external process (e.g. another program or a dll). mIRC provides a number of private Window Messages to evaluate or execute commands and identifiers." />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_sendmessage rootpage-mirc skin-WikiChip action-view">		<div id="mw-wrapper">
+			<div class="mw-body" role="main">
+				<div id="wikichip-header">
+<div class="wgrid-container">
+	<div class="wgrid-row">
+		<div class="wgrid-col-2">
+			<a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo2.svg" width="200px"></a>
+		</div>
+		<div class="wgrid-col-10">
+
+<div id="nav">
+    <div id="nav-wrapper">
+        <ul>
+            <li class="mob-collapse"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent</a></li>
+            <li class="mob-collapse"><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Rand</a></li>
+            <li><a><i class="fa fa-wrench" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Tools&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+              <ul>
+                <li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li>              </ul>
+	    </li>
+            <li><a><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                <ul>
+                    <li><a href="/wiki/WikiChip:chip_feed"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Chip Feed</a></li>
+                    <li><a href="/wiki/WikiChip:welcome"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Welcome</a></li>
+                    <li><a href="/wiki/WikiChip_talk:general_discussion"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;General Discussion</a></li>
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Personal&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-createaccount pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&returnto=mirc%2Fsendmessage"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create account</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fsendmessage"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+            <li><a href="/wiki/Special:Search">Search</a></li>
+                <li class="wikichip-search-li">
+                <form class="navbar-form pull-right mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists" id="search-button"><i class="fa fa-search" aria-hidden="true"></i>Go!</button>
+</form>
+
+                </li>
+
+	</ul>
+    </div>
+</div>
+
+
+<div id="tagline-ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1951113009523412"
+        data-ad-slot="1822985275"
+        data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+		</div> <!-- <div class="wgrid-col-7"> -->
+	</div> <!-- <div class="wgrid-row"> -->
+</div> <!-- <div class="wgrid-container"> -->
+
+</div>
+<nav id="primary_nav_wrap">
+<span id="tagline">Semiconductor &amp; Computer Engineering</span>
+<ul>
+<li class="selected"><a href="/wiki/mirc/sendmessage">Page</a></li><li class=""><a href="/wiki/Talk:mirc/sendmessage">Discussion</a></li><li class="selected"><a href="/wiki/mirc/sendmessage" >&nbsp;View</a></li><li class=""><a href="/w/index.php?title=mirc/sendmessage&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Edit</span></a></li><li class=""><a href="/w/index.php?title=mirc/sendmessage&action=history" ><i class="fa fa-history" aria-hidden="true"></i><span class="mob-collapse">&nbsp;History</span></a></li><li><a><i class="fa fa-cogs" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Options&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/sendmessage"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/sendmessage"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/sendmessage&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/sendmessage&oldid=66378"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/sendmessage&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fsendmessage"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Accessibility&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+</nav>
+				<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>										<div id="article-title">SendMessage() - mIRC<span id="article-indicator"><div class="mw-indicators">
+</div>
+</span></div>
+									<div id="article-breadcrumbs">
+						<span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></span>
+					</div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <strong class="selflink">SendMessage</strong></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual Profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">Ipv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p>The <a href="/w/index.php?title=SendMessage()_-_Win32&amp;action=edit&amp;redlink=1" class="new" title="SendMessage() - Win32 (page does not exist)">SendMessage()</a> function can be used to communicate with mIRC from your external <a href="/w/index.php?title=process&amp;action=edit&amp;redlink=1" class="new" title="process (page does not exist)">process</a> (e.g. another program or a <a href="/w/index.php?title=dll&amp;action=edit&amp;redlink=1" class="new" title="dll (page does not exist)">dll</a>). mIRC provides a number of private <a href="/w/index.php?title=Window_Messages&amp;action=edit&amp;redlink=1" class="new" title="Window Messages (page does not exist)">Window Messages</a> to evaluate or execute commands and identifiers.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Initializing_communication"><span class="tocnumber">1</span> <span class="toctext">Initializing communication</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Communicating"><span class="tocnumber">2</span> <span class="toctext">Communicating</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Performing_Commands"><span class="tocnumber">2.1</span> <span class="toctext">Performing Commands</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Evaluating_Identifiers_and_Variables"><span class="tocnumber">2.2</span> <span class="toctext">Evaluating Identifiers and Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Remote_Event_Context"><span class="tocnumber">3</span> <span class="toctext">Remote Event Context</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Extended_Version_Information"><span class="tocnumber">4</span> <span class="toctext">Extended Version Information</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Extended_Error_Information"><span class="tocnumber">5</span> <span class="toctext">Extended Error Information</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Initializing_communication">Initializing communication</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=1" title="Edit section: Initializing communication">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The external programs that send these messages must create a mapped file with the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa366537%28v=vs.85%29.aspx">CreateFileMapping()</a> function:
+</p>
+<pre>CreateFileMapping(
+  _In_      HANDLE hFile,
+  _In_opt_  LPSECURITY_ATTRIBUTES lpAttributes,
+  _In_      DWORD flProtect,
+  _In_      DWORD dwMaximumSizeHigh,
+  _In_      DWORD dwMaximumSizeLow,
+  _In_opt_  LPCTSTR lpName
+);
+</pre>
+<ul><li> Use INVALID_HANDLE_VALUE for the hFile parameter, which basically allows the sytem to handle the file for us.</li>
+<li> Use NULL for lpAttributes, for a default security.</li>
+<li> Use PAGE_READWRITE for flProtect, to be able to read and write from/to the file.</li>
+<li> Use 0 for dwMaximumSizeHigh and 4096 for dwMaximumSizeLow to indicate a file of that size</li></ul>
+<p><b>Note</b>: The mapped file must be at least 4096 bytes.
+</p>
+<ul><li> lpName is the name of the file, in previous version of mIRC, this parameter had to be "mIRC", you certainly can see the limitation with this, so it was extended, you can now specify a name of the form "mIRCN" where N is a number. You can also still use mIRC of course.</li></ul>
+<p><b>Note</b>: To prevent simultaneous access to the mapped file, your code must check whether the mapped file exists or not before using it. If it exists, you should assume that it is in use by another program, and should try again later.
+</p>
+<h2><span class="mw-headline" id="Communicating">Communicating</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=2" title="Edit section: Communicating">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>After creating the mapped file, you need to write to that file the line mIRC will receive, see the examples to get an idea about how to write to that file.
+</p>
+<h3><span class="mw-headline" id="Performing_Commands">Performing Commands</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=3" title="Edit section: Performing Commands">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following call to SendMessage() makes mIRC perform the commands that you specify:
+</p>
+<pre>SendMessage(mHwnd, WM_MCOMMAND, cMethod, cIndex)
+</pre>
+<ul><li> <b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.</li>
+<li> <b>WM_MCOMMAND</b> - Which should be defined as WM_USER + 200 </li>
+<li> <b>cMethod</b> - How mIRC should process the message, where:
+<ul><li> 1 = As if typed in editbox (default)</li>
+<li> 2 = As if typed in editbox, send as plain text</li>
+<li> 4 = Use flood protection if turned on, can be or'd with 1 or 2, and 8</li>
+<li> 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this. This can be or'd with 1 or 2, and 4.</li></ul></li></ul>
+<ul><li> <b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".</li></ul>
+<p>This call returns 1 on success, 0 if it fails.
+</p>
+<h3><span class="mw-headline" id="Evaluating_Identifiers_and_Variables">Evaluating Identifiers and Variables</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=4" title="Edit section: Evaluating Identifiers and Variables">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following call to SendMessage() makes mIRC evaluate the contents of any line that you specify:
+</p>
+<pre>SendMessage(mHwnd, WM_MEVALUATE, cMethod, cIndex)
+</pre>
+<ul><li> <b>mHwnd</b> - The handle of the main mIRC window, or the handle of a Channel, Query, etc. window.</li>
+<li> <b>WM_MEVALUATE</b> - Should be defined as WM_USER + 201</li>
+<li> <b>cMethod</b> - How mIRC should process the message, where:
+<ul><li> 8 = Use unicode text. For backward compatibility reason, mIRC takes the data in the mapped file as ANSI by default, if you are willing to use unicode, you must use this.</li></ul></li></ul>
+<ul><li> <b>cIndex</b> - If you created a mapped filename of the form "mIRCN", this is where you specify the N parameter to use, if cIndex is 0, the filename must be "mIRC".</li></ul>
+<p>This call returns 1 on success, 0 if it fails.
+</p>
+<h2><span class="mw-headline" id="Remote_Event_Context">Remote Event Context</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=5" title="Edit section: Remote Event Context">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If during a remote event, such as on TEXT, your script calls a DLL which then uses <a href="/w/index.php?title=SendMessage()_-_Win32&amp;action=edit&amp;redlink=1" class="new" title="SendMessage() - Win32 (page does not exist)">SendMessage()</a> to execute a command or evaluate an identifier, you can tell <a href="/w/index.php?title=SendMessage()_-_Win32&amp;action=edit&amp;redlink=1" class="new" title="SendMessage() - Win32 (page does not exist)">SendMessage()</a> to execute in the context of that remote event.
+</p><p>During a remote event, a <a href="/wiki/mirc/identifiers/$eventid" title="mirc/identifiers/$eventid">$eventid</a> identifier is set to a unique value to identify the event. This can be passed to a DLL which can then pass it back to mIRC using:
+</p>
+<pre>SendMessage(mHwnd, WM_MCOMMAND, MAKEWPARAM(cMethod, cEventId), cIndex)
+</pre>
+<p>This will cause the command/evaluation to execute in the context of the remote event identified by cEventId. If cEventId is 0, this indicates a non-remote event.
+</p>
+<h2><span class="mw-headline" id="Extended_Version_Information">Extended Version Information</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=6" title="Edit section: Extended Version Information">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If <b>cMethod</b> is set to -1, you can set <b>cIndex</b> to:
+</p>
+<ul><li> <b>-1</b> - to receive the mIRC version number.</li>
+<li> <b>-2</b> - to receive the cMethod options that are supported.</li></ul>
+<h2><span class="mw-headline" id="Extended_Error_Information">Extended Error Information</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=7" title="Edit section: Extended Error Information">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If cMethod is or'd with the value 16, this will make SendMessage() return more useful error values instead of just 0 for failure and 1 for success. The return values are:
+</p>
+<ul><li> <b>0</b> - Success.</li>
+<li> <b>1</b> - Failure, You can OR that value to get more specific errors:
+<ul><li> <b>2</b> - Bad mapped filename.</li>
+<li> <b>4</b> - Bad mapped file size.</li>
+<li> <b>8</b> - Bad eventid.</li>
+<li> <b>16</b> - Bad server.</li>
+<li> <b>32</b> - Bad script - means that the script does not exist</li>
+<li> <b>64</b> - Disabled (if disabled in lock dialog).</li></ul></li></ul>
+<p>1 alone means that a script error occured, 16 and 32 can only happen if you use $eventid in SendMessage() in the context of a remote event but the script from which it was called no longer exist.
+</p>
+<h1><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sendmessage&amp;action=edit&amp;section=8" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Look at the example provided in the <a href="/wiki/mirc/dynamic-link_library#examples" title="mirc/dynamic-link library">dll</a> article
+</p>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:1312-0!*!0!!en!*!* and timestamp 20180906211945 and revision id 66378
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/sendmessage&amp;oldid=66378">https://en.wikichip.org/w/index.php?title=mirc/sendmessage&amp;oldid=66378</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li><li><a href="/wiki/Category:interprocess_communication" title="Category:interprocess communication">interprocess communication</a></li></ul></div></div>				</div>
+			</div>
+
+
+
+<script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+
+
+						<div id="wiki-footer2">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-1951113009523412"
+				     data-ad-slot="3591436790"
+				     data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>			</div>
+			
+			<div id="mw-footer">
+                                <div id="footer-icons">
+                                <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31"/></a><a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a><a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31"/></a>				<a href="https://www.linode.com/?r=f471c5ec549e4b7101502a8c241b2b6e288ff306">
+					<img src="/w/resources/assets/poweredby_linode.svg" alt="This website is powered by Linode!" width="88" height="31">
+				</a>
+				</div>
+				<div id="footer-last-mod">
+				 This page was last modified on 28 October 2017, at 14:01.				</div>
+				<div id="footer-copyright">
+				Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.				</div>
+				<div id="footer-places"><ul>
+				<li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>				</ul></div>
+			</div>
+		</div>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":125});});</script>		</body>
+		</html>
+
+		

@@ -1,0 +1,730 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=8', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Spring Hill - Microarchitectures - Intel - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"intel/microarchitectures/spring_hill","wgTitle":"intel/microarchitectures/spring hill","wgCurRevisionId":96508,"wgRevisionId":96508,"wgArticleId":35466,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["npu microarchitectures by intel","microarchitectures by intel","all microarchitectures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"intel/microarchitectures/spring_hill","wgRelevantArticleId":35466,"wgRequestId":"12326d4a059ca1ba2c067a6a","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"nervana/microarchitectures/spring_hill","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/intel/microarchitectures/spring_hill"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","mediawiki.page.gallery.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.page.gallery.styles%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="intel/microarchitectures/spring hill" href="/w/index.php?title=Special:ExportRDF/intel/microarchitectures/spring_hill&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/intel/microarchitectures/spring_hill"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Spring Hill - Microarchitectures - Intel - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Spring Hill (SPH) is a 10 nm microarchitecture designed by Intel for their inference neural processors. Spring Hill was developed by the Israel Haifa Development Center (IDC)."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/nervana/microarchitectures/spring_hill"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"242638a0-862c-4b93-6197-267ff9f726e1","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":69625,"response_time_orig":144,"serverid":"34.239.228.38:13884","state":"VA","t_epoch":1624380452,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/nervana/microarchitectures/spring_hill","user_id":0,"word_count":1652,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["242638a0-862c-4b93-6197-267ff9f726e1", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-intel_microarchitectures_spring_hill rootpage-intel skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/intel/microarchitectures/spring_hill">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:intel/microarchitectures/spring_hill"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=intel%2Fmicroarchitectures%2Fspring+hill"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/intel/microarchitectures/spring_hill"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/intel/microarchitectures/spring_hill"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;oldid=96508"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:intel-2Fmicroarchitectures-2Fspring-5Fhill"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Spring Hill - Microarchitectures - Intel    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/intel" title="intel">intel</a>‎ | <a href="/wiki/intel/microarchitectures" title="intel/microarchitectures">microarchitectures</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=nervana/microarchitectures/spring_hill&amp;redirect=no" class="mw-redirect" title="nervana/microarchitectures/spring hill">nervana/microarchitectures/spring hill</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/intel/microarchitectures/spring_hill" title="Special:FormEdit/microarchitecture/intel/microarchitectures/spring hill"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Spring Hill µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">NPU</td></tr><tr><td class="label">Designer</td><td class="value">Intel</td></tr><tr><td class="label">Manufacturer</td><td class="value">Intel</td></tr><tr><td class="label">Introduction</td><td class="value">May, 2019</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/2_cores" class="mw-redirect" title="2 cores">2</a></td></tr><tr><td class="label">PE Configs</td><td class="value">8, 10, 12</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L3 Cache</td><td class="value">3 MiB/Slice</td></tr></tbody></table>
+<p><b>Spring Hill</b> (<b>SPH</b>) is a <a href="/wiki/10_nm" class="mw-redirect" title="10 nm">10 nm</a> microarchitecture designed by <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> for their <a href="/w/index.php?title=inference&amp;action=edit&amp;redlink=1" class="new" title="inference (page does not exist)">inference</a> <a href="/wiki/neural_processors" class="mw-redirect" title="neural processors">neural processors</a>. Spring Hill was developed by the Israel Haifa Development Center (IDC).
+</p><p>Spring Hill-based products are branded as the <a href="/wiki/nervana/nnp-i" class="mw-redirect" title="nervana/nnp-i">NNP-I</a> 1000 series.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Release_date"><span class="tocnumber">1</span> <span class="toctext">Release date</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Process_technology"><span class="tocnumber">2</span> <span class="toctext">Process technology</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Architecture"><span class="tocnumber">3</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Block_Diagram"><span class="tocnumber">3.1</span> <span class="toctext">Block Diagram</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#SoC_Overview"><span class="tocnumber">3.1.1</span> <span class="toctext">SoC Overview</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Sunny_Cove_Core"><span class="tocnumber">3.1.2</span> <span class="toctext">Sunny Cove Core</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Inference_Compute_Engine"><span class="tocnumber">3.1.3</span> <span class="toctext">Inference Compute Engine</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Memory_Organization"><span class="tocnumber">3.2</span> <span class="toctext">Memory Organization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Overview"><span class="tocnumber">4</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Inference_Compute_Engine_.28ICE.29"><span class="tocnumber">5</span> <span class="toctext">Inference Compute Engine (ICE)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#DL_compute_grid"><span class="tocnumber">5.1</span> <span class="toctext">DL compute grid</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Programmable_vector_processor"><span class="tocnumber">5.2</span> <span class="toctext">Programmable vector processor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Workload_Scalability"><span class="tocnumber">6</span> <span class="toctext">Workload Scalability</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Packaging"><span class="tocnumber">7</span> <span class="toctext">Packaging</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Board"><span class="tocnumber">8</span> <span class="toctext">Board</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#M.2"><span class="tocnumber">8.1</span> <span class="toctext">M.2</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#PCIe"><span class="tocnumber">8.2</span> <span class="toctext">PCIe</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#EDSFF"><span class="tocnumber">8.3</span> <span class="toctext">EDSFF</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Die"><span class="tocnumber">9</span> <span class="toctext">Die</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#Bibliography"><span class="tocnumber">10</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#See_also"><span class="tocnumber">11</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Release_date">Release date</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=1" title="Edit section: Release date">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Spring Hill was formally announced in May 2019. The chip entered production on November 12, 2019.
+</p>
+<h2><span class="mw-headline" id="Process_technology">Process technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=2" title="Edit section: Process technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Spring Hill NPUs are fabricated on Intel&#39;s <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a>.
+</p>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=3" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Spring Hill leverages the existing <a href="/wiki/intel/microarchitectures/ice_lake_(client)" title="intel/microarchitectures/ice lake (client)">Ice Lake</a> SoC design and makes extensive reuse of IP throughput the chip.
+</p>
+<ul><li> Uses <a href="/wiki/intel/microarchitectures/ice_lake_(client)" title="intel/microarchitectures/ice lake (client)">Ice Lake</a> as the basis for the SoC
+<ul><li> Leverages two <a href="/wiki/intel/microarchitectures/sunny_cove" title="intel/microarchitectures/sunny cove">Sunny Cove</a> cores</li>
+<li> Leverages the <a href="/w/index.php?title=intel/ring_bus&amp;action=edit&amp;redlink=1" class="new" title="intel/ring bus (page does not exist)">Ring Bus</a> architecture</li>
+<li> Leverages the <a href="/w/index.php?title=DVFS&amp;action=edit&amp;redlink=1" class="new" title="DVFS (page does not exist)">DVFS</a> power controller</li>
+<li> Leverages the quad-channel 32-bit (128b) LPDDR4x-4200 controller</li>
+<li> Leverages the PCIe controller</li></ul></li>
+<li> Incorporates 6 pairs of ICEs
+<ul><li> 12 inference and compute units (ICEs)
+<ul><li> 4 MiB Deep SRAM cache</li>
+<li> DL compute grid
+<ul><li> 4K MACs</li></ul></li>
+<li> Tensilica Vision P6 DSP</li></ul></li>
+<li> 3 MiB cache slice per pair</li></ul></li>
+<li> 10 - 50 W
+<ul><li> <a href="/w/index.php?title=M.2&amp;action=edit&amp;redlink=1" class="new" title="M.2 (page does not exist)">M.2</a>, <a href="/w/index.php?title=EDSFF&amp;action=edit&amp;redlink=1" class="new" title="EDSFF (page does not exist)">EDSFF</a>, <a href="/w/index.php?title=PCIe&amp;action=edit&amp;redlink=1" class="new" title="PCIe (page does not exist)">PCIe</a></li></ul></li></ul>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=4" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="SoC_Overview">SoC Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=5" title="Edit section: SoC Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<dl><dd><a href="/wiki/File:sph_soc.svg" class="image"><img alt="sph soc.svg" src="/w/images/thumb/4/4a/sph_soc.svg/700px-sph_soc.svg.png" width="700" height="339" srcset="/w/images/thumb/4/4a/sph_soc.svg/1050px-sph_soc.svg.png 1.5x, /w/images/thumb/4/4a/sph_soc.svg/1400px-sph_soc.svg.png 2x"/></a></dd></dl>
+<h4><span class="mw-headline" id="Sunny_Cove_Core">Sunny Cove Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=6" title="Edit section: Sunny Cove Core">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>See <a href="/wiki/intel/microarchitectures/sunny_cove#Block_diagram" title="intel/microarchitectures/sunny cove">Sunny Cove § Block diagram</a>.
+</p>
+<h4><span class="mw-headline" id="Inference_Compute_Engine">Inference Compute Engine</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=7" title="Edit section: Inference Compute Engine">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<dl><dd><a href="/wiki/File:sph_ice.svg" class="image"><img alt="sph ice.svg" src="/w/images/thumb/c/cc/sph_ice.svg/700px-sph_ice.svg.png" width="700" height="320" srcset="/w/images/thumb/c/cc/sph_ice.svg/1050px-sph_ice.svg.png 1.5x, /w/images/thumb/c/cc/sph_ice.svg/1400px-sph_ice.svg.png 2x"/></a></dd></dl>
+<h3><span class="mw-headline" id="Memory_Organization">Memory Organization</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=8" title="Edit section: Memory Organization">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Tightly-Coupled Memory (TCM)
+<ul><li> 3 MiB</li>
+<li> 256 KiB/ICE (12 ICEs in total)</li>
+<li> ~68 TB/s</li></ul></li>
+<li> Deep SRAM
+<ul><li> 48 MiB</li>
+<li> 4 MiB/ICE (12 ICEs in total)</li>
+<li> ~6.8 TB/s</li></ul></li>
+<li> LLC
+<ul><li> 24 MiB</li>
+<li> 3 MiB/slice (8 slices in total)</li>
+<li> ~680 GB/s</li></ul></li>
+<li> DRAM
+<ul><li> 32 GiB</li>
+<li> 2x64b or 4x32b LPDDR4x-4200 </li>
+<li> 67.2 GB/s</li></ul></li></ul>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=9" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="floatright"><a href="/wiki/File:spring_hill_overview.svg" class="image"><img alt="spring hill overview.svg" src="/w/images/thumb/6/67/spring_hill_overview.svg/325px-spring_hill_overview.svg.png" width="325" height="387" srcset="/w/images/thumb/6/67/spring_hill_overview.svg/488px-spring_hill_overview.svg.png 1.5x, /w/images/thumb/6/67/spring_hill_overview.svg/650px-spring_hill_overview.svg.png 2x"/></a></div>
+<p>Spring Hill is <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s first-generation SoC <a href="/wiki/microarchitecture" title="microarchitecture">microarchitecture</a> for <a href="/wiki/neural_processors" class="mw-redirect" title="neural processors">neural processors</a> designed for the acceleration of inference in the <a href="/w/index.php?title=data_center&amp;action=edit&amp;redlink=1" class="new" title="data center (page does not exist)">data center</a>. The design targets data center inference workloads with a performance-power efficiency of close to 5 TOPS/W (4.8 in practice) in a power envelope of 10-50 W in order to main a light PCIe-driven <a href="/wiki/accelerator_card" title="accelerator card">accelerator card</a> form factor such as <a href="/w/index.php?title=M.2&amp;action=edit&amp;redlink=1" class="new" title="M.2 (page does not exist)">M.2</a>. The form factor and power envelope is selected for its ease of integration into existing infrastructure without additional cooling/power capacity.
+</p><p>Spring Hill borrows a lot from the client <a href="/wiki/intel/microarchitectures/ice_lake_(client)" title="intel/microarchitectures/ice lake (client)">Ice Lake</a> SoC. To that end, Spring Hill features two full-fledge <a href="/wiki/intel/microarchitectures/sunny_cove" title="intel/microarchitectures/sunny cove">Sunny Cove</a> <a href="/wiki/big_cores" class="mw-redirect" title="big cores">big cores</a>. The primary purpose of the <a href="/wiki/big_cores" class="mw-redirect" title="big cores">big cores</a> here is to execute the orchestration software and runtime logic determined by the compiler ahead of time. Additionally, since they come with <a href="/wiki/x86/avx-512" title="x86/avx-512">AVX-512</a> along with the <a href="/w/index.php?title=x86/avx_vnni&amp;action=edit&amp;redlink=1" class="new" title="x86/avx vnni (page does not exist)">AVX VNNI</a> <a href="/wiki/x86/extension" class="mw-redirect" title="x86/extension">extension</a> for inference acceleration, they can be used to run any desired user-specified code, providing an additional layer of programmability. Instead of the traditional integrated graphics and additional cores, Intel integrated up to twelve custom inference compute engines attached to the <a href="/w/index.php?title=intel/ring_bus&amp;action=edit&amp;redlink=1" class="new" title="intel/ring bus (page does not exist)">ring bus</a> in pairs. The ICEs have been designed for inference workloads (see <a href="#Inference_Compute_Engine_.28ICE.29">§ Inference Compute Engine (ICE)</a>). The ICEs may each be running independent inference workloads or they may be combined to handle larger models faster. Attached to each pair of ICEs and the <a href="/wiki/intel/microarchitectures/sunny_cove" title="intel/microarchitectures/sunny cove">SNC</a> cores are 3 MiB slices of <a href="/wiki/last_level_cache" title="last level cache">last level cache</a> for a total of 24 MiB of on-die shared LLC cache. While the LLC is hardware managed, there is some software provisions that can be used to hint the hardware in terms of expectations by dictating service levels and priorities.
+</p><p>In order to simplify the ICE-ICE, ICE-SNC, and even ICE-Host communication, Spring Hill incorporates a special synchronization unit that allows for efficient communication between the units.
+</p><p>Spring Hill borrows a number of other components from <a href="/wiki/intel/microarchitectures/ice_lake_(client)" title="intel/microarchitectures/ice lake (client)">Ice Lake</a> including the <a href="/w/index.php?title=FIVR&amp;action=edit&amp;redlink=1" class="new" title="FIVR (page does not exist)">FIVR</a> and the power management controller which allows the ICEs and SNC to dynamically shift the power to the various execution units depending on the available thermal headroom and the total package power consumption. Various power-related scheduling is also done ahead of time by the compiler. Feeding Spring Hill is a also an <a href="/w/index.php?title=LPDDR4x&amp;action=edit&amp;redlink=1" class="new" title="LPDDR4x (page does not exist)">LPDDR4x</a> <a href="/w/index.php?title=memory_controller&amp;action=edit&amp;redlink=1" class="new" title="memory controller (page does not exist)">memory controller</a> that supports either dual-channel 64-bit or quad-channel 32-bit (128b in total) with rates up to 4200 MT/s for a total memory bandwidth of 67.2 GB/s.
+</p>
+<h2><span class="mw-headline" id="Inference_Compute_Engine_.28ICE.29">Inference Compute Engine (ICE)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=10" title="Edit section: Inference Compute Engine (ICE)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Inference Compute Engines (ICEs) are the individual processing units for inference workloads. Each ICE includes four main components - a DL compute grid, a programmable vector processor, high-bandwidth data scratchpad memory, and a large local <a href="/wiki/SRAM" class="mw-redirect" title="SRAM">SRAM</a> bank. The vector processor is a VP6 DSP designed to provide the ICE with additional programmability support beyond what the compute grid can offer. The vector processor and the compute grid communicate and syncronize using hardware synchronization via the fabric. Additionally, the two processing elements are also tightly connected via the 256 KiB of tightly-coupled memory (TCM).
+</p>
+<h3><span class="mw-headline" id="DL_compute_grid">DL compute grid</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=11" title="Edit section: DL compute grid">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="floatright"><a href="/wiki/File:sph_dl_compute_grid.svg" class="image"><img alt="sph dl compute grid.svg" src="/w/images/thumb/e/e1/sph_dl_compute_grid.svg/400px-sph_dl_compute_grid.svg.png" width="400" height="307" srcset="/w/images/thumb/e/e1/sph_dl_compute_grid.svg/600px-sph_dl_compute_grid.svg.png 1.5x, /w/images/thumb/e/e1/sph_dl_compute_grid.svg/800px-sph_dl_compute_grid.svg.png 2x"/></a></div>
+<p>The Deep Learning Compute Grid is a large 4D structure designed to provide 4 ways of parallelism. The grid itself is organized as a 32x32x4 4D grid capable of performing 4K-MAC/cycle (int8). It supports <a href="/w/index.php?title=half-precision_floating-point&amp;action=edit&amp;redlink=1" class="new" title="half-precision floating-point (page does not exist)">half-precision floating-point</a> (FP16) as well as 8-bit, 4-bit, 2-bit, and even 1-bit precision operations natively. The grid is designed such that data movement is minimized by broadcasting the input data across the entire grid at once. Likewise, within the grid, data reuse is maximized by shifting the data left and right as necessary. This is done through compile-time transformations of the network in order to have a better layout in the hardware.
+</p><p>The compute grid integrates a post-processing unit with hardware-hardened support for various non-linear operations and pooling. The compute grid is managed by a programmable control unit that can map the models in various ways across the grid. The exact way networks are mapped is pre-determined statically are compile-time. Additionally, the control unit can perform various other memory and processing operations.
+</p>
+<ul><li> DL Compute Grid
+<ul><li> Weights, 1.5 MiB</li>
+<li> Input Feature Maps (IFMs), 384 KiB</li>
+<li> OSRAM, 3 MiB</li></ul></li></ul>
+<p>The compute grid is tightly connected to the high-bandwidth 256 KiB TCM which is also connected to the vector processor.
+</p>
+<h3><span class="mw-headline" id="Programmable_vector_processor">Programmable vector processor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=12" title="Edit section: Programmable vector processor">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For additional flexibility, each ICE comes with a customized <a href="/w/index.php?title=Cadence&amp;action=edit&amp;redlink=1" class="new" title="Cadence (page does not exist)">Cadence</a> <a href="/w/index.php?title=Tensilica_Vision_P6_DSP&amp;action=edit&amp;redlink=1" class="new" title="Tensilica Vision P6 DSP (page does not exist)">Tensilica Vision P6 DSP</a>. This is a 5-slot VLIW 512-bit vector processor configured with two 512-bit vector load ports. It supports FP16 as well as 8-32b integer operations. This DSP was added in order to allow programmable support for operations beyond the ones offered by the compute grid. Intel says that they have customized the DSP with an additional set of custom instructions for the acceleration of various neural network models and various other operations that developers would likely encounter in inference models.
+</p>
+<h2><span class="mw-headline" id="Workload_Scalability">Workload Scalability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=13" title="Edit section: Workload Scalability">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>With up to 12 ICEs per chip, depending on the particular nature of the workloads, they may be mapped across a single ICE or multiple. For example, very large models could possibly run across all 12 ICEs in batch 1. Alternatively, smaller workloads may be optimized for throughput instead of latency. In such cases, multiple applications may be mapped across the various ICEs with slightly higher batch sizes.
+</p>
+<div>
+<div style="float: left;">
+<p><b>Latency optimized:</b>
+</p>
+<dl><dd>2 Applications, Batch size of 1:</dd></dl>
+<dl><dd><a href="/wiki/File:sph_batch_1x2.svg" class="image"><img alt="sph batch 1x2.svg" src="/w/images/thumb/0/07/sph_batch_1x2.svg/400px-sph_batch_1x2.svg.png" width="400" height="212" srcset="/w/images/thumb/0/07/sph_batch_1x2.svg/600px-sph_batch_1x2.svg.png 1.5x, /w/images/thumb/0/07/sph_batch_1x2.svg/800px-sph_batch_1x2.svg.png 2x"/></a></dd></dl>
+</div>
+<div style="float: left;">
+<p><b>Throughput optimized:</b>
+</p>
+<dl><dd>6 Applications, Batch size of 4:</dd></dl>
+<dl><dd><a href="/wiki/File:sph_batch_4x6.svg" class="image"><img alt="sph batch 4x6.svg" src="/w/images/thumb/3/3d/sph_batch_4x6.svg/400px-sph_batch_4x6.svg.png" width="400" height="212" srcset="/w/images/thumb/3/3d/sph_batch_4x6.svg/600px-sph_batch_4x6.svg.png 1.5x, /w/images/thumb/3/3d/sph_batch_4x6.svg/800px-sph_batch_4x6.svg.png 2x"/></a></dd></dl>
+</div>
+</div>
+<div style="clear:both;"></div>
+<h2><span class="mw-headline" id="Packaging">Packaging</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=14" title="Edit section: Packaging">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table>
+
+<tbody><tr>
+<th> Front </th>
+<th> Back
+</th></tr>
+<tr>
+<td> <a href="/wiki/File:spring_hill_package_(front).png" class="image"><img alt="spring hill package (front).png" src="/w/images/thumb/e/e3/spring_hill_package_%28front%29.png/350px-spring_hill_package_%28front%29.png" width="350" height="169" srcset="/w/images/thumb/e/e3/spring_hill_package_%28front%29.png/525px-spring_hill_package_%28front%29.png 1.5x, /w/images/thumb/e/e3/spring_hill_package_%28front%29.png/700px-spring_hill_package_%28front%29.png 2x"/></a> </td>
+<td> <a href="/wiki/File:spring_hill_package_(back).png" class="image"><img alt="spring hill package (back).png" src="/w/images/thumb/d/de/spring_hill_package_%28back%29.png/350px-spring_hill_package_%28back%29.png" width="350" height="168" srcset="/w/images/thumb/d/de/spring_hill_package_%28back%29.png/525px-spring_hill_package_%28back%29.png 1.5x, /w/images/thumb/d/de/spring_hill_package_%28back%29.png/700px-spring_hill_package_%28back%29.png 2x"/></a>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Board">Board</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=15" title="Edit section: Board">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:spring_hill_board.JPG" class="image"><img alt="spring hill board.JPG" src="/w/images/thumb/4/46/spring_hill_board.JPG/300px-spring_hill_board.JPG" width="300" height="200" class="thumbimage" srcset="/w/images/thumb/4/46/spring_hill_board.JPG/450px-spring_hill_board.JPG 1.5x, /w/images/thumb/4/46/spring_hill_board.JPG/600px-spring_hill_board.JPG 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:spring_hill_board.JPG" class="internal" title="Enlarge"></a></div></div></div></div>
+<h3><span class="mw-headline" id="M.2">M.2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=16" title="Edit section: M.2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/w/index.php?title=M.2&amp;action=edit&amp;redlink=1" class="new" title="M.2 (page does not exist)">M.2</a> board.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 735px"><div style="width: 735px">
+			<div class="thumb" style="width: 730px;"><div style="margin:44px auto;"><a href="/wiki/File:spring_hill_m.2_(front).png" class="image"><img alt="spring hill m.2 (front).png" src="/w/images/thumb/0/06/spring_hill_m.2_%28front%29.png/700px-spring_hill_m.2_%28front%29.png" width="700" height="142" srcset="/w/images/thumb/0/06/spring_hill_m.2_%28front%29.png/1050px-spring_hill_m.2_%28front%29.png 1.5x, /w/images/thumb/0/06/spring_hill_m.2_%28front%29.png/1400px-spring_hill_m.2_%28front%29.png 2x"/></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 735px"><div style="width: 735px">
+			<div class="thumb" style="width: 730px;"><div style="margin:43px auto;"><a href="/wiki/File:spring_hill_m.2_(back).png" class="image"><img alt="spring hill m.2 (back).png" src="/w/images/thumb/7/7e/spring_hill_m.2_%28back%29.png/700px-spring_hill_m.2_%28back%29.png" width="700" height="144" srcset="/w/images/thumb/7/7e/spring_hill_m.2_%28back%29.png/1050px-spring_hill_m.2_%28back%29.png 1.5x, /w/images/thumb/7/7e/spring_hill_m.2_%28back%29.png/1400px-spring_hill_m.2_%28back%29.png 2x"/></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="PCIe">PCIe</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=17" title="Edit section: PCIe">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Spring Hill comes in a PCIe <a href="/wiki/accelerator_card" title="accelerator card">accelerator card</a> form factor.
+</p>
+<h3><span class="mw-headline" id="EDSFF">EDSFF</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=18" title="Edit section: EDSFF">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Spring Hill comes in a <a href="/w/index.php?title=EDSFF&amp;action=edit&amp;redlink=1" class="new" title="EDSFF (page does not exist)">EDSFF</a> form factor.
+</p>
+<h2><span class="mw-headline" id="Die">Die</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=19" title="Edit section: Die">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a></li>
+<li> 8,500,000,000 transistors</li>
+<li> 239 mm² die size</li></ul>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=20" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Intel, IEEE Hot Chips 30 Symposium (HCS) 2018.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/spring_hill&amp;action=edit&amp;section=21" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/nervana/microarchitectures/spring_crest" title="nervana/microarchitectures/spring crest">Spring Crest</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:35466-0!*!0!!en!5!* and timestamp 20210622143824 and revision id 96508
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=intel/microarchitectures/spring_hill&amp;oldid=96508">https://en.wikichip.org/w/index.php?title=intel/microarchitectures/spring_hill&amp;oldid=96508</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/w/index.php?title=Category:npu_microarchitectures_by_intel&amp;action=edit&amp;redlink=1" class="new" title="Category:npu microarchitectures by intel (page does not exist)">npu microarchitectures by intel</a></li><li><a href="/wiki/Category:microarchitectures_by_intel" title="Category:microarchitectures by intel">microarchitectures by intel</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:intel-2Fmicroarchitectures-2Fspring-20hill" title="Special:Browse/:intel-2Fmicroarchitectures-2Fspring-20hill">Spring Hill - Microarchitectures - Intel</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/intel/microarchitectures/spring_hill" title="Special:ExportRDF/intel/microarchitectures/spring hill">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Spring Hill  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Spring-20Hill" title="Special:SearchByProperty/:codename/Spring-20Hill">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/2" title="Special:SearchByProperty/:core-20count/2">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Intel" title="Special:SearchByProperty/:designer/Intel">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">May 2019  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/May-202019" title="Special:SearchByProperty/:first-20launched/May-202019">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">intel/microarchitectures/spring hill  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/intel-2Fmicroarchitectures-2Fspring-20hill" title="Special:SearchByProperty/:full-20page-20name/intel-2Fmicroarchitectures-2Fspring-20hill">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Intel" title="Special:SearchByProperty/:manufacturer/Intel">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Spring Hill  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Spring-20Hill" title="Special:SearchByProperty/:name/Spring-20Hill">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">10 nm (0.01 μm, 1.0e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/10-20nm" title="Special:SearchByProperty/:process/10-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/w/index.php?title=Property:processing_element_count&amp;action=edit&amp;redlink=1" class="new" title="Property:processing element count (page does not exist)">processing element count</a></td><td class="smwprops"><a href="/w/index.php?title=8&amp;action=edit&amp;redlink=1" class="new" title="8 (page does not exist)">8</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:processing-20element-20count/8" title="Special:SearchByProperty/:processing-20element-20count/8">+</a></span>, <a href="/w/index.php?title=10&amp;action=edit&amp;redlink=1" class="new" title="10 (page does not exist)">10</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:processing-20element-20count/10" title="Special:SearchByProperty/:processing-20element-20count/10">+</a></span> and <a href="/w/index.php?title=12&amp;action=edit&amp;redlink=1" class="new" title="12 (page does not exist)">12</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:processing-20element-20count/12" title="Special:SearchByProperty/:processing-20element-20count/12">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 26 March 2020, at 08:41.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":106});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script><script type="text/javascript" onload="__ezcl.handle(true);" async src="/utilcave_com/inc/ezcl.webp?cb=4"></script></body></html>

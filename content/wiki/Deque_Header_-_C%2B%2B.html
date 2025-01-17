@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>&lt;deque> Header - C++ - WikiChip</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.3" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit" />
+<link rel="shortcut icon" href="/w/skins/common/images/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:f94d0b6cb2fc4f2fb8588cadfb5f9b4c */</style>
+
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Deque_Header_-_C++","wgTitle":"Deque Header - C++","wgCurRevisionId":542,"wgArticleId":325,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["C++ standard library","Deque Header - C++"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Deque_Header_-_C++","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":true,"previewDialog":false,"publish":true,"toc":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"vector-simplesearch":1,"upwiz_deflicense":"default","upwiz_def3rdparty":"default","upwiz_deflicensetype":"default","upwiz_maxsimultaneous":"default","usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"wikieditor-publish":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs460":false,"searchNs461":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:1cef13c864315bd209b5368579a0e04a */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000ff;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #666666;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #000099; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #000099; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #660099; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #660099; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #660099; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #006699; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #FF0000;}
+.cpp.source-cpp .nu0 {color: #0000dd;}
+.cpp.source-cpp .nu6 {color: #208080;}
+.cpp.source-cpp .nu8 {color: #208080;}
+.cpp.source-cpp .nu12 {color: #208080;}
+.cpp.source-cpp .nu16 {color:#800080;}
+.cpp.source-cpp .nu17 {color:#800080;}
+.cpp.source-cpp .nu18 {color:#800080;}
+.cpp.source-cpp .nu19 {color:#800080;}
+.cpp.source-cpp .me1 {color: #007788;}
+.cpp.source-cpp .me2 {color: #007788;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Deque_Header_-_C skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">&lt;deque&gt; Header - C++</span></h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From WikiChip</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="noprint" style="float:right; border:1px solid #000066;width:260px;background-color:#F5F5F5;padding:10px;">
+<table cellspacing="0">
+<tr>
+<td style="width: 260px; text-align: center;"> <b><a href="/wiki/C%2B%2B_Standard_Library" title="C++ Standard Library">C++ Standard Library</a></b>
+</td></tr>
+<tr>
+<td style="padding-left: 10px;">
+<ul><li> &lt;<a href="/w/index.php?title=Algorithm_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Algorithm Header - C++ (page does not exist)">algorithm</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Array_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Array Header - C++ (page does not exist)">array</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Atomic_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Atomic Header - C++ (page does not exist)">atomic</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Bitset_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Bitset Header - C++ (page does not exist)">bitset</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Chrono_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Chrono Header - C++ (page does not exist)">chrono</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Codecvt_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Codecvt Header - C++ (page does not exist)">codecvt</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Complex_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Complex Header - C++ (page does not exist)">complex</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Condition_variable_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Condition variable Header - C++ (page does not exist)">condition_variable</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<strong class="selflink">deque</strong>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Exception_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Exception Header - C++ (page does not exist)">exception</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Forward_list_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Forward list Header - C++ (page does not exist)">forward_list</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Fstream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Fstream Header - C++ (page does not exist)">fstream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Functional_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Functional Header - C++ (page does not exist)">functional</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Future_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Future Header - C++ (page does not exist)">future</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Initializer_list_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Initializer list Header - C++ (page does not exist)">initializer_list</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Iomanip_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Iomanip Header - C++ (page does not exist)">iomanip</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Iosfwd_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Iosfwd Header - C++ (page does not exist)">iosfwd</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Ios_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Ios Header - C++ (page does not exist)">ios</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Iostream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Iostream Header - C++ (page does not exist)">iostream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Istream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Istream Header - C++ (page does not exist)">istream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Iterator_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Iterator Header - C++ (page does not exist)">iterator</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Limits_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Limits Header - C++ (page does not exist)">limits</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=List_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="List Header - C++ (page does not exist)">list</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Locale_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Locale Header - C++ (page does not exist)">locale</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Map_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Map Header - C++ (page does not exist)">map</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Memory_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Memory Header - C++ (page does not exist)">memory</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Mutex_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Mutex Header - C++ (page does not exist)">mutex</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/wiki/New_Header_-_C%2B%2B" title="New Header - C++">new</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Numeric_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Numeric Header - C++ (page does not exist)">numeric</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Ostream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Ostream Header - C++ (page does not exist)">ostream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Queue_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Queue Header - C++ (page does not exist)">queue</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Random_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Random Header - C++ (page does not exist)">random</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Ratio_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Ratio Header - C++ (page does not exist)">ratio</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Regex_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Regex Header - C++ (page does not exist)">regex</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Scoped_allocator_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Scoped allocator Header - C++ (page does not exist)">scoped_allocator</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Set_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Set Header - C++ (page does not exist)">set</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Sstream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Sstream Header - C++ (page does not exist)">sstream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Stack_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Stack Header - C++ (page does not exist)">stack</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Stdexcept_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Stdexcept Header - C++ (page does not exist)">stdexcept</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Streambuf_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Streambuf Header - C++ (page does not exist)">streambuf</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=String_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="String Header - C++ (page does not exist)">string</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> <strike>&lt;<a href="/w/index.php?title=Strstream_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Strstream Header - C++ (page does not exist)">strstream</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)</strike>
+</li><li> &lt;<a href="/w/index.php?title=System_error_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="System error Header - C++ (page does not exist)">system_error</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Thread_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Thread Header - C++ (page does not exist)">thread</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Tuple_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Tuple Header - C++ (page does not exist)">tuple</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Typeindex_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Typeindex Header - C++ (page does not exist)">typeindex</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Typeinfo_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Typeinfo Header - C++ (page does not exist)">typeinfo</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Type_traits_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Type traits Header - C++ (page does not exist)">type_traits</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Unordered_map_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Unordered map Header - C++ (page does not exist)">unordered_map</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Unordered_set_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Unordered set Header - C++ (page does not exist)">unordered_set</a>&gt; (<a href="/w/index.php?title=C%2B%2B11&amp;action=edit&amp;redlink=1" class="new" title="C++11 (page does not exist)">C++11</a>)
+</li><li> &lt;<a href="/w/index.php?title=Utility_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Utility Header - C++ (page does not exist)">utility</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Valarray_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Valarray Header - C++ (page does not exist)">valarray</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li><li> &lt;<a href="/w/index.php?title=Vector_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Vector Header - C++ (page does not exist)">vector</a>&gt; (<a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>)
+</li></ul>
+</td></tr></table>
+<p><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:C%2B%2B_Standard_Library" title="Template:C++ Standard Library"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:C%2B%2B_Standard_Library" title="Template:C++ Standard Library"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="http://en.wikichip.org/w/index.php?title=Template:C%2B%2B_Standard_Library&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</p>
+</div>
+<p>The header <b>&lt;deque&gt;</b> defines the deque container class, a double-ended queue. The &lt;deque&gt; header is part of the <a href="/wiki/C%2B%2B" title="C++">C++</a> <a href="/wiki/C%2B%2B_Standard_Library" title="C++ Standard Library">Standard Library's</a> <a href="/w/index.php?title=Sequence_containers_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Sequence containers - C++ (page does not exist)">sequence containers</a>.
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Functions"><span class="tocnumber">1</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Classes"><span class="tocnumber">2</span> <span class="toctext">Classes</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Synopsis"><span class="tocnumber">3</span> <span class="toctext">Synopsis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#std::deque"><span class="tocnumber">3.1</span> <span class="toctext">std::deque</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h2><span class="editsection">[<a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit&amp;section=1" title="Edit section: Functions">edit</a>]</span> <span class="mw-headline" id="Functions"> Functions </span></h2>
+<table class="wikitable">
+
+<tr>
+<th> Function </th>
+<th> Description </th>
+<th> Since
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_%3D%3D_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator == - C++ (page does not exist)">operator ==</a> </td>
+<td rowspan="6"> Lexicographically compares deque values </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_lt_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator lt - C++ (page does not exist)">operator &lt;</a> </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_!%3D_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator != - C++ (page does not exist)">operator !=</a> </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_gt_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator gt - C++ (page does not exist)">operator &gt;</a> </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_gt%3D_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator gt= - C++ (page does not exist)">operator &gt;=</a> </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_lt%3D_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator lt= - C++ (page does not exist)">operator &lt;=</a> </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/operator_swap_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/operator swap - C++ (page does not exist)">operator swap</a> </td>
+<td> Specialized swaps deque algorithm </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr></table>
+<h2><span class="editsection">[<a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit&amp;section=2" title="Edit section: Classes">edit</a>]</span> <span class="mw-headline" id="Classes"> Classes </span></h2>
+<table class="wikitable">
+
+<tr>
+<th> Class </th>
+<th> Description </th>
+<th> Since
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=Deque/deque_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Deque/deque - C++ (page does not exist)">deque</a> </td>
+<td> double-ended queue container </td>
+<td> <a href="/w/index.php?title=C%2B%2B98&amp;action=edit&amp;redlink=1" class="new" title="C++98 (page does not exist)">C++98</a>
+</td></tr></table>
+<h2><span class="editsection">[<a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit&amp;section=3" title="Edit section: Synopsis">edit</a>]</span> <span class="mw-headline" id="Synopsis"> Synopsis </span></h2>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;initializer_list&gt;</span>
+&#160;
+<span class="kw2">namespace</span> std <span class="br0">&#123;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator <span class="sy1">=</span> allocator<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy1">&gt;</span> <span class="kw2">class</span> deque<span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy1">&lt;</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy1">&gt;</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy1">&gt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">bool</span> operator<span class="sy1">&lt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, <span class="kw4">const</span> deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator<span class="sy1">&gt;</span>
+        <span class="kw4">void</span> swap<span class="br0">&#40;</span>deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> x, deque<span class="sy1">&lt;</span>T,Allocator<span class="sy1">&gt;</span><span class="sy3">&amp;</span> y<span class="br0">&#41;</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div></span>
+<h3><span class="editsection">[<a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit&amp;section=4" title="Edit section: std::deque">edit</a>]</span> <span class="mw-headline" id="std::deque"> std::deque </span></h3>
+<p><i>Main article: <a href="/w/index.php?title=Deque/deque&amp;action=edit&amp;redlink=1" class="new" title="Deque/deque (page does not exist)">deque/deque</a></i>
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="cpp source-cpp"><pre class="de1"><span class="kw2">namespace</span> std <span class="br0">&#123;</span>
+    <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> T, <span class="kw2">class</span> Allocator <span class="sy1">=</span> allocator<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> <span class="sy1">&gt;</span>
+    <span class="kw2">class</span> deque <span class="br0">&#123;</span>
+        <span class="kw2">public</span><span class="sy4">:</span>
+            <span class="co1">// types:</span>
+            <span class="kw4">typedef</span> value_type<span class="sy3">&amp;</span> reference<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="kw4">const</span> value_type<span class="sy3">&amp;</span> const_reference<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="coMULTI">/* implementation-defined */</span> iterator<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="coMULTI">/* implementation-defined */</span> const_iterator<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="coMULTI">/* implementation-defined */</span> size_type<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="coMULTI">/* implementation-defined */</span> difference_type<span class="sy4">;</span>
+            <span class="kw4">typedef</span> T value_type<span class="sy4">;</span>
+            <span class="kw4">typedef</span> Allocator allocator_type<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="kw2">typename</span> allocator_traits<span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">pointer</span> pointer<span class="sy4">;</span>
+            <span class="kw4">typedef</span> <span class="kw2">typename</span> allocator_traits<span class="sy1">&lt;</span>Allocator<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">const_pointer</span>
+            const_pointer<span class="sy4">;</span> <span class="kw4">typedef</span> std<span class="sy4">::</span><span class="me2">reverse_iterator</span><span class="sy1">&lt;</span>iterator<span class="sy1">&gt;</span> reverse_iterator<span class="sy4">;</span>
+            <span class="kw4">typedef</span> std<span class="sy4">::</span><span class="me2">reverse_iterator</span><span class="sy1">&lt;</span>const_iterator<span class="sy1">&gt;</span> const_reverse_iterator<span class="sy4">;</span>
+&#160;
+            <span class="co1">// construct/copy/destroy:</span>
+            <span class="kw2">explicit</span> deque<span class="br0">&#40;</span><span class="kw4">const</span> Allocator<span class="sy3">&amp;</span> <span class="sy1">=</span> Allocator<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">explicit</span> deque<span class="br0">&#40;</span>size_type n<span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span>size_type n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> value,<span class="kw4">const</span> Allocator<span class="sy3">&amp;</span> <span class="sy1">=</span> Allocator<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> InputIterator<span class="sy1">&gt;</span>
+            deque<span class="br0">&#40;</span>InputIterator first, InputIterator last,<span class="kw4">const</span> Allocator<span class="sy3">&amp;</span> <span class="sy1">=</span> Allocator<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span>deque<span class="sy3">&amp;&amp;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy3">&amp;</span>, <span class="kw4">const</span> Allocator<span class="sy3">&amp;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span>deque<span class="sy3">&amp;&amp;</span>, <span class="kw4">const</span> Allocator<span class="sy3">&amp;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="br0">&#40;</span>initializer_list<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span>, <span class="kw4">const</span> Allocator<span class="sy3">&amp;</span> <span class="sy1">=</span> Allocator<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            ~deque<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">&#40;</span><span class="kw4">const</span> deque<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">&#40;</span>deque<span class="sy3">&amp;&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            deque<span class="sy3">&amp;</span> operator<span class="sy1">=</span><span class="br0">&#40;</span>initializer_list<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> InputIterator<span class="sy1">&gt;</span>
+            <span class="kw4">void</span> assign<span class="br0">&#40;</span>InputIterator first, InputIterator last<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> assign<span class="br0">&#40;</span>size_type n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> t<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> assign<span class="br0">&#40;</span>initializer_list<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            allocator_type get_allocator<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+&#160;
+            <span class="co1">// iterators:</span>
+            iterator begin<span class="br0">&#40;</span><span class="br0">&#41;</span> noexcept<span class="sy4">;</span>
+            const_iterator begin<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            iterator end<span class="br0">&#40;</span><span class="br0">&#41;</span> noexcept<span class="sy4">;</span>
+            const_iterator end<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            reverse_iterator rbegin<span class="br0">&#40;</span><span class="br0">&#41;</span> noexcept<span class="sy4">;</span>
+            const_reverse_iterator rbegin<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            reverse_iterator rend<span class="br0">&#40;</span><span class="br0">&#41;</span> noexcept<span class="sy4">;</span>
+            const_reverse_iterator rend<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            const_iterator cbegin<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            const_iterator cend<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            const_reverse_iterator crbegin<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            const_reverse_iterator crend<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+&#160;
+            <span class="co1">// capacity:</span>
+            size_type size<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            size_type max_size<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+            <span class="kw4">void</span> resize<span class="br0">&#40;</span>size_type sz<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> resize<span class="br0">&#40;</span>size_type sz, <span class="kw4">const</span> T<span class="sy3">&amp;</span> c<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> shrink_to_fit<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">bool</span> empty<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span> noexcept<span class="sy4">;</span>
+&#160;
+            <span class="co1">// element access:</span>
+            reference operator<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#40;</span>size_type n<span class="br0">&#41;</span><span class="sy4">;</span>
+            const_reference operator<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#40;</span>size_type n<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span>
+            reference at<span class="br0">&#40;</span>size_type n<span class="br0">&#41;</span><span class="sy4">;</span>
+            const_reference at<span class="br0">&#40;</span>size_type n<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span>
+            reference front<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            const_reference front<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span>
+            reference back<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            const_reference back<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span>
+&#160;
+            <span class="co1">// modifiers:</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span> <span class="kw4">void</span> emplace_front<span class="br0">&#40;</span>Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span> <span class="kw4">void</span> emplace_back<span class="br0">&#40;</span>Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span> iterator emplace<span class="br0">&#40;</span>const_iterator position, Args<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> push_front<span class="br0">&#40;</span><span class="kw4">const</span> T<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> push_front<span class="br0">&#40;</span>T<span class="sy3">&amp;&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> push_back<span class="br0">&#40;</span><span class="kw4">const</span> T<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> push_back<span class="br0">&#40;</span>T<span class="sy3">&amp;&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator insert<span class="br0">&#40;</span>const_iterator position, <span class="kw4">const</span> T<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator insert<span class="br0">&#40;</span>const_iterator position, T<span class="sy3">&amp;&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator insert<span class="br0">&#40;</span>const_iterator position, size_type n, <span class="kw4">const</span> T<span class="sy3">&amp;</span> x<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw2">template</span> <span class="sy1">&lt;</span><span class="kw2">class</span> InputIterator<span class="sy1">&gt;</span>
+                iterator insert <span class="br0">&#40;</span>const_iterator position, InputIterator first, InputIterator last<span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator insert<span class="br0">&#40;</span>const_iterator position, initializer_list<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+                <span class="kw4">void</span> pop_front<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+                <span class="kw4">void</span> pop_back<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator erase<span class="br0">&#40;</span>const_iterator position<span class="br0">&#41;</span><span class="sy4">;</span>
+            iterator erase<span class="br0">&#40;</span>const_iterator first, const_iterator last<span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> swap<span class="br0">&#40;</span>deque<span class="sy3">&amp;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+            <span class="kw4">void</span> clear<span class="br0">&#40;</span><span class="br0">&#41;</span> noexcept<span class="sy4">;</span>
+    <span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div></span>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 106/1000000
+Preprocessor generated node count: 967/1000000
+Post‐expand include size: 4346/2097152 bytes
+Template argument size: 125/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:325-0!*!0!!en!*!* and timestamp 20131229225124 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://en.wikichip.org/w/index.php?title=Deque_Header_-_C%2B%2B&amp;oldid=542">http://en.wikichip.org/w/index.php?title=Deque_Header_-_C%2B%2B&amp;oldid=542</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:C%2B%2B_standard_library" title="Category:C++ standard library">C++ standard library</a></li><li><a href="/w/index.php?title=Category:Deque_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1" class="new" title="Category:Deque Header - C++ (page does not exist)">Deque Header - C++</a></li></ul></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<!-- header -->
+			<div id="mw-head">
+				
+<!-- 0 -->
+<div id="p-personal" role="navigation" class="">
+	<h3>Personal tools</h3>
+	<ul>
+<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Deque+Header+-+C%2B%2B&amp;type=signup">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Deque+Header+-+C%2B%2B" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>	</ul>
+</div>
+
+<!-- /0 -->
+				<div id="left-navigation">
+					
+<!-- 0 -->
+<div id="p-namespaces" role="navigation" class="vectorTabs">
+	<h3>Namespaces</h3>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Deque_Header_-_C%2B%2B"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:Deque_Header_-_C%2B%2B&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3><span>Variants</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+				</div>
+				<div id="right-navigation">
+					
+<!-- 0 -->
+<div id="p-views" role="navigation" class="vectorTabs">
+	<h3>Views</h3>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/Deque_Header_-_C%2B%2B" >Read</a></span></li>
+					<li id="ca-edit"><span><a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet">
+	<h3><span>Actions</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search" role="search">
+	<h3><label for="searchInput">Search</label></h3>
+	<form action="/w/index.php" id="searchform">
+				<div id="simpleSearch">
+						<input name="search" title="Search WikiChip [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="/w/skins/vector/images/search-ltr.png?303" alt="Search" width="12" height="13" /></button>								<input type='hidden' name="title" value="Special:Search"/>
+		</div>
+	</form>
+</div>
+
+<!-- /2 -->
+				</div>
+			</div>
+			<!-- /header -->
+			<!-- panel -->
+			<div id="mw-panel">
+				<!-- logo -->
+					<div id="p-logo" role="banner"><a style="background-image: url(/w/skins/common/images/wikichip.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" role="navigation" id='p-navigation'>
+	<h3>Navigation</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+			<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" rel="nofollow" title="Load a random page [x]" accesskey="x">Random page</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" role="navigation" id='p-tb'>
+	<h3>Tools</h3>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Deque_Header_-_C%2B%2B" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Deque_Header_-_C%2B%2B" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-upload"><a href="/wiki/Special:UploadWizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+			<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li id="t-print"><a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+			<li id="t-permalink"><a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;oldid=542" title="Permanent link to this revision of the page">Permanent link</a></li>
+			<li id="t-info"><a href="/w/index.php?title=Deque_Header_-_C%2B%2B&amp;action=info">Page information</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+			<!-- /panel -->
+		</div>
+		<!-- footer -->
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 12 December 2013, at 00:43.</li>
+											<li id="footer-info-viewcount">This page has been accessed 18 times.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/skins/common/images/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="/w/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","skins.vector.js"], null, true);
+}</script>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<!-- Served in 0.085 secs. -->
+	</body>
+</html>

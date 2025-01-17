@@ -1,0 +1,1149 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=28', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=19', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),z=parseInt(__ez.dot.getTargeting(t,"compid")),g=0,c=0,l=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(l)&&(void 0!==l.creative_id&&(c=l.creative_id),void 0!==l.line_item_id&&(g=l.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:d,est_revenue:_,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:z,line_item_id:g,creative_id:c,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d){var _=e.split("/");if(__ez.dot.isDefined(e)&&3===_.length&&__ez.dot.isValid(t)){var n=_[0],r={type:"impression",impression_id:_[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(r.revenue=d),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=7', false, [], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/rmi/alchemy"/>
+
+<title>Alchemy - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"alchemy/alchemy","wgTitle":"alchemy/alchemy","wgCurRevisionId":99878,"wgRevisionId":99878,"wgArticleId":36627,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all integrated circuit families"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"alchemy/alchemy","wgRelevantArticleId":36627,"wgRequestId":"46824916f744593a28410af1","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"rmi/alchemy","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/alchemy/alchemy"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.cite.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="alchemy/alchemy" href="/w/index.php?title=Special:ExportRDF/alchemy/alchemy&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=alchemy/alchemy&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=alchemy/alchemy&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/alchemy/alchemy"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Alchemy - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Alchemy is a family of high performance, ultra low power embedded microprocessors implementing the MIPS32 ISA. They were originally designed by Alchemy Semiconductor and target communication and media devices, e.g. wireless gateways and access points; VoIP, navigation, and NAS devices; STBs, thin clients, mobile TV and media players, and digital photo frames."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ab_test_id":"mod174-c","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"371412b1-57d4-415f-5523-ecf8a4207e98","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":176547,"response_time_orig":178,"serverid":"i-0c3d09bfb5913ee4c","state":"VA","t_epoch":1695308067,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/rmi/alchemy","word_count":5724,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-alchemy_alchemy rootpage-alchemy skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/alchemy/alchemy">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:alchemy/alchemy&amp;action=edit&amp;redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=alchemy/alchemy&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=alchemy%2Falchemy"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/alchemy/alchemy"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/alchemy/alchemy"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=alchemy/alchemy&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=alchemy/alchemy&amp;oldid=99878"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=alchemy/alchemy&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:alchemy-2Falchemy"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Alchemy    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/alchemy" title="alchemy">alchemy</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=rmi/alchemy&amp;redirect=no" class="mw-redirect" title="rmi/alchemy">rmi/alchemy</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="border: solid 1px #e5e5ff; width: 325px; float: right; margin: 0 10px 10px 10px; text-align: left; font-size: 12px;">
+<tbody><tr>
+<td style="text-align: center; background: #CEE3F6; font-size: 16px;" colspan="2"> <b>Alchemy</b>
+</td></tr>
+<tr>
+<td style="text-align: center;" colspan="2"> <a href="/wiki/File:no_photo_(ic).svg" class="image"><img alt="no photo (ic).svg" src="/w/images/thumb/9/9d/no_photo_%28ic%29.svg/200px-no_photo_%28ic%29.svg.png" width="200" height="174" srcset="/w/images/thumb/9/9d/no_photo_%28ic%29.svg/300px-no_photo_%28ic%29.svg.png 1.5x, /w/images/thumb/9/9d/no_photo_%28ic%29.svg/400px-no_photo_%28ic%29.svg.png 2x"/></a>
+</td></tr>
+<tr>
+<td style="text-align: center; font-size: 12px;" colspan="2">
+<div></div>
+<div></div> 
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Developer</b> </td>
+<td style="text-align:left;"> Alchemy, AMD, RMI
+</td></tr>
+<tr>
+<td> <b>Manufacturer</b> </td>
+<td> TSMC
+</td></tr>
+<tr>
+<td> <b>Type</b> </td>
+<td> Microprocessor, System on a Chip
+</td></tr>
+<tr>
+<td> <b>Introduction</b> </td>
+<td> June 13, 2000 (announced)
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Architecture</b> </td>
+<td> MIPS32
+<div></div>
+</td></tr>
+<tr>
+<td> <b>µarch</b> </td>
+<td> <a href="/wiki/alchemy/au1_(microarch)" class="mw-redirect" title="alchemy/au1 (microarch)">Au1</a>
+</td></tr>
+<tr>
+<td> <b>Word size</b> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4&amp;#160;octets 8&amp;#160;nibbles "><span class="smwtext">32 bit</span><div class="smwttcontent">4 octets <br/>8 nibbles <br/></div></span>
+</td></tr>
+<tr>
+<td> <b>Process</b> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm "><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm "><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span>
+</td></tr>
+<tr>
+<td> <b>Technology</b> </td>
+<td> CMOS
+</td></tr>
+<tr>
+<td> <b>Clock</b> </td>
+<td> 266 MHz-1000 MHz
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</td></tr></tbody></table>
+<p><b>Alchemy</b> is a family of high performance, ultra low power embedded microprocessors implementing the <a href="/wiki/MIPS32" class="mw-redirect" title="MIPS32">MIPS32</a> ISA. They were originally designed by <a href="/wiki/Alchemy_Semiconductor" class="mw-redirect" title="Alchemy Semiconductor">Alchemy Semiconductor</a> and target communication and media devices, e.g. wireless gateways and access points; VoIP, navigation, and NAS devices; STBs, thin clients, mobile TV and media players, and digital photo frames.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Members"><span class="tocnumber">2</span> <span class="toctext">Members</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Au1000_Processors"><span class="tocnumber">2.1</span> <span class="toctext">Au1000 Processors</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Au1500_Processors"><span class="tocnumber">2.2</span> <span class="toctext">Au1500 Processors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Au1100_Processors"><span class="tocnumber">2.3</span> <span class="toctext">Au1100 Processors</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Au1550_Security_Network_Processors"><span class="tocnumber">2.4</span> <span class="toctext">Au1550 Security Network Processors</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Au12xx_Processors"><span class="tocnumber">2.5</span> <span class="toctext">Au12xx Processors</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Au13xx_Media_Processors"><span class="tocnumber">2.6</span> <span class="toctext">Au13xx Media Processors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#List_of_Alchemy_Processors"><span class="tocnumber">3</span> <span class="toctext">List of Alchemy Processors</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#List_of_Au13xx_processors"><span class="tocnumber">3.1</span> <span class="toctext">List of Au13xx processors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Bibliography"><span class="tocnumber">4</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Alchemy Semiconductor unveiled the Au1000 processor at the Embedded Processor Forum in San Jose, CA, on June 13, 2000, with limited customer sampling in February 2001 and availability in production quantities in Q2 of that year. The Au1500, integrating a PCI controller, was announced one year later at EPF 2001, with customer sampling beginning in December 2001. The Au1100 replaced the PCI interface with an LCD controller and was introduced on April 8, 2002. In February 2002 <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> acquired Alchemy Semiconductor in order to compete with <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s ARM-based <a href="/w/index.php?title=XScale&amp;action=edit&amp;redlink=1" class="new" title="XScale (page does not exist)">XScale</a> processors. AMD&#39;s Alchemy family gained the new members Au1550 and Au1200 with announcements in February 2004 and January 2005 respectively, as well as the Am1772 wireless chipset consisting of the Am1770 transceiver and Am1771 integrated baseband/MAC chips. In 2006 Intel sold its XScale PXA family to <a href="/wiki/Marvell" class="mw-redirect" title="Marvell">Marvell</a> while <a href="/wiki/Raza_Microelectronics" class="mw-redirect" title="Raza Microelectronics">Raza Microelectronics</a>, later renamed RMI Corporation, secured the Alchemy line and some of its designers from AMD. On January 9, 2007 RMI announced the Au1210 and Au1250 with full production in Q2, and in January 2009 the Au13xx models integrating a graphics processor. In October 2009 RMI merged with <a href="/w/index.php?title=NetLogic_Microsystems&amp;action=edit&amp;redlink=1" class="new" title="NetLogic Microsystems (page does not exist)">NetLogic Microsystems</a> who was in turn acquired by <a href="/w/index.php?title=Broadcom&amp;action=edit&amp;redlink=1" class="new" title="Broadcom (page does not exist)">Broadcom</a> in 2012.
+</p><p>All processors of the Alchemy family use the <a href="/wiki/alchemy/microarchitectures/au1" title="alchemy/microarchitectures/au1">Au1</a> CPU core designed by Alchemy Semiconductor and integrate peripherals licensed from third parties, always including an SDRAM controller, a static bus controller, a DMA controller, two interrupt controllers, two timers <abbr title="Real Time Clock">RTC</abbr> and <abbr title="Time Of Year">TOY</abbr>, an EJTAG interface compliant with the MIPS specification, and a power management unit. Other peripherals vary with the target market.
+</p><p>The CPU core, the memory controllers, and other high speed peripherals are linked by an internal System Bus (SBUS) which carries a 36-bit physical address, 32-bit data, and a byte mask, running at a configurable ratio of 1/2, 1/3, or 1/4 of the core frequency. Low speed, non-bus master capable peripherals are attached with an ancillary Peripheral Bus (PBUS) running at one half of the SBUS frequency.
+</p><p>For power management the core supports two <i>Idle</i> modes clock-gating the core. In one of these modes the data cache remains operational, snooping the SBUS to maintain coherency. <abbr title="General Purpose Register">GPR</abbr>s and CP0 registers are preserved in both modes, the CP0 constant rate timer increments at an unpredictable rate while RTC and TOY are unaffected. <i>Sleep</i> mode puts the SDRAMs into self-refresh mode and powers down all peripherals except TOY. In <i>Hibernate</i> mode, on models supporting it, the entire board can be powered down while a battery keeps the TOY counter running.
+</p><p>Au1000 and Au1500 processors were fabricated on a <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a> <a href="/wiki/180_nm" class="mw-redirect" title="180 nm">180 nm</a> LV logic 1.5V/3.3V 1P6M process, the Au1100 reduced power consumption further with a <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a> <a href="/wiki/130_nm" class="mw-redirect" title="130 nm">130 nm</a> process. Manufacturing details of later models are unknown. The nominal core voltage is 1.0, 1.2, 1.5, or 1.8 V depending on model, the I/O voltage 3.3 V.
+</p><p>Each member of the family was available with different core frequency and hence power ratings, different temperature ranges, and earlier models in a Pb-free or standard package. A low profile, fine pitch plastic ball grid array (LF-PBGA) package was used for all models.
+</p>
+<h2><span class="mw-headline" id="Members">Members</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=2" title="Edit section: Members">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Au1000_Processors">Au1000 Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=3" title="Edit section: Au1000 Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These processors integrate the following peripherals:
+</p>
+<ul><li> 32-bit SDR-133 SDRAM controller</li>
+<li> 32-bit static bus controller</li>
+<li> USB 1.1 (OHCI) host controller, USB 1.1 device controller
+<ul><li> Two USB host ports and one device port</li></ul></li>
+<li> Two 10/100 Mbit/s Ethernet MAC controllers</li>
+<li> Low speed interfaces <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I2S</a>, Fast <a href="http://en.wikipedia.org/wiki/Infrared_Data_Association" class="extiw" title="wikipedia:Infrared Data Association">IrDA</a>, 2 × <a href="http://en.wikipedia.org/wiki/Synchronous_Serial_Interface" class="extiw" title="wikipedia:Synchronous Serial Interface">SSI</a>, 4 × <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a>, and up to 32 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li></ul>
+<p>The SDRAM controller supports SDRAM, <abbr title="Synchronous Mask Read-Only Memory">SMROM</abbr>, and SyncFlash. It should be noted that SDRAMs are clocked at one half of the SBUS frequency and therefore one quarter of the core frequency. Accordingly the 266 and 400 MHz models are expected to be paired with SDR-66 and SDR-100 DRAMs respectively, and the 500 MHz model cannot quite realize the maximum bandwidth of SDR-133 memory. This also applies to the Au1500 and Au1100 processors.
+</p><p>The static bus controller has an interface with 32-bit data and address bus and supports SRAM, ROM, standard Flash memory, page mode Flash/ROM, PCMCIA/CompactFlash devices, and I/O peripherals such as an external LCD controller.
+</p><p>The Au1000, Au1500, and Au1100 processors contain an eight-channel DMA controller. Each channel is capable of transferring data between memory and any of the integrated peripherals or between memory and a memory-mapped FIFO through the static bus controller using a GPIO as DMA request. Memory-to-memory transfers are not supported.
+</p><p>Au1000 processors identify with <a href="/wiki/mips/prid_register" title="mips/prid register">PRId</a> 0x00030101 (Au1 rev. 1, stepping DA) and 0x00030201 to 0x00030204 (Au1 rev. 2, stepping HA to HD). They have a typical TDP between 300 and 900 mW. The CPU core runs at 1.5 or 1.8 V nominal ±5% and is rated for frequencies between 266 and 500 MHz. They shipped in a 23 mm × 23 mm × 1.5 mm, 324-pin LF-PBGA package with 1.0 mm ball pitch.
+</p>
+<h3><span class="mw-headline" id="Au1500_Processors">Au1500 Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=4" title="Edit section: Au1500 Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These processors integrate the following peripherals:
+</p>
+<ul><li> 32-bit SDR-133 SDRAM controller</li>
+<li> 32-bit static bus controller</li>
+<li> PCI 2.2 controller, 32-bit bus, 33 or 66 MHz</li>
+<li> USB 1.1 (OHCI) host controller, USB 1.1 device controller
+<ul><li> Two USB host ports and one device port</li></ul></li>
+<li> Two 10/100 Mbit/s Ethernet MAC controllers</li>
+<li> Low speed interfaces <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, 2 × <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a>, and up to 39 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li></ul>
+<p>Au1500 processors identify with PRId 0x01030200 to 0x01030202. They have a typical TDP between 400 and 1200 mW. The CPU core runs at 1.5 or 1.8 V nominal ±5% and is rated for frequencies between 333 and 500 MHz. They shipped in a 19 mm × 19 mm × 1.45 mm, 424-pin LF-PBGA package with 0.8 mm ball pitch.
+</p>
+<h3><span class="mw-headline" id="Au1100_Processors">Au1100 Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=5" title="Edit section: Au1100 Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These processors integrate the following peripherals:
+</p>
+<ul><li> 32-bit 2.5V/3.3V SDR-133 SDRAM controller,</li>
+<li> 32-bit static bus controller</li>
+<li> LCD controller</li>
+<li> USB 1.1 (OHCI) host controller, USB 1.1 device controller
+<ul><li> Two USB host ports and one device port</li></ul></li>
+<li> One 10/100 Mbit/s Ethernet MAC controller</li>
+<li> Two <a href="http://en.wikipedia.org/wiki/SD_card" class="extiw" title="wikipedia:SD card">Secure Digital</a>/<a href="http://en.wikipedia.org/wiki/SD_card#SDIO" class="extiw" title="wikipedia:SD card"><abbr title="Secure Digital Input/Output card">SDIO</abbr></a> 1.1 controllers</li>
+<li> Low speed interfaces <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I2S</a>, Fast <a href="http://en.wikipedia.org/wiki/Infrared_Data_Association" class="extiw" title="wikipedia:Infrared Data Association">IrDA</a>, 2 × <a href="http://en.wikipedia.org/wiki/Synchronous_Serial_Interface" class="extiw" title="wikipedia:Synchronous Serial Interface">SSI</a>, 3 × <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a>, and up to 48 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li></ul>
+<p>The integrated LCD controller supports panels with a resolution up to 800 × 600 pixels.
+</p>
+<ul><li> TFT: 1/2/4/8-bit mono, 12/16-bit color (4:4:4/5:6:5 RGB)</li>
+<li> STN: 4/8-bit mono single-scan, 8-bit color single-scan, 16-bit color dual-scan</li>
+<li> Frame buffer formats:
+<ul><li> 1/2/4/8-bpp palettized</li>
+<li> 16-bpp 6:5:5, 5:6:5, 5:5:6, 5:5:5:1 RGBI</li></ul></li>
+<li> Double buffering</li>
+<li> Hardware swivel (90, 180, 270 degrees) for up to 320 × 240 pixel displays</li>
+<li> Two PWM clocks to control contrast and brightness voltages</li></ul>
+<p>Au1100 processors identify with PRId 0x02030201 to 0x02030204. They have a typical TDP between 200 and 400 mW. The CPU core runs at 1.22 V nominal (1.12-1.32 V) and is rated for frequencies between 333 and 500 MHz. They shipped in a 17 mm × 17 mm × 1.7 mm, 399-pin LF-PBGA package with 0.8 mm ball pitch.
+</p>
+<h3><span class="mw-headline" id="Au1550_Security_Network_Processors">Au1550 Security Network Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=6" title="Edit section: Au1550 Security Network Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These processors integrate the following peripherals:
+</p>
+<ul><li> 16/32-bit SDR/DDR SDRAM controller</li>
+<li> 32-bit static bus controller</li>
+<li> PCI 2.2 controller, 32-bit bus, 33 or 66 MHz</li>
+<li> USB 1.1 (OHCI) host controller, USB 1.1 device controller with OTG support
+<ul><li> Two USB host ports and one device port (co-opting a host port in OTG mode)</li></ul></li>
+<li> Two 10/100 Mbit/s Ethernet MAC controllers</li>
+<li> Four Programmable Serial Controllers supporting the <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I2S</a>, <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI</a>, and <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> protocols</li>
+<li> Three <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UARTs</a></li>
+<li> Up to 43 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li></ul>
+<ul><li> Descriptor-based DMA controller</li>
+<li> SafeNet Security Engine</li></ul>
+<p>The SDRAM controller supports 3.3 V (standard) and 2.5 V (mobile) SDR devices up to SDR-166, and 2.5 V DDR devices up to DDR-400. The DRAM to SBUS clock ratio is configurable 1:1 or 1:2, the SBUS to CPU core frequency 1:2, 1:3, or 1:4, so the realizable memory bandwidth again depends on the core frequency and clock ratios. Presumably the 32-bit SBUS has a higher throughput than a 32-bit DRAM bus, but it can certainly not saturate 32-bit <i>DDR</i> memory running at the same frequency.
+</p><p>The static bus controller has an interface with 32-bit data and 29-bit address bus and supports SRAM, ROM, NAND Flash, NOR Flash, PCMCIA/CompactFlash devices, and I/O peripherals.
+</p><p>Au1550 and later processors contain a 16-channel DMA controller which operates on linked lists of transfer descriptors in memory. It supports memory to memory, memory to peripheral, peripheral to memory, and peripheral to peripheral transfers, DMA by GPIO request, 36-bit source and destination addresses with no alignment requirement, scatter/gather and stride transfers, compare and branch descriptors for transfers conditional on I/O registers, and various priority policies.
+</p><p>The Security Engine accelerates IP packet encryption/decryption in hardware.
+</p>
+<ul><li> DES, 3DES, AES, ARC4 encryption algorithms</li>
+<li> MD5, SHA1 hash algorithms</li>
+<li> Supports header/trailer processing, padding, and initialization vector (IV) processing for IPsec packets</li>
+<li> Supports a two-pass hash-then-encrypt implementation of the SSL protocol using either MD5 or SHA1 and 3DES or ARC4 ciphers</li>
+<li> True entropy-based random number generator</li></ul>
+<p>Au1550 processors support the Hibernate mode. They identify with PRId 0x0303xxxx. The typical TDP lies between 400 and 600 mW. The CPU core runs at 1.2 V nominal (1.1-1.3 V) and is rated for frequencies between 333 and 500 MHz. They shipped in a 21 mm × 21 mm × 1.7 mm, 483-pin LF-PBGA package with 0.8 mm ball pitch.
+</p><p><a rel="nofollow" class="external text" href="https://i.ibb.co/Wxq72zz/00204.jpg">Photo</a> of <a href="/wiki/alchemy/au1500-400mbc" title="alchemy/au1500-400mbc">Au1500-400MBC</a> rev. AD, <a href="/wiki/alchemy/au1550-333mbc" title="alchemy/au1550-333mbc">Au1550-333MBC</a> and <a href="/wiki/alchemy/au1500-333mbd" title="alchemy/au1500-333mbd">Au1500-333MBD</a> rev. AA.
+</p>
+<h3><span class="mw-headline" id="Au12xx_Processors">Au12xx Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=7" title="Edit section: Au12xx Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Members of this series are the <b>Au1200 and Au1250 Media Processor</b> and the <b>Au1210 Navigation Processor</b> which integrate the following peripherals:
+</p>
+<ul><li> 16/32-bit DDR1/DDR2 SDRAM controller</li>
+<li> 16-bit static bus controller</li>
+<li> LCD controller</li>
+<li> Camera Interface Module</li>
+<li> USB 2.0 (EHCI) and 1.1 (OHCI) host controller, USB 2.0 device controller with OTG support
+<ul><li> One USB host port and one host/device port, each low/fast/high speed capable</li></ul></li>
+<li> Two <a href="http://en.wikipedia.org/wiki/SD_card" class="extiw" title="wikipedia:SD card">Secure Digital</a>/<a href="http://en.wikipedia.org/wiki/SD_card#SDHC" class="extiw" title="wikipedia:SD card"><abbr title="Secure Digital High Capacity card">SDHC</abbr></a>/<a href="http://en.wikipedia.org/wiki/SD_card#SDIO" class="extiw" title="wikipedia:SD card"><abbr title="Secure Digital Input/Output card">SDIO</abbr></a>/<a href="http://en.wikipedia.org/wiki/MultiMediaCard" class="extiw" title="wikipedia:MultiMediaCard">MMC</a> 1.1 controllers</li>
+<li> Two Programmable Serial Controllers supporting the <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I2S</a>, <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI</a>, and <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> protocols</li>
+<li> Two <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UARTs</a></li>
+<li> Up to 48 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li>
+<li> Media Acceleration Engine</li>
+<li> Descriptor-based DMA controller</li>
+<li> AES-128 encryption/decryption in hardware with ECB, CBC, CFB, and OFB block cipher modes (Au1200 and Au1250 only)</li></ul>
+<p>The SDRAM controller supports 2.5 V DDR devices up to DDR-400 and 1.8 V DDR2 devices up to DDR2-533, with the same clock ratios supported by Au1550 processors. It supports two ranks and can address 512 MiB using four 1-Gbit devices. Since the SBUS bandwidth is insufficient for the LCD and MAE peripherals and the SBUS could not be easily extended, a 64-bit side bus running at the SBUS frequency, the RBUS, was added between the SDRAM controller and those peripherals.
+</p><p>The static bus controller has an interface with 16-bit data and 15-bit address bus (30-bit address with an external latch) and supports SRAM, ROM, NAND Flash, NOR Flash, PCMCIA/CompactFlash devices, IDE PIO mode, and other I/O peripherals. 
+</p><p>The integrated LCD controller supports panels with a resolution up to 2048 × 2048 pixels.
+</p>
+<ul><li> TFT: 1/2/4/8-bit mono, 12/16/18/24-bit color</li>
+<li> STN: 4/8-bit mono single-scan, 8-bit color single-scan, 16-bit color dual-scan</li>
+<li> Frame buffer formats:
+<ul><li> 1/2/4/8-bpp pass through/grayscale/palettized</li>
+<li> 16-bpp 6:5:5, 5:6:5, 5:5:6, 5:5:5:1, 4:4:4:0</li>
+<li> 24-bpp 8:8:8:0</li>
+<li> 32-bpp 8:8:8:8 RGBA</li></ul></li>
+<li> Four overlay windows with double buffering</li>
+<li> Gamma correction, alpha blending, and chroma keying</li>
+<li> 32 × 32 × 2 bpp hardware cursor</li></ul>
+<p>The Camera Interface Module (CIM) has an <a href="http://en.wikipedia.org/wiki/ITU-R_BT.656" class="extiw" title="wikipedia:ITU-R BT.656">ITU-R BT.656</a> compatible 8/9/10-bit bus running at up to 33 MHz, and supports UYVY and Bayer RGB to planar format conversion.
+</p><p>The Media Acceleration Engine (MAE) accelerates video decoding in hardware.
+</p>
+<ul><li> Formats MPEG-1/2/4, DivX-3/4/5, H.263, WMV9, VC-1</li>
+<li> Accelerates inverse quantization, inverse DCT, motion compensation, WMV9 filters</li>
+<li> Hardware colorspace conversion and scaling with 4-tap filter, also for CIM</li>
+<li> Video decode resolution up to
+<ul><li> Wide-CIF 480 × 288 (Au1210)</li>
+<li> D1 720 × 480 NTSC / 720 × 576 PAL (Au1200, Au1250)</li></ul></li></ul>
+<p>Au12xx processors support the Hibernate mode. Au1200 and Au1250 identify with PRId 0x0403xxxx, Au1210 as 0x0503xxxx. The CPU core of Au1200 processors runs at 1.2 V nominal (1.1-1.3 V) and is rated for frequencies between 333 and 500 MHz. The 400 MHz variant has a typical TDP of 400 mW.
+</p><p>The Au1210 core runs at 1.0 V nominal (0.95-1.3 V, compatible with the 1.2 V Au1200 and Au1250 processors), and is rated for frequencies between 333 and 500 MHz. The 333 MHz variant has a typical TDP of 250 mW.
+</p><p>The CPU core of Au1250 processors runs at 1.2 V nominal (1.1-1.3 V) and is rated for frequencies between 400 and 700 MHz. The 600 MHz variant has a typical TDP of 500 mW.
+</p><p>The Au12xx processors shipped in a 19 mm × 19 mm × 1.4 mm, 372-pin LF-PBGA package with 0.8 mm ball pitch. 
+</p>
+<h3><span class="mw-headline" id="Au13xx_Media_Processors">Au13xx Media Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=8" title="Edit section: Au13xx Media Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>These processors integrate the following peripherals:
+</p>
+<ul><li> Two independent 16-bit DDR2-667 SDRAM controllers</li>
+<li> 16-bit static bus controller</li>
+<li> LCD controller</li>
+<li> Graphics Processing Engine (Au1350, Au1380 only)</li>
+<li> Enhanced Camera Interface Module</li>
+<li> Enhanced Media Acceleration Engine</li>
+<li> USB 2.0 (EHCI) and 1.1 (OHCI) host controller, USB 2.0 device controller with OTG support
+<ul><li> One USB host port and one host/device port, each USB 1.1/2.0 compliant</li></ul></li>
+<li> Three <a href="http://en.wikipedia.org/wiki/SD_card" class="extiw" title="wikipedia:SD card">Secure Digital</a>/<a href="http://en.wikipedia.org/wiki/SD_card#SDHC" class="extiw" title="wikipedia:SD card"><abbr title="Secure Digital High Capacity card">SDHC</abbr></a>/<a href="http://en.wikipedia.org/wiki/SD_card#SDIO" class="extiw" title="wikipedia:SD card"><abbr title="Secure Digital Input/Output card">SDIO</abbr></a>/<a href="http://en.wikipedia.org/wiki/MultiMediaCard" class="extiw" title="wikipedia:MultiMediaCard">MMC</a> controllers, one with 8-bit <a href="http://en.wikipedia.org/wiki/MultiMediaCard#eMMC" class="extiw" title="wikipedia:MultiMediaCard"><abbr title="Embedded MultiMediaCard">eMMC</abbr></a> 4.3 support</li>
+<li> Four Programmable Serial Controllers, each supporting the <a href="http://en.wikipedia.org/wiki/AC%25%2797" class="extiw" title="wikipedia:AC%&#39;97">AC97</a>, <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I2S</a>, <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI</a>, and <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> protocols</li>
+<li> Four <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UARTs</a></li>
+<li> Up to 75 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li>
+<li> Descriptor-based DMA controller</li>
+<li> AES-128 hardware encryption/decryption (Au1350, Au1380 only)</li></ul>
+<p>The static bus controller seems to be derived from the controller in Au12xx processors and supports ATA-6/UDMA mode 5.
+</p><p>The Graphics Processing Engine (GPE), an <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> <a href="/w/index.php?title=Mali&amp;action=edit&amp;redlink=1" class="new" title="Mali (page does not exist)">Mali</a>, supposedly the <a href="/w/index.php?title=Mali-200&amp;action=edit&amp;redlink=1" class="new" title="Mali-200 (page does not exist)">Mali-200</a>, supports
+</p>
+<ul><li> 2D graphics acceleration</li>
+<li> 3D graphics acceleration
+<ul><li> OpenGL ES 1.1 and 2.0 and OpenVG 1.1 compatible</li>
+<li> Vertex and Fragment shaders</li>
+<li> 10M polygons per second</li>
+<li> 4× full-screen anti-aliasing with no impact on performance</li>
+<li> Up to 25× FSAA supported</li>
+<li> Alpha blending and texture caching</li></ul></li></ul>
+<p>The enhanced Media Acceleration Engine (MAE2) accelerates video decoding in hardware.
+</p>
+<ul><li> Formats MPEG-1/2/4, DivX, H.264, VC-1, JPEG</li>
+<li> Bit Stream Accelerator to speed up bit stream parsing and entropy decoding</li>
+<li> Hardware colorspace conversion and scaling up to WUXGA (1920 × 1200) LCD resolution</li>
+<li> Video decode resolution up to
+<ul><li> D1 720 × 480 NTSC / 720 × 576 PAL (Au1340, Au1350)</li>
+<li> 720p (Au1370, Au1380)</li></ul></li></ul>
+<p>As with Au12xx processors, the LCD, GPE, CIM, and MAE2 peripherals can access the SDRAM controllers through a pair of RBUSes. Au13xx processors again support the Hibernate mode.
+</p><p>The Au1340, Au1350, Au1370, and Au1380 CPU core runs at 1.0 V nominal. The Au1340 and Au1350 core is rated for frequencies of 533 and 667 MHz depending on model, the Au1370 and Au1380 core for 667 and 800 MHz. These <abbr title="System on a Chip">SoC</abbr>s have a typical TDP of 500 mW at 800 MHz. The Au13xx models were available in a 537-pin LF-PBGA package, with standard or industrial temperature range as the other members of the Alchemy family, either a 17 mm × 17 mm package with 0.65 mm ball pitch, or a 21 mm × 21 mm package with 0.8 mm ball pitch.
+</p><p><a href="/wiki/File:Au1300_pinmap.svg" title="File:Au1300 pinmap.svg">Au13xx Pin Map</a>
+</p>
+<h2><span class="mw-headline" id="List_of_Alchemy_Processors">List of Alchemy Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=9" title="Edit section: List of Alchemy Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable">
+<tbody><tr class="comptable-header"><th class="unsortable">Model</th><th>Process</th><th>Core Frequ.</th><th>V<sub>core</sub></th><th>SDRAM</th><th>T<sub>case min</sub></th><th>T<sub>case max</sub></th><th><a href="/wiki/tdp" title="tdp"><abbr title="Thermal Design Power">TDP</abbr></a> typ.</th><th>TDP max.</th><th>Rel. price (10k)</th></tr>
+<tr><td><a href="/wiki/alchemy/au1000-266mcc" title="alchemy/au1000-266mcc">Au1000-266MCC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.266&amp;#160;GHz 266,000&amp;#160;kHz"><span class="smwtext">266 MHz</span><div class="smwttcontent">0.266 GHz <br/>266,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.3&amp;#160;W 4.023e-4&amp;#160;hp 3.0e-4&amp;#160;kW"><span class="smwtext">300 mW</span><div class="smwttcontent">0.3 W <br/>4.023e-4 hp <br/>3.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1000-266mci" title="alchemy/au1000-266mci">Au1000-266MCI</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.266&amp;#160;GHz 266,000&amp;#160;kHz"><span class="smwtext">266 MHz</span><div class="smwttcontent">0.266 GHz <br/>266,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.3&amp;#160;W 4.023e-4&amp;#160;hp 3.0e-4&amp;#160;kW"><span class="smwtext">300 mW</span><div class="smwttcontent">0.3 W <br/>4.023e-4 hp <br/>3.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1000-400mcc" title="alchemy/au1000-400mcc">Au1000-400MCC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;W 6.705e-4&amp;#160;hp 5.0e-4&amp;#160;kW"><span class="smwtext">500 mW</span><div class="smwttcontent">0.5 W <br/>6.705e-4 hp <br/>5.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;35.10 £&amp;#160;31.59 ¥&amp;#160;4,029.87"><span class="smwtext">$ 39.00</span><div class="smwttcontent">€ 35.10 <br/>£ 31.59 <br/>¥ 4,029.87 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1000-500mcc" title="alchemy/au1000-500mcc">Au1000-500MCC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="18&amp;#160;dV 180&amp;#160;cV 1,800&amp;#160;mV"><span class="smwtext">1.8 V</span><div class="smwttcontent">18 dV <br/>180 cV <br/>1,800 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.9&amp;#160;W 0.00121&amp;#160;hp 9.0e-4&amp;#160;kW"><span class="smwtext">900 mW</span><div class="smwttcontent">0.9 W <br/>0.00121 hp <br/>9.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-333mbc" title="alchemy/au1100-333mbc">Au1100-333MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.2&amp;#160;W 2.682e-4&amp;#160;hp 2.0e-4&amp;#160;kW"><span class="smwtext">200 mW</span><div class="smwttcontent">0.2 W <br/>2.682e-4 hp <br/>2.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-333mbd" title="alchemy/au1100-333mbd">Au1100-333MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.2&amp;#160;W 2.682e-4&amp;#160;hp 2.0e-4&amp;#160;kW"><span class="smwtext">200 mW</span><div class="smwttcontent">0.2 W <br/>2.682e-4 hp <br/>2.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-333mbf" title="alchemy/au1100-333mbf">Au1100-333MBF</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.2&amp;#160;W 2.682e-4&amp;#160;hp 2.0e-4&amp;#160;kW"><span class="smwtext">200 mW</span><div class="smwttcontent">0.2 W <br/>2.682e-4 hp <br/>2.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-333mbi" title="alchemy/au1100-333mbi">Au1100-333MBI</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.2&amp;#160;W 2.682e-4&amp;#160;hp 2.0e-4&amp;#160;kW"><span class="smwtext">200 mW</span><div class="smwttcontent">0.2 W <br/>2.682e-4 hp <br/>2.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-400mbc" title="alchemy/au1100-400mbc">Au1100-400MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;W 3.3525e-4&amp;#160;hp 2.5e-4&amp;#160;kW"><span class="smwtext">250 mW</span><div class="smwttcontent">0.25 W <br/>3.3525e-4 hp <br/>2.5e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;26.55 £&amp;#160;23.90 ¥&amp;#160;3,048.24"><span class="smwtext">$ 29.50</span><div class="smwttcontent">€ 26.55 <br/>£ 23.90 <br/>¥ 3,048.24 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1100-400mbd" title="alchemy/au1100-400mbd">Au1100-400MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;W 3.3525e-4&amp;#160;hp 2.5e-4&amp;#160;kW"><span class="smwtext">250 mW</span><div class="smwttcontent">0.25 W <br/>3.3525e-4 hp <br/>2.5e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;26.55 £&amp;#160;23.90 ¥&amp;#160;3,048.24"><span class="smwtext">$ 29.50</span><div class="smwttcontent">€ 26.55 <br/>£ 23.90 <br/>¥ 3,048.24 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1100-500mbc" title="alchemy/au1100-500mbc">Au1100-500MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1100-500mbd" title="alchemy/au1100-500mbd">Au1100-500MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.13&amp;#160;μm 1.3e-4&amp;#160;mm"><span class="smwtext">130 nm</span><div class="smwttcontent">0.13 μm <br/>1.3e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12.2&amp;#160;dV 122&amp;#160;cV 1,220&amp;#160;mV"><span class="smwtext">1.22 V</span><div class="smwttcontent">12.2 dV <br/>122 cV <br/>1,220 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1200-333mgc" title="alchemy/au1200-333mgc">Au1200-333MGC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;W 0.00201&amp;#160;hp 0.0015&amp;#160;kW"><span class="smwtext">1,500 mW</span><div class="smwttcontent">1.5 W <br/>0.00201 hp <br/>0.0015 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;20.25 £&amp;#160;18.23 ¥&amp;#160;2,324.93"><span class="smwtext">$ 22.50</span><div class="smwttcontent">€ 20.25 <br/>£ 18.23 <br/>¥ 2,324.93 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1200-333mgd" title="alchemy/au1200-333mgd">Au1200-333MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;W 0.00201&amp;#160;hp 0.0015&amp;#160;kW"><span class="smwtext">1,500 mW</span><div class="smwttcontent">1.5 W <br/>0.00201 hp <br/>0.0015 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;20.25 £&amp;#160;18.23 ¥&amp;#160;2,324.93"><span class="smwtext">$ 22.50</span><div class="smwttcontent">€ 20.25 <br/>£ 18.23 <br/>¥ 2,324.93 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1200-333mgf" title="alchemy/au1200-333mgf">Au1200-333MGF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;W 0.00201&amp;#160;hp 0.0015&amp;#160;kW"><span class="smwtext">1,500 mW</span><div class="smwttcontent">1.5 W <br/>0.00201 hp <br/>0.0015 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;20.25 £&amp;#160;18.23 ¥&amp;#160;2,324.93"><span class="smwtext">$ 22.50</span><div class="smwttcontent">€ 20.25 <br/>£ 18.23 <br/>¥ 2,324.93 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1200-333mgi" title="alchemy/au1200-333mgi">Au1200-333MGI</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;W 0.00201&amp;#160;hp 0.0015&amp;#160;kW"><span class="smwtext">1,500 mW</span><div class="smwttcontent">1.5 W <br/>0.00201 hp <br/>0.0015 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;20.25 £&amp;#160;18.23 ¥&amp;#160;2,324.93"><span class="smwtext">$ 22.50</span><div class="smwttcontent">€ 20.25 <br/>£ 18.23 <br/>¥ 2,324.93 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1200-400mgc" title="alchemy/au1200-400mgc">Au1200-400MGC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;W 0.00215&amp;#160;hp 0.0016&amp;#160;kW"><span class="smwtext">1,600 mW</span><div class="smwttcontent">1.6 W <br/>0.00215 hp <br/>0.0016 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1200-400mgd" title="alchemy/au1200-400mgd">Au1200-400MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;W 0.00215&amp;#160;hp 0.0016&amp;#160;kW"><span class="smwtext">1,600 mW</span><div class="smwttcontent">1.6 W <br/>0.00215 hp <br/>0.0016 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1200-500mgc" title="alchemy/au1200-500mgc">Au1200-500MGC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;W 0.00215&amp;#160;hp 0.0016&amp;#160;kW"><span class="smwtext">1,600 mW</span><div class="smwttcontent">1.6 W <br/>0.00215 hp <br/>0.0016 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1200-500mgd" title="alchemy/au1200-500mgd">Au1200-500MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;W 0.00215&amp;#160;hp 0.0016&amp;#160;kW"><span class="smwtext">1,600 mW</span><div class="smwttcontent">1.6 W <br/>0.00215 hp <br/>0.0016 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1210-333mgd" title="alchemy/au1210-333mgd">Au1210-333MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="10&amp;#160;dV 100&amp;#160;cV 1,000&amp;#160;mV"><span class="smwtext">1 V</span><div class="smwttcontent">10 dV <br/>100 cV <br/>1,000 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.36&amp;#160;W 4.8276e-4&amp;#160;hp 3.6e-4&amp;#160;kW"><span class="smwtext">360 mW</span><div class="smwttcontent">0.36 W <br/>4.8276e-4 hp <br/>3.6e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.92&amp;#160;W 0.00123&amp;#160;hp 9.2e-4&amp;#160;kW"><span class="smwtext">920 mW</span><div class="smwttcontent">0.92 W <br/>0.00123 hp <br/>9.2e-4 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1210-333mgf" title="alchemy/au1210-333mgf">Au1210-333MGF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="10&amp;#160;dV 100&amp;#160;cV 1,000&amp;#160;mV"><span class="smwtext">1 V</span><div class="smwttcontent">10 dV <br/>100 cV <br/>1,000 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.36&amp;#160;W 4.8276e-4&amp;#160;hp 3.6e-4&amp;#160;kW"><span class="smwtext">360 mW</span><div class="smwttcontent">0.36 W <br/>4.8276e-4 hp <br/>3.6e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.92&amp;#160;W 0.00123&amp;#160;hp 9.2e-4&amp;#160;kW"><span class="smwtext">920 mW</span><div class="smwttcontent">0.92 W <br/>0.00123 hp <br/>9.2e-4 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1210-400mgd" title="alchemy/au1210-400mgd">Au1210-400MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="10&amp;#160;dV 100&amp;#160;cV 1,000&amp;#160;mV"><span class="smwtext">1 V</span><div class="smwttcontent">10 dV <br/>100 cV <br/>1,000 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.42&amp;#160;W 5.6322e-4&amp;#160;hp 4.2e-4&amp;#160;kW"><span class="smwtext">420 mW</span><div class="smwttcontent">0.42 W <br/>5.6322e-4 hp <br/>4.2e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1&amp;#160;W 0.00134&amp;#160;hp 0.001&amp;#160;kW"><span class="smwtext">1,000 mW</span><div class="smwttcontent">1 W <br/>0.00134 hp <br/>0.001 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1210-400mgf" title="alchemy/au1210-400mgf">Au1210-400MGF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="10&amp;#160;dV 100&amp;#160;cV 1,000&amp;#160;mV"><span class="smwtext">1 V</span><div class="smwttcontent">10 dV <br/>100 cV <br/>1,000 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.42&amp;#160;W 5.6322e-4&amp;#160;hp 4.2e-4&amp;#160;kW"><span class="smwtext">420 mW</span><div class="smwttcontent">0.42 W <br/>5.6322e-4 hp <br/>4.2e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1&amp;#160;W 0.00134&amp;#160;hp 0.001&amp;#160;kW"><span class="smwtext">1,000 mW</span><div class="smwttcontent">1 W <br/>0.00134 hp <br/>0.001 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-400mgd" title="alchemy/au1250-400mgd">Au1250-400MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.56&amp;#160;W 7.5096e-4&amp;#160;hp 5.6e-4&amp;#160;kW"><span class="smwtext">560 mW</span><div class="smwttcontent">0.56 W <br/>7.5096e-4 hp <br/>5.6e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.2&amp;#160;W 0.00161&amp;#160;hp 0.0012&amp;#160;kW"><span class="smwtext">1,200 mW</span><div class="smwttcontent">1.2 W <br/>0.00161 hp <br/>0.0012 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-400mgf" title="alchemy/au1250-400mgf">Au1250-400MGF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.56&amp;#160;W 7.5096e-4&amp;#160;hp 5.6e-4&amp;#160;kW"><span class="smwtext">560 mW</span><div class="smwttcontent">0.56 W <br/>7.5096e-4 hp <br/>5.6e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.2&amp;#160;W 0.00161&amp;#160;hp 0.0012&amp;#160;kW"><span class="smwtext">1,200 mW</span><div class="smwttcontent">1.2 W <br/>0.00161 hp <br/>0.0012 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-500mgd" title="alchemy/au1250-500mgd">Au1250-500MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.53&amp;#160;W 7.1073e-4&amp;#160;hp 5.3e-4&amp;#160;kW"><span class="smwtext">530 mW</span><div class="smwttcontent">0.53 W <br/>7.1073e-4 hp <br/>5.3e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.3&amp;#160;W 0.00174&amp;#160;hp 0.0013&amp;#160;kW"><span class="smwtext">1,300 mW</span><div class="smwttcontent">1.3 W <br/>0.00174 hp <br/>0.0013 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-500mgf" title="alchemy/au1250-500mgf">Au1250-500MGF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.58&amp;#160;W 7.7778e-4&amp;#160;hp 5.8e-4&amp;#160;kW"><span class="smwtext">580 mW</span><div class="smwttcontent">0.58 W <br/>7.7778e-4 hp <br/>5.8e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.4&amp;#160;W 0.00188&amp;#160;hp 0.0014&amp;#160;kW"><span class="smwtext">1,400 mW</span><div class="smwttcontent">1.4 W <br/>0.00188 hp <br/>0.0014 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-600mgd" title="alchemy/au1250-600mgd">Au1250-600MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;GHz 600,000&amp;#160;kHz"><span class="smwtext">600 MHz</span><div class="smwttcontent">0.6 GHz <br/>600,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>DDR-400 DDR2-533</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.58&amp;#160;W 7.7778e-4&amp;#160;hp 5.8e-4&amp;#160;kW"><span class="smwtext">580 mW</span><div class="smwttcontent">0.58 W <br/>7.7778e-4 hp <br/>5.8e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.4&amp;#160;W 0.00188&amp;#160;hp 0.0014&amp;#160;kW"><span class="smwtext">1,400 mW</span><div class="smwttcontent">1.4 W <br/>0.00188 hp <br/>0.0014 kW <br/></div></span></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1250-700mgd" title="alchemy/au1250-700mgd">Au1250-700MGD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.7&amp;#160;GHz 700,000&amp;#160;kHz"><span class="smwtext">700 MHz</span><div class="smwttcontent">0.7 GHz <br/>700,000 kHz <br/></div></span></td><td></td><td>DDR-400 DDR2-533</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1500-333mbc" title="alchemy/au1500-333mbc">Au1500-333MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;35.10 £&amp;#160;31.59 ¥&amp;#160;4,029.87"><span class="smwtext">$ 39.00</span><div class="smwttcontent">€ 35.10 <br/>£ 31.59 <br/>¥ 4,029.87 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-333mbd" title="alchemy/au1500-333mbd">Au1500-333MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;35.10 £&amp;#160;31.59 ¥&amp;#160;4,029.87"><span class="smwtext">$ 39.00</span><div class="smwttcontent">€ 35.10 <br/>£ 31.59 <br/>¥ 4,029.87 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-333mbf" title="alchemy/au1500-333mbf">Au1500-333MBF</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;35.10 £&amp;#160;31.59 ¥&amp;#160;4,029.87"><span class="smwtext">$ 39.00</span><div class="smwttcontent">€ 35.10 <br/>£ 31.59 <br/>¥ 4,029.87 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-333mbi" title="alchemy/au1500-333mbi">Au1500-333MBI</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;35.10 £&amp;#160;31.59 ¥&amp;#160;4,029.87"><span class="smwtext">$ 39.00</span><div class="smwttcontent">€ 35.10 <br/>£ 31.59 <br/>¥ 4,029.87 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-400mbc" title="alchemy/au1500-400mbc">Au1500-400MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.7&amp;#160;W 9.387e-4&amp;#160;hp 7.0e-4&amp;#160;kW"><span class="smwtext">700 mW</span><div class="smwttcontent">0.7 W <br/>9.387e-4 hp <br/>7.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;38.70 £&amp;#160;34.83 ¥&amp;#160;4,443.19"><span class="smwtext">$ 43.00</span><div class="smwttcontent">€ 38.70 <br/>£ 34.83 <br/>¥ 4,443.19 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-400mbd" title="alchemy/au1500-400mbd">Au1500-400MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15&amp;#160;dV 150&amp;#160;cV 1,500&amp;#160;mV"><span class="smwtext">1.5 V</span><div class="smwttcontent">15 dV <br/>150 cV <br/>1,500 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.7&amp;#160;W 9.387e-4&amp;#160;hp 7.0e-4&amp;#160;kW"><span class="smwtext">700 mW</span><div class="smwttcontent">0.7 W <br/>9.387e-4 hp <br/>7.0e-4 kW <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;38.70 £&amp;#160;34.83 ¥&amp;#160;4,443.19"><span class="smwtext">$ 43.00</span><div class="smwttcontent">€ 38.70 <br/>£ 34.83 <br/>¥ 4,443.19 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1500-500mbc" title="alchemy/au1500-500mbc">Au1500-500MBC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="18&amp;#160;dV 180&amp;#160;cV 1,800&amp;#160;mV"><span class="smwtext">1.8 V</span><div class="smwttcontent">18 dV <br/>180 cV <br/>1,800 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.2&amp;#160;W 0.00161&amp;#160;hp 0.0012&amp;#160;kW"><span class="smwtext">1,200 mW</span><div class="smwttcontent">1.2 W <br/>0.00161 hp <br/>0.0012 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1500-500mbd" title="alchemy/au1500-500mbd">Au1500-500MBD</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180 nm</span><div class="smwttcontent">0.18 μm <br/>1.8e-4 mm <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="18&amp;#160;dV 180&amp;#160;cV 1,800&amp;#160;mV"><span class="smwtext">1.8 V</span><div class="smwttcontent">18 dV <br/>180 cV <br/>1,800 mV <br/></div></span></td><td>SDR-133</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="343.15&amp;#160;K 158&amp;#160;°F 617.67&amp;#160;°R"><span class="smwtext">70 °C</span><div class="smwttcontent">343.15 K <br/>158 °F <br/>617.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.2&amp;#160;W 0.00161&amp;#160;hp 0.0012&amp;#160;kW"><span class="smwtext">1,200 mW</span><div class="smwttcontent">1.2 W <br/>0.00161 hp <br/>0.0012 kW <br/></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/alchemy/au1550-333mbc" title="alchemy/au1550-333mbc">Au1550-333MBC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.35&amp;#160;W 0.00181&amp;#160;hp 0.00135&amp;#160;kW"><span class="smwtext">1,350 mW</span><div class="smwttcontent">1.35 W <br/>0.00181 hp <br/>0.00135 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;19.13 £&amp;#160;17.22 ¥&amp;#160;2,196.80"><span class="smwtext">$ 21.26</span><div class="smwttcontent">€ 19.13 <br/>£ 17.22 <br/>¥ 2,196.80 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-333mbd" title="alchemy/au1550-333mbd">Au1550-333MBD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.35&amp;#160;W 0.00181&amp;#160;hp 0.00135&amp;#160;kW"><span class="smwtext">1,350 mW</span><div class="smwttcontent">1.35 W <br/>0.00181 hp <br/>0.00135 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;19.13 £&amp;#160;17.22 ¥&amp;#160;2,196.80"><span class="smwtext">$ 21.26</span><div class="smwttcontent">€ 19.13 <br/>£ 17.22 <br/>¥ 2,196.80 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-333mbf" title="alchemy/au1550-333mbf">Au1550-333MBF</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.35&amp;#160;W 0.00181&amp;#160;hp 0.00135&amp;#160;kW"><span class="smwtext">1,350 mW</span><div class="smwttcontent">1.35 W <br/>0.00181 hp <br/>0.00135 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;19.13 £&amp;#160;17.22 ¥&amp;#160;2,196.80"><span class="smwtext">$ 21.26</span><div class="smwttcontent">€ 19.13 <br/>£ 17.22 <br/>¥ 2,196.80 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-333mbi" title="alchemy/au1550-333mbi">Au1550-333MBI</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.333&amp;#160;GHz 333,000&amp;#160;kHz"><span class="smwtext">333 MHz</span><div class="smwttcontent">0.333 GHz <br/>333,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.15&amp;#160;K -40&amp;#160;°F 419.67&amp;#160;°R"><span class="smwtext">-40 °C</span><div class="smwttcontent">233.15 K <br/>-40 °F <br/>419.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="373.15&amp;#160;K 212&amp;#160;°F 671.67&amp;#160;°R"><span class="smwtext">100 °C</span><div class="smwttcontent">373.15 K <br/>212 °F <br/>671.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;W 5.364e-4&amp;#160;hp 4.0e-4&amp;#160;kW"><span class="smwtext">400 mW</span><div class="smwttcontent">0.4 W <br/>5.364e-4 hp <br/>4.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.35&amp;#160;W 0.00181&amp;#160;hp 0.00135&amp;#160;kW"><span class="smwtext">1,350 mW</span><div class="smwttcontent">1.35 W <br/>0.00181 hp <br/>0.00135 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;19.13 £&amp;#160;17.22 ¥&amp;#160;2,196.80"><span class="smwtext">$ 21.26</span><div class="smwttcontent">€ 19.13 <br/>£ 17.22 <br/>¥ 2,196.80 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-400mbc" title="alchemy/au1550-400mbc">Au1550-400MBC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;W 6.705e-4&amp;#160;hp 5.0e-4&amp;#160;kW"><span class="smwtext">500 mW</span><div class="smwttcontent">0.5 W <br/>6.705e-4 hp <br/>5.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.46&amp;#160;W 0.00196&amp;#160;hp 0.00146&amp;#160;kW"><span class="smwtext">1,460 mW</span><div class="smwttcontent">1.46 W <br/>0.00196 hp <br/>0.00146 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;23.91 £&amp;#160;21.52 ¥&amp;#160;2,745.48"><span class="smwtext">$ 26.57</span><div class="smwttcontent">€ 23.91 <br/>£ 21.52 <br/>¥ 2,745.48 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-400mbd" title="alchemy/au1550-400mbd">Au1550-400MBD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.4&amp;#160;GHz 400,000&amp;#160;kHz"><span class="smwtext">400 MHz</span><div class="smwttcontent">0.4 GHz <br/>400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;W 6.705e-4&amp;#160;hp 5.0e-4&amp;#160;kW"><span class="smwtext">500 mW</span><div class="smwttcontent">0.5 W <br/>6.705e-4 hp <br/>5.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.46&amp;#160;W 0.00196&amp;#160;hp 0.00146&amp;#160;kW"><span class="smwtext">1,460 mW</span><div class="smwttcontent">1.46 W <br/>0.00196 hp <br/>0.00146 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;23.91 £&amp;#160;21.52 ¥&amp;#160;2,745.48"><span class="smwtext">$ 26.57</span><div class="smwttcontent">€ 23.91 <br/>£ 21.52 <br/>¥ 2,745.48 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-500mbc" title="alchemy/au1550-500mbc">Au1550-500MBC</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;W 8.046e-4&amp;#160;hp 6.0e-4&amp;#160;kW"><span class="smwtext">600 mW</span><div class="smwttcontent">0.6 W <br/>8.046e-4 hp <br/>6.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.44&amp;#160;W 0.00193&amp;#160;hp 0.00144&amp;#160;kW"><span class="smwtext">1,440 mW</span><div class="smwttcontent">1.44 W <br/>0.00193 hp <br/>0.00144 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;30.38 £&amp;#160;27.34 ¥&amp;#160;3,487.39"><span class="smwtext">$ 33.75</span><div class="smwttcontent">€ 30.38 <br/>£ 27.34 <br/>¥ 3,487.39 <br/></div></span></td></tr><tr><td><a href="/wiki/alchemy/au1550-500mbd" title="alchemy/au1550-500mbd">Au1550-500MBD</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;kHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12&amp;#160;dV 120&amp;#160;cV 1,200&amp;#160;mV"><span class="smwtext">1.2 V</span><div class="smwttcontent">12 dV <br/>120 cV <br/>1,200 mV <br/></div></span></td><td>SDR-166 DDR-400</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="273.15&amp;#160;K 32&amp;#160;°F 491.67&amp;#160;°R"><span class="smwtext">0 °C</span><div class="smwttcontent">273.15 K <br/>32 °F <br/>491.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="358.15&amp;#160;K 185&amp;#160;°F 644.67&amp;#160;°R"><span class="smwtext">85 °C</span><div class="smwttcontent">358.15 K <br/>185 °F <br/>644.67 °R <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;W 8.046e-4&amp;#160;hp 6.0e-4&amp;#160;kW"><span class="smwtext">600 mW</span><div class="smwttcontent">0.6 W <br/>8.046e-4 hp <br/>6.0e-4 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.44&amp;#160;W 0.00193&amp;#160;hp 0.00144&amp;#160;kW"><span class="smwtext">1,440 mW</span><div class="smwttcontent">1.44 W <br/>0.00193 hp <br/>0.00144 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="€&amp;#160;30.38 £&amp;#160;27.34 ¥&amp;#160;3,487.39"><span class="smwtext">$ 33.75</span><div class="smwttcontent">€ 30.38 <br/>£ 27.34 <br/>¥ 3,487.39 <br/></div></span></td></tr>
+<tr class="comptable-header"><th>Count: 46</th></tr>
+</tbody></table>
+</div></div>
+<h3><span class="mw-headline" id="List_of_Au13xx_processors">List of Au13xx processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=10" title="Edit section: List of Au13xx processors">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable sortable">
+<tbody><tr>
+<th> Model
+</th>
+<th> Part Number
+</th>
+<th> Core Frequ.
+</th>
+<th> <abbr title="Graphics Processing Engine">GPE</abbr>
+</th>
+<th> Temp. Range
+</th>
+<th> <a href="/wiki/tdp" title="tdp"><abbr title="Thermal Design Power">TDP</abbr></a>
+</th>
+<th> Package<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1</a>]</sup>
+</th>
+<th> <abbr title="Last Time Buy">LTB</abbr>
+</th></tr>
+<tr>
+<td> Au1310-533MBD </td>
+<td> AU1310-533MBDA2 </td>
+<td> 533 MHz </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1310-533MTD </td>
+<td> AU1310-533MTDA2 </td>
+<td> 533 MHz </td>
+<td> </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1310-667MBD </td>
+<td> AU1310-667MBDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1320-667MTJ </td>
+<td> AU1320-667MTJA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Industrial </td>
+<td> </td>
+<td> 21×21 mm Therm Enh </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1340-533MBD </td>
+<td> AU1340-533MBDA2 </td>
+<td> 533 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1340-667MBD </td>
+<td> AU1340-667MBDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1340-667MBJ </td>
+<td> </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1340-667MTD </td>
+<td> AU1340-667MTDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1340-667MTJ </td>
+<td> AU1340-667MTJA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Industrial </td>
+<td> </td>
+<td>
+</td>
+<td> 2017-12<sup id="cite_ref-eol17_2-0" class="reference"><a href="#cite_note-eol17-2">[2</a>]</sup>
+</td></tr>
+<tr>
+<td> Au1350-533MBD </td>
+<td> AU1350-533MBDA2 </td>
+<td> 533 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1350-667MBD </td>
+<td> AU1350-667MBDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1350-667MBJ </td>
+<td> AU1350-667MBJA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Industrial </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td> 2017-12<sup id="cite_ref-eol17_2-1" class="reference"><a href="#cite_note-eol17-2">[2</a>]</sup>
+</td></tr>
+<tr>
+<td> Au1350-667MTD </td>
+<td> AU1350-667MTDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 21×21 mm Therm Enh </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1354-800MTD </td>
+<td> AU1354-800MTDA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1354-800MTX </td>
+<td> AU1354-800MTXA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> Extended </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1370-667MBJ </td>
+<td> AU1370-667MBJA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Industrial </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1370-667MHD </td>
+<td> AU1370-667MHDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 17×17 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1370-800MBD </td>
+<td> AU1370-800MBDA2 </td>
+<td> 800 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1370-800MTD </td>
+<td> AU1370-800MTDA2 </td>
+<td> 800 MHz </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1370-1000MFD </td>
+<td> AU1370-1000MFDA2 </td>
+<td> </td>
+<td style="background-color: #ffdad6; text-align: center; ;"> ✘ </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1374-800MBD </td>
+<td> AU1374-800MBDA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1374-800MTD </td>
+<td> AU1374-800MTDA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1380-667MBD </td>
+<td> AU1380-667MBDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1380-667MTD </td>
+<td> AU1380-667MTDA2 </td>
+<td> 667 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 21×21 mm Therm Enh </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1380-800MBD </td>
+<td> AU1380-800MBDA2 </td>
+<td> 800 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Commercial </td>
+<td> </td>
+<td> 21×21 mm </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1380-800MFD </td>
+<td> AU1380-800MFDA2 </td>
+<td> 800 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1380-1000MFD </td>
+<td> AU1380-1000MFDA2 </td>
+<td> 1000 MHz </td>
+<td style="background-color: #d6ffd8; text-align: center; ;"> ✔ </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1384-800MBD </td>
+<td> AU1384-800MBDA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1384-800MBJ </td>
+<td> AU1384-800MBJA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1384-800MFJ </td>
+<td> AU1384-800MFJA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> Industrial </td>
+<td> </td>
+<td> </td>
+<td> 2017-12<sup id="cite_ref-eol17_2-2" class="reference"><a href="#cite_note-eol17-2">[2</a>]</sup>
+</td></tr>
+<tr>
+<td> Au1384-800MTD </td>
+<td> AU1384-800MTDA2 </td>
+<td> 800 MHz </td>
+<td> </td>
+<td> Commercial </td>
+<td> </td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> Au1384-800MTX </td>
+<td> AU1384-800MTXA2 </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> 21×21 mm PBGA+HS </td>
+<td>
+</td></tr></tbody></table>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">LBA537 17×17 mm, 0.65 mm pitch; LBA537 21×21 mm, 0.8 mm pitch</span>
+</li>
+<li id="cite_note-eol17-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-eol17_2-0">2.0</a></sup> <sup><a href="#cite_ref-eol17_2-1">2.1</a></sup> <sup><a href="#cite_ref-eol17_2-2">2.2</a></sup></span> <span class="reference-text">Broadcom Product Obsolescence Notification EOL-CCX-42972-146-0, August 25, 2017</span>
+</li>
+</ol>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=11" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20061015230659id_/http://www.razamicroelectronics.com/pub_assets/30360D_au1000_databook.pdf">&#34;AMD Alchemy™ Au1000™ Processor Data Book&#34;</a>, AMD Publ. #30360, Rev. D, September 2005</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20061020095828id_/http://www.amd.com:80/files/connectivitysolutions/aufamily/au1100/30362D_au1100_databook.pdf">&#34;AMD Alchemy™ Au1100™ Processor Data Book&#34;</a>, AMD Publ. #30362, Rev. D, April 2006</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20061015230051id_/http://www.razamicroelectronics.com/pub_assets/32798e_Au1200_ds.pdf">&#34;AMD Alchemy™ Au1200™ Processor Data Book&#34;</a>, AMD Publ. #32798, Rev. E, February 2006</li>
+<li> Eno, Jim. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20051223152802id_/http://www.amd.com:80/files/connectivitysolutions/aufamily/au1200/32785a_au1200sysarch_wpaper.pdf">&#34;White Paper: AMD Alchemy™ Au1200™ Processor System Architecture&#34;</a>, AMD Publ. #32785, Rev. A, 2005</li>
+<li> <a href="/wiki/File:RMI-Au1210-Au1250-DB.pdf" title="File:RMI-Au1210-Au1250-DB.pdf">&#34;RMI Alchemy™ Au1210™ Navigation Processor and Au1250™ Media Processor Data Book&#34;</a>, RMI Corp., Rev. A, April 2007</li>
+<li> <a href="/wiki/File:RMI-Au1300-PB.pdf" title="File:RMI-Au1300-PB.pdf">&#34;Product Brief: RMI Alchemy™ Au1300™ Media Processor Series&#34;</a>, RMI Corp., Rev. A, December 2008</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20101213050823/http://www.netlogicmicro.com/Products/ProductBriefs/Alchemy/ULPP%20Guide.htm">&#34;NetLogic Microsystems Low-Power Embedded Processors Solution and Product Selection Guide&#34;</a>, netlogicmicro.com, archived December 13, 2010</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20061015230435id_/http://www.razamicroelectronics.com/pub_assets/30361D_au1500_db.pdf">&#34;AMD Alchemy™ Au1500™ Processor Data Book&#34;</a>, AMD Publ. #30361, Rev. D, March 2006</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20060708150440id_/http://www.amd.com:80/files/connectivitysolutions/aufamily/au1550/30283D_Au1550_db.pdf">&#34;AMD Alchemy™ Au1550™ Security Network Processor Data Book&#34;</a>, AMD Publ. #30283, Rev. D, May 2006</li></ul>
+<p>Alchemy Semiconductor publications:
+</p>
+<ul><li> Hoeppner, Greg. <a href="/wiki/File:Au1000_Internet_Edge_Processor_presentation.ppt" title="File:Au1000 Internet Edge Processor presentation.ppt">&#34;Au1000 Internet Edge Processor&#34;</a>, Embedded Processor Forum 2000, June 13, 2000</li>
+<li> Plummer, Suzanne. <a rel="nofollow" class="external text" href="https://hc12.hotchips.org">&#34;The Au1000™ Internet Edge Processor: A High Performance, Low Power SOC&#34;</a>, Hot Chips 12, August 13, 2000</li>
+<li> <a href="/wiki/File:Alchemy-Au1000-PB.pdf" title="File:Alchemy-Au1000-PB.pdf">&#34;Product Brief: The Alchemy Au1000™ Internet Edge Processor&#34;</a>, Alchemy, 2000</li>
+<li> <a href="/wiki/File:Alchemy-Au1500-PB.pdf" title="File:Alchemy-Au1500-PB.pdf">&#34;Product Brief: The Alchemy Au1500™ Internet Edge Processor&#34;</a>, Alchemy, 2001</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20000816094552/http://www.alchemysemi.com:80/">http://www.alchemysemi.com</a> (archived)</li></ul>
+<p>AMD publications:
+</p>
+<ul><li> See <a href="/wiki/amd/List_of_AMD_publications" title="amd/List of AMD publications">List of AMD publications</a></li>
+<li> <a rel="nofollow" class="external text" href="http://web.archive.org/web/20060203023239/http://www.amd.com/us-en/ConnectivitySolutions/ProductInformation/0,,50_2330_6625,00.html">&#34;AMD Alchemy™ Solutions Processor Family&#34;</a>, AMD.com, archived February 3, 2006</li></ul>
+<p>RMI publications:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20040210003336/http://www.razamicroelectronics.com:80/">http://www.razamicroelectronics.com</a> (archived)</li>
+<li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20080210001717/http://www.rmicorp.com:80/">http://www.rmicorp.com</a> (archived)</li></ul>
+<p>NetLogic publications:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20101214233835/http://www.netlogicmicro.com:80/Products/Alchemy/index.asp">&#34;Ultra Low-Power Embedded Processor Family&#34;</a>, netlogicmicro.com, archived December 14, 2010</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=alchemy/alchemy&amp;action=edit&amp;section=12" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/DEC" class="mw-redirect" title="DEC">DEC</a> <a href="/wiki/dec/strongarm" title="dec/strongarm">StrongARM</a></li>
+<li> <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> <a href="/w/index.php?title=intel/xscale&amp;action=edit&amp;redlink=1" class="new" title="intel/xscale (page does not exist)">XScale</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:36627-0!*!0!default!!en!5!* and timestamp 20230921142546 and revision id 99878
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=alchemy/alchemy&amp;oldid=99878">https://en.wikichip.org/w/index.php?title=alchemy/alchemy&amp;oldid=99878</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:all_integrated_circuit_families" title="Category:all integrated circuit families">all integrated circuit families</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:alchemy-2Falchemy" title="Special:Browse/:alchemy-2Falchemy">Alchemy</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/alchemy/alchemy" title="Special:ExportRDF/alchemy/alchemy">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Alchemy  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Alchemy" title="Special:SearchByProperty/:designer/Alchemy">+</a></span>, AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span> and RMI  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/RMI" title="Special:SearchByProperty/:designer/RMI">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">June 13, 2000  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/13-20June-202000" title="Special:SearchByProperty/:first-20announced/13-20June-202000">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">alchemy/alchemy  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/alchemy-2Falchemy" title="Special:SearchByProperty/:full-20page-20name/alchemy-2Falchemy">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">integrated circuit family  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/integrated-20circuit-20family" title="Special:SearchByProperty/:instance-20of/integrated-20circuit-20family">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:main_designer" title="Property:main designer">main designer</a></td><td class="smwprops">Alchemy  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:main-20designer/Alchemy" title="Special:SearchByProperty/:main-20designer/Alchemy">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Au1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Au1" title="Special:SearchByProperty/:microarchitecture/Au1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Alchemy  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Alchemy" title="Special:SearchByProperty/:name/Alchemy">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">180 nm (0.18 μm, 1.8e-4 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/180-20nm" title="Special:SearchByProperty/:process/180-20nm">+</a></span> and 130 nm (0.13 μm, 1.3e-4 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/130-20nm" title="Special:SearchByProperty/:process/130-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word size</a></td><td class="smwprops">32 bit (4 octets, 8 nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/32-20bit" title="Special:SearchByProperty/:word-20size/32-20bit">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 20 March 2022, at 03:09.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":129});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=4', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=4&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=10&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=30', true, [], true, false, true, false);</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"page_view_id":"12ae33eb-bca1-4789-5cc6-7f45a3347122","response_size_orig":76069,"response_time_orig":167,"template_id":5,"url":"https://en.wikichip.org/wiki/arm_holdings/microarchitectures/arm1","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=23', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,f){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===f&&(f=!1),parseInt(__ez.dot.getTargeting(t,"ap"));var p=__ez.dot.getSlotIID(t),s=__ez.dot.getAdUnit(t,f),u=parseInt(__ez.dot.getTargeting(t,"compid")),l=0,g=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(g=z.creative_id),void 0!==z.line_item_id&&(l=z.line_item_id)),__ez.dot.isDefined(p,s)&&__ez.dot.isValid(o)&&("0"===p&&!0!==f||""===s||i.push({type:"impression",impression_id:p,domain_id:__ez.dot.getDID(),unit:s,t_epoch:__ez.dot.getEpoch(0),revenue:d,bid_floor_filled:n,stat_source_id:a,pageview_id:__ez.dot.getPageviewId(),comp_id:u,line_item_id:l,creative_id:g,data:__ez.dot.dataToStr(o),is_orig:f||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d,_){var n=e.split("/");if(__ez.dot.isDefined(e)&&3===n.length&&__ez.dot.isValid(t)){var r=n[0],a={type:"impression",impression_id:n[2],domain_id:__ez.dot.getDID(),unit:r,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(a.revenue=d),void 0!==_&&(a.bid_floor_filled=_),i.push(a)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/arm1"/>
+
+<title>ARM1 - Microarchitectures - Acorn - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"acorn/microarchitectures/arm1","wgTitle":"acorn/microarchitectures/arm1","wgCurRevisionId":98406,"wgRevisionId":98406,"wgArticleId":16811,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["cpu microarchitectures by acorn computers","microarchitectures by acorn computers","all microarchitectures","Articles with empty sections"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"acorn/microarchitectures/arm1","wgRelevantArticleId":16811,"wgRequestId":"0823ca47ae114cf658b11dec","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"arm_holdings/microarchitectures/arm1","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/acorn/microarchitectures/arm1"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="acorn/microarchitectures/arm1" href="/w/index.php?title=Special:ExportRDF/acorn/microarchitectures/arm1&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/acorn/microarchitectures/arm1"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="ARM1 - Microarchitectures - Acorn - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="ARM1 was the first ARM microarchitecture implemented by Acorn Computers as a research and development project for the BBC Computer Literacy Project. ARM1 was introduced in 1985 and was extended to be used as a coprocessor in the Acorn&#39;s BBC Micro microcomputers. ARM1 was distributed as an evaluation system and was never commercialized."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type='text/javascript'>
+var ezoTemplate = 'orig_site';
+var ezouid = '1';
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod1","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"12ae33eb-bca1-4789-5cc6-7f45a3347122","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":76069,"response_time_orig":167,"serverid":"i-0dbcc2ecd39456d48","state":"VA","t_epoch":1701447441,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/arm_holdings/microarchitectures/arm1","word_count":2037,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-acorn_microarchitectures_arm1 rootpage-acorn skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/acorn/microarchitectures/arm1">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:acorn/microarchitectures/arm1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=acorn%2Fmicroarchitectures%2Farm1"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/acorn/microarchitectures/arm1"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/acorn/microarchitectures/arm1"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;oldid=98406"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:acorn-2Fmicroarchitectures-2Farm1"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    ARM1 - Microarchitectures - Acorn    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/acorn" title="acorn">acorn</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=arm_holdings/microarchitectures/arm1&amp;redirect=no" class="mw-redirect" title="arm holdings/microarchitectures/arm1">arm holdings/microarchitectures/arm1</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/acorn/microarchitectures/arm1" title="Special:FormEdit/microarchitecture/acorn/microarchitectures/arm1"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">ARM1 µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">CPU</td></tr><tr><td class="label">Designer</td><td class="value">Acorn Computers</td></tr><tr><td class="label">Manufacturer</td><td class="value">VLSI Technology</td></tr><tr><td class="label">Introduction</td><td class="value">1985</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/3_%C2%B5m_process" class="mw-redirect" title="3 µm process">3 µm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/1_cores" class="mw-redirect" title="1 cores">1</a></td></tr><tr><td class="header" colspan="2">Pipeline</td></tr><tr><td class="label">Type</td><td class="value">Scalar, Pipelined</td></tr><tr><td class="label">Stages</td><td class="value">3</td></tr><tr><td class="label">Decode</td><td class="value">1-way</td></tr><tr><td class="header" colspan="2">Instructions</td></tr><tr><td class="label">ISA</td><td class="value">ARMv1</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L1I Cache</td><td class="value">0 KiB/Core</td></tr><tr><td class="label">L1D Cache</td><td class="value">0 KiB/Core</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/acorn/microarchitectures/arm2" title="acorn/microarchitectures/arm2">ARM2</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>ARM1</b> was the first <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> microarchitecture implemented by <a href="/wiki/Acorn_Computers" class="mw-redirect" title="Acorn Computers">Acorn Computers</a> as a research and development project for the BBC Computer Literacy Project. ARM1 was introduced in <a href="/wiki/1985" title="1985">1985</a> and was extended to be used as a <a href="/wiki/coprocessor" title="coprocessor">coprocessor</a> in the Acorn&#39;s <a href="/w/index.php?title=BBC_Micro&amp;action=edit&amp;redlink=1" class="new" title="BBC Micro (page does not exist)">BBC Micro</a> microcomputers. ARM1 was distributed as an evaluation system and was never commercialized.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Process_Technology"><span class="tocnumber">2</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Architecture"><span class="tocnumber">3</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Overview"><span class="tocnumber">3.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Block_Diagram"><span class="tocnumber">3.2</span> <span class="toctext">Block Diagram</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Core"><span class="tocnumber">3.2.1</span> <span class="toctext">Core</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Core_2"><span class="tocnumber">4</span> <span class="toctext">Core</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Pipeline"><span class="tocnumber">4.1</span> <span class="toctext">Pipeline</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Fetch"><span class="tocnumber">4.1.1</span> <span class="toctext">Fetch</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Decode"><span class="tocnumber">4.1.2</span> <span class="toctext">Decode</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Execute"><span class="tocnumber">4.1.3</span> <span class="toctext">Execute</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="#Interrupt"><span class="tocnumber">4.1.3.1</span> <span class="toctext">Interrupt</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#Multi-Cycle_Instruction"><span class="tocnumber">4.1.3.2</span> <span class="toctext">Multi-Cycle Instruction</span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="#Block-transfer"><span class="tocnumber">4.1.3.3</span> <span class="toctext">Block-transfer</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Die_Shot"><span class="tocnumber">5</span> <span class="toctext">Die Shot</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#All_ARM1_Chips"><span class="tocnumber">6</span> <span class="toctext">All ARM1 Chips</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Documents"><span class="tocnumber">8</span> <span class="toctext">Documents</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Main article: <a href="/wiki/arm/history" title="arm/history">ARM&#39;s History</a></i></dd></dl>
+<p>The <b>ARM1</b> (Acorn <a href="/w/index.php?title=RISC&amp;action=edit&amp;redlink=1" class="new" title="RISC (page does not exist)">RISC</a> Machine 1) is Acorn Computers&#39; first microprocessor design. The ARM1 was the initial result of the <i>Advanced Research and Development</i> division Acorn Computers formed in order to advance the development of their own <a href="/w/index.php?title=RISC&amp;action=edit&amp;redlink=1" class="new" title="RISC (page does not exist)">RISC</a> processor. The ARM instruction set design started in 1983. A reference model was written in <a href="/w/index.php?title=BBC_BASIC&amp;action=edit&amp;redlink=1" class="new" title="BBC BASIC (page does not exist)">BBC BASIC</a> by <a href="/w/index.php?title=Sophie_Wilson&amp;action=edit&amp;redlink=1" class="new" title="Sophie Wilson (page does not exist)">Sophie Wilson</a> and <a href="/w/index.php?title=Steve_Furber&amp;action=edit&amp;redlink=1" class="new" title="Steve Furber (page does not exist)">Steve Furber</a> in just 808 lines of code. On April 26 1985, after 6 man-years of design effort, the first ARM processor prototype was delivered. The first batch of prototypes were functional and were shipped to customers in the form of evaluation systems. At that time the ARM1 was the simplest RISC processor produced.
+</p><p>The first prototype tested worked on the first try, this was despite the ammeter reading no power. The prototype test board designed was faulty with a short. The chip was entirely running off the leakage from the I/Os. Designed to run at 1 W, the chip averaged under 100 mW typical power.
+</p><p>Originally intended to perform at roughly 1.5 times performance of the <a href="/w/index.php?title=dec/vax_11/780&amp;action=edit&amp;redlink=1" class="new" title="dec/vax 11/780 (page does not exist)">VAX 11/780</a>, the prototypes ended up achieveing between 2x to 4x the performance of the <a href="/wiki/DEC" class="mw-redirect" title="DEC">DEC</a> <a href="/w/index.php?title=dec/vax_11/780&amp;action=edit&amp;redlink=1" class="new" title="dec/vax 11/780 (page does not exist)">VAX 11/780</a>; this is roughly equivalent to 10 times that of that original <a href="/wiki/IBM" class="mw-redirect" title="IBM">IBM</a> <a href="/w/index.php?title=ibm/pc_at&amp;action=edit&amp;redlink=1" class="new" title="ibm/pc at (page does not exist)">PC AT</a> or that of the <a href="/wiki/Motorola" class="mw-redirect" title="Motorola">Motorola</a> <a href="/w/index.php?title=motorola/68020&amp;action=edit&amp;redlink=1" class="new" title="motorola/68020 (page does not exist)">68020</a> operating at 16.67 MHz.
+</p>
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=2" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>See also: <a href="/wiki/3_%C2%B5m_process" class="mw-redirect" title="3 µm process">3 µm process</a></i></dd></dl>
+<p>ARM1 chips were manufactured by <a href="/wiki/VLSI_Technology" class="mw-redirect" title="VLSI Technology">VLSI Technology</a> on a <a href="/wiki/3_%C2%B5m" class="mw-redirect" title="3 µm">3 µm</a> double-level metal <a href="/wiki/CMOS" class="mw-redirect" title="CMOS">CMOS</a> process.
+</p>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=3" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ARM1 is based on the <a href="/wiki/arm/armv1" title="arm/armv1">ARMv1</a> <a href="/w/index.php?title=ISA&amp;action=edit&amp;redlink=1" class="new" title="ISA (page does not exist)">ISA</a> which is an entirely clean-sheet <a href="/wiki/32-bit_architecture" title="32-bit architecture">32-bit</a> RISC design.
+</p>
+<h3><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=4" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/wiki/3_%C2%B5m_process" class="mw-redirect" title="3 µm process">3 µm process</a></li>
+<li> Implements <a href="/w/index.php?title=arm_holdings/armv1&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/armv1 (page does not exist)">ARMv1</a></li>
+<li> Goal 1.5x performance of the <a href="/w/index.php?title=dec/vax_11/780&amp;action=edit&amp;redlink=1" class="new" title="dec/vax 11/780 (page does not exist)">VAX 11/780</a></li>
+<li> <a href="/wiki/arm/26-bit" class="mw-redirect" title="arm/26-bit">26-bit address space</a></li>
+<li> Pipeline
+<ul><li> <i>Very simple</i></li>
+<li> 3-stage</li>
+<li> No hardware multiplication</li>
+<li> 25 <a href="/wiki/32-bit_architecture" title="32-bit architecture">32-bit</a> registers
+<ul><li> 16 For user</li>
+<li> 9 For supervisor</li></ul></li>
+<li> 4 Modes
+<ul><li> User, Supervisor, IRQ, FIQ</li></ul></li></ul></li></ul>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=5" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Core">Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=6" title="Edit section: Core">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/File:arm1_block_diagram.svg" class="image"><img alt="arm1 block diagram.svg" src="/w/images/thumb/9/91/arm1_block_diagram.svg/700px-arm1_block_diagram.svg.png" width="700" height="588" srcset="/w/images/thumb/9/91/arm1_block_diagram.svg/1050px-arm1_block_diagram.svg.png 1.5x, /w/images/thumb/9/91/arm1_block_diagram.svg/1400px-arm1_block_diagram.svg.png 2x"/></a>
+</p>
+<h2><span class="mw-headline" id="Core_2">Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=7" title="Edit section: Core">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ARM1 is an extremely simple 32-bit single-chip <a href="/w/index.php?title=RISC&amp;action=edit&amp;redlink=1" class="new" title="RISC (page does not exist)">RISC</a> microprocessor implementation with a number of <a href="/w/index.php?title=CISC&amp;action=edit&amp;redlink=1" class="new" title="CISC (page does not exist)">CISC</a> features.
+</p>
+<h3><span class="mw-headline" id="Pipeline">Pipeline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=8" title="Edit section: Pipeline">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The ARM1 utilizes a <a href="/w/index.php?title=pipelining&amp;action=edit&amp;redlink=1" class="new" title="pipelining (page does not exist)">pipelining</a> technique in order to improve performance and efficiency. At peak performance the ARM1 can reach 8 <a href="/w/index.php?title=million_instructions_per_second&amp;action=edit&amp;redlink=1" class="new" title="million instructions per second (page does not exist)">million instructions per second</a> with an average of 3 MIPS when using a 150 ns row access <a href="/w/index.php?title=DRAM&amp;action=edit&amp;redlink=1" class="new" title="DRAM (page does not exist)">DRAM</a>. The ARM1&#39;s pipeline consists of 3 stages (although some instructions may take as much as 5 cycles): 
+</p><p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:arm1_pipeline.svg" class="image"><img alt="arm1 pipeline.svg" src="/w/images/thumb/2/23/arm1_pipeline.svg/800px-arm1_pipeline.svg.png" width="800" height="76" srcset="/w/images/thumb/2/23/arm1_pipeline.svg/1200px-arm1_pipeline.svg.png 1.5x, /w/images/thumb/2/23/arm1_pipeline.svg/1600px-arm1_pipeline.svg.png 2x"/></a></dd></dl>
+<div class="floatright"><a href="/wiki/File:two-phase_clock.svg" class="image"><img alt="two-phase clock.svg" src="/w/images/thumb/e/e6/two-phase_clock.svg/300px-two-phase_clock.svg.png" width="300" height="147" srcset="/w/images/thumb/e/e6/two-phase_clock.svg/450px-two-phase_clock.svg.png 1.5x, /w/images/thumb/e/e6/two-phase_clock.svg/600px-two-phase_clock.svg.png 2x"/></a></div>
+<p>The ARM1 operates on a guaranteed non-overlapping <a href="/w/index.php?title=two-phase_clock&amp;action=edit&amp;redlink=1" class="new" title="two-phase clock (page does not exist)">two-phase clock</a> which allowed for <a href="/w/index.php?title=level-triggered&amp;action=edit&amp;redlink=1" class="new" title="level-triggered (page does not exist)">level-triggered</a> transfer instead of <a href="/w/index.php?title=edge-triggering&amp;action=edit&amp;redlink=1" class="new" title="edge-triggering (page does not exist)">edge-triggering</a>. The two clock phases are not generated on-die but come from an external <a href="/w/index.php?title=oscillator&amp;action=edit&amp;redlink=1" class="new" title="oscillator (page does not exist)">oscillator</a>. A complete cycle on the ARM1 is therefore Φ1 + Φ2. To simplify system design, these clocks may be stretched to work in-sync with memory access times.
+</p>
+<h4><span class="mw-headline" id="Fetch">Fetch</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=9" title="Edit section: Fetch">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="floatright"><a href="/wiki/File:arm1_pc.svg" class="image"><img alt="arm1 pc.svg" src="/w/images/thumb/d/d8/arm1_pc.svg/200px-arm1_pc.svg.png" width="200" height="118" srcset="/w/images/thumb/d/d8/arm1_pc.svg/300px-arm1_pc.svg.png 1.5x, /w/images/thumb/d/d8/arm1_pc.svg/400px-arm1_pc.svg.png 2x"/></a></div>
+<p>The Instruction Pipe is a functional block that holds awaiting instructions until execution, it therefore holds a number of instruction sufficient to ensure instructions are always executing at all cycles on all stages.
+</p><p>The <a href="/wiki/program_counter" title="program counter">program counter</a> on the ARM1 always points to the instruction being fetched.  That is, with every instruction being exactly 4 <a href="/w/index.php?title=bytes&amp;action=edit&amp;redlink=1" class="new" title="bytes (page does not exist)">bytes</a>, the currently executing instruction is always <code>PC - 8</code>. During the fetch stage, the address specified by the address register gets sent through the address pins and is fetched from memory.
+</p><p>In conjunction with the address register is a dedicated incrementer which calculates the next address. The actual address for the next instruction will usually come from that incrementer. However, occasionally, the next instruction may also come from the <a href="/wiki/ALU" class="mw-redirect" title="ALU">ALU</a> instead. On very rare occasions, the next instruction value can be forced to an exception. When the instruction is coming from the incrementer, the ARM1 will assert this fact on the <code>SEQ</code> pin, allowing the external memory controller to know that the next instruction will in fact be +4 the current instruction, allowing it to determine if an address translation is necessary and prepare ahead. This is done to improve performance because it can make use of <a href="/w/index.php?title=Page-Mode_DRAM&amp;action=edit&amp;redlink=1" class="new" title="Page-Mode DRAM (page does not exist)">Page-Mode DRAM</a>, allowing for more efficient consecutive memory reads.
+</p>
+<h4><span class="mw-headline" id="Decode">Decode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=10" title="Edit section: Decode">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>On the second cycle of each instruction, the decode occurs. At this stage the instruction is decoded and the appropriate control signals are generated. The ARM1 implements the decoding in a number of separate units:
+</p>
+<ul><li> Instruction Decode, performs the top-level decoding</li>
+<li> Register Decode, decodes the register selection field</li>
+<li> ALU Decode, decodes the ALU operation</li>
+<li> Shift Decode, decodes the <a href="/w/index.php?title=barrel_shifter&amp;action=edit&amp;redlink=1" class="new" title="barrel shifter (page does not exist)">barrel shifter</a> controls </li></ul>
+<p>The Register Decode handles the register selection for both read ports and the write port.
+</p><p>The reason the decode is implemented in a number of separate units is because the ARM1 makes use of <a href="/w/index.php?title=microcode&amp;action=edit&amp;redlink=1" class="new" title="microcode (page does not exist)">microcode</a> <a href="/w/index.php?title=ROM&amp;action=edit&amp;redlink=1" class="new" title="ROM (page does not exist)">ROMs</a> (<a href="/w/index.php?title=PLA&amp;action=edit&amp;redlink=1" class="new" title="PLA (page does not exist)">PLA</a>). Each instruction is decoded into up to four <a href="/wiki/%C2%B5OP" class="mw-redirect" title="µOP">µOP</a> signal-wise. In other words, the <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instructions are broken down into up to four sets of internal-µOP signals indicating things such as which registers to select or what value to shift by. For some complex operations such as <a href="/w/index.php?title=block-transfer_instructions&amp;action=edit&amp;redlink=1" class="new" title="block-transfer instructions (page does not exist)">block-transfers</a>, the <a href="/w/index.php?title=microsequencer&amp;action=edit&amp;redlink=1" class="new" title="microsequencer (page does not exist)">microsequencer</a> also performs a looping operation for each register.
+</p>
+<h4><span class="mw-headline" id="Execute">Execute</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=11" title="Edit section: Execute">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="floatright"><a href="/wiki/File:arm1_register_file.svg" class="image"><img alt="arm1 register file.svg" src="/w/images/thumb/9/9f/arm1_register_file.svg/250px-arm1_register_file.svg.png" width="250" height="210" srcset="/w/images/thumb/9/9f/arm1_register_file.svg/375px-arm1_register_file.svg.png 1.5x, /w/images/thumb/9/9f/arm1_register_file.svg/500px-arm1_register_file.svg.png 2x"/></a></div>
+<p>The ARM1 has a <a href="/w/index.php?title=physical_register_file&amp;action=edit&amp;redlink=1" class="new" title="physical register file (page does not exist)">physical register file</a> of 25 <a href="/wiki/32-bit_architecture" title="32-bit architecture">32-bit</a> registers (same as the <a href="/w/index.php?title=architectural_register_file&amp;action=edit&amp;redlink=1" class="new" title="architectural register file (page does not exist)">architectural register file</a>). Register 15 (<a href="/w/index.php?title=arm/r15&amp;action=edit&amp;redlink=1" class="new" title="arm/r15 (page does not exist)">R15</a>) is the <a href="/wiki/Program_Counter" class="mw-redirect" title="Program Counter">Program Counter</a>. 16 of the registers are visible to the user with the remaining only being accessible while in supervisor mode. The register file has two read ports for the operands heading to the ALU and a single write port for the ALU write-back value. Additionally there is a dedicated <a href="/w/index.php?title=arm/r15&amp;action=edit&amp;redlink=1" class="new" title="arm/r15 (page does not exist)">R15</a> read and write port.
+</p><p>Each cycle two values are operated on. During clock phase 1 (<i>Φ1</i>) the values are fetched from the appropriate sources into the ALU for execution and during clock phase 2 (<i>Φ2</i>), the 32-bit ALU output is stored onto the Register File write port.
+</p><p>For a typical <a href="/w/index.php?title=register-register&amp;action=edit&amp;redlink=1" class="new" title="register-register (page does not exist)">register-register</a> operation, the first operand is fetched from the register file on Port 0 directly to the ALU while the second operand is fetched from the register file on Port 1 and through the barrel shifter to the ALU. For a <a href="/w/index.php?title=register-immediate&amp;action=edit&amp;redlink=1" class="new" title="register-immediate (page does not exist)">register-immediate</a> operation, the first operand is fetched from the register file on Port 0 directly to the ALU while the second operand is fetched from the instruction.
+</p>
+<div style="display: inline-block; padding-left: 10px; float: left;">
+<div style="float: left; margin: 10px;"><b>Register-Register:</b><br/><a href="/wiki/File:arm1_reg_reg.svg" class="image"><img alt="arm1 reg reg.svg" src="/w/images/thumb/b/b5/arm1_reg_reg.svg/300px-arm1_reg_reg.svg.png" width="300" height="255" srcset="/w/images/thumb/b/b5/arm1_reg_reg.svg/450px-arm1_reg_reg.svg.png 1.5x, /w/images/thumb/b/b5/arm1_reg_reg.svg/600px-arm1_reg_reg.svg.png 2x"/></a></div>
+<div style="float: left; margin: 10px;"><b>Register-Immediate:</b><br/><a href="/wiki/File:arm1_reg_imm.svg" class="image"><img alt="arm1 reg imm.svg" src="/w/images/thumb/3/3d/arm1_reg_imm.svg/300px-arm1_reg_imm.svg.png" width="300" height="270" srcset="/w/images/thumb/3/3d/arm1_reg_imm.svg/450px-arm1_reg_imm.svg.png 1.5x, /w/images/thumb/3/3d/arm1_reg_imm.svg/600px-arm1_reg_imm.svg.png 2x"/></a></div></div>
+<p>It&#39;s worth noting that the ARM1 lacked hardware multiplication which meant software had to resort to a software-based solution (e.g., classic <a href="/w/index.php?title=Shift-and-Add_Multiplication&amp;action=edit&amp;redlink=1" class="new" title="Shift-and-Add Multiplication (page does not exist)">Shift-and-Add Multiplication</a>). For example to perform <code>var = x * 5;</code> one could rewrite it as <code>var = x + (x &lt;&lt; 2);</code> to achieve the same result without a multiplication operation. The downside for this is that unless it&#39;s done for very simple operations (such as this example), software multiplication is horrifically slow.
+</p>
+<div style="clear:both;"></div>
+<h5><span class="mw-headline" id="Interrupt">Interrupt</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=12" title="Edit section: Interrupt">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>The ARM1 has fast interrupt capabilities for real-time responses. Exceptions can occur internally or externally to the chip. The average interrupt latency is sub-2 µs with a worst case of sub-6 µs. An interrupt must wait for the currently executing instruction to complete before the interrupt executes. The current instruction completes only when a new instruction starts fetching. When an exception takes place, the processor sets the <a href="/wiki/PC" class="mw-disambig" title="PC">PC</a> to a specific memory address within the <a href="/w/index.php?title=interrupt_vector_table&amp;action=edit&amp;redlink=1" class="new" title="interrupt vector table (page does not exist)">interrupt vector table</a>.
+</p><p>For example, in the case of <code>RESET</code> pin being asserted, the current pipeline gets flushed and the PC is forced to execute from address 0x0.
+</p>
+<h5><span class="mw-headline" id="Multi-Cycle_Instruction">Multi-Cycle Instruction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=13" title="Edit section: Multi-Cycle Instruction">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<div class="floatleft"><a href="/wiki/File:arm1_multi-cycle.svg" class="image"><img alt="arm1 multi-cycle.svg" src="/w/images/thumb/d/de/arm1_multi-cycle.svg/400px-arm1_multi-cycle.svg.png" width="400" height="240" srcset="/w/images/thumb/d/de/arm1_multi-cycle.svg/600px-arm1_multi-cycle.svg.png 1.5x, /w/images/thumb/d/de/arm1_multi-cycle.svg/800px-arm1_multi-cycle.svg.png 2x"/></a></div>
+<p>A number of ARM instructions cannot be implemented in a single cycle given the limited resources of the ARM1 (i.e., a single ALU and a single shifter). Instructions such as a store <a href="/w/index.php?title=arm/str&amp;action=edit&amp;redlink=1" class="new" title="arm/str (page does not exist)">STR</a> (store register) requires calculating the effective address before it can store the data. To solve this problem, the ARM1 effectively runs the same instruction through the execute stage two to three times - in the first execute cycle is used to compute the address while the second execute stage the data store.
+</p><p><br/>
+For example, in the case of a <code>STR R2, [R3, #4]</code>, in the first execute cycle the processor will perform <code>Address = R3 + 4</code>. ARM1 will then run another execute stage for this instruction. In the second cycle, ARM1 will generate a <code>DOUT = R2</code> at the address generate previously and assert the appropriate pins to indicate this is a write.
+</p>
+<table style="border-spacing: 10px; border: 1px solid black; text-align: center;" class="wikitable">
+<tbody><tr><td rowspan="6"><a href="/wiki/File:arrow_down_1.svg" class="image"><img alt="arrow down 1.svg" src="/w/images/thumb/a/a8/arrow_down_1.svg/15px-arrow_down_1.svg.png" width="15" height="45" srcset="/w/images/thumb/a/a8/arrow_down_1.svg/23px-arrow_down_1.svg.png 1.5x, /w/images/thumb/a/a8/arrow_down_1.svg/30px-arrow_down_1.svg.png 2x"/></a></td><th><code>ADD</code></th><td><i>Fetch</i></td><td><i>Decode</i></td><td><i>Execute</i></td></tr>
+<tr><th><code>STR</code></th><td> </td><td><i>Fetch</i></td><td><i>Decode</i></td><td><i>Address<br/>Calculate</i></td><td><i>Data<br/>Store</i></td></tr>
+<tr><th><code>ADD</code></th><td> </td><td> </td><td><i>Fetch</i></td><td> </td><td><i>Decode</i></td><td><i>Execute</i></td></tr>
+<tr><th><code>ADD</code></th><td> </td><td> </td><td> </td><td><i>Fetch</i></td><td> </td><td><i>Decode</i></td><td><i>Execute</i></td></tr>
+<tr><th><code>ADD</code></th><td> </td><td> </td><td> </td><td> </td><td> </td><td><i>Fetch</i></td><td><i>Decode</i></td><td><i>Execute</i></td></tr>
+<tr><td colspan="9">Time <a href="/wiki/File:arrow_right_1.svg" class="image"><img alt="arrow right 1.svg" src="/w/images/thumb/c/cf/arrow_right_1.svg/50px-arrow_right_1.svg.png" width="50" height="17" srcset="/w/images/thumb/c/cf/arrow_right_1.svg/75px-arrow_right_1.svg.png 1.5x, /w/images/thumb/c/cf/arrow_right_1.svg/100px-arrow_right_1.svg.png 2x"/></a></td></tr>
+</tbody></table>
+<div style="clear:both;"></div>
+<p><br/>
+</p>
+<h5><span class="mw-headline" id="Block-transfer">Block-transfer</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=14" title="Edit section: Block-transfer">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<dl><dd><i>See also: <a href="/w/index.php?title=Block-Transfer_Instructions&amp;action=edit&amp;redlink=1" class="new" title="Block-Transfer Instructions (page does not exist)">Block-Transfer Instructions</a></i></dd></dl>
+<div style="display:block;width:300px;{{{style}}}">
+<div style="border:1px solid #666666; background: #5252CC; padding: 3px;"></div>
+<table style="border-left:1px solid #666666;border-bottom:1px solid #666666;border-right:1px solid #666666; background: #FAFAFA; padding: 3px; font-size: 11px; width: 100%">
+<tbody><tr>
+<td><a href="/wiki/File:New_text_document.svg" class="image"><img alt="New text document.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/25px-New_text_document.svg.png" width="25" height="25" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/38px-New_text_document.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/50px-New_text_document.svg.png 2x"/></a> </td>
+<td> This section is empty; you can help add the missing info by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit">editing this page</a>.
+</td></tr></tbody></table>
+</div>
+<h2><span class="mw-headline" id="Die_Shot">Die Shot</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=15" title="Edit section: Die Shot">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/3_%C2%B5m_process" class="mw-redirect" title="3 µm process">3 µm process</a></li>
+<li> 24,800 <a href="/w/index.php?title=transistors&amp;action=edit&amp;redlink=1" class="new" title="transistors (page does not exist)">transistors</a></li>
+<li> ~6,000 <a href="/wiki/gates" class="mw-redirect" title="gates">gates</a></li>
+<li> ~7 mm x 7mm</li>
+<li> 50 mm² die size</li>
+<li> PLCC-82 (Plastic leaded chip carrier)
+<ul><li> 74 signal pins</li>
+<li> 8 power/ground pins</li></ul></li></ul>
+<p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:arm1_die_shot.png" class="image"><img alt="arm1 die shot.png" src="/w/images/thumb/c/c5/arm1_die_shot.png/800px-arm1_die_shot.png" width="800" height="806" srcset="/w/images/thumb/c/c5/arm1_die_shot.png/1200px-arm1_die_shot.png 1.5x, /w/images/c/c5/arm1_die_shot.png 2x"/></a></dd></dl>
+<p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:arm1_die_shot_(annotated).png" class="image"><img alt="arm1 die shot (annotated).png" src="/w/images/thumb/5/5f/arm1_die_shot_%28annotated%29.png/800px-arm1_die_shot_%28annotated%29.png" width="800" height="837" srcset="/w/images/thumb/5/5f/arm1_die_shot_%28annotated%29.png/1200px-arm1_die_shot_%28annotated%29.png 1.5x, /w/images/thumb/5/5f/arm1_die_shot_%28annotated%29.png/1600px-arm1_die_shot_%28annotated%29.png 2x"/></a></dd></dl>
+<h2><span class="mw-headline" id="All_ARM1_Chips">All ARM1 Chips</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=16" title="Edit section: All ARM1 Chips">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc11 tc12 tc13">
+<tbody><tr class="comptable-header"><th> </th><th colspan="12">List of ARM1-based Processors</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Process</th><th>Launched</th><th>Frequency</th><th>Power Dissipation</th><th>Max Memory</th></tr>
+<tr><td><a href="/wiki/vti/vl86cx/vc2588" title="vti/vl86cx/vc2588">VC2588</a></td><td>ARM1</td><td>1985</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.006&amp;#160;GHz 6,000&amp;#160;kHz"><span class="smwtext">6 MHz</span><div class="smwttcontent">0.006 GHz <br/>6,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,000&amp;#160;mW 0.00134&amp;#160;hp 0.001&amp;#160;kW"><span class="smwtext">1 W</span><div class="smwttcontent">1,000 mW <br/>0.00134 hp <br/>0.001 kW <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,536&amp;#160;KiB 67,108,864&amp;#160;B 0.0625&amp;#160;GiB 6.103516e-5&amp;#160;TiB"><span class="smwtext">64 MiB</span><div class="smwttcontent">65,536 KiB <br/>67,108,864 B <br/>0.0625 GiB <br/>6.103516e-5 TiB <br/></div></span></td></tr>
+<tr class="comptable-header"><th>Count: 1</th></tr>
+</tbody></table>
+</div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=17" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> ARM hardware reference manual, ARM Evaluation System, Acorn OEM Products, August 1986</li>
+<li> Furber, S. B., and A. R. P. Thomas. &#34;ARM3—a study in design for compatibility.&#34; Microprocessors and Microsystems 14.6 (1990): 407-415.</li></ul>
+<h2><span class="mw-headline" id="Documents">Documents</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=acorn/microarchitectures/arm1&amp;action=edit&amp;section=18" title="Edit section: Documents">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/File:ARM_hardware_reference_manual.pdf" title="File:ARM hardware reference manual.pdf">ARM hardware Reference Manual, ARM Evaluation System</a>, Acorn OEM Products, August 4, 1986.</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:16811-0!*!0!default!!en!5!* and timestamp 20231201141237 and revision id 98406
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=acorn/microarchitectures/arm1&amp;oldid=98406">https://en.wikichip.org/w/index.php?title=acorn/microarchitectures/arm1&amp;oldid=98406</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:cpu_microarchitectures_by_acorn_computers" title="Category:cpu microarchitectures by acorn computers">cpu microarchitectures by acorn computers</a></li><li><a href="/wiki/Category:microarchitectures_by_acorn_computers" title="Category:microarchitectures by acorn computers">microarchitectures by acorn computers</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="/wiki/Category:Articles_with_empty_sections" title="Category:Articles with empty sections">Articles with empty sections</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:acorn-2Fmicroarchitectures-2Farm1" title="Special:Browse/:acorn-2Fmicroarchitectures-2Farm1">ARM1 - Microarchitectures - Acorn</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/acorn/microarchitectures/arm1" title="Special:ExportRDF/acorn/microarchitectures/arm1">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">ARM1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/ARM1" title="Special:SearchByProperty/:codename/ARM1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/1" title="Special:SearchByProperty/:core-20count/1">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Acorn Computers  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Acorn-20Computers" title="Special:SearchByProperty/:designer/Acorn-20Computers">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">1985  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/1985" title="Special:SearchByProperty/:first-20launched/1985">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">acorn/microarchitectures/arm1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/acorn-2Fmicroarchitectures-2Farm1" title="Special:SearchByProperty/:full-20page-20name/acorn-2Fmicroarchitectures-2Farm1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction set architecture</a></td><td class="smwprops">ARMv1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARMv1" title="Special:SearchByProperty/:instruction-20set-20architecture/ARMv1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">VLSI Technology  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/VLSI-20Technology" title="Special:SearchByProperty/:manufacturer/VLSI-20Technology">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture type</a></td><td class="smwprops">CPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/CPU" title="Special:SearchByProperty/:microarchitecture-20type/CPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">ARM1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/ARM1" title="Special:SearchByProperty/:name/ARM1">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages" title="Property:pipeline stages">pipeline stages</a></td><td class="smwprops">3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages/3" title="Special:SearchByProperty/:pipeline-20stages/3">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">3,000 nm (3 μm, 0.003 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/3000-20nm" title="Special:SearchByProperty/:process/3000-20nm">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 14 January 2021, at 11:56.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":124});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=6', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=7&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=11&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

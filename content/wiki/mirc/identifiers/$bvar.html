@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>$bvar Identifier - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/identifiers/$bvar","wgTitle":"mirc/identifiers/$bvar","wgCurRevisionId":95384,"wgRevisionId":95384,"wgArticleId":26314,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC identifiers"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/identifiers/$bvar","wgRelevantArticleId":26314,"wgRequestId":"27a8f7a36a589301b7fb92be","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/identifiers/$bvar" href="/w/index.php?title=Special:ExportRDF/mirc/identifiers/$bvar&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="$bvar Identifier - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="$bvar returns the contents of a binary variable. Default is returning the contents as decimal byte values in the range 0-255." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod1',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/mirc/identifiers/$bvar"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"49f2592c-c843-45ca-6fb3-63f6eec79ffb","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":71832,"response_time_orig":431,"serverid":"3.89.225.121:12164","state":"VA","t_epoch":1611629184,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/mirc/identifiers/$bvar","user_id":0,"word_count":1356,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?dcb=191-3&cb=1&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["49f2592c-c843-45ca-6fb3-63f6eec79ffb", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_identifiers_bvar rootpage-mirc skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/mirc/identifiers/$bvar">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:mirc/identifiers/$bvar"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=mirc/identifiers/$bvar&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=mirc/identifiers/$bvar&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fidentifiers%2F%24bvar"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/identifiers/$bvar"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/identifiers/$bvar"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/identifiers/$bvar&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/identifiers/$bvar&oldid=95384"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/identifiers/$bvar&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fidentifiers-2F-24bvar"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    $bvar Identifier - mIRC    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a>&lrm; | <a href="/wiki/mirc/identifiers" title="mirc/identifiers">identifiers</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li>
+<li> <a href="/wiki/mirc/dcc_get_security" title="mirc/dcc get security">DCC GET security</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/mirc_installation" title="mirc/mirc installation">mIRC Installation</a></li>
+<li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">IPv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li>
+<li> <a href="/wiki/mirc/dcc_protocols" title="mirc/dcc protocols">DCC Protocols</a></li>
+<li> <a href="/w/index.php?title=mirc/line_length_limit&amp;action=edit&amp;redlink=1" class="new" title="mirc/line length limit (page does not exist)">Line Length Limit</a></li>
+<li> <a href="/w/index.php?title=mirc/font_rendering&amp;action=edit&amp;redlink=1" class="new" title="mirc/font rendering (page does not exist)">Font rendering</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p><b>$bvar</b> returns the contents of a binary variable. Default is returning the contents as decimal byte values in the range 0-255.
+</p><p><b>Note</b>: $bvar(&amp;var) used without N or M parameters returns the variable name if it exists, otherwise returns $null, this has to be used to check if a binary variable exists before checking $bvar(&amp;bvar,0) to check if it has data.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Compatibility"><span class="tocnumber">5</span> <span class="toctext">Compatibility</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=1" title="Edit section: Synopsis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre>$bvar(&amp;binvar, [ N [ ,M] ] )</pre>
+<h2><span class="mw-headline" id="Parameters">Parameters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=2" title="Edit section: Parameters">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <b>&amp;binvar</b> - A binary variable name which begins with the &amp; symbol.</li>
+<li> <b>N</b> - The beginning position within the binary variable. N=0 returns the length of the binary variable. Can also be range, N- or N1-N2. (First byte is pos 1 not offset 0)</li>
+<li> <b>M</b> - Optional length of the number of values to return. If there are not M bytes beginning at the Nth position, returns all the remaining bytes beginning at the Nth position.</li></ul>
+<h2><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=3" title="Edit section: Properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <b>text</b> - Changes output from decimal ASCII numbers to text characters, truncated if $chr(0) encountered</li>
+<li> <b>word</b> - Outputs decimal value of a 2-byte word, seeing bytes in little-endian byte order (low value first)</li>
+<li> <b>nword</b> - Outputs decimal value of a 2-byte word, seeing bytes in big-endian byte order (high value first)</li>
+<li> <b>long</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in little-endian byte order (low value first)</li>
+<li> <b>nlong</b> - Outputs decimal value of a 4-byte dword (unsigned long), seeing bytes in big-endian byte order (high value first)</li></ul>
+<p><br />
+<b>Note</b>: word/nword/long/nlong return non-byte values ONLY when M is not used and N is a positive integer without a hyphen, and do not return a series of numbers from a lengthy variable. They return the value from the 2 or 4 bytes beginning at the Nth byte, and returns $null if there are not the needed 2 or 4 bytes to completely fill the word/long.
+</p>
+<h2><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 12 34 56 78 |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$iif" title="$iif - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$iif</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc<span class="mirc_bracket">&#x29;</span>,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a> exists<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$iif" title="$iif - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$iif</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;xyz<span class="mirc_bracket">&#x29;</span>,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a> exists<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;xyz<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  &amp;abc exists / &amp;abc /</span></pre>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> -ta &amp;var 1 chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfencode" title="$utfencode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfencode</span></a><span class="mirc_bracket">&#x28;</span>chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">&#x29;</span>  |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span> // <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span>.text</span>
+<span class="code_line">  99 104 108 111 233 32 47 32 99 104 108 111 195 168 // chlo&#232; / chlo&#232;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> -t  &amp;var 1 chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfencode" title="$utfencode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfencode</span></a><span class="mirc_bracket">&#x28;</span>chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">&#x29;</span>  |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span> // <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span>.text</span>
+<span class="code_line">  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // chlo&#232; / chlo&#195;&#168;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> -t  &amp;var 1 chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfencode" title="$utfencode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfencode</span></a><span class="mirc_bracket">&#x28;</span>chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>233<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">&#x29;</span>  |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span> // <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,3-11<span class="mirc_bracket">&#x29;</span>.text</span>
+<span class="code_line">  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // lo&#232; / ch</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> -t  &amp;var 1 chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$utfencode" title="$utfencode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$utfencode</span></a><span class="mirc_bracket">&#x28;</span>chlo <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span>232<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">&#x29;</span>  |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,1-<span class="mirc_bracket">&#x29;</span> // <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;var,3-11,5<span class="mirc_bracket">&#x29;</span>.text</span>
+<span class="code_line">  99 104 108 111 195 169 32 47 32 99 104 108 111 195 131 194 168 // lo&#232;</span></pre>
+<pre><span class="code_line">Note: showing base-16 values to better visualize the little-endian/big-endian byte changes</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 231 32 33 34 35 36 37 38 |<a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command"> var</span></a> <span class="mirc_variable">%word</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.word , <span class="mirc_variable">%nword</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.nword , <span class="mirc_variable">%long</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.long |<a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command"> var</span></a> <span class="mirc_variable">%nlong</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.nlong |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a in hex: word <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%word</span>,10,16<span class="mirc_bracket">&#x29;</span> nword <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%nword</span>,10,16<span class="mirc_bracket">&#x29;</span> long <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%long</span>,10,16<span class="mirc_bracket">&#x29;</span> nlong <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%nlong</span>,10,16<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  in hex: word 20E7 nword E720 long 222120E7 nlong E7202122</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 16 32 48 64 |<a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command"> var</span></a> <span class="mirc_variable">%word</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.word , <span class="mirc_variable">%nword</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.nword , <span class="mirc_variable">%long</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.long |<a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command"> var</span></a> <span class="mirc_variable">%nlong</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.nlong |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a in hex: word <span class="mirc_variable">%word</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%word</span>,10,16<span class="mirc_bracket">&#x29;</span> nword <span class="mirc_variable">%nword</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%nword</span>,10,16<span class="mirc_bracket">&#x29;</span> long <span class="mirc_variable">%long</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%long</span>,10,16<span class="mirc_bracket">&#x29;</span> nlong <span class="mirc_variable">%nlong</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%nlong</span>,10,16<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"> in hex: word 8208 2010 nword 4128 1020 long 1076895760 40302010 nlong 270544960 10203040</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 16 32 48 64 128 144 160 176 |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a in hex: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.long,10,16<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  in hex: 40302010</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 16 32 48 64 128 144 160 176 |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,2<span class="mirc_bracket">&#x29;</span>.long,10,16<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  80403020</span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> -t &amp;abc 1 abcdefghi |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,3-<span class="mirc_bracket">&#x29;</span> / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,3<span class="mirc_bracket">&#x29;</span>.word <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,4<span class="mirc_bracket">&#x29;</span>*256+<a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,3<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>  / <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,3<span class="mirc_bracket">&#x29;</span>.nword <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,3<span class="mirc_bracket">&#x29;</span>*256+<a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,4<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  99 100 101 102 103 104 105 / 25699 25699 / 25444 25444</span>
+<span class="code_line">&#160;</span>
+<span class="code_line">The order swap is by byte not bit. If hex of .long is 0xdeadbeef then .nlong is 0xefbeadde</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">//bset</span></a> &amp;abc 1 <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>ef,16,10<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>be,16,10<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>ad,16,10<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>de,16,10<span class="mirc_bracket">&#x29;</span> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.long,10,16<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;abc,1<span class="mirc_bracket">&#x29;</span>.nlong,10,16<span class="mirc_bracket">&#x29;</span></span></pre>
+<h2><span class="mw-headline" id="Compatibility">Compatibility</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=5" title="Edit section: Compatibility">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Added: mIRC v5.3<br />
+Added on: 13 Dec 1997<br />
+<small>
+<b>Note:</b> Unless otherwise stated, this was the date of original functionality.<br />
+Further enhancements may have been made in later versions.
+</small>
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/identifiers/$bvar&amp;action=edit&amp;section=6" title="Edit section: See Also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="wiki-ul-col4" style="display: inline-block; width: 100%; display: inherit;">
+<ul><li> <a href="/wiki/mirc/commands/bread" title="mirc/commands/bread">/bread</a></li>
+<li> <a href="/wiki/mirc/commands/bwrite" title="mirc/commands/bwrite">/bwrite</a></li>
+<li> <a href="/wiki/mirc/commands/bcopy" title="mirc/commands/bcopy">/bcopy</a></li>
+<li> <a href="/wiki/mirc/commands/bunset" title="mirc/commands/bunset">/bunset</a></li>
+<li> <a href="/wiki/mirc/commands/breplace" title="mirc/commands/breplace">/breplace</a></li>
+<li> <a href="/wiki/mirc/commands/btrunc" title="mirc/commands/btrunc">/btrunc</a></li>
+<li> <a href="/wiki/mirc/commands/bset" title="mirc/commands/bset">/bset</a></li>
+<li> <a href="/wiki/mirc/identifiers/$bfind" title="mirc/identifiers/$bfind">$bfind</a></li></ul>
+</div>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:26314-0!*!0!!en!*!* and timestamp 20210126024624 and revision id 95384
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/identifiers/$bvar&amp;oldid=95384">https://en.wikichip.org/w/index.php?title=mirc/identifiers/$bvar&amp;oldid=95384</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC_identifiers" title="Category:mIRC identifiers">mIRC identifiers</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 4 January 2020, at 21:03.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":395});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

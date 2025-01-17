@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData)});}}
+function AddPixelById(impFullId,pixelData){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=2', false, [], true, false, true, false);</script>
+
+<title>Exynos M3 - Microarchitectures - Samsung - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"samsung/microarchitectures/m3","wgTitle":"samsung/microarchitectures/m3","wgCurRevisionId":95980,"wgRevisionId":95980,"wgArticleId":28140,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["cpu microarchitectures by samsung","microarchitectures by samsung","all microarchitectures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"samsung/microarchitectures/m3","wgRelevantArticleId":28140,"wgRequestId":"6ea5f0be7674fc39e5656040","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"mongoose_3","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/samsung/microarchitectures/m3"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@16x7iwb",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="samsung/microarchitectures/m3" href="/w/index.php?title=Special:ExportRDF/samsung/microarchitectures/m3&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/images/thumb/a/af/m3_core_cluster_floorplan.png/800px-m3_core_cluster_floorplan.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/images/thumb/a/af/m3_core_cluster_floorplan.png/800px-m3_core_cluster_floorplan.png" />
+<meta property="og:title" content="Exynos M3 - Microarchitectures - Samsung - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Exynos M3 (Meerkat) is the successor to the Mongoose 2, a 10 nm ARM microarchitecture designed by Samsung for their consumer electronics." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod68-c',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/mongoose_3"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"351783ec-3bad-4e3c-672a-a42beba7abac","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":201,"serverid":"54.224.251.86:12837","state":"VA","t_epoch":1601379843,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/mongoose_3","user_id":0,"word_count":3447,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["351783ec-3bad-4e3c-672a-a42beba7abac", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-samsung_microarchitectures_m3 rootpage-samsung skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/samsung/microarchitectures/m3">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:samsung/microarchitectures/m3"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=samsung/microarchitectures/m3&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=samsung/microarchitectures/m3&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=samsung%2Fmicroarchitectures%2Fm3"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/samsung/microarchitectures/m3"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/samsung/microarchitectures/m3"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=samsung/microarchitectures/m3&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=samsung/microarchitectures/m3&oldid=95980"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=samsung/microarchitectures/m3&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:samsung-2Fmicroarchitectures-2Fm3"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Exynos M3 - Microarchitectures - Samsung    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/samsung" title="samsung">samsung</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=mongoose_3&amp;redirect=no" class="mw-redirect" title="mongoose 3">mongoose 3</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/samsung/microarchitectures/m3" title="Special:FormEdit/microarchitecture/samsung/microarchitectures/m3"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Meerkat µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">CPU</td></tr><tr><td class="label">Designer</td><td class="value">Samsung</td></tr><tr><td class="label">Manufacturer</td><td class="value">Samsung</td></tr><tr><td class="label">Introduction</td><td class="value">2018</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/4_cores" class="mw-redirect" title="4 cores">4</a></td></tr><tr><td class="header" colspan="2">Pipeline</td></tr><tr><td class="label">Type</td><td class="value">Superscalar, Superpipeline</td></tr><tr><td class="label">OoOE</td><td class="value">Yes</td></tr><tr><td class="label">Speculative</td><td class="value">Yes</td></tr><tr><td class="label">Reg Renaming</td><td class="value">Yes</td></tr><tr><td class="label">Stages</td><td class="value">16</td></tr><tr><td class="label">Decode</td><td class="value">6-way</td></tr><tr><td class="header" colspan="2">Instructions</td></tr><tr><td class="label">ISA</td><td class="value">ARMv8</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L1I Cache</td><td class="value">64 KiB/core<br />4-way set associative</td></tr><tr><td class="label">L1D Cache</td><td class="value">64 KiB/core<br />8-way set associative</td></tr><tr><td class="label">L2 Cache</td><td class="value">512 KiB/core<br />8-way set associative</td></tr><tr><td class="label">L3 Cache</td><td class="value">4 MiB/cluster<br />16-way set associative</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/samsung/microarchitectures/m2" title="samsung/microarchitectures/m2">M2</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/samsung/microarchitectures/m4" title="samsung/microarchitectures/m4">M4</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></table>
+<p><b>Exynos M3</b> (<b>Meerkat</b>) is the successor to the <a href="/wiki/samsung/microarchitectures/mongoose_2" class="mw-redirect" title="samsung/microarchitectures/mongoose 2">Mongoose 2</a>, a <a href="/wiki/10_nm" class="mw-redirect" title="10 nm">10 nm</a> <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> microarchitecture designed by <a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a> for their consumer electronics.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Process_Technology"><span class="tocnumber">2</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Compiler_support"><span class="tocnumber">3</span> <span class="toctext">Compiler support</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Architecture"><span class="tocnumber">4</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Key_changes_from_M2"><span class="tocnumber">4.1</span> <span class="toctext">Key changes from M2</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Block_Diagram"><span class="tocnumber">4.2</span> <span class="toctext">Block Diagram</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Core_Cluster_Overview"><span class="tocnumber">4.2.1</span> <span class="toctext">Core Cluster Overview</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Individual_Core"><span class="tocnumber">4.2.2</span> <span class="toctext">Individual Core</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Memory_Hierarchy"><span class="tocnumber">4.3</span> <span class="toctext">Memory Hierarchy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Overview"><span class="tocnumber">5</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Core"><span class="tocnumber">6</span> <span class="toctext">Core</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Pipeline"><span class="tocnumber">6.1</span> <span class="toctext">Pipeline</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Front_end"><span class="tocnumber">6.2</span> <span class="toctext">Front end</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Fetch_.26_pre-decoding"><span class="tocnumber">6.2.1</span> <span class="toctext">Fetch &amp; pre-decoding</span></a>
+<ul>
+<li class="toclevel-4 tocsection-15"><a href="#Branch_Predictor"><span class="tocnumber">6.2.1.1</span> <span class="toctext">Branch Predictor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-16"><a href="#Decoding"><span class="tocnumber">6.2.2</span> <span class="toctext">Decoding</span></a>
+<ul>
+<li class="toclevel-4 tocsection-17"><a href="#Micro-Sequencer"><span class="tocnumber">6.2.2.1</span> <span class="toctext">Micro-Sequencer</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#Execution_engine"><span class="tocnumber">6.3</span> <span class="toctext">Execution engine</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#Renaming_.26_Allocation"><span class="tocnumber">6.3.1</span> <span class="toctext">Renaming &amp; Allocation</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Dispatch"><span class="tocnumber">6.3.2</span> <span class="toctext">Dispatch</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#Integer_cluster"><span class="tocnumber">6.3.3</span> <span class="toctext">Integer cluster</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#Floating-point_cluster"><span class="tocnumber">6.3.4</span> <span class="toctext">Floating-point cluster</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#Retirement"><span class="tocnumber">6.3.5</span> <span class="toctext">Retirement</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#Memory_subsystem"><span class="tocnumber">6.3.6</span> <span class="toctext">Memory subsystem</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Core_cluster"><span class="tocnumber">7</span> <span class="toctext">Core cluster</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#Die"><span class="tocnumber">8</span> <span class="toctext">Die</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="#Core_floorplan"><span class="tocnumber">8.1</span> <span class="toctext">Core floorplan</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Core_cluster_2"><span class="tocnumber">8.2</span> <span class="toctext">Core cluster</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#All_M3_Processors"><span class="tocnumber">9</span> <span class="toctext">All M3 Processors</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#Bibliography"><span class="tocnumber">10</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Q2, 2014 - Samsung planning for M3 start</li>
+<li> Q1, 2015 - RTL start</li>
+<li> Q3, 2015 - Fork features for incremental M2</li>
+<li> Q1, 2016 - Replan for bigger perf push</li>
+<li> Q1, 2017 - Tapeout EVT0</li>
+<li> Q1, 2018 - Product launch</li></ul>
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=2" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The M3 was fabricated on Samsung's second generation <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10LPP (Low Power Plus) process</a>.
+</p>
+<h2><span class="mw-headline" id="Compiler_support">Compiler support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=3" title="Edit section: Compiler support">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tr>
+<th> Compiler </th>
+<th> Arch-Specific </th>
+<th> Arch-Favorable
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=GCC&amp;action=edit&amp;redlink=1" class="new" title="GCC (page does not exist)">GCC</a> </td>
+<td> <code>-mcpu=exynos-m3</code> </td>
+<td> <code>-mtune=exynos-m3</code>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=LLVM&amp;action=edit&amp;redlink=1" class="new" title="LLVM (page does not exist)">LLVM</a> </td>
+<td> <code>-mcpu=exynos-m3</code> </td>
+<td> <code>-mtune=exynos-m3</code>
+</td></tr></table>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=4" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The M3 targets aggressive performance goals which considerably widened and deepend the pipeline.
+</p>
+<h3><span class="mw-headline" id="Key_changes_from_M2">Key changes from <a href="/wiki/samsung/microarchitectures/mongoose_2" class="mw-redirect" title="samsung/microarchitectures/mongoose 2">M2</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=5" title="Edit section: Key changes from M2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/wiki/10_nm" class="mw-redirect" title="10 nm">10nm (10LPP) process</a> (from 1st gen 10LPP)</li>
+<li> Core
+<ul><li> Front-end
+<ul><li> Larger ITLB (512 entries, up from 256)</li>
+<li> Larger branch prediction
+<ul><li> Larger microBTB (128-entry, up from 64)</li>
+<li> Larger and Wider L2 BTB (2x BW, 16K-entry, up from 8K)</li>
+<li> Improved taken latency on main BTB</li></ul></li>
+<li> Larger <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a> (40 entries, up from 24)</li>
+<li> Larger <a href="/w/index.php?title=instruction_fetch&amp;action=edit&amp;redlink=1" class="new" title="instruction fetch (page does not exist)">instruction fetch</a> (48B/cycle, up from 24B/cycle)</li>
+<li> 6-way decode (from 4-way)</li>
+<li> µOP fusion
+<ul><li> new fuse address generation and memory µOP support</li>
+<li> new fuse literal generation µOP support</li></ul></li></ul></li>
+<li> Back-end
+<ul><li> Larger <a href="/w/index.php?title=ReOrder_buffer&amp;action=edit&amp;redlink=1" class="new" title="ReOrder buffer (page does not exist)">ReOrder buffer</a> (228 entries, from 100 entries)</li>
+<li> New fastpath logical shift of up to 3 places</li>
+<li> Larger dispatch window (12 µOP/cycle, up from 9)</li>
+<li> Larger Integer physical register file</li>
+<li> Larger FP physical register</li>
+<li> Integer cluster
+<ul><li> 9 pipes (from 7)
+<ul><li> Larger distributed schedulers (126 entries, up from 58)</li>
+<li> New pipe for a second load unit added</li>
+<li> New pipe for a second ALU with 3-operand support and MUL/DIV</li>
+<li> Double throughput for most integer operations</li></ul></li></ul></li>
+<li> Floating Point cluster
+<ul><li> 3 pipes (From 3)
+<ul><li> Throughput of most FP operation have increased by 50% or doubled</li>
+<li> Additional EUs
+<ul><li> crypto EU, simple vector EU, vector shuffle/shift/mul, new FP store, new FP conversion</li></ul></li></ul></li></ul></li></ul></li>
+<li> Memory subsystem
+<ul><li> Larger schedulers</li>
+<li> Larger store buffer (2x larger)</li>
+<li> Larger <a href="/w/index.php?title=L1_data_cache&amp;action=edit&amp;redlink=1" class="new" title="L1 data cache (page does not exist)">L1 data cache</a> (64 KiB, up from 32 KiB)
+<ul><li> New read port (2x reads + 1x store, up from 1 read + 1 store)</li></ul></li>
+<li> New mid-level DTLB</li>
+<li> Larger L2 BTB (4k-entry, up from 1k-entry)</li>
+<li> New L2 Cache
+<ul><li> Private per core, 512 KiB (from 2 MiB shared L2)</li></ul></li>
+<li> New L3 Cache
+<ul><li> 4 MiB, 1 MiB slice/core</li></ul></li>
+<li> Double bandwidth (32B (2x16B)/cycle from 16B/cycle)
+<ul><li> fast paired 128-bit loads and stores</li></ul></li></ul></li></ul></li>
+<li> branch misprediction penalty increased (16 cycles, from 14)</li></ul>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=6" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Core_Cluster_Overview">Core Cluster Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=7" title="Edit section: Core Cluster Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/File:m3_soc_block_diagram.svg" class="image"><img alt="m3 soc block diagram.svg" src="/w/images/thumb/4/46/m3_soc_block_diagram.svg/700px-m3_soc_block_diagram.svg.png" width="700" height="253" srcset="/w/images/thumb/4/46/m3_soc_block_diagram.svg/1050px-m3_soc_block_diagram.svg.png 1.5x, /w/images/thumb/4/46/m3_soc_block_diagram.svg/1400px-m3_soc_block_diagram.svg.png 2x" /></a>
+</p>
+<h4><span class="mw-headline" id="Individual_Core">Individual Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=8" title="Edit section: Individual Core">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/File:mongoose_3_block_diagram.svg" class="image"><img alt="mongoose 3 block diagram.svg" src="/w/images/thumb/a/a8/mongoose_3_block_diagram.svg/900px-mongoose_3_block_diagram.svg.png" width="900" height="883" srcset="/w/images/thumb/a/a8/mongoose_3_block_diagram.svg/1350px-mongoose_3_block_diagram.svg.png 1.5x, /w/images/thumb/a/a8/mongoose_3_block_diagram.svg/1800px-mongoose_3_block_diagram.svg.png 2x" /></a>
+</p>
+<h3><span class="mw-headline" id="Memory_Hierarchy">Memory Hierarchy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=9" title="Edit section: Memory Hierarchy">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Cache
+<ul><li> L1I Caches
+<ul><li> 64 KiB, 4-way set associative
+<ul><li> 128 B line size</li>
+<li> per core</li></ul></li>
+<li> Parity-protected</li></ul></li>
+<li> L1D Cache
+<ul><li> 64 KiB, 8-way set associative
+<ul><li> 64 B line size</li>
+<li> per core</li></ul></li>
+<li> 4 cycles for fastest load-to-use</li>
+<li> 32 B/cycle load bandwidth</li>
+<li> 16 B/cycle store bandwidth</li></ul></li>
+<li> L2 Cache
+<ul><li> 512 KiB, 8-way set associative</li>
+<li> Inclusive of L1</li>
+<li> 12 cycles latency</li>
+<li> 32 B/cycle bandwidth</li></ul></li>
+<li> L3 Cache
+<ul><li> 4 MiB, 16-way set associative
+<ul><li> 1 MiB slice/core</li></ul></li>
+<li> Exlusive of L2</li>
+<li> ~37-cycle typical (NUCA)</li></ul></li>
+<li> BIU
+<ul><li> 80 outstanding transactions</li></ul></li></ul></li></ul>
+<p>The M3 TLB consists of dedicated L1 TLB for instruction cache (ITLB) and another one for data cache (DTLB). Additionally, there is a unified L2 TLB (STLB).
+</p>
+<ul><li> TLBs
+<ul><li> ITLB
+<ul><li> 512-entry</li></ul></li>
+<li> DTLB
+<ul><li> 32-entry</li>
+<li> 512-entry Mid-level DTLB</li></ul></li>
+<li> STLB
+<ul><li> 4,096-entry</li>
+<li> Per core</li></ul></li></ul></li></ul>
+<ul><li> BPU
+<ul><li> 4K-entry main BTB</li>
+<li> 128-entry µBTB</li>
+<li> 64-entry return stack</li>
+<li> 16K-entry L2 BTB</li></ul></li></ul>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=10" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The M3 was originally planned to be an incremental design over the original <a href="/wiki/samsung/microarchitectures/m1" title="samsung/microarchitectures/m1">M1</a>. Design for the M3 started in 2014 with RTL design starting in 2015. When started, the goals for the M3 were around 10-15% performance improvements and the polishing of low-hanging fruits that were left from their first generation design. Samsung stated that throughout the development cycle of the M3, goals were drastically changed for considerably higher performance along with a much wider and deeper pipeline. First M3-based product was productized in Q1 2018 on Samsung's own <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a> operating at 2.7 GHz.
+</p>
+<h2><span class="mw-headline" id="Core">Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=11" title="Edit section: Core">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The M3 is an <a href="/w/index.php?title=out-of-order&amp;action=edit&amp;redlink=1" class="new" title="out-of-order (page does not exist)">out-of-order</a> microprocessor with a 6-way decode and a 12-way dispatch.
+</p>
+<h3><span class="mw-headline" id="Pipeline">Pipeline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=12" title="Edit section: Pipeline">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For the most part, the M3 pipeline is very similar to the M1/M2. For the most part, Samsung says that they were able to close timing on many of the components without growing the pipeline too much. The wider pipeline has meant that some additional stages were still necessary. To that end, the M3 introduces a second dispatch cycle (Disp 2, although note that it's not really part of the dispatch but rather the routing stage). In the out-of-order portion of the pipeline, in both paths, an additional <a href="/w/index.php?title=register_read&amp;action=edit&amp;redlink=1" class="new" title="register read (page does not exist)">register read</a> stage was required.
+</p><p><br />
+</p>
+<dl><dd><a href="/wiki/File:m3_pipeline.svg" class="image"><img alt="m3 pipeline.svg" src="/w/images/thumb/5/56/m3_pipeline.svg/700px-m3_pipeline.svg.png" width="700" height="219" srcset="/w/images/thumb/5/56/m3_pipeline.svg/1050px-m3_pipeline.svg.png 1.5x, /w/images/thumb/5/56/m3_pipeline.svg/1400px-m3_pipeline.svg.png 2x" /></a></dd></dl>
+<p><br />
+As with the M1, there are still two pipeline stages for the branch predictor for generating addresses. There are three cycles for <a href="/w/index.php?title=instruction_fetch&amp;action=edit&amp;redlink=1" class="new" title="instruction fetch (page does not exist)">fetching instructions</a> from the <a href="/w/index.php?title=instruction_cache&amp;action=edit&amp;redlink=1" class="new" title="instruction cache (page does not exist)">instruction cache</a> and delivering them to the <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a>. There are three <a href="/w/index.php?title=instruction_decode&amp;action=edit&amp;redlink=1" class="new" title="instruction decode (page does not exist)">decode</a> stages, two <a href="/w/index.php?title=register_renaming&amp;action=edit&amp;redlink=1" class="new" title="register renaming (page does not exist)">renaming stages</a>, and now there are two <a href="/w/index.php?title=instruction_dispatch&amp;action=edit&amp;redlink=1" class="new" title="instruction dispatch (page does not exist)">dispatch</a> stages.
+</p><p>Both pipes for the execution stage go through two scheduling cycles followed by a two register read cycles. Instruction execution may take a cycle or more depending on the <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instruction being executed. There is a single cycle for the <a href="/w/index.php?title=write_back&amp;action=edit&amp;redlink=1" class="new" title="write back (page does not exist)">write back</a> and <a href="/w/index.php?title=forwarding&amp;action=edit&amp;redlink=1" class="new" title="forwarding (page does not exist)">forwarding</a>. In the case of a load operation, there is an additional translation tag cycle, data cycle, and an alignment and write back cycle.
+</p>
+<h3><span class="mw-headline" id="Front_end">Front end</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=13" title="Edit section: Front end">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:m3_fetch.svg" class="image"><img alt="" src="/w/images/thumb/b/b8/m3_fetch.svg/300px-m3_fetch.svg.png" width="300" height="175" class="thumbimage" srcset="/w/images/thumb/b/b8/m3_fetch.svg/450px-m3_fetch.svg.png 1.5x, /w/images/thumb/b/b8/m3_fetch.svg/600px-m3_fetch.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_fetch.svg" class="internal" title="Enlarge"></a></div>IF</div></div></div>
+<p>The front-end of the M3 is tasked with the prediction of future instruction streams, the fetching of instructions, and the code of the <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instructions into <a href="/wiki/micro-operations" class="mw-redirect" title="micro-operations">micro-operations</a> to be executed by the back-end.
+</p>
+<h4><span class="mw-headline" id="Fetch_.26_pre-decoding">Fetch &amp; pre-decoding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=14" title="Edit section: Fetch &amp; pre-decoding">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>With the help of the <a href="/w/index.php?title=branch_predictor&amp;action=edit&amp;redlink=1" class="new" title="branch predictor (page does not exist)">branch predictor</a>, the instructions should already be found in the <a href="/w/index.php?title=level_1_instruction_cache&amp;action=edit&amp;redlink=1" class="new" title="level 1 instruction cache (page does not exist)">level 1 instruction cache</a>. The L1I cache is 64 KiB, 4-way <a href="/w/index.php?title=set_associative&amp;action=edit&amp;redlink=1" class="new" title="set associative (page does not exist)">set associative</a>. Samsung kept the L1I cache the same as prior generations. The L1I cache and has its own <a href="/w/index.php?title=iTLB&amp;action=edit&amp;redlink=1" class="new" title="iTLB (page does not exist)">iTLB</a> consisting of 512 entries, double the prior generation. A large change in the M3 is the instruction fetch bandwidth. Previously, up to 24 bytes could be read each cycle into the <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a>. In the M3, now 48 bytes (up to 12 <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instructions) are read each cycle into the <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a> which allows them to hide very short <a href="/w/index.php?title=branch_bubbles&amp;action=edit&amp;redlink=1" class="new" title="branch bubbles (page does not exist)">branch bubbles</a> and deliver a large number of instructions to be decoded by a larger decoder. With up to 12 instructions fetched each time, the M3 is effectively fetching at twice the decoding rate and is usually larger than a branch is encountered. The <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a> is a slightly more complex component than a simple buffer. The byte stream gets split up into the <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instructions its made off, including dealing with the various misaligned ARM instructions such as in the case of <a href="/w/index.php?title=arm/thumb&amp;action=edit&amp;redlink=1" class="new" title="arm/thumb (page does not exist)">thumb mode</a>. If the queue is filled to capacity, the fetch is clock gated for a cycle or two in order to allow the queue to naturally drain.
+</p>
+<h5><span class="mw-headline" id="Branch_Predictor">Branch Predictor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=15" title="Edit section: Branch Predictor">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:m3-mpki_rate.png" class="image"><img alt="" src="/w/images/thumb/4/4e/m3-mpki_rate.png/300px-m3-mpki_rate.png" width="300" height="199" class="thumbimage" srcset="/w/images/thumb/4/4e/m3-mpki_rate.png/450px-m3-mpki_rate.png 1.5x, /w/images/thumb/4/4e/m3-mpki_rate.png/600px-m3-mpki_rate.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3-mpki_rate.png" class="internal" title="Enlarge"></a></div>miss-predict/1K instructions is reduced by ~15% over the <a href="/wiki/samsung/microarchitectures/m2" title="samsung/microarchitectures/m2">M2</a>.</div></div></div>
+<p>The M1 has a perceptron branch predictor with a couple of perceptrons which can handle two branches per cycle. The branch predictor on the M3 largely enhances the one found in the <a href="/wiki/samsung/microarchitectures/m1" title="samsung/microarchitectures/m1">M1</a>. A number of new weights were added and previous weights were re-tuned for various case accuracy. The unit is capable of indirect predictions as well as loop and stream predictions when it detects those traffic patterns. The indirect branches received a lot of attention in the M3. Additionally, the capacity of the micro-<a href="/w/index.php?title=BTB&amp;action=edit&amp;redlink=1" class="new" title="BTB (page does not exist)">BTB</a> was doubled to 128 entries which are used for caching very small tight loops and other hot kernels. Although the buffer size itself has not been increased, the average branch taken latency has also been improved through improvements of <a href="/w/index.php?title=branch&amp;action=edit&amp;redlink=1" class="new" title="branch (page does not exist)">branch</a>-taken turn-around time for various cases that could be expedited. The second-level BTB capacity was also doubled to 16K entries deep.
+</p><p>In total, Samsung reported a net reduction of the average <a href="/w/index.php?title=miss-predictions_per_thousand_instructions&amp;action=edit&amp;redlink=1" class="new" title="miss-predictions per thousand instructions (page does not exist)">miss-predictions per thousand instructions</a> (MPKI) of around 15% (shown in the graph on the right) over the <a href="/wiki/samsung/microarchitectures/m2" title="samsung/microarchitectures/m2">M2</a>.
+</p><p>The branch predictor feeds a decoupled instruction address queue which in turn feeds the instruction cache.
+</p>
+<h4><span class="mw-headline" id="Decoding">Decoding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=16" title="Edit section: Decoding">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:m3_decode.svg" class="image"><img alt="" src="/w/images/thumb/b/bc/m3_decode.svg/300px-m3_decode.svg.png" width="300" height="171" class="thumbimage" srcset="/w/images/thumb/b/bc/m3_decode.svg/450px-m3_decode.svg.png 1.5x, /w/images/thumb/b/bc/m3_decode.svg/600px-m3_decode.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_decode.svg" class="internal" title="Enlarge"></a></div>M3 features a 6-way decoder.</div></div></div>
+<p>From the <a href="/w/index.php?title=instruction_queue&amp;action=edit&amp;redlink=1" class="new" title="instruction queue (page does not exist)">instruction queue</a> the instructions are sent to decode. The decode unit on the M3 was increased significantly to 6-way (from 4), allowing up to six instructions to be decoded each cycle. The Decoder which can handle both the <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> <a href="/wiki/arm/aarch64" title="arm/aarch64">AArch64</a> and <a href="/w/index.php?title=arm/aarch32&amp;action=edit&amp;redlink=1" class="new" title="arm/aarch32 (page does not exist)">AArch32</a> instructions. All in all, up to six µOPs are decoded and sent to the <a href="/w/index.php?title=re-order_buffer&amp;action=edit&amp;redlink=1" class="new" title="re-order buffer (page does not exist)">re-order buffer</a> each cycle. One of the new features on the M3 is the introduction of some initial <a href="/w/index.php?title=fusion_idioms&amp;action=edit&amp;redlink=1" class="new" title="fusion idioms (page does not exist)">fusion idioms</a> support which allows the <a href="/w/index.php?title=decoder&amp;action=edit&amp;redlink=1" class="new" title="decoder (page does not exist)">decoder</a> to <a href="/w/index.php?title=decode&amp;action=edit&amp;redlink=1" class="new" title="decode (page does not exist)">decode</a> two instructions and if they meet a certain criteria, they can be <a href="/w/index.php?title=%C2%B5OP_fusion&amp;action=edit&amp;redlink=1" class="new" title="µOP fusion (page does not exist)">fused</a> into a single µOP which remains that way for the remainder of the pipeline, alleviating various resources that would other require two entries.
+</p>
+<h6><span class="mw-headline" id="Micro-Sequencer">Micro-Sequencer</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=17" title="Edit section: Micro-Sequencer">edit</a><span class="mw-editsection-bracket">]</span></span></h6>
+<p>For some complex ARM instructions such as the <a href="/w/index.php?title=arm/armv7&amp;action=edit&amp;redlink=1" class="new" title="arm/armv7 (page does not exist)">ARMv7</a> load-store multiples instructions which result in multiple µOPs being emitted, M3 has a side micro-sequencer that will get invoked and emit the appropriate µOPs.
+</p>
+<h3><span class="mw-headline" id="Execution_engine">Execution engine</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=18" title="Edit section: Execution engine">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Renaming_.26_Allocation">Renaming &amp; Allocation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=19" title="Edit section: Renaming &amp; Allocation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright"><div class="thumbinner" style="width:452px;"><a href="/wiki/File:m3_rob.svg" class="image"><img alt="" src="/w/images/thumb/e/ef/m3_rob.svg/450px-m3_rob.svg.png" width="450" height="164" class="thumbimage" srcset="/w/images/thumb/e/ef/m3_rob.svg/675px-m3_rob.svg.png 1.5x, /w/images/thumb/e/ef/m3_rob.svg/900px-m3_rob.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_rob.svg" class="internal" title="Enlarge"></a></div>M3 ROB</div></div></div>
+<p>As with the <a href="/w/index.php?title=instruction_decode&amp;action=edit&amp;redlink=1" class="new" title="instruction decode (page does not exist)">decode</a>, up to six µOPs can be renamed each cycle. This is up from four µOPs in all the prior generations. For some special cases such as in <a href="/w/index.php?title=arm/armv7&amp;action=edit&amp;redlink=1" class="new" title="arm/armv7 (page does not exist)">ARMv7</a> where four single-precision registers can alias into a single quad register or a pair of doubles, the M3 has special logic in the rename area to handle the renaming of those <a href="/w/index.php?title=floating_point&amp;action=edit&amp;redlink=1" class="new" title="floating point (page does not exist)">floating point</a> µOPs. For the case of a branch misprediction, the M3 has a perform fast map recovery ability as a branch misprediction recovery mechanism.
+</p><p>Matching the wider pipeline, the <a href="/w/index.php?title=reoder_buffer&amp;action=edit&amp;redlink=1" class="new" title="reoder buffer (page does not exist)">reoder buffer</a> has been substantially increased in size to 228 µOPs that can be in flight. The ROB feeds the <a href="/w/index.php?title=dispatch_queue&amp;action=edit&amp;redlink=1" class="new" title="dispatch queue (page does not exist)">dispatch queue</a> at the rate of up to 6 µOPs per cycle.
+</p>
+<h4><span class="mw-headline" id="Dispatch">Dispatch</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=20" title="Edit section: Dispatch">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>From the dispatch queue, up to 9 µOPs may be issued to the integer cluster and up to 3 µOPs may be issued to the floating point cluster. This is a large change from the M1 and M2 where up to 7 and 2 micro-operations could be sent to the integer and floating point clusters respectively.
+</p>
+<h4><span class="mw-headline" id="Integer_cluster">Integer cluster</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=21" title="Edit section: Integer cluster">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/wiki/File:m3_integer_scheduler.svg" class="image"><img alt="m3 integer scheduler.svg" src="/w/images/thumb/9/9f/m3_integer_scheduler.svg/500px-m3_integer_scheduler.svg.png" width="500" height="150" class="thumbimage" srcset="/w/images/thumb/9/9f/m3_integer_scheduler.svg/750px-m3_integer_scheduler.svg.png 1.5x, /w/images/thumb/9/9f/m3_integer_scheduler.svg/1000px-m3_integer_scheduler.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_integer_scheduler.svg" class="internal" title="Enlarge"></a></div></div></div></div>
+<p>The <a href="/w/index.php?title=dispatch_queue&amp;action=edit&amp;redlink=1" class="new" title="dispatch queue (page does not exist)">dispatch queue</a> feeds the execution units. The M3 doubles the <a href="/w/index.php?title=physical_register_file&amp;action=edit&amp;redlink=1" class="new" title="physical register file (page does not exist)">physical register files</a>. For integers, there is now a 192-entry integer <a href="/w/index.php?title=physical_register_file&amp;action=edit&amp;redlink=1" class="new" title="physical register file (page does not exist)">physical register file</a> (roughly 35-36 of them is architected) which means data movement is not necessary. In the integer execution cluster, up to 9 µOPs per cycle may be dispatched to the <a href="/w/index.php?title=schedulers&amp;action=edit&amp;redlink=1" class="new" title="schedulers (page does not exist)">schedulers</a>. The schedulers are distributed across the various pipes. M3 more than doubled the depth of those schedulers. In total, the integer schedulers now have 126 entries and those entries are distributed in mixed sizes across the 9 schedulers.
+</p><p>For the first pipe the M3, like it's predecessors, has a <a href="/w/index.php?title=branch_resolution&amp;action=edit&amp;redlink=1" class="new" title="branch resolution (page does not exist)">branch resolution</a> unit. The next four pipes have integer ALUs. Whereas in the prior design there was one complex ALU pipe and three simple <a href="/wiki/ALU" class="mw-redirect" title="ALU">ALU</a> pipes, in the M3 the newly added pipe is also a <a href="/w/index.php?title=complex_ALU&amp;action=edit&amp;redlink=1" class="new" title="complex ALU (page does not exist)">complex ALU</a>. In other words, while all four pipes are capable of executing the typical integer ALU µOPs (i.e., two-source µOPs), only the ALUCs (complex ALUs) can also execute three source µOPs. This includes some of the <a href="/w/index.php?title=arm/armv7&amp;action=edit&amp;redlink=1" class="new" title="arm/armv7 (page does not exist)">ARMv7</a> special predicate forms. Generally speaking, most of the simple classes of instructions (e.g., normal add) should be a single cycle while the more complex operations (e.g., add with <a href="/w/index.php?title=barrel_shift&amp;action=edit&amp;redlink=1" class="new" title="barrel shift (page does not exist)">barrel shift</a> rotate) would be a cycle or two more. Compared to the M1, Samsung was able to reduce the latency for some of the shift+add and similar µOPs down from two cycles to just one. For a few special cases, Samsung was also able to reduce the latency down to zero cycles.
+</p><p>For the integer <a href="/w/index.php?title=divider&amp;action=edit&amp;redlink=1" class="new" title="divider (page does not exist)">divider</a> unit, the M3 implements a radix 16 (4 bits/cycle), halving the latency in the iterative portion from the prior generation which implemented a radix 4 (2 bits/cycle) divider unit. 
+</p><p>The last four pipes are for the <a href="/w/index.php?title=AGU&amp;action=edit&amp;redlink=1" class="new" title="AGU (page does not exist)">AGUs</a> and store data execution units (discussed later).
+</p>
+<h4><span class="mw-headline" id="Floating-point_cluster">Floating-point cluster</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=22" title="Edit section: Floating-point cluster">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:m3_fp_scheduler.svg" class="image"><img alt="m3 fp scheduler.svg" src="/w/images/thumb/b/bc/m3_fp_scheduler.svg/300px-m3_fp_scheduler.svg.png" width="300" height="355" class="thumbimage" srcset="/w/images/thumb/b/bc/m3_fp_scheduler.svg/450px-m3_fp_scheduler.svg.png 1.5x, /w/images/thumb/b/bc/m3_fp_scheduler.svg/600px-m3_fp_scheduler.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_fp_scheduler.svg" class="internal" title="Enlarge"></a></div></div></div></div>
+<p>On the floating point cluster side, the adds another FP pipe and close to doubled the scheduler. Here, up to 3 µOPs may be issued to a unified scheduler which consists of 62 entries. Like the integer side, the FP FRP has also doubled in capacity with a 192-entry floating point (vector) <a href="/w/index.php?title=physical_register_file&amp;action=edit&amp;redlink=1" class="new" title="physical register file (page does not exist)">physical register file</a> (roughly 35-36 architected). There are three pipes and all three pipes have an integer SIMD unit (<a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a>).
+</p><p>The first pipe features a 4-cycle <a href="/w/index.php?title=FMAC&amp;action=edit&amp;redlink=1" class="new" title="FMAC (page does not exist)">FMAC</a> and a 3-cycle multiplier while the second pipe incorporates a 2-cycle <a href="/w/index.php?title=floating-point_adder&amp;action=edit&amp;redlink=1" class="new" title="floating-point adder (page does not exist)">floating-point adder</a>. In all three units, Samsung reduced the latency by one cycle (from 5, 4, and 3 cycle latencies respectively). Overall, all three pipes are fuller and more capable. All three pipes have an FMAC and FADD units, doubling the <a href="/wiki/FLOPS" class="mw-redirect" title="FLOPS">FLOPS</a> of the prior design. Additionally, there is a second pipe with a <a href="/w/index.php?title=cryptography&amp;action=edit&amp;redlink=1" class="new" title="cryptography (page does not exist)">cryptography</a> floating point conversion unit. Similar to the integer <a href="/w/index.php?title=divider&amp;action=edit&amp;redlink=1" class="new" title="divider (page does not exist)">divider</a> unit, the M3 also implements a radix 16 (4 bits/cycle) for the FDIV unit, halving the latency in the iterative portion from the prior generation which implemented a radix 4 (2 bits/cycle). 
+</p><p>As with the integer cluster, there are now two pipes that incorporate a 128-bit floating point store/load port.
+</p>
+<dl><dd><div class="thumb tleft"><div class="thumbinner" style="width:602px;"><a href="/wiki/File:m3_fp_eu_pipes_changes.svg" class="image"><img alt="" src="/w/images/thumb/5/58/m3_fp_eu_pipes_changes.svg/600px-m3_fp_eu_pipes_changes.svg.png" width="600" height="282" class="thumbimage" srcset="/w/images/thumb/5/58/m3_fp_eu_pipes_changes.svg/900px-m3_fp_eu_pipes_changes.svg.png 1.5x, /w/images/thumb/5/58/m3_fp_eu_pipes_changes.svg/1200px-m3_fp_eu_pipes_changes.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_fp_eu_pipes_changes.svg" class="internal" title="Enlarge"></a></div>Floating-point pipe changes.</div></div></div></dd></dl>
+<div style="clear:both;"></div>
+<h4><span class="mw-headline" id="Retirement">Retirement</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=23" title="Edit section: Retirement">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Once execution is complete, µOPs may retire at a rate of up to 6 µOPs per cycle.
+</p>
+<h4><span class="mw-headline" id="Memory_subsystem">Memory subsystem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=24" title="Edit section: Memory subsystem">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tleft"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:m3_data_cache.svg" class="image"><img alt="m3 data cache.svg" src="/w/images/thumb/6/66/m3_data_cache.svg/300px-m3_data_cache.svg.png" width="300" height="219" class="thumbimage" srcset="/w/images/thumb/6/66/m3_data_cache.svg/450px-m3_data_cache.svg.png 1.5x, /w/images/thumb/6/66/m3_data_cache.svg/600px-m3_data_cache.svg.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:m3_data_cache.svg" class="internal" title="Enlarge"></a></div></div></div></div>
+<p>The memory subsystem on the M3 has been entirely overhauled. Whereas the M1 had a 32 KiB level 1 <a href="/w/index.php?title=data_cache&amp;action=edit&amp;redlink=1" class="new" title="data cache (page does not exist)">data cache</a>, the M3 doubled it to 64 KiB. It's still 8-way <a href="/w/index.php?title=set_associative&amp;action=edit&amp;redlink=1" class="new" title="set associative (page does not exist)">set associative</a> which is <a href="/w/index.php?title=ECC&amp;action=edit&amp;redlink=1" class="new" title="ECC (page does not exist)">ECC</a> protected. <a href="/w/index.php?title=Loads&amp;action=edit&amp;redlink=1" class="new" title="Loads (page does not exist)">Loads</a> and <a href="/w/index.php?title=stores&amp;action=edit&amp;redlink=1" class="new" title="stores (page does not exist)">stores</a> are done fully <a href="/w/index.php?title=out_of_order&amp;action=edit&amp;redlink=1" class="new" title="out of order (page does not exist)">out of order</a> with all the typical forwarding and light prediction that prevents thrashing.
+</p><p>In the prior generations, the M1 was capable of a single 128-bit load each cycle and a single 128-bit store each cycle. The M3 supports two 128-bit loads each cycle and one 128-bit store per cycle. Note that both operations can be done at the same cycle. With the <a href="/w/index.php?title=floating-point&amp;action=edit&amp;redlink=1" class="new" title="floating-point (page does not exist)">floating-point</a> stores in <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a>, the M3 can match and load-store bandwidth in many copy scenarios. Despite doubling the cache size, the level 1 data cache still maintains a 4-cycle load latency and can support 12 outstanding misses to the <a href="/w/index.php?title=L2&amp;action=edit&amp;redlink=1" class="new" title="L2 (page does not exist)">L2</a> hierarchy. Additionally, the M3 LSU schedulers are larger and the store buffer was doubled in capacity. 
+</p><p>The M3 has a <a href="/w/index.php?title=multi-stride&amp;action=edit&amp;redlink=1" class="new" title="multi-stride (page does not exist)">multi-stride</a> prefetcher which allows it to detect patterns and start the fetching request ahead of execution. There is also some stream/copy optimizations as well which accelerate certain observable traffic patterns. In the M3, Samsung added new stream and copy optimizations. For cases such as <code><a href="/w/index.php?title=c/memcpy&amp;action=edit&amp;redlink=1" class="new" title="c/memcpy (page does not exist)">memcpy()</a></code> where you'd want an even amount of loads and stores, the M3 can do 2x128-bit loads and stores. In the cases of load-pair quads, operations are cracked into two 128-bit loads. On the store side, the single store <a href="/w/index.php?title=AGU&amp;action=edit&amp;redlink=1" class="new" title="AGU (page does not exist)">AGU</a> can be used for both pairs (calculating a single address) and the store data unit can be doubled up. They also added new patterns to the prefetcher in order to address addition scenarios. 
+</p><p>As with the M1, the <a href="/w/index.php?title=dTLB&amp;action=edit&amp;redlink=1" class="new" title="dTLB (page does not exist)">dTLB</a> is still 32 entries which remain considerably smaller than the 512-entry <a href="/w/index.php?title=iTLB&amp;action=edit&amp;redlink=1" class="new" title="iTLB (page does not exist)">iTLB</a>. The reason remains similar to that of the M1 which is because the front-end is designed with a lot more room in mind as far as handling a larger TLB capacity natively in its pipeline. It's also physically laid out much further on the floor plan. This allows the L2 TLB to service the dTLB more aggressively. The TLB on the M3 has been slightly remapped. In addition to the 32-entry primary dTLB, there is a new mid-level dTLB that's 512-entry deep. The second-level STLB has also quadrupled in size from 1K in the prior generation to 4K on the M3.
+</p>
+<h2><span class="mw-headline" id="Core_cluster">Core cluster</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=25" title="Edit section: Core cluster">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the prior generations (e.g., <a href="/wiki/samsung/microarchitectures/m1" title="samsung/microarchitectures/m1">M1</a> and <a href="/wiki/samsung/microarchitectures/m2" title="samsung/microarchitectures/m2">M2</a>), Samsung had a quad-core cluster with a shared L2 cache. The 2 MiB of L2 comprised of 4 banks of 512 KiB served from the L2 control and achieved 22 cycles latency. In the M3, the arrangements are very different. A big motivator for many of the changes is the ability to design one block and duplicate it over four times to form the new quad-core cluster. With the new M3 design, each core now has 512 KiB of private L2. Each one is 8-way set associative, inclusive of the L1, and has a much lower 12-cycle latency. The M3 introduced a new large 4 MiB shared L3. It is partitioned as four 1 MiB slices with one slice per core. The L3 is exclusive of the L2 in order to prevent redundant data storage. The L3 is a statically-mapped <a href="/w/index.php?title=non-uniform_cache_architecture&amp;action=edit&amp;redlink=1" class="new" title="non-uniform cache architecture (page does not exist)">non-uniform cache architecture</a> (NUCA) which differs in latency depending on the physical location of the L3 slice where the data resides. Typical access latency is around 37 cycles.
+</p><p>Compared to the M1, the M3 increased the number of outstanding transactions to the DRAM from 56 to 80.
+</p>
+<h2><span class="mw-headline" id="Die">Die</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=26" title="Edit section: Die">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Due to the much wider core design, Samsung reported more than double the area per core at ISO-process.
+</p>
+<h3><span class="mw-headline" id="Core_floorplan">Core floorplan</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=27" title="Edit section: Core floorplan">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Samsung <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a> (10LPP)</li>
+<li> 3.5 mm²
+<ul><li> Core 2.52 mm²</li>
+<li> pL2 0.98 mm²</li></ul></li></ul>
+<p><br />
+</p>
+<dl><dd><a href="/wiki/File:m3_core_floorplan.png" class="image"><img alt="m3 core floorplan.png" src="/w/images/thumb/0/05/m3_core_floorplan.png/450px-m3_core_floorplan.png" width="450" height="758" srcset="/w/images/thumb/0/05/m3_core_floorplan.png/675px-m3_core_floorplan.png 1.5x, /w/images/thumb/0/05/m3_core_floorplan.png/900px-m3_core_floorplan.png 2x" /></a></dd></dl>
+<p><br />
+</p>
+<dl><dd><a href="/wiki/File:m3_core_floorplan_(annotated).png" class="image"><img alt="m3 core floorplan (annotated).png" src="/w/images/thumb/5/5f/m3_core_floorplan_%28annotated%29.png/450px-m3_core_floorplan_%28annotated%29.png" width="450" height="758" srcset="/w/images/thumb/5/5f/m3_core_floorplan_%28annotated%29.png/675px-m3_core_floorplan_%28annotated%29.png 1.5x, /w/images/thumb/5/5f/m3_core_floorplan_%28annotated%29.png/900px-m3_core_floorplan_%28annotated%29.png 2x" /></a></dd></dl>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Core_cluster_2">Core cluster</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=28" title="Edit section: Core cluster">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Samsung <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a> (10LPP)</li>
+<li> 20.9 mm²</li></ul>
+<p><br />
+</p>
+<dl><dd><a href="/wiki/File:m3_core_cluster_floorplan.png" class="image"><img alt="m3 core cluster floorplan.png" src="/w/images/thumb/a/af/m3_core_cluster_floorplan.png/800px-m3_core_cluster_floorplan.png" width="800" height="483" class="wikichip_ogimage" srcset="/w/images/thumb/a/af/m3_core_cluster_floorplan.png/1200px-m3_core_cluster_floorplan.png 1.5x, /w/images/thumb/a/af/m3_core_cluster_floorplan.png/1600px-m3_core_cluster_floorplan.png 2x" /></a></dd></dl>
+<p><br />
+</p>
+<dl><dd><a href="/wiki/File:m3_core_cluster_floorplan_(annotated).png" class="image"><img alt="m3 core cluster floorplan (annotated).png" src="/w/images/thumb/0/0a/m3_core_cluster_floorplan_%28annotated%29.png/800px-m3_core_cluster_floorplan_%28annotated%29.png" width="800" height="483" srcset="/w/images/thumb/0/0a/m3_core_cluster_floorplan_%28annotated%29.png/1200px-m3_core_cluster_floorplan_%28annotated%29.png 1.5x, /w/images/thumb/0/0a/m3_core_cluster_floorplan_%28annotated%29.png/1600px-m3_core_cluster_floorplan_%28annotated%29.png 2x" /></a></dd></dl>
+<h2><span class="mw-headline" id="All_M3_Processors">All M3 Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=29" title="Edit section: All M3 Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc5 tc6 tc7">
+<tr class="comptable-header"><th>&#160;</th><th colspan="7">List of M3-based Processors</th></tr>
+<tr class="comptable-header"><th>&#160;</th><th colspan="5">Main processor</th><th colspan="2">Integrated Graphics</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Family</th><th>Launched</th><th>Arch</th><th>Cores</th><th data-sort-type="number">Frequency</th><th>GPU</th><th data-sort-type="number">Frequency</th></tr>
+<tr class="comptable-header"><th>Count: 0</th></tr>
+</table>
+</div></div>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=samsung/microarchitectures/m3&amp;action=edit&amp;section=30" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Samsung, IEEE Hot Chips 30 Symposium (HCS) 2018.</li>
+<li> LLVM: lib/Target/AArch64/AArch64SchedExynosM3.td</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:28140-0!*!0!default!!en!5!* and timestamp 20200929011517 and revision id 95980
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=samsung/microarchitectures/m3&amp;oldid=95980">https://en.wikichip.org/w/index.php?title=samsung/microarchitectures/m3&amp;oldid=95980</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:cpu_microarchitectures_by_samsung" title="Category:cpu microarchitectures by samsung">cpu microarchitectures by samsung</a></li><li><a href="/wiki/Category:microarchitectures_by_samsung" title="Category:microarchitectures by samsung">microarchitectures by samsung</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:samsung-2Fmicroarchitectures-2Fm3" title="Special:Browse/:samsung-2Fmicroarchitectures-2Fm3">Exynos M3 - Microarchitectures - Samsung</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/samsung/microarchitectures/m3" title="Special:ExportRDF/samsung/microarchitectures/m3">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Meerkat  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Meerkat" title="Special:SearchByProperty/:codename/Meerkat">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core&#160;count</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/4" title="Special:SearchByProperty/:core-20count/4">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Samsung  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Samsung" title="Special:SearchByProperty/:designer/Samsung">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">2018  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/2018" title="Special:SearchByProperty/:first-20launched/2018">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full&#160;page&#160;name</a></td><td class="smwprops">samsung/microarchitectures/m3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/samsung-2Fmicroarchitectures-2Fm3" title="Special:SearchByProperty/:full-20page-20name/samsung-2Fmicroarchitectures-2Fm3">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction&#160;set&#160;architecture</a></td><td class="smwprops">ARMv8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARMv8" title="Special:SearchByProperty/:instruction-20set-20architecture/ARMv8">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">Samsung  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Samsung" title="Special:SearchByProperty/:manufacturer/Samsung">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture&#160;type</a></td><td class="smwprops">CPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/CPU" title="Special:SearchByProperty/:microarchitecture-20type/CPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Meerkat  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Meerkat" title="Special:SearchByProperty/:name/Meerkat">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages" title="Property:pipeline stages">pipeline&#160;stages</a></td><td class="smwprops">16  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages/16" title="Special:SearchByProperty/:pipeline-20stages/16">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">10&#160;nm (0.01&#160;μm, 1.0e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/10-20nm" title="Special:SearchByProperty/:process/10-20nm">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 15 February 2020, at 10:44.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":149});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

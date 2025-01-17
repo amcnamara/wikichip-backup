@@ -1,0 +1,1570 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=30', true, [], true, false, true, false);</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"page_view_id":"8d57bf3f-9ed1-4c3a-54c2-82142a9dbc99","response_size_orig":128367,"response_time_orig":182,"template_id":5,"url":"https://en.wikichip.org/wiki/FLOPS","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=23', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,f){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===f&&(f=!1),parseInt(__ez.dot.getTargeting(t,"ap"));var p=__ez.dot.getSlotIID(t),s=__ez.dot.getAdUnit(t,f),u=parseInt(__ez.dot.getTargeting(t,"compid")),l=0,g=0,z=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(z)&&(void 0!==z.creative_id&&(g=z.creative_id),void 0!==z.line_item_id&&(l=z.line_item_id)),__ez.dot.isDefined(p,s)&&__ez.dot.isValid(o)&&("0"===p&&!0!==f||""===s||i.push({type:"impression",impression_id:p,domain_id:__ez.dot.getDID(),unit:s,t_epoch:__ez.dot.getEpoch(0),revenue:d,bid_floor_filled:n,stat_source_id:a,pageview_id:__ez.dot.getPageviewId(),comp_id:u,line_item_id:l,creative_id:g,data:__ez.dot.dataToStr(o),is_orig:f||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d,_){var n=e.split("/");if(__ez.dot.isDefined(e)&&3===n.length&&__ez.dot.isValid(t)){var r=n[0],a={type:"impression",impression_id:n[2],domain_id:__ez.dot.getDID(),unit:r,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(a.revenue=d),void 0!==_&&(a.bid_floor_filled=_),i.push(a)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/FLOPS"/>
+
+<title>Floating-Point Operations Per Second (FLOPS) - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"flops","wgTitle":"flops","wgCurRevisionId":101081,"wgRevisionId":101081,"wgArticleId":31381,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["floating point","computer performance"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"flops","wgRelevantArticleId":31381,"wgRequestId":"8990bc4e6f9fed62c7becda1","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"FLOPS","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/flops"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="flops" href="/w/index.php?title=Special:ExportRDF/flops&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=flops&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=flops&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/flops"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Floating-Point Operations Per Second (FLOPS) - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Floating-point operations per second (FLOPS) is a measure of compute performance used to quantify the number of floating-point operations a core, machine, or system is capable of in a one second."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type='text/javascript'>
+var ezoTemplate = 'orig_site';
+var ezouid = '1';
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod245","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"8d57bf3f-9ed1-4c3a-54c2-82142a9dbc99","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":128367,"response_time_orig":182,"serverid":"i-0bd9d366971c03bea","state":"VA","t_epoch":1701709089,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/FLOPS","word_count":1293,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-flops rootpage-flops skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/flops">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:flops"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=flops&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=flops&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=flops"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/flops"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/flops"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=flops&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=flops&amp;oldid=101081"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=flops&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:flops"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Floating-Point Operations Per Second (FLOPS)    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=FLOPS&amp;redirect=no" class="mw-redirect" title="FLOPS">FLOPS</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>Floating-point operations per second</b> (<b>FLOPS</b>) is a measure of <a href="/w/index.php?title=compute_performance&amp;action=edit&amp;redlink=1" class="new" title="compute performance (page does not exist)">compute performance</a> used to quantify the number of <a href="/w/index.php?title=floating-point&amp;action=edit&amp;redlink=1" class="new" title="floating-point (page does not exist)">floating-point</a> <a href="/w/index.php?title=floating-point_operations&amp;action=edit&amp;redlink=1" class="new" title="floating-point operations (page does not exist)">operations</a> a <a href="/wiki/physical_core" title="physical core">core</a>, machine, or system is capable of in a one second.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Nomenclature"><span class="tocnumber">1.1</span> <span class="toctext">Nomenclature</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#FLOPs_by_microarchitecture"><span class="tocnumber">2</span> <span class="toctext">FLOPs by microarchitecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#x86"><span class="tocnumber">2.1</span> <span class="toctext">x86</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#ARM"><span class="tocnumber">2.2</span> <span class="toctext">ARM</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>FLOPS are a measure of performance used for comparing the peak theoretical performance of a <a href="/wiki/physical_core" title="physical core">core</a>, <a href="/wiki/microprocessor" title="microprocessor">microprocessor</a>, or system using <a href="/w/index.php?title=floating_point&amp;action=edit&amp;redlink=1" class="new" title="floating point (page does not exist)">floating point</a> <a href="/w/index.php?title=floating-point_operations&amp;action=edit&amp;redlink=1" class="new" title="floating-point operations (page does not exist)">operations</a>. This unit is often used in the field of <a href="/w/index.php?title=high-performance_computing&amp;action=edit&amp;redlink=1" class="new" title="high-performance computing (page does not exist)">high-performance computing</a> (e.g., <a href="/wiki/supercomputers" class="mw-redirect" title="supercomputers">supercomputers</a>) in order to evaluate the peak theoretical performance of various scientific workloads. Traditionally, the FLOPS of a microprocessor could be calculated using the following equation:
+</p>
+<dl><dd><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="32.648ex" height="6.176ex" style="vertical-align: -2.505ex;" viewBox="0 -1580.7 14056.8 2659.1" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">FLOPS Subscript core Baseline equals StartFraction FLOPs Over cycle EndFraction times StartFraction cycles Over second EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4C" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q48 680 182 680Q324 680 348 683H360V637H333Q273 637 258 635T233 622L232 342V129Q232 57 237 52Q243 47 313 47Q384 47 410 53Q470 70 498 110T536 221Q536 226 537 238T540 261T542 272T562 273H582V268Q580 265 568 137T554 5V0H25V46H58Q100 47 109 49T128 61V622Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4F" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM467 647Q426 665 388 665Q360 665 331 654T269 620T213 549T179 439Q174 411 174 354Q174 144 277 61Q327 20 385 20H389H391Q474 20 537 99Q603 188 603 354Q603 411 598 439Q577 592 467 647Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-50" d="M130 622Q123 629 119 631T103 634T60 637H27V683H214Q237 683 276 683T331 684Q419 684 471 671T567 616Q624 563 624 489Q624 421 573 372T451 307Q429 302 328 301H234V181Q234 62 237 58Q245 47 304 46H337V0H326Q305 3 182 3Q47 3 38 0H27V46H60Q102 47 111 49T130 61V622ZM507 488Q507 514 506 528T500 564T483 597T450 620T397 635Q385 637 307 637H286Q237 637 234 628Q231 624 231 483V342H302H339Q390 342 423 349T481 382Q507 411 507 488Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-53" d="M55 507Q55 590 112 647T243 704H257Q342 704 405 641L426 672Q431 679 436 687T446 700L449 704Q450 704 453 704T459 705H463Q466 705 472 699V462L466 456H448Q437 456 435 459T430 479Q413 605 329 646Q292 662 254 662Q201 662 168 626T135 542Q135 508 152 480T200 435Q210 431 286 412T370 389Q427 367 463 314T500 191Q500 110 448 45T301 -21Q245 -21 201 -4T140 27L122 41Q118 36 107 21T87 -7T78 -21Q76 -22 68 -22H64Q61 -22 55 -16V101Q55 220 56 222Q58 227 76 227H89Q95 221 95 214Q95 182 105 151T139 90T205 42T305 24Q352 24 386 62T420 155Q420 198 398 233T340 281Q284 295 266 300Q261 301 239 306T206 314T174 325T141 343T112 367T85 402Q55 451 55 507Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-79" d="M69 -66Q91 -66 104 -80T118 -116Q118 -134 109 -145T91 -160Q84 -163 97 -166Q104 -168 111 -168Q131 -168 148 -159T175 -138T197 -106T213 -75T225 -43L242 0L170 183Q150 233 125 297Q101 358 96 368T80 381Q79 382 78 382Q66 385 34 385H19V431H26L46 430Q65 430 88 429T122 428Q129 428 142 428T171 429T200 430T224 430L233 431H241V385H232Q183 385 185 366L286 112Q286 113 332 227L376 341V350Q376 365 366 373T348 383T334 385H331V431H337H344Q351 431 361 431T382 430T405 429T422 429Q477 429 503 431H508V385H497Q441 380 422 345Q420 343 378 235T289 9T227 -131Q180 -204 113 -204Q69 -204 44 -177T19 -116Q19 -89 35 -78T69 -66Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-53" x="2757" y="0"></use>
+<g transform="translate(3318,-150)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-63"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6F" x="449" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-72" x="953" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-65" x="1350" y="0"></use>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="4968" y="0"></use>
+<g transform="translate(6029,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3276" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2757" y="0"></use>
+</g>
+<g transform="translate(556,-725)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="9767" y="0"></use>
+<g transform="translate(10772,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3044" height="60" x="0" y="220"></rect>
+<g transform="translate(241,733)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2163" y="0"></use>
+</g>
+<g transform="translate(60,-725)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="848" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="1297" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="1802" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="2363" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></dd></dl>
+<p>With the advent of <a href="/w/index.php?title=multi-socket&amp;action=edit&amp;redlink=1" class="new" title="multi-socket (page does not exist)">multi-socket</a> and <a href="/wiki/multi-core" class="mw-redirect" title="multi-core">multi-core</a> architectures, additional levels of explicit parallelism have been introduced resulting in the following modified equation:
+</p>
+<dl><dd><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="41.896ex" height="6.176ex" style="vertical-align: -2.505ex;" viewBox="0 -1580.7 18038.4 2659.1" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">FLOPS Subscript node Baseline equals StartFraction FLOPs Over cycle EndFraction times StartFraction cycles Over second EndFraction times StartFraction cores Over node EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4C" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q48 680 182 680Q324 680 348 683H360V637H333Q273 637 258 635T233 622L232 342V129Q232 57 237 52Q243 47 313 47Q384 47 410 53Q470 70 498 110T536 221Q536 226 537 238T540 261T542 272T562 273H582V268Q580 265 568 137T554 5V0H25V46H58Q100 47 109 49T128 61V622Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4F" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM467 647Q426 665 388 665Q360 665 331 654T269 620T213 549T179 439Q174 411 174 354Q174 144 277 61Q327 20 385 20H389H391Q474 20 537 99Q603 188 603 354Q603 411 598 439Q577 592 467 647Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-50" d="M130 622Q123 629 119 631T103 634T60 637H27V683H214Q237 683 276 683T331 684Q419 684 471 671T567 616Q624 563 624 489Q624 421 573 372T451 307Q429 302 328 301H234V181Q234 62 237 58Q245 47 304 46H337V0H326Q305 3 182 3Q47 3 38 0H27V46H60Q102 47 111 49T130 61V622ZM507 488Q507 514 506 528T500 564T483 597T450 620T397 635Q385 637 307 637H286Q237 637 234 628Q231 624 231 483V342H302H339Q390 342 423 349T481 382Q507 411 507 488Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-53" d="M55 507Q55 590 112 647T243 704H257Q342 704 405 641L426 672Q431 679 436 687T446 700L449 704Q450 704 453 704T459 705H463Q466 705 472 699V462L466 456H448Q437 456 435 459T430 479Q413 605 329 646Q292 662 254 662Q201 662 168 626T135 542Q135 508 152 480T200 435Q210 431 286 412T370 389Q427 367 463 314T500 191Q500 110 448 45T301 -21Q245 -21 201 -4T140 27L122 41Q118 36 107 21T87 -7T78 -21Q76 -22 68 -22H64Q61 -22 55 -16V101Q55 220 56 222Q58 227 76 227H89Q95 221 95 214Q95 182 105 151T139 90T205 42T305 24Q352 24 386 62T420 155Q420 198 398 233T340 281Q284 295 266 300Q261 301 239 306T206 314T174 325T141 343T112 367T85 402Q55 451 55 507Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-79" d="M69 -66Q91 -66 104 -80T118 -116Q118 -134 109 -145T91 -160Q84 -163 97 -166Q104 -168 111 -168Q131 -168 148 -159T175 -138T197 -106T213 -75T225 -43L242 0L170 183Q150 233 125 297Q101 358 96 368T80 381Q79 382 78 382Q66 385 34 385H19V431H26L46 430Q65 430 88 429T122 428Q129 428 142 428T171 429T200 430T224 430L233 431H241V385H232Q183 385 185 366L286 112Q286 113 332 227L376 341V350Q376 365 366 373T348 383T334 385H331V431H337H344Q351 431 361 431T382 430T405 429T422 429Q477 429 503 431H508V385H497Q441 380 422 345Q420 343 378 235T289 9T227 -131Q180 -204 113 -204Q69 -204 44 -177T19 -116Q19 -89 35 -78T69 -66Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-53" x="2757" y="0"></use>
+<g transform="translate(3318,-155)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6E"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="5163" y="0"></use>
+<g transform="translate(6224,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3276" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2757" y="0"></use>
+</g>
+<g transform="translate(556,-725)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="9962" y="0"></use>
+<g transform="translate(10967,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3044" height="60" x="0" y="220"></rect>
+<g transform="translate(241,733)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2163" y="0"></use>
+</g>
+<g transform="translate(60,-725)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="848" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="1297" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="1802" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="2363" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="14474" y="0"></use>
+<g transform="translate(15479,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="2319" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="954" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1351" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="1800" y="0"></use>
+</g>
+<g transform="translate(121,-725)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></dd></dl>
+<p>and,
+</p>
+<dl><dd><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="54.116ex" height="6.176ex" style="vertical-align: -2.505ex;" viewBox="0 -1580.7 23299.7 2659.1" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">FLOPS Subscript system Baseline equals StartFraction FLOPs Over cycle EndFraction times StartFraction cycles Over second EndFraction times StartFraction cores Over node EndFraction times StartFraction nodes Over system EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4C" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q48 680 182 680Q324 680 348 683H360V637H333Q273 637 258 635T233 622L232 342V129Q232 57 237 52Q243 47 313 47Q384 47 410 53Q470 70 498 110T536 221Q536 226 537 238T540 261T542 272T562 273H582V268Q580 265 568 137T554 5V0H25V46H58Q100 47 109 49T128 61V622Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4F" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM467 647Q426 665 388 665Q360 665 331 654T269 620T213 549T179 439Q174 411 174 354Q174 144 277 61Q327 20 385 20H389H391Q474 20 537 99Q603 188 603 354Q603 411 598 439Q577 592 467 647Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-50" d="M130 622Q123 629 119 631T103 634T60 637H27V683H214Q237 683 276 683T331 684Q419 684 471 671T567 616Q624 563 624 489Q624 421 573 372T451 307Q429 302 328 301H234V181Q234 62 237 58Q245 47 304 46H337V0H326Q305 3 182 3Q47 3 38 0H27V46H60Q102 47 111 49T130 61V622ZM507 488Q507 514 506 528T500 564T483 597T450 620T397 635Q385 637 307 637H286Q237 637 234 628Q231 624 231 483V342H302H339Q390 342 423 349T481 382Q507 411 507 488Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-53" d="M55 507Q55 590 112 647T243 704H257Q342 704 405 641L426 672Q431 679 436 687T446 700L449 704Q450 704 453 704T459 705H463Q466 705 472 699V462L466 456H448Q437 456 435 459T430 479Q413 605 329 646Q292 662 254 662Q201 662 168 626T135 542Q135 508 152 480T200 435Q210 431 286 412T370 389Q427 367 463 314T500 191Q500 110 448 45T301 -21Q245 -21 201 -4T140 27L122 41Q118 36 107 21T87 -7T78 -21Q76 -22 68 -22H64Q61 -22 55 -16V101Q55 220 56 222Q58 227 76 227H89Q95 221 95 214Q95 182 105 151T139 90T205 42T305 24Q352 24 386 62T420 155Q420 198 398 233T340 281Q284 295 266 300Q261 301 239 306T206 314T174 325T141 343T112 367T85 402Q55 451 55 507Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-79" d="M69 -66Q91 -66 104 -80T118 -116Q118 -134 109 -145T91 -160Q84 -163 97 -166Q104 -168 111 -168Q131 -168 148 -159T175 -138T197 -106T213 -75T225 -43L242 0L170 183Q150 233 125 297Q101 358 96 368T80 381Q79 382 78 382Q66 385 34 385H19V431H26L46 430Q65 430 88 429T122 428Q129 428 142 428T171 429T200 430T224 430L233 431H241V385H232Q183 385 185 366L286 112Q286 113 332 227L376 341V350Q376 365 366 373T348 383T334 385H331V431H337H344Q351 431 361 431T382 430T405 429T422 429Q477 429 503 431H508V385H497Q441 380 422 345Q420 343 378 235T289 9T227 -131Q180 -204 113 -204Q69 -204 44 -177T19 -116Q19 -89 35 -78T69 -66Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-53" x="2757" y="0"></use>
+<g transform="translate(3318,-150)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-73"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-79" x="399" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-73" x="932" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-74" x="1331" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-65" x="1725" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6D" x="2174" y="0"></use>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="5825" y="0"></use>
+<g transform="translate(6886,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3276" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2757" y="0"></use>
+</g>
+<g transform="translate(556,-725)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="10624" y="0"></use>
+<g transform="translate(11629,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3044" height="60" x="0" y="220"></rect>
+<g transform="translate(241,733)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2163" y="0"></use>
+</g>
+<g transform="translate(60,-725)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="848" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="1297" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="1802" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="2363" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="15136" y="0"></use>
+<g transform="translate(16141,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="2319" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="954" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1351" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="1800" y="0"></use>
+</g>
+<g transform="translate(121,-725)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="18922" y="0"></use>
+<g transform="translate(19927,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3132" height="60" x="0" y="220"></rect>
+<g transform="translate(328,676)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2076" y="0"></use>
+</g>
+<g transform="translate(60,-686)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="932" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1331" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1725" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6D" x="2174" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></dd></dl>
+<p>Modern microprocessors exploit <a href="/w/index.php?title=data_parallelism&amp;action=edit&amp;redlink=1" class="new" title="data parallelism (page does not exist)">data parallelism</a> further through the introduction of various vector extensions such as <a href="/wiki/x86" title="x86">x86</a>&#39;s <a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">AVX</a> and <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a>&#39;s <a href="/w/index.php?title=arm/sve&amp;action=edit&amp;redlink=1" class="new" title="arm/sve (page does not exist)">SVE</a>. With those extensions, it&#39;s possible to perform multiple floating-point operations within a single instruction. For example, a typical <a href="/w/index.php?title=fused_multiply-accumulate&amp;action=edit&amp;redlink=1" class="new" title="fused multiply-accumulate (page does not exist)">fused multiply-accumulate</a> (FMAC) operation can perform two floating-point operations at once. For a single core, this can be expressed as
+</p>
+<dl><dd><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="65.517ex" height="6.176ex" style="vertical-align: -2.505ex;" viewBox="0 -1580.7 28208.7 2659.1" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">FLOPS Subscript core Baseline equals StartFraction instructions Over cycle EndFraction times StartFraction operations Over instruction EndFraction times StartFraction FLOPs Over operation EndFraction times StartFraction cycles Over second EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4C" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q48 680 182 680Q324 680 348 683H360V637H333Q273 637 258 635T233 622L232 342V129Q232 57 237 52Q243 47 313 47Q384 47 410 53Q470 70 498 110T536 221Q536 226 537 238T540 261T542 272T562 273H582V268Q580 265 568 137T554 5V0H25V46H58Q100 47 109 49T128 61V622Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4F" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM467 647Q426 665 388 665Q360 665 331 654T269 620T213 549T179 439Q174 411 174 354Q174 144 277 61Q327 20 385 20H389H391Q474 20 537 99Q603 188 603 354Q603 411 598 439Q577 592 467 647Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-50" d="M130 622Q123 629 119 631T103 634T60 637H27V683H214Q237 683 276 683T331 684Q419 684 471 671T567 616Q624 563 624 489Q624 421 573 372T451 307Q429 302 328 301H234V181Q234 62 237 58Q245 47 304 46H337V0H326Q305 3 182 3Q47 3 38 0H27V46H60Q102 47 111 49T130 61V622ZM507 488Q507 514 506 528T500 564T483 597T450 620T397 635Q385 637 307 637H286Q237 637 234 628Q231 624 231 483V342H302H339Q390 342 423 349T481 382Q507 411 507 488Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-53" d="M55 507Q55 590 112 647T243 704H257Q342 704 405 641L426 672Q431 679 436 687T446 700L449 704Q450 704 453 704T459 705H463Q466 705 472 699V462L466 456H448Q437 456 435 459T430 479Q413 605 329 646Q292 662 254 662Q201 662 168 626T135 542Q135 508 152 480T200 435Q210 431 286 412T370 389Q427 367 463 314T500 191Q500 110 448 45T301 -21Q245 -21 201 -4T140 27L122 41Q118 36 107 21T87 -7T78 -21Q76 -22 68 -22H64Q61 -22 55 -16V101Q55 220 56 222Q58 227 76 227H89Q95 221 95 214Q95 182 105 151T139 90T205 42T305 24Q352 24 386 62T420 155Q420 198 398 233T340 281Q284 295 266 300Q261 301 239 306T206 314T174 325T141 343T112 367T85 402Q55 451 55 507Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-75" d="M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-79" d="M69 -66Q91 -66 104 -80T118 -116Q118 -134 109 -145T91 -160Q84 -163 97 -166Q104 -168 111 -168Q131 -168 148 -159T175 -138T197 -106T213 -75T225 -43L242 0L170 183Q150 233 125 297Q101 358 96 368T80 381Q79 382 78 382Q66 385 34 385H19V431H26L46 430Q65 430 88 429T122 428Q129 428 142 428T171 429T200 430T224 430L233 431H241V385H232Q183 385 185 366L286 112Q286 113 332 227L376 341V350Q376 365 366 373T348 383T334 385H331V431H337H344Q351 431 361 431T382 430T405 429T422 429Q477 429 503 431H508V385H497Q441 380 422 345Q420 343 378 235T289 9T227 -131Q180 -204 113 -204Q69 -204 44 -177T19 -116Q19 -89 35 -78T69 -66Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-70" d="M36 -148H50Q89 -148 97 -134V-126Q97 -119 97 -107T97 -77T98 -38T98 6T98 55T98 106Q98 140 98 177T98 243T98 296T97 335T97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 61 434T98 436Q115 437 135 438T165 441T176 442H179V416L180 390L188 397Q247 441 326 441Q407 441 464 377T522 216Q522 115 457 52T310 -11Q242 -11 190 33L182 40V-45V-101Q182 -128 184 -134T195 -145Q216 -148 244 -148H260V-194H252L228 -193Q205 -192 178 -192T140 -191Q37 -191 28 -194H20V-148H36ZM424 218Q424 292 390 347T305 402Q234 402 182 337V98Q222 26 294 26Q345 26 384 80T424 218Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-53" x="2757" y="0"></use>
+<g transform="translate(3318,-150)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-63"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6F" x="449" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-72" x="953" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-65" x="1350" y="0"></use>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="4968" y="0"></use>
+<g transform="translate(6029,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="5306" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-69"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="283" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="844" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1243" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1637" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="2034" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="2595" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="3044" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="3438" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3721" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="4226" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="4787" y="0"></use>
+</g>
+<g transform="translate(1571,-725)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="11797" y="0"></use>
+<g transform="translate(12802,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="4907" height="60" x="0" y="220"></rect>
+<g transform="translate(174,723)">
+ <use xlink:href="#E1-MJMAIN-6F"></use>
+ <use xlink:href="#E1-MJMAIN-70" x="505" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1515" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="1912" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="2417" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="2811" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3094" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="3599" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="4160" y="0"></use>
+</g>
+<g transform="translate(60,-699)">
+ <use xlink:href="#E1-MJMAIN-69"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="283" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="844" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1243" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1637" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="2034" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="2595" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="3044" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="3438" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3721" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="4226" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="18172" y="0"></use>
+<g transform="translate(19177,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="4280" height="60" x="0" y="220"></rect>
+<g transform="translate(562,676)">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2757" y="0"></use>
+</g>
+<g transform="translate(60,-699)">
+ <use xlink:href="#E1-MJMAIN-6F"></use>
+ <use xlink:href="#E1-MJMAIN-70" x="505" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1515" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="1912" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="2417" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="2811" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3094" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="3599" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="23919" y="0"></use>
+<g transform="translate(24924,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3044" height="60" x="0" y="220"></rect>
+<g transform="translate(241,733)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2163" y="0"></use>
+</g>
+<g transform="translate(60,-725)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="848" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="1297" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="1802" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="2363" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></dd></dl>
+<p>And for a full system, this can be extended to:
+</p>
+<dl><dd><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="86.985ex" height="6.176ex" style="vertical-align: -2.505ex;" viewBox="0 -1580.7 37451.6 2659.1" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">FLOPS Subscript system Baseline equals StartFraction instructions Over cycle EndFraction times StartFraction operations Over instruction EndFraction times StartFraction FLOPs Over operation EndFraction times StartFraction cycles Over second EndFraction times StartFraction cores Over node EndFraction times StartFraction nodes Over system EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4C" d="M128 622Q121 629 117 631T101 634T58 637H25V683H36Q48 680 182 680Q324 680 348 683H360V637H333Q273 637 258 635T233 622L232 342V129Q232 57 237 52Q243 47 313 47Q384 47 410 53Q470 70 498 110T536 221Q536 226 537 238T540 261T542 272T562 273H582V268Q580 265 568 137T554 5V0H25V46H58Q100 47 109 49T128 61V622Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-4F" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM467 647Q426 665 388 665Q360 665 331 654T269 620T213 549T179 439Q174 411 174 354Q174 144 277 61Q327 20 385 20H389H391Q474 20 537 99Q603 188 603 354Q603 411 598 439Q577 592 467 647Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-50" d="M130 622Q123 629 119 631T103 634T60 637H27V683H214Q237 683 276 683T331 684Q419 684 471 671T567 616Q624 563 624 489Q624 421 573 372T451 307Q429 302 328 301H234V181Q234 62 237 58Q245 47 304 46H337V0H326Q305 3 182 3Q47 3 38 0H27V46H60Q102 47 111 49T130 61V622ZM507 488Q507 514 506 528T500 564T483 597T450 620T397 635Q385 637 307 637H286Q237 637 234 628Q231 624 231 483V342H302H339Q390 342 423 349T481 382Q507 411 507 488Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-53" d="M55 507Q55 590 112 647T243 704H257Q342 704 405 641L426 672Q431 679 436 687T446 700L449 704Q450 704 453 704T459 705H463Q466 705 472 699V462L466 456H448Q437 456 435 459T430 479Q413 605 329 646Q292 662 254 662Q201 662 168 626T135 542Q135 508 152 480T200 435Q210 431 286 412T370 389Q427 367 463 314T500 191Q500 110 448 45T301 -21Q245 -21 201 -4T140 27L122 41Q118 36 107 21T87 -7T78 -21Q76 -22 68 -22H64Q61 -22 55 -16V101Q55 220 56 222Q58 227 76 227H89Q95 221 95 214Q95 182 105 151T139 90T205 42T305 24Q352 24 386 62T420 155Q420 198 398 233T340 281Q284 295 266 300Q261 301 239 306T206 314T174 325T141 343T112 367T85 402Q55 451 55 507Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-79" d="M69 -66Q91 -66 104 -80T118 -116Q118 -134 109 -145T91 -160Q84 -163 97 -166Q104 -168 111 -168Q131 -168 148 -159T175 -138T197 -106T213 -75T225 -43L242 0L170 183Q150 233 125 297Q101 358 96 368T80 381Q79 382 78 382Q66 385 34 385H19V431H26L46 430Q65 430 88 429T122 428Q129 428 142 428T171 429T200 430T224 430L233 431H241V385H232Q183 385 185 366L286 112Q286 113 332 227L376 341V350Q376 365 366 373T348 383T334 385H331V431H337H344Q351 431 361 431T382 430T405 429T422 429Q477 429 503 431H508V385H497Q441 380 422 345Q420 343 378 235T289 9T227 -131Q180 -204 113 -204Q69 -204 44 -177T19 -116Q19 -89 35 -78T69 -66Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-75" d="M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-70" d="M36 -148H50Q89 -148 97 -134V-126Q97 -119 97 -107T97 -77T98 -38T98 6T98 55T98 106Q98 140 98 177T98 243T98 296T97 335T97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 61 434T98 436Q115 437 135 438T165 441T176 442H179V416L180 390L188 397Q247 441 326 441Q407 441 464 377T522 216Q522 115 457 52T310 -11Q242 -11 190 33L182 40V-45V-101Q182 -128 184 -134T195 -145Q216 -148 244 -148H260V-194H252L228 -193Q205 -192 178 -192T140 -191Q37 -191 28 -194H20V-148H36ZM424 218Q424 292 390 347T305 402Q234 402 182 337V98Q222 26 294 26Q345 26 384 80T424 218Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-53" x="2757" y="0"></use>
+<g transform="translate(3318,-150)">
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-73"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-79" x="399" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-73" x="932" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-74" x="1331" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-65" x="1725" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#E1-MJMAIN-6D" x="2174" y="0"></use>
+</g>
+ <use xlink:href="#E1-MJMAIN-3D" x="5825" y="0"></use>
+<g transform="translate(6886,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="5306" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-69"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="283" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="844" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1243" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1637" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="2034" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="2595" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="3044" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="3438" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3721" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="4226" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="4787" y="0"></use>
+</g>
+<g transform="translate(1571,-725)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="12654" y="0"></use>
+<g transform="translate(13659,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="4907" height="60" x="0" y="220"></rect>
+<g transform="translate(174,723)">
+ <use xlink:href="#E1-MJMAIN-6F"></use>
+ <use xlink:href="#E1-MJMAIN-70" x="505" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1515" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="1912" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="2417" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="2811" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3094" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="3599" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="4160" y="0"></use>
+</g>
+<g transform="translate(60,-699)">
+ <use xlink:href="#E1-MJMAIN-69"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="283" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="844" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1243" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1637" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="2034" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="2595" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="3044" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="3438" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3721" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="4226" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="19029" y="0"></use>
+<g transform="translate(20034,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="4280" height="60" x="0" y="220"></rect>
+<g transform="translate(562,676)">
+ <use xlink:href="#E1-MJMAIN-46"></use>
+ <use xlink:href="#E1-MJMAIN-4C" x="658" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-4F" x="1288" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-50" x="2071" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2757" y="0"></use>
+</g>
+<g transform="translate(60,-699)">
+ <use xlink:href="#E1-MJMAIN-6F"></use>
+ <use xlink:href="#E1-MJMAIN-70" x="505" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="1515" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="1912" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="2417" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="2811" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3094" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="3599" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="24776" y="0"></use>
+<g transform="translate(25781,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3044" height="60" x="0" y="220"></rect>
+<g transform="translate(241,733)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="982" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1431" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1714" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2163" y="0"></use>
+</g>
+<g transform="translate(60,-725)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="848" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="1297" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6E" x="1802" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="2363" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="29287" y="0"></use>
+<g transform="translate(30293,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="2319" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-63"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="449" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="954" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1351" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="1800" y="0"></use>
+</g>
+<g transform="translate(121,-725)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#E1-MJMAIN-D7" x="33074" y="0"></use>
+<g transform="translate(34079,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="3132" height="60" x="0" y="220"></rect>
+<g transform="translate(328,676)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="1066" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1627" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2076" y="0"></use>
+</g>
+<g transform="translate(60,-686)">
+ <use xlink:href="#E1-MJMAIN-73"></use>
+ <use xlink:href="#E1-MJMAIN-79" x="399" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="932" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="1331" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="1725" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6D" x="2174" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></dd></dl>
+<h3><span class="mw-headline" id="Nomenclature">Nomenclature</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=2" title="Edit section: Nomenclature">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> KiloFLOPS / KFLOPS: 10<sup>3</sup> FLOPS</li>
+<li> MegaFLOPS / MFLOPS: 10<sup>6</sup> FLOPS</li>
+<li> GigaFLOPS / GFLOPS: 10<sup>9</sup> FLOPS</li>
+<li> TeraFLOPS / TFLOPS: 10<sup>12</sup> FLOPS</li>
+<li> PetaFLOPS / PFLOPS: 10<sup>15</sup> FLOPS</li>
+<li> ExaFLOPS / EFLOPS: 10<sup>18</sup> FLOPS</li>
+<li> ZettaFLOPS / ZFLOPS: 10<sup>21</sup> FLOPS</li>
+<li> YottaFLOPS / YFLOPS: 10<sup>24</sup> FLOPS</li></ul>
+<h2><span class="mw-headline" id="FLOPs_by_microarchitecture">FLOPs by microarchitecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=3" title="Edit section: FLOPs by microarchitecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="x86">x86</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=4" title="Edit section: x86">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Microarchitecture </th>
+<th colspan="3"> FLOPs </th>
+<th> ISA
+</th></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/core" class="mw-redirect" title="intel/microarchitectures/core">Core</a><br/><a href="/wiki/intel/microarchitectures/penryn" class="mw-redirect" title="intel/microarchitectures/penryn">Penryn</a><br/><a href="/wiki/intel/microarchitectures/nehalem" class="mw-redirect" title="intel/microarchitectures/nehalem">Nehalem</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit Multiplication + 1 × 128-bit Addition </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">SSE</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 2 FLOPs + 2 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 4 FLOPs + 4 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/sandy_bridge" class="mw-redirect" title="intel/microarchitectures/sandy bridge">Sandy Bridge</a><br/><a href="/wiki/intel/microarchitectures/ivy_bridge" class="mw-redirect" title="intel/microarchitectures/ivy bridge">Ivy Bridge</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 256-bit Multiplication + 1 × 256-bit Addition </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">AVX</a> (256-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 4 FLOPs + 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 8 FLOPs + 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/haswell" class="mw-redirect" title="intel/microarchitectures/haswell">Haswell</a><br/><a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a><br/><a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a><br/><a href="/wiki/intel/microarchitectures/kaby_lake" title="intel/microarchitectures/kaby lake">Kaby Lake</a><br/><a href="/wiki/intel/microarchitectures/amber_lake" title="intel/microarchitectures/amber lake">Amber Lake</a><br/><a href="/wiki/intel/microarchitectures/coffee_lake" title="intel/microarchitectures/coffee lake">Coffee Lake</a><br/><a href="/wiki/intel/microarchitectures/whiskey_lake" title="intel/microarchitectures/whiskey lake">Whiskey Lake</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 256-bit FMA </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">AVX2</a> &amp; FMA (256-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 × 8 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 × 16 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/skylake_(server)" title="intel/microarchitectures/skylake (server)">Skylake (server)</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 512-bit FMA (varies by SKU) </td>
+<td rowspan="3"> <a href="/wiki/x86/avx-512" title="x86/avx-512">AVX-512</a> &amp; FMA (512-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 × 16 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 64 FLOPs/cycle </td>
+<td> 2 × 32 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/rocket_lake" title="intel/microarchitectures/rocket lake">Rocket Lake</a><br/><a href="/wiki/intel/microarchitectures/ice_lake" class="mw-redirect" title="intel/microarchitectures/ice lake">Ice Lake</a><br/><a href="/wiki/intel/microarchitectures/tiger_lake" title="intel/microarchitectures/tiger lake">Tiger Lake</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 512-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/x86/avx-512" title="x86/avx-512">AVX-512</a> &amp; FMA (512-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 × 16 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 64 FLOPs/cycle </td>
+<td> 2 × 32 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> <a href="/wiki/intel/mic" class="mw-redirect" title="intel/mic">MIC</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/intel/microarchitectures/knights_landing" title="intel/microarchitectures/knights landing">Knights Landing</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 512-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/x86/avx-512" title="x86/avx-512">AVX-512</a> &amp; FMA (512-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 × 16 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 64 FLOPs/cycle </td>
+<td> 2 × 32 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/amd/microarchitectures/k10" title="amd/microarchitectures/k10">K10</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit Multiplication + 1 × 128-bit Addition </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">SSE</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 2 FLOPs + 2 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 4 FLOPs + 4 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/amd/microarchitectures/bulldozer" title="amd/microarchitectures/bulldozer">Bulldozer</a><br/><a href="/wiki/amd/microarchitectures/piledriver" title="amd/microarchitectures/piledriver">Piledriver</a><br/><a href="/wiki/amd/microarchitectures/steamroller" title="amd/microarchitectures/steamroller">Steamroller</a><br/><a href="/wiki/amd/microarchitectures/excavator" title="amd/microarchitectures/excavator">Excavator</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 128-bit FMA (per two cores) </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">AVX</a> &amp; <a href="/w/index.php?title=x86/fma4&amp;action=edit&amp;redlink=1" class="new" title="x86/fma4 (page does not exist)">FMA</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 2 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a><br/><a href="/wiki/amd/microarchitectures/zen%2B" title="amd/microarchitectures/zen+">Zen+</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">AVX2</a> &amp; FMA (256-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 2 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a><br/><a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 256-bit FMA </td>
+<td rowspan="3"> <a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">AVX2</a> &amp; FMA (256-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 x 16 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Centaur" class="mw-redirect mw-disambig" title="Centaur">Centaur</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/centaur/microarchitectures/cha" title="centaur/microarchitectures/cha">CHA</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 256-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/x86/avx-512" title="x86/avx-512">AVX-512</a> &amp; FMA (512-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 x 16 FLOPs
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="ARM">ARM</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=5" title="Edit section: ARM">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Microarchitecture </th>
+<th colspan="3"> FLOPs </th>
+<th> ISA
+</th></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/arm_holdings/microarchitectures/cortex-a57" title="arm holdings/microarchitectures/cortex-a57">Cortex-A57</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/arm_holdings/microarchitectures/cortex-a76" title="arm holdings/microarchitectures/cortex-a76">Cortex-A76</a><br/><a href="/wiki/arm_holdings/microarchitectures/cortex-a77" title="arm holdings/microarchitectures/cortex-a77">Cortex-A77</a><br/><a href="/wiki/arm_holdings/microarchitectures/cortex-a78" title="arm holdings/microarchitectures/cortex-a78">Cortex-A78</a><br/><a href="/wiki/arm_holdings/microarchitectures/neoverse_n1" title="arm holdings/microarchitectures/neoverse n1">Neoverse N1</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 2 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/arm_holdings/microarchitectures/neoverse_n2" title="arm holdings/microarchitectures/neoverse n2">Neoverse N2</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/w/index.php?title=arm/armv9&amp;action=edit&amp;redlink=1" class="new" title="arm/armv9 (page does not exist)">ARMv9</a> <a href="/w/index.php?title=arm/sve2&amp;action=edit&amp;redlink=1" class="new" title="arm/sve2 (page does not exist)">SVE2</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 2 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/arm_holdings/microarchitectures/neoverse_v1" title="arm holdings/microarchitectures/neoverse v1">Neoverse V1</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 256-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/sve&amp;action=edit&amp;redlink=1" class="new" title="arm/sve (page does not exist)">SVE</a> (256-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 32 FLOPs/cycle </td>
+<td> 2 x 16 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/arm_holdings/microarchitectures/cortex-a510" title="arm holdings/microarchitectures/cortex-a510">Cortex-A510</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1-2 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/w/index.php?title=arm/armv9&amp;action=edit&amp;redlink=1" class="new" title="arm/armv9 (page does not exist)">ARMv9</a> <a href="/w/index.php?title=arm/sve2&amp;action=edit&amp;redlink=1" class="new" title="arm/sve2 (page does not exist)">SVE2</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 2-4 FLOPs/cycle </td>
+<td> 2-4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 4-8 FLOPs/cycle </td>
+<td> 4-8 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/AppliedMicro" class="mw-redirect" title="AppliedMicro">AppliedMicro</a>/<a href="/wiki/Ampere_Computing" class="mw-redirect" title="Ampere Computing">Ampere Computing</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/apm/microarchitectures/storm" title="apm/microarchitectures/storm">Storm</a><br/><a href="/wiki/apm/microarchitectures/shadowcat" title="apm/microarchitectures/shadowcat">Shadowcat</a><br/><a href="/wiki/apm/microarchitectures/skylark" title="apm/microarchitectures/skylark">Skylark</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 64-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 2 FLOPs/cycle </td>
+<td> 2 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 4 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Cavium" class="mw-redirect" title="Cavium">Cavium</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/cavium/microarchitectures/vulcan" title="cavium/microarchitectures/vulcan">Vulcan</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 2 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 2 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 16 FLOPs/cycle </td>
+<td> 2 x 8 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/samsung/microarchitectures/m1" title="samsung/microarchitectures/m1">M1</a><br/><a href="/wiki/samsung/microarchitectures/m2" title="samsung/microarchitectures/m2">M2</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit FMA + 1 × 128-bit Addition </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 6 FLOPs/cycle </td>
+<td> 1 x 4 FLOPs + 1 x 2 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 12 FLOPs/cycle </td>
+<td> 1 x 8 FLOPs + 1 x 4 FLOPs
+</td></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/samsung/microarchitectures/m3" title="samsung/microarchitectures/m3">M3</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 3 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 12 FLOPs/cycle </td>
+<td> 3 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 24 FLOPs/cycle </td>
+<td> 3 x 8 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/Phytium" class="mw-redirect" title="Phytium">Phytium</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/phytium/microarchitectures/xiaomi" title="phytium/microarchitectures/xiaomi">Xiaomi</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 1 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 1 x 8 FLOPs
+</td></tr>
+<tr>
+<th colspan="5"> <a href="/wiki/HiSilicon" class="mw-redirect" title="HiSilicon">HiSilicon</a> Microarchitectures
+</th></tr>
+<tr>
+<td rowspan="3"> <a href="/wiki/hisilicon/microarchitectures/taishan_v110" title="hisilicon/microarchitectures/taishan v110">TaiShan v110</a> </td>
+<td> <b>EUs</b> </td>
+<td colspan="2"> 1 × 128-bit FMA </td>
+<td rowspan="3"> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> (128-bit)
+</td></tr>
+<tr>
+<td> <b>DP</b> </td>
+<td> 4 FLOPs/cycle </td>
+<td> 1 x 4 FLOPs
+</td></tr>
+<tr>
+<td> <b>SP</b> </td>
+<td> 8 FLOPs/cycle </td>
+<td> 1 x 8 FLOPs
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=flops&amp;action=edit&amp;section=6" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/bytes_per_FLOP" class="mw-redirect" title="bytes per FLOP">bytes per FLOP</a></li>
+<li> <a href="/w/index.php?title=floating_point&amp;action=edit&amp;redlink=1" class="new" title="floating point (page does not exist)">floating point</a></li>
+<li> <a href="/w/index.php?title=floating_point_operation&amp;action=edit&amp;redlink=1" class="new" title="floating point operation (page does not exist)">floating point operation</a></li>
+<li> <a href="/w/index.php?title=operations_per_second&amp;action=edit&amp;redlink=1" class="new" title="operations per second (page does not exist)">operations per second</a> (OPS)</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:31381-0!*!0!!en!*!* and timestamp 20231204142528 and revision id 101081
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=flops&amp;oldid=101081">https://en.wikichip.org/w/index.php?title=flops&amp;oldid=101081</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/w/index.php?title=Category:floating_point&amp;action=edit&amp;redlink=1" class="new" title="Category:floating point (page does not exist)">floating point</a></li><li><a href="/wiki/Category:computer_performance" title="Category:computer performance">computer performance</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 25 January 2023, at 14:03.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":124});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=6', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=7&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=11&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

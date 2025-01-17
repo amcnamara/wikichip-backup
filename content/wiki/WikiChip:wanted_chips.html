@@ -1,0 +1,787 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=8', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>WikiChip:wanted chips - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"Project","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":4,"wgPageName":"WikiChip:wanted_chips","wgTitle":"wanted chips","wgCurRevisionId":98668,"wgRevisionId":98668,"wgArticleId":513,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"WikiChip:wanted_chips","wgRelevantArticleId":513,"wgRequestId":"7e987bd2c9db21274df7381c","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="WikiChip:wanted chips" href="/w/index.php?title=Special:ExportRDF/WikiChip:wanted_chips&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="WikiChip:wanted chips - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/WikiChip:wanted_chips"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"68195e52-fbd0-4e58-457f-493e36db5258","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":78143,"response_time_orig":801,"serverid":"3.86.54.166:16644","state":"VA","t_epoch":1623993597,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/WikiChip:wanted_chips","user_id":0,"word_count":1207,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["68195e52-fbd0-4e58-457f-493e36db5258", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-4 ns-subject page-WikiChip_wanted_chips rootpage-WikiChip_wanted_chips skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li class="selected"><a href="/wiki/WikiChip:wanted_chips">Project page <i class="fa fa-angle-down" aria-hidden="true"></i></a><ul></ul></li><li class=""><a href="/wiki/WikiChip_talk:wanted_chips"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=WikiChip%3Awanted+chips"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/WikiChip:wanted_chips"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/WikiChip:wanted_chips"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=WikiChip:wanted_chips&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=WikiChip:wanted_chips&amp;oldid=98668"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:WikiChip:wanted-5Fchips"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    WikiChip:wanted chips    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+										<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div style="float:right; border: 4px solid black;">
+<ul><li> <a href="/wiki/WikiChip:wanted_computers" title="WikiChip:wanted computers">WikiChip:wanted computers</a></li>
+<li> <a href="/wiki/WikiChip:model_numbers" title="WikiChip:model numbers">WikiChip:model numbers</a></li>
+<li> <strong class="selflink">WikiChip:wanted chips</strong></li>
+<li> <a href="/wiki/WikiChip:wanted_chips/2" title="WikiChip:wanted chips/2">WikiChip:wanted chips/2</a></li>
+<li> <a href="/wiki/WikiChip:wanted_chips/3" title="WikiChip:wanted chips/3">WikiChip:wanted chips/3</a></li></ul>
+<ul><li> <a href="/wiki/WikiChip:intel_cpu_strings" title="WikiChip:intel cpu strings">WikiChip:intel cpu strings</a></li></ul>
+</div><b>The following wanted/requested chips should be documented.</b> Stopping by to list a missing chip? Fantastic! just add its name to the list! If it&#39;s a really obscure chip, a link to a source wouldn&#39;t hurt!
+<p><br/>
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Missing.2FRequested.2FWanted_chips_list"><span class="tocnumber">1</span> <span class="toctext">Missing/Requested/Wanted chips list</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#ARM_SoC_Chips"><span class="tocnumber">1.1</span> <span class="toctext">ARM SoC Chips</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#A_series"><span class="tocnumber">1.1.1</span> <span class="toctext">A series</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#H_series"><span class="tocnumber">1.1.2</span> <span class="toctext">H series</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#R_series"><span class="tocnumber">1.1.3</span> <span class="toctext">R series</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#V_series"><span class="tocnumber">1.1.4</span> <span class="toctext">V series</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#F_series"><span class="tocnumber">1.1.5</span> <span class="toctext">F series</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Missing.2FRequested.2FWanted_chips_list">Missing/Requested/Wanted chips list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=1" title="Edit section: Missing/Requested/Wanted chips list">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<ul><li> <a href="/w/index.php?title=intel/core_i5/i5-11400t&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11400t (page does not exist)">Intel core i5 11400T</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212273/intel-core-i5-11400t-processor-12m-cache-up-to-3-70-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11400f&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11400f (page does not exist)">Intel core i5 11400F</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212271/intel-core-i5-11400f-processor-12m-cache-up-to-4-40-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11400&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11400 (page does not exist)">Intel core i5 11400</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212270/intel-core-i5-11400-processor-12m-cache-up-to-4-40-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11500t&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11500t (page does not exist)">Intel core i5 11500T</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212272/intel-core-i5-11500t-processor-12m-cache-up-to-3-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11500&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11500 (page does not exist)">Intel core i5 11500</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212277/intel-core-i5-11500-processor-12m-cache-up-to-4-60-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11600t&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11600t (page does not exist)">Intel core i5 11600T</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212278/intel-core-i5-11600t-processor-12m-cache-up-to-4-10-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11600&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11600 (page does not exist)">Intel core i5 11600</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212274/intel-core-i5-11600-processor-12m-cache-up-to-4-80-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11600kf&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11600kf (page does not exist)">Intel core i5 11600KF</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212276/intel-core-i5-11600kf-processor-12m-cache-up-to-4-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i5/i5-11600k&amp;action=edit&amp;redlink=1" class="new" title="intel/core i5/i5-11600k (page does not exist)">Intel core i5 11600K</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212275/intel-core-i5-11600k-processor-12m-cache-up-to-4-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i7/i7-11700t&amp;action=edit&amp;redlink=1" class="new" title="intel/core i7/i7-11700t (page does not exist)">Intel core i7 11700T</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212251/intel-core-i7-11700t-processor-16m-cache-up-to-4-60-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i7/i7-11700f&amp;action=edit&amp;redlink=1" class="new" title="intel/core i7/i7-11700f (page does not exist)">Intel core i7 11700F</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212280/intel-core-i7-11700f-processor-16m-cache-up-to-4-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i7/i7-11700&amp;action=edit&amp;redlink=1" class="new" title="intel/core i7/i7-11700 (page does not exist)">Intel core i7 11700</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212279/intel-core-i7-11700-processor-16m-cache-up-to-4-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i7/i7-11700kf&amp;action=edit&amp;redlink=1" class="new" title="intel/core i7/i7-11700kf (page does not exist)">Intel core i7 11700KF</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212048/intel-core-i7-11700kf-processor-16m-cache-up-to-5-00-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i7/i7-11700k&amp;action=edit&amp;redlink=1" class="new" title="intel/core i7/i7-11700k (page does not exist)">Intel core i7 11700K</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212047/intel-core-i7-11700k-processor-16m-cache-up-to-5-00-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i9/i9-11900t&amp;action=edit&amp;redlink=1" class="new" title="intel/core i9/i9-11900t (page does not exist)">Intel core i9 11900T</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212256/intel-core-i9-11900t-processor-16m-cache-up-to-4-90-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i9/i9-11900f&amp;action=edit&amp;redlink=1" class="new" title="intel/core i9/i9-11900f (page does not exist)">Intel core i9 11900F</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212254/intel-core-i9-11900f-processor-16m-cache-up-to-5-20-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i9/i9-11900&amp;action=edit&amp;redlink=1" class="new" title="intel/core i9/i9-11900 (page does not exist)">Intel core i9 11900</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212252/intel-core-i9-11900-processor-16m-cache-up-to-5-20-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i9/i9-11900kf&amp;action=edit&amp;redlink=1" class="new" title="intel/core i9/i9-11900kf (page does not exist)">Intel core i9 11900KF</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212321/intel-core-i9-11900kf-processor-16m-cache-up-to-5-30-ghz.html">ark</a></li>
+<li> <a href="/w/index.php?title=intel/core_i9/i9-11900k&amp;action=edit&amp;redlink=1" class="new" title="intel/core i9/i9-11900k (page does not exist)">Intel core i9 11900K</a> <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/212325/intel-core-i9-11900k-processor-16m-cache-up-to-5-30-ghz.html">ark</a></li>
+<li> Mediatek helio G90T </li>
+<li> Mediatek helio G95</li>
+<li> Mediatek helio G90</li>
+<li> Intel® Xeon® Bronze 3206R Processor 11MB cache 1.90 Ghz <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/197101/intel-xeon-bronze-3206r-processor-11m-cache-1-90-ghz.html">link</a></li>
+<li> Intel® Core® i5-650 <a rel="nofollow" class="external text" href="https://ark.intel.com/content/www/us/en/ark/products/43546/intel-core-i5-650-processor-4m-cache-3-20-ghz.html">link</a></li>
+<li> IBM POWER9 (Revision 2.3) <a rel="nofollow" class="external autonumber" href="https://i.postimg.cc/4y79XNQn/power9.gif">[1]</a></li>
+<li> AMD EPYC 7662 <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/cpu/amd-epyc-7662">link</a></li>
+<li> AMD EPYC 7532 <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/cpu/amd-epyc-7532">link</a></li>
+<li> AMD Ryzen 1600 &#34;AF&#34; <a rel="nofollow" class="external text" href="https://wccftech.com/first-gen-amd-ryzen-cpus-are-appearing-with-12nm-zen-architecture/">link</a></li>
+<li> AMD Ryzen 3 PRO 2100GE <a rel="nofollow" class="external text" href="https://www.ebay.co.uk/itm/AMD-Ryzen-3-PRO-2100GE-3-2GHz-2C-4T-DDR4-35W-Socket-AM4-CPUs-Processors/153461400326?hash=item23bb032306:g:H~cAAOSwpjBcvwHV&amp;frcectupt=true">link</a></li>
+<li> AMD Ryzen 3 3100 <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/cpu/amd-ryzen-3-3100">link</a></li>
+<li> AMD Ryzen 3 3200GE <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-3-3200ge">link</a></li>
+<li> AMD Ryzen 5 3400GE <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-5-3400ge">link</a></li>
+<li> AMD Ryzen 3 3300X <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/cpu/amd-ryzen-3-3300x">link</a></li>
+<li> AMD Ryzen 3 PRO 4350G <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-3-pro-4350g">link</a></li>
+<li> AMD Ryzen 5 PRO 4650G <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-5-pro-4650g">link</a></li>
+<li> AMD Ryzen 7 PRO 4750G <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-7-pro-4750g">link</a></li>
+<li> AMD Ryzen 3 PRO 4350GE <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-3-pro-4350ge">link</a></li>
+<li> AMD Ryzen 5 PRO 4650GE <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-5-pro-4650ge">link</a></li>
+<li> AMD Ryzen 7 PRO 4750GE <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/apu/amd-ryzen-7-pro-4750ge">link</a></li>
+<li> Tilera /  Mellanox</li>
+<li> Mellanox NP-5 (former EZchip)</li>
+<li> Mellanox BlueField IPU/SoC <a rel="nofollow" class="external text" href="https://www.mellanox.com/related-docs/prod_adapter_cards/PB_BlueField_IPU.pdf">link</a></li>
+<li> Mellanox BlueField-2 IPU/SoC <a rel="nofollow" class="external text" href="https://www.mellanox.com/related-docs/prod_adapter_cards/PB_BlueField-2_IPU.pdf">link</a></li>
+<li> MIT Raw <a rel="nofollow" class="external free" href="http://groups.csail.mit.edu/cag/raw/">http://groups.csail.mit.edu/cag/raw/</a></li>
+<li> <a href="/w/index.php?title=Transmeta&amp;action=edit&amp;redlink=1" class="new" title="Transmeta (page does not exist)">Transmeta</a> / <a href="/w/index.php?title=Crusoe&amp;action=edit&amp;redlink=1" class="new" title="Crusoe (page does not exist)">Crusoe</a> / <a href="/w/index.php?title=Efficeon&amp;action=edit&amp;redlink=1" class="new" title="Efficeon (page does not exist)">Efficeon</a></li>
+<li> <a href="/wiki/Nvidia" class="mw-redirect" title="Nvidia">Nvidia</a> Project <a href="/wiki/nvidia/denver" class="mw-redirect" title="nvidia/denver">denver</a></li>
+<li> pretty much everything listed here <a rel="nofollow" class="external free" href="http://ps-2.kev009.com/powerpc-faq/">http://ps-2.kev009.com/powerpc-faq/</a></li>
+<li> <a href="/w/index.php?title=Quantum_Effect_Device&amp;action=edit&amp;redlink=1" class="new" title="Quantum Effect Device (page does not exist)">Quantum Effect Device</a>/<a href="/w/index.php?title=Quantum_Effect_Designs&amp;action=edit&amp;redlink=1" class="new" title="Quantum Effect Designs (page does not exist)">Quantum Effect Designs</a> / <a href="/w/index.php?title=PowerPC_603q&amp;action=edit&amp;redlink=1" class="new" title="PowerPC 603q (page does not exist)">PowerPC 603q</a> / etc..</li>
+<li> Stretch S5000</li>
+<li> <a href="/w/index.php?title=Kalray&amp;action=edit&amp;redlink=1" class="new" title="Kalray (page does not exist)">Kalray</a> / <a href="/w/index.php?title=MPPA-256&amp;action=edit&amp;redlink=1" class="new" title="MPPA-256 (page does not exist)">MPPA-256</a> / <a href="/w/index.php?title=MPPA2-256&amp;action=edit&amp;redlink=1" class="new" title="MPPA2-256 (page does not exist)">MPPA2-256</a></li>
+<li> <a href="/w/index.php?title=Sunway_TaihuLight&amp;action=edit&amp;redlink=1" class="new" title="Sunway TaihuLight (page does not exist)">Sunway TaihuLight</a>
+<ul><li> <a href="/wiki/ShenWei" class="mw-redirect" title="ShenWei">ShenWei</a> / <a href="/w/index.php?title=SW26010&amp;action=edit&amp;redlink=1" class="new" title="SW26010 (page does not exist)">SW26010</a> / <a href="/w/index.php?title=SW1600&amp;action=edit&amp;redlink=1" class="new" title="SW1600 (page does not exist)">SW1600</a> / <a href="/w/index.php?title=SW-1&amp;action=edit&amp;redlink=1" class="new" title="SW-1 (page does not exist)">SW-1</a>/<a href="/w/index.php?title=SW-2&amp;action=edit&amp;redlink=1" class="new" title="SW-2 (page does not exist)">SW-2</a>/<a href="/w/index.php?title=SW-3&amp;action=edit&amp;redlink=1" class="new" title="SW-3 (page does not exist)">SW-3</a></li></ul></li>
+<li> Godson-1 September 28, 2002 Godson-2/Godson-3 - Institute of Computing Technology, Chinese Academy of Sciences</li>
+<li> Intersil ISD-8, was announced in 1994 (can see it <a rel="nofollow" class="external text" href="http://chiclassiccomp.org/docs/content/publications/ACS_Newsletter/ACS_Newsletter_3_7.pdf">here</a>, and <a rel="nofollow" class="external text" href="https://books.google.com/books?id=XeazBgAAQBAJ&amp;lpg=PA72&amp;ots=eR_z2Or3Cf&amp;dq=fairchild%20PPS-25&amp;pg=PA72#v=onepage&amp;q&amp;f=false">here</a>) unknown if ever released or was codename possibly or the Intersil 6100</li>
+<li> Mostek MK5065</li>
+<li> Infineon Carmel DSP</li>
+<li> Infineon MCUs used in Siemens phones (<a rel="nofollow" class="external free" href="http://forum.allsiemens.com/viewtopic.php?t=47891">http://forum.allsiemens.com/viewtopic.php?t=47891</a>)
+<ul><li> EGold 
+<ul><li> PMB2850</li>
+<li> PMB6850</li>
+<li> PMB7850</li>
+<li> PMB7860</li></ul></li>
+<li> SGold
+<ul><li> PMB8870</li>
+<li> PMB8875</li>
+<li> PMB8876</li></ul></li></ul></li>
+<li> TCL41, 43, 45 </li>
+<li> <a href="/w/index.php?title=Intel_Pentium_A1020&amp;action=edit&amp;redlink=1" class="new" title="Intel Pentium A1020 (page does not exist)">Intel Pentium A1020</a></li>
+<li> <a rel="nofollow" class="external text" href="http://apt.cs.manchester.ac.uk/projects/SpiNNaker/hardware/">SpiNNaker</a></li>
+<li> Crypto CoPros
+<ul><li> IBM 4758</li>
+<li> IBM 4578</li>
+<li> IBM 4765</li>
+<li> IBM 4764</li>
+<li> IBM 4764-001 <a rel="nofollow" class="external text" href="https://www-03.ibm.com/security/cryptocards/pciecc/pdf/PCIe_Spec_Sheet.pdf">src</a></li></ul></li>
+<li> <a href="/w/index.php?title=Intel_8031&amp;action=edit&amp;redlink=1" class="new" title="Intel 8031 (page does not exist)">Intel 8031</a></li>
+<li> <a href="/w/index.php?title=Intel_8035&amp;action=edit&amp;redlink=1" class="new" title="Intel 8035 (page does not exist)">Intel 8035</a></li>
+<li> <a href="/w/index.php?title=Intel_8039&amp;action=edit&amp;redlink=1" class="new" title="Intel 8039 (page does not exist)">Intel 8039</a></li>
+<li> <a href="/w/index.php?title=Intel_8048&amp;action=edit&amp;redlink=1" class="new" title="Intel 8048 (page does not exist)">Intel 8048</a></li>
+<li> <a href="/w/index.php?title=Intel_8051&amp;action=edit&amp;redlink=1" class="new" title="Intel 8051 (page does not exist)">Intel 8051</a></li>
+<li> <a href="/w/index.php?title=Intel_8086&amp;action=edit&amp;redlink=1" class="new" title="Intel 8086 (page does not exist)">Intel 8086</a></li>
+<li> <a href="/w/index.php?title=Intel_8087&amp;action=edit&amp;redlink=1" class="new" title="Intel 8087 (page does not exist)">Intel 8087</a></li>
+<li> <a href="/w/index.php?title=Intel_8088&amp;action=edit&amp;redlink=1" class="new" title="Intel 8088 (page does not exist)">Intel 8088</a></li>
+<li> <a href="/w/index.php?title=Intel_8748&amp;action=edit&amp;redlink=1" class="new" title="Intel 8748 (page does not exist)">Intel 8748</a></li>
+<li> <a href="/w/index.php?title=Intel_8751&amp;action=edit&amp;redlink=1" class="new" title="Intel 8751 (page does not exist)">Intel 8751</a></li>
+<li> <a href="/w/index.php?title=Intel_80186&amp;action=edit&amp;redlink=1" class="new" title="Intel 80186 (page does not exist)">Intel 80186</a></li>
+<li> <a href="/w/index.php?title=Intel_80188&amp;action=edit&amp;redlink=1" class="new" title="Intel 80188 (page does not exist)">Intel 80188</a></li>
+<li> <a href="/w/index.php?title=Intel_80286&amp;action=edit&amp;redlink=1" class="new" title="Intel 80286 (page does not exist)">Intel 80286</a></li>
+<li> <a href="/w/index.php?title=Intel_80376&amp;action=edit&amp;redlink=1" class="new" title="Intel 80376 (page does not exist)">Intel 80376</a></li>
+<li> <a href="/w/index.php?title=Intel_80486&amp;action=edit&amp;redlink=1" class="new" title="Intel 80486 (page does not exist)">Intel 80486</a></li>
+<li> <a href="/w/index.php?title=Intel_80486_overdrive&amp;action=edit&amp;redlink=1" class="new" title="Intel 80486 overdrive (page does not exist)">Intel 80486 overdrive</a></li>
+<li> <a href="/w/index.php?title=Intel_80860&amp;action=edit&amp;redlink=1" class="new" title="Intel 80860 (page does not exist)">Intel 80860</a></li>
+<li> <a href="/w/index.php?title=Intel_n80960&amp;action=edit&amp;redlink=1" class="new" title="Intel n80960 (page does not exist)">Intel n80960</a></li>
+<li> <a href="/w/index.php?title=Intel_Pentium_II&amp;action=edit&amp;redlink=1" class="new" title="Intel Pentium II (page does not exist)">Intel Pentium II</a></li>
+<li> <a href="/w/index.php?title=Intel_Pentium_MMX&amp;action=edit&amp;redlink=1" class="new" title="Intel Pentium MMX (page does not exist)">Intel Pentium MMX</a></li>
+<li> <a href="/w/index.php?title=Intel_Pentium_III&amp;action=edit&amp;redlink=1" class="new" title="Intel Pentium III (page does not exist)">Intel Pentium III</a></li>
+<li> <a href="/w/index.php?title=Intel_Core_2_Extreme_QX9300&amp;action=edit&amp;redlink=1" class="new" title="Intel Core 2 Extreme QX9300 (page does not exist)">Intel Core 2 Extreme QX9300</a></li>
+<li> Or any of the mobile Core 2 CPUs</li>
+<li> <a href="/w/index.php?title=Intel_Pentium_G3258&amp;action=edit&amp;redlink=1" class="new" title="Intel Pentium G3258 (page does not exist)">Intel Pentium G3258</a></li></ul>
+<p>(list not complete)
+</p><p>4-bit ones
+</p>
+<ul><li> <a href="/w/index.php?title=TLCS-47&amp;action=edit&amp;redlink=1" class="new" title="TLCS-47 (page does not exist)">TLCS-47</a></li></ul>
+<p>Some 8-bit ones
+</p>
+<ul><li> <a href="/wiki/Intel_8080" class="mw-redirect" title="Intel 8080">Intel 8080</a></li>
+<li> <a href="/w/index.php?title=Intel_8085&amp;action=edit&amp;redlink=1" class="new" title="Intel 8085 (page does not exist)">Intel 8085</a></li>
+<li> <a href="/w/index.php?title=Burroughs_Mini-D&amp;action=edit&amp;redlink=1" class="new" title="Burroughs Mini-D (page does not exist)">Burroughs Mini-D</a></li>
+<li> <a href="/w/index.php?title=Mostek_5065&amp;action=edit&amp;redlink=1" class="new" title="Mostek 5065 (page does not exist)">Mostek 5065</a></li>
+<li> <a href="/w/index.php?title=MOS_Technology_6502&amp;action=edit&amp;redlink=1" class="new" title="MOS Technology 6502 (page does not exist)">MOS Technology 6502</a></li>
+<li> <a href="/w/index.php?title=Motorola_6800&amp;action=edit&amp;redlink=1" class="new" title="Motorola 6800 (page does not exist)">Motorola 6800</a></li>
+<li> <a href="/w/index.php?title=Motorola_6809&amp;action=edit&amp;redlink=1" class="new" title="Motorola 6809 (page does not exist)">Motorola 6809</a></li>
+<li> <a href="/w/index.php?title=Motorola_6801&amp;action=edit&amp;redlink=1" class="new" title="Motorola 6801 (page does not exist)">Motorola 6801</a></li>
+<li> <a href="/w/index.php?title=Motorola_6803&amp;action=edit&amp;redlink=1" class="new" title="Motorola 6803 (page does not exist)">Motorola 6803</a></li>
+<li> <a href="/w/index.php?title=National_SC/MP&amp;action=edit&amp;redlink=1" class="new" title="National SC/MP (page does not exist)">National SC/MP</a></li>
+<li> <a href="/w/index.php?title=Signetics_2650&amp;action=edit&amp;redlink=1" class="new" title="Signetics 2650 (page does not exist)">Signetics 2650</a></li>
+<li> <a href="/w/index.php?title=Rockwell_PPS-8&amp;action=edit&amp;redlink=1" class="new" title="Rockwell PPS-8 (page does not exist)">Rockwell PPS-8</a></li>
+<li> <a href="/w/index.php?title=RCA_COSMAC_1802&amp;action=edit&amp;redlink=1" class="new" title="RCA COSMAC 1802 (page does not exist)">RCA COSMAC 1802</a></li>
+<li> <a href="/w/index.php?title=RCA_COSMAC_1802&amp;action=edit&amp;redlink=1" class="new" title="RCA COSMAC 1802 (page does not exist)">RCA COSMAC 1802</a></li>
+<li> <a href="/w/index.php?title=Zilog_Z8&amp;action=edit&amp;redlink=1" class="new" title="Zilog Z8 (page does not exist)">Zilog Z8</a></li>
+<li> <a href="/w/index.php?title=Zilog_Z80&amp;action=edit&amp;redlink=1" class="new" title="Zilog Z80 (page does not exist)">Zilog Z80</a></li>
+<li> <a href="/w/index.php?title=Zilog_eZ80&amp;action=edit&amp;redlink=1" class="new" title="Zilog eZ80 (page does not exist)">Zilog eZ80</a></li>
+<li> <a href="/w/index.php?title=Zilog_Z180&amp;action=edit&amp;redlink=1" class="new" title="Zilog Z180 (page does not exist)">Zilog Z180</a></li>
+<li> <a href="/w/index.php?title=Signetics_8X300&amp;action=edit&amp;redlink=1" class="new" title="Signetics 8X300 (page does not exist)">Signetics 8X300</a></li>
+<li> <a href="/w/index.php?title=Freescale_HC08&amp;action=edit&amp;redlink=1" class="new" title="Freescale HC08 (page does not exist)">Freescale HC08</a></li>
+<li> <a href="/w/index.php?title=Freescale_HC11&amp;action=edit&amp;redlink=1" class="new" title="Freescale HC11 (page does not exist)">Freescale HC11</a></li>
+<li> <a href="/w/index.php?title=Hudson_Soft_HuC6280&amp;action=edit&amp;redlink=1" class="new" title="Hudson Soft HuC6280 (page does not exist)">Hudson Soft HuC6280</a></li>
+<li> <a href="/w/index.php?title=microchip/PIC10&amp;action=edit&amp;redlink=1" class="new" title="microchip/PIC10 (page does not exist)">microchip/PIC10</a></li>
+<li> <a href="/w/index.php?title=microchip/PIC12&amp;action=edit&amp;redlink=1" class="new" title="microchip/PIC12 (page does not exist)">microchip/PIC12</a></li>
+<li> <a href="/w/index.php?title=microchip/PIC16&amp;action=edit&amp;redlink=1" class="new" title="microchip/PIC16 (page does not exist)">microchip/PIC16</a></li>
+<li> <a href="/w/index.php?title=Ricoh_2A03&amp;action=edit&amp;redlink=1" class="new" title="Ricoh 2A03 (page does not exist)">Ricoh 2A03</a></li>
+<li> <a href="/w/index.php?title=Ricoh_2A07&amp;action=edit&amp;redlink=1" class="new" title="Ricoh 2A07 (page does not exist)">Ricoh 2A07</a></li>
+<li> <a href="/w/index.php?title=TLCS-870&amp;action=edit&amp;redlink=1" class="new" title="TLCS-870 (page does not exist)">TLCS-870</a></li>
+<li> <a href="/w/index.php?title=National_COP8&amp;action=edit&amp;redlink=1" class="new" title="National COP8 (page does not exist)">National COP8</a></li>
+<li> <a href="/w/index.php?title=AMI_7200&amp;action=edit&amp;redlink=1" class="new" title="AMI 7200 (page does not exist)">AMI 7200</a></li>
+<li> <a href="/wiki/Intel_Core_i7-7700HQ" class="mw-redirect" title="Intel Core i7-7700HQ">Intel Core i7-7700HQ</a> (Kaby Lake-H, quad-core 2.8 GHz, 45W)</li>
+<li> <a href="/w/index.php?title=atmel/atmega&amp;action=edit&amp;redlink=1" class="new" title="atmel/atmega (page does not exist)">atmel/atmega</a>, in particular the Atmel ATmega328 used in most Arduino boards</li>
+<li> <a href="/w/index.php?title=cypress/PSoC_1&amp;action=edit&amp;redlink=1" class="new" title="cypress/PSoC 1 (page does not exist)">cypress/PSoC 1</a></li>
+<li> <a href="/w/index.php?title=cypress/PSoC_4&amp;action=edit&amp;redlink=1" class="new" title="cypress/PSoC 4 (page does not exist)">cypress/PSoC 4</a></li>
+<li> <a href="/w/index.php?title=cypress/PSoC_5&amp;action=edit&amp;redlink=1" class="new" title="cypress/PSoC 5 (page does not exist)">cypress/PSoC 5</a></li>
+<li> <a href="/w/index.php?title=parallax/Basic_Stamp&amp;action=edit&amp;redlink=1" class="new" title="parallax/Basic Stamp (page does not exist)">parallax/Basic Stamp</a></li></ul>
+<div class="thumb tright"><div class="thumbinner" style="width:202px;"><a href="/wiki/File:Basic_stamp_2p24.jpg" class="image"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Basic_stamp_2p24.jpg/200px-Basic_stamp_2p24.jpg" width="200" height="189" class="thumbimage" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Basic_stamp_2p24.jpg/300px-Basic_stamp_2p24.jpg 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Basic_stamp_2p24.jpg/400px-Basic_stamp_2p24.jpg 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Basic_stamp_2p24.jpg" class="internal" title="Enlarge"></a></div><a href="/w/index.php?title=Parallax&amp;action=edit&amp;redlink=1" class="new" title="Parallax (page does not exist)">Parallax</a>&#39;s Basic Stamp 2 board (<a href="/w/index.php?title=parallax/bs2p24&amp;action=edit&amp;redlink=1" class="new" title="parallax/bs2p24 (page does not exist)">BS2P24</a>). This board has a <a href="/w/index.php?title=CPU&amp;action=edit&amp;redlink=1" class="new" title="CPU (page does not exist)">CPU</a> and a <a href="/w/index.php?title=BASIC&amp;action=edit&amp;redlink=1" class="new" title="BASIC (page does not exist)">BASIC</a> <a href="/w/index.php?title=interpreter&amp;action=edit&amp;redlink=1" class="new" title="interpreter (page does not exist)">interpreter</a> on-board. (from <a href="/wiki/program" title="program">program</a>).</div></div></div>
+<ul><li> <a href="/w/index.php?title=parallax/Propeller&amp;action=edit&amp;redlink=1" class="new" title="parallax/Propeller (page does not exist)">parallax/Propeller</a></li>
+<li> <a href="/w/index.php?title=Nios_II&amp;action=edit&amp;redlink=1" class="new" title="Nios II (page does not exist)">Nios II</a> softcore CPU for FPGA</li>
+<li> <a href="/w/index.php?title=MicroBlaze&amp;action=edit&amp;redlink=1" class="new" title="MicroBlaze (page does not exist)">MicroBlaze</a> softcore CPU for FPGA</li>
+<li> <a href="/w/index.php?title=DLX&amp;action=edit&amp;redlink=1" class="new" title="DLX (page does not exist)">DLX</a> by John L. Hennessy and David A. Patterson</li>
+<li> <a href="/w/index.php?title=Elbrus&amp;action=edit&amp;redlink=1" class="new" title="Elbrus (page does not exist)">Elbrus</a></li>
+<li> GreenArrays (asynchronous) F18A/F18B GA4/GA32/GA40/GA144</li>
+<li> <a href="/wiki/Sun" class="mw-redirect" title="Sun">Sun</a> <a href="/w/index.php?title=sun_microsystems/rock&amp;action=edit&amp;redlink=1" class="new" title="sun microsystems/rock (page does not exist)">Rock</a></li>
+<li> <a href="/w/index.php?title=NovaThor&amp;action=edit&amp;redlink=1" class="new" title="NovaThor (page does not exist)">NovaThor</a></li>
+<li> <a href="/w/index.php?title=MediaTek_MT6735&amp;action=edit&amp;redlink=1" class="new" title="MediaTek MT6735 (page does not exist)">MediaTek MT6735</a></li>
+<li> <a href="/w/index.php?title=Microsoft_Xenon&amp;action=edit&amp;redlink=1" class="new" title="Microsoft Xenon (page does not exist)">Microsoft Xenon</a></li>
+<li> <a href="/w/index.php?title=Nordic_Semiconductor_nRF52832&amp;action=edit&amp;redlink=1" class="new" title="Nordic Semiconductor nRF52832 (page does not exist)">Nordic Semiconductor nRF52832</a></li>
+<li> <a href="/w/index.php?title=Nordic_Semiconductor_nRF52840&amp;action=edit&amp;redlink=1" class="new" title="Nordic Semiconductor nRF52840 (page does not exist)">Nordic Semiconductor nRF52840</a></li></ul>
+<ul><li> <a href="/w/index.php?title=Intel_Xeon_X5670&amp;action=edit&amp;redlink=1" class="new" title="Intel Xeon X5670 (page does not exist)">Intel Xeon X5670</a></li>
+<li> <a href="/w/index.php?title=Intel_Xeon_X5690&amp;action=edit&amp;redlink=1" class="new" title="Intel Xeon X5690 (page does not exist)">Intel Xeon X5690</a></li></ul>
+<h2><span class="mw-headline" id="ARM_SoC_Chips">ARM SoC Chips</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=2" title="Edit section: ARM SoC Chips">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/w/index.php?title=Spreadtrum_SC9863&amp;action=edit&amp;redlink=1" class="new" title="Spreadtrum SC9863 (page does not exist)">Spreadtrum SC9863</a> (8x <a href="/wiki/Cortex-A55" class="mw-redirect" title="Cortex-A55">Cortex-A55</a> at 1.6 GHz)</li>
+<li> <a href="/w/index.php?title=Amlogic_S905X3&amp;action=edit&amp;redlink=1" class="new" title="Amlogic S905X3 (page does not exist)">Amlogic S905X3</a> (4x <a href="/wiki/Cortex-A55" class="mw-redirect" title="Cortex-A55">Cortex-A55</a>, <a href="/w/index.php?title=Mali-G31&amp;action=edit&amp;redlink=1" class="new" title="Mali-G31 (page does not exist)">Mali-G31</a>MP2) </li></ul>
+<p><br/>
+</p>
+<ul><li> <a href="/w/index.php?title=Broadcom_BCM2835&amp;action=edit&amp;redlink=1" class="new" title="Broadcom BCM2835 (page does not exist)">Broadcom BCM2835</a> (1x <a href="/w/index.php?title=ARM11&amp;action=edit&amp;redlink=1" class="new" title="ARM11 (page does not exist)">ARM11</a>, <a href="/w/index.php?title=VideoCore_IV&amp;action=edit&amp;redlink=1" class="new" title="VideoCore IV (page does not exist)">VideoCore IV </a>)</li>
+<li> <a href="/w/index.php?title=Broadcom_BCM2836&amp;action=edit&amp;redlink=1" class="new" title="Broadcom BCM2836 (page does not exist)">Broadcom BCM2836</a> (4x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a>, <a href="/w/index.php?title=VideoCore_IV&amp;action=edit&amp;redlink=1" class="new" title="VideoCore IV (page does not exist)">VideoCore IV </a>)</li>
+<li> <a href="/w/index.php?title=Broadcom_BCM2837&amp;action=edit&amp;redlink=1" class="new" title="Broadcom BCM2837 (page does not exist)">Broadcom BCM2837</a> (4x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a>, <a href="/w/index.php?title=VideoCore_IV&amp;action=edit&amp;redlink=1" class="new" title="VideoCore IV (page does not exist)">VideoCore IV </a>)</li>
+<li> <a href="/w/index.php?title=Broadcom_BCM2837B0&amp;action=edit&amp;redlink=1" class="new" title="Broadcom BCM2837B0 (page does not exist)">Broadcom BCM2837B0</a> (4x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a>, <a href="/w/index.php?title=VideoCore_IV&amp;action=edit&amp;redlink=1" class="new" title="VideoCore IV (page does not exist)">VideoCore IV </a>)</li>
+<li> <a href="/w/index.php?title=Broadcom_BCM2711&amp;action=edit&amp;redlink=1" class="new" title="Broadcom BCM2711 (page does not exist)">Broadcom BCM2711</a> (4x <a href="/wiki/Cortex-A72" class="mw-redirect" title="Cortex-A72">Cortex-A72</a>, <a href="/w/index.php?title=VideoCore_IV&amp;action=edit&amp;redlink=1" class="new" title="VideoCore IV (page does not exist)">VideoCore IV </a>)</li></ul>
+<p><br/>
+</p>
+<ul><li> NXP LX2080A/LX2120A/LX2160A (8x/12x/16x <a href="/wiki/Cortex-A72" class="mw-redirect" title="Cortex-A72">Cortex-A72</a>, 2xDDR4-3200) <a rel="nofollow" class="external text" href="https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/layerscape-communication-process/layerscape-lx2160a-multicore-communications-processor:LX2160A">nxp.com Overview</a></li></ul>
+<ul><li> Apple M1</li></ul>
+<p>List copied from <a rel="nofollow" class="external free" href="http://linux-sunxi.org/Allwinner_SoC_Family">http://linux-sunxi.org/Allwinner_SoC_Family</a>
+</p>
+<h3><span class="mw-headline" id="A_series">A series</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=3" title="Edit section: A series">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=Allwinner_A10&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A10 (page does not exist)">Allwinner A10</a> (sun4i) 1 x <a href="/wiki/Cortex-A8" class="mw-redirect" title="Cortex-A8">Cortex-A8</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_A13&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A13 (page does not exist)">Allwinner A13</a> (sun5i) 1 x <a href="/wiki/Cortex-A8" class="mw-redirect" title="Cortex-A8">Cortex-A8</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_A10s&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A10s (page does not exist)">Allwinner A10s</a> (sun5i) 1 x <a href="/wiki/Cortex-A8" class="mw-redirect" title="Cortex-A8">Cortex-A8</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_A20&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A20 (page does not exist)">Allwinner A20</a> (sun7i) 2 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A23&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A23 (page does not exist)">Allwinner A23</a> (sun8i) 2 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A31&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A31 (page does not exist)">Allwinner A31</a> (sun6i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A31s&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A31s (page does not exist)">Allwinner A31s</a> (sun6i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A33&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A33 (page does not exist)">Allwinner A33</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A80&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A80 (page does not exist)">Allwinner A80</a> (sun9i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores + 4 x <a href="/w/index.php?title=Cortex-A15&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A15 (page does not exist)">Cortex-A15</a> CPU-cores </li>
+<li> <a href="/w/index.php?title=Allwinner_A83T&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A83T (page does not exist)">Allwinner A83T</a> (sun8i) 8 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-cores</li>
+<li> <a href="/w/index.php?title=Allwinner_A64&amp;action=edit&amp;redlink=1" class="new" title="Allwinner A64 (page does not exist)">Allwinner A64</a> (sun50i) 4 x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a> CPU-core</li></ul>
+<h3><span class="mw-headline" id="H_series">H series</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=4" title="Edit section: H series">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=Allwinner_H2%2B&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H2+ (page does not exist)">Allwinner H2+</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core </li>
+<li> <a href="/w/index.php?title=Allwinner_H3&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H3 (page does not exist)">Allwinner H3</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core </li>
+<li> <a href="/w/index.php?title=Allwinner_H8&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H8 (page does not exist)">Allwinner H8</a> (sun8i) 8 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_H5&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H5 (page does not exist)">Allwinner H5</a> (sun50i) 4 x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_H6&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H6 (page does not exist)">Allwinner H6</a> (sun50i) 4 x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_H64&amp;action=edit&amp;redlink=1" class="new" title="Allwinner H64 (page does not exist)">Allwinner H64</a> (sun50i) 4 x <a href="/wiki/Cortex-A53" class="mw-redirect" title="Cortex-A53">Cortex-A53</a> CPU-core</li></ul>
+<h3><span class="mw-headline" id="R_series">R series</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=5" title="Edit section: R series">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=Allwinner_R8&amp;action=edit&amp;redlink=1" class="new" title="Allwinner R8 (page does not exist)">Allwinner R8</a> (sun5i) 1 x <a href="/wiki/Cortex-A8" class="mw-redirect" title="Cortex-A8">Cortex-A8</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_R16&amp;action=edit&amp;redlink=1" class="new" title="Allwinner R16 (page does not exist)">Allwinner R16</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_R40&amp;action=edit&amp;redlink=1" class="new" title="Allwinner R40 (page does not exist)">Allwinner R40</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_R58&amp;action=edit&amp;redlink=1" class="new" title="Allwinner R58 (page does not exist)">Allwinner R58</a> (sun8i) 8 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li></ul>
+<h3><span class="mw-headline" id="V_series">V series</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=6" title="Edit section: V series">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=Allwinner_V3&amp;action=edit&amp;redlink=1" class="new" title="Allwinner V3 (page does not exist)">Allwinner V3</a> (sun8i) 1 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_V3s&amp;action=edit&amp;redlink=1" class="new" title="Allwinner V3s (page does not exist)">Allwinner V3s</a> (sun8i) 1 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li>
+<li> <a href="/w/index.php?title=Allwinner_V40&amp;action=edit&amp;redlink=1" class="new" title="Allwinner V40 (page does not exist)">Allwinner V40</a> (sun8i) 4 x <a href="/w/index.php?title=Cortex-A7&amp;action=edit&amp;redlink=1" class="new" title="Cortex-A7 (page does not exist)">Cortex-A7</a> CPU-core</li></ul>
+<h3><span class="mw-headline" id="F_series">F series</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip:wanted_chips&amp;action=edit&amp;section=7" title="Edit section: F series">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=Boxchip_C100&amp;action=edit&amp;redlink=1" class="new" title="Boxchip C100 (page does not exist)">Boxchip C100</a> (sun3i)</li>
+<li> <a href="/w/index.php?title=Boxchip_E200&amp;action=edit&amp;redlink=1" class="new" title="Boxchip E200 (page does not exist)">Boxchip E200</a> (sun3i)</li>
+<li> <a href="/w/index.php?title=Boxchip_F20&amp;action=edit&amp;redlink=1" class="new" title="Boxchip F20 (page does not exist)">Boxchip F20</a> (sun3i)</li>
+<li> <a href="/w/index.php?title=Boxchip_F10&amp;action=edit&amp;redlink=1" class="new" title="Boxchip F10 (page does not exist)">Boxchip F10</a> aka SoChip SC9800 aka Teclast T8100 (sunii)</li>
+<li> <a href="/w/index.php?title=Boxchip_F13&amp;action=edit&amp;redlink=1" class="new" title="Boxchip F13 (page does not exist)">Boxchip F13</a> (sunii)</li>
+<li> <a href="/w/index.php?title=Boxchip_F15&amp;action=edit&amp;redlink=1" class="new" title="Boxchip F15 (page does not exist)">Boxchip F15</a> aka SoChip SC8600 aka Teclast T7200 (sunii)</li>
+<li> <a href="/w/index.php?title=Boxchip_F18&amp;action=edit&amp;redlink=1" class="new" title="Boxchip F18 (page does not exist)">Boxchip F18</a> (sunii)</li>
+<li> <a href="/w/index.php?title=Allwinner_F1C100s&amp;action=edit&amp;redlink=1" class="new" title="Allwinner F1C100s (page does not exist)">Allwinner F1C100s</a> (suniv)</li>
+<li> <a href="/w/index.php?title=Allwinner_F1C600&amp;action=edit&amp;redlink=1" class="new" title="Allwinner F1C600 (page does not exist)">Allwinner F1C600</a> (suniv)</li>
+<li> <a href="/w/index.php?title=Allwinner_F1C100A&amp;action=edit&amp;redlink=1" class="new" title="Allwinner F1C100A (page does not exist)">Allwinner F1C100A</a> (suniv)</li>
+<li> <a href="/w/index.php?title=Allwinner_F1C700&amp;action=edit&amp;redlink=1" class="new" title="Allwinner F1C700 (page does not exist)">Allwinner F1C700</a> (sun5i)</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:513-0!*!0!!en!5!* and timestamp 20210618051957 and revision id 98668
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=WikiChip:wanted_chips&amp;oldid=98668">https://en.wikichip.org/w/index.php?title=WikiChip:wanted_chips&amp;oldid=98668</a>&#34;</div><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 4 April 2021, at 13:32.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":761});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>

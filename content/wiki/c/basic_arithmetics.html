@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Basic Arithmetics - C - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="c/basic arithmetics" href="/w/index.php?title=Special:ExportRDF/c/basic_arithmetics&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=c/basic_arithmetics&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=c/basic_arithmetics&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/c/basic_arithmetics" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/basic_arithmetics","wgTitle":"c/basic arithmetics","wgCurRevisionId":11314,"wgRevisionId":11314,"wgArticleId":516,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["C programming language"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"c/basic_arithmetics","wgRelevantArticleId":516,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_basic_arithmetics skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Basic Arithmetics - C</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/c" title="c">c</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Just about every program is going to need to do some <b>basic arithmetics</b> - the ability to manipulate values using basic math operations such as addition and subtraction. The <a href="/wiki/C" title="C" class="mw-redirect">C</a> programming language provides a set of operations to perform such basic operations.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Expressions_.26_Operators"><span class="tocnumber">1</span> <span class="toctext">Expressions &amp; Operators</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Operations_of_mixed_types"><span class="tocnumber">2</span> <span class="toctext">Operations of mixed types</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Increment_operators"><span class="tocnumber">3</span> <span class="toctext">Increment operators</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Decrement_operators"><span class="tocnumber">4</span> <span class="toctext">Decrement operators</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Type_conversions"><span class="tocnumber">5</span> <span class="toctext">Type conversions</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Expressions_.26_Operators">Expressions &amp; Operators</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit&amp;section=1" title="Edit section: Expressions &amp; Operators">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Once a variable has been <a href="/wiki/c/variables#Variable_Declaration" title="c/variables">declared</a> and assigned some value, it is possible to use that variable in various arithmetic operations. <b>Expressions</b>, among other things, is the combination of arithmetic operators, values, and variables, that are combined together to produce a single value.
+</p><p>C provides the following basic arithmetic operators:
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Operator </th>
+<th> Description
+</th></tr>
+<tr>
+<td> + </td>
+<td> Addition of both operands
+</td></tr>
+<tr>
+<td> - </td>
+<td> Subtraction of 2nd operand from 1st
+</td></tr>
+<tr>
+<td> * </td>
+<td> Multiplication of both operands
+</td></tr>
+<tr>
+<td> / </td>
+<td> Division of 1st operand from 2nd
+</td></tr>
+<tr>
+<td>&#160;% </td>
+<td> Remainder of a division of 1st operand from 2nd
+</td></tr></table>
+<p>One very simple expression can be <code>3 * 5</code>, another is <code>3 + 6 * 2</code>. Math operations follow the order of operations, however, parentheses can also be used to change it. For example <code>((4 + 6 + 2) * 4)</code>
+</p><p>For example, a basic program might look like this:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> a<span class="sy0">,</span> b<span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;Please enter two integer, comma-separated: &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">scanf</span><span class="br0">&#40;</span><span class="st0">&quot;%d,%d&quot;</span><span class="sy0">,</span> <span class="sy0">&amp;</span>a<span class="sy0">,</span> <span class="sy0">&amp;</span>b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d +&#160;%d =&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> a <span class="sy0">+</span> b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d -&#160;%d =&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> a <span class="sy0">-</span> b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d *&#160;%d =&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> a <span class="sy0">*</span> b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d /&#160;%d =&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> a <span class="sy0">/</span> b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d&#160;%%&#160;%d =&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> a <span class="sy0">%</span> b<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>One possible output for the program above is:
+</p>
+<pre>Please enter two integer, comma-separated: 23,5
+23 + 5 = 28
+23 - 5 = 18
+23 * 5 = 115
+23 / 5 = 4
+23&#160;% 5 = 3
+</pre>
+<p>The math expressions above can be assigned to and mixed with other variables, for example, we can perform <code>(c&#160;% ((a + 4) * b))</code> if we had three variables of type int. Consider the example below:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> length<span class="sy0">,</span> width<span class="sy0">,</span> area<span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;Please enter the length and width of a rectangle, comma-separated: &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">scanf</span><span class="br0">&#40;</span><span class="st0">&quot;%d,%d&quot;</span><span class="sy0">,</span> <span class="sy0">&amp;</span>length<span class="sy0">,</span> <span class="sy0">&amp;</span>width<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+    area <span class="sy0">=</span> length <span class="sy0">*</span> width<span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;The area of the rectangle is&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> area<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>One possible output is:
+</p>
+<pre>Please enter the length and width of a rectangle, comma-separated: 5,11
+The area of the rectangle is 55
+</pre>
+<h2><span class="mw-headline" id="Operations_of_mixed_types">Operations of mixed types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit&amp;section=2" title="Edit section: Operations of mixed types">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Up until now we've only shown examples that have expressions with only homogeneous types. For example the addition of two int types or multiplication of two int types. Expressions, however, can involve values of different types. When this happen, a protocol for converting them to a common type is invoked, known as the <a href="/wiki/c/usual_arithmetic_conversions" title="c/usual arithmetic conversions">usual arithmetic conversions</a>. Depending on the type of the operand, and expression it generally converted to the type of the bigger range type among the two. This concept sometimes produce confusing outputs for new programmers.
+</p><p>Consider the following program:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> a <span class="sy0">=</span> <span class="nu0">10</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">20</span><span class="sy0">;</span>
+    <span class="kw4">float</span> c<span class="sy0">;</span>
+&#160;
+    c <span class="sy0">=</span> a <span class="sy0">/</span> b<span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d /&#160;%d =&#160;%f<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> a<span class="sy0">,</span> b<span class="sy0">,</span> c<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>Executing the program above will produce the following out:
+</p>
+<pre>10 / 20 = 0.000000
+</pre>
+<p>It might not be exactly what you were expecting. Let's zoom in on the cause: 
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">c <span class="sy0">=</span> a <span class="sy0">/</span> b<span class="sy0">;</span></pre></div></div>
+<p>In the expression <code>a / b</code> both a and b are of type <code>int</code>. Therefore the final value is an <code>int</code>. And since 10/20 is 0 (since we cannot represent 0.5 in an <code>int</code>).
+</p>
+<h2><span class="mw-headline" id="Increment_operators">Increment operators</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit&amp;section=3" title="Edit section: Increment operators">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <b>++</b> (<b>increment</b>) operator adds 1 to the value of a modifiable arithmetic or pointer data object. The operand receives the result of the increment operation. The operator can be placed before or after the operand. If the operator is applied before the operand, the operand is incremented and the result is used immediately in the expression. If the operator is applied after the operand, the value of the operand is used in the expression before the operand is incremented. When the operator is placed before the operand, it is called a <b>pre-increment</b> operator; when it is placed after the operand, is it called a <b>post-increment</b> operator.
+</p><p>Consider the code below:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">total <span class="sy0">=</span> <span class="sy0">++</span>groupA<span class="sy0">;</span></pre></div></div>
+<p>The statement above is similar to the following line
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">groupA  <span class="sy0">=</span> groupA <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span>
+total <span class="sy0">=</span> groupA<span class="sy0">;</span></pre></div></div>
+<p>Likewise, the code
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">total <span class="sy0">=</span> groupA<span class="sy0">++;</span></pre></div></div>
+<p>behaves similar to
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">total <span class="sy0">=</span> groupA<span class="sy0">;</span>
+groupA  <span class="sy0">=</span> groupA <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span></pre></div></div>
+<p>It is important to note that the object can only be modified once in a single statement. Expressions such as <code>x = x++;</code> result in <a href="/w/index.php?title=c/undefined_behavior&amp;action=edit&amp;redlink=1" class="new" title="c/undefined behavior (page does not exist)">undefined behavior</a> which can do just about anything.
+</p>
+<h2><span class="mw-headline" id="Decrement_operators">Decrement operators</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit&amp;section=4" title="Edit section: Decrement operators">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Just like the increment operator, an operator to subtract a value also exist. The <b>++</b> (<b>decrement</b>) operator subtracts 1 to the value of a modifiable arithmetic or pointer data object. The operand receives the result of the decrement operation. The operator can be placed before or after the operand. If the operator is applied before the operand, the operand is decremented and the result is used immediately in the expression. If the operator is applied after the operand, the value of the operand is used in the expression before the operand is decremented. When the operator is placed before the operand, it is called a <b>pre-decrement</b> operator; when it is placed after the operand, is it called a <b>post-decrement</b> operator.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">int</span> x <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">,</span> y <span class="sy0">=</span> <span class="nu0">10</span><span class="sy0">,</span> z<span class="sy0">;</span>
+    z <span class="sy0">=</span> <span class="sy0">--</span>x <span class="sy0">+</span> y<span class="sy0">--;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;x =&#160;%d; y =&#160;%d; z =&#160;%d;<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> x<span class="sy0">,</span> y<span class="sy0">,</span> z<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>Which will produce the following result:
+</p>
+<pre>x = 4; y = 9; z = 14;
+</pre>
+<h2><span class="mw-headline" id="Type_conversions">Type conversions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit&amp;section=5" title="Edit section: Type conversions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>Main article: <a href="/w/index.php?title=c/type_conversion&amp;action=edit&amp;redlink=1" class="new" title="c/type conversion (page does not exist)">type conversion</a></i>
+</p><p>While many conversions are automatically performed when compatible types are assigned and operated on, some conversions are a bit more problematic because they may result in truncation or loss of value. These type of conversion are known as type-casting. Consider the following example:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">double</span> f <span class="sy0">=</span> <span class="nu16">3.14</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;=&gt;&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="kw4">int</span><span class="br0">&#41;</span><span class="br0">&#40;</span>f <span class="sy0">/</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div> 
+<p>Produces the following output: <code>=&gt; 1</code>. In the example above, we've converted a <code>double</code> to an <code>int</code> by casting it. The syntax for the cast operator is:
+</p>
+<pre>(&lt;type&gt;)&lt;expression&gt;
+</pre>
+<p>For example: <code>a / (double)x</code> will cast the variable x into a <code>double</code> before performing the division.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw4">double</span> o1<span class="sy0">,</span> o2<span class="sy0">;</span>
+    <span class="kw4">int</span> a <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">,</span> b <span class="sy0">=</span> <span class="nu0">8</span><span class="sy0">;</span>
+&#160;
+    o1 <span class="sy0">=</span> a <span class="sy0">/</span> b<span class="sy0">;</span>
+    o2 <span class="sy0">=</span> a <span class="sy0">/</span> <span class="br0">&#40;</span><span class="kw4">double</span><span class="br0">&#41;</span>b<span class="sy0">;</span>
+&#160;
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;a/b =&#160;%f<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> o1<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;a/(double)b =&#160;%f<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> o2<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div> 
+<p>Which produces the following output:
+</p>
+<pre>a/b = 0.000000
+a/(double)b = 0.625000
+</pre>
+<!-- 
+NewPP limit report
+CPU time usage: 0.123 seconds
+Real time usage: 0.128 seconds
+Preprocessor visited node count: 236/1000000
+Preprocessor generated node count: 1127/1000000
+Post‐expand include size: 533/2097152 bytes
+Template argument size: 573/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   75.725      1 - -total
+ 25.43%   19.260      3 - Template:C
+  8.89%    6.729      3 - Template:url_parse_anchor
+  8.59%    6.508      3 - Template:url_parse_article
+  7.91%    5.989      1 - Template:main
+  6.41%    4.857      1 - Template:c_title
+  2.44%    1.851      1 - Template:c_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:516-0!*!0!!en!*!* and timestamp 20160402193851 and revision id 11314
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=c/basic_arithmetics&amp;oldid=11314">http://en.wikichip.org/w/index.php?title=c/basic_arithmetics&amp;oldid=11314</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:C_programming_language" title="Category:C programming language">C programming language</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fbasic+arithmetics&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fbasic+arithmetics" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/c/basic_arithmetics"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:c/basic_arithmetics&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/c/basic_arithmetics" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=c/basic_arithmetics&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-C' aria-labelledby='p-C-label'>
+			<h3 id='p-C-label'>C</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Introduction"><a href="/wiki/c/introduction">Introduction</a></li>
+													<li id="n-Program-structure"><a href="/wiki/c/program_structure">Program structure</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/c/variables">Variables</a></li>
+													<li id="n-Basic-I/O"><a href="/wiki/c/basic_i/o">Basic I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Math' aria-labelledby='p-Math-label'>
+			<h3 id='p-Math-label'>Math</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Basic-Arithmetics"><a href="/wiki/c/basic_arithmetics">Basic Arithmetics</a></li>
+													<li id="n-Math-functions"><a href="/wiki/c/math_functions">Math functions</a></li>
+													<li id="n-Complex-Numbers"><a href="/wiki/c/complex_numbers">Complex Numbers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Conditional-statements"><a href="/wiki/c/conditional_statements">Conditional statements</a></li>
+													<li id="n-Loop-Constructs"><a href="/wiki/c/loop_constructs">Loop Constructs</a></li>
+													<li id="n-Goto-Statements"><a href="/wiki/c/goto_statements">Goto Statements</a></li>
+													<li id="n-Nonlocal-Jumps"><a href="/wiki/c/Nonlocal_jumps">Nonlocal Jumps</a></li>
+													<li id="n-Functions"><a href="/wiki/c/functions">Functions</a></li>
+													<li id="n-Error-Handling"><a href="/wiki/c/error_handling">Error Handling</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Operators' aria-labelledby='p-Operators-label'>
+			<h3 id='p-Operators-label'>Operators</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Operators"><a href="/wiki/c/operators">Operators</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Arrays_.26_Pointers' aria-labelledby='p-Arrays_.26_Pointers-label'>
+			<h3 id='p-Arrays_.26_Pointers-label'>Arrays &amp; Pointers</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Arrays"><a href="/wiki/c/arrays">Arrays</a></li>
+													<li id="n-Pointers"><a href="/wiki/c/pointers">Pointers</a></li>
+													<li id="n-Memory-management"><a href="/wiki/c/memory_management">Memory management</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Strings' aria-labelledby='p-Strings-label'>
+			<h3 id='p-Strings-label'>Strings</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Character-Handling"><a href="/wiki/c/character_handling">Character Handling</a></li>
+													<li id="n-Strings-Handling"><a href="/wiki/c/strings_handling">Strings Handling</a></li>
+													<li id="n-Wide-Strings"><a href="/wiki/c/wide_strings">Wide Strings</a></li>
+													<li id="n-Unicode"><a href="/wiki/c/unicode">Unicode</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Date_and_Time' aria-labelledby='p-Date_and_Time-label'>
+			<h3 id='p-Date_and_Time-label'>Date and Time</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Date-and-Time"><a href="/wiki/c/date_and_time">Date and Time</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Structured_Types' aria-labelledby='p-Structured_Types-label'>
+			<h3 id='p-Structured_Types-label'>Structured Types</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Structures"><a href="/wiki/c/structures">Structures</a></li>
+													<li id="n-Unions"><a href="/wiki/c/unions">Unions</a></li>
+													<li id="n-Bitfields"><a href="/wiki/c/bitfields">Bitfields</a></li>
+													<li id="n-Enums"><a href="/wiki/c/enumerated_types">Enums</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-I.2FO' aria-labelledby='p-I.2FO-label'>
+			<h3 id='p-I.2FO-label'>I/O</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Standard-Streams"><a href="/wiki/c/Standard_Streams">Standard Streams</a></li>
+													<li id="n-File-I/O"><a href="/wiki/c/file_i/o">File I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Concurrency' aria-labelledby='p-Concurrency-label'>
+			<h3 id='p-Concurrency-label'>Concurrency</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Concurrency"><a href="/wiki/c/concurrency">Concurrency</a></li>
+													<li id="n-Inter‐Thread-Communication"><a href="/wiki/c/inter%E2%80%90thread_communication">Inter‐Thread Communication</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Other' aria-labelledby='p-Other-label'>
+			<h3 id='p-Other-label'>Other</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Data-Types"><a href="/wiki/c/data_types">Data Types</a></li>
+													<li id="n-Static-Assertions"><a href="/wiki/c/static_assertions">Static Assertions</a></li>
+													<li id="n-Generic-Selections"><a href="/wiki/c/generic_selections">Generic Selections</a></li>
+													<li id="n-Preprocessor"><a href="/wiki/c/preprocessor">Preprocessor</a></li>
+													<li id="n-Standard-Library"><a href="/wiki/c/standard_library">Standard Library</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/c/basic_arithmetics" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/c/basic_arithmetics" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=c/basic_arithmetics&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=c/basic_arithmetics&amp;oldid=11314" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=c/basic_arithmetics&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/c-2Fbasic_arithmetics" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 07:20.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":494});
+}</script>
+	</body>
+</html>

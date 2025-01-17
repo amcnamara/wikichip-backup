@@ -1,0 +1,1075 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=28', true, [], true, false, true, false);</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"response_size_orig":79151,"response_time_orig":174,"template_id":5,"url":"https://en.wikichip.org/wiki/14_nm%2B%2B_process","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=20', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),z=parseInt(__ez.dot.getTargeting(t,"compid")),g=0,c=0,l=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(l)&&(void 0!==l.creative_id&&(c=l.creative_id),void 0!==l.line_item_id&&(g=l.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:d,est_revenue:_,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:z,line_item_id:g,creative_id:c,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d){var _=e.split("/");if(__ez.dot.isDefined(e)&&3===_.length&&__ez.dot.isValid(t)){var n=_[0],r={type:"impression",impression_id:_[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(r.revenue=d),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/14_nm%2B%2B_process"/>
+
+<title>14 nm lithography process - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"14_nm_lithography_process","wgTitle":"14 nm lithography process","wgCurRevisionId":101807,"wgRevisionId":101807,"wgArticleId":6488,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["lithography"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"14_nm_lithography_process","wgRelevantArticleId":6488,"wgRequestId":"dd240d5ae7057b7b49654797","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"14_nm++_process","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/14_nm_lithography_process"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="14 nm lithography process" href="/w/index.php?title=Special:ExportRDF/14_nm_lithography_process&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=14_nm_lithography_process&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=14_nm_lithography_process&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/14_nm_lithography_process"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png"/>
+<meta property="og:title" content="14 nm lithography process - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="The 14 nanometer (14 nm) lithography process is a semiconductor manufacturing process node serving as shrink from the 22 nm process. The term &#39;14 nm&#39; is simply a commercial name for a generation of a certain size and its technology, as opposed to gate length or half pitch. The 14 nm node was introduced in 2014/2015 and has been replaced by the 10 nm process."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type='text/javascript'>
+var ezoTemplate = 'orig_site';
+var ezouid = '1';
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod142","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"16730545-9393-4678-783f-e72b7f4f7751","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":79151,"response_time_orig":174,"serverid":"i-05ab7bea415e71225","state":"VA","t_epoch":1696285944,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/14_nm%2B%2B_process","word_count":2075,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-14_nm_lithography_process rootpage-14_nm_lithography_process skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/14_nm_lithography_process">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:14_nm_lithography_process"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=14_nm_lithography_process&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=14+nm+lithography+process"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/14_nm_lithography_process"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/14_nm_lithography_process"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=14_nm_lithography_process&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=14_nm_lithography_process&amp;oldid=101807"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=14_nm_lithography_process&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:14-5Fnm-5Flithography-5Fprocess"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    14 nm lithography process    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=14_nm%2B%2B_process&amp;redirect=no" class="mw-redirect" title="14 nm++ process">14 nm++ process</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="noprint" style="float:right; box-shadow: 0 0 4px #BDBDBD inset; background-color: #FFFFFF; border-radius: 5px; width:150px; padding:10px; margin-left: 10px; margin-bottom: 15px;">
+<table cellspacing="0">
+<tbody><tr>
+<td style="width: 150px; text-align: center; font-size: 10px; font-weight: bold; color: #4A98D9;"> <img alt="basic wafer drawing.svg" src="/w/images/thumb/4/4e/basic_wafer_drawing.svg/75px-basic_wafer_drawing.svg.png" width="75" height="75" class="wikichip_ogimage" srcset="/w/images/thumb/4/4e/basic_wafer_drawing.svg/113px-basic_wafer_drawing.svg.png 1.5x, /w/images/thumb/4/4e/basic_wafer_drawing.svg/150px-basic_wafer_drawing.svg.png 2x"/> Semiconductor lithography processes technology
+</td></tr>
+<tr>
+<td style="padding-left: 10px;">
+<dl><dd><ul><li> <a href="/w/index.php?title=1_nm_lithography_process&amp;action=edit&amp;redlink=1" class="new" title="1 nm lithography process (page does not exist)">1 nm</a></li>
+<li> <a href="/w/index.php?title=2_nm_lithography_process&amp;action=edit&amp;redlink=1" class="new" title="2 nm lithography process (page does not exist)">2 nm</a></li>
+<li> <a href="/wiki/3_nm_lithography_process" title="3 nm lithography process">3 nm</a></li>
+<li> <a href="/wiki/5_nm_lithography_process" title="5 nm lithography process">5 nm</a></li>
+<li> <a href="/wiki/7_nm_lithography_process" title="7 nm lithography process">7 nm</a></li>
+<li> <a href="/wiki/10_nm_lithography_process" title="10 nm lithography process">10 nm</a></li>
+<li> <strong class="selflink">14 nm</strong></li>
+<li> <a href="/wiki/16_nm_lithography_process" title="16 nm lithography process">16 nm</a></li>
+<li> <a href="/wiki/20_nm_lithography_process" title="20 nm lithography process">20 nm</a></li>
+<li> <a href="/wiki/22_nm_lithography_process" title="22 nm lithography process">22 nm</a></li>
+<li> <a href="/wiki/28_nm_lithography_process" title="28 nm lithography process">28 nm</a></li>
+<li> <a href="/wiki/32_nm_lithography_process" title="32 nm lithography process">32 nm</a></li>
+<li> <a href="/wiki/40_nm_lithography_process" title="40 nm lithography process">40 nm</a></li>
+<li> <a href="/wiki/45_nm_lithography_process" title="45 nm lithography process">45 nm</a></li>
+<li> <a href="/wiki/55_nm_lithography_process" title="55 nm lithography process">55 nm</a></li>
+<li> <a href="/wiki/65_nm_lithography_process" title="65 nm lithography process">65 nm</a></li>
+<li> <a href="/wiki/80_nm_lithography_process" title="80 nm lithography process">80 nm</a></li>
+<li> <a href="/wiki/90_nm_lithography_process" title="90 nm lithography process">90 nm</a></li>
+<li> <a href="/wiki/110_nm_lithography_process" title="110 nm lithography process">110 nm</a></li>
+<li> <a href="/wiki/130_nm_lithography_process" title="130 nm lithography process">130 nm</a></li>
+<li> <a href="/wiki/150_nm_lithography_process" title="150 nm lithography process">150 nm</a></li>
+<li> <a href="/wiki/180_nm_lithography_process" title="180 nm lithography process">180 nm</a></li>
+<li> <a href="/wiki/220_nm_lithography_process" title="220 nm lithography process">220 nm</a></li>
+<li> <a href="/wiki/240_nm_lithography_process" title="240 nm lithography process">240 nm</a></li>
+<li> <a href="/wiki/250_nm_lithography_process" title="250 nm lithography process">250 nm</a></li>
+<li> <a href="/wiki/280_nm_lithography_process" title="280 nm lithography process">280 nm</a></li>
+<li> <a href="/wiki/350_nm_lithography_process" title="350 nm lithography process">350 nm</a></li>
+<li> <a href="/wiki/500_nm_lithography_process" title="500 nm lithography process">500 nm</a></li>
+<li> <a href="/wiki/600_nm_lithography_process" title="600 nm lithography process">600 nm</a></li>
+<li> <a href="/wiki/650_nm_lithography_process" title="650 nm lithography process">650 nm</a></li>
+<li> <a href="/wiki/700_nm_lithography_process" title="700 nm lithography process">700 nm</a></li>
+<li> <a href="/wiki/750_nm_lithography_process" title="750 nm lithography process">750 nm</a></li>
+<li> <a href="/wiki/800_nm_lithography_process" title="800 nm lithography process">800 nm</a></li>
+<li> <a href="/wiki/1_%C2%B5m_lithography_process" title="1 µm lithography process">1 µm</a></li>
+<li> <a href="/wiki/1.2_%C2%B5m_lithography_process" title="1.2 µm lithography process">1.2 µm</a></li>
+<li> <a href="/wiki/1.3_%C2%B5m_lithography_process" title="1.3 µm lithography process">1.3 µm</a></li>
+<li> <a href="/wiki/1.5_%C2%B5m_lithography_process" title="1.5 µm lithography process">1.5 µm</a></li>
+<li> <a href="/wiki/2_%C2%B5m_lithography_process" title="2 µm lithography process">2 µm</a></li>
+<li> <a href="/wiki/2.5_%C2%B5m_lithography_process" title="2.5 µm lithography process">2.5 µm</a></li>
+<li> <a href="/wiki/3_%C2%B5m_lithography_process" title="3 µm lithography process">3 µm</a></li>
+<li> <a href="/wiki/3.5_%C2%B5m_lithography_process" title="3.5 µm lithography process">3.5 µm</a></li>
+<li> <a href="/wiki/5_%C2%B5m_lithography_process" title="5 µm lithography process">5 µm</a></li>
+<li> <a href="/wiki/6_%C2%B5m_lithography_process" title="6 µm lithography process">6 µm</a></li>
+<li> <a href="/wiki/7_%C2%B5m_lithography_process" title="7 µm lithography process">7 µm</a></li>
+<li> <a href="/wiki/8_%C2%B5m_lithography_process" title="8 µm lithography process">8 µm</a></li>
+<li> <a href="/wiki/10_%C2%B5m_lithography_process" title="10 µm lithography process">10 µm</a></li>
+<li> <a href="/wiki/16_%C2%B5m_lithography_process" title="16 µm lithography process">16 µm</a></li>
+<li> <a href="/wiki/20_%C2%B5m_lithography_process" title="20 µm lithography process">20 µm</a></li>
+<li> <a href="/wiki/50_%C2%B5m_lithography_process" title="50 µm lithography process">50 µm</a></li></ul></dd></dl>
+</td></tr></tbody></table><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="View this template">v</span></a><span style=""> <b>·</b> </span><a href="/wiki/Template:lithography_processes" title="Template:lithography processes"><span style="" title="Discuss this template">d</span></a><span style=""> <b>·</b> </span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:lithography_processes&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p>The <b>14 nanometer (14 nm) lithography process</b> is a semiconductor manufacturing <a href="/wiki/process_node" class="mw-redirect" title="process node">process node</a> serving as <a href="/wiki/process_shrink" title="process shrink">shrink</a> from the <a href="/wiki/22_nm_process" class="mw-redirect" title="22 nm process">22 nm process</a>. The term &#34;14 nm&#34; is simply a commercial name for a generation of a certain size and its technology, as opposed to gate length or half pitch. The 14 nm node was introduced in 2014/2015 and has been replaced by the <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm process</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Industry"><span class="tocnumber">1</span> <span class="toctext">Industry</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Composition"><span class="tocnumber">1.1</span> <span class="toctext">Composition</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Intel"><span class="tocnumber">1.2</span> <span class="toctext">Intel</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#IBM"><span class="tocnumber">1.3</span> <span class="toctext">IBM</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Samsung"><span class="tocnumber">1.4</span> <span class="toctext">Samsung</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#14LPE"><span class="tocnumber">1.5</span> <span class="toctext">14LPE</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#14LPP"><span class="tocnumber">1.6</span> <span class="toctext">14LPP</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#11LPP"><span class="tocnumber">1.7</span> <span class="toctext">11LPP</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#GlobalFoundries"><span class="tocnumber">1.8</span> <span class="toctext">GlobalFoundries</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#UMC"><span class="tocnumber">1.9</span> <span class="toctext">UMC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Find_models"><span class="tocnumber">2</span> <span class="toctext">Find models</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#14_nm_Microprocessors"><span class="tocnumber">3</span> <span class="toctext">14 nm Microprocessors</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#14_nm_Microarchitectures"><span class="tocnumber">4</span> <span class="toctext">14 nm Microarchitectures</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Documents"><span class="tocnumber">5</span> <span class="toctext">Documents</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Industry">Industry</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=1" title="Edit section: Industry">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable" style="float:left; margin:0; margin-right:-1px; font-family: monospace;">
+
+<tbody><tr>
+<th colspan="2">  
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2"> Process Name
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2"> 1st Production
+</th></tr>
+<tr>
+<th style="text-align: center;" rowspan="3"> Lithography </th>
+<th style="text-align: right;"> Lithography
+</th></tr>
+<tr>
+<th style="text-align: right;"> Immersion
+</th></tr>
+<tr>
+<th style="text-align: right;"> Exposure
+</th></tr>
+<tr>
+<th style="text-align: center;" rowspan="2"> Wafer </th>
+<th style="text-align: right;"> Type
+</th></tr>
+<tr>
+<th style="text-align: right;"> Size
+</th></tr>
+<tr>
+<th style="text-align: center;" rowspan="2"> Transistor </th>
+<th style="text-align: right;"> Type
+</th></tr>
+<tr>
+<th style="text-align: right;"> Voltage
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2">  
+</th></tr>
+<tr>
+<th style="text-align: center;" rowspan="3"> Fin </th>
+<th style="text-align: right;"> Pitch
+</th></tr>
+<tr>
+<th style="text-align: right;"> Width
+</th></tr>
+<tr>
+<th style="text-align: right;"> Height
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2"> Gate Length (L<sub>g</sub>)
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2"> Contacted Gate Pitch (CPP)
+</th></tr>
+<tr>
+<th style="text-align: right;" colspan="2"> Minimum Metal Pitch (MMP)
+</th></tr>
+<tr>
+<th style="text-align: right;" rowspan="3"> SRAM bitcell </th>
+<th style="text-align: right;"> High-Perf (HP)
+</th></tr>
+<tr>
+<th style="text-align: right;"> High-Density (HD)
+</th></tr>
+<tr>
+<th style="text-align: right;"> Low-Voltage (LV)
+</th></tr>
+<tr>
+<th style="text-align: right;" rowspan="3"> DRAM bitcell </th>
+<th style="text-align: right;"> eDRAM
+</th></tr></tbody></table>
+<div style="overflow-x:auto; white-space:nowrap; text-align: center; font-family: monospace;">
+<table class="wikitable" style="margin:0;">
+
+<tbody><tr style="text-align: center;">
+<th colspan="2"> <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a></th>
+<th colspan="2"> <a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a><span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="Samsung consists of a process development collaboration between Samsung and GlobalFoundries. GlobalFoundries licenses Samsung&#39;s 14nm process at Fab8, New York."><span class="smwtticon info"></span><div class="smwttcontent"><b>Samsung</b> consists of a process development collaboration between <a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a> and <a href="/w/index.php?title=GlobalFoundries&amp;action=edit&amp;redlink=1" class="new" title="GlobalFoundries (page does not exist)">GlobalFoundries</a>. GlobalFoundries licenses Samsung&#39;s 14nm process at Fab8, New York.</div></span></th>
+<th colspan="2"> <a href="/wiki/IBM" class="mw-redirect" title="IBM">IBM</a> (Now GlobalFoundries)</th>
+<th colspan="2"> <a href="/wiki/UMC" class="mw-redirect" title="UMC">UMC</a></th>
+<th colspan="2"> <a href="/w/index.php?title=Common_Platform_Alliance&amp;action=edit&amp;redlink=1" class="new" title="Common Platform Alliance (page does not exist)">Common Platform Alliance</a><span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="The Common Platform Alliance is a joint collaboration between IBM, STMicroelectronics"><span class="smwtticon info"></span><div class="smwttcontent">The <b>Common Platform Alliance</b> is a joint collaboration between <a href="/wiki/IBM" class="mw-redirect" title="IBM">IBM</a>, <a href="/wiki/STMicroelectronics" class="mw-redirect" title="STMicroelectronics">STMicroelectronics</a></div></span></th>
+<th colspan="2"> <a href="/wiki/SMIC" class="mw-redirect" title="SMIC">SMIC</a>
+</th></tr>
+<tr style="text-align: center;">
+<td colspan="2"> P1272 (CPU) / P1273 (SoC)</td>
+<td colspan="2"> 14LPE<span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="1st generation; 14 nm Low Power Early"><span class="smwtticon info"></span><div class="smwttcontent">1<sup>st</sup> generation; 14 nm Low Power Early</div></span>, 14LPP<span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="2nd generation; 14 nm Low Power Performance"><span class="smwtticon info"></span><div class="smwttcontent">2<sup>nd</sup> generation; 14 nm Low Power Performance</div></span>, 14LPC<span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="3rd generation; 14 nm Low Power Cost &amp;#91;reduced]"><span class="smwtticon info"></span><div class="smwttcontent">3<sup>rd</sup> generation; 14 nm Low Power Cost [reduced]</div></span>, 14LPU<span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="4th generation; 14 nm Low Power Ultimate"><span class="smwtticon info"></span><div class="smwttcontent">4<sup>th</sup> generation; 14 nm Low Power Ultimate</div></span></td>
+<td colspan="2"> 14HP<span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="14nm High Performance"><span class="smwtticon info"></span><div class="smwttcontent">14nm High Performance</div></span></td>
+<td colspan="2">  </td>
+<td colspan="2"> 14FDSOI</td>
+<td colspan="2"> 14FinFET
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> 2014</td>
+<td colspan="2"> 2015</td>
+<td colspan="2"> 2017</td>
+<td colspan="2"> 2Q 2017</td>
+<td colspan="2">  </td>
+<td colspan="2">  
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> 193 nm</td>
+<td colspan="2"> 193 nm</td>
+<td colspan="2"> 193 nm</td>
+<td colspan="2"> 193 nm</td>
+<td colspan="2"> 193 nm</td>
+<td colspan="2"> 193 nm
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> Yes</td>
+<td colspan="2"> Yes</td>
+<td colspan="2"> Yes</td>
+<td colspan="2"> Yes</td>
+<td colspan="2"> Yes</td>
+<td colspan="2"> Yes
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> SADP</td>
+<td colspan="2"> LELE</td>
+<td colspan="2"> SADP</td>
+<td colspan="2">  </td>
+<td colspan="2"> DP</td>
+<td colspan="2">  
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> Bulk</td>
+<td colspan="2"> Bulk</td>
+<td colspan="2"> SOI</td>
+<td colspan="2"> Bulk</td>
+<td colspan="2"> SOI</td>
+<td colspan="2">  
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> 300 mm</td>
+<td colspan="2"> 300 mm</td>
+<td colspan="2"> 300 mm</td>
+<td colspan="2"> 300 mm</td>
+<td colspan="2"> 300 mm</td>
+<td colspan="2"> 300 mm
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> FinFET</td>
+<td colspan="2"> FinFET</td>
+<td colspan="2"> FinFET</td>
+<td colspan="2"> FinFET</td>
+<td colspan="2"> Planar</td>
+<td colspan="2"> FinFET
+</td></tr>
+<tr style="text-align: center;">
+<td colspan="2"> 0.70 V</td>
+<td colspan="2"> 0.80 V</td>
+<td colspan="2"> 0.80 V</td>
+<td colspan="2">  </td>
+<td colspan="2"> 0.80 V</td>
+<td colspan="2">  
+</td></tr>
+<tr>
+<th> Value </th>
+<th> <a href="/wiki/22_nm" class="mw-redirect" title="22 nm">22 nm</a> Δ</th>
+<th> Value </th>
+<th> <a href="/wiki/20_nm" class="mw-redirect" title="20 nm">20 nm</a> Δ</th>
+<th> Value </th>
+<th> <a href="/wiki/22_nm" class="mw-redirect" title="22 nm">22 nm</a> Δ</th>
+<th> Value </th>
+<th> <a href="/wiki/28_nm" class="mw-redirect" title="28 nm">28 nm</a> Δ</th>
+<th> Value </th>
+<th> <a href="/wiki/28_nm" class="mw-redirect" title="28 nm">28 nm</a> Δ</th>
+<th> Value </th>
+<th> [[ ]] Δ
+</th></tr>
+<tr>
+<td> 42 nm </td>
+<td> 0.70x</td>
+<td> 48 nm </td>
+<td rowspan="3" style="background: #a3a3a3;"> N/A</td>
+<td> 42 nm </td>
+<td rowspan="3" style="background: #a3a3a3;"> N/A</td>
+<td>   </td>
+<td>  </td>
+<td rowspan="3" colspan="2" style="background: #a3a3a3;"> N/A</td>
+<td rowspan="3" colspan="2" style="background: #a3a3a3;"> N/A
+</td></tr>
+<tr>
+<td> 8 nm </td>
+<td> 1.00x</td>
+<td> 8 nm</td>
+<td> 10 nm</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 42 nm </td>
+<td> 1.24x</td>
+<td> 37 nm</td>
+<td> 25 nm</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 20 nm </td>
+<td> 0.77x</td>
+<td> 30 nm </td>
+<td>  </td>
+<td> 18-26 nm </td>
+<td> 0.72-0.79x</td>
+<td>   </td>
+<td>  </td>
+<td> 20 nm </td>
+<td> 0.71x</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 70 nm </td>
+<td> 0.78x</td>
+<td> 78 nm </td>
+<td> 1.22x</td>
+<td> 80 nm </td>
+<td> 0.80x</td>
+<td>   </td>
+<td>  </td>
+<td> 90 nm </td>
+<td> 0.79x</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 52 nm </td>
+<td> 0.65x</td>
+<td> 64 nm </td>
+<td> 1.00x</td>
+<td> 64 nm </td>
+<td> 0.80x</td>
+<td>   </td>
+<td>  </td>
+<td> 64 nm </td>
+<td> 0.71x</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 0.0706 µm² </td>
+<td> 0.54x</td>
+<td> 0.080 µm² </td>
+<td> 0.78x</td>
+<td> 0.0900 µm² </td>
+<td> 0.63x</td>
+<td>   </td>
+<td>  </td>
+<td> 0.090 µm² </td>
+<td> 0.59x</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 0.0499 µm² </td>
+<td> 0.54x</td>
+<td> 0.064 µm² </td>
+<td> 0.79x</td>
+<td> 0.0810 µm² </td>
+<td> 0.81x</td>
+<td>   </td>
+<td>  </td>
+<td> 0.081 µm² </td>
+<td> 0.68x</td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td> 0.0588 µm² </td>
+<td> 0.54x</td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  
+</td></tr>
+<tr>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  </td>
+<td> 0.0174 µm² </td>
+<td> 0.67x</td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  </td>
+<td>   </td>
+<td>  
+</td></tr></tbody></table>
+</div>
+<h3><span class="mw-headline" id="Composition">Composition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=2" title="Edit section: Composition">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="floatleft"><a href="/wiki/File:intel_14nm_relative_density.png" class="image"><img alt="intel 14nm relative density.png" src="/w/images/thumb/d/de/intel_14nm_relative_density.png/200px-intel_14nm_relative_density.png" width="200" height="154" srcset="/w/images/thumb/d/de/intel_14nm_relative_density.png/300px-intel_14nm_relative_density.png 1.5x, /w/images/thumb/d/de/intel_14nm_relative_density.png/400px-intel_14nm_relative_density.png 2x"/></a></div><div class="floatright"><a href="/wiki/File:relative_percentage_of_elements_on_14nm_chip.png" class="image"><img alt="relative percentage of elements on 14nm chip.png" src="/w/images/thumb/7/7e/relative_percentage_of_elements_on_14nm_chip.png/400px-relative_percentage_of_elements_on_14nm_chip.png" width="400" height="261" srcset="/w/images/thumb/7/7e/relative_percentage_of_elements_on_14nm_chip.png/600px-relative_percentage_of_elements_on_14nm_chip.png 1.5x, /w/images/thumb/7/7e/relative_percentage_of_elements_on_14nm_chip.png/800px-relative_percentage_of_elements_on_14nm_chip.png 2x"/></a></div>
+<p>It&#39;s important to note that not all processes compete with each other. The process should cater to the products that will make use of the underlying technology. The composition of the actual integrated circuit also varies by manufacturer and by design due to different goals. For example, the cache on <a href="/wiki/Apple" class="mw-redirect" title="Apple">Apple</a>&#39;s 14 nm <a href="/w/index.php?title=apple/a9&amp;action=edit&amp;redlink=1" class="new" title="apple/a9 (page does not exist)">A9</a> (manufactured by Samsung) accounts almost 1/3 of the entire chip whereas <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s <a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a> cache accounts for only 10% of the entire chip. Likewise, <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s <a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a> and <a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a> target high-performance and incorporate a large amount of higher-speed elements which are inherently sparse. Tall cells account for almost 30% Skylake&#39;s composition and less than 1% on Apple&#39;s <a href="/w/index.php?title=apple/a8&amp;action=edit&amp;redlink=1" class="new" title="apple/a8 (page does not exist)">A8</a> or <a href="/w/index.php?title=apple/a9&amp;action=edit&amp;redlink=1" class="new" title="apple/a9 (page does not exist)">A9</a>. Those numbers are somewhat expected given tall logic cells are generally optimized for performance and high frequency (e.g., high-switching circuitry in the <a href="/w/index.php?title=CPU&amp;action=edit&amp;redlink=1" class="new" title="CPU (page does not exist)">CPU</a>) whereas short cells are optimized for density (e.g., GPU shader arrays).
+</p><p>It should be noted that <a href="/wiki/SRAM" class="mw-redirect" title="SRAM">SRAM</a> is the densest component of the process in a chip, with sometimes up to three or four times the density of logic cells that are used in the same process. It should be noted that in recent years, SRAM hasn&#39;t scaled as well as logic and I/O have either.
+</p>
+<h3><span class="mw-headline" id="Intel">Intel</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=3" title="Edit section: Intel">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>See also: <a href="/wiki/intel/process" title="intel/process">Intel&#39;s Process Technology History</a></i></dd></dl>
+<p>Intel got off to a bumpy start with major yield problems initially, but by <a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a> yield has reached very healthy numbers. 14 nm became <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s 2nd generation FinFET transistors. Intel uses TiN pMOS / TiAlN nMOS as work function metals. Intel makes use of 193 nm immersion lithography with <a href="/w/index.php?title=Self-Aligned_Double_Patterning&amp;action=edit&amp;redlink=1" class="new" title="Self-Aligned Double Patterning (page does not exist)">Self-Aligned Double Patterning</a> (SADP) at the critical patterning layers. Compared to all other &#34;14 nm nodes&#34;, Intel&#39;s process is the densest and considerably so, with &gt;1.5x raw logic density.
+</p><p>Intel&#39;s 14 nm process has gone through multiple refinements optimizing higher clock speed, higher drive current, and lower power dissipation. The original &#34;14nm&#34; was used for their <a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a> and mainstream <a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a> processors. They improved on their original process with a second process, &#34;14nm+&#34;, offering 12% higher drive current at lower power. That process has been used for both <a href="/wiki/intel/microarchitectures/kaby_lake" title="intel/microarchitectures/kaby lake">Kaby Lake</a> and Server/HEDT <a href="/wiki/intel/cores/skylake_sp" title="intel/cores/skylake sp">Skylake SP</a>/<a href="/wiki/intel/cores/skylake_x" title="intel/cores/skylake x">X</a> processors.
+</p><p>A third improved process, &#34;14nm++&#34;, is set to begin in late 2017 and will further allow for +23-24% higher drive current for 52% less power vs the original 14nm process. The 14nm++ process also appear to have slightly relaxed poly pitch of 84 nm (from 70 nm). It&#39;s unknown what impact, if any, this will have on the density.
+</p><p><a href="/wiki/File:intel_14nm_gate.png" class="image"><img alt="intel 14nm gate.png" src="/w/images/thumb/1/1e/intel_14nm_gate.png/250px-intel_14nm_gate.png" width="250" height="201" srcset="/w/images/thumb/1/1e/intel_14nm_gate.png/375px-intel_14nm_gate.png 1.5x, /w/images/1/1e/intel_14nm_gate.png 2x"/></a>
+</p>
+<table class="wikitable collapsible collapsed">
+
+<tbody><tr>
+<th colspan="3"> Intel 14nm Design Rules
+</th></tr>
+<tr>
+<th> Layer </th>
+<th> Pitch </th>
+<th> Scale Factor
+</th></tr>
+<tr>
+<td> Fin </td>
+<td> 42 nm </td>
+<td> 0.70
+</td></tr>
+<tr>
+<td> Contacted Gate Pitch </td>
+<td> 70 nm </td>
+<td> 0.78
+</td></tr>
+<tr>
+<td> Metal 0 </td>
+<td> 56 </td>
+<td> -
+</td></tr>
+<tr>
+<td> Metal 1 </td>
+<td> 70 </td>
+<td> 0.78
+</td></tr>
+<tr>
+<td> Metal 2 </td>
+<td> 52 </td>
+<td> 0.65
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="IBM">IBM</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=4" title="Edit section: IBM">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="floatright"><a href="/wiki/File:ibm_14nm_m1_cx.png" class="image"><img alt="ibm 14nm m1 cx.png" src="/w/images/thumb/6/6d/ibm_14nm_m1_cx.png/300px-ibm_14nm_m1_cx.png" width="300" height="122" srcset="/w/images/thumb/6/6d/ibm_14nm_m1_cx.png/450px-ibm_14nm_m1_cx.png 1.5x, /w/images/thumb/6/6d/ibm_14nm_m1_cx.png/600px-ibm_14nm_m1_cx.png 2x"/></a></div>
+<div class="floatright"><a href="/wiki/File:ibm_14nm_m2_cx.png" class="image"><img alt="ibm 14nm m2 cx.png" src="/w/images/thumb/9/97/ibm_14nm_m2_cx.png/300px-ibm_14nm_m2_cx.png" width="300" height="101" srcset="/w/images/thumb/9/97/ibm_14nm_m2_cx.png/450px-ibm_14nm_m2_cx.png 1.5x, /w/images/thumb/9/97/ibm_14nm_m2_cx.png/600px-ibm_14nm_m2_cx.png 2x"/></a></div>
+<p>IBM developed their own &#34;14HP&#34; (14nm High-Performance) process at their East Fishkill, NY plant. Note that the plant AND the process, along with numerous semiconductor technology IPs, were sold to <a href="/w/index.php?title=GlobalFoundries&amp;action=edit&amp;redlink=1" class="new" title="GlobalFoundries (page does not exist)">GlobalFoundries</a> in late 2014. GF still operates the plant (also by ex-IBM semiconductor engineers) and the process which is used by IBM for their various processors. This process was designed by IBM for their very large chips with effective power supply and clock distribution capable of producing dies as large as 700 mm² and larger with a hierarchical <a href="/w/index.php?title=BEOL&amp;action=edit&amp;redlink=1" class="new" title="BEOL (page does not exist)">BEOL</a> of 17 levels of copper interconnect for high performance wire-ability. It should be noted that GlobalFoundries had no such capabilities prior to their acquisition of IBM&#39;s plant, semiconductor manufacturing group, and IP portfolio.
+</p><p>IBM&#39;s HP 14nm CMOS process features a <a href="/w/index.php?title=FinFET&amp;action=edit&amp;redlink=1" class="new" title="FinFET (page does not exist)">FinFET</a> architecture on an <a href="/w/index.php?title=silicon-on-insulator&amp;action=edit&amp;redlink=1" class="new" title="silicon-on-insulator (page does not exist)">SOI</a> substrate. The use of SOI with <a href="/w/index.php?title=FinFET&amp;action=edit&amp;redlink=1" class="new" title="FinFET (page does not exist)">FinFET</a> gives IBM a number of unique advantages such as lower <a href="/w/index.php?title=parasitic_capacitance&amp;action=edit&amp;redlink=1" class="new" title="parasitic capacitance (page does not exist)">parasitic capacitance</a> at the base of the fin as well as simplifies patterning of the active fins and minimizes their variability such as height and thickness. The architecture also includes high-density deep-trench <a href="/wiki/embedded_DRAM" class="mw-redirect" title="embedded DRAM">embedded DRAM</a> cells with a reported size of 0.0174 µm². The process features an L<sub>gate</sub> of 20nm and smaller (18nm to 27nm) which IBM reported to result in over 35% performance gain verses their HP 22nm process (for identical V<sub>dd</sub> = 0.80 V).
+</p><p><br/>
+</p>
+<table class="wikitable collapsible collapsed">
+
+<tbody><tr>
+<th colspan="3"> IBM 14nm Design Rules
+</th></tr>
+<tr>
+<th> Layer </th>
+<th> Pitch
+</th></tr>
+<tr>
+<td> Fin </td>
+<td> 42 nm
+</td></tr>
+<tr>
+<td> Contacted Gate Pitch </td>
+<td> 80 nm
+</td></tr>
+<tr>
+<td> Metal 1 </td>
+<td> 64 nm
+</td></tr>
+<tr>
+<td> Metal 2 </td>
+<td> 80 nm
+</td></tr>
+<tr>
+<td> Metal 3 </td>
+<td> 128 nm
+</td></tr>
+<tr>
+<td> Metal 4 </td>
+<td> 256 nm
+</td></tr>
+<tr>
+<td> Metal 5 </td>
+<td> 512 nm
+</td></tr>
+<tr>
+<td> Metal 6 </td>
+<td> 2.56 µm
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Samsung">Samsung</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=5" title="Edit section: Samsung">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="floatright"><a href="/wiki/File:ss_14-10nm.png" class="image"><img alt="ss 14-10nm.png" src="/w/images/thumb/3/31/ss_14-10nm.png/500px-ss_14-10nm.png" width="500" height="266" srcset="/w/images/thumb/3/31/ss_14-10nm.png/750px-ss_14-10nm.png 1.5x, /w/images/3/31/ss_14-10nm.png 2x"/></a></div>
+<h3><span class="mw-headline" id="14LPE">14LPE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=6" title="Edit section: 14LPE">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3><span class="mw-headline" id="14LPP">14LPP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=7" title="Edit section: 14LPP">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This process became Samsung&#39;s and GlobalFoundries first generation of FinFET-based transistors. Samsung uses TiN pMOS / TiAIC nMOS as work function metals. Samsung node has gone through a number of refinements from 14LPE (14 Low-Power Early) to 14LPP (14 Low-Power Performance) and further.
+</p>
+<h3><span class="mw-headline" id="11LPP">11LPP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=8" title="Edit section: 11LPP">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In late 2017, Samsung announced &#34;11LPP&#34; (11 Low-Power Plus) which is a further enhancement of 14LPP. 11LPP is reported to deliver up to 15% higher performance with enhanced design rules that allow for up to 10% reduction in area. Samsung expects 11LPP to enter mass production in late 2017 or early 2018
+</p>
+<h3><span class="mw-headline" id="GlobalFoundries">GlobalFoundries</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=9" title="Edit section: GlobalFoundries">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Building on top of Samsung&#39;s licensed 14nm process, GlobalFoundries announced the &#34;12LP&#34; (12 nm Leading Performance) process in late 2017 which is said to deliver up to 15% increase in density and 10% increase in performance through further cell optimization such as <a href="/w/index.php?title=track_reduction&amp;action=edit&amp;redlink=1" class="new" title="track reduction (page does not exist)">track reduction</a>.
+</p>
+<h3><span class="mw-headline" id="UMC">UMC</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=10" title="Edit section: UMC">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>UMC announced the start of 14nm process mass production in February 2017. The 14nm process is their first process to use FinFET, and provides up to 55% higher performance and twice the gate density compared to their 28nm process.
+</p>
+<div class="floatleft"><a href="/wiki/File:UMC_14nm_finfet.png" class="image"><img alt="UMC 14nm finfet.png" src="/w/images/thumb/b/bd/UMC_14nm_finfet.png/400px-UMC_14nm_finfet.png" width="400" height="230" srcset="/w/images/b/bd/UMC_14nm_finfet.png 1.5x"/></a></div>
+<div style="clear:both;"></div>
+<h2><span class="mw-headline" id="Find_models">Find models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=11" title="Edit section: Find models">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><span class="smw-broadtable-furtherresults"><a href="/wiki/Special:Ask/-5B-5Binstance-20of::microprocessor-5D-5D-20-5B-5Bprocess::14-20nm-5D-5D/-3Ffamily/-3Fmicroarchitecture/-3Fprocess/-3Fdesigner/-3Fmanufacturer/-3Ffirst-20launched/-3Fbase-20frequency/mainlabel%3D/offset%3D0/format%3Dbroadtable/link%3Dall/headers%3Dshow/searchlabel%3DClick-20to-20browse-20all-2014-20nm-20MPU-20models/class%3Dsortable-20wikitable-20smwtable" title="Special:Ask/-5B-5Binstance-20of::microprocessor-5D-5D-20-5B-5Bprocess::14-20nm-5D-5D/-3Ffamily/-3Fmicroarchitecture/-3Fprocess/-3Fdesigner/-3Fmanufacturer/-3Ffirst-20launched/-3Fbase-20frequency/mainlabel=/offset=0/format=broadtable/link=all/headers=show/searchlabel=Click-20to-20browse-20all-2014-20nm-20MPU-20models/class=sortable-20wikitable-20smwtable">Click to browse all 14 nm MPU models</a></span>
+</p>
+<h2><span class="mw-headline" id="14_nm_Microprocessors">14 nm Microprocessors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=12" title="Edit section: 14 nm Microprocessors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> AMD</li></ul>
+<div class="wiki-ul-col4" style="display: inline-block; padding-left: 30px">
+<ul><li> <a href="/wiki/amd/epyc" title="amd/epyc">EPYC</a></li>
+<li> <a href="/wiki/amd/epyc_embedded" title="amd/epyc embedded">EPYC Embedded</a></li>
+<li> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a></li>
+<li> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a></li>
+<li> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a></li>
+<li> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a></li>
+<li> <a href="/wiki/amd/ryzen_threadripper" title="amd/ryzen threadripper">Ryzen Threadripper</a></li></ul>
+</div>
+<ul><li> Apple
+<ul><li> <a href="/wiki/apple/ax" title="apple/ax">Ax</a></li></ul></li>
+<li> Intel</li></ul>
+<div class="wiki-ul-col6" style="display: inline-block; padding-left: 30px">
+<ul><li> <a href="/wiki/intel/atom_x5" title="intel/atom x5">Atom x5</a></li>
+<li> <a href="/wiki/intel/atom_x7" title="intel/atom x7">Atom x7</a></li>
+<li> <a href="/wiki/intel/core_i3" title="intel/core i3">Core i3</a></li>
+<li> <a href="/wiki/intel/core_i5" title="intel/core i5">Core i5</a></li>
+<li> <a href="/wiki/intel/core_i7" title="intel/core i7">Core i7</a></li>
+<li> <a href="/wiki/intel/core_i7ee" title="intel/core i7ee">Core i7EE</a></li>
+<li> <a href="/wiki/intel/core_i9" title="intel/core i9">Core i9</a></li>
+<li> <a href="/wiki/intel/pentium_(2009)" title="intel/pentium (2009)">Pentium</a></li>
+<li> <a href="/wiki/intel/pentium_gold" title="intel/pentium gold">Pentium Gold</a></li>
+<li> <a href="/wiki/intel/pentium_silver" title="intel/pentium silver">Pentium Silver</a></li>
+<li> <a href="/wiki/intel/celeron" title="intel/celeron">Celeron</a></li>
+<li> <a href="/wiki/intel/xeon" title="intel/xeon">Xeon</a></li>
+<li> <a href="/wiki/intel/xeon_bronze" title="intel/xeon bronze">Xeon Bronze</a></li>
+<li> <a href="/wiki/intel/xeon_d" title="intel/xeon d">Xeon D</a></li>
+<li> <a href="/w/index.php?title=intel/xeon_e3&amp;action=edit&amp;redlink=1" class="new" title="intel/xeon e3 (page does not exist)">Xeon E3</a></li>
+<li> <a href="/wiki/intel/xeon_e5" title="intel/xeon e5">Xeon E5</a></li>
+<li> <a href="/wiki/intel/xeon_e7" title="intel/xeon e7">Xeon E7</a></li>
+<li> <a href="/wiki/intel/xeon_gold" title="intel/xeon gold">Xeon Gold</a></li>
+<li> <a href="/wiki/intel/xeon_platinum" title="intel/xeon platinum">Xeon Platinum</a></li>
+<li> <a href="/wiki/intel/xeon_silver" title="intel/xeon silver">Xeon Silver</a></li></ul>
+</div>
+<ul><li> Samsung
+<ul><li> <a href="/wiki/samsung/exynos" title="samsung/exynos">Exynos</a></li></ul></li>
+<li> NXP
+<ul><li> <a href="/w/index.php?title=nxp/i.mx_8m_mini&amp;action=edit&amp;redlink=1" class="new" title="nxp/i.mx 8m mini (page does not exist)">i.MX 8M Mini</a></li></ul></li></ul>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=14_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
+</p>
+<h2><span class="mw-headline" id="14_nm_Microarchitectures">14 nm Microarchitectures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=13" title="Edit section: 14 nm Microarchitectures">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Intel
+<ul><li> <a href="/wiki/intel/microarchitectures/airmont" title="intel/microarchitectures/airmont">Airmont</a></li>
+<li> <a href="/wiki/intel/microarchitectures/goldmont" title="intel/microarchitectures/goldmont">Goldmont</a></li>
+<li> <a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a></li>
+<li> <a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/kaby_lake" title="intel/microarchitectures/kaby lake">Kaby Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/coffee_lake" title="intel/microarchitectures/coffee lake">Coffee Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/whiskey_lake" title="intel/microarchitectures/whiskey lake">Whiskey Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/amber_lake" title="intel/microarchitectures/amber lake">Amber Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/comet_lake" title="intel/microarchitectures/comet lake">Comet Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/cascade_lake" title="intel/microarchitectures/cascade lake">Cascade Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/cooper_lake" title="intel/microarchitectures/cooper lake">Cooper Lake</a></li>
+<li> <a href="/wiki/intel/microarchitectures/rocket_lake" title="intel/microarchitectures/rocket lake">Rocket Lake</a></li></ul></li>
+<li> AMD
+<ul><li> <a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a></li>
+<li> <a href="/wiki/amd/microarchitectures/zen_refresh" class="mw-redirect" title="amd/microarchitectures/zen refresh">Zen refresh</a></li>
+<li> <a href="/wiki/amd/microarchitectures/arctic_islands" class="mw-redirect" title="amd/microarchitectures/arctic islands">Arctic Islands</a></li>
+<li> <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a></li></ul></li>
+<li> IBM
+<ul><li> <a href="/wiki/ibm/microarchitectures/power9" title="ibm/microarchitectures/power9">POWER9</a></li>
+<li> <a href="/wiki/ibm/microarchitectures/z14" title="ibm/microarchitectures/z14">z14</a></li></ul></li>
+<li> Samsung
+<ul><li> <a href="/wiki/samsung/microarchitectures/mongoose_1" class="mw-redirect" title="samsung/microarchitectures/mongoose 1">Mongoose 1</a></li></ul></li></ul>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=14_nm_lithography_process&amp;action=edit">expanding it</a>.</i>
+</p>
+<h2><span class="mw-headline" id="Documents">Documents</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=14" title="Edit section: Documents">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/File:14-nm-technology-fact-sheet.pdf" title="File:14-nm-technology-fact-sheet.pdf">Intel&#39;s 14 nm Technology: Delivering Ultrafast, Energy-Sipping Products</a></li>
+<li> <a href="/wiki/File:2015_InvestorMeeting_Bill_Holt_WEB2.pdf" title="File:2015 InvestorMeeting Bill Holt WEB2.pdf">Intel&#39;s 14nm, Advancing Moore&#39;s Law, investor meeting</a></li>
+<li> <a href="/wiki/File:Ruth-Brain-2017-Manufacturing.pdf" title="File:Ruth-Brain-2017-Manufacturing.pdf">Intel&#39;s 14 nm technology leadership, Dr. Ruth Brain</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=14_nm_lithography_process&amp;action=edit&amp;section=15" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Natarajan, S., et al. &#34;A 14nm logic technology featuring 2 nd-generation FinFET, air-gapped interconnects, self-aligned double patterning and a 0.0588 µm 2 SRAM cell size.&#34; Electron Devices Meeting (IEDM), 2014 IEEE International. IEEE, 2014.</li>
+<li> Lin, C. H., et al. &#34;High performance 14nm SOI FinFET CMOS technology with 0.0174 µm 2 embedded DRAM and 15 levels of Cu metallization.&#34; Electron Devices Meeting (IEDM), 2014 IEEE International. IEEE, 2014.</li>
+<li> Jan, C-H., et al. &#34;A 14 nm SoC platform technology featuring 2 nd generation Tri-Gate transistors, 70 nm gate pitch, 52 nm metal pitch, and 0.0499 um 2 SRAM cells, optimized for low power, high performance and high density SoC products.&#34; VLSI Technology (VLSI Technology), 2015 Symposium on. IEEE, 2015.</li>
+<li> Song, Taejoong, et al. &#34;A 14 nm FinFET 128 Mb SRAM With VMIN Enhancement Techniques for Low-Power Applications.&#34; IEEE Journal of Solid-State Circuits 50.1 (2015): 158-169.</li>
+<li> Weber, Olivier, et al. &#34;14nm FDSOI technology for high speed and energy efficient applications.&#34; VLSI Technology (VLSI-Technology): Digest of Technical Papers, 2014 Symposium on. IEEE, 2014.</li>
+<li> Chen, Shyng-Tsong, et al. &#34;64 nm pitch Cu dual-damascene interconnects using pitch split double exposure patterning scheme.&#34; Interconnect Technology Conference and 2011 Materials for Advanced Metallization (IITC/MAM), 2011 IEEE International. IEEE, 2011.</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:6488-0!*!0!default!!en!5!* and timestamp 20231002123612 and revision id 101807
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=14_nm_lithography_process&amp;oldid=101807">https://en.wikichip.org/w/index.php?title=14_nm_lithography_process&amp;oldid=101807</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:lithography" title="Category:lithography">lithography</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 25 May 2023, at 19:32.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":126});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=4', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=4&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=10&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

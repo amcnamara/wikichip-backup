@@ -1,0 +1,714 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=14', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Neoverse N1 - Microarchitectures - ARM - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"arm_holdings/microarchitectures/neoverse_n1","wgTitle":"arm holdings/microarchitectures/neoverse n1","wgCurRevisionId":99105,"wgRevisionId":99105,"wgArticleId":31122,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["cpu microarchitectures by arm holdings","microarchitectures by arm holdings","all microarchitectures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"arm_holdings/microarchitectures/neoverse_n1","wgRelevantArticleId":31122,"wgRequestId":"5a01d985cb40450869926168","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Neoverse_N1","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/arm_holdings/microarchitectures/neoverse_n1"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="arm holdings/microarchitectures/neoverse n1" href="/w/index.php?title=Special:ExportRDF/arm_holdings/microarchitectures/neoverse_n1&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse_n1"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Neoverse N1 - Microarchitectures - ARM - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Neoverse N1 (codename Ares) is a high-performance ARM microarchitecture designed by ARM Holdings for the server market. This microarchitecture is designed as a synthesizable IP core and is sold to other semiconductor companies to be implemented in their own chips."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/Neoverse_N1"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"5d2826bb-2010-4557-7c39-c4cf2823c560","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":66335,"response_time_orig":146,"serverid":"54.81.16.102:6590","state":"VA","t_epoch":1634695001,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/Neoverse_N1","user_id":0,"word_count":1260,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["5d2826bb-2010-4557-7c39-c4cf2823c560", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-arm_holdings_microarchitectures_neoverse_n1 rootpage-arm_holdings skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/arm_holdings/microarchitectures/neoverse_n1">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:arm_holdings/microarchitectures/neoverse_n1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=arm+holdings%2Fmicroarchitectures%2Fneoverse+n1"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/arm_holdings/microarchitectures/neoverse_n1"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/arm_holdings/microarchitectures/neoverse_n1"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;oldid=99105"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:arm-5Fholdings-2Fmicroarchitectures-2Fneoverse-5Fn1"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Neoverse N1 - Microarchitectures - ARM    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/arm_holdings" title="arm holdings">arm holdings</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=Neoverse_N1&amp;redirect=no" class="mw-redirect" title="Neoverse N1">Neoverse N1</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/arm_holdings/microarchitectures/neoverse_n1" title="Special:FormEdit/microarchitecture/arm holdings/microarchitectures/neoverse n1"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Neoverse N1 µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">CPU</td></tr><tr><td class="label">Designer</td><td class="value">ARM Holdings</td></tr><tr><td class="label">Manufacturer</td><td class="value">TSMC</td></tr><tr><td class="label">Introduction</td><td class="value">February 20, 2019</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/4_cores" class="mw-redirect" title="4 cores">4</a>, <a href="/wiki/8_cores" class="mw-redirect" title="8 cores">8</a>, <a href="/wiki/16_cores" class="mw-redirect" title="16 cores">16</a>, <a href="/wiki/32_cores" class="mw-redirect" title="32 cores">32</a>, <a href="/w/index.php?title=64_cores&amp;action=edit&amp;redlink=1" class="new" title="64 cores (page does not exist)">64</a>, <a href="/w/index.php?title=96_cores&amp;action=edit&amp;redlink=1" class="new" title="96 cores (page does not exist)">96</a>, <a href="/w/index.php?title=128_cores&amp;action=edit&amp;redlink=1" class="new" title="128 cores (page does not exist)">128</a></td></tr><tr><td class="header" colspan="2">Pipeline</td></tr><tr><td class="label">Type</td><td class="value">Superscalar, Superpipeline</td></tr><tr><td class="label">OoOE</td><td class="value">Yes</td></tr><tr><td class="label">Speculative</td><td class="value">Yes</td></tr><tr><td class="label">Reg Renaming</td><td class="value">Yes</td></tr><tr><td class="label">Stages</td><td class="value">11</td></tr><tr><td class="label">Decode</td><td class="value">4-way</td></tr><tr><td class="header" colspan="2">Instructions</td></tr><tr><td class="label">ISA</td><td class="value">ARMv8.2</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L1I Cache</td><td class="value">64 KiB/core<br/>4-way set associative</td></tr><tr><td class="label">L1D Cache</td><td class="value">64 KiB/core<br/>4-way set associative</td></tr><tr><td class="label">L2 Cache</td><td class="value">512-1 MiB/core<br/>8-way set associative</td></tr><tr><td class="label">L3 Cache</td><td class="value">2-4 MiB/core duplex<br/>16-way set associative</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/arm_holdings/cosmos" title="arm holdings/cosmos">Cosmos</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/arm_holdings/microarchitectures/zeus" class="mw-redirect" title="arm holdings/microarchitectures/zeus">Zeus</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>Neoverse N1</b> (codename <b>Ares</b>) is a high-performance <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> <a href="/wiki/microarchitecture" title="microarchitecture">microarchitecture</a> designed by <a href="/wiki/ARM_Holdings" class="mw-redirect" title="ARM Holdings">ARM Holdings</a> for the server market. This microarchitecture is designed as a synthesizable <a href="/wiki/IP_core" class="mw-redirect" title="IP core">IP core</a> and is sold to other semiconductor companies to be implemented in their own chips.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Release_Dates"><span class="tocnumber">2</span> <span class="toctext">Release Dates</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Process_Technology"><span class="tocnumber">3</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Compiler_Support"><span class="tocnumber">4</span> <span class="toctext">Compiler Support</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Architecture"><span class="tocnumber">5</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Block_Diagram"><span class="tocnumber">5.1</span> <span class="toctext">Block Diagram</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Typical_SoC"><span class="tocnumber">5.1.1</span> <span class="toctext">Typical SoC</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Individual_Core"><span class="tocnumber">5.1.2</span> <span class="toctext">Individual Core</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Memory_Hierarchy"><span class="tocnumber">5.2</span> <span class="toctext">Memory Hierarchy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Overview"><span class="tocnumber">6</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Core"><span class="tocnumber">7</span> <span class="toctext">Core</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Die"><span class="tocnumber">8</span> <span class="toctext">Die</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#N1_core"><span class="tocnumber">8.1</span> <span class="toctext">N1 core</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#All_Neoverse_N1_Processors"><span class="tocnumber">9</span> <span class="toctext">All Neoverse N1 Processors</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Bibliography"><span class="tocnumber">10</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Documents"><span class="tocnumber">11</span> <span class="toctext">Documents</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:arm_server_roadmap_techcon_2018.jpg" class="image"><img alt="" src="/w/images/thumb/c/c2/arm_server_roadmap_techcon_2018.jpg/300px-arm_server_roadmap_techcon_2018.jpg" width="300" height="169" class="thumbimage" srcset="/w/images/thumb/c/c2/arm_server_roadmap_techcon_2018.jpg/450px-arm_server_roadmap_techcon_2018.jpg 1.5x, /w/images/thumb/c/c2/arm_server_roadmap_techcon_2018.jpg/600px-arm_server_roadmap_techcon_2018.jpg 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:arm_server_roadmap_techcon_2018.jpg" class="internal" title="Enlarge"></a></div>Arm&#39;s server roadmap.</div></div></div>
+<p>The Neoverse N1, formerly Ares, is the first <a href="/wiki/Arm" class="mw-redirect" title="Arm">Arm</a> design to specifically target the infrastructure market, serving as the successor to the <a href="/wiki/arm_holdings/cosmos" title="arm holdings/cosmos">Cosmos platform</a> which used the same cores as the client platform. The N1 was first announced by Drew Henry, Arm’s SVP and GM of Infrastructure Business Unit, at his TechCon 2018 keynote. Ares was officially unveiled on February 20, 2019.
+</p>
+<h2><span class="mw-headline" id="Release_Dates">Release Dates</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=2" title="Edit section: Release Dates">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Ares was officially disclosed on February 20, 2019.
+</p>
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=3" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Ares specifically takes advantage of the power and area advantages of the <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm process</a>.
+</p>
+<h2><span class="mw-headline" id="Compiler_Support">Compiler Support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=4" title="Edit section: Compiler Support">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Compiler </th>
+<th> Arch-Specific </th>
+<th> Arch-Favorable </th>
+<th> Arch-Target
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=GCC&amp;action=edit&amp;redlink=1" class="new" title="GCC (page does not exist)">GCC</a> </td>
+<td> <code>-march=armv8-2a</code> </td>
+<td> <code>-mtune=neoverse-n1</code> </td>
+<td> <code>-mcpu=neoverse-n1</code>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=LLVM&amp;action=edit&amp;redlink=1" class="new" title="LLVM (page does not exist)">LLVM</a> </td>
+<td> <code>-march=armv8-2a</code> </td>
+<td> <code>-mtune=neoverse-n1</code> </td>
+<td> <code>-mcpu=neoverse-n1</code>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=5" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Neoverse N1 core is almost identical to the <a href="/wiki/arm_holdings/microarchitectures/cortex-a76" title="arm holdings/microarchitectures/cortex-a76">Cortex-A76</a> but features a number of enhancements for infrastructure workload.
+</p>
+<ul><li> <a href="/w/index.php?title=ARMv8.2&amp;action=edit&amp;redlink=1" class="new" title="ARMv8.2 (page does not exist)">ARMv8.2</a></li>
+<li> <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm process</a></li>
+<li> Core
+<ul><li> 11-stage</li>
+<li> 4-way decode</li>
+<li> 8-way issue</li></ul></li>
+<li> System architecture
+<ul><li> Designed for the <a href="/w/index.php?title=Coherent_Mesh_Network_600&amp;action=edit&amp;redlink=1" class="new" title="Coherent Mesh Network 600 (page does not exist)">Coherent Mesh Network 600</a> (CMN-600) mesh interconnect</li></ul></li></ul>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=6" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Typical_SoC">Typical SoC</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=7" title="Edit section: Typical SoC">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<dl><dd><a href="/wiki/File:neoverse_n1_soc_block_diagram.svg" class="image"><img alt="neoverse n1 soc block diagram.svg" src="/w/images/thumb/0/03/neoverse_n1_soc_block_diagram.svg/850px-neoverse_n1_soc_block_diagram.svg.png" width="850" height="764" srcset="/w/images/thumb/0/03/neoverse_n1_soc_block_diagram.svg/1275px-neoverse_n1_soc_block_diagram.svg.png 1.5x, /w/images/thumb/0/03/neoverse_n1_soc_block_diagram.svg/1700px-neoverse_n1_soc_block_diagram.svg.png 2x"/></a></dd></dl>
+<p><br/>
+The Neoverse N1 is also expected to be integrated along with <a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_e1&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/neoverse e1 (page does not exist)">Neoverse E1</a> high-efficiency cores and possibly other custom IP blocks.
+</p><p><br/>
+</p>
+<dl><dd><a href="/wiki/File:neoverse_e1_n1_soc_example.svg" class="image"><img alt="neoverse e1 n1 soc example.svg" src="/w/images/thumb/1/1b/neoverse_e1_n1_soc_example.svg/750px-neoverse_e1_n1_soc_example.svg.png" width="750" height="299" srcset="/w/images/thumb/1/1b/neoverse_e1_n1_soc_example.svg/1125px-neoverse_e1_n1_soc_example.svg.png 1.5x, /w/images/thumb/1/1b/neoverse_e1_n1_soc_example.svg/1500px-neoverse_e1_n1_soc_example.svg.png 2x"/></a></dd></dl>
+<h4><span class="mw-headline" id="Individual_Core">Individual Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=8" title="Edit section: Individual Core">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<dl><dd><a href="/wiki/File:neoverse_n1_block_diagram.svg" class="image"><img alt="neoverse n1 block diagram.svg" src="/w/images/thumb/d/d1/neoverse_n1_block_diagram.svg/850px-neoverse_n1_block_diagram.svg.png" width="850" height="878" srcset="/w/images/thumb/d/d1/neoverse_n1_block_diagram.svg/1275px-neoverse_n1_block_diagram.svg.png 1.5x, /w/images/thumb/d/d1/neoverse_n1_block_diagram.svg/1700px-neoverse_n1_block_diagram.svg.png 2x"/></a></dd></dl>
+<h3><span class="mw-headline" id="Memory_Hierarchy">Memory Hierarchy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=9" title="Edit section: Memory Hierarchy">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The Neoverse N1 has a private L1I, L1D, and L2 cache.
+</p>
+<ul><li> Cache
+<ul><li> L1I Cache
+<ul><li> 64 KiB, 4-way set associative</li>
+<li> 64-byte cache lines</li>
+<li> SECDED ECC</li>
+<li> Write-back</li></ul></li>
+<li> L1D Cache
+<ul><li> 64 KiB, 4-way set associative</li>
+<li> 64-byte cache lines</li>
+<li> 4-cycle fastest load-to-use latency</li>
+<li> SECDED ECC</li>
+<li> Write-back</li></ul></li>
+<li> L2 Cache
+<ul><li> 512 KiB OR 1 MiB (2 banks)</li>
+<li> 8-way set associative</li>
+<li> 9-11 cycle
+<ul><li> 9-cycle fastest load-to-use latency</li></ul></li>
+<li> ECC protection per 64 bits</li>
+<li> <a href="/w/index.php?title=Modified_Exclusive_Shared_Invalid&amp;action=edit&amp;redlink=1" class="new" title="Modified Exclusive Shared Invalid (page does not exist)">Modified Exclusive Shared Invalid</a> (MESI) coherency</li>
+<li> Strictly inclusive of the L1 data cache &amp; non-inclusive of the L1 instruction cache</li>
+<li> Write-back</li></ul></li>
+<li> System-level cache (SLC)
+<ul><li> 1 Bank per core duplex</li>
+<li> 2 MiB to 4 MiB, 16-way set associative</li></ul></li></ul></li></ul>
+<p>The Neoverse N1 TLB consists of dedicated L1 TLB for instruction cache (ITLB) and another one for data cache (DTLB). Additionally, there is a unified L2 TLB (STLB).
+</p>
+<ul><li> TLBs
+<ul><li> ITLB
+<ul><li> 4 KiB, 16 KiB, 64 KiB, 2 MiB, and 32 MiB page sizes</li>
+<li> 48-entry fully associative</li></ul></li>
+<li> DTLB
+<ul><li> 48-entry fully associative</li>
+<li> 4 KiB, 16 KiB, 64 KiB, 2 MiB, and 512 MiB page sizes</li></ul></li>
+<li> STLB
+<ul><li> 1280-entry 5-way set associative</li></ul></li></ul></li></ul>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=10" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="/wiki/File:neoverse_n1_overview.svg" class="image"><img alt="" src="/w/images/thumb/e/e6/neoverse_n1_overview.svg/500px-neoverse_n1_overview.svg.png" width="500" height="250" class="thumbimage" srcset="/w/images/thumb/e/e6/neoverse_n1_overview.svg/750px-neoverse_n1_overview.svg.png 1.5x, /w/images/thumb/e/e6/neoverse_n1_overview.svg/1000px-neoverse_n1_overview.svg.png 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:neoverse_n1_overview.svg" class="internal" title="Enlarge"></a></div>Neoverse N1 Typical SoC</div></div></div>
+<p>Formerly known as Ares, the Neoverse N1 is the first ground-up Arm microarchitecture design that targets infrastructure, targetting a wide range of markets from the <a href="/w/index.php?title=edge_computing&amp;action=edit&amp;redlink=1" class="new" title="edge computing (page does not exist)">edge</a> to <a href="/w/index.php?title=hyperscalers&amp;action=edit&amp;redlink=1" class="new" title="hyperscalers (page does not exist)">hyperscalers</a> data centers. Departing from Arm&#39;s low-power <a href="/wiki/arm_holdings/cortex" title="arm holdings/cortex">mobile cores</a>, the N1 targets high-performance server workloads at higher TDPs and higher compute power. Compared to the prior <a href="/wiki/arm_holdings/microarchitectures/cosmos" class="mw-redirect" title="arm holdings/microarchitectures/cosmos">Cosmos</a> platform, the Neoverse N1 is said to deliver a significant uplift in single-thread performance.
+</p><p>The Neoverse N1 is designed to enable Arm partners rapid development of high-performance server products. The N1 features an 11-stage <a href="/w/index.php?title=out-of-order&amp;action=edit&amp;redlink=1" class="new" title="out-of-order (page does not exist)">out-of-order</a> core with private <a href="/wiki/L1" class="mw-redirect" title="L1">L1</a> and <a href="/w/index.php?title=L2&amp;action=edit&amp;redlink=1" class="new" title="L2 (page does not exist)">L2</a> caches. The core is intended to leverage Arm&#39;s <a href="/w/index.php?title=arm_holdings/coherent_mesh_network&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/coherent mesh network (page does not exist)">Coherent Mesh Network</a> 600 (CMN-600) <a href="/w/index.php?title=interconnect&amp;action=edit&amp;redlink=1" class="new" title="interconnect (page does not exist)">interconnect</a> to scale from as little as a <a href="/wiki/quad-core" title="quad-core">quad-core</a> design to as much as <a href="/w/index.php?title=128_cores&amp;action=edit&amp;redlink=1" class="new" title="128 cores (page does not exist)">128 cores</a> and from a single <a href="/w/index.php?title=DDR&amp;action=edit&amp;redlink=1" class="new" title="DDR (page does not exist)">DDR</a> channel all the way up to eight channels, depending on the kind of workload being addressed. Extending the base design is a framework for <a href="/wiki/multiprocessing" class="mw-redirect" title="multiprocessing">multiprocessing</a> support as well as <a href="/wiki/chiplets" class="mw-redirect" title="chiplets">chiplets</a> support which can be used by companies who are looking to improve <a href="/wiki/yield" title="yield">yield</a> and manufacturability with large SoC designs. The N1 is also designed to work seamlessly with the <a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_e1&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/neoverse e1 (page does not exist)">Neoverse E1</a> which was introduced at the same time as N1 but is optimized for high throughput multithreaded workloads.
+</p>
+<h2><span class="mw-headline" id="Core">Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=11" title="Edit section: Core">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Neoverse N1 features an 11-stage accordion integer pipeline.
+</p><p><br/>
+</p>
+<dl><dd><dl><dd><a href="/wiki/File:neoverse_n1_pipeline.svg" class="image"><img alt="neoverse n1 pipeline.svg" src="/w/images/thumb/b/bb/neoverse_n1_pipeline.svg/600px-neoverse_n1_pipeline.svg.png" width="600" height="248" srcset="/w/images/thumb/b/bb/neoverse_n1_pipeline.svg/900px-neoverse_n1_pipeline.svg.png 1.5x, /w/images/thumb/b/bb/neoverse_n1_pipeline.svg/1200px-neoverse_n1_pipeline.svg.png 2x"/></a></dd></dl></dd></dl>
+<h2><span class="mw-headline" id="Die">Die</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=12" title="Edit section: Die">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="N1_core">N1 core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=13" title="Edit section: N1 core">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm process</a></li>
+<li> 1 Core + L2</li>
+<li> 1.2 mm² die size (1C + 512 KiB L2)</li>
+<li> 1.4 mm² die size (1C + 1 MiB L2)</li>
+<li> 1 W @ 2.6 GHz (0.75 V), 1.8 W @ 3.1 GHz (1.0 V)</li></ul>
+<p><br/>
+</p>
+<dl><dd><a href="/wiki/File:neoverse_n1_core_die_plot.png" class="image"><img alt="neoverse n1 core die plot.png" src="/w/images/thumb/d/da/neoverse_n1_core_die_plot.png/600px-neoverse_n1_core_die_plot.png" width="600" height="611" srcset="/w/images/thumb/d/da/neoverse_n1_core_die_plot.png/900px-neoverse_n1_core_die_plot.png 1.5x, /w/images/d/da/neoverse_n1_core_die_plot.png 2x"/></a></dd></dl>
+<h2><span class="mw-headline" id="All_Neoverse_N1_Processors">All Neoverse N1 Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=14" title="Edit section: All Neoverse N1 Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc4 tc6 tc9">
+<tbody><tr class="comptable-header"><th> </th><th colspan="8">List of Neoverse N1-based Processors</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Family</th><th>Launched</th><th>Process</th><th>Arch</th><th>Cores</th><th data-sort-type="number">Frequency</th></tr>
+<tr><td><a href="/wiki/annapurna_labs/alpine/alc12b00" title="annapurna labs/alpine/alc12b00">ALC12B00</a></td><td>Alpine</td><td>3 December 2019</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.007&amp;#160;μm 7.0e-6&amp;#160;mm"><span class="smwtext">7 nm</span><div class="smwttcontent">0.007 μm <br/>7.0e-6 mm <br/></div></span></td><td>Neoverse N1</td><td>64</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5 GHz</span><div class="smwttcontent">2,500 MHz <br/>2,500,000 kHz <br/></div></span></td></tr>
+<tr class="comptable-header"><th>Count: 1</th></tr>
+</tbody></table>
+</div></div>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=15" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Drew Henry keynote, TechCon 2018 keynote.</li>
+<li> Drew Henry, direct communication</li>
+<li> Most of the technical details were obtained directly from Arm</li></ul>
+<h2><span class="mw-headline" id="Documents">Documents</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;action=edit&amp;section=16" title="Edit section: Documents">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/File:arm_neoverse_n1_sog.pdf" title="File:arm neoverse n1 sog.pdf">Neoverse N1 Software Optimization Guide</a></li>
+<li> <a href="/wiki/File:arm_neoverse_n1_trm.pdf" title="File:arm neoverse n1 trm.pdf">Neoverse N1 Technical Reference Manual</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:31122-0!*!0!default!!en!5!* and timestamp 20211019080440 and revision id 99105
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;oldid=99105">https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/neoverse_n1&amp;oldid=99105</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:cpu_microarchitectures_by_arm_holdings" title="Category:cpu microarchitectures by arm holdings">cpu microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:microarchitectures_by_arm_holdings" title="Category:microarchitectures by arm holdings">microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fneoverse-20n1" title="Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fneoverse-20n1">Neoverse N1 - Microarchitectures - ARM</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/arm_holdings/microarchitectures/neoverse_n1" title="Special:ExportRDF/arm holdings/microarchitectures/neoverse n1">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Neoverse N1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Neoverse-20N1" title="Special:SearchByProperty/:codename/Neoverse-20N1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/4" title="Special:SearchByProperty/:core-20count/4">+</a></span>, 8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/8" title="Special:SearchByProperty/:core-20count/8">+</a></span>, 16  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/16" title="Special:SearchByProperty/:core-20count/16">+</a></span>, 32  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/32" title="Special:SearchByProperty/:core-20count/32">+</a></span>, 64  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/64" title="Special:SearchByProperty/:core-20count/64">+</a></span>, 96  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/96" title="Special:SearchByProperty/:core-20count/96">+</a></span> and 128  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/128" title="Special:SearchByProperty/:core-20count/128">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">ARM Holdings  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/ARM-20Holdings" title="Special:SearchByProperty/:designer/ARM-20Holdings">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">February 20, 2019  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/20-20February-202019" title="Special:SearchByProperty/:first-20launched/20-20February-202019">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">arm holdings/microarchitectures/neoverse n1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fneoverse-20n1" title="Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fneoverse-20n1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction set architecture</a></td><td class="smwprops">ARMv8.2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.2" title="Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.2">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture type</a></td><td class="smwprops">CPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/CPU" title="Special:SearchByProperty/:microarchitecture-20type/CPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Neoverse N1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Neoverse-20N1" title="Special:SearchByProperty/:name/Neoverse-20N1">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages" title="Property:pipeline stages">pipeline stages</a></td><td class="smwprops">11  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages/11" title="Special:SearchByProperty/:pipeline-20stages/11">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">7 nm (0.007 μm, 7.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 27 July 2021, at 22:11.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":106});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script><script type="text/javascript" onload="__ezcl.handle(true);" async src="/utilcave_com/inc/ezcl.webp?cb=4"></script></body></html>

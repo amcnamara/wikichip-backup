@@ -1,0 +1,711 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script type="text/javascript">
+var ezstandalone = ezstandalone || {};
+ezstandalone.cmd = ezstandalone.cmd || [];
+ezstandalone.cmd.push(function(){
+	ezstandalone.isForAll = true;
+	ezstandalone.useHost = false;
+	ezstandalone.setHasBadWords(false);
+	ezstandalone.setWC(1489);
+	ezstandalone.setTemplateInfo(134,"pub_site");
+	ezstandalone.setABTest("mod92");
+	ezstandalone.define(127,138,170,192,160);
+	ezstandalone.enable();
+	ezstandalone.display();
+});
+</script>
+<script type="text/javascript">!function(){var e={880:function(e){function t(e){return function(e){if(Array.isArray(e))return n(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(e){if("string"==typeof e)return n(e,t);var o=Object.prototype.toString.call(e).slice(8,-1);return"Object"===o&&e.constructor&&(o=e.constructor.name),"Map"===o||"Set"===o?Array.from(e):"Arguments"===o||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(o)?n(e,t):void 0}}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function n(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,o=new Array(t);n<t;n++)o[n]=e[n];return o}function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}var i={DEBUG:!1,useHost:!1,scriptsLoaded:!1,hasDisplayedAds:!1,placeholders:[],displayCode:{},cmd:void 0===window.ezstandalone?[]:window.ezstandalone.cmd||[],initialized:!1,findingPlaceholders:!1,enabled:!1,isPWA:0,isForAll:!1,loadingStatus:"",loadMoreStatus:"",callDisplay:!1,templateId:0,templateName:"",collapseEmptyDiv:!1,selectedPlaceholders:{},wc:null,disablePersonalizedStatistics:!1,disablePersonalizedAds:!1,isRefreshing:!1,isDestroyingSlots:!1,destroyedSlots:0,loadMoreQueue:[],ltCacheLevel:0,hasBadWords:!1,worstBadWordRank:0,abTest:"",numPlacementGroups:0,numCallbacks:0,targetingMap:{},useEzoicAnchorAd:!0,measurePerformance:void 0!==window.performance&&void 0!==window.performance.now,scriptType:{load:1,loadMore:2,loadGroup:3},scriptStart:{1:0,2:0,3:0},init:function(){window.ezstandalone=this;var e=this;if(this.initialized=!0,this.cmd.length>0)for(var t=0;t<this.cmd.length;t++)"function"==typeof this.cmd[t]&&this.cmd[t]();this.cmd={push:function(e){e()}},setInterval((function(){if("complete"===document.readyState&&"LOADING"!==e.loadingStatus&&"LOADING"!==e.loadMoreStatus&&(e.scriptsLoaded=!1===e.scriptsLoaded?e.getScriptsLoadedStatus():e.scriptsLoaded,e.scriptsLoaded&&0!==e.loadMoreQueue.length&&!e.isDestroyingSlots)){var t=e.loadMoreQueue.shift();"function"==typeof t&&t()}}),50)},reinitializeGroupVars:function(){this.numPlacementGroups=0,this.displayCode={}},isEzoicUser:function(e,t){var n=this.getCookie("ezstandaloneuser");if(""===n){n=!1,e>100*Math.random()&&(n=!0);var o="ezstandaloneuser="+n+";path=/;max-age=172800";document.cookie=o}return"function"==typeof t&&t(n),"string"==typeof n&&(n="true"===n),n},setTemplateInfo:function(e,t){this.templateId=e,this.templateName=t},define:function(){this.clear();var e=[].slice.call(arguments);1===e.length&&e[0].constructor===Array&&(e=e[0]),this.appendPlaceholders(e)},appendPlaceholders:function(){var e=[].slice.call(arguments);1===arguments.length&&arguments[0].constructor===Array&&(e=arguments[0]);for(var t=0;t<e.length;t++){var n=e[t];n===parseInt(n,10)&&this.placeholders.push(parseInt(n,10))}},findAll:function(){var e=this;if(findingPlaceholders=!0,"loading"===document.readyState)return this.initialized=!1,void document.addEventListener("readystatechange",(function(){"loading"!==document.readyState&&e.findAll()}),!1);this.initialized=!0;for(var t="ezoic-pub-ad-placeholder-".length,n=this.getPlaceholderElems(),o=0;o<n.length;o++){var i=n[o],a=parseInt(i.id.substring(t),10);this.placeholders.push(a)}findingPlaceholders=!1},clear:function(){this.placeholders=[]},enable:function(){this.log("enable called");var e=this;if("loading"===document.readyState)return e.log("readyState is loading in enable"),void document.addEventListener("readystatechange",(function(){"loading"!==document.readyState&&!1===e.enabled&&e.enable()}),!1);1==this.findingPlaceholders&&(e.log("findingPlaceholders is true in enable"),setTimeout(e.enable(),50)),!1===this.enabled?(this.enabled=!0,this.clearPlaceholderElems(),this.log("in enable. document readyState: "+document.readyState+" loadingStatus: "+this.loadingStatus),this.load(this.placeholders)):console.error("Enable should only ever be called once.")},setIsPWA:function(){this.isPWA=1},setCollapseEmptyDiv:function(e){this.collapseEmptyDiv=e},setLTCacheLevel:function(e){this.ltCacheLevel=e},setHasBadWords:function(e){this.hasBadWords=e},setWorstBadWordRank:function(e){this.worstBadWordRank=e},setABTest:function(e){this.abTest=e},setTargeting:function(e,t){"string"==typeof t||"number"==typeof t?(o(t)===number&&(t=t.toString()),this.targetingMap[e]=t):this.log("Only strings and numbers are allowed as values for targeting")},setEzoicAnchorAd:function(e){this.useEzoicAnchorAd=!!e},removeTargeting:function(e){delete this.targetingMap[e]},setTargetingMap:function(e){for(var t=Object.keys(e),n=0;n<t.length;n++)this.setTargeting(t[n],e[t[n]])},destroy:function(){this.placeholders=[],this.clearPlaceholderElems()},getPlaceholderElems:function(){return document.querySelectorAll("[id^=ezoic-pub-ad-placeholder-]")},clearPlaceholderElems:function(){var e=[].slice.call(arguments);1===e.length&&e[0].constructor===Array&&(e=e[0]);var t=[];if(0===e.length)t=this.getPlaceholderElems();else{this.log("clearing placeholders: "+e.join(","));for(var n=0;n<e.length;n++){var o=e[n],i="ezoic-pub-ad-placeholder-"+o,a=document.getElementById(i);null!==a&&t.push(a)}}for(n=0;n<t.length;n++)t[n].innerHTML=""},removePlaceholders:function(){var e=[].slice.call(arguments);1===e.length&&e[0].constructor===Array&&(e=e[0]);var t=new Set;e.forEach((function(e){t.add(parseInt(e))})),this.placeholders=this.placeholders.filter((function(e){return!t.has(e)}));var n=this;t.forEach((function(e){e in n.selectedPlaceholders&&(n.log("removing "),delete n.selectedPlaceholders[e])}))},removeSlots:function(e){var t=this;if(Array.isArray(e)){var n=new Set;e.forEach((function(e){n.add(e)})),window.ezslots=window.ezslots.filter((function(e){return!n.has(e)})),window.ez_ad_units=window.ez_ad_units.filter((function(e){return e.length>=3&&!n.has(e[2])||(t.log("removing adUnit from ez_ad_unit: ",JSON.stringify(e)),!1)}))}},destroyPlaceholders:function(){var e=[].slice.call(arguments);1===e.length&&e[0].constructor===Array&&(e=e[0]);for(var n=this,o={},i=[],a=[],r=[],s=0;s<e.length;s++){var l=e[s];if(l in this.selectedPlaceholders){if("undefined"==typeof ez_ad_units)return void this.log("Cannot destroy placeholder if ez_ad_unit not defined");var d=ez_ad_units.filter((function(e){return e.length>=4&&l===e[3]}));0!==d.length?(d.length>1&&this.log("There are multiple slots for placeholder "+l+" destroying all muahaha"),d.forEach((function(e){var t=e[2];if(void 0===window[t])return n.log("Slot "+t+" is undefined."),void r.push(t);i.push(e),l in o?o[l].push(t):o[l]=[t]})),l in o||a.push(l)):(this.log("There isn't an ad unit for placeholder "+l),this.log("ez_ad_units: ",JSON.stringify(ez_ad_units)),a.push(l))}else{if(-1===this.placeholders.indexOf(l)){this.log("Cannot destroy placeholder "+l+" because it does not exist.");continue}a.push(l)}}a.length>0&&(n.log("removing only placeholders: ",JSON.stringify(a)),n.removePlaceholders(a)),r.length>0&&(n.log("Removing undefined slots: ",JSON.stringify(r)),n.removeSlots(r));var c=[];if(Object.keys(o).forEach((function(e){c.push.apply(c,t(o[e]))})),0!==c.length){n.log("ad units about to be deleted: ",JSON.stringify(i)),this.isDestroyingSlots=!0;var u=c.map((function(e){return window[e]})),h=i.map((function(e){var t=e[2];return void 0!==window[t]?window[t].getAdUnitPath():""})).filter((function(e){return""!==e}));if(void 0===this.b||void 0===window[this.b])return console.error("Internal error could not destroy placeholders."),this.log("Could not destroy placeholders on banger, either ezstandalone.b not instantiated or window[ezstandalone.b] not defined"),void(this.isDestroyingSlots=!1);var p=function(e){if(void 0!==e)return n.log("There was an error destroying slots. ERROR: ",e),void(n.isDestroyingSlots=!1);n.removePlaceholders(Object.keys(o));var t=window.ezslots.length,a=window.ez_ad_units.length;n.removeSlots(c),void 0!==window._ezim_d&&i.forEach((function(e){e.length>=2&&e[1]in window._ezim_d&&delete window._ezim_d[e[1]]}));var r=window.ezslots.length,s=window.ez_ad_units.length;if(n.log("ezslots prelen: "+t+" postLen: "+r+" are equal: "+(t===r)),n.log("ezadunits prelen: "+a+" postLen: "+s+" are equal: "+(a===s)),n.clearPlaceholderElems(Object.keys(o)),!googletag.destroySlots(u))return console.error("Could not destroy slots"+c.join(",")),void(n.isDestroyingSlots=!1);for(var l=0;l<c.length;l++)delete window[c[l]];n.isDestroyingSlots=!1,n.destroyedSlots+=Object.keys(o).length};window[this.b].SendMessage(["destroy_slots",i,h,p])}else this.log("There aren't any slots to destroy.")},display:function(e,t,n){if(this.log("Loading status is : ",this.loadingStatus),"LOADING"===this.loadingStatus)return this.callDisplay=!0,!1;if(e>this.numPlacementGroups)return this.log("Cannot display group id",e,"only",this.numPlacementGroups,"have been loaded"),!1;if("loading"===document.readyState||"interactive"===document.readyState){var o=this;return o.log("adding display to event listener"),document.addEventListener("readystatechange",(function(){"complete"===document.readyState&&o.display(e,t)}),!1),!1}if(!0===this.collapseEmptyDiv){if(this.selectedPlaceholders.length>0)for(var i in this.selectedPlaceholders)null!==(r=document.getElementById("ezoic-pub-ad-placeholder-"+i))&&(r.style.display="inline-block");if(this.placeholders.length>0)for(var a=0;a<this.placeholders.length;a++){var r,s=!1;for(var i in this.selectedPlaceholders)if(this.placeholders[a]==i){s=!0;break}0==s&&null!==(r=document.getElementById("ezoic-pub-ad-placeholder-"+this.placeholders[a]))&&(r.style.display="none")}}if(void 0===e&&(e=0),!this.displayCode.hasOwnProperty(e))return this.log("Missing display code for placement group ",e),!1;var l=this.displayCode[e];if(l.length>0){var d=document.createElement("script");if(d.type="text/javascript","function"==typeof t){var c="ezsa_cb_"+this.numCallbacks;this.numCallbacks++,this.log("Attaching callback to display js using event name "+c+" groupId "+e),document.addEventListener(c,(function(){googletag.cmd.push(t)})),d.innerHTML=l+'ezstandalone.fireEvent(document, "'+c+'");'}else d.innerHTML=l;var u=document.getElementsByTagName("script")[0];u.parentNode.insertBefore(d,u),this.displayCode[e]=""}else n===this.scriptType.loadMore&&(this.log("No displayCode for loadMore"),this.loadMoreStatus="COMPLETE");return this.hasDisplayedAds=!0,!0},displayMore:function(){if(this.scriptsLoaded||(this.scriptsLoaded=this.getScriptsLoadedStatus()),"complete"!==document.readyState||"LOADING"===this.loadMoreStatus||this.isDestroyingSlots)return this.log("Adding to load more queue"),void this.loadMoreQueue.push(this.loadMore.apply.bind(this.loadMore,this,arguments));this.loadMore.apply(this,arguments)},refresh:function(){this.log("refresh called"),!this.isRefreshing&&"LOADING"!==this.loadingStatus&&this.scriptsLoaded&&(this.isRefreshing=!0,this.fireEvent(document,"ezPageUnload"),this.clearPlaceholderElems(),this.load(this.placeholders,!0))},fireEvent:function(e,t){var n;"createEvent"in document?((n=document.createEvent("HTMLEvents")).initEvent(t,!1,!0),e.dispatchEvent(n)):((n=document.createEventObject()).eventType=t,e.fireEvent("on"+n.eventType,n))},loadGroup:function(e,t,n,o,i){if(this.loadingStatus="LOADING",this.log("Load Group Standalone Script Called"),this.scriptsLoaded){var a=this,r=++a.numPlacementGroups,s=a.generateStandaloneScriptURL(e,a.scriptType.loadGroup,r,o),l="";return o&&(l=this.getPageviewData()),this.sendRequest(s,l,(function(e){var s=document.createElement("script");s.async=!0,s.type="text/javascript",s.text=e.response,s.addEventListener("load",(function(){a.onStandaloneLoadEvent(a.scriptType.loadGroup,t,n,r,o,i)})),s.onerror=function(){a.isRefreshing=!1};var l=document.getElementsByTagName("script")[0];l.parentNode.insertBefore(s,l)})),a.measurePerformance&&(a.scriptStart[a.scriptType.loadGroup]=performance.now()),r}this.log("Standalone needs to be enabled / displayed first before loading groups")},loadMore:function(){if(this.log("Load More Standalone Script Called"),this.scriptsLoaded){var e=[].slice.call(arguments);1===e.length&&e[0].constructor===Array&&(e=e[0]),this.log("loadmore rawPlaceholderIds: "+JSON.stringify(e));for(var t=[],n=0;n<e.length;n++){var o=e[n];-1!==this.placeholders.indexOf(parseInt(o,10))?console.warn("Placeholder Id "+o+" has already been defined."):t.push(o)}if(0!==t.length){this.loadingStatus="LOADING",this.loadMoreStatus="LOADING";var i=this,a=i.generateStandaloneScriptURL(t,i.scriptType.loadMore,i.numPlacementGroups),r=document.createElement("script");r.async=!0,r.type="text/javascript",r.src=a,r.addEventListener("load",(function(){var e;i.onStandaloneLoadEvent(i.scriptType.loadMore,!0,!0,i.numPlacementGroups),(e=i.placeholders).push.apply(e,t)})),r.onerror=function(e){i.isRefreshing=!1,i.loadMoreStatus="COMPLETE",i.log("Error occurred on loadMore. ERROR: ",e)};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(r,s),i.measurePerformance&&(i.scriptStart[i.scriptType.loadMore]=performance.now())}else this.log("No valid placeholders for loadMore")}else this.log("Standalone needs to be enabled / displayed first before loading more")},load:function(e,t,n){this.loadingStatus="LOADING",this.log("Load Standalone Script Called");var o=this,i=o.generateStandaloneScriptURL(e,o.scriptType.load,o.numPlacementGroups,!0),a=this.getPageviewData();this.sendRequest(i,a,(function(e){var i=document.createElement("script");i.type="text/javascript",i.text=e.response,i.onerror=function(){o.isRefreshing=!1};var a=document.getElementsByTagName("script")[0];return a.parentNode.insertBefore(i,a),o.onStandaloneLoadEvent(o.scriptType.load,t,!0,o.numPlacementGroups,!0,n),o.numPlacementGroups})),o.measurePerformance&&(o.scriptStart[o.scriptType.load]=performance.now())},sendRequest:function(e,t,n){var o=new XMLHttpRequest;o.open("POST",e,!0),o.setRequestHeader("Content-Type","text/plain"),o.withCredentials=!0,o.onload=function(){n(o)},o.onerror=function(){self.isRefreshing=!1},o.send(t)},getPageviewData:function(){for(var e={},t=[],n=document.querySelectorAll("meta"),o=0;o<n.length;o++)if("undefined"!=(f=n[o]).name||"undefined"!=f.property){for(var i=new Object,a=0;a<f.attributes.length;a++)i[f.attributes[a].name]=f.attributes[a].value;t.push(i)}var r="";if("profile:username"in t)for(anchors=document.querySelectorAll("a"),o=0;o<anchors.length;o++)if("rel"in anchors[o]&&"author"==anchors[o].rel){r=anchors[o].innerHTML;break}e.authorLink=r,e.metas=t;var s={},l=document.getElementsByTagName("span");for(o=0;o<l.length;o++)s=this.extractNameAndValue(l[o],s);e.spans=s;var d=new Object,c=document.querySelectorAll("script");for(o=0;o<c.length;o++)if(""!=(f=c[o]).innerHTML)for(var u=/googletag\.pubads\(\).setTargeting\(\s*["'](.*)['"],\s?["'](.*)['"]\s*\)/g;null!=(text=u.exec(f.innerHTML));)""!=text[1]&&""!=text[2]&&(text[1]in d?d[text[1]].push(text[2]):d[text[1]]=[text[2]]);e.scripts=d;var h=[],p=document.querySelectorAll('script[type="application/ld+json"]');for(o=0;o<p.length;o++){var f;if(""!=(f=p[o]).innerHTML)try{var g=JSON.parse(f.innerHTML);h.push(g)}catch(f){f instanceof SyntaxError&&this.log("JsonLD script not using correct syntax.")}}e.jsonLd=h;var m=document.cookie;return e.cookies=m,JSON.stringify(e)},extractNameAndValue:function(e,t){if("ezTargeting"==e.className){var n=e.getAttribute("name"),o=e.getAttribute("value");if(null==o||null==n)return t;t.hasOwnProperty(n)?t[n].push(o):t[n]=[o]}return t},updateCookies:function(){if("undefined"!=typeof ezStandaloneCookies){var e=JSON.parse(ezStandaloneCookies);if(Array.isArray(e))for(var t=0;t<e.length;t++)document.cookie=e[t]}},getMaxSlotNumber:function(){if(void 0===window.ezslots)return-1;for(var e=-1,t=0;t<window.ezslots.length;t++){var n=window.ezslots[t],o=parseInt(n.split("_")[1]);o>e&&(e=o)}return e},getCurrentAdUnits:function(){if(void 0===window.ez_ad_units||!Array.isArray(window.ez_ad_units))return null;for(var e=[],t=0;t<window.ez_ad_units.length;t++){var n=window.ez_ad_units[t][1],o=n.indexOf("-")+1,i=n.slice(o);e.push(i)}return e},generateStandaloneScriptURL:function(e,t,n,o){var i=window.location.host;!1===this.useHost&&(i="g.ezoic.net");var a="//"+i;if(t===this.scriptType.load?a+="/sa.go":t===this.scriptType.loadMore?a+="/samo.go":t===this.scriptType.loadGroup&&(a+="/sag.go"),a+="?url="+encodeURIComponent(window.location.href),a+="&wc="+encodeURIComponent(JSON.stringify(this.getWC())),a+="&ez_pwa="+encodeURIComponent(JSON.stringify(this.isPWA)),a+="&scriptsLoaded="+this.scriptsLoaded,a+="&dps="+this.disablePersonalizedStatistics,a+="&dpa="+this.disablePersonalizedAds,a+="&d="+e.join(","),a+="&group="+n,a+="&t="+encodeURIComponent(JSON.stringify(this.targetingMap)),a+="&a="+this.useEzoicAnchorAd,a+="&fa="+this.isForAll,a+="&uh="+this.useHost,""===this.abTest&&"undefined"!=typeof _ezaq&&(this.abTest=this.getCookie("ezoab_"+_ezaq.domain_id)),a+="&abt="+this.abTest,this.templateId>0&&""!==this.templateName&&(a+="&tid="+encodeURIComponent(JSON.stringify(this.templateId)),a+="&tname="+encodeURIComponent(this.templateName)),(t===this.scriptType.load||t===this.scriptType.loadGroup&&o)&&(a+="&ltcl="+this.ltCacheLevel,a+="&bw="+this.hasBadWords,a+="&wbr="+this.worstBadWordRank,a+="&ref="+encodeURIComponent(document.referrer),a+="&npv="+!0),t===this.scriptType.loadMore||t===this.scriptType.loadGroup&&!o){a+="&pid="+_ezaq.page_view_id;var r=[];if(0===Object.keys(this.selectedPlaceholders).length&&"undefined"!=typeof ezslots)for(var s in this.log("making all ezslot placeholders true"),window.ezslots){var l=window[ezslots[s]].getTargeting("ap");if(0!==l.length){var d=l[0]%1e3;this.selectedPlaceholders[d]=!0,r.push(d)}}else for(var d in this.selectedPlaceholders)!0===this.selectedPlaceholders[d]&&r.push(d);a+="&dc="+r.join(",")}this.destroyedSlots>0&&(a+="&ds="+encodeURIComponent(this.destroyedSlots)),a+="&msn="+this.getMaxSlotNumber();var c=this.getCurrentAdUnits();if(null!==c&&(a+="&cau="+c.join(",")),t===this.scriptType.loadGroup&&(a+="&ng=1",!o)){var u=[];for(var s in window.ezslots){var h=window[ezslots[s]].getSlotElementId().split("/").pop();-1!==h.indexOf("-0",h.length-2)&&(h=h.slice(0,h.length-2)),-1!==h.indexOf("-0_")&&(h=h.replace("-0_","_"));var p=_ezim_d[h];if(!p)for(var f in _ezim_d)f.split("/").pop()===h&&(p=_ezim_d[f]);u.push(p.sub_position_id)}o||(a+="&slots="+encodeURIComponent(JSON.stringify(u)))}return!1===this.scriptsLoaded&&(this.scriptsLoaded=this.getScriptsLoadedStatus()),a},onStandaloneLoadEvent:function(e,t,n,i,a,r){var s=this;if(s.log("in onStandaloneLoadEvent"),s.log("scriptType: "+e+" callDisplay: "+t+" groupId: "+i+" newPageview: "+a+" typeof callback: "+o(r)),s.measurePerformance){var l=Math.round(performance.now()-s.scriptStart[e]);s.log("Loading Complete for "+e+". Took: "+l+"ms"),e===s.scriptType.load&&"undefined"!=typeof _ezaq&&"undefined"!=typeof __ez&&void 0!==__ez.bit&&__ez.bit.Add(_ezaq.page_view_id,[new __ezDotData("standalone_load_time",l)])}if(s.updateCookies(),n||e!=s.scriptType.loadGroup||(ezStandaloneDisplay=ezStandaloneDefine+ezStandaloneDisplay),e==s.scriptType.loadGroup&&a&&(ezStandaloneDisplay+="ezstandalone.reinitializeGroupVars();"),s.displayCode[i]=ezStandaloneDisplay,n){var d=document.createElement("script");if(d.type="text/javascript",t||"function"!=typeof r)d.innerHTML=ezStandaloneDefine;else{var c="ezsa_cb_"+s.numCallbacks;s.numCallbacks++,s.log("Attaching callback to define js using event name "+c+" groupId "+i),document.addEventListener(c,(function(){googletag.cmd.push(r.bind(null,i))})),d.innerHTML=ezStandaloneDefine+'ezstandalone.fireEvent(document, "'+c+'");'}var u=document.getElementsByTagName("script")[0];u.parentNode.insertBefore(d,u)}s.loadingStatus="COMPLETE",s.log("made loadingStatus complete");for(var h=0;h<ezSelectedPlaceholders.length;h++){var p=ezSelectedPlaceholders[h];s.selectedPlaceholders.hasOwnProperty(p)?s.selectedPlaceholders[p]=!0:-1!==s.placeholders.indexOf(p)&&(s.selectedPlaceholders[p]=!1)}!0!==t&&!0!==s.callDisplay||(n&&!t&&"function"==typeof r&&(r=null),e===s.scriptType.load&&(s.callDisplay=!1,s.isRefreshing=!1),s.display(i,(function(){e===s.scriptType.loadMore&&(s.log("Setting load more status to complete"),s.loadMoreStatus="COMPLETE"),"function"==typeof r&&r()}),e)),e===s.scriptType.load&&s.isForAll&&s.addCacheToEzaq()},setWC:function(e){this.wc=e},getWC:function(){if(null!==this.wc)return this.wc;var e=this;if("loading"===document.readyState)return document.addEventListener("readystatechange",(function(){"loading"!==document.readyState&&e.getWC()}),!1),-1;this.log("wc called");var t=document.body,n=0;return Array.prototype.slice.call(t.childNodes).filter((function(e){return 3===e.nodeType||1===e.nodeType})).forEach((function(e){""!==e.textContent.trim()&&(n+=e.textContent.trim().split(" ").length)})),n},log:function(){this.DEBUG&&console.log.apply(console,arguments)},ezdomain:null,get_ez_domain:function(){if(null==this.ezdomain){if("undefined"!=typeof ezdomain)return this.ezdomain=ezdomain,this.ezdomain;var e=document.evaluate("//script[contains(text(), 'ezdomain')]",document.documentElement).iterateNext();if(e){var t=e.innerHTML.match(/ezdomain\s*=\s*['"]([^'"]*)['"]\s*;/);t&&(this.ezdomain=t[1])}return null==this.ezdomain&&(this.ezdomain=""),this.ezdomain}return"undefined"!=typeof ezdomain&&this.ezdomain!==ezdomain&&(this.ezdomain=ezdomain),this.ezdomain},setCookie:function(e,t,n){var o=new Date;o.setTime(o.getTime()+60*n*60*1e3);var i=e+"="+t+"; expires="+o.toGMTString()+"; path=/";""!=this.get_ez_domain()&&(i=i+"; domain=."+this.ezdomain),document.cookie=i},getCookie:function(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""},syncCookies:function(){var e,t="http:";"https:"==document.location.protocol&&(t=document.location.protocol);var n=t+"//g.ezoic.net/ezoic/gc.php";e=this.getCORS("GET",n);var o=this;e.onreadystatechange=function(){if(4==e.readyState&&200==e.status){var t=e.responseText,n=JSON.parse(t);for(var i in n)void 0===n[i]?val="":val=n[i],o.setCookie(i,val,o.cookieExp(i))}},e.send()},cookieExp:function(e){return 0===e.indexOf("ezoawesome")||0===e.indexOf("ezouid")?730:2},getCORS:function(e,t){var n;window.XMLHttpRequest?void 0!==(n=new XMLHttpRequest).withCredentials?n.open("GET",t,!0):"undefined"!=typeof XDomainRequest&&(n=new XDomainRequest).open("GET",t):(n=new ActiveXObject("Microsoft.XMLHTTP")).open("GET",t);try{n.withCredentials=!0}catch(e){}return n},setDisablePersonalizedStatistics:function(e){this.disablePersonalizedStatistics=e},setDisablePersonalizedAds:function(e){this.disablePersonalizedAds=e},getScriptsLoadedStatus:function(){return"undefined"!=typeof _ezaq&&"undefined"!=typeof _ezim_d},addCacheToEzaq:function(){if(void 0!==window._ezaq&&void 0!==window.timeCreated){var e=_ezaq.t_epoch-timeCreated;_ezaq.cdn_browser_cache=e>120?1:0}}};"undefined"!=typeof runEzoicStandalone&&!0!==runEzoicStandalone||i.init(),e.exports=i}},t={};!function n(o){var i=t[o];if(void 0!==i)return i.exports;var a=t[o]={exports:{}};return e[o](a,a.exports,n),a.exports}(880)}();</script>
+<script type="text/javascript">var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;var timeCreated = 1617206145;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("Added dummyfile: "+items[filename]);}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '//go.ezodn.com/detroitchicago/boise.js?gcb=1&cb=1', false, [], true, false, true, false);window.ezLazySizesConfig=window.ezLazySizesConfig||{};window.ezLazySizesConfig.lazyClass='ezlazyload';window.ezLazySizesConfig.loadingClass='ezlazyloading';window.ezLazySizesConfig.loadedClass='ezlazyloaded';window.ezLazySizesConfig.srcAttr='data-ezsrc';window.ezLazySizesConfig.srcsetAttr='data-ezsrcset';window.ezLazySizesConfig.sizesAttr='sizes';window.ezLazySizesConfig.isWebP=false;!function(a,b){var c=b(a,a.document);a.ezLazySizes=c,"object"==typeof module&&module.exports&&(module.exports=c)}(window,function(a,b){"use strict";if(b.getElementsByClassName){var c,d,e=b.documentElement,f=a.Date,g=a.HTMLPictureElement,h="addEventListener",i="getAttribute",j=a[h],k=a.setTimeout,l=a.requestAnimationFrame||k,m=a.requestIdleCallback,n=/^picture$/i,o=["load","error","lazyincluded","_lazyloaded"],p={},q=Array.prototype.forEach,r=function(a,b){return p[b]||(p[b]=new RegExp("(\\s|^)"+b+"(\\s|$)")),p[b].test(a[i]("class")||"")&&p[b]},s=function(a,b){r(a,b)||a.setAttribute("class",(a[i]("class")||"").trim()+" "+b)},t=function(a,b){var c;(c=r(a,b))&&a.setAttribute("class",(a[i]("class")||"").replace(c," "))},u=function(a,b,c){var d=c?h:"removeEventListener";c&&u(a,b),o.forEach(function(c){a[d](c,b)})},v=function(a,d,e,f,g){var h=b.createEvent("Event");return e||(e={}),e.instance=c,h.initEvent(d,!f,!g),h.detail=e,a.dispatchEvent(h),h},w=function(b,c){var e;!g&&(e=a.picturefill||d.pf)?(c&&c.src&&!b[i]("srcset")&&b.setAttribute("srcset",c.src),e({reevaluate:!0,elements:[b]})):c&&c.src&&(b.src=c.src)},x=function(a,b){return(getComputedStyle(a,null)||{})[b]},y=function(a,b,c){for(c=c||a.offsetWidth;c<d.minSize&&b&&!a._lazysizesWidth;)c=b.offsetWidth,b=b.parentNode;return c},z=function(){var a,c,d=[],e=[],f=d,g=function(){var b=f;for(f=d.length?e:d,a=!0,c=!1;b.length;)b.shift()();a=!1},h=function(d,e){a&&!e?d.apply(this,arguments):(f.push(d),c||(c=!0,(b.hidden?k:l)(g)))};return h._lsFlush=g,h}(),A=function(a,b){return b?function(){z(a)}:function(){var b=this,c=arguments;z(function(){a.apply(b,c)})}},B=function(a){var b,c=0,e=d.throttleDelay,g=d.ricTimeout,h=function(){b=!1,c=f.now(),a()},i=m&&g>49?function(){m(h,{timeout:g}),g!==d.ricTimeout&&(g=d.ricTimeout)}:A(function(){k(h)},!0);return function(a){var d;(a=a===!0)&&(g=33),b||(b=!0,d=e-(f.now()-c),0>d&&(d=0),a||9>d?i():k(i,d))}},C=function(a){var b,c,d=99,e=function(){b=null,a()},g=function(){var a=f.now()-c;d>a?k(g,d-a):(m||e)(e)};return function(){c=f.now(),b||(b=k(g,d))}};!function(){var b,c={lazyClass:"lazyload",loadedClass:"lazyloaded",loadingClass:"lazyloading",preloadClass:"lazypreload",errorClass:"lazyerror",autosizesClass:"lazyautosizes",srcAttr:"data-src",srcsetAttr:"data-srcset",sizesAttr:"data-sizes",minSize:40,customMedia:{},init:!0,expFactor:1.5,hFac:.8,loadMode:2,loadHidden:!0,ricTimeout:0,throttleDelay:125};d=a.ezLazySizesConfig||a.lazysizesConfig||{};for(b in c)b in d||(d[b]=c[b]);a.ezLazySizesConfig=d,k(function(){d.init&&F()})}();var D=function(){var g,l,m,o,p,y,D,F,G,H,I,J,K,L,M=/^img$/i,N=/^iframe$/i,O="onscroll"in a&&!/(gle|ing)bot/.test(navigator.userAgent),P=0,Q=0,R=0,S=-1,T=function(a){R--,a&&a.target&&u(a.target,T),(!a||0>R||!a.target)&&(R=0)},U=function(a,c){var d,f=a,g="hidden"==x(b.body,"visibility")||"hidden"!=x(a.parentNode,"visibility")&&"hidden"!=x(a,"visibility");for(F-=c,I+=c,G-=c,H+=c;g&&(f=f.offsetParent)&&f!=b.body&&f!=e;)g=(x(f,"opacity")||1)>0,g&&"visible"!=x(f,"overflow")&&(d=f.getBoundingClientRect(),g=H>d.left&&G<d.right&&I>d.top-1&&F<d.bottom+1);return g},V=function(){var a,f,h,j,k,m,n,p,q,r=c.elements;if((o=d.loadMode)&&8>R&&(a=r.length)){f=0,S++,null==K&&("expand"in d||(d.expand=e.clientHeight>500&&e.clientWidth>500?500:370),J=d.expand,K=J*d.expFactor),K>Q&&1>R&&S>2&&o>2&&!b.hidden?(Q=K,S=0):Q=o>1&&S>1&&6>R?J:P;for(;a>f;f++)if(r[f]&&!r[f]._lazyRace)if(O)if((p=r[f][i]("data-expand"))&&(m=1*p)||(m=Q),q!==m&&(y=innerWidth+m*L,D=innerHeight+m,n=-1*m,q=m),h=r[f].getBoundingClientRect(),(I=h.bottom)>=n&&(F=h.top)<=D&&(H=h.right)>=n*L&&(G=h.left)<=y&&(I||H||G||F)&&(d.loadHidden||"hidden"!=x(r[f],"visibility"))&&(l&&3>R&&!p&&(3>o||4>S)||U(r[f],m))){if(ba(r[f]),k=!0,R>9)break}else!k&&l&&!j&&4>R&&4>S&&o>2&&(g[0]||d.preloadAfterLoad)&&(g[0]||!p&&(I||H||G||F||"auto"!=r[f][i](d.sizesAttr)))&&(j=g[0]||r[f]);else ba(r[f]);j&&!k&&ba(j)}},W=B(V),X=function(a){s(a.target,d.loadedClass),t(a.target,d.loadingClass),u(a.target,Z),v(a.target,"lazyloaded")},Y=A(X),Z=function(a){Y({target:a.target})},$=function(a,b){try{a.contentWindow.location.replace(b)}catch(c){a.src=b}},_=function(a){var b,c=a[i](d.srcsetAttr);(b=d.customMedia[a[i]("data-media")||a[i]("media")])&&a.setAttribute("media",b),c&&a.setAttribute("srcset",c)},aa=A(function(a,b,c,e,f){var g,h,j,l,o,p;(o=v(a,"lazybeforeunveil",b)).defaultPrevented||(e&&(c?s(a,d.autosizesClass):a.setAttribute("sizes",e)),h=a[i](d.srcsetAttr),g=a[i](d.srcAttr),f&&(j=a.parentNode,l=j&&n.test(j.nodeName||"")),p=b.firesLoad||"src"in a&&(h||g||l),o={target:a},p&&(u(a,T,!0),clearTimeout(m),m=k(T,2500),s(a,d.loadingClass),u(a,Z,!0)),l&&q.call(j.getElementsByTagName("source"),_),h?a.setAttribute("srcset",h):g&&!l&&(N.test(a.nodeName)?$(a,g):a.src=g),f&&(h||l)&&w(a,{src:g})),a._lazyRace&&delete a._lazyRace,t(a,d.lazyClass),z(function(){(!p||a.complete&&a.naturalWidth>1)&&(p?T(o):R--,X(o))},!0)}),ba=function(a){var b,c=M.test(a.nodeName),e=c&&(a[i](d.sizesAttr)||a[i]("sizes")),f="auto"==e;(!f&&l||!c||!a[i]("src")&&!a.srcset||a.complete||r(a,d.errorClass)||!r(a,d.lazyClass))&&(b=v(a,"lazyunveilread").detail,f&&E.updateElem(a,!0,a.offsetWidth),a._lazyRace=!0,R++,aa(a,b,f,e,c))},ca=function(){if(!l){if(f.now()-p<999)return void k(ca,999);var a=C(function(){d.loadMode=3,W()});l=!0,d.loadMode=3,W(),j("scroll",function(){3==d.loadMode&&(d.loadMode=2),a()},!0)}};return{_:function(){p=f.now(),c.elements=b.getElementsByClassName(d.lazyClass),g=b.getElementsByClassName(d.lazyClass+" "+d.preloadClass),L=d.hFac,j("scroll",W,!0),j("resize",W,!0),a.MutationObserver?new MutationObserver(W).observe(e,{childList:!0,subtree:!0,attributes:!0}):(e[h]("DOMNodeInserted",W,!0),e[h]("DOMAttrModified",W,!0),setInterval(W,999)),j("hashchange",W,!0),["focus","mouseover","click","load","transitionend","animationend","webkitAnimationEnd"].forEach(function(a){b[h](a,W,!0)}),/d$|^c/.test(b.readyState)?ca():(j("load",ca),b[h]("DOMContentLoaded",W),k(ca,2e4)),c.elements.length?(V(),z._lsFlush()):W()},checkElems:W,unveil:ba}}(),E=function(){var a,c=A(function(a,b,c,d){var e,f,g;if(a._lazysizesWidth=d,d+="px",a.setAttribute("sizes",d),n.test(b.nodeName||""))for(e=b.getElementsByTagName("source"),f=0,g=e.length;g>f;f++)e[f].setAttribute("sizes",d);c.detail.dataAttr||w(a,c.detail)}),e=function(a,b,d){var e,f=a.parentNode;f&&(d=y(a,f,d),e=v(a,"lazybeforesizes",{width:d,dataAttr:!!b}),e.defaultPrevented||(d=e.detail.width,d&&d!==a._lazysizesWidth&&c(a,f,e,d)))},f=function(){var b,c=a.length;if(c)for(b=0;c>b;b++)e(a[b])},g=C(f);return{_:function(){a=b.getElementsByClassName(d.autosizesClass),j("resize",g)},checkElems:g,updateElem:e}}(),F=function(){F.i||(F.i=!0,E._(),D._())};return c={cfg:d,autoSizer:E,loader:D,init:F,uP:w,aC:s,rC:t,hC:r,fire:v,gW:y,rAF:z}}});!function(e,t){var r=function(){t(e.ezLazySizes),e.removeEventListener("lazyunveilread",r,!0)};t=t.bind(null,e,e.document),"object"==typeof module&&module.exports?t(require("lazysizes")):e.ezLazySizes?r():e.addEventListener("lazyunveilread",r,!0)}(window,function(e,t,r){"use strict";function a(e,r){if(!o[e]){var a=t.createElement(r?"link":"script"),n=t.getElementsByTagName("script")[0];r?(a.rel="stylesheet",a.href=e):a.src=e,o[e]=!0,o[a.src||a.href]=!0,n.parentNode.insertBefore(a,n)}}var n,i,o={};t.addEventListener&&(i=/\(|\)|\s|'/,n=function(e,r){var a=t.createElement("img");a.onload=function(){a.onload=null,a.onerror=null,a=null,r()},a.onerror=a.onload,a.src=e,a&&a.complete&&a.onload&&a.onload()},addEventListener("lazybeforeunveil",function(e){var t,o,l,d;e.detail.instance==r&&(e.defaultPrevented||("none"==e.target.preload&&(e.target.preload="auto"),(t=e.target.getAttribute("data-link"))&&a(t,!0),(t=e.target.getAttribute("data-script"))&&a(t),(t=e.target.getAttribute("data-require"))&&(r.cfg.requireJs?r.cfg.requireJs([t]):a(t)),(l=e.target.getAttribute("data-ezbg"))&&(e.detail.firesLoad=!0,o=function(){l=e.target.getAttribute("data-ezbg"),e.target.style.backgroundImage="url("+(i.test(l)?JSON.stringify(l):l)+")",e.detail.firesLoad=!1,r.fire(e.target,"_lazyloaded",{},!0,!0)},n(l,o)),(d=e.target.getAttribute("data-poster"))&&(e.detail.firesLoad=!0,n(d,o=function(){e.target.poster=d,e.detail.firesLoad=!1,r.fire(e.target,"_lazyloaded",{},!0,!0)}))))},!1))});(function(){function check_webp_feature(feature,callback){var kTestImages={lossy:"UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",lossless:"UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",animation:"UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"};var img=new Image();img.onload=function(){var result=(img.width>0)&&(img.height>0);callback(feature,result);};img.onerror=function(){callback(feature,false);};img.src="data:image/webp;base64,"+kTestImages[feature];}
+check_webp_feature('lossy',function(feature,supported){window.ezLazySizesConfig.isWebP=supported;});})();var _ezImgFmt=(function(w){var alterSrcset=false;var alterSrc=false;var alterBg=false;function SrcsetItem(originalValue){this.originalValue=originalValue;this.filename="";this.inherentWidth="";this.loaded=false;if(attrEmpty(originalValue)===true){return;}
+var set=originalValue.trim();var parts=set.split(" ");if(parts.length===0){return;}
+this.filename=parts[0];this.inherentWidth=parts[1];this.loaded=true;}
+function SrcsetItems(srcset){this.list=[];this.srcset=srcset;if(attrEmpty(srcset)===true){return;}
+var sets=srcset.split(",");for(var i=0;i<sets.length;i++){var item=new SrcsetItem(sets[i]);if(item.loaded===true){this.list.push(item);}}}
+function appendQueryParam(u,param){if(u.indexOf("ezimgfmt")!==-1)return u;var q=u.indexOf('?')===-1?"?":"&";q+=param;return u+q;}
+function attrEmpty(attrVal){return attrVal===null||attrVal.trim()==='';}
+function createParam(imgVars){return "ezimgfmt="+imgVars.join("/");}
+function processElement(el){if(typeof el==='undefined'||el===null){return;}
+var ezimgfmt=el.getAttribute("ezimgfmt");if(attrEmpty(ezimgfmt)===true){return;}
+ezimgfmt=ezimgfmt.replace(/\s+/g,' ');if(attrEmpty(ezimgfmt)===true){return;}
+var imgVars=ezimgfmt.split(' ');if(imgVars.length===0){return;}
+imgVars=processImgVars(el,imgVars);if(imgVars.length===0){return;}
+processSrc(el,imgVars);processSrcset(el,imgVars);processBg(el,imgVars);}
+function processImgVars(el,imgVars){var idxSrc=imgVars.indexOf("src");if(idxSrc!==-1){alterSrc=true;imgVars.splice(idxSrc,1);}
+var idxSrcset=imgVars.indexOf("srcset");if(idxSrcset!==-1){alterSrcset=true;imgVars.splice(idxSrcset,1);}
+var idxBg=imgVars.indexOf("bg");if(idxBg!==-1){alterBg=true;imgVars.splice(idxBg,1);}
+var idxNg=imgVars.indexOf('ng');if(idxNg!==-1){if(w.ezLazySizesConfig.isWebP===true){imgVars[idxNg]=imgVars[idxNg]+":webp";}else{imgVars.splice(idxNg,1);imgVars.push('notWebP');}}
+var idxRs=imgVars.indexOf('rs');if(idxRs!==-1){var size=el.clientWidth+"x"+el.clientHeight;imgVars[idxRs]=imgVars[idxRs]+":"+size;}
+return imgVars;}
+function processBg(el,imageVars){if(alterBg===false){return;}
+var dataEzBg=el.getAttribute("data-ezbg");if(attrEmpty(dataEzBg)===true){return;}
+var bgImgVars=removeResizeVars(imageVars);var newURL=appendQueryParam(dataEzBg,createParam(bgImgVars));el.setAttribute("data-ezbg",newURL);}
+function processSrc(el,imageVars){if(alterSrc===false){return;}
+var dataEzSrc=el.getAttribute("data-ezsrc");if(attrEmpty(dataEzSrc)===true){return;}
+var newURL=appendQueryParam(dataEzSrc,createParam(imageVars));el.setAttribute("data-ezsrc",newURL);}
+function processSrcset(el,imgVars){if(alterSrcset===false){return;}
+var dataEzSrcset=el.getAttribute("data-ezsrcset");if(attrEmpty(dataEzSrcset)===true){return;}
+var ssImgVars=removeResizeVars(imgVars);var srcsetItems=new SrcsetItems(dataEzSrcset);if(srcsetItems.list===0){return;}
+var param=createParam(ssImgVars);for(var i=0;i<srcsetItems.list.length;i++){var item=srcsetItems.list[i];var orig=item.originalValue.replace(item.filename,appendQueryParam(item.filename,param));dataEzSrcset=dataEzSrcset.replace(item.originalValue,orig);}
+el.setAttribute("data-ezsrcset",dataEzSrcset);}
+function removeResizeVars(imageVars){var vars=[];for(var i=0;i<imageVars.length;i++){var v=imageVars[i];if(v.lastIndexOf("rs",0)!==0)vars.push(v);}
+return vars;}
+return{process:processElement};})(window);document.addEventListener("lazybeforeunveil",function(t){var id=Math.random();t.target.setAttribute("ezoid",id);if(typeof ezorqs!='undefined'){ezorqs(t,id);}_ezImgFmt.process(t.target);});document.addEventListener("lazyloaded",function(t){var id=t.target.getAttribute("ezoid");if((id==null||id.length<1)&&typeof ezorqe!='undefined'){ezorqe(t,Math.random(),true)}else if(typeof ezorqe!='undefined'){ezorqe(t,id)}});</script>
+
+<title>Ryzen 7 2700U  - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/ryzen_7/2700u","wgTitle":"amd/ryzen 7/2700u","wgCurRevisionId":90763,"wgRevisionId":90763,"wgArticleId":26146,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor models","microprocessor models by amd","microprocessor models by amd based on zen","microprocessor models by globalfoundries"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/ryzen_7/2700u","wgRelevantArticleId":26146,"wgRequestId":"a93ed0317c60f5e8c5bef1d5","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/ryzen 7/2700u" href="/w/index.php?title=Special:ExportRDF/amd/ryzen_7/2700u&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Ryzen 7 2700U  - AMD - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Ryzen 7 2700U is a 64-bit quad-core high-end performance x86 mobile microprocessor introduced by AMD in late 2017. This processor is based on AMD&#39;s Zen microarchitecture and is fabricated on a 14 nm process. The 2700U operates at a base frequency of 2.2 GHz with a TDP of 15 W and a Boost frequency of 3.8 GHz. This MPU supports up to 32 GiB of dual-channel DDR4-2400 memory and incorporates Radeon RX Vega 10 Graphics operating at up to 1.1 GHz."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_ryzen_7_2700u rootpage-amd skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<span id="ezoic-pub-ad-placeholder-138"></span>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/ryzen_7/2700u">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:amd/ryzen_7/2700u"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=amd%2Fryzen+7%2F2700u"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/ryzen_7/2700u"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/ryzen_7/2700u"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;oldid=90763"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fryzen-5F7-2F2700u"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Ryzen 7 2700U  - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a>‎ | <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">ryzen 7</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/chip/amd/ryzen_7/2700u" title="Special:FormEdit/chip/amd/ryzen 7/2700u"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Ryzen 7 2700U</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a></td></tr><tr><td class="label">Manufacturer</td><td><a href="/w/index.php?title=GlobalFoundries&amp;action=edit&amp;redlink=1" class="new" title="GlobalFoundries (page does not exist)">GlobalFoundries</a></td></tr><tr><td class="label">Model Number</td><td style="width: 99%;">2700U</td></tr><tr><td class="label">Market</td><td>Mobile</td></tr><tr><td class="label">Introduction</td><td>October 26, 2017 (announced)<br/>October 26, 2017 (launched)</td></tr><tr><td class="label">Shop</td><td><a rel="nofollow" class="external text" href="https://www.amazon.com/gp/search?ie=UTF8&amp;tag=wikichip-20&amp;linkCode=ur2&amp;linkId=aed902a15f809f6661ea2887020a7a0e&amp;camp=1789&amp;creative=9325&amp;index=electronics&amp;keywords=AMD%20Ryzen%207%202700U">Amazon</a></td></tr><tr><td class="header" colspan="2">General Specs</td></tr><tr><td class="label">Family</td><td><a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a></td></tr><tr><td class="label">Series</td><td>2000U</td></tr><tr><td class="label">Locked</td><td>Yes</td></tr><tr><td class="label">Frequency</td><td>2,200 MHz</td></tr><tr><td class="label">Turbo Frequency</td><td>3,800 MHz (1 core)</td></tr><tr><td class="label">Clock multiplier</td><td>22</td></tr><tr><td class="header" colspan="2">Microarchitecture</td></tr><tr><td class="label">ISA</td><td>x86-64 (x86)</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a></td></tr><tr><td class="label">Chipset</td><td>Promontory</td></tr><tr><td class="label">Core Name</td><td><a href="/wiki/amd/cores/raven_ridge" title="amd/cores/raven ridge">Raven Ridge</a></td></tr><tr><td class="label">Core Family</td><td>23</td></tr><tr><td class="label">Core Model</td><td>1</td></tr><tr><td class="label">Process</td><td><a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm</a></td></tr><tr><td class="label">Transistors</td><td>4,950,000,000</td></tr><tr><td class="label">Technology</td><td>CMOS</td></tr><tr><td class="label">Die</td><td>209.78 mm²</td></tr><tr><td class="label">Word Size</td><td>64 bit</td></tr><tr><td class="label">Cores</td><td>4</td></tr><tr><td class="label">Threads</td><td>8</td></tr><tr><td class="label">Max Memory</td><td>32 GiB</td></tr><tr><td class="header" colspan="2">Multiprocessing</td></tr><tr><td class="label">Max SMP</td><td>1-Way (Uniprocessor)</td></tr><tr><td class="header" colspan="2">Electrical</td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td>15 W</td></tr><tr><td class="label">cTDP down</td><td>12 W</td></tr><tr><td class="label">cTDP up</td><td>25 W</td></tr><tr><td class="header" colspan="2">Packaging</td></tr><tr><td colspan="2" style="padding: 5px;"><table style="border: solid 1px #999966; width: 98%; margin: 2px;">
+<tbody><tr><th><b>Package</b></th><td><a href="/wiki/amd/packages/fp5" title="amd/packages/fp5">FP5</a> (BGA)</td></tr>
+<tr><th><b>Dimension</b></th><td>35 × 25 × 1.38 mm</td></tr>
+<tr><th><b>Pitch</b></th><td>0.7-1.0 mm</td></tr>
+<tr><th><b>Contacts</b></th><td>1140</td></tr>
+</tbody></table></td></tr></tbody></table>
+<p><b>Ryzen 7 2700U</b> is a <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a> <a href="/wiki/quad-core" title="quad-core">quad-core</a> high-end performance <a href="/wiki/x86" title="x86">x86</a> mobile microprocessor introduced by <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> in late <a href="/wiki/2017" title="2017">2017</a>. This processor is based on AMD&#39;s <a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen microarchitecture</a> and is fabricated on a <a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm process</a>. The 2700U operates at a base frequency of 2.2 GHz with a <a href="/wiki/TDP" class="mw-redirect" title="TDP">TDP</a> of 15 W and a <a href="/w/index.php?title=amd/precision_boost&amp;action=edit&amp;redlink=1" class="new" title="amd/precision boost (page does not exist)">Boost</a> frequency of 3.8 GHz. This MPU supports up to 32 GiB of dual-channel DDR4-2400 memory and incorporates <a href="/w/index.php?title=amd/radeon_rx_vega_10&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon rx vega 10 (page does not exist)">Radeon RX Vega 10</a> Graphics operating at up to 1.1 GHz.
+</p><p>This model supports a configurable TDP-down of 12 W and TDP-up of 25 W.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Cache"><span class="tocnumber">1</span> <span class="toctext">Cache</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Memory_controller"><span class="tocnumber">2</span> <span class="toctext">Memory controller</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Expansions"><span class="tocnumber">3</span> <span class="toctext">Expansions</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Graphics"><span class="tocnumber">4</span> <span class="toctext">Graphics</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Features"><span class="tocnumber">5</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Die_Shot"><span class="tocnumber">6</span> <span class="toctext">Die Shot</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Cache">Cache</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=1" title="Edit section: Cache">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-170" class="ezoic-adpicker-ad"></span>
+<dl><dd><i>Main article: <a href="/wiki/amd/microarchitectures/zen#Memory_Hierarchy" title="amd/microarchitectures/zen">Zen § Cache</a></i></dd></dl>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/cache_size/amd/ryzen_7/2700u" title="Special:FormEdit/cache size/amd/ryzen 7/2700u">[Edit/Modify Cache Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="hierarchy icon.svg" src="/w/images/thumb/e/e4/hierarchy_icon.svg/75px-hierarchy_icon.svg.png" width="75" height="75" srcset="/w/images/thumb/e/e4/hierarchy_icon.svg/113px-hierarchy_icon.svg.png 1.5x, /w/images/thumb/e/e4/hierarchy_icon.svg/150px-hierarchy_icon.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Cache Organization <span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="Cache is a hardware component containing a relatively small and extremely fast memory designed to speed up the performance of a CPU by preparing ahead of time the data it needs to read from a relatively slower medium such as main memory.The organization and amount of cache can have a large impact on the performance, power consumption, die size, and consequently cost of the IC.Cache is specified by its size, number of sets, associativity, block size, sub-block size, and fetch and write-back policies.Note: All units are in kibibytes and mebibytes."><span class="smwtticon info"></span><div class="smwttcontent"><b><a href="/w/index.php?title=Cache&amp;action=edit&amp;redlink=1" class="new" title="Cache (page does not exist)">Cache</a></b> is a hardware component containing a relatively small and extremely fast memory designed to speed up the performance of a <a href="/w/index.php?title=CPU&amp;action=edit&amp;redlink=1" class="new" title="CPU (page does not exist)">CPU</a> by preparing ahead of time the data it needs to read from a relatively slower medium such as main memory.<br/><br/>The organization and amount of cache can have a large impact on the performance, power consumption, die size, and consequently cost of the IC.<br/><br/>Cache is specified by its size, number of sets, associativity, block size, sub-block size, and fetch and write-back policies.<br/><br/>Note: All units are in <a href="/wiki/kibibytes" class="mw-redirect" title="kibibytes">kibibytes</a> and <a href="/wiki/mebibytes" class="mw-redirect" title="mebibytes">mebibytes</a>.</div></span></div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="margin-left: 10px;"><tbody><tr><th style="min-width: 35px;">L1$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.375&amp;#160;MiB 393,216&amp;#160;B 3.662109e-4&amp;#160;GiB "><span class="smwtext">384 KiB</span><div class="smwttcontent">0.375 MiB <br/>393,216 B <br/>3.662109e-4 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;">L1I$</th><td style="min-width: 50px;"><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;MiB 262,144&amp;#160;B 2.441406e-4&amp;#160;GiB "><span class="smwtext">256 KiB</span><div class="smwttcontent">0.25 MiB <br/>262,144 B <br/>2.441406e-4 GiB <br/></div></span></td><td style="min-width: 75px;">4x64 KiB</td><td style="min-width: 175px;">4-way set associative</td><td> </td></tr><tr><th style="text-align: center; min-width: 50px;">L1D$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.125&amp;#160;MiB 131,072&amp;#160;B 1.220703e-4&amp;#160;GiB "><span class="smwtext">128 KiB</span><div class="smwttcontent">0.125 MiB <br/>131,072 B <br/>1.220703e-4 GiB <br/></div></span></td><td style="min-width: 75px;">4x32 KiB</td><td style="min-width: 175px;">8-way set associative</td><td>write-back</td></tr></tbody></table></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th style="min-width: 35px;">L2$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB "><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;"> </th><td style="min-width: 50px;"> </td><td style="min-width: 75px;">4x512 KiB</td><td style="min-width: 175px;">8-way set associative</td><td>write-back</td></tr></tbody></table></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th style="min-width: 35px;">L3$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB "><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;"> </th><td style="min-width: 50px;"> </td><td style="min-width: 75px;">1x4 MiB</td><td style="min-width: 175px;"> </td><td> </td></tr></tbody></table></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="Memory_controller">Memory controller</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=2" title="Edit section: Memory controller">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/memory_controller/amd/ryzen_7/2700u" title="Special:FormEdit/memory controller/amd/ryzen 7/2700u">[Edit/Modify Memory Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="ram icons.svg" src="/w/images/thumb/a/af/ram_icons.svg/75px-ram_icons.svg.png" width="75" height="69" srcset="/w/images/thumb/a/af/ram_icons.svg/113px-ram_icons.svg.png 1.5x, /w/images/thumb/a/af/ram_icons.svg/150px-ram_icons.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Memory Controller</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="margin-left: 10px;"><tbody><tr><th style="width: 200px;">Max Type</th><td style="min-width: 100px;">DDR4-2400</td></tr><tr><th>Supports ECC</th><td>Yes</td></tr><tr><th style="width: 200px;">Max Mem</th><td>32 GiB</td></tr><tr><th>Controllers</th><td>2</td></tr><tr><th>Channels</th><td>2</td></tr><tr><th>Max Bandwidth</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="62.222&amp;#160;GB/s 36,618.24&amp;#160;MiB/s 0.0349&amp;#160;TiB/s 0.0384&amp;#160;TB/s "><span class="smwtext">35.76 GiB/s</span><div class="smwttcontent">62.222 GB/s <br/>36,618.24 MiB/s <br/>0.0349 TiB/s <br/>0.0384 TB/s <br/></div></span></td></tr><tr><th>Bandwidth</th>
+<td>
+<div style="float: left; width: 150px;"><b>Single</b> 17.88 GiB/s</div><div style="float: left; width: 150px;"><b>Double</b> 35.76 GiB/s</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="Expansions">Expansions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=3" title="Edit section: Expansions">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-192" class="ezoic-adpicker-ad"></span>
+<p>This processor has 12 PCIe lanes, 1x8 typically designated for a <a href="/w/index.php?title=GPU&amp;action=edit&amp;redlink=1" class="new" title="GPU (page does not exist)">GPU</a> and 4 additional lanes for storage (e.g., NVMe).
+</p><span id="ezoic-pub-ad-placeholder-160" class="ezoic-adpicker-ad"></span>
+<div class="spec-box">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/expansions/amd/ryzen_7/2700u" title="Special:FormEdit/expansions/amd/ryzen 7/2700u">[Edit/Modify Expansions Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td style="vertical-align:top;"><img alt="ide icon.svg" src="/w/images/thumb/8/84/ide_icon.svg/50px-ide_icon.svg.png" width="50" height="44" srcset="/w/images/thumb/8/84/ide_icon.svg/75px-ide_icon.svg.png 1.5x, /w/images/thumb/8/84/ide_icon.svg/100px-ide_icon.svg.png 2x"/></td>
+<td><div style="text-decoration: underline; font-size: 1.3em;">Expansion Options</div></td>
+</tr>
+<tr style="vertical-align:top;">
+<td colspan="2">
+<div style="min-width: 100px; padding: 10px; display: inline-block;"><table><tbody><tr><td rowspan="3"><b>PCIe</b></td><td><b>Revision:</b> 3.0</td></tr><tr><td><b>Max Lanes:</b> 12</td></tr><tr><td><b>Configuration:</b> 1x8+1x4, 2x4+1x4</td></tr></tbody></table></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<p><br/>
+</p>
+<h2><span class="mw-headline" id="Graphics">Graphics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=4" title="Edit section: Graphics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/integrated_graphics/amd/ryzen_7/2700u" title="Special:FormEdit/integrated graphics/amd/ryzen 7/2700u">[Edit/Modify IGP Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="screen icon.svg" src="/w/images/thumb/2/29/screen_icon.svg/75px-screen_icon.svg.png" width="75" height="75" srcset="/w/images/thumb/2/29/screen_icon.svg/113px-screen_icon.svg.png 1.5x, /w/images/thumb/2/29/screen_icon.svg/150px-screen_icon.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Graphics Information</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1 tl3" style="margin-left: 10px;">
+<tbody><tr><th style="width: 150px;">GPU</th><td colspan="3"><a href="/w/index.php?title=amd/radeon_vega_10&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 10 (page does not exist)">Radeon Vega 10</a></td></tr>
+<tr><th style="width: 150px;">Designer</th><td>AMD</td></tr>
+<tr><th style="width: 150px;">Execution Units</th><td>10</td></tr>
+<tr><th style="width: 150px;">Unified Shaders</th><td>640</td></tr>
+<tr></tr><tr><th style="width: 150px;">Burst Frequency</th><td>1,300 MHz<span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.3&amp;#160;GHz 1,300,000&amp;#160;KHz "><span class="smwtext"></span><div class="smwttcontent">1.3 GHz <br/>1,300,000 KHz <br/></div></span></td></tr><tr><th>Output</th><td colspan="3"><a href="/w/index.php?title=displayport&amp;action=edit&amp;redlink=1" class="new" title="displayport (page does not exist)">DisplayPort</a>, <a href="/w/index.php?title=hdmi&amp;action=edit&amp;redlink=1" class="new" title="hdmi (page does not exist)">HDMI</a></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th>Standards</th><td colspan="3"><table><tbody><tr><th>DirectX</th><td>12</td></tr><tr><th>OpenGL</th><td>4.6</td></tr> <tr><th>OpenCL</th><td>2.2</td></tr>         </tbody></table></td></tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<table class="wikitable collapsible collapsed" style="text-align: center;">
+
+<tbody><tr>
+<th colspan="6"> <span style="float: left; margin-right: 4px; font-size: .7em;"><a href="/wiki/Template:zen_with_vega_hardware_accelerated_video_table" title="Template:zen with vega hardware accelerated video table">[Edit]</a></span> <a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a> with Radeon <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a> Hardware Accelerated Video Capabilities
+</th></tr>
+<tr>
+<th> Codec </th>
+<th colspan="3"> Encode </th>
+<th colspan="2"> Decode
+</th></tr>
+<tr>
+<th> Max FPS </th>
+<th> @1080p </th>
+<th> @1440p </th>
+<th> @2160p </th>
+<th> @1080p 4:2:0 </th>
+<th> @2160p 4:2:0
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-2&amp;action=edit&amp;redlink=1" class="new" title="MPEG-2 (page does not exist)">MPEG-2</a> (H.262) </td>
+<td colspan="3" rowspan="4">   </td>
+<td rowspan="2"> 60 FPS </td>
+<td rowspan="2"> N/A
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VC-1&amp;action=edit&amp;redlink=1" class="new" title="VC-1 (page does not exist)">VC-1</a>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VP9&amp;action=edit&amp;redlink=1" class="new" title="VP9 (page does not exist)">VP9</a> 8bpc </td>
+<td rowspan="7"> 240 FPS </td>
+<td rowspan="7"> 60 FPS
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VP9&amp;action=edit&amp;redlink=1" class="new" title="VP9 (page does not exist)">VP9</a> 10bpc
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-4_AVC&amp;action=edit&amp;redlink=1" class="new" title="MPEG-4 AVC (page does not exist)">MPEG-4 AVC</a> (H.264) 8bpc </td>
+<td> 120 FPS </td>
+<td> 60 FPS </td>
+<td> 30 FPS
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-4_AVC&amp;action=edit&amp;redlink=1" class="new" title="MPEG-4 AVC (page does not exist)">MPEG-4 AVC</a> (H.264) 10bpc </td>
+<td colspan="3">  
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=HEVC&amp;action=edit&amp;redlink=1" class="new" title="HEVC (page does not exist)">HEVC</a> (H.265) 8bpc </td>
+<td> 120 FPS </td>
+<td> 60 FPS </td>
+<td> 30 FPS
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=HEVC&amp;action=edit&amp;redlink=1" class="new" title="HEVC (page does not exist)">HEVC</a> (H.265) 10bpc  </td>
+<td colspan="3" rowspan="2">  
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=JPEG&amp;action=edit&amp;redlink=1" class="new" title="JPEG (page does not exist)">JPEG</a>/<a href="/w/index.php?title=MJPEG&amp;action=edit&amp;redlink=1" class="new" title="MJPEG (page does not exist)">MJPEG</a> 8bpc
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=5" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/x86_features/amd/ryzen_7/2700u" title="Special:FormEdit/x86 features/amd/ryzen 7/2700u">[Edit/Modify Supported Features]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="Cog-icon-grey.svg" src="/w/images/thumb/a/ac/Cog-icon-grey.svg/75px-Cog-icon-grey.svg.png" width="75" height="95" srcset="/w/images/thumb/a/ac/Cog-icon-grey.svg/113px-Cog-icon-grey.svg.png 1.5x, /w/images/thumb/a/ac/Cog-icon-grey.svg/150px-Cog-icon-grey.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Supported <a href="/wiki/x86" title="x86"><span style="color: black;">x86</span></a> <a href="/wiki/x86/extensions" title="x86/extensions"><span style="color: black;">Extensions</span></a> &amp; Processor Features</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tbody><tr><th style="width: 100px;">MMX</th><td><a href="/w/index.php?title=x86/mmx&amp;action=edit&amp;redlink=1" class="new" title="x86/mmx (page does not exist)">MMX Extension</a></td></tr><tr><th style="width: 100px;">EMMX</th><td>Extended MMX Extension</td></tr><tr><th style="width: 100px;">SSE</th><td><a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">Streaming SIMD Extensions</a></td></tr><tr><th style="width: 100px;">SSE2</th><td><a href="/w/index.php?title=x86/sse2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse2 (page does not exist)">Streaming SIMD Extensions 2</a></td></tr><tr><th style="width: 100px;">SSE3</th><td><a href="/w/index.php?title=x86/sse3&amp;action=edit&amp;redlink=1" class="new" title="x86/sse3 (page does not exist)">Streaming SIMD Extensions 3</a></td></tr><tr><th style="width: 100px;">SSSE3</th><td><a href="/w/index.php?title=x86/ssse3&amp;action=edit&amp;redlink=1" class="new" title="x86/ssse3 (page does not exist)">Supplemental SSE3</a></td></tr><tr><th style="width: 100px;">SSE4.1</th><td><a href="/w/index.php?title=x86/sse4.1&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.1 (page does not exist)">Streaming SIMD Extensions 4.1</a></td></tr><tr><th style="width: 100px;">SSE4.2</th><td><a href="/w/index.php?title=x86/sse4.2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.2 (page does not exist)">Streaming SIMD Extensions 4.2</a></td></tr><tr><th style="width: 100px;">SSE4a</th><td><a href="/w/index.php?title=x86/sse4a&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4a (page does not exist)">Streaming SIMD Extensions 4a</a></td></tr><tr><th style="width: 100px;">AVX</th><td><a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">Advanced Vector Extensions</a></td></tr><tr><th style="width: 100px;">AVX2</th><td><a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">Advanced Vector Extensions 2</a></td></tr><tr><th style="width: 100px;">ABM</th><td><a href="/w/index.php?title=x86/abm&amp;action=edit&amp;redlink=1" class="new" title="x86/abm (page does not exist)">Advanced Bit Manipulation</a></td></tr><tr><th style="width: 100px;">BMI1</th><td><a href="/w/index.php?title=x86/bmi1&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi1 (page does not exist)">Bit Manipulation Instruction Set 1</a></td></tr><tr><th style="width: 100px;">BMI2</th><td><a href="/w/index.php?title=x86/bmi2&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi2 (page does not exist)">Bit Manipulation Instruction Set 2</a></td></tr><tr><th style="width: 100px;">FMA3</th><td><a href="/w/index.php?title=x86/fma3&amp;action=edit&amp;redlink=1" class="new" title="x86/fma3 (page does not exist)">3-Operand Fused-Multiply-Add</a></td></tr><tr><th style="width: 100px;">AES</th><td><a href="/w/index.php?title=x86/aes&amp;action=edit&amp;redlink=1" class="new" title="x86/aes (page does not exist)">AES Encryption Instructions</a></td></tr><tr><th style="width: 100px;">RdRand</th><td><a href="/w/index.php?title=x86/rdrand&amp;action=edit&amp;redlink=1" class="new" title="x86/rdrand (page does not exist)">Hardware RNG</a></td></tr><tr><th style="width: 100px;">SHA</th><td><a href="/w/index.php?title=x86/sha&amp;action=edit&amp;redlink=1" class="new" title="x86/sha (page does not exist)">SHA Extensions</a></td></tr><tr><th style="width: 100px;">ADX</th><td><a href="/wiki/x86/adx" title="x86/adx">Multi-Precision Add-Carry</a></td></tr><tr><th style="width: 100px;">CLMUL</th><td><a href="/w/index.php?title=x86/clmul&amp;action=edit&amp;redlink=1" class="new" title="x86/clmul (page does not exist)">Carry-less Multiplication Extension</a></td></tr><tr><th style="width: 100px;">F16C</th><td>16-bit Floating Point Conversion</td></tr></tbody></table>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tbody><tr><th style="width: 100px;">x86-16</th><td><a href="/w/index.php?title=x86/x86-16&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-16 (page does not exist)">16-bit x86</a></td></tr><tr><th style="width: 100px;">x86-32</th><td><a href="/w/index.php?title=x86/x86-32&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-32 (page does not exist)">32-bit x86</a></td></tr><tr><th style="width: 100px;">x86-64</th><td><a href="/w/index.php?title=x86/x86-64&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-64 (page does not exist)">64-bit x86</a></td></tr><tr><th style="width: 100px;">Real</th><td><a href="/w/index.php?title=x86/real_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/real mode (page does not exist)">Real Mode</a></td></tr><tr><th style="width: 100px;">Protected</th><td><a href="/w/index.php?title=x86/protected_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/protected mode (page does not exist)">Protected Mode</a></td></tr><tr><th style="width: 100px;">SMM</th><td><a href="/w/index.php?title=x86/system_management_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/system management mode (page does not exist)">System Management Mode</a></td></tr><tr><th style="width: 100px;">FPU</th><td><a href="/w/index.php?title=x86/x87&amp;action=edit&amp;redlink=1" class="new" title="x86/x87 (page does not exist)">Integrated x87 FPU</a></td></tr><tr><th style="width: 100px;">NX</th><td><a href="/w/index.php?title=x86/no-execute&amp;action=edit&amp;redlink=1" class="new" title="x86/no-execute (page does not exist)">No-eXecute</a></td></tr><tr><th style="width: 100px;">SMT</th><td><a href="/w/index.php?title=Simultaneous_Multithreading&amp;action=edit&amp;redlink=1" class="new" title="Simultaneous Multithreading (page does not exist)">Simultaneous Multithreading</a></td></tr><tr><th style="width: 100px;">AMD-Vi</th><td>AMD-Vi (I/O MMU virtualization)</td></tr><tr><th style="width: 100px;">AMD-V</th><td>AMD Virtualization</td></tr><tr><th style="width: 100px;">SenseMI</th><td>SenseMI Technology</td></tr><tr><th style="width: 100px;">XFR</th><td><a href="/w/index.php?title=amd/extended_frequency_range&amp;action=edit&amp;redlink=1" class="new" title="amd/extended frequency range (page does not exist)">Extended Frequency Range</a></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="Die_Shot">Die Shot</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_7/2700u&amp;action=edit&amp;section=6" title="Edit section: Die Shot">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Further information: <a href="/wiki/amd/microarchitectures/zen#Die" title="amd/microarchitectures/zen">Zen § Die Shot</a></i></dd></dl>
+<ul><li> <a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm process</a></li>
+<li> 4,950,000,000 transistors</li>
+<li> 209.78 mm² die size</li></ul>
+<p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:raven_ridge_die.png" class="image"><img alt="raven ridge die.png" src="/w/images/thumb/1/1d/raven_ridge_die.png/650px-raven_ridge_die.png" width="650" height="395" srcset="/w/images/thumb/1/1d/raven_ridge_die.png/975px-raven_ridge_die.png 1.5x, /w/images/thumb/1/1d/raven_ridge_die.png/1300px-raven_ridge_die.png 2x"/></a></dd></dl>
+<p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:raven_ridge_die_(annotated).png" class="image"><img alt="raven ridge die (annotated).png" src="/w/images/thumb/c/cc/raven_ridge_die_%28annotated%29.png/650px-raven_ridge_die_%28annotated%29.png" width="650" height="395" srcset="/w/images/thumb/c/cc/raven_ridge_die_%28annotated%29.png/975px-raven_ridge_die_%28annotated%29.png 1.5x, /w/images/thumb/c/cc/raven_ridge_die_%28annotated%29.png/1300px-raven_ridge_die_%28annotated%29.png 2x"/></a></dd></dl>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:26146-0!*!0!!en!5!* and timestamp 20210331141220 and revision id 90763
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/ryzen_7/2700u&amp;oldid=90763">https://en.wikichip.org/w/index.php?title=amd/ryzen_7/2700u&amp;oldid=90763</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:all_microprocessor_models" title="Category:all microprocessor models">all microprocessor models</a></li><li><a href="/wiki/Category:microprocessor_models_by_amd" title="Category:microprocessor models by amd">microprocessor models by amd</a></li><li><a href="/wiki/Category:microprocessor_models_by_amd_based_on_zen" title="Category:microprocessor models by amd based on zen">microprocessor models by amd based on zen</a></li><li><a href="/wiki/Category:microprocessor_models_by_globalfoundries" title="Category:microprocessor models by globalfoundries">microprocessor models by globalfoundries</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fryzen-207-2F2700u" title="Special:Browse/:amd-2Fryzen-207-2F2700u">Ryzen 7 2700U  - AMD</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/ryzen_7/2700u" title="Special:ExportRDF/amd/ryzen 7/2700u">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwspecname"><span class="smw-highlighter" data-type="1" data-state="inline" data-title="Property" title="&#34;Has subobject&#34; is a predefined property representing a container construct and is provided by Semantic MediaWiki."><span class="smwbuiltin"><a href="/wiki/Property:Has_subobject" title="Property:Has subobject">Has subobject</a></span><div class="smwttcontent">&#34;Has subobject&#34; is a predefined property representing a <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Container">container</a> construct and is provided by <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Special_properties">Semantic MediaWiki</a>.</div></span></td><td class="smwspecs"><span class="smw-subobject-entity"><a href="/wiki/amd/ryzen_7/2700u#package" title="amd/ryzen 7/2700u">Ryzen 7 2700U  - AMD#package</a></span><span class="smwbrowse"><a href="/wiki/Special:Browse/:amd-2Fryzen-207-2F2700u-23package" title="Special:Browse/:amd-2Fryzen-207-2F2700u-23package"> +</a></span> and <span class="smw-subobject-entity"><a href="/wiki/amd/ryzen_7/2700u#pcie" title="amd/ryzen 7/2700u">Ryzen 7 2700U  - AMD#pcie</a></span><span class="smwbrowse"><a href="/wiki/Special:Browse/:amd-2Fryzen-207-2F2700u-23pcie" title="Special:Browse/:amd-2Fryzen-207-2F2700u-23pcie"> +</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:base_frequency" title="Property:base frequency">base frequency</a></td><td class="smwprops">2,200 MHz (2.2 GHz, 2,200,000 kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:base-20frequency/2200-20MHz" title="Special:SearchByProperty/:base-20frequency/2200-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:chipset" title="Property:chipset">chipset</a></td><td class="smwprops">Promontory  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:chipset/Promontory" title="Special:SearchByProperty/:chipset/Promontory">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:clock_multiplier" title="Property:clock multiplier">clock multiplier</a></td><td class="smwprops">22  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:clock-20multiplier/22" title="Special:SearchByProperty/:clock-20multiplier/22">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/4" title="Special:SearchByProperty/:core-20count/4">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_family" title="Property:core family">core family</a></td><td class="smwprops">23  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20family/23" title="Special:SearchByProperty/:core-20family/23">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:core_model" title="Property:core model">core model</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20model/1" title="Special:SearchByProperty/:core-20model/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_name" title="Property:core name">core name</a></td><td class="smwprops">Raven Ridge  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20name/Raven-20Ridge" title="Special:SearchByProperty/:core-20name/Raven-20Ridge">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:die_area" title="Property:die area">die area</a></td><td class="smwprops">209.78 mm² (0.325 in², 2.098 cm², 209,780,000 µm²)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:die-20area/209.78-20mm%C2%B2" title="Special:SearchByProperty/:die-20area/209.78-20mm²">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:family" title="Property:family">family</a></td><td class="smwprops">Ryzen 7  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:family/Ryzen-207" title="Special:SearchByProperty/:family/Ryzen-207">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">October 26, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/26-20October-202017" title="Special:SearchByProperty/:first-20announced/26-20October-202017">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">October 26, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/26-20October-202017" title="Special:SearchByProperty/:first-20launched/26-20October-202017">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">amd/ryzen 7/2700u  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/amd-2Fryzen-207-2F2700u" title="Special:SearchByProperty/:full-20page-20name/amd-2Fryzen-207-2F2700u">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions" title="Property:has advanced vector extensions">has advanced vector extensions</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions_2" title="Property:has advanced vector extensions 2">has advanced vector extensions 2</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_amd_amd-v_technology" title="Property:has amd amd-v technology">has amd amd-v technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20amd-2Dv-20technology/true" title="Special:SearchByProperty/:has-20amd-20amd-2Dv-20technology/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_amd_amd-vi_technology" title="Property:has amd amd-vi technology">has amd amd-vi technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20amd-2Dvi-20technology/true" title="Special:SearchByProperty/:has-20amd-20amd-2Dvi-20technology/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_amd_extended_frequency_range" title="Property:has amd extended frequency range">has amd extended frequency range</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20extended-20frequency-20range/true" title="Special:SearchByProperty/:has-20amd-20extended-20frequency-20range/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_amd_sensemi_technology" title="Property:has amd sensemi technology">has amd sensemi technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20sensemi-20technology/true" title="Special:SearchByProperty/:has-20amd-20sensemi-20technology/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_ecc_memory_support" title="Property:has ecc memory support">has ecc memory support</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20ecc-20memory-20support/true" title="Special:SearchByProperty/:has-20ecc-20memory-20support/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_feature" title="Property:has feature">has feature</a></td><td class="smwprops">Advanced Vector Extensions  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions">+</a></span>, Advanced Vector Extensions 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202">+</a></span>, Advanced Encryption Standard Instruction Set Extension  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension" title="Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension">+</a></span>, SenseMI Technology  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/SenseMI-20Technology" title="Special:SearchByProperty/:has-20feature/SenseMI-20Technology">+</a></span> and Extended Frequency Range  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Extended-20Frequency-20Range" title="Special:SearchByProperty/:has-20feature/Extended-20Frequency-20Range">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_locked_clock_multiplier" title="Property:has locked clock multiplier">has locked clock multiplier</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20locked-20clock-20multiplier/true" title="Special:SearchByProperty/:has-20locked-20clock-20multiplier/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_simultaneous_multithreading" title="Property:has simultaneous multithreading">has simultaneous multithreading</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20simultaneous-20multithreading/true" title="Special:SearchByProperty/:has-20simultaneous-20multithreading/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_x86_advanced_encryption_standard_instruction_set_extension" title="Property:has x86 advanced encryption standard instruction set extension">has x86 advanced encryption standard instruction set extension</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true" title="Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microprocessor  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor" title="Special:SearchByProperty/:instance-20of/microprocessor">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu" title="Property:integrated gpu">integrated gpu</a></td><td class="smwprops">Radeon Vega 10  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu/Radeon-20Vega-2010" title="Special:SearchByProperty/:integrated-20gpu/Radeon-20Vega-2010">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_designer" title="Property:integrated gpu designer">integrated gpu designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20designer/AMD" title="Special:SearchByProperty/:integrated-20gpu-20designer/AMD">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_max_frequency" title="Property:integrated gpu max frequency">integrated gpu max frequency</a></td><td class="smwprops">1,300 MHz (1.3 GHz, 1,300,000 KHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20max-20frequency/1300-20MHz" title="Special:SearchByProperty/:integrated-20gpu-20max-20frequency/1300-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:isa" title="Property:isa">isa</a></td><td class="smwprops">x86-64  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa/x86-2D64" title="Special:SearchByProperty/:isa/x86-2D64">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:isa_family" title="Property:isa family">isa family</a></td><td class="smwprops">x86  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa-20family/x86" title="Special:SearchByProperty/:isa-20family/x86">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1$_size" title="Property:l1$ size">l1$ size</a></td><td class="smwprops">0.375 MiB (384 KiB, 393,216 B, 3.662109e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1-24-20size/0.375-20MiB" title="Special:SearchByProperty/:l1-24-20size/0.375-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1d$_description" title="Property:l1d$ description">l1d$ description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1d$_size" title="Property:l1d$ size">l1d$ size</a></td><td class="smwprops">0.125 MiB (128 KiB, 131,072 B, 1.220703e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20size/0.125-20MiB" title="Special:SearchByProperty/:l1d-24-20size/0.125-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1i$_description" title="Property:l1i$ description">l1i$ description</a></td><td class="smwprops">4-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20description/4-2Dway-20set-20associative" title="Special:SearchByProperty/:l1i-24-20description/4-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1i$_size" title="Property:l1i$ size">l1i$ size</a></td><td class="smwprops">0.25 MiB (256 KiB, 262,144 B, 2.441406e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20size/0.25-20MiB" title="Special:SearchByProperty/:l1i-24-20size/0.25-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l2$_description" title="Property:l2$ description">l2$ description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l2$_size" title="Property:l2$ size">l2$ size</a></td><td class="smwprops">2 MiB (2,048 KiB, 2,097,152 B, 0.00195 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20size/2-20MiB" title="Special:SearchByProperty/:l2-24-20size/2-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l3$_size" title="Property:l3$ size">l3$ size</a></td><td class="smwprops">4 MiB (4,096 KiB, 4,194,304 B, 0.00391 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l3-24-20size/4-20MiB" title="Special:SearchByProperty/:l3-24-20size/4-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:ldate" title="Property:ldate">ldate</a></td><td class="smwprops">October 26, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:ldate/26-20October-202017" title="Special:SearchByProperty/:ldate/26-20October-202017">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">GlobalFoundries  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/GlobalFoundries" title="Special:SearchByProperty/:manufacturer/GlobalFoundries">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market segment</a></td><td class="smwprops">Mobile  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Mobile" title="Special:SearchByProperty/:market-20segment/Mobile">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_cpu_count" title="Property:max cpu count">max cpu count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20cpu-20count/1" title="Special:SearchByProperty/:max-20cpu-20count/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory" title="Property:max memory">max memory</a></td><td class="smwprops">32,768 MiB (33,554,432 KiB, 34,359,738,368 B, 32 GiB, 0.0313 TiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory/32768-20MiB" title="Special:SearchByProperty/:max-20memory/32768-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_memory_bandwidth" title="Property:max memory bandwidth">max memory bandwidth</a></td><td class="smwprops">35.76 GiB/s (62.222 GB/s, 36,618.24 MiB/s, 0.0349 TiB/s, 0.0384 TB/s)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20bandwidth/35.76-20GiB-2Fs" title="Special:SearchByProperty/:max-20memory-20bandwidth/35.76-20GiB-2Fs">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory_channels" title="Property:max memory channels">max memory channels</a></td><td class="smwprops">2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20channels/2" title="Special:SearchByProperty/:max-20memory-20channels/2">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Zen  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen" title="Special:SearchByProperty/:microarchitecture/Zen">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:model_number" title="Property:model number">model number</a></td><td class="smwprops">2700U  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:model-20number/2700U" title="Special:SearchByProperty/:model-20number/2700U">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Ryzen 7 2700U  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Ryzen-207-202700U" title="Special:SearchByProperty/:name/Ryzen-207-202700U">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package" title="Property:package">package</a></td><td class="smwprops">FP5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/FP5" title="Special:SearchByProperty/:package/FP5">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">14 nm (0.014 μm, 1.4e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/14-20nm" title="Special:SearchByProperty/:process/14-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:series" title="Property:series">series</a></td><td class="smwprops">2000U  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:series/2000U" title="Special:SearchByProperty/:series/2000U">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/w/index.php?title=Property:smp_max_ways&amp;action=edit&amp;redlink=1" class="new" title="Property:smp max ways (page does not exist)">smp max ways</a></td><td class="smwprops"><a href="/w/index.php?title=1&amp;action=edit&amp;redlink=1" class="new" title="1 (page does not exist)">1</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:smp-20max-20ways/1" title="Special:SearchByProperty/:smp-20max-20ways/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:supported_memory_type" title="Property:supported memory type">supported memory type</a></td><td class="smwprops">DDR4-2400  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:supported-20memory-20type/DDR4-2D2400" title="Special:SearchByProperty/:supported-20memory-20type/DDR4-2D2400">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">15 W (15,000 mW, 0.0201 hp, 0.015 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/15-20W" title="Special:SearchByProperty/:tdp/15-20W">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp_down" title="Property:tdp down">tdp down</a></td><td class="smwprops">12 W (12,000 mW, 0.0161 hp, 0.012 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp-20down/12-20W" title="Special:SearchByProperty/:tdp-20down/12-20W">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:tdp_up" title="Property:tdp up">tdp up</a></td><td class="smwprops">25 W (25,000 mW, 0.0335 hp, 0.025 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp-20up/25-20W" title="Special:SearchByProperty/:tdp-20up/25-20W">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:thread_count" title="Property:thread count">thread count</a></td><td class="smwprops">8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:thread-20count/8" title="Special:SearchByProperty/:thread-20count/8">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:transistor_count" title="Property:transistor count">transistor count</a></td><td class="smwprops">4,950,000,000  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:transistor-20count/4950000000" title="Special:SearchByProperty/:transistor-20count/4950000000">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(1_core)" title="Property:turbo frequency (1 core)">turbo frequency (1 core)</a></td><td class="smwprops">3,800 MHz (3.8 GHz, 3,800,000 kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(1-20core)/3800-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(1-20core)/3800-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word size</a></td><td class="smwprops">64 bit (8 octets, 16 nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<span id="ezoic-pub-ad-placeholder-127"></span>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 13 May 2019, at 20:16.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":124});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> 
+<!-- A:IL01 END -->
+
+
+
+
+<!--[selectrongo:done]--></body></html>

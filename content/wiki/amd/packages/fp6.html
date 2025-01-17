@@ -1,0 +1,2787 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=28', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=19', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),z=parseInt(__ez.dot.getTargeting(t,"compid")),g=0,c=0,l=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(l)&&(void 0!==l.creative_id&&(c=l.creative_id),void 0!==l.line_item_id&&(g=l.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:d,est_revenue:_,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:z,line_item_id:g,creative_id:c,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d){var _=e.split("/");if(__ez.dot.isDefined(e)&&3===_.length&&__ez.dot.isValid(t)){var n=_[0],r={type:"impression",impression_id:_[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(r.revenue=d),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=7', false, [], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/amd/packages/fp6"/>
+
+<title>Package FP6  - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/packages/fp6","wgTitle":"amd/packages/fp6","wgCurRevisionId":101718,"wgRevisionId":101718,"wgArticleId":36335,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all ic packages","Articles with empty sections","amd"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/packages/fp6","wgRelevantArticleId":36335,"wgRequestId":"fc6b6b47a1de22536ee6f599","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.cite.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/packages/fp6" href="/w/index.php?title=Special:ExportRDF/amd/packages/fp6&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/packages/fp6&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/packages/fp6&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Package FP6  - AMD - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="FP6 is a CPU package of AMD Ryzen mobile and embedded processors, the successor to the FP5 package. Its counterpart for desktop processors is the PGA-1331 package for Socket AM4."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><script type='text/javascript'>
+var ezoTemplate = 'orig_site';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ab_test_id":"mod124","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"09a6f806-0a4c-44e6-506a-efef7adebf35","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":172612,"response_time_orig":167,"serverid":"i-0d64a1a2ecceaebe8","state":"VA","t_epoch":1695385777,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/amd/packages/fp6","word_count":5025,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_packages_fp6 rootpage-amd skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/packages/fp6">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:amd/packages/fp6&amp;action=edit&amp;redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/packages/fp6&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=amd%2Fpackages%2Ffp6"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/packages/fp6"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/packages/fp6"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/packages/fp6&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/packages/fp6&amp;oldid=101718"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/packages/fp6&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Ffp6"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Package FP6  - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="wc_out_template1"></div><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/package/amd/packages/fp6" title="Special:FormEdit/package/amd/packages/fp6"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Package FP6</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/amd" title="amd">AMD</a></td></tr><tr><td class="label">Introduction</td><td>March 16, 2020 (launched)</td></tr><tr><td class="label">Market</td><td>Mobile, Embedded</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>, <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a></td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="55,000&amp;#160;mW 0.0738&amp;#160;hp 0.055&amp;#160;kW "><span class="smwtext">55 W</span><div class="smwttcontent">55,000 mW <br/>0.0738 hp <br/>0.055 kW <br/></div></span></td></tr><tr><td class="header" colspan="2">Package</td></tr><tr><td class="label">Name</td><td>FP6</td></tr><tr><td class="label">Type</td><td>FC-OBGA</td></tr><tr><td class="label">Contacts</td><td>1140</td></tr><tr><td class="label">Dimension</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3.5&amp;#160;cm 1.378&amp;#160;in "><span class="smwtext">35 mm</span><div class="smwttcontent">3.5 cm <br/>1.378 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.5&amp;#160;cm 0.984&amp;#160;in "><span class="smwtext">25 mm</span><div class="smwttcontent">2.5 cm <br/>0.984 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0543&amp;#160;in "><span class="smwtext">1.38 mm</span><div class="smwttcontent">0.0543 in <br/></div></span></td></tr><tr><td class="label">Pitch</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0256&amp;#160;in "><span class="smwtext">0.65 mm</span><div class="smwttcontent">0.0256 in <br/></div></span></td></tr></tbody></table><div id="wc_out_template1"></div>
+<p><b>FP6</b> is a CPU package of <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> Ryzen mobile and embedded processors, the successor to the <a href="/wiki/amd/packages/fp5" title="amd/packages/fp5">FP5</a> package. Its counterpart for desktop processors is the PGA-1331 package for <a href="/wiki/amd/packages/socket_am4" title="amd/packages/socket am4">Socket AM4</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Features"><span class="tocnumber">1.1</span> <span class="toctext">Features</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Processors_using_package_FP6"><span class="tocnumber">2</span> <span class="toctext">Processors using package FP6</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Photos"><span class="tocnumber">3</span> <span class="toctext">Photos</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Package_Diagram"><span class="tocnumber">4</span> <span class="toctext">Package Diagram</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Pin_Map"><span class="tocnumber">5</span> <span class="toctext">Pin Map</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Pin_Description"><span class="tocnumber">5.1</span> <span class="toctext">Pin Description</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Bibliography"><span class="tocnumber">6</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>FP6 is a 1140-contact, 0.65 mm minimum non-uniform pitch, organic <a href="/w/index.php?title=ball_grid_array&amp;action=edit&amp;redlink=1" class="new" title="ball grid array (page does not exist)">ball grid array</a> package with a size of 35 mm × 25 mm × 1.38 mm.
+</p><p>It supports two 64/72-bit channels of <a href="/w/index.php?title=DDR4&amp;action=edit&amp;redlink=1" class="new" title="DDR4 (page does not exist)">DDR4</a> memory or four 32-bit channels of <a href="/w/index.php?title=LPDDR4x&amp;action=edit&amp;redlink=1" class="new" title="LPDDR4x (page does not exist)">LPDDR4x</a> memory, two PCIe Gen 3 I/O interfaces with 20 lanes total, four digital display interfaces, four USB 3.2 Gen 2 ports, four USB 2.0 ports, and up to four SATA Gen 3 ports.
+</p><p>The following AMD processor families use the FP6 package:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th> </th>
+<th> CPU Family </th>
+<th> Microarch. </th>
+<th> Process </th>
+<th> Products
+</th></tr>
+<tr>
+<td> Type 1
+</td>
+<td> <a href="/wiki/amd/cpuid#Family_23_.2817h.29" title="amd/cpuid">Family 17h</a> Models 60h–6Fh
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> <a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a>
+</td>
+<td> Ryzen 4000 &#34;<a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>&#34; (Model 60h), Ryzen 5000 &#34;<a href="/wiki/amd/cores/lucienne" title="amd/cores/lucienne">Lucienne</a>&#34; (Model 68h), Ryzen Embedded V2000 &#34;<a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a>&#34;
+</td></tr>
+<tr>
+<td> Type 2
+</td>
+<td> <a href="/wiki/amd/cpuid#Family_25_.2819h.29" title="amd/cpuid">Family 19h</a> Models 50h–5Fh
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> <a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a>
+</td>
+<td> Ryzen 5000 &#34;<a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>&#34; (Model 50h)
+</td></tr></tbody></table>
+<p>All FP6 packages carry a monolithic die which integrates eight CPU cores, two memory controllers, a graphics processor, and a controller hub. &#34;Renoir&#34; and &#34;Cezanne&#34; processors are also available in a desktop processor package for <a href="/wiki/amd/packages/socket_am4" title="amd/packages/socket am4">Socket AM4</a>.
+</p><p>FP6 supports DDR4 and LPDDR4x memory. The DDR4 interface offers two 64/72-bit channels and supports UDIMMs, SO-DIMMs, or DRAM Down (soldered to the motherboard) consisting of 8 or 16 x8 devices, or 4 or 8 x16 devices, i.e. up to one single or double rank DIMM per channel. In LPDDR4x mode the memory interface consists of two 64-bit channels with two 32-bit subchannels. It supports four x32 DRAM devices, each point-to-point connected to one subchannel.
+</p><p>FP6 has two PCIe interfaces, an 8-lane interface designated for discrete GPU attachment and a 12-lane general purpose interface where up to four lanes can be configured as SATA link. This interface is generally used for M.2 NVMe/SATA SSD connectors, M.2 WiFi, SATA ports, and on-board PCIe devices. Type-1 processors actually integrate one 16-lane, 3-port GFX controller and one 16-lane, 7-port controller but only a subset of these lanes are pinned out on the FP6 package.
+</p><p>Type-1 processors support two (backplane?) Ethernet ports, if those are available on package FP6, perhaps supported only on embedded processors, is unclear.
+</p>
+<h3><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=2" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Lidless micro <a href="/w/index.php?title=ball_grid_array&amp;action=edit&amp;redlink=1" class="new" title="ball grid array (page does not exist)">ball grid array</a> package with stiffener frame, 35 mm × 25 mm × 1.38 mm
+<ul><li> 1140 balls, 0.65 mm non-uniform pitch</li>
+<li> Organic substrate, <a href="/w/index.php?title=flip_chip&amp;action=edit&amp;redlink=1" class="new" title="flip chip (page does not exist)">flip chip</a> die attachment</li></ul></li></ul>
+<ul><li> 2 × 64/72 bit DDR4 SDRAM interface
+<ul><li> Up to 1600 MHz, PC4-25600 (DDR4-3200), 51.2 GB/s total raw bandwidth</li>
+<li> Up to 2 DIMMs, one per channel</li>
+<li> <abbr title="Single Rank">SR</abbr>/<abbr title="Dual Rank">DR</abbr> <abbr title="Unbuffered Dual In-line Memory Module">UDIMM</abbr> or <a href="http://en.wikipedia.org/wiki/SO-DIMM" class="extiw" title="wikipedia:SO-DIMM"><abbr title="Small Outline Dual In-line Memory Module">SO-DIMM</abbr></a> or x8/x16 DRAM Down</li>
+<li> ECC supported</li>
+<li> Max. total memory capacity 64 GiB using two 32 GiB DIMMs</li></ul></li>
+<li> <i>Or</i> 4 × 32 bit LPDDR4x SDRAM interface
+<ul><li> Up to 2133 MHz, LPDDR4X-4266, 68.27 GB/s total raw bandwidth</li>
+<li> x32 DRAM Down</li>
+<li> Up to 32 GiB total</li></ul></li></ul>
+<ul><li> 8-lane <abbr title="External graphics card link">GFX</abbr> PCIe interface</li></ul>
+<dl><dd><table class="wikitable" style="text-align:center">
+<tbody><tr>
+<td>Lane</td>
+<td>23</td>
+<td>22</td>
+<td>21</td>
+<td>20</td>
+<td>19</td>
+<td>18</td>
+<td>17</td>
+<td>16</td>
+<td>15</td>
+<td>14</td>
+<td>13</td>
+<td>12</td>
+<td>11</td>
+<td>10</td>
+<td>9</td>
+<td>8
+</td></tr>
+<tr>
+<td>GFX</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A
+</td></tr>
+<tr>
+<td rowspan="2">PCIe </td>
+<td colspan="8">x8 </td>
+<td colspan="8">
+</td></tr>
+<tr>
+<td colspan="4">x4 </td>
+<td colspan="4">x4 </td>
+<td colspan="4"> </td>
+<td colspan="4">
+</td></tr>
+<tr>
+<td> </td>
+<td colspan="4">PHY </td>
+<td colspan="4">PHY </td>
+<td colspan="4">N/A </td>
+<td colspan="4">N/A
+</td></tr></tbody></table></dd></dl>
+<dl><dd><ul><li> PCIe Gen 1, 2, 3 (8 GT/s), configurable 1x8 or 2x4</li></ul></dd></dl>
+<ul><li> 12-lane <abbr title="General Purpose Port(s)">GPP</abbr> PCIe interface</li></ul>
+<dl><dd><table class="wikitable" style="text-align:center">
+<tbody><tr>
+<td>Lane</td>
+<td>15</td>
+<td>14</td>
+<td>13</td>
+<td>12</td>
+<td>11</td>
+<td>10</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0
+</td></tr>
+<tr>
+<td>GPP</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>11</td>
+<td>10</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0
+</td></tr>
+<tr>
+<td rowspan="3">PCIe </td>
+<td colspan="4"> </td>
+<td colspan="4">x4 </td>
+<td colspan="4">x4 </td>
+<td colspan="4">x4
+</td></tr>
+<tr>
+<td colspan="2"> </td>
+<td colspan="2"> </td>
+<td colspan="2">x2 </td>
+<td colspan="2">x2 </td>
+<td colspan="2">x2 </td>
+<td colspan="2">x2 </td>
+<td colspan="2">x2 </td>
+<td colspan="2">x2
+</td></tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1
+</td></tr>
+<tr>
+<td>SATA</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>3</td>
+<td>2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>1</td>
+<td>0</td>
+<td> </td>
+<td>
+</td></tr>
+<tr>
+<td> </td>
+<td colspan="4">N/A </td>
+<td colspan="4">PHY </td>
+<td colspan="4">PHY </td>
+<td colspan="2">PHY </td>
+<td colspan="2">PHY
+</td></tr></tbody></table></dd></dl>
+<dl><dd><ul><li> PCIe Gen 1, 2, 3 (8 GT/s)</li>
+<li> Up to 7 ports configurable x4, x2, x1 with power-of-two alignment (e.g. 1x4 + 2x1 + 3x2)</li>
+<li> SATA Express supported on lanes 2-3 and 8-9 (two SATA controllers)</li>
+<li> SATA Gen 1, 2, 3 (6 Gb/s) protocol supported on lanes 2, 3, 8, and 9</li>
+<li> Lanes 0-1, 2-3, 4-7, and 8-11 share a PHY group and must use the same protocol (PCIe or SATA)</li>
+<li> Lane polarity inversion, per port lane reversal</li></ul></dd></dl>
+<ul><li> Four digital display interfaces DP0-DP3
+<ul><li> <a href="http://en.wikipedia.org/wiki/DisplayPort" class="extiw" title="wikipedia:DisplayPort"><abbr title="DisplayPort">DP</abbr></a> 1.4, DP++, <a href="http://en.wikipedia.org/wiki/DisplayPort#eDP" class="extiw" title="wikipedia:DisplayPort"><abbr title="Embedded DisplayPort">eDP</abbr></a> 1.3, <abbr title="Single-Link">SL</abbr> <a href="http://en.wikipedia.org/wiki/Digital_Visual_Interface" class="extiw" title="wikipedia:Digital Visual Interface"><abbr title="Digital Visual Interface">DVI</abbr></a>, <a href="http://en.wikipedia.org/wiki/HDMI" class="extiw" title="wikipedia:HDMI"><abbr title="High-Definition Multimedia Interface">HDMI</abbr></a> 2.1 protocols; <a href="http://en.wikipedia.org/wiki/Low-voltage_differential_signaling" class="extiw" title="wikipedia:Low-voltage differential signaling"><abbr title="Low-Voltage Differential Signaling">LVDS</abbr></a> and <a href="http://en.wikipedia.org/wiki/Video_Graphics_Array" class="extiw" title="wikipedia:Video Graphics Array"><abbr title="Video Graphics Array">VGA</abbr></a> via external DP to LVDS and DP to VGA translator</li>
+<li> DP2-DP3 rerouted on die to USBC0, USBC4 for DP Alt Mode</li>
+<li> Resolution up to 4096 × 2160</li></ul></li></ul>
+<ul><li> Eight USB ports from two USB controllers (ports 0-3 and 4-7)
+<ul><li> 2 × USB 1.1, 2.0, 3.2 Gen 1, 2 (10 Gb/s), Type-C, DP Alt Mode, Power Delivery capable</li>
+<li> 2 × USB 1.1, 2.0, 3.2 Gen 1, 2 (10 Gb/s), Type-A</li>
+<li> 4 × USB 1.1, 2.0</li></ul></li></ul>
+<ul><li> Low speed interfaces (some sharing pins):
+<ul><li> <a href="http://en.wikipedia.org/wiki/Intel_High_Definition_Audio" class="extiw" title="wikipedia:Intel High Definition Audio">HDA</a>/<a href="http://en.wikipedia.org/wiki/Time-division_multiplexing" class="extiw" title="wikipedia:Time-division multiplexing">TDM</a>/<a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I<sup>2</sup>S</a>/<abbr title="Digital Microphone (Pulse-Density Modulation) interface">DMIC</abbr></li>
+<li> 1 × 4-wire or 2 × 2-wire <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a></li>
+<li> <a href="http://en.wikipedia.org/wiki/Low_Pin_Count" class="extiw" title="wikipedia:Low Pin Count"><abbr title="Low Pin Count bus">LPC</abbr></a></li>
+<li> 2 × 1/2/4-bit <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI/eSPI</a></li>
+<li> 4 × <a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="extiw" title="wikipedia:I²C">I<sup>2</sup>C</a></li>
+<li> 2 × <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a></li>
+<li> <abbr title="Sensor Fusion Hub"><a rel="nofollow" class="external text" href="https://docs.kernel.org/hid/amd-sfh-hid.html">SFH</a></abbr> interface</li>
+<li> Up to 87 <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIOs</a></li></ul></li></ul>
+<p>Note some processor models support only a subset of these features. The chip may implement additional features which are undocumented or unavailable in the FP6 package. 
+</p>
+<h2><span class="mw-headline" id="Processors_using_package_FP6">Processors using package FP6</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=3" title="Edit section: Processors using package FP6">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable">
+
+<tbody><tr class="comptable-header">
+<th>   </th>
+<th colspan="2">   </th>
+<th colspan="7"> CPU </th>
+<th colspan="2"> GPU </th>
+<th colspan="5">
+</th></tr>
+<tr class="comptable-header">
+<th class="unsortable"> Model </th>
+<th> Family </th>
+<th> Codename </th>
+<th> Microarch. </th>
+<th> <abbr title="Cores">C</abbr> </th>
+<th> <abbr title="Threads">T</abbr>
+</th>
+<th data-sort-type="number"> L2$ </th>
+<th data-sort-type="number"> L3$ </th>
+<th data-sort-type="number"> Frequ.
+</th>
+<th data-sort-type="number"> Turbo </th>
+<th> Brand </th>
+<th data-sort-type="number"> Frequ. </th>
+<th> Memory </th>
+<th> ECC
+</th>
+<th data-sort-type="number"> TDP </th>
+<th> Launched </th>
+<th> <abbr title="Ordering/Orderable Part Number">OPN</abbr>
+</th></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_3/4300u" title="amd/ryzen 3/4300u">4300U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 4 </td>
+<td> 4
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,700&amp;#160;MHz 2,700,000&amp;#160;kHz"><span class="smwtext">2.7 GHz</span><div class="smwttcontent">2,700 MHz <br/>2,700,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_5&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 5 (page does not exist)">Radeon Vega 5</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.4&amp;#160;GHz 1,400,000&amp;#160;KHz"><span class="smwtext">1,400 MHz</span><div class="smwttcontent">1.4 GHz <br/>1,400,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000085
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/4500u" title="amd/ryzen 5/4500u">4500U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 6
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000084
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/4600h" title="amd/ryzen 5/4600h">4600H</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000100
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/4600hs" title="amd/ryzen 5/4600hs">4600HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 16 March 2020
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/4600u" title="amd/ryzen 5/4600u">4600U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000105
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/4680u" title="amd/ryzen 5/4680u">4680U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 13 April 2021
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/4700u" title="amd/ryzen 7/4700u">4700U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 8
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,100&amp;#160;MHz 4,100,000&amp;#160;kHz"><span class="smwtext">4.1 GHz</span><div class="smwttcontent">4,100 MHz <br/>4,100,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000083
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/4800h" title="amd/ryzen 7/4800h">4800H</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000098
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/4800hs" title="amd/ryzen 7/4800hs">4800HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 16 March 2020
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/4800u" title="amd/ryzen 7/4800u">4800U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.75&amp;#160;GHz 1,750,000&amp;#160;KHz"><span class="smwtext">1,750 MHz</span><div class="smwttcontent">1.75 GHz <br/>1,750,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 6 January 2020
+</td>
+<td> 100-000000082
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/4900h" title="amd/ryzen 9/4900h">4900H</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.75&amp;#160;GHz 1,750,000&amp;#160;KHz"><span class="smwtext">1,750 MHz</span><div class="smwttcontent">1.75 GHz <br/>1,750,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 16 March 2020
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/4900hs" title="amd/ryzen 9/4900hs">4900HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,300&amp;#160;MHz 4,300,000&amp;#160;kHz"><span class="smwtext">4.3 GHz</span><div class="smwttcontent">4,300 MHz <br/>4,300,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.75&amp;#160;GHz 1,750,000&amp;#160;KHz"><span class="smwtext">1,750 MHz</span><div class="smwttcontent">1.75 GHz <br/>1,750,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 16 March 2020
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/4980u" title="amd/ryzen 7/4980u">4980U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.95&amp;#160;GHz 1,950,000&amp;#160;KHz"><span class="smwtext">1,950 MHz</span><div class="smwttcontent">1.95 GHz <br/>1,950,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 13 April 2021
+</td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_3/5300u" title="amd/ryzen 3/5300u">5300U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a>
+</td>
+<td> <a href="/wiki/amd/cores/lucienne" title="amd/cores/lucienne">Lucienne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 4 </td>
+<td> 8
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6 GHz</span><div class="smwttcontent">2,600 MHz <br/>2,600,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8 GHz</span><div class="smwttcontent">3,800 MHz <br/>3,800,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000376
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_3/5400u" title="amd/ryzen 3/5400u">5400U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 4 </td>
+<td> 8
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6 GHz</span><div class="smwttcontent">2,600 MHz <br/>2,600,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000288
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/5500u" title="amd/ryzen 5/5500u">5500U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/lucienne" title="amd/cores/lucienne">Lucienne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.8&amp;#160;GHz 1,800,000&amp;#160;KHz"><span class="smwtext">1,800 MHz</span><div class="smwttcontent">1.8 GHz <br/>1,800,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000375
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/5600h" title="amd/ryzen 5/5600h">5600H</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.8&amp;#160;GHz 1,800,000&amp;#160;KHz"><span class="smwtext">1,800 MHz</span><div class="smwttcontent">1.8 GHz <br/>1,800,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000296
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/5600hs" title="amd/ryzen 5/5600hs">5600HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.8&amp;#160;GHz 1,800,000&amp;#160;KHz"><span class="smwtext">1,800 MHz</span><div class="smwttcontent">1.8 GHz <br/>1,800,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000296
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/5600u" title="amd/ryzen 5/5600u">5600U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.8&amp;#160;GHz 1,800,000&amp;#160;KHz"><span class="smwtext">1,800 MHz</span><div class="smwttcontent">1.8 GHz <br/>1,800,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000287
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/5700u" title="amd/ryzen 7/5700u">5700U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/lucienne" title="amd/cores/lucienne">Lucienne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,300&amp;#160;MHz 4,300,000&amp;#160;kHz"><span class="smwtext">4.3 GHz</span><div class="smwttcontent">4,300 MHz <br/>4,300,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.9&amp;#160;GHz 1,900,000&amp;#160;KHz"><span class="smwtext">1,900 MHz</span><div class="smwttcontent">1.9 GHz <br/>1,900,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000371
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/5800h" title="amd/ryzen 7/5800h">5800H</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2 GHz</span><div class="smwttcontent">3,200 MHz <br/>3,200,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2&amp;#160;GHz 2,000,000&amp;#160;KHz"><span class="smwtext">2,000 MHz</span><div class="smwttcontent">2 GHz <br/>2,000,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000295
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/5800hs" title="amd/ryzen 7/5800hs">5800HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,800&amp;#160;MHz 2,800,000&amp;#160;kHz"><span class="smwtext">2.8 GHz</span><div class="smwttcontent">2,800 MHz <br/>2,800,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2&amp;#160;GHz 2,000,000&amp;#160;KHz"><span class="smwtext">2,000 MHz</span><div class="smwttcontent">2 GHz <br/>2,000,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000295
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/5800u" title="amd/ryzen 7/5800u">5800U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;kHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2&amp;#160;GHz 2,000,000&amp;#160;KHz"><span class="smwtext">2,000 MHz</span><div class="smwttcontent">2 GHz <br/>2,000,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000285
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/5900hs" title="amd/ryzen 9/5900hs">5900HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,600&amp;#160;MHz 4,600,000&amp;#160;kHz"><span class="smwtext">4.6 GHz</span><div class="smwttcontent">4,600 MHz <br/>4,600,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.1&amp;#160;GHz 2,100,000&amp;#160;KHz"><span class="smwtext">2,100 MHz</span><div class="smwttcontent">2.1 GHz <br/>2,100,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000300
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/5900hx" title="amd/ryzen 9/5900hx">5900HX</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,600&amp;#160;MHz 4,600,000&amp;#160;kHz"><span class="smwtext">4.6 GHz</span><div class="smwttcontent">4,600 MHz <br/>4,600,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.1&amp;#160;GHz 2,100,000&amp;#160;KHz"><span class="smwtext">2,100 MHz</span><div class="smwttcontent">2.1 GHz <br/>2,100,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000300
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/5980hs" title="amd/ryzen 9/5980hs">5980HS</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,800&amp;#160;MHz 4,800,000&amp;#160;kHz"><span class="smwtext">4.8 GHz</span><div class="smwttcontent">4,800 MHz <br/>4,800,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.1&amp;#160;GHz 2,100,000&amp;#160;KHz"><span class="smwtext">2,100 MHz</span><div class="smwttcontent">2.1 GHz <br/>2,100,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000474
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_9/5980hx" title="amd/ryzen 9/5980hx">5980HX</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_9" title="amd/ryzen 9">Ryzen 9</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,800&amp;#160;MHz 4,800,000&amp;#160;kHz"><span class="smwtext">4.8 GHz</span><div class="smwttcontent">4,800 MHz <br/>4,800,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.1&amp;#160;GHz 2,100,000&amp;#160;KHz"><span class="smwtext">2,100 MHz</span><div class="smwttcontent">2.1 GHz <br/>2,100,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 12 January 2021
+</td>
+<td> 100-000000474
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_3/pro_4450u" title="amd/ryzen 3/pro 4450u">PRO 4450U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 4 </td>
+<td> 8
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5 GHz</span><div class="smwttcontent">2,500 MHz <br/>2,500,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_5&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 5 (page does not exist)">Radeon Vega 5</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.4&amp;#160;GHz 1,400,000&amp;#160;KHz"><span class="smwtext">1,400 MHz</span><div class="smwttcontent">1.4 GHz <br/>1,400,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 7 May 2020
+</td>
+<td> 100-000000104
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/pro_4650u" title="amd/ryzen 5/pro 4650u">PRO 4650U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 7 May 2020
+</td>
+<td> 100-000000103
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/pro_4750u" title="amd/ryzen 7/pro 4750u">PRO 4750U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,100&amp;#160;MHz 4,100,000&amp;#160;kHz"><span class="smwtext">4.1 GHz</span><div class="smwttcontent">4,100 MHz <br/>4,100,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 7 May 2020
+</td>
+<td> 100-000000101
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_3/pro_5450u" title="amd/ryzen 3/pro 5450u">PRO 5450U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 4 </td>
+<td> 8
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6 GHz</span><div class="smwttcontent">2,600 MHz <br/>2,600,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 16 March 2021
+</td>
+<td> 100-000000291
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_5/pro_5650u" title="amd/ryzen 5/pro 5650u">PRO 5650U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.8&amp;#160;GHz 1,800,000&amp;#160;KHz"><span class="smwtext">1,800 MHz</span><div class="smwttcontent">1.8 GHz <br/>1,800,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 16 March 2021
+</td>
+<td> 100-000000290
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_7/pro_5850u" title="amd/ryzen 7/pro 5850u">PRO 5850U</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a>
+</td>
+<td> <a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;KiB 16,777,216&amp;#160;B 0.0156&amp;#160;GiB"><span class="smwtext">16 MiB</span><div class="smwttcontent">16,384 KiB <br/>16,777,216 B <br/>0.0156 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;kHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 kHz <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">Radeon Vega 8</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2&amp;#160;GHz 2,000,000&amp;#160;KHz"><span class="smwtext">2,000 MHz</span><div class="smwttcontent">2 GHz <br/>2,000,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4-4266
+</td>
+<td style="text-align: center;"> ✘
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 16 March 2021
+</td>
+<td> 100-000000289
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_embedded/v2516" title="amd/ryzen embedded/v2516">V2516</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a>
+</td>
+<td> <a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span> </td>
+<td>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✔
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 10 November 2020
+</td>
+<td> 100-000000243
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_embedded/v2546" title="amd/ryzen embedded/v2546">V2546</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a>
+</td>
+<td> <a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 6 </td>
+<td> 12
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB"><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span> </td>
+<td>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz"><span class="smwtext">1,500 MHz</span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✔
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 10 November 2020
+</td>
+<td> 100-000000246
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_embedded/v2718" title="amd/ryzen embedded/v2718">V2718</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a>
+</td>
+<td> <a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span> </td>
+<td>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✔
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span>
+</td>
+<td> 10 November 2020
+</td>
+<td> 100-000000242
+</td></tr>
+<tr>
+<td> <a href="/wiki/amd/ryzen_embedded/v2748" title="amd/ryzen embedded/v2748">V2748</a>
+</td>
+<td> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a>
+</td>
+<td> <a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a>
+</td>
+<td> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td> 8 </td>
+<td> 16
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span> </td>
+<td>
+</td>
+<td> <a href="/w/index.php?title=amd/radeon_vega_7&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 7 (page does not exist)">Radeon Vega 7</a>
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;KHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 KHz <br/></div></span>
+</td>
+<td> DDR4-3200, LPDDR4x-4266
+</td>
+<td style="text-align: center;"> ✔
+</td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span>
+</td>
+<td> 10 November 2020
+</td>
+<td> 100-000000245
+</td></tr>
+<tr class="comptable-header">
+<th> Count: 37
+</th></tr></tbody></table>
+</div></div>
+<h2><span class="mw-headline" id="Photos">Photos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=4" title="Edit section: Photos">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="display:block;width:300px;{{{style}}}">
+<div style="border:1px solid #666666; background: #5252CC; padding: 3px;"></div>
+<table style="border-left:1px solid #666666;border-bottom:1px solid #666666;border-right:1px solid #666666; background: #FAFAFA; padding: 3px; font-size: 11px; width: 100%">
+<tbody><tr>
+<td><a href="/wiki/File:New_text_document.svg" class="image"><img alt="New text document.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/25px-New_text_document.svg.png" width="25" height="25" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/38px-New_text_document.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/50px-New_text_document.svg.png 2x"/></a> </td>
+<td> This section is empty; you can help add the missing info by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=amd/packages/fp6&amp;action=edit">editing this page</a>.
+</td></tr></tbody></table>
+</div>
+<h2><span class="mw-headline" id="Package_Diagram">Package Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=5" title="Edit section: Package Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><a href="/wiki/File:BGA-1140_FP6_Renoir_diag.svg" class="image"><img alt="BGA-1140 FP6 Renoir diag.svg" src="/w/images/thumb/b/bf/BGA-1140_FP6_Renoir_diag.svg/590px-BGA-1140_FP6_Renoir_diag.svg.png" width="590" height="325" srcset="/w/images/thumb/b/bf/BGA-1140_FP6_Renoir_diag.svg/885px-BGA-1140_FP6_Renoir_diag.svg.png 1.5x, /w/images/thumb/b/bf/BGA-1140_FP6_Renoir_diag.svg/1180px-BGA-1140_FP6_Renoir_diag.svg.png 2x"/></a></dd></dl>
+<p>Approximate dimensions of the &#34;<a href="/wiki/amd/cores/renoir" title="amd/cores/renoir">Renoir</a>&#34; package. All dimensions in millimeters.
+</p><p><a href="/wiki/File:BGA-1140_FP6_pn.svg" title="File:BGA-1140 FP6 pn.svg">FP6 package ball numbers</a>
+</p>
+<h2><span class="mw-headline" id="Pin_Map">Pin Map</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=6" title="Edit section: Pin Map">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><a href="/wiki/File:BGA-1140_FP6_pinmap.svg" class="image"><img alt="BGA-1140 FP6 pinmap.svg" src="/w/images/thumb/5/5a/BGA-1140_FP6_pinmap.svg/800px-BGA-1140_FP6_pinmap.svg.png" width="800" height="922" srcset="/w/images/thumb/5/5a/BGA-1140_FP6_pinmap.svg/1200px-BGA-1140_FP6_pinmap.svg.png 1.5x, /w/images/thumb/5/5a/BGA-1140_FP6_pinmap.svg/1600px-BGA-1140_FP6_pinmap.svg.png 2x"/></a></dd></dl>
+<p>FP6 pinout, top view. Click to flip and rotate.
+</p>
+<h3><span class="mw-headline" id="Pin_Description">Pin Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=7" title="Edit section: Pin Description">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable sortable">
+<tbody><tr>
+<th>Signal</th>
+<th>Description
+</th></tr>
+<tr>
+<td>MA/MB_ACT_L</td>
+<td>DDR4 DRAM Channel A/B Activation Command
+</td></tr>
+<tr>
+<td>MA/MB_ADD13_BANK2</td>
+<td>DDR4 DRAM Column/Row Address 13 or Bank Address 2
+</td></tr>
+<tr>
+<td>MA/MB_ADD[12:0]</td>
+<td>DDR4 DRAM Column/Row Address
+</td></tr>
+<tr>
+<td>MA/MB_BANK[1:0]</td>
+<td>DDR4 DRAM Bank Address
+</td></tr>
+<tr>
+<td>MA/MB_BG[1:0]</td>
+<td>DDR4 DRAM Bank Group
+</td></tr>
+<tr>
+<td>MA/MB_CAS_L_ADD15</td>
+<td>DDR4 DRAM Column Address Strobe or Column/Row Address 15
+</td></tr>
+<tr>
+<td>MA/MB_CHECK[7:0]</td>
+<td>DDR4 DRAM ECC Check Bits
+</td></tr>
+<tr>
+<td>MA/MB_CKE[1:0]</td>
+<td>DDR4 DRAM Clock Enable
+</td></tr>
+<tr>
+<td>MA/MB_CLK_H/L[1:0]</td>
+<td>DDR4 DRAM Differential Clock
+</td></tr>
+<tr>
+<td>MA/MB_CS_L[1:0]</td>
+<td>DDR4 DRAM Chip Select
+</td></tr>
+<tr>
+<td>MA/MB_DATA[63:0]</td>
+<td>DDR4 DRAM Data Bus
+</td></tr>
+<tr>
+<td>MA/MB_DM[8:0]</td>
+<td>DDR4 DRAM Data Mask
+</td></tr>
+<tr>
+<td>MA/MB_DQS_H/L[8:0]</td>
+<td>DDR4 DRAM Differential Data Strobe
+</td></tr>
+<tr>
+<td>MA/MB_ODT[1:0]</td>
+<td>DDR4 DRAM Enable Pin for On Die Termination
+</td></tr>
+<tr>
+<td>MA/MB_RAS_L_ADD16</td>
+<td>DDR4 DRAM Row Address Strobe or Column/Row Address 16
+</td></tr>
+<tr>
+<td>MA/MB_WE_L_ADD14</td>
+<td>DDR4 DRAM Write Enable or Column/Row Address 14
+</td></tr>
+<tr>
+<td>MA/MB_ALERT_L</td>
+<td>DRAM Alert input (CRC error and Command/Address parity error)
+</td></tr>
+<tr>
+<td>MA/MB_EVENT_L</td>
+<td>DRAM Thermal Event input
+</td></tr>
+<tr>
+<td>MA/MB_PAROUT</td>
+<td>DRAM Command and Address Parity output
+</td></tr>
+<tr>
+<td>MA/MB_RESET_L</td>
+<td>DRAM Reset output
+</td></tr>
+<tr>
+<td>M_DDR4</td>
+<td>DRAM Mode Select (DDR4: VDDIO_MEM_S3, LPDDR4: VSS)
+</td></tr>
+<tr>
+<td>M_LPDDR4</td>
+<td>DRAM Mode Select (DDR4: VSS, LPDDR4: VDDIO_MEM_S3)
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_CA[5:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Command/Address Bus
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_CKE[1:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Clock Enable
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_CKT/CKC</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Differential Clock (True/Complement)
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_CS_L[1:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Chip Select
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_DATA[31:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Data Bus
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_DM[3:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Data Mask
+</td></tr>
+<tr>
+<td>MAA/MAB/MBA/MBB_DQS_H/L[3:0]</td>
+<td>LPDDR4 DRAM Channel A/B Subchannel A/B Differential Data Strobe
+</td></tr>
+<tr>
+<td>P_GFX_RXP/RXN[7:0]</td>
+<td>PCIe <abbr title="External graphics card link">GFX</abbr> Receive Data Differential Pairs
+</td></tr>
+<tr>
+<td>P_GFX_TXP/TXN[7:0]</td>
+<td>PCIe GFX Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>P_GPP_RXP/RXN[11:0]</td>
+<td>PCIe <abbr title="General Purpose Port(s)">GPP</abbr> Receive Data Differential Pairs
+</td></tr>
+<tr>
+<td>P_GPP_TXP/TXN[11:0]</td>
+<td>PCIe GPP Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>PCIE_RST0_L</td>
+<td>Reset for PCIe devices or SPI TPM
+</td></tr>
+<tr>
+<td>PCIE_RST1_L</td>
+<td>Reset for PCIe devices
+</td></tr>
+<tr>
+<td>SATA_ACT_L</td>
+<td>SATA Channel Active (HD LED)
+</td></tr>
+<tr>
+<td>SATA_IS(0-1)_L</td>
+<td>SATA Interlock Switch
+</td></tr>
+<tr>
+<td>SATA_ZP(0-1)_L</td>
+<td>Zero Power SATA <abbr title="Optical Disk Drive">ODD</abbr>
+</td></tr>
+<tr>
+<td>SATA0/SATA1_RXP/RXN</td>
+<td>SATA Receive Data Differential Pairs (alt. func. of GPP[2]/GPP[3])
+</td></tr>
+<tr>
+<td>SATA0/SATA1_TXP/TXN</td>
+<td>SATA Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>SATA2/SATA3_RXP/RXN</td>
+<td>SATA Receive Data Differential Pairs (alt. func. of GPP[8]/GPP[9])
+</td></tr>
+<tr>
+<td>SATA2/SATA3_TXP/TXN</td>
+<td>SATA Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>SATAE_IFDET</td>
+<td>SATA Express SATA/PCIe mode detection
+</td></tr>
+<tr>
+<td>DEVSLP0/DEVSLP1</td>
+<td><a href="http://en.wikipedia.org/wiki/DevSlp" class="extiw" title="wikipedia:DevSlp"><abbr title="SATA Device Sleep">DEVSLP</abbr></a> for SATA port 0 &amp; 2 / 1 &amp; 3
+</td></tr>
+<tr>
+<td>DP0-DP3_TXP/TXN[3:0]</td>
+<td>DisplayPort 0-3 Main Link Differential Transmitter Lane 0-3 or <a href="http://en.wikipedia.org/wiki/Digital_Visual_Interface" class="extiw" title="wikipedia:Digital Visual Interface"><abbr title="Digital Visual Interface">DVI</abbr></a>/<a href="http://en.wikipedia.org/wiki/HDMI" class="extiw" title="wikipedia:HDMI"><abbr title="High-Definition Multimedia Interface">HDMI</abbr></a> Channel 2, 1, 0, Clock
+</td></tr>
+<tr>
+<td>DP0-DP3_AUXP/AUXN</td>
+<td>DisplayPort 0-3 Auxiliary Channel or DVI/HDMI DDC Clock, Data
+</td></tr>
+<tr>
+<td>DP0-DP3_HPD</td>
+<td>DisplayPort 0-3 Hot Plug Detect input
+</td></tr>
+<tr>
+<td>DP0_BLON</td>
+<td>Display Panel Backlight Enable
+</td></tr>
+<tr>
+<td>DP0_DIGON</td>
+<td>Display Panel Power Enable
+</td></tr>
+<tr>
+<td>DP0_VARY_BL</td>
+<td>Display Backlight Brightness Control
+</td></tr>
+<tr>
+<td>DP_STEREOSYNC</td>
+<td>StereoSync output for shutter glasses
+</td></tr>
+<tr>
+<td>USBC0/USBC4_RX1P/RX1N</td>
+<td>USB Port 0/4 <a href="http://en.wikipedia.org/wiki/USB-C" class="extiw" title="wikipedia:USB-C">USB-C</a> Receive Differential Pairs or DisplayPort 2/3 Transmitter Lane 3
+</td></tr>
+<tr>
+<td>USBC0/USBC4_TX1P/TX1N</td>
+<td>USB Port 0/4 USB-C Transmit Differential Pairs or DisplayPort 2/3 Transmitter Lane 2
+</td></tr>
+<tr>
+<td>USBC0/USBC4_RX2P/RX2N</td>
+<td>USB Port 0/4 USB-C Receive Differential Pairs or DisplayPort 2/3 Transmitter Lane 0
+</td></tr>
+<tr>
+<td>USBC0/USBC4_TX2P/TX2N</td>
+<td>USB Port 0/4 USB-C Transmit Differential Pairs or DisplayPort 2/3 Transmitter Lane 1
+</td></tr>
+<tr>
+<td>USBC0/USBC4_DP/DN</td>
+<td>USB Port 0/4 USB2 I/O Differential Pairs
+</td></tr>
+<tr>
+<td>USBC_I2C_SCL</td>
+<td><a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="extiw" title="wikipedia:I²C">I<sup>2</sup>C</a> Clock for USB-C PD Control
+</td></tr>
+<tr>
+<td>USBC_I2C_SDA</td>
+<td>I<sup>2</sup>C Data for USB-C PD Control
+</td></tr>
+<tr>
+<td>USB(0/1/4/5)_RXP/RXN</td>
+<td>USB Port 0/1/4/5 USB3 Super Speed Receive Differential Pairs
+</td></tr>
+<tr>
+<td>USB(0/1/4/5)_TXP/TXN</td>
+<td>USB Port 0/1/4/5 USB3 Super Speed Transmit Differential Pairs
+</td></tr>
+<tr>
+<td>USB(0-7)_DP/DN</td>
+<td>USB Port 0-7 USB2 I/O Differential Pairs
+</td></tr>
+<tr>
+<td>USB_OC(0-3)_L</td>
+<td>USB Over Current signal from USB connector
+</td></tr>
+<tr>
+<td>AZ_BITCLK</td>
+<td><a href="http://en.wikipedia.org/wiki/Intel_High_Definition_Audio" class="extiw" title="wikipedia:Intel High Definition Audio">Azalia HD Audio</a> Interface Bit Clock
+</td></tr>
+<tr>
+<td>AZ_RST_L</td>
+<td>HDA Reset
+</td></tr>
+<tr>
+<td>AZ_SDIN(0-2)</td>
+<td>HDA Serial Data Input from Codec 0-2
+</td></tr>
+<tr>
+<td>AZ_SDOUT</td>
+<td>HDA Serial Data Output to Codec
+</td></tr>
+<tr>
+<td>AZ_SYNC</td>
+<td>HDA Sync signal to Codec
+</td></tr>
+<tr>
+<td>SW_DATA0</td>
+<td><a rel="nofollow" class="external text" href="https://www.mipi.org/specifications/soundwire">SoundWire</a> Interface Data 0
+</td></tr>
+<tr>
+<td>SW_DATA1A/1B</td>
+<td>SW Data 1 (alt. func. of AZ_RST_L or AZ_SDIN1)
+</td></tr>
+<tr>
+<td>SW_DATA(2-3)</td>
+<td>SW Data 2-3 (AZ_SDIN2, AZ_RST_L)
+</td></tr>
+<tr>
+<td>SW_MCLK</td>
+<td>SW Clock
+</td></tr>
+<tr>
+<td>TDM_BCLK_MIC</td>
+<td><a href="http://en.wikipedia.org/wiki/Time-division_multiplexing" class="extiw" title="wikipedia:Time-division multiplexing">TDM</a>/<a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I<sup>2</sup>S</a><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[note 1</a>]</sup> Mic Serial Clock Input from Codec
+</td></tr>
+<tr>
+<td>TDM_DATA_MIC</td>
+<td>TDM Mic Serial Data Input
+</td></tr>
+<tr>
+<td>TDM_FRM_MIC</td>
+<td>TDM Mic Word Select / Frame Sync Input
+</td></tr>
+<tr>
+<td>TDM_BCLK_PLAYBACK</td>
+<td>TDM Playback Serial Clock Input from Codec
+</td></tr>
+<tr>
+<td>TDM_DATA_PLAYBACK</td>
+<td>TDM Playback Serial Data Output to Codec
+</td></tr>
+<tr>
+<td>TDM_FRM_PLAYBACK</td>
+<td>TDM Playback Word Select / Frame Sync Input
+</td></tr>
+<tr>
+<td>TDM_BCLK_BT</td>
+<td>TDM <a href="http://en.wikipedia.org/wiki/Bluetooth" class="extiw" title="wikipedia:Bluetooth">BT</a> Serial Clock Input (alt. func. of SW_MCLK)
+</td></tr>
+<tr>
+<td>TDM_DOUT_BT</td>
+<td>TDM BT Serial Data Output (SW_DATA0)
+</td></tr>
+<tr>
+<td><abbr title="Fusion Controller Hub (chipset)">FCH</abbr>_<abbr title="Audio CoProcessor">ACP</abbr>_I2S_LRCLK_BT</td>
+<td>TDM BT Word Select (Left-Right Clock) Input
+</td></tr>
+<tr>
+<td>FCH_ACP_I2S_SDIN_BT</td>
+<td>TDM BT Serial Data Input
+</td></tr>
+<tr>
+<td><abbr title="Audio CoProcessor">ACP</abbr>_<a href="http://en.wikipedia.org/wiki/Wake-on-Voice" class="extiw" title="wikipedia:Wake-on-Voice">WOV</a>_CLK</td>
+<td>Digital Microphone Clock Output
+</td></tr>
+<tr>
+<td>ACP_WOV_MIC0_MIC1_DATA</td>
+<td>DMIC Data Input (2 ch <a href="http://en.wikipedia.org/wiki/Pulse-density_modulation" class="extiw" title="wikipedia:Pulse-density modulation">PDM</a>)
+</td></tr>
+<tr>
+<td>ACP_WOV_MIC2_MIC3_DATA</td>
+<td>DMIC Data
+</td></tr>
+<tr>
+<td>ACP_WOV_MIC4_MIC5_DATA</td>
+<td>DMIC Data
+</td></tr>
+<tr>
+<td>SPKR</td>
+<td>PC Speaker/Beeper PWM Output
+</td></tr>
+<tr>
+<td>UART0_CTS_L</td>
+<td><a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a>0 Clear To Send Input (alt. func. of UART1_TXD)
+</td></tr>
+<tr>
+<td>UART0_INTR</td>
+<td>UART0 Interrupt Request Input
+</td></tr>
+<tr>
+<td>UART0_RTS_L</td>
+<td>UART0 Request To Send Output (UART1_RXD)
+</td></tr>
+<tr>
+<td>UART0/UART1_RXD</td>
+<td>UART Receive Data
+</td></tr>
+<tr>
+<td>UART0/UART1_TXD</td>
+<td>UART Transmit Data
+</td></tr>
+<tr>
+<td>SPI_CLK</td>
+<td><a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI</a> Clock Output
+</td></tr>
+<tr>
+<td>SPI_CLK2</td>
+<td>SPI Clock Output
+</td></tr>
+<tr>
+<td>SPI_DO</td>
+<td>SPI Data Out or Data 0 for multi-I/O SPI/eSPI device
+</td></tr>
+<tr>
+<td>SPI_DI</td>
+<td>SPI Data In or Data 1
+</td></tr>
+<tr>
+<td>SPI_WP_L</td>
+<td>SPI Write Protect or Data 2
+</td></tr>
+<tr>
+<td>SPI_HOLD_L</td>
+<td>SPI Hold Signal (asserted low to hold the SPI transaction) or Data 3
+</td></tr>
+<tr>
+<td>SPI_CS(1-3)_L</td>
+<td>Chip Select for SPI ROM or other devices
+</td></tr>
+<tr>
+<td>SPI_TPM_CS_L</td>
+<td>Chip Select for SPI <a href="http://en.wikipedia.org/wiki/Trusted_Platform_Module" class="extiw" title="wikipedia:Trusted Platform Module">TPM</a>
+</td></tr>
+<tr>
+<td>SPI_ROM_REQ</td>
+<td>SPI ROM Request
+</td></tr>
+<tr>
+<td>SPI_ROM_GNT</td>
+<td>SPI ROM Grant
+</td></tr>
+<tr>
+<td>ESPI_CLK</td>
+<td><a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Intel_Enhanced_Serial_Peripheral_Interface_Bus" class="extiw" title="wikipedia:Serial Peripheral Interface"><abbr title="Enhanced Serial Peripheral Interface">ESPI</abbr></a> Clock Output (SPI_CLK/ESPI_CLK)
+</td></tr>
+<tr>
+<td>ESPI_DATA</td>
+<td>ESPI Data[1] (alt. func. of SPI_DI)
+</td></tr>
+<tr>
+<td>ESPI_DAT2</td>
+<td>ESPI Data[2] (SPI_WP_L)
+</td></tr>
+<tr>
+<td>ESPI_DAT3</td>
+<td>ESPI Data[3] (SPI_HOLD_L)
+</td></tr>
+<tr>
+<td>ESPI1_DATA(0-3)</td>
+<td>ESPI1 Data[0], Data[1:0], Data[3:0] Input/Output (alt. func. of LAD0-LAD3)
+</td></tr>
+<tr>
+<td>ESPI_ALERT_L</td>
+<td>ESPI Alert Input (alt. func. of LDRQ0_L)
+</td></tr>
+<tr>
+<td>ESPI_CS_L</td>
+<td>ESPI Chip Select (SPI_CS2_L/ESPI_CS_L)
+</td></tr>
+<tr>
+<td>ESPI_RESET_L</td>
+<td>ESPI Reset Input (ESPI_RESET_L/KBRST_L)
+</td></tr>
+<tr>
+<td>LAD[3:0]</td>
+<td><a href="http://en.wikipedia.org/wiki/Low_Pin_Count" class="extiw" title="wikipedia:Low Pin Count"><abbr title="Low Pin Count bus">LPC</abbr></a> Command/Address/Data
+</td></tr>
+<tr>
+<td>LDRQ0_L</td>
+<td>Encoded DMA/Bus Master Request 0
+</td></tr>
+<tr>
+<td>LFRAME_L</td>
+<td>LPC Bus Frame
+</td></tr>
+<tr>
+<td>LPCCLK(0-1)</td>
+<td>LPC 33 MHz Clock
+</td></tr>
+<tr>
+<td>LPC_CLKRUN_L</td>
+<td>LPC CLKRUN Signal
+</td></tr>
+<tr>
+<td>LPC_PD_L</td>
+<td>LPC Power Down
+</td></tr>
+<tr>
+<td>LPC_PME_L</td>
+<td>LPC Power Management Event
+</td></tr>
+<tr>
+<td>LPC_RST_L</td>
+<td>LPC Reset output or SPI TPM Reset
+</td></tr>
+<tr>
+<td>SERIRQ</td>
+<td>Serial IRQ for DMA
+</td></tr>
+<tr>
+<td>I2C(0-3)_SCL</td>
+<td><a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="extiw" title="wikipedia:I²C">I<sup>2</sup>C</a> Bus 0-3 Clock
+</td></tr>
+<tr>
+<td>I2C(0-3)_SDA</td>
+<td>I<sup>2</sup>C Bus 0-3 Data
+</td></tr>
+<tr>
+<td>SMBUS(0-1)_I2C_SCL</td>
+<td><a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> Clock (alt. func. of I2C2, I2C3)
+</td></tr>
+<tr>
+<td>SMBUS(0-1)_I2C_SDA</td>
+<td>SMBus Data
+</td></tr>
+<tr>
+<td>SFH1_SCL</td>
+<td><abbr title="Sensor Fusion Hub"><a rel="nofollow" class="external text" href="https://docs.kernel.org/hid/amd-sfh-hid.html">SFH</a></abbr> bus Clock
+</td></tr>
+<tr>
+<td>SFH1_SDA</td>
+<td>SFH bus Data
+</td></tr>
+<tr>
+<td>SFH_IPIO*</td>
+<td>SFH Sensor
+</td></tr>
+<tr>
+<td>AGPIO*</td>
+<td>Advanced <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIO</a> pin for interrupt, wake, or I/O
+</td></tr>
+<tr>
+<td>EGPIO*</td>
+<td>Enhanced GPIO for I/O only
+</td></tr>
+<tr>
+<td>GENINT(1-2)_L</td>
+<td>Generic Interrupt Request
+</td></tr>
+<tr>
+<td>AC_PRES</td>
+<td>AC Power Present Input
+</td></tr>
+<tr>
+<td>BLINK</td>
+<td>Blink LED S-state Indicator
+</td></tr>
+<tr>
+<td>INTRUDER_ALERT</td>
+<td>
+</td></tr>
+<tr>
+<td>KBRST_L</td>
+<td>Keyboard Controller Reset Input (warm reset)
+</td></tr>
+<tr>
+<td>LLB_L</td>
+<td>Low Low Bat signal from battery charger circuit
+</td></tr>
+<tr>
+<td>PWR_BTN_L</td>
+<td>Power Button Input; Requests sleep state or causes wake event
+</td></tr>
+<tr>
+<td>PWR_GOOD</td>
+<td>Power Good Input; Asserted when all voltages are within specification
+</td></tr>
+<tr>
+<td>PWROK</td>
+<td>Power OK; Asserted by the processor after all power planes are active, the system clock generators are powered up and run stably
+</td></tr>
+<tr>
+<td>RESET_L</td>
+<td>Reset signal
+</td></tr>
+<tr>
+<td>RSMRST_L</td>
+<td>Resume Reset; Asserted on power up, deasserted when S5 power supplies are within specification
+</td></tr>
+<tr>
+<td>S0A3_GPIO</td>
+<td>
+</td></tr>
+<tr>
+<td>SLP_S3/S5_L</td>
+<td>S3/S5 Sleep State Power Plane Control Signals for voltage regulator
+</td></tr>
+<tr>
+<td>SYS_RESET_L</td>
+<td>System Reset input (reset button)
+</td></tr>
+<tr>
+<td>WAKE_L</td>
+<td>PCIe WAKE_L signal, wake system out of sleep state
+</td></tr>
+<tr>
+<td>GPP_CLK(0-6)P/N</td>
+<td>100 MHz Differential PCIe Reference Clock Outputs
+</td></tr>
+<tr>
+<td>CLK_REQ(0-6)_L</td>
+<td>PCIe Clock Request
+</td></tr>
+<tr>
+<td>X32K_X1/X2</td>
+<td>32768 Hz Real Time Clock XTAL for the integrated RTC
+</td></tr>
+<tr>
+<td>X48M_X1/X2</td>
+<td>48 MHz clock XTAL for the integrated clock generator
+</td></tr>
+<tr>
+<td>RTCCLK</td>
+<td>32768 Hz Real Time Clock output for a device requiring an RTC clock
+</td></tr>
+<tr>
+<td>X48M_OSC</td>
+<td>48 MHz clock output for devices requiring a single-ended OSC input
+</td></tr>
+<tr>
+<td>ALERT_L</td>
+<td><a href="/wiki/amd/sb-tsi" title="amd/sb-tsi"><abbr title="Sideband Temperature Sensor Interface">SB-TSI</abbr></a> Interrupt
+</td></tr>
+<tr>
+<td>FANIN0</td>
+<td>Fan 0 tachometer input
+</td></tr>
+<tr>
+<td>FANOUT0</td>
+<td>Fan 0 PWM output
+</td></tr>
+<tr>
+<td>PROCHOT_L</td>
+<td>Asserted to force the processor into <a href="/wiki/x86/hardware_thermal_control" title="x86/hardware thermal control"><abbr title="Hardware Thermal Control">HTC</abbr></a>-active state
+</td></tr>
+<tr>
+<td>SIC</td>
+<td>Sideband Interface (<a href="/wiki/amd/sb-tsi" title="amd/sb-tsi"><abbr title="Sideband Temperature Sensor Interface">SB-TSI</abbr></a>) Clock
+</td></tr>
+<tr>
+<td>SID</td>
+<td>Sideband Interface Data
+</td></tr>
+<tr>
+<td>THERMTRIP_L</td>
+<td><a href="/wiki/x86/thermal_protection" title="x86/thermal protection">Temperature Trip</a> Output
+</td></tr>
+<tr>
+<td>DBREQ_L</td>
+<td>Debug Request input to JTAG controller
+</td></tr>
+<tr>
+<td>TCK</td>
+<td><a href="http://en.wikipedia.org/wiki/JTAG" class="extiw" title="wikipedia:JTAG">JTAG</a> Clock
+</td></tr>
+<tr>
+<td>TDI</td>
+<td>JTAG Data Input
+</td></tr>
+<tr>
+<td>TDO</td>
+<td>JTAG Data Output
+</td></tr>
+<tr>
+<td>TMS</td>
+<td>JTAG Mode Select
+</td></tr>
+<tr>
+<td>TRST_L</td>
+<td>JTAG Reset
+</td></tr>
+<tr>
+<td>TEST*</td>
+<td>Test Signals
+</td></tr>
+<tr>
+<td>SVC0</td>
+<td>Serial VID Clock; <a href="/w/index.php?title=amd/svi2&amp;action=edit&amp;redlink=1" class="new" title="amd/svi2 (page does not exist)">SVI2</a> interface to VDDCR/VDDCR_SOC regulator
+</td></tr>
+<tr>
+<td>SVD0</td>
+<td>Serial VID Data
+</td></tr>
+<tr>
+<td>SVT0</td>
+<td>Serial VID Telemetry
+</td></tr>
+<tr>
+<td>VDDBT_RTC_G</td>
+<td>Integrated Real Time Clock battery power supply
+</td></tr>
+<tr>
+<td>VDDCR</td>
+<td>Core power supply
+</td></tr>
+<tr>
+<td>VDDCR_SENSE</td>
+<td>Differential (with VSS_SENSE_A) feedback for VDDCR regulator
+</td></tr>
+<tr>
+<td>VDDCR_SOC</td>
+<td>Power supply for integrated Northbridge
+</td></tr>
+<tr>
+<td>VDDCR_SOC_SENSE</td>
+<td>Differential (with VSS_SENSE_A) feedback for VDDCR_SOC regulator
+</td></tr>
+<tr>
+<td>VDDIO_AUDIO</td>
+<td>1.8 V or 1.5 V or 1.2 V always on
+</td></tr>
+<tr>
+<td>VDDIO_MEM_S3</td>
+<td>Power supply for DIMMs and an auxiliary supply for the DDR section of the processor, 1.2 V for DDR4
+</td></tr>
+<tr>
+<td>VDDIO_MEM_S3_SENSE</td>
+<td>Differential (with VSS_SENSE_A) feedback for VDDIO_MEM_S3 regulator
+</td></tr>
+<tr>
+<td>VDDIO_VPH</td>
+<td>Power supply for DisplayPort 0, 1.8 V, or optional 1.2 V for <a href="http://en.wikipedia.org/wiki/DisplayPort#eDP" class="extiw" title="wikipedia:DisplayPort"><abbr title="Embedded DisplayPort">eDP</abbr></a>
+</td></tr>
+<tr>
+<td>VDDP</td>
+<td>Power supply for PCIe GPP, PCIe GFX, DisplayPort, and SATA PHY logic
+</td></tr>
+<tr>
+<td>VDDP_SENSE</td>
+<td>Differential (with VSS_SENSE_B) feedback for VDDP regulator
+</td></tr>
+<tr>
+<td>VDDP_S5</td>
+<td>Always on power supply for USB physical layer
+</td></tr>
+<tr>
+<td>VDDP_S5_SENSE</td>
+<td>Differential (with VSS_SENSE_B) feedback for VDDP_S5 regulator
+</td></tr>
+<tr>
+<td>VDD_18</td>
+<td>1.8 V supply voltage for analog circuits
+</td></tr>
+<tr>
+<td>VDD_18_S5</td>
+<td>Always on 1.8 V supply voltage for analog circuits
+</td></tr>
+<tr>
+<td>VDD_33</td>
+<td>3.3 V supply voltage
+</td></tr>
+<tr>
+<td>VDD_33_S5</td>
+<td>Always on 3.3 V supply voltage
+</td></tr>
+<tr>
+<td>VSS</td>
+<td>Ground
+</td></tr>
+<tr>
+<td>VSS_SENSE_A</td>
+<td>VSS Sense pin for VDDCR/VDDCR_SOC regulator
+</td></tr>
+<tr>
+<td>VSS_SENSE_B</td>
+<td>VSS Sense pin for VDDP regulator
+</td></tr>
+<tr>
+<td>CODEC_GPI</td>
+<td>
+</td></tr>
+<tr>
+<td>OSCIN</td>
+<td>
+</td></tr>
+<tr>
+<td>RSVD</td>
+<td>Reserved
+</td></tr>
+<tr>
+<td>SHUTDOWN_L</td>
+<td>
+</td></tr>
+<tr>
+<td>SMU_ZVDD</td>
+<td>
+</td></tr></tbody></table>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">In this context <a href="http://en.wikipedia.org/wiki/Time-division_multiplexing" class="extiw" title="wikipedia:Time-division multiplexing">TDM</a> refers to an unstandardized extension of the <a href="http://en.wikipedia.org/wiki/I%C2%B2S" class="extiw" title="wikipedia:I²S">I<sup>2</sup>S</a> protocol to transmit more than two channels over a single data line.</span>
+</li>
+</ol>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=8" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="https://www.amd.com/system/files/TechDocs/55922-A1-PUB.zip">&#34;Processor Programming Reference (PPR) for AMD Family 17h Model 60h, Revision A1 Processors&#34;</a>, AMD Publ. #55922, Rev. 3.05, July 7, 2020</li>
+<li> &#34;FP6 Processor Motherboard Design Guide&#34;, AMD Publ. #56178, Rev. 1.03, January 2020</li>
+<li> <a rel="nofollow" class="external text" href="https://www.amd.com/system/files/documents/v2000-product-brief.pdf">&#34;Product Brief: AMD Ryzen™ Embedded V2000 Processor Family&#34;</a>, AMD Publ. #20650345, Rev. A, 2020</li>
+<li> <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/specifications/embedded">&#34;Embedded Processor Specifications&#34;</a> AMD.com.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/fp6&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/amd/packages/fp5" title="amd/packages/fp5">Package FP5</a></li>
+<li> <a href="/wiki/amd/packages/socket_am4" title="amd/packages/socket am4">Socket AM4</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:36335-0!*!0!!en!5!* and timestamp 20230922043359 and revision id 101718
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/packages/fp6&amp;oldid=101718">https://en.wikichip.org/w/index.php?title=amd/packages/fp6&amp;oldid=101718</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/w/index.php?title=Category:all_ic_packages&amp;action=edit&amp;redlink=1" class="new" title="Category:all ic packages (page does not exist)">all ic packages</a></li><li><a href="/wiki/Category:amd" title="Category:amd">amd</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="/wiki/Category:Articles_with_empty_sections" title="Category:Articles with empty sections">Articles with empty sections</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Ffp6" title="Special:Browse/:amd-2Fpackages-2Ffp6">Package FP6  - AMD</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/packages/fp6" title="Special:ExportRDF/amd/packages/fp6">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">March 16, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/16-20March-202020" title="Special:SearchByProperty/:first-20launched/16-20March-202020">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">package  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/package" title="Special:SearchByProperty/:instance-20of/package">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market segment</a></td><td class="smwprops">Mobile  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Mobile" title="Special:SearchByProperty/:market-20segment/Mobile">+</a></span> and Embedded  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Embedded" title="Special:SearchByProperty/:market-20segment/Embedded">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Zen 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-202" title="Special:SearchByProperty/:microarchitecture/Zen-202">+</a></span> and Zen 3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-203" title="Special:SearchByProperty/:microarchitecture/Zen-203">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Package FP6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Package-20FP6" title="Special:SearchByProperty/:name/Package-20FP6">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package" title="Property:package">package</a></td><td class="smwprops">FP6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/FP6" title="Special:SearchByProperty/:package/FP6">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_contacts" title="Property:package contacts">package contacts</a></td><td class="smwprops">1,140  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20contacts/1140" title="Special:SearchByProperty/:package-20contacts/1140">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_height" title="Property:package height">package height</a></td><td class="smwprops">1.38 mm (0.0543 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20height/1.38-20mm" title="Special:SearchByProperty/:package-20height/1.38-20mm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_length" title="Property:package length">package length</a></td><td class="smwprops">35 mm (3.5 cm, 1.378 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20length/35-20mm" title="Special:SearchByProperty/:package-20length/35-20mm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_pitch" title="Property:package pitch">package pitch</a></td><td class="smwprops">0.65 mm (0.0256 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20pitch/0.65-20mm" title="Special:SearchByProperty/:package-20pitch/0.65-20mm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_type" title="Property:package type">package type</a></td><td class="smwprops">FC-OBGA  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20type/FC-2DOBGA" title="Special:SearchByProperty/:package-20type/FC-2DOBGA">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_width" title="Property:package width">package width</a></td><td class="smwprops">25 mm (2.5 cm, 0.984 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20width/25-20mm" title="Special:SearchByProperty/:package-20width/25-20mm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">55 W (55,000 mW, 0.0738 hp, 0.055 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/55-20W" title="Special:SearchByProperty/:tdp/55-20W">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 10 May 2023, at 17:47.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":119});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=4', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=4&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=10&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

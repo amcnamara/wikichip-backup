@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Cortex-M55 - Microarchitectures - ARM - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"arm_holdings/microarchitectures/cortex-m55","wgTitle":"arm holdings/microarchitectures/cortex-m55","wgCurRevisionId":98386,"wgRevisionId":98386,"wgArticleId":35906,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["cpu microarchitectures by arm holdings","microarchitectures by arm holdings","all microarchitectures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"arm_holdings/microarchitectures/cortex-m55","wgRelevantArticleId":35906,"wgRequestId":"59214f6ed89d0c10b0344f2b","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="arm holdings/microarchitectures/cortex-m55" href="/w/index.php?title=Special:ExportRDF/arm_holdings/microarchitectures/cortex-m55&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Cortex-M55 - Microarchitectures - ARM - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Cortex-M55 is an ultra-low-power ARM microarchitecture designed by ARM Holdings for microcontrollers and embedded subsystems. This microarchitecture is designed as a synthesizable IP core and is sold to other semiconductor companies to be implemented in their own chips. The Cortex-M55, which implements the ARMv8.1-M ISA, is an ultra-low-power core which is often found in microcontrollers, low-power chips, and in the embedded subsystems of more powerful chips." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod35',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-m55"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"a8ae1896-db74-403f-676c-b7e7bc389fd5","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":80948,"response_time_orig":749,"serverid":"3.95.185.202:23016","state":"VA","t_epoch":1611299882,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-m55","user_id":0,"word_count":2063,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?dcb=191-3&cb=1&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["a8ae1896-db74-403f-676c-b7e7bc389fd5", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-arm_holdings_microarchitectures_cortex-m55 rootpage-arm_holdings skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/arm_holdings/microarchitectures/cortex-m55">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:arm_holdings/microarchitectures/cortex-m55&action=edit&redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=arm+holdings%2Fmicroarchitectures%2Fcortex-m55"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/arm_holdings/microarchitectures/cortex-m55"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/arm_holdings/microarchitectures/cortex-m55"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&oldid=98386"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:arm-5Fholdings-2Fmicroarchitectures-2Fcortex-2Dm55"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Cortex-M55 - Microarchitectures - ARM    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/arm_holdings" title="arm holdings">arm holdings</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/arm_holdings/microarchitectures/cortex-m55" title="Special:FormEdit/microarchitecture/arm holdings/microarchitectures/cortex-m55"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Cortex-M55 µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">CPU</td></tr><tr><td class="label">Designer</td><td class="value">ARM Holdings</td></tr><tr><td class="label">Manufacturer</td><td class="value">TSMC</td></tr><tr><td class="label">Introduction</td><td class="value">February 10, 2020</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/55_nm_process" class="mw-redirect" title="55 nm process">55 nm</a>, <a href="/wiki/45_nm_process" class="mw-redirect" title="45 nm process">45 nm</a>, <a href="/wiki/32_nm_process" class="mw-redirect" title="32 nm process">32 nm</a>, <a href="/wiki/28_nm_process" class="mw-redirect" title="28 nm process">28 nm</a>, <a href="/wiki/22_nm_process" class="mw-redirect" title="22 nm process">22 nm</a>, <a href="/wiki/16_nm_process" class="mw-redirect" title="16 nm process">16 nm</a>, <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm</a>, <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm</a>, <a href="/wiki/5_nm_process" class="mw-redirect" title="5 nm process">5 nm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/1_cores" class="mw-redirect" title="1 cores">1</a>, <a href="/wiki/2_cores" class="mw-redirect" title="2 cores">2</a>, <a href="/wiki/4_cores" class="mw-redirect" title="4 cores">4</a></td></tr><tr><td class="header" colspan="2">Pipeline</td></tr><tr><td class="label">Type</td><td class="value">Scalar, Pipelined</td></tr><tr><td class="label">OoOE</td><td class="value">No</td></tr><tr><td class="label">Speculative</td><td class="value">No</td></tr><tr><td class="label">Reg Renaming</td><td class="value">No</td></tr><tr><td class="label">Stages</td><td class="value">4-5</td></tr><tr><td class="label">Decode</td><td class="value">1-2-way</td></tr><tr><td class="header" colspan="2">Instructions</td></tr><tr><td class="label">ISA</td><td class="value">ARMv8.1-M</td></tr><tr><td class="label">Extensions</td><td class="value">FPU, Helium</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L1I Cache</td><td class="value">0-64 KiB/core<br />2-way set associative</td></tr><tr><td class="label">L1D Cache</td><td class="value">0-64 KiB/core<br />4-way set associative</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/w/index.php?title=microarchitecture/arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="microarchitecture/arm holdings/microarchitectures/cortex-m4 (page does not exist)">Cortex-M4</a><br /><a href="/w/index.php?title=microarchitecture/arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="microarchitecture/arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a></div></div><div style="display: inline-flex; float: right;"></div></td></tr></table>
+<p><b>Cortex-M55</b> is an ultra-low-power <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> <a href="/wiki/microarchitecture" title="microarchitecture">microarchitecture</a> designed by <a href="/wiki/ARM_Holdings" class="mw-redirect" title="ARM Holdings">ARM Holdings</a> for microcontrollers and embedded subsystems. This microarchitecture is designed as a synthesizable <a href="/wiki/IP_core" class="mw-redirect" title="IP core">IP core</a> and is sold to other semiconductor companies to be implemented in their own chips. The Cortex-M55, which implements the <a href="/w/index.php?title=arm/armv8.1-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.1-m (page does not exist)">ARMv8.1-M</a> ISA, is an ultra-low-power core which is often found in microcontrollers, low-power chips, and in the embedded subsystems of more powerful chips.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Process_Technology"><span class="tocnumber">2</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Compiler_support"><span class="tocnumber">3</span> <span class="toctext">Compiler support</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Architecture"><span class="tocnumber">4</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Key_changes_from_Cortex-M7.2FCortex-M4"><span class="tocnumber">4.1</span> <span class="toctext">Key changes from Cortex-M7/Cortex-M4</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Block_Diagram"><span class="tocnumber">4.2</span> <span class="toctext">Block Diagram</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Memory_Hierarchy"><span class="tocnumber">4.3</span> <span class="toctext">Memory Hierarchy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Overview"><span class="tocnumber">5</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Configuration"><span class="tocnumber">5.1</span> <span class="toctext">Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Pipeline"><span class="tocnumber">6</span> <span class="toctext">Pipeline</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Fetch_.26_Decode"><span class="tocnumber">6.1</span> <span class="toctext">Fetch &amp; Decode</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Execution"><span class="tocnumber">6.2</span> <span class="toctext">Execution</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Extended_processing_pipeline"><span class="tocnumber">6.3</span> <span class="toctext">Extended processing pipeline</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Memory_subsystem"><span class="tocnumber">6.4</span> <span class="toctext">Memory subsystem</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#TCM_subsystem"><span class="tocnumber">6.4.1</span> <span class="toctext">TCM subsystem</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#All_Cortex-M55_chips"><span class="tocnumber">7</span> <span class="toctext">All Cortex-M55 chips</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Bibliography"><span class="tocnumber">8</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cortex-M55 was officially launched on February 10, 2020. Support for <a href="/w/index.php?title=arm/custom_instructions&amp;action=edit&amp;redlink=1" class="new" title="arm/custom instructions (page does not exist)">custom instructions</a> will be added in 2021.
+</p>
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=2" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cortex-M55 is designed to be fabricated on various different <a href="/wiki/process_nodes" class="mw-redirect" title="process nodes">process nodes</a> ranging from very mature nodes such as the <a href="/wiki/130_nm" class="mw-redirect" title="130 nm">130 nm</a> to leading-edge <a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a> and <a href="/wiki/5_nm" class="mw-redirect" title="5 nm">5 nm</a> nodes.
+</p>
+<h2><span class="mw-headline" id="Compiler_support">Compiler support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=3" title="Edit section: Compiler support">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tr>
+<th> Compiler </th>
+<th> Arch-Specific </th>
+<th> Arch-Favorable
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=Arm_Compiler&amp;action=edit&amp;redlink=1" class="new" title="Arm Compiler (page does not exist)">Arm Compiler</a> </td>
+<td> <code>-mcpu=cortex-m55</code> </td>
+<td> <code>-mtune=cortex-m55</code>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=GCC&amp;action=edit&amp;redlink=1" class="new" title="GCC (page does not exist)">GCC</a> </td>
+<td> <code>-mcpu=cortex-m55</code> </td>
+<td> <code>-mtune=cortex-m55</code>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=LLVM&amp;action=edit&amp;redlink=1" class="new" title="LLVM (page does not exist)">LLVM</a> </td>
+<td> <code>-march=cortex-m55</code> </td>
+<td> <code>-mtune=cortex-m55</code>
+</td></tr></table>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=4" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Key_changes_from_Cortex-M7.2FCortex-M4">Key changes from <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a>/<a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">Cortex-M4</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=5" title="Edit section: Key changes from Cortex-M7/Cortex-M4">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/w/index.php?title=arm/armv8.1-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.1-m (page does not exist)">ARMv8.1-M</a> (from <a href="/w/index.php?title=arm/armv7-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv7-m (page does not exist)">ARMv7-M</a>)</li>
+<li> 64-bit internal bus (from 32-bit)</li>
+<li> Performance
+<ul><li> 4.2 <a href="/wiki/CoreMark/MHz" class="mw-redirect" title="CoreMark/MHz">CoreMark/MHz</a> (self reported, +18.6% over <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a>, -19.3% over <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li>
+<li> 1.6 <a href="/w/index.php?title=DMIPS/MHz&amp;action=edit&amp;redlink=1" class="new" title="DMIPS/MHz (page does not exist)">DMIPS/MHz</a> (self reported, +28% over <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a>, -25.2% over <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li>
+<li> 1.15x frequency over <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a> (depend on configuration)</li></ul></li>
+<li> Pipeline
+<ul><li> 4 stages (up from 3 in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a>, down from 6 in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li>
+<li> 2x external interrupts (480, up from 240)</li>
+<li> 2x32-bit or 4x16-bit or 8x8-bit MACs/cycle (up from 1x32-bit or 2x16-bit MACs/cycle in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li>
+<li> FPU
+<ul><li> new half-precision support (SP/DP in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li></ul></li>
+<li> TCM
+<ul><li> 4x32-bit D-TCM interfaces (up from 2x32-bit in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li>
+<li> 64-bit AHB DMA port to crossbar interface (up from 32-bit in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>)</li></ul></li></ul></li>
+<li> Bus
+<ul><li> AXI5 (up from AXI4 and AHB Lite in <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>), up from AHB Lite <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a>)</li></ul></li>
+<li> New integration
+<ul><li> New <a href="/w/index.php?title=arm/coprocessor_interface&amp;action=edit&amp;redlink=1" class="new" title="arm/coprocessor interface (page does not exist)">coprocessor interface</a> support</li>
+<li> New <a href="/w/index.php?title=arm/custom_instructions&amp;action=edit&amp;redlink=1" class="new" title="arm/custom instructions (page does not exist)">custom instructions</a></li>
+<li> New <a href="/wiki/arm/helium" title="arm/helium">Helium</a> extension support</li>
+<li> <a href="/w/index.php?title=arm/trustzone&amp;action=edit&amp;redlink=1" class="new" title="arm/trustzone (page does not exist)">TrustZone</a> for <a href="/w/index.php?title=arm/armv8-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8-m (page does not exist)">ARMv8-M</a></li></ul></li></ul>
+<p><i>This list is incomplete; you can help by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit">expanding it</a>.</i>
+</p>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=6" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><a href="/wiki/File:cortex-m55_block_diagram.svg" class="image"><img alt="cortex-m55 block diagram.svg" src="/w/images/thumb/a/a9/cortex-m55_block_diagram.svg/850px-cortex-m55_block_diagram.svg.png" width="850" height="460" srcset="/w/images/thumb/a/a9/cortex-m55_block_diagram.svg/1275px-cortex-m55_block_diagram.svg.png 1.5x, /w/images/thumb/a/a9/cortex-m55_block_diagram.svg/1700px-cortex-m55_block_diagram.svg.png 2x" /></a></dd></dl>
+<h3><span class="mw-headline" id="Memory_Hierarchy">Memory Hierarchy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=7" title="Edit section: Memory Hierarchy">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The Cortex-M55 has a private L1I, L1D, I-TCM, and D-TCM. All four are configurable in size.
+</p>
+<ul><li> Cache
+<ul><li> L1I Cache
+<ul><li> 0 - 64 KiB</li>
+<li> 2-way set associative</li>
+<li> Optional ECC support</li></ul></li>
+<li> L1D Cache
+<ul><li> 0 - 64 KiB</li>
+<li> 4-way set associative</li>
+<li> Supports both <a href="/w/index.php?title=write-back&amp;action=edit&amp;redlink=1" class="new" title="write-back (page does not exist)">write-back</a> (WB) and <a href="/w/index.php?title=write-through&amp;action=edit&amp;redlink=1" class="new" title="write-through (page does not exist)">write-through</a> (WT)</li>
+<li> Optional ECC support</li></ul></li></ul></li>
+<li> <a href="/w/index.php?title=tightly-coupled_memory&amp;action=edit&amp;redlink=1" class="new" title="tightly-coupled memory (page does not exist)">TCM</a>
+<ul><li> I-TCM
+<ul><li> 0 - 16 MiB</li>
+<li> Supports wait-states</li>
+<li> Optional ECC support</li></ul></li>
+<li> D-TCM
+<ul><li> 0 - 16 MiB</li>
+<li> Supports wait-states</li>
+<li> Optional ECC support</li></ul></li></ul></li></ul>
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=8" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:cortex-m55_general_block.png" class="image"><img alt="" src="/w/images/thumb/b/bd/cortex-m55_general_block.png/300px-cortex-m55_general_block.png" width="300" height="355" class="thumbimage" srcset="/w/images/thumb/b/bd/cortex-m55_general_block.png/450px-cortex-m55_general_block.png 1.5x, /w/images/thumb/b/bd/cortex-m55_general_block.png/600px-cortex-m55_general_block.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:cortex-m55_general_block.png" class="internal" title="Enlarge"></a></div>Cortex-M55</div></div></div>
+<p>The Cortex-M55 is a synthesizable ultra-low-power core designed by <a href="/wiki/Arm" class="mw-redirect" title="Arm">Arm</a> for an array of applications such as microcontrollers and embedded subsystems doing background work on more performant SoCs. Successionally and architecturally, the Cortex-M55 is the successor to the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a> and the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">Cortex-M4</a>, although in purely raw performance it's slightly behind the M7, though it makes up for it in new technologies such as its <a href="/wiki/arm/helium" title="arm/helium">new vector extension</a>. The Cortex-M55 is said to deliver 1.6 <a href="/w/index.php?title=Dhrystone_DMIPS/MHz&amp;action=edit&amp;redlink=1" class="new" title="Dhrystone DMIPS/MHz (page does not exist)">Dhrystone DMIPS/MHz</a> and 4.2 <a href="/wiki/CoreMark/MHz" class="mw-redirect" title="CoreMark/MHz">CoreMark/MHz</a> which is about 25% higher than the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a> but about 20% lower than the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>. In terms of frequency, the M55 is said to deliver up to 15% higher clock speed over the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m4&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m4 (page does not exist)">M4</a>.
+</p><p>In addition to supporting the <a href="/w/index.php?title=arm/armv8.1-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.1-m (page does not exist)">ARMv8.1-M</a> <a href="/w/index.php?title=ISA&amp;action=edit&amp;redlink=1" class="new" title="ISA (page does not exist)">ISA</a>, the M55 introduces a number of upgrades and features, most of which are optional and configurable, including support for the <a href="/w/index.php?title=arm_holdings/coprocessor_interface&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/coprocessor interface (page does not exist)">coprocessor interface</a>, <a href="/wiki/arm/helium" title="arm/helium">Helium</a> vector extension, and <a href="/w/index.php?title=arm/custom_instructions&amp;action=edit&amp;redlink=1" class="new" title="arm/custom instructions (page does not exist)">custom instructions</a>. The architecture has additional optional support for MPUs, <a href="/w/index.php?title=arm_holdings/trustzone&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/trustzone (page does not exist)">TrustZone</a>, and tightly coupled memory (TCM).
+</p>
+<h3><span class="mw-headline" id="Configuration">Configuration</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=9" title="Edit section: Configuration">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>From a programming model (ISA) point of view, the Cortex-M55 supports five different major configurations. FPU can be included without <a href="/wiki/arm/helium" title="arm/helium">Helium</a>. <a href="/wiki/arm/helium" title="arm/helium">Helium</a> support for fixed-point vectored data types can be implemented without the FPU, while floating-point vector data types must include the FPU.
+</p>
+<table class="wikitable">
+<tr>
+<th> Configuration </th>
+<th> Base (Integer) </th>
+<th> FPU (FP16, FP32, FP64) </th>
+<th> Helium (Int8, Int16, Int 32) </th>
+<th> Helium (FP16, FP32)
+</th></tr>
+<tr>
+<td> 1 </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> - </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> - </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> -
+</td></tr>
+<tr>
+<td> 2 </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> - </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> -
+</td></tr>
+<tr>
+<td> 3 </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> - </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> -
+</td></tr>
+<tr>
+<td> 4 </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #ffdad6; text-align: center;&#160;;"> -
+</td></tr>
+<tr>
+<td> 5 </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included </td>
+<td style="background-color: #d6ffd8; text-align: center;&#160;;"> Included
+</td></tr></table>
+<h2><span class="mw-headline" id="Pipeline">Pipeline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=10" title="Edit section: Pipeline">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cortex-M55 is a 4-stage <a href="/w/index.php?title=in-order&amp;action=edit&amp;redlink=1" class="new" title="in-order (page does not exist)">in-order</a> <a href="/w/index.php?title=scalar_pipeline&amp;action=edit&amp;redlink=1" class="new" title="scalar pipeline (page does not exist)">scalar pipeline</a> design. The design comprises of the main pipeline which is always present and an extended processing unit. The main pipeline is the typical integer pipeline designed to support the full <a href="/w/index.php?title=arm/armv8.1-m&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.1-m (page does not exist)">ARMv8.1-M</a> ISA. The extended processing unit is optional and is only present when the core implements the FPU or the <a href="/wiki/arm/helium" title="arm/helium">Helium</a> extensions. When the extended processing unit is present, that part of the pipeline is extended by an additional stage (for a total of 5 stages). The separate pipeline allows the core to go into retention state or be entirely power-down when not used.
+</p><p><br />
+</p>
+<dl><dd><a href="/wiki/File:cortex-m55_pipeline.svg" class="image"><img alt="cortex-m55 pipeline.svg" src="/w/images/thumb/0/06/cortex-m55_pipeline.svg/700px-cortex-m55_pipeline.svg.png" width="700" height="295" srcset="/w/images/thumb/0/06/cortex-m55_pipeline.svg/1050px-cortex-m55_pipeline.svg.png 1.5x, /w/images/thumb/0/06/cortex-m55_pipeline.svg/1400px-cortex-m55_pipeline.svg.png 2x" /></a></dd></dl>
+<h3><span class="mw-headline" id="Fetch_.26_Decode">Fetch &amp; Decode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=11" title="Edit section: Fetch &amp; Decode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The M55 features a configurable private <a href="/w/index.php?title=instruction_cache&amp;action=edit&amp;redlink=1" class="new" title="instruction cache (page does not exist)">instruction cache</a>. It is optional, but when present, it can be configured from 0 KiB to 64 KiB organized as a 2-way set associative. There is also optional ECC support if desired. Each cycle, four bytes are fetched from the instruction cache. There, instructions are pre-parsed and are sent to the decode. Since the <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a> supports a limited subset of <a href="/w/index.php?title=arm/t16&amp;action=edit&amp;redlink=1" class="new" title="arm/t16 (page does not exist)">T16</a>, when two adjacent instructions are both 16-bit wide (<a href="/w/index.php?title=arm/t16&amp;action=edit&amp;redlink=1" class="new" title="arm/t16 (page does not exist)">T16</a>+T16), the two instructions may be sent to decode to be decoded simultaneously. However, since the dual-issue capabilities are incredibly limited, Arm does not classify the design as a superscalar (unlike the capabilities of the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a>).
+</p>
+<h3><span class="mw-headline" id="Execution">Execution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=12" title="Edit section: Execution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The M55 can do 1 64-bit load or store operation per cycle. Compared to the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>, the M55 can performance twice the MACs/cycle: 2x32-bit, 4x16-bit or 8x8-bit MACs/cycle.
+</p>
+<h3><span class="mw-headline" id="Extended_processing_pipeline">Extended processing pipeline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=13" title="Edit section: Extended processing pipeline">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>From decode, the FPU and <a href="/wiki/arm/helium" title="arm/helium">Helium</a> instructions are routed to a separate pipeline. In order to save on power, that pipeline may go into a low-power retention state or be powered-down when not used. The extended processing pipeline is present if either the FPU or the <a href="/wiki/arm/helium" title="arm/helium">Helium</a> extensions are present. The FPU unit is based on the Arm <a href="/w/index.php?title=arm/fpv5&amp;action=edit&amp;redlink=1" class="new" title="arm/fpv5 (page does not exist)">FPv5 architecture</a>. This is a fully IEEE-754 compliant FPU with support for <a href="/w/index.php?title=half-precision&amp;action=edit&amp;redlink=1" class="new" title="half-precision (page does not exist)">half-precision</a>, <a href="/w/index.php?title=single-precision&amp;action=edit&amp;redlink=1" class="new" title="single-precision (page does not exist)">single-precision</a>, and <a href="/w/index.php?title=double-precision&amp;action=edit&amp;redlink=1" class="new" title="double-precision (page does not exist)">double-precision</a> scalar <a href="/w/index.php?title=floating-point&amp;action=edit&amp;redlink=1" class="new" title="floating-point (page does not exist)">floating-point</a> data forms. Half-precision floating-point operations can be processed at twice the throughput per clock cycle as single-precision floats. 
+</p><p>When the <a href="/wiki/arm/helium" title="arm/helium">Helium</a> extension is present, it reuses the FPU registers as vector registers, each being 128-bit wide. Internally, the vector unit is implemented with a 64-bit data path. This is twice as wide as prior Cortex-M designs but half the width of the ISA operations, therefore each operation takes two clock cycles to complete. The architecture permits overlapping execution cycles between instructions which are taken advantage of by the Cortex-M55, therefore when overlapping memory access and data processing operations together, both operations can be carried out in parallel.
+</p>
+<h3><span class="mw-headline" id="Memory_subsystem">Memory subsystem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=14" title="Edit section: Memory subsystem">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The Cortex-M55 has a private <a href="/w/index.php?title=data_cache&amp;action=edit&amp;redlink=1" class="new" title="data cache (page does not exist)">data cache</a>. It is optional and configurable from 0 KiB to 64 KiB in capacity organized as a <a href="/w/index.php?title=4-way_set_associative&amp;action=edit&amp;redlink=1" class="new" title="4-way set associative (page does not exist)">4-way set associative</a>. The <a href="/w/index.php?title=L1D$&amp;action=edit&amp;redlink=1" class="new" title="L1D$ (page does not exist)">L1D$</a> supports both <a href="/w/index.php?title=write-back&amp;action=edit&amp;redlink=1" class="new" title="write-back (page does not exist)">write-back</a> and <a href="/w/index.php?title=write-through&amp;action=edit&amp;redlink=1" class="new" title="write-through (page does not exist)">write-through</a> policies as well as optional ECC support.
+</p><p>The Cortex-M55 features a fairly complex memory subsystem. The two main parts are the <a href="/w/index.php?title=tightly-coupled_memory&amp;action=edit&amp;redlink=1" class="new" title="tightly-coupled memory (page does not exist)">tightly-coupled memory</a> (TCM) and the cache subsystem. Both are optional and both are configurable in sizes. The TCM is optimized for real-time applications with highly deterministic behaviors while the cache subsystem is designed for complex memory hierarchies, hiding higher latencies. The main bus interface to the Cortex-M55 from the rest of the system is the 64-bit <a href="/w/index.php?title=AMBA_5_AXI&amp;action=edit&amp;redlink=1" class="new" title="AMBA 5 AXI (page does not exist)">AMBA 5 AXI</a>. The interface supports multiple outstanding memory transfers as well as burst transfers and can operate at the core frequency or at some divided clock frequency.
+</p><p>There are a number of additional interfaces including a 32-bit AHB peripheral interface for legacy AHB peripherals. A debug AHB interface is a 32-bit debug AHB5 slave interface providing debug support for the Debug Access Port (DAP) to the memory system.
+</p>
+<h4><span class="mw-headline" id="TCM_subsystem">TCM subsystem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=15" title="Edit section: TCM subsystem">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The TCM subsystem is somewhat similar to the one found in the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a> but comes with a few noticeable differences. The TCM consists of an instruction TCM (I-TCM) and a data TCM (D-TCM). As with the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">M7</a>, the purpose of the TCM subsystem is to provide deterministic latencies for real-time applications. The instruction TCM is optional and configurable from 0 to 16 MiB with optional ECC support. It is 32-bit wide, allowing up to 4 bytes per cycle to be transferred from the I-TCM to either the <a href="/w/index.php?title=instruction_fetch&amp;action=edit&amp;redlink=1" class="new" title="instruction fetch (page does not exist)">instruction fetch</a> or the <a href="/w/index.php?title=instruction_memory&amp;action=edit&amp;redlink=1" class="new" title="instruction memory (page does not exist)">instruction memory</a>. The D-TCM is also optional and is configurable from 0 to 16 MiB in capacity with optional ECC support. Whereas the <a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m7&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/microarchitectures/cortex-m7 (page does not exist)">Cortex-M7</a> featured two 32-bit data TCM interfaces, the M55 features four 32-bit data TCM interfaces which are split equally using address bits[3:2]. The data TCM interfaces collectively have an aggregated bandwidth of 128-bit per cycle, however since the Helium vector extension features an interface data path of 64-bit, software execution can only generate 64-bit data transfers per cycle. The rest of the bandwidth can be used for other purposes such as data memory access operations, transferring data from and to the TCM simultaneously while the data is read by the core execution. Accesses to TCM memory banks are prioritized for software execution, therefore an attempt by the DMA controller will be stalled while the software is reading from the same TCM bank.
+</p><p><br />
+</p>
+<dl><dd><a href="/wiki/File:cortex-m55_tcm_xbar.svg" class="image"><img alt="cortex-m55 tcm xbar.svg" src="/w/images/thumb/2/2e/cortex-m55_tcm_xbar.svg/600px-cortex-m55_tcm_xbar.svg.png" width="600" height="186" srcset="/w/images/thumb/2/2e/cortex-m55_tcm_xbar.svg/900px-cortex-m55_tcm_xbar.svg.png 1.5x, /w/images/thumb/2/2e/cortex-m55_tcm_xbar.svg/1200px-cortex-m55_tcm_xbar.svg.png 2x" /></a></dd></dl>
+<h2><span class="mw-headline" id="All_Cortex-M55_chips">All Cortex-M55 chips</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=16" title="Edit section: All Cortex-M55 chips">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable">
+<tr class="comptable-header"><th>&#160;</th><th colspan="4">List of Cortex-M55-based Processors</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Launched</th><th>Cores</th><th data-sort-type="number">Frequency</th></tr>
+<tr class="comptable-header"><th>Count: 0</th></tr>
+</table>
+</div></div>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;action=edit&amp;section=17" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Arm. <i>personal communication</i>. February 2020.</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:35906-0!*!0!default!!en!5!* and timestamp 20210122071803 and revision id 98386
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;oldid=98386">https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-m55&amp;oldid=98386</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:cpu_microarchitectures_by_arm_holdings" title="Category:cpu microarchitectures by arm holdings">cpu microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:microarchitectures_by_arm_holdings" title="Category:microarchitectures by arm holdings">microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fcortex-2Dm55" title="Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fcortex-2Dm55">Cortex-M55 - Microarchitectures - ARM</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/arm_holdings/microarchitectures/cortex-m55" title="Special:ExportRDF/arm holdings/microarchitectures/cortex-m55">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Cortex-M55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Cortex-2DM55" title="Special:SearchByProperty/:codename/Cortex-2DM55">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core&#160;count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/1" title="Special:SearchByProperty/:core-20count/1">+</a></span>, 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/2" title="Special:SearchByProperty/:core-20count/2">+</a></span> and 4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/4" title="Special:SearchByProperty/:core-20count/4">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">ARM Holdings  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/ARM-20Holdings" title="Special:SearchByProperty/:designer/ARM-20Holdings">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">February 10, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/10-20February-202020" title="Special:SearchByProperty/:first-20launched/10-20February-202020">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full&#160;page&#160;name</a></td><td class="smwprops">arm holdings/microarchitectures/cortex-m55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fcortex-2Dm55" title="Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fcortex-2Dm55">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction&#160;set&#160;architecture</a></td><td class="smwprops">ARMv8.1-M  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.1-2DM" title="Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.1-2DM">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture&#160;type</a></td><td class="smwprops">CPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/CPU" title="Special:SearchByProperty/:microarchitecture-20type/CPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Cortex-M55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Cortex-2DM55" title="Special:SearchByProperty/:name/Cortex-2DM55">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages_(max)" title="Property:pipeline stages (max)">pipeline&#160;stages&#160;(max)</a></td><td class="smwprops">5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages-20(max)/5" title="Special:SearchByProperty/:pipeline-20stages-20(max)/5">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages_(min)" title="Property:pipeline stages (min)">pipeline&#160;stages&#160;(min)</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages-20(min)/4" title="Special:SearchByProperty/:pipeline-20stages-20(min)/4">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">55&#160;nm (0.055&#160;μm, 5.5e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/55-20nm" title="Special:SearchByProperty/:process/55-20nm">+</a></span>, 45&#160;nm (0.045&#160;μm, 4.5e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/45-20nm" title="Special:SearchByProperty/:process/45-20nm">+</a></span>, 32&#160;nm (0.032&#160;μm, 3.2e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/32-20nm" title="Special:SearchByProperty/:process/32-20nm">+</a></span>, 28&#160;nm (0.028&#160;μm, 2.8e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/28-20nm" title="Special:SearchByProperty/:process/28-20nm">+</a></span>, 22&#160;nm (0.022&#160;μm, 2.2e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/22-20nm" title="Special:SearchByProperty/:process/22-20nm">+</a></span>, 16&#160;nm (0.016&#160;μm, 1.6e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/16-20nm" title="Special:SearchByProperty/:process/16-20nm">+</a></span>, 10&#160;nm (0.01&#160;μm, 1.0e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/10-20nm" title="Special:SearchByProperty/:process/10-20nm">+</a></span>, 7&#160;nm (0.007&#160;μm, 7.0e-6&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span> and 5&#160;nm (0.005&#160;μm, 5.0e-6&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/5-20nm" title="Special:SearchByProperty/:process/5-20nm">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 12 January 2021, at 09:51.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":696});});</script></div>
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=2', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body>
+</html>
+

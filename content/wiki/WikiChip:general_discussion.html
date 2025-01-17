@@ -1,0 +1,729 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=14', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', true, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+if(typeof isOrig==='undefined'){isOrig=false;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){if((impId!=="0"||isOrig===true)&&adUnit!==""){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}}
+function AddPixelById(impFullId,pixelData,isOrig,revenue){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];var pix={type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig};if(typeof revenue!=='undefined'){pix.revenue=revenue;}
+pixels.push(pix);}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}});}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false;}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>WikiChip&#39;s General Discussion - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"Project_talk","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":5,"wgPageName":"WikiChip_talk:general_discussion","wgTitle":"general discussion","wgCurRevisionId":85532,"wgRevisionId":85532,"wgArticleId":5380,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"WikiChip_talk:general_discussion","wgRelevantArticleId":5380,"wgRequestId":"20b05537c7bb45920a6d3d1a","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"WikiChip:general_discussion","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/WikiChip_talk:general_discussion"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="WikiChip talk:general discussion" href="/w/index.php?title=Special:ExportRDF/WikiChip_talk:general_discussion&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/WikiChip_talk:general_discussion"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="WikiChip&#39;s General Discussion - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Welcome to Wikichip&#39;s General Discussion!"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/WikiChip:general_discussion"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"73ff6968-256d-41b8-5760-80e76f648e16","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":84185,"response_time_orig":1018,"serverid":"3.235.147.177:12601","state":"VA","t_epoch":1653680918,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/WikiChip:general_discussion","user_id":0,"word_count":4487,"worst_bad_word_level":3};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["73ff6968-256d-41b8-5760-80e76f648e16", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-5 ns-talk page-WikiChip_talk_general_discussion rootpage-WikiChip_talk_general_discussion skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li class=""><a href="/wiki/WikiChip:general_discussion">Project page <i class="fa fa-angle-down" aria-hidden="true"></i></a><ul></ul></li><li class="selected"><a href="/wiki/WikiChip_talk:general_discussion"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=" istalk"><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=WikiChip+talk%3Ageneral+discussion"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/WikiChip_talk:general_discussion"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/WikiChip_talk:general_discussion"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;oldid=85532"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    WikiChip&#39;s General Discussion    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=WikiChip:general_discussion&amp;redirect=no" class="mw-redirect" title="WikiChip:general discussion">WikiChip:general discussion</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="wikitable" style="margin:.4em .4em .4em .4em; float:right;">
+<tbody><tr>
+<td style="max-width:300px; text-align:center; padding:.4em .4em 4.em .4em; font-size:105%;"> <a href="/wiki/File:File-manager.png" class="image" title="An archive box"><img alt="An archive box" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/File-manager.png/30px-File-manager.png" width="30" height="30" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/File-manager.png/45px-File-manager.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/File-manager.png/60px-File-manager.png 2x"/></a> <b>archives</b> 
+</td></tr>
+<tr>
+<td style="padding:0 .4em .24em .4em; font-size:95%;">
+<ul><li> <a href="/wiki/WikiChip_talk:general_discussion/archive_1" title="WikiChip talk:general discussion/archive 1">/archive 1</a></li></ul>
+</td></tr>
+</tbody></table><span style="float: right;"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Welcome"><span class="tocnumber">1</span> <span class="toctext">Welcome</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Rules"><span class="tocnumber">2</span> <span class="toctext">Rules</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Discussion"><span class="tocnumber">3</span> <span class="toctext">Discussion</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Server_upgrades_.26_MediaWiki_1.27"><span class="tocnumber">3.1</span> <span class="toctext">Server upgrades &amp; MediaWiki 1.27</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#SSL"><span class="tocnumber">3.2</span> <span class="toctext">SSL</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#possibly_bug_with_sort.3F"><span class="tocnumber">3.3</span> <span class="toctext">possibly bug with sort?</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#max_memory_is_finally_in_MiB"><span class="tocnumber">3.4</span> <span class="toctext">max memory is finally in MiB</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Switching_over_to_the_new_skin"><span class="tocnumber">3.5</span> <span class="toctext">Switching over to the new skin</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Kaby_Lake_articles"><span class="tocnumber">3.6</span> <span class="toctext">Kaby Lake articles</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#MathML_is_failing"><span class="tocnumber">3.7</span> <span class="toctext">MathML is failing</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Semantic_MediaWiki_2.5.0"><span class="tocnumber">3.8</span> <span class="toctext">Semantic MediaWiki 2.5.0</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Microprocessor_comparison_page"><span class="tocnumber">3.9</span> <span class="toctext">Microprocessor comparison page</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Mobile_site_style_fixes"><span class="tocnumber">3.10</span> <span class="toctext">Mobile site style fixes</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Current_AVX-512_indications"><span class="tocnumber">3.11</span> <span class="toctext">Current AVX-512 indications</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#SPEC_CPU2017_.26_benchmarks"><span class="tocnumber">3.12</span> <span class="toctext">SPEC CPU2017 &amp; benchmarks</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#New_expansion_template"><span class="tocnumber">3.13</span> <span class="toctext">New expansion template</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#HotChips_29"><span class="tocnumber">3.14</span> <span class="toctext">HotChips 29</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Query_on_citation_policy"><span class="tocnumber">3.15</span> <span class="toctext">Query on citation policy</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Category"><span class="tocnumber">3.16</span> <span class="toctext">Category</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Change_.22designer.22_wikidata_mapping"><span class="tocnumber">3.17</span> <span class="toctext">Change &#34;designer&#34; wikidata mapping</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#More_semantic_queries.3F"><span class="tocnumber">3.18</span> <span class="toctext">More semantic queries?</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</span>
+<h2><span class="mw-headline" id="Welcome">Welcome</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=1" title="Edit section: Welcome">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Welcome to Wikichip&#39;s General Discussion!
+</p><p>Trying to find your way? check <a href="/wiki/WikiChip:welcome" title="WikiChip:welcome">WikiChip:welcome</a>.
+</p><p><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=new">Click here to start a new topic.</a>
+</p>
+<h2><span class="mw-headline" id="Rules">Rules</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=2" title="Edit section: Rules">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Don&#39;t be a jerk</li>
+<li> Don&#39;t bite the newcomers</li>
+<li> Off-topic discussions are allowed but should be kept to a minimum</li>
+<li> If a topic has its own article, comments should be posted on its talk page</li></ul>
+<hr/>
+<h1><span class="mw-headline" id="Discussion">Discussion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=3" title="Edit section: Discussion">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id="Server_upgrades_.26_MediaWiki_1.27">Server upgrades &amp; MediaWiki 1.27</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=4" title="Edit section: Server upgrades &amp; MediaWiki 1.27">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Hey everyone, just want post here letting you know that next week I&#39;ll be taking the time to update my server to Fedora 24. Additionally I&#39;ll be updating MediaWiki 1.27 <a rel="nofollow" class="external text" href="https://lists.wikimedia.org/pipermail/mediawiki-announce/2016-June/000192.html">seeing as our current version (MediaWiki 1.25) has reached EOL</a>. So..... if things stop working, there is a good chance I&#39;ve caused it. Just let me know! -<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 02:58, 29 July 2016 (EDT)
+</p>
+<dl><dd> So, it&#39;s been a month since I actually posted it and it since been delayed because I decided to upgrade everything. Yesterday I went ahead and actually upgraded the entire server. Everything was outdated by years and had to be upgraded to latest version. This was also necessary due to the increase in web traffic we&#39;ve been receiving. This is WikiChip&#39;s current setup:</dd></dl>
+<dl><dd><dl><dd><ul><li> Intel Xeon E5-2680 v3</li>
+<li> Fedora 24</li>
+<li> Nginx 1.10.1</li>
+<li> PHP 5.6.25</li>
+<li> MariaDB 10.1.16</li>
+<li> MediaWiki 1.27.1</li>
+<li> Semantic MediaWiki 2.4.1</li></ul></dd></dl></dd></dl>
+<dl><dd> As far as I&#39;m aware all extensions are working. There was a small hiccups with Semantic MediaWiki, but it too seems to work fine (as far as I can tell). The <a class="external text" href="https://www.mediawiki.org/wiki/Extension:CustomSidebar">Extension:CustomSidebar</a> that were were using (which was already on life support by 1.25) has completely stopped working. Looks like many of the functions that were deprecated for a very long time were finally removed. I&#39;ve commented out the affected templates but this does have to be dealt with somehow. Lastly, some languages (such as our <a href="/wiki/mirc" title="mirc">mirc</a> section have lost their syntax highlighting). We have to manually fix this up as well somehow. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>)</dd></dl>
+<h2><span class="mw-headline" id="SSL">SSL</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=5" title="Edit section: SSL">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Effective immediately WikiChip now uses SSL for everything. All &#34;http&#34; links will automatically redirect to their &#34;https&#34; versions. SSL Certificate is provided by <a rel="nofollow" class="external text" href="https://letsencrypt.org/">Let&#39;s Encrypt</a> project. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 18:03, 11 September 2016 (EDT)
+</p>
+<dl><dd><dl><dd> That&#39;s awesome thanks David! --<a href="/wiki/User:Inject" title="User:Inject">Inject</a> (<a href="/wiki/User_talk:Inject" title="User talk:Inject">talk</a>) 15:34, 12 September 2016 (EDT)</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="possibly_bug_with_sort.3F">possibly bug with sort?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=6" title="Edit section: possibly bug with sort?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Has anyone else noticed that when we setup a semantic subquery with a sort option, if the property specified in the sort isn&#39;t available for a specific result, it gets discarded completely? This is actually causing some serious issues for processors that do not have a launch date yet. --<a href="/wiki/User:Inject" title="User:Inject">Inject</a> (<a href="/wiki/User_talk:Inject" title="User talk:Inject">talk</a>) 03:33, 6 December 2016 (EST)
+</p><p><br/>
+</p>
+<dl><dd> I did some searching and I found <a rel="nofollow" class="external free" href="https://www.semantic-mediawiki.org/wiki/Help:Sorting">https://www.semantic-mediawiki.org/wiki/Help:Sorting</a> saying </dd></dl>
+<dl><dd><dl><dd><blockquote>Sorting a query also influences the result of a query, because it is only possible to sort by property values that a page actually has. Therefore, if a query is ordered by a property (say Population) then SMW will usually restrict the query results to those pages that have at least one value for this property (i.e. only pages with specified population appear). Therefore, if the query does not require yet that the property is present in each query result, then SMW will silently add this condition.</blockquote></dd></dl></dd></dl>
+<dl><dd>This really bad news for us. Because we certainly have processors with <a href="/wiki/Property:first_launched" title="Property:first launched">Property:first launched</a> blank (for obvious reason as they&#39;re not out yet). Sorting by launched date will filter those processors out. I&#39;m not sure how to actually address this problem. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 12:52, 6 December 2016 (EST)</dd></dl>
+<dl><dd><dl><dd> I asked on the Semantic MediaWiki mailing list. Apparently if the field we&#39;re sorting by is not specified in the ask selection list, sort won&#39;t filter out NULL properties. If that&#39;s indeed the case, we can create a secondary &#34;ldate&#34; property that mirrors the first one - perhaps even have it set to like &#39;3000&#39; by default if &#39;future=yes&#39;. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 03:13, 8 December 2016 (EST)</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="max_memory_is_finally_in_MiB">max memory is finally in MiB</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=7" title="Edit section: max memory is finally in MiB">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>we should&#39;ve done it a long time ago, but I&#39;ve finally changed <a href="/wiki/Property:max_memory" title="Property:max memory">Property:max memory</a> to MiB for consistency. That does mean a hell lot of stuff (max memory related, mainly in tables/queries) will be somewhat broken. So if you find something, do change it appropriately. Thanks! --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 16:58, 4 January 2017 (EST)
+</p>
+<dl><dd>Yea we should have done it ages ago. I think there are a bunch of other properties we need to convert as well. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 19:40, 4 January 2017 (EST)</dd></dl>
+<h2><span class="mw-headline" id="Switching_over_to_the_new_skin">Switching over to the new skin</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=8" title="Edit section: Switching over to the new skin">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Hey everyone. I think I&#39;ll be pushing the new skin today. If anyone notices something that&#39;s broken because of this change, please point them out for me so I can fix them. 
+</p><p>Thank you! --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 17:14, 7 January 2017 (EST)
+</p>
+<dl><dd>Everything looks good on my side David. I have noticed the menu icons (I think all font awesome icons?) are not loading on Edge too. But otherwise they work fine on Chrome/FireFox/Opera as far as I can tell. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 18:38, 7 January 2017 (EST)</dd></dl>
+<h2><span class="mw-headline" id="Kaby_Lake_articles">Kaby Lake articles</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=9" title="Edit section: Kaby Lake articles">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Now that <a href="/wiki/Kaby_Lake" class="mw-redirect" title="Kaby Lake">Kaby Lake</a> is fully released (except for W/X I guess) and we have most of the related articles somewhat built up. Can anyone go through the specs of the chips and double check that we have the right info everywhere? I&#39;ve spent a ton of time making sure everything looks alright but a second pair of eyes wouldn&#39;t hurt. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 11:00, 13 January 2017 (EST)
+</p>
+<dl><dd> Everything looks fine for the most part. Intel has not yet released an update to their optimization manual so there could be a number of tiny arch related changes we need to document once that&#39;s out. We are also missing a bunch of articles relating to the sockets used in Kaby. Then we really need to shift our focus on Zen, before it&#39;s launched! --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 15:09, 13 January 2017 (EST)</dd></dl>
+<h2><span class="mw-headline" id="MathML_is_failing">MathML is failing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=10" title="Edit section: MathML is failing">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>I&#39;ve noticed all our math tags have stopped working probably because formulasearchengine is down for whatever reason. Anything we can do about this? --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 01:19, 6 February 2017 (EST)
+</p><p>You can see the errors on this page <a href="/wiki/Tebibyte" class="mw-redirect" title="Tebibyte">Tebibyte</a> for example. --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 01:19, 6 February 2017 (EST)
+</p>
+<h2><span class="mw-headline" id="Semantic_MediaWiki_2.5.0">Semantic MediaWiki 2.5.0</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=11" title="Edit section: Semantic MediaWiki 2.5.0">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>WikiChip has been upgraded to Semantic MediaWiki 2.5.0 (<a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki_2.5.0">Release Notes</a>) --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 12:05, 9 April 2017 (EDT)
+</p>
+<dl><dd> WikiChip has been upgraded to MediaWiki 1.28.1 (<a class="external text" href="https://www.mediawiki.org/wiki/Release_notes/1.28#MediaWiki_1.28.1">Release Notes</a>) --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 12:05, 10 April 2017 (EDT)</dd></dl>
+<dl><dd> In an attempt to cut down on both bandwidth and load time we&#39;ve done away with the full Font Awesome and instead switched to a handful of used SVG variants. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 12:42, 10 April 2017 (EDT)</dd></dl>
+<dl><dd><dl><dd> I think Jon mentioned it before but we need to reinstall the EastTimetine extension. Not really sure why we had a problem with it in the first place but I think we need to re-introduce it. Any thoughts? --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 01:46, 12 April 2017 (EDT)</dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd> I will see what I can do. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 03:22, 12 April 2017 (EDT)</dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> It&#39;s installed! --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 19:20, 15 April 2017 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl>
+<h2><span class="mw-headline" id="Microprocessor_comparison_page">Microprocessor comparison page</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=12" title="Edit section: Microprocessor comparison page">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>So this has been talked about for a bit now so I figured I&#39;ll detail it here so everyone can see and possibly take part of the discussion if they want. As we continue to detail every individual model we&#39;ve gained the ability to make use of the data in a number of unique ways. One such way is leveraging the embedded semantic properties to create a comparison table feature (similar to Intel&#39;s ark) - but we can do it on a much grander scale! Compare <b>any</b> model to any other model! E.g., VIA next to AMD next to an Intel model.
+</p><p>In our current flimsy prototype you can compare virtually any model to any model (e.g. an Intel 8086 to an i7-7700K to a Qualcomm 630 but such comparison diminish in their usefulness as their differences (especially ISA, but also date, node, market segment, etc..) grow. We will likely keep that functionality moving forward but add some kind of indicator informing the user they are comparing models that differ greatly.
+</p><p>Anyway. This is an initial post, I&#39;ll post updates as we continue to make progress. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 02:18, 12 April 2017 (EDT)
+</p>
+<h2><span class="mw-headline" id="Mobile_site_style_fixes">Mobile site style fixes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=13" title="Edit section: Mobile site style fixes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>So I&#39;ve been spending some time attempting to fix some of the issues people have been having. Almost all the issues at the moment involve the mobile style. It getting clear how difficult it is to try to make our site responsively size to the smallest devices that visit our website - particularly iPhones. There&#39;s been a number of requests to try to address some of those issues so that&#39;s where my focus will be. If anyone is seeing some more problems, please drop them here. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 00:50, 23 May 2017 (EDT)
+</p>
+<dl><dd> Feel free to rework the entire front page pretty much. As it stand it looks like ass on mobile. Nothing really shifts and scales there properly. This is even a problem on low rest tables. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 06:44, 24 May 2017 (EDT)</dd></dl>
+<dl><dd> uarch template is now mobile-friendly - I updateed that template. Other templates will have to wait as they are way too complex for a simple switch. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 08:22, 26 May 2017 (EDT)</dd></dl>
+<dl><dd> The main page was switched to a responsive grid layout. It&#39;s in pretty good shape but some rough spots needs to possibly be fixed. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 01:21, 27 May 2017 (EDT)</dd></dl>
+<dl><dd> The main microprocessor template is now being switched over to the new template which is much more mobile friendly. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 21:36, 7 June 2017 (EDT)</dd></dl>
+<h2><span class="mw-headline" id="Current_AVX-512_indications">Current AVX-512 indications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=14" title="Edit section: Current AVX-512 indications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Currently we just have one value for &#34;AVX-512&#34;, but since it&#39;s not monolithic and various variations are used for Phi while other variations are used for Skylake SP and the other variations will be added in Cannonlake, we need to break it down into the various components (AVX-512F/CD/ER/PF/BW/DQ/VL et al). --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 02:24, 27 June 2017 (EDT)
+</p>
+<dl><dd> Yea we need to break it down. I&#39;ll do that today or tomorrow. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 17:20, 27 June 2017 (EDT)</dd></dl>
+<dl><dd><dl><dd> Done! --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 01:44, 11 July 2017 (EDT)</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="SPEC_CPU2017_.26_benchmarks">SPEC CPU2017 &amp; benchmarks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=15" title="Edit section: SPEC CPU2017 &amp; benchmarks">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Given vendors are now rolling out the new SPEC CPU2017 scores, I&#39;ve added a new template {{<a href="/wiki/Template:benchmarks_main" title="Template:benchmarks main">benchmarks main</a>}} template we can start experiment with adding official SPEC benchmarks to the pages. --<a href="/wiki/User:ChipIt" title="User:ChipIt">ChipIt</a> (<a href="/wiki/User_talk:ChipIt" title="User talk:ChipIt">talk</a>) 01:19, 5 July 2017 (EDT)
+</p>
+<h2><span class="mw-headline" id="New_expansion_template">New expansion template</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=16" title="Edit section: New expansion template">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Using ChipIt&#39;s original {{<a href="/wiki/Template:benchmarks_main" title="Template:benchmarks main">benchmarks main</a>}} idea, I&#39;ve created {{<a href="/wiki/Template:expansions_main" title="Template:expansions main">expansions main</a>}} which should replace the older expansions template. This new template is far more customization and scalable then what we previously had. It&#39;s also more flexible in term of the kind of information we can. It still uses the old Semantic properties, so everything else should work just fine. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 23:35, 16 August 2017 (EDT)
+</p>
+<h2><span class="mw-headline" id="HotChips_29">HotChips 29</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=17" title="Edit section: HotChips 29">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>As you may know, a few weeks ago HotChips 29 was held. I finally finished collecting and organizing all of my notes from the event and I&#39;ll start dumping that info in the appropriate articles. So keep an eye on this in the weeks to come. I&#39;ll probably need some grammar correction and maybe some diagrams designed too, we&#39;ll see. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 00:36, 14 September 2017 (EDT)
+</p>
+<ul><li> <b><a href="/wiki/microsoft/scorpio_engine" title="microsoft/scorpio engine">Scorpio Engine</a></b> Microsoft&#39;s new SoC found in their new <i>Xbox One X</i> consoles. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 22:57, 20 September 2017 (EDT)</li></ul>
+<h2><span class="mw-headline" id="Query_on_citation_policy">Query on citation policy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=18" title="Edit section: Query on citation policy">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Hi David, all:
+</p><p>I&#39;m intrigued by the site, but in the first few articles I&#39;ve looked at I haven&#39;t seen any citations.  For Intel processors it looks like much of the information is coming from ark.intel.com, but that connection isn&#39;t made explicit.  
+</p><p>What do you think your policy will be on providing cites going forward?
+</p><p>Best,
+</p><p><a href="/w/index.php?title=User:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User:Barry Rountree (page does not exist)">Barry Rountree</a> (<a href="/w/index.php?title=User_talk:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User talk:Barry Rountree (page does not exist)">talk</a>) 23:33, 12 July 2018 (EDT)
+</p>
+<dl><dd>Hey Barry, this is actually a real pickle for us. The connection isn&#39;t made explicit because the info doesn&#39;t come from ARK. Understandably, like Wikipedia article, people expect every article to reference lots of external sources. Unfortunately for us, we mostly curate our own information based on direct information (i.e., directly from the primary source - Intel, AMD, whichever) or, alternatively, in cases where we attend IEEE conferences and obtain the information from the presentations and possibly through an interview with the presenter (that&#39;s the case for some of our microarchitectural pages).</dd></dl>
+<dl><dd>With that in mind, our processor information almost always comes the same way - the company sends us this information as part of their media information they send out to tech websites. Some parts of the specifications are derived based on the underlying architectural details of the chip (e.g., cache structure), while some parts of the specifications we actually go the extra mile to personally request - in Intel&#39;s case it can be code names, turbo frequencies, part numbers, etc.. All that info comes directly from Intel as opposed to ark (we usually have more info than ARK too). To be clear, this is not limited to Intel. This is true for AMD, ARM, and anyone else who announces chips (e.g., Cavium&#39;s recent <a href="/wiki/cavium/thunderx2" title="cavium/thunderx2">ThunderX2</a> and Qualcomm&#39;s <a href="/wiki/qualcomm/centriq" title="qualcomm/centriq">Centriq</a> - those chips are not even listed on their website at all).</dd></dl>
+<dl><dd>Basically, this boils down to the reference section just saying &#34;Intel/AMD/Cavium/et..&#34; or &#34;Directly from Intel/AMD/etc..&#34; which seems to confuse people more than it helps. But that&#39;s literally the reference for us. We actually do write that for non-spec pages such as Cavium&#39;s <a href="/wiki/cavium/microarchitectures/vulcan" title="cavium/microarchitectures/vulcan">Vulcan</a> just for the sake of having some kind of reference. But it looks just as silly.</dd></dl>
+<dl><dd>I am open to suggestions on how to address this. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 07:35, 13 July 2018 (EDT)</dd></dl>
+<dl><dd><dl><dd>Just to elaborate what David meant by &#34;direct information&#34;. The most common case is when the company sends the information via email (he is usually assigned a PR contact) and might be in the form of press deck or press video briefing. Many times (since we are pretty technical), the briefing is not detailed enough, so we end up with a series of back-and-forth emails asking for additional information/clarifications. Sometimes a phone call is involved or he attends an actual press event. --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 07:46, 13 July 2018 (EDT)</dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd> Here is an example from today <a rel="nofollow" class="external free" href="https://fuse.wikichip.org/news/1482/intel-launches-desktop-xeon-e-their-fastest-entry-level-workstation-processors/">https://fuse.wikichip.org/news/1482/intel-launches-desktop-xeon-e-their-fastest-entry-level-workstation-processors/</a> --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 22:27, 13 July 2018 (EDT)</dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> Hi <a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a>, <a href="/wiki/User:David" title="User:David">David</a>.</dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> I&#39;m a computer scientist at Lawrence Livermore National Laboratory and I publish a fair amount on power-constrained performance optimization in high-performance computing.  For my particular needs, I have to be able to cite primary sources.  That can be *pers. comm.* (personal communication) if need be, but the general practice there is providing a name and company affiliation. Trying to decorate every fact and figure with a cite, however, is overkill and not that helpful.</dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> Instead, I&#39;d like to see a &#34;Bibliography&#34; section that listed the relevant public documentation (perhaps NDA as well, noted as such), and brief discussions of which aspects of the article needed further, non-public sourcing.  For Intel processors, that might be pointers to ARK, the specification updates, the datasheets, the NDA external design specifications and BIOS Writers&#39; Guides, and conference presentations.  Just telling readers that those documents exist can be a huge help, and if a particular claim (e.g., &#34;P-state requests only set a ceiling&#34;) are based on conversations, I know not to spend my time digging through the docs looking for that particular factoid.</dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> Adding this information would be a nontrivial amount of work, and I&#39;d want to update most of the (say) Intel processor articles myself to see if it&#39;s doable prior to asking anyone else to follow suit.  So all that said, if I were to begin adding bibliography sections, would that be seen as useful by other folks here?</dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd> <a href="/w/index.php?title=User:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User:Barry Rountree (page does not exist)">Barry Rountree</a> (<a href="/w/index.php?title=User_talk:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User talk:Barry Rountree (page does not exist)">talk</a>) 23:45, 13 July 2018 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> We can definitely try to add bibliography sections that lists those documentations. We can actually create a template and automate a lot of it since a single document typically covers a whole series.</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> I want to point out that we&#39;ve also tried that before and things got very complicated, mainly from the maintainability side. We&#39;re certainly willing to give it another shot. We started doing it for some of our early pages when all of a sudden Intel started removing old documents. If you check the <a href="/wiki/Atom_N270" class="mw-redirect" title="Atom N270">Atom N270</a> article, you&#39;ll see what we ended up doing - archiving the data sheet and spec update because Intel decided to purge it from their site one day. I think they eventually restored some of it after we asked them about it, but it highlights the whole issue we have with old documents/datasheets. For the really old stuff, like AMD&#39;s <a href="/wiki/amd/k5" title="amd/k5">K5</a>, we have gone ahead and archived every datasheet ourselves because they were simply disappearing from the AMD website and they did not seem to care even after we asked. We&#39;ve started to preserve Intel&#39;s optimizations manuals as well (see <a href="/wiki/intel/documents" title="intel/documents">intel/documents</a>) because Intel started removing the very old microarchitectures from their manuals which can now only be found in the earlier revisions and those are obviously no longer on the Intel website. This really sucks because what good is listing &#34;Xth generation core specification update&#34; if no one can actually find that document anymore or the document no longer covers it? So we ended up archiving it. The good thing is that for the most recent stuff, this unlikely to happen any time soon (though it&#39;s already happening with the Sandy Bridge documents), but given we have 1000s of Intel processors cataloged, there is a good chance those references will start to rot within the next 5 years.</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> If we try to generalize this procedure for other companies, things fall apart very quickly. Take for example LLNL&#39;s new Astra supercomputer which is based on the <a href="/wiki/ThunderX2_CN9975" class="mw-redirect" title="ThunderX2 CN9975">ThunderX2 CN9975</a> chip based on <a href="/wiki/cavium/microarchitectures/vulcan" title="cavium/microarchitectures/vulcan">Vulcan</a>. As far as we are aware, there are no public datasheets available and Cavium doesn&#39;t even list that part on their website. Actually, a quick search pretty much brings on our website and all our info came directly from a de-briefing from Cavium (and some from Broadcom). So I&#39;m not sure what we would even reference in those cases. Keep in mind this is not a rare case either, it&#39;s very common. Take Qualcomm&#39;s <a href="/wiki/Centriq_2452" class="mw-redirect" title="Centriq 2452">Centriq 2452</a> server chip as another example.</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 09:22, 14 July 2018 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> The whole bibliography section sort of partially work, but only for Intel. We might be able to put some kind of an expiration date check (using a template or something) to make sure stuff isn&#39;t outdated or possibly just request permission to host those docs ourself. Cavium, Qualcomm, AMD, et al are entirely a different problem. AMD has no public documents, no specs update document, and no ark. All their info comes directly from the press deck they send us and via their pre-briefing. I wouldn&#39;t even know what we could reference. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 11:15, 14 July 2018 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> With the understanding that this may be an Intel-specific solution, would both of you be interested in extension of what you&#39;re doing with the optimization manual page (which I like very much, btw) to datasheets and specification updates?  That would solve a problem I need to address in my other work, and I&#39;d rather the documents be archived here rather than in my git repo. I&#39;m happy to postpone the discussion of bibliography sections until after there&#39;s a stable document archive. </dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> <a href="/w/index.php?title=User:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User:Barry Rountree (page does not exist)">Barry Rountree</a> (<a href="/w/index.php?title=User_talk:Barry_Rountree&amp;action=edit&amp;redlink=1" class="new" title="User talk:Barry Rountree (page does not exist)">talk</a>) 00:35, 15 July 2018 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd> Is your git repo public? It might be a good starting point for us. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 09:14, 21 July 2018 (EDT)</dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+<h2><span class="mw-headline" id="Category">Category</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=19" title="Edit section: Category">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>What is difference between these categories: <a href="/wiki/Category:microprocessors" title="Category:microprocessors">Category:microprocessors</a>, <a href="/wiki/Category:Microprocessors" class="mw-redirect" title="Category:Microprocessors">Category:Microprocessors</a>? <a href="/wiki/User:Oleg3280" title="User:Oleg3280">Oleg3280</a> (<a href="/w/index.php?title=User_talk:Oleg3280&amp;action=edit&amp;redlink=1" class="new" title="User talk:Oleg3280 (page does not exist)">talk</a>) 08:25, 21 July 2018 (EDT)
+</p>
+<dl><dd>All pages on the site are supposed lowercase (with a few exceptions). The second category with uppercase &#39;M&#39; should not really exist. I think it was created a very long time ago and we simply forgot to correct it (redirect it to the second one after correcting the links). --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 09:14, 21 July 2018 (EDT)</dd></dl>
+<dl><dd><dl><dd> I changes pages that had the uppercase M version and redirected the category, unfortunately there are a bunch of category that also need to be fixed. --<a href="/wiki/User:David" title="User:David">David</a> (<a href="/wiki/User_talk:David" title="User talk:David">talk</a>) 09:19, 21 July 2018 (EDT)</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="Change_.22designer.22_wikidata_mapping">Change &#34;designer&#34; wikidata mapping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=20" title="Edit section: Change &#34;designer&#34; wikidata mapping">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Currently <a href="/wiki/Property:designer" title="Property:designer">designer property</a> has <code>wikidata id=<a rel="nofollow" class="external text" href="https://www.wikidata.org/wiki/Property:P287">P287</a></code>, but I think that should probably be <a rel="nofollow" class="external text" href="https://www.wikidata.org/wiki/Property:P178">P178</a> instead. P287 is &#34;designer&#34; which has range &#34;Human&#34; while P178 is &#34;developer&#34; and has range &#34;Human&#34; or &#34;organization&#34;.
+</p><p>This also raises the question if the property should be named &#34;developer&#34; too, it is what the ChipWiki templates use (and the wikidata property).
+</p><p>I can do the changes, I just wanted to get an approval first.
+</p><p>--<a href="/w/index.php?title=User:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User:Trygvis (page does not exist)">Trygvis</a> (<a href="/w/index.php?title=User_talk:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User talk:Trygvis (page does not exist)">talk</a>) 03:47, 23 August 2018 (EDT)
+</p>
+<dl><dd>There is currently no real implications to using either. It&#39;s just an early attempt to map our major properties to WikiData for programming purposes. I think the main reason we&#39;ve gone with &#39;designer&#39; is that it sounds more descriptive to what we&#39;re trying to define since we have a stronger distinction between &#39;designer&#39; (the IP designer) and &#39;manufacturer&#39; (the actual fab). To that end, developer sounds slightly ambiguous. But you can change the wikidata property if you think the later one is better. --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 10:34, 23 August 2018 (EDT)</dd></dl>
+<dl><dd><dl><dd>Ok, I did the change. Thanks for the information. --<a href="/w/index.php?title=User:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User:Trygvis (page does not exist)">Trygvis</a> (<a href="/w/index.php?title=User_talk:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User talk:Trygvis (page does not exist)">talk</a>) 08:34, 24 August 2018 (EDT)</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="More_semantic_queries.3F">More semantic queries?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=WikiChip_talk:general_discussion&amp;action=edit&amp;section=21" title="Edit section: More semantic queries?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>I was looking at the <a rel="nofollow" class="external text" href="https://en.wikichip.org/wiki/10_nm_lithography_process#10_nm_Microprocessors">list of 10 nm Microprocessors</a> and noticed that the table is created manually but is really a good match for an ask query.
+</p><p>As an experiment I made <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Special:Ask&amp;x=-5B-5BCategory%3Aall-20system-20on-20a-20chip-20families-5D-5D-20-5B-5Bprocess%3A%3A10-20nm-5D-5D%2F-3Fdesigner&amp;format=broadtable&amp;link=all&amp;headers=show&amp;searchlabel=...%20further%20results&amp;class=sortable%20wikitable%20smwtable&amp;offset=&amp;limit=50&amp;mainlabel=">a query</a> that more or less shows the same data (click on &#34;edit query&#34; to see the details). Similar serach for <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Special:Ask&amp;x=-5B-5Bprocess%3A%3A10-20nm-5D-5D-20-5B-5Binstance-20of%3A%3Amicroarchitecture-5D-5D%2F-3Fdesigner%2F-3Fmicroarchitecture-20type&amp;format=broadtable&amp;limit=50&amp;link=all&amp;sort=designer%2Cmicroarchitecture_type&amp;headers=show&amp;mainlabel=Microarchitecture&amp;intro=10%20nm%20Microarchitectures&amp;searchlabel=...%20further%20results&amp;class=sortable%20wikitable%20smwtable&amp;offset=&amp;order=ASC%2CASC">10 nm microarchitectures</a>. For the second search it might be useful to split it up into two tables, but it shows more of the possibilities.
+</p><p>As a side note, I see that the designer property often have several values, for this table to be prettier it would probably be nice to have a &#34;main designer&#34;/&#34;owner&#34; or something similar. Or perhaps a single designer property and use a &#34;contributor&#34; field to list the other parties.
+</p><p>--<a href="/w/index.php?title=User:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User:Trygvis (page does not exist)">Trygvis</a> (<a href="/w/index.php?title=User_talk:Trygvis&amp;action=edit&amp;redlink=1" class="new" title="User talk:Trygvis (page does not exist)">talk</a>) 05:53, 23 August 2018 (EDT)
+</p>
+<dl><dd>You can actually just do <span class="smw-ul-furtherresults"><a href="/wiki/Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/mainlabel%3D/offset%3D0/format%3Dul/link%3Dall/headers%3Dshow/searchlabel%3Dsomething-20like-20this/columns%3D3" title="Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/mainlabel=/offset=0/format=ul/link=all/headers=show/searchlabel=something-20like-20this/columns=3">something like this</a></span>. I just realized we are also missing a &#39;name&#39; property on the ic family template (the whole template needs to be switched to our new style too). An additional &#39;main designer&#39; property really makes not only here but for all other templates in order to pick the one name the subject is associated with most closely. We might just want to always make it equal the same value as the first defined &#39;designer&#39; to simplify this (and pretend the main designer is always 1 value). --<a href="/wiki/User:At32Hz" title="User:At32Hz">At32Hz</a> (<a href="/wiki/User_talk:At32Hz" title="User talk:At32Hz">talk</a>) 11:02, 23 August 2018 (EDT)</dd></dl>
+<dl><dd><dl><dd>Yeah I was thinking of just picking the first designer too and use that as a main designer. Is &#34;primary designer&#34; a better term for it? I can try to adjust the template if that is ok. I&#39;m new here so I&#39;m just trying to figure out how much stuff I can do without stepping on someones toes.</dd></dl></dd></dl>
+<dl><dd><dl><dd>I&#39;m happy to improve the 10 nm page and friends by replacing the manually made lists with ask queries if that is ok.</dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd>So I&#39;ve changed <a href="/wiki/Template:ic_family" title="Template:ic family">Template:ic family</a> to set <code>{{developer}}</code> as <code>main developer</code> (<a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template%3Aic_family&amp;type=revision&amp;diff=82710&amp;oldid=81779">diff</a>) and changed the 10nm page. Compare the queries <span class="smw-ul-furtherresults"><a href="/wiki/Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/mainlabel%3D/offset%3D0/format%3Dul/link%3Dall/headers%3Dshow/searchlabel%3Dwithout-20main-20developer/columns%3D3" title="Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/mainlabel=/offset=0/format=ul/link=all/headers=show/searchlabel=without-20main-20developer/columns=3">without main developer</a></span> to <span class="smw-ul-furtherresults"><a href="/wiki/Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/-3Fmain-20designer/mainlabel%3D/offset%3D0/format%3Dul/link%3Dall/headers%3Dshow/searchlabel%3Dwith-20main-20developer/columns%3D3" title="Special:Ask/-5B-5BCategory:microprocessor-20families-5D-5D-20-5B-5Bprocess::10-20nm-5D-5D/-3Fmain-20designer/mainlabel=/offset=0/format=ul/link=all/headers=show/searchlabel=with-20main-20developer/columns=3">with main developer</a></span></dd></dl></dd></dl></dd></dl>
+<dl><dd><dl><dd><dl><dd>However, the list would be prettier if the pages DISPLAYTITLE was not set. I&#39;m not sure if it is possible to change how the list is rendered without having a special template for it. Ideally I think it would be nice to use the <code>tree</code> format, but I couldn&#39;t figure out how to nest the pages. I tried to set <code>parent=main designer</code> but that didn&#39;t work.</dd></dl></dd></dl></dd></dl>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:5380-0!*!0!default!!en!5!* and timestamp 20220527194838 and revision id 85532
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=WikiChip_talk:general_discussion&amp;oldid=85532">https://en.wikichip.org/w/index.php?title=WikiChip_talk:general_discussion&amp;oldid=85532</a>&#34;</div><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 1 January 2019, at 22:41.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":969});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=4', false, [], true, false, true, false);</script></body></html>

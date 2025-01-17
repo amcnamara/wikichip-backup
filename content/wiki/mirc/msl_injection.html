@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>mSL Injection - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/msl_injection","wgTitle":"mirc/msl injection","wgCurRevisionId":79066,"wgRevisionId":79066,"wgArticleId":38,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/msl_injection","wgRelevantArticleId":38,"wgRequestId":"957242c0972182662f5a42ef","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@0pv4jey",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip&amp;only=styles&amp;skin=WikiChip"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/msl injection" href="/w/index.php?title=Special:ExportRDF/mirc/msl_injection&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/msl_injection&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/msl_injection&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="mSL Injection - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="mSL injection is a code injection technique that exploits mIRC's ability to dynamically evaluate code on the run. With mSLs powerful commands and identifiers, the result of a code injection attack can be disastrous. It is important that you understand what to look for when working with vulnerable commands." />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_msl_injection rootpage-mirc skin-WikiChip action-view">		<div id="mw-wrapper">
+			<div class="mw-body" role="main">
+				<div id="wikichip-header">
+<div class="wgrid-container">
+	<div class="wgrid-row">
+		<div class="wgrid-col-2">
+			<a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo2.svg" width="200px"></a>
+		</div>
+		<div class="wgrid-col-10">
+
+<div id="nav">
+    <div id="nav-wrapper">
+        <ul>
+            <li class="mob-collapse"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent</a></li>
+            <li class="mob-collapse"><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Rand</a></li>
+            <li><a><i class="fa fa-wrench" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Tools&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+              <ul>
+                <li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li>              </ul>
+	    </li>
+            <li><a><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                <ul>
+                    <li><a href="/wiki/WikiChip:chip_feed"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Chip Feed</a></li>
+                    <li><a href="/wiki/WikiChip:welcome"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Welcome</a></li>
+                    <li><a href="/wiki/WikiChip_talk:general_discussion"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;General Discussion</a></li>
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Personal&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-createaccount pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&returnto=mirc%2Fmsl+injection"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create account</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fmsl+injection"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+            <li><a href="/wiki/Special:Search">Search</a></li>
+                <li class="wikichip-search-li">
+                <form class="navbar-form pull-right mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists" id="search-button"><i class="fa fa-search" aria-hidden="true"></i>Go!</button>
+</form>
+
+                </li>
+
+	</ul>
+    </div>
+</div>
+
+
+<div id="tagline-ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1951113009523412"
+        data-ad-slot="1822985275"
+        data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+		</div> <!-- <div class="wgrid-col-7"> -->
+	</div> <!-- <div class="wgrid-row"> -->
+</div> <!-- <div class="wgrid-container"> -->
+
+</div>
+<nav id="primary_nav_wrap">
+<span id="tagline">Semiconductor &amp; Computer Engineering</span>
+<ul>
+<li class="selected"><a href="/wiki/mirc/msl_injection">Page</a></li><li class=""><a href="/wiki/Talk:mirc/msl_injection">Discussion</a></li><li class="selected"><a href="/wiki/mirc/msl_injection" >&nbsp;View</a></li><li class=""><a href="/w/index.php?title=mirc/msl_injection&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Edit</span></a></li><li class=""><a href="/w/index.php?title=mirc/msl_injection&action=history" ><i class="fa fa-history" aria-hidden="true"></i><span class="mob-collapse">&nbsp;History</span></a></li><li><a><i class="fa fa-cogs" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Options&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/msl_injection"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/msl_injection"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/msl_injection&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/msl_injection&oldid=79066"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/msl_injection&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fmsl-5Finjection"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Accessibility&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+</nav>
+				<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>										<div id="article-title">mSL Injection - mIRC<span id="article-indicator"><div class="mw-indicators">
+</div>
+</span></div>
+									<div id="article-breadcrumbs">
+						<span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></span>
+					</div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <strong class="selflink">mSL Injection</strong></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual Profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">Ipv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p><b>mSL injection</b> is a code injection technique that exploits mIRC's ability to dynamically evaluate code on the run. With mSLs powerful commands and identifiers, the result of a code injection attack can be disastrous. It is important that you understand what to look for when working with vulnerable commands.
+</p><p>This tutorial will try to summarize for you what commands are problematic, how to detect it, and how to fix it. 
+</p><p>An eval injection vulnerability consists of two things: 
+</p>
+<ul><li> A script that evaluates a code (via a vulnerable command/ident)</li>
+<li> User input that is not properly validated</li></ul>
+<p>Injections happen because of a simple side effect of the main rules definiting the syntaxes/semantics of the language.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Injection_via_commands"><span class="tocnumber">1</span> <span class="toctext">Injection via commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Nested_command"><span class="tocnumber">1.1</span> <span class="toctext">Nested command</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#The_.2Ftimer_command"><span class="tocnumber">1.1.1</span> <span class="toctext">The /timer command</span></a>
+<ul>
+<li class="toclevel-4 tocsection-4"><a href="#.24chan.2F.23"><span class="tocnumber">1.1.1.1</span> <span class="toctext">$chan/#</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-5"><a href="#.2Fscon_and_.2Fscid"><span class="tocnumber">1.1.2</span> <span class="toctext">/scon and /scid</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#.2Fdde"><span class="tocnumber">1.1.3</span> <span class="toctext">/dde</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#.2Fflash"><span class="tocnumber">1.2</span> <span class="toctext">/flash</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Injection_via_.24identifiers"><span class="tocnumber">2</span> <span class="toctext">Injection via $identifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#.24readini.28.29_and_.24read.28.29"><span class="tocnumber">2.1</span> <span class="toctext">$readini() and $read()</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#.24calc.28.29"><span class="tocnumber">2.2</span> <span class="toctext">$calc()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Injection_via_Bugs"><span class="tocnumber">3</span> <span class="toctext">Injection via Bugs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#.24iif.28_.28cond.29_.2Fcmd.2C_true.2C_false_.29"><span class="tocnumber">3.1</span> <span class="toctext">$iif( (cond) /cmd, true, false )</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Injection_via_commands">Injection via commands</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=1" title="Edit section: Injection via commands">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>For a command, the interesting rule used by the parser to make it working is to evaluate $identifiers and&#160;%variables once before passing their value to the command:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a></span></pre>
+<p>Here <a href="/wiki/mirc/identifiers/$me" title="mirc/identifiers/$me">$me</a> is evaluated, then -a is passed as the first parameter and the value of <a href="/wiki/mirc/identifiers/$me" title="mirc/identifiers/$me">$me</a> is passed as the second parameter to the /echo command.
+</p>
+<h2><span class="mw-headline" id="Nested_command">Nested command</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=2" title="Edit section: Nested command">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Now, the language features some commands where one or more of their parameters are actually meant to be a new command with its own parameters. That new command is meant to be used later automatically by mIRC, this is where the injection happens.
+</p><p>Any command like this suffers the problem, we also refer to this problem as the double evaluation problem. They are fortunately not a lot of these commands, here is a list:
+</p>
+<ul><li> /timer</li>
+<li> /scon</li>
+<li> /scid</li>
+<li> /dde</li></ul>
+<h3><span class="mw-headline" id="The_.2Ftimer_command">The /timer command</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=3" title="Edit section: The /timer command">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Perhaps the most problematic command of them all is the /timer command. The /timer command is used to delay the execution of another command (it has others features but this is the interesting one).
+</p><p>Because of this, you must pass a new command to be executed after the delay to the timer command:
+</p>
+<pre><span class="code_line">//.timer 1 1 echo -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$day" title="$day - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$day</span></a></span></pre>
+<p>Which will execute "echo -a &lt;value of <a href="/wiki/mirc/identifiers/$day" title="mirc/identifiers/$day">$day</a>&gt;" one time, after waiting 1 second.
+</p><p>What happens here is that the parameters passed to the /timer command are evaluated once as we saw, so <a href="/wiki/mirc/identifiers/$day" title="mirc/identifiers/$day">$day</a> gets evaluated once, producing the current day.
+</p><p>The timer will register that its associated command to be executed when the delay has passed is "echo -a &lt;<a href="/wiki/mirc/identifiers/$day" title="mirc/identifiers/$day">$day</a>'s value&gt;"
+</p><p>When the timer fires, its command (a new command) is executed and therefore all of its parameters are, once again, evaluated one time. In this example there is no problem and we can't see the difference because <a href="/wiki/mirc/identifiers/$day" title="mirc/identifiers/$day">$day</a> can only return a day of the week. If <a href="/wiki/mirc/identifiers/$day" title="mirc/identifiers/$day">$day</a> is monday, evaluating the plain text monday will always produce monday.
+</p><p>But what if we didn't have $day? what if we had something like $2? Let's consider a more useful example, an innocent reminder script:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!reminder &amp; *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"> <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>&#160;!isnum<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command">    notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Reminder] Syntax Error:&#160;!reminder &lt;seconds&gt; &lt;message&gt;</span>
+<span class="code_line">    <span class="mirc_control">return</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/timer" title="/timer - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .timer</span></a> 1 <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> notice <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Reminder] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a>- <span class="mirc_bracket">&#x28;</span>Set <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> seconds ago<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>When the correct input is provided, this script works wonderfully. For example:
+</p>
+<pre>&lt;Mike&gt;&#160;!reminder 18000 jill's birthday tomorrow!
+-Bot- [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)</pre>
+<p>Indeed, /timer evaluated the parameter once: $2 is evaluated to 18000 and $3- to "jill's birthday tomorrow!"
+</p><p>The associated command of the timer is correctly <code>notice Mike [Reminder] jill's birthday tomorrow! (Set 18000 seconds ago)</code>, when the timer fires, the /notice command will see its parameters evaluated once, but there is nothing to evaluate in this case.
+</p><p>Although this script might seem simple, let's take a look at what happens when someone provides incorrect or even malicious input as in this case:
+</p>
+<pre>&lt;Mike&gt;&#160;!reminder 0 . | ns drop nick | quit hacked!
+-Bot- [Reminder] . (Set 0 seconds ago)
+* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
+<p>This is an msl injection attack. Let's take a deeper look into what has happened:
+</p><p>As we know, /timer evaluated the parameter once; $2 is evaluated to <code>0</code> and $3- is evaluated to <code>. | ns drop nick | quit hacked!</code>
+</p><p>So now, the associated command of the timer becomes <code>.notice Mike [Reminder] . | ns drop nick | quit hacked!</code> and you might be recognizing the pipe character, used to separate commands, which mIRC will interpret as such, resulting in /ns drop nick and /quit hacked! being executed.
+</p><p>Clearly, you can see how the timer command can be extremely dangerous. The unfortunate part is that there is no clean way of solving this problem. The only way to prevent this from happening is to encode the problematic parameters so that when they get evaluated, they produce something which needs one more evaluation to produce the correct value. We usually do that by encoding the parameters using based64 encoding. Below is an alias to perform this:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>safe</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>decode<span class="mirc_bracket">&#x28;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$encode" title="$encode - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$encode</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>-, m<span class="mirc_bracket">&#x29;</span> ,m<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The spacing is very important. Our new&#160;!reminder script now looks like this:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!reminder &amp; *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>&#160;!isnum<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command">    notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Reminder] Syntax Error:&#160;!reminder &lt;seconds&gt; &lt;message&gt;</span>
+<span class="code_line">    <span class="mirc_control">return</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/timer" title="/timer - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .timer</span></a> 1 <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> notice <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Reminder] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$safe" title="$safe - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$safe</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a>-<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">&#x28;</span>Set <a href="http://en.wikichip.org/wiki/mirc/identifiers/$safe" title="$safe - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$safe</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a><span class="mirc_bracket">&#x29;</span> seconds ago<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Let's take a look at what happens now:
+</p>
+<pre>&lt;Mike&gt;&#160;!reminder 0 . | ns drop nick | quit hacked!
+-Bot- [Reminder] . | ns drop nick | quit hacked! (Set 0 seconds ago)</pre>
+<p>And Mike now can't do anything harmful.
+</p><p>/timer will evaluate the parameter as we know but this time, $safe($3-) where $3- is <code>. | ns drop nick | quit hacked!</code> is evaluated to <code><a href="/wiki/mirc/identifiers/$decode" title="mirc/identifiers/$decode">$decode</a>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m)</code> and $safe($2) to <code><a href="/wiki/mirc/identifiers/$decode" title="mirc/identifiers/$decode">$decode</a>( MTgwMDA= ,m)</code>.
+</p><p>The command associated with the timer now becomes <code><a href="/wiki/mirc/commands/notice" title="mirc/commands/notice">/notice</a> Mike [Reminder] <a href="/wiki/mirc/identifiers/$decode" title="mirc/identifiers/$decode">$decode</a>( LiB8IG5zIGRyb3AgbmljayB8IHF1aXQgaGFja2VkIQ== ,m) (Set <a href="/wiki/mirc/identifiers/$decode" title="mirc/identifiers/$decode">$decode</a>( MTgwMDA= ,m) seconds ago)</code> and those <a href="/wiki/mirc/identifiers/$decode" title="mirc/identifiers/$decode">$decode</a>, when evaluated once by <a href="/wiki/mirc/commands/notice" title="mirc/commands/notice">/notice</a>, will produce the correct result (the original input of Mike).
+</p><p>Now you don't need to do that for any <a href="/wiki/mirc/commands/timer" title="mirc/commands/timer">/timer</a> command of course, only when the parameter is unknown at the time you are writing the script, such as $2 and $3- here.
+</p><p><b>Notes</b>: Since mIRC 7.44, an $unsafe identifier has been added which behaves just like $safe (the name was changed to unsafe to avoid misleading new users), delaying the execution of one level.
+</p>
+<h5><span class="mw-headline" id=".24chan.2F.23">$chan/#</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=4" title="Edit section: $chan/#">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>You may think <a href="/wiki/mirc/identifiers/$chan" title="mirc/identifiers/$chan">$chan</a> can't be evaluated in an malicious way but that's not true, if the <a href="/wiki/mirc/identifiers/$chan" title="mirc/identifiers/$chan">$chan</a> (also #) identifier is unknown, you should encode it as well.
+</p><p>The reason for this is mIRC allows prefixing an identifier with the pound sign to make mIRC prefixes (if needed) the evaluated string by the pound symbol. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/tokenize" title="/tokenize - mIRC Command" style="text-decoration: none"><span class="mirc_command">//tokenize</span></a> 32 A #B |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a #<a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> #<a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a></span></pre>
+<p>This will produce the following result:
+</p>
+<pre><span class="code_line">#A #B</span></pre>
+<p>So what does that have to do with <a href="/wiki/mirc/identifiers/$chan" title="mirc/identifiers/$chan">$chan</a> and timers? Everything! 
+</p><p>Consider the following bot's code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>bot_pass</em> <span class="mirc_control">return</span> foo_bar_42</span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">connect</span>:<span class="mirc_bracket">{</span>  </span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/autojoin" title="/autojoin - mIRC Command" style="text-decoration: none"><span class="mirc_command">  autojoin</span></a> -d5  </span>
+<span class="code_line">  ns id <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bot_pass" title="$bot_pass - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bot_pass</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">invite</span>:#:join #</span>
+<span class="code_line"><span class="mirc_control">on</span>&#160;!*:<span class="mirc_control">join</span>:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/timer" title="/timer - mIRC Command" style="text-decoration: none"><span class="mirc_command">  timer</span></a> 1 2 notice <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> Hello <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> , Welcome to # <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a>&#160;!</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Everything works just fine under normal conditions. But Mike knows better than to test things under normal conditions:
+</p>
+<pre>* Now talking in #$($bot_pass)
+/invite foobar #$($bot_pass)
+* Bot joined #$($bot_pass)
+/hop #$($bot_pass)
+* Attempting to rejoin channel #$($bot_pass)
+* Rejoined channel #$($bot_pass)
+-Bot- Hello Mike, Welcome to foo_bar_42</pre>
+<p>Because <a href="/wiki/mirc/identifiers/$chan" title="mirc/identifiers/$chan">$chan</a> (or #) was not escaped, it was evaluated. Mike was able to evaluate the $bot_pass alias and get the bot's password.
+</p><p>You might want to watch out for <a href="/wiki/mirc/identifiers/$nick" title="mirc/identifiers/$nick">$nick</a> as well, some servers allow nicknames to have the '$' character.
+</p>
+<h3><span class="mw-headline" id=".2Fscon_and_.2Fscid">/scon and /scid</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=5" title="Edit section: /scon and /scid">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Both of these commands were created to evaluate/execute code on a given connection. Just like the <a href="/wiki/mirc/commands/timer" title="mirc/commands/timer">/timer</a> command, any unknown content must be escaped somehow.
+</p><p>Though, unlike <a href="/wiki/mirc/commands/timer" title="mirc/commands/timer">/timer</a>, the <a href="/wiki/mirc/commands/scid" title="mirc/commands/scid">/scid</a> and <a href="/wiki/mirc/commands/scon" title="mirc/commands/scon">/scon</a> are so that when their associated command triggers, they are able to evaluate local variables (but they can't evaluate local identifier like $1-), which makes the escaping easier, you can use the $safe method, but you can simply just use a local variable, consider this less practical example:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!global *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/scon" title="/scon - mIRC Command" style="text-decoration: none"><span class="mirc_command">  scon</span></a> -at1 amsg [AMSG] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>-</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The script is designed to do a global amsg (i.e. perform an <a href="/wiki/mirc/commands/amsg" title="mirc/commands/amsg">/amsg</a> on every active connection). Just like the timer command, $1- will be evaluated again in the specified connection when the associated command of <a href="/wiki/mirc/commands/scon" title="mirc/commands/scon">/scon</a> triggers (/amsg [AMSG] $1-), which means any user code will become part of your bot's code.
+</p>
+<ul><li> $safe solution:</li></ul>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!global *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/scon" title="/scon - mIRC Command" style="text-decoration: none"><span class="mirc_command">  scon</span></a> -at1 amsg [AMSG] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$safe" title="$safe - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$safe</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>-<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<ul><li> Local variable solution:</li></ul>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!global *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%a</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>-</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/scon" title="/scon - mIRC Command" style="text-decoration: none"><span class="mirc_command">  scon</span></a> -at1 amsg [AMSG]&#160;% <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_variable">%a</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The associated command becomes <code>amsg [AMSG]&#160;%a</code> and&#160;%a is evaluated correctly to produce the user's message.
+</p><p><b>Note</b>: /scid and /scon can be used to change the current connection only, in this case you can just execute the command normally after, does not work for /scon -a for example.
+</p>
+<h3><span class="mw-headline" id=".2Fdde">/dde</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=6" title="Edit section: /dde">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>/dde has the same issue and the same solution as /timer, just use $safe on the problematic parameters.
+</p>
+<h2><span class="mw-headline" id=".2Fflash">/flash</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=7" title="Edit section: /flash">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Though /flash is the only command doing it for now, more command might do this in the future. <a href="/wiki/mirc/commands/flash" title="mirc/commands/flash">/flash</a> does not take a new command as one of its parameter but it can take a text as an optional parameter, to be used automatically later, that text will be evaluated once by <a href="/wiki/mirc/commands/flash" title="mirc/commands/flash">/flash</a>, and mIRC will also evaluate the text parameter once when applying the flash:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!testflash:#:/flash $ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> me</span></pre>
+<p>So $ $+ me evaluates to "<a href="/wiki/mirc/identifiers/$me" title="mirc/identifiers/$me">$me</a>" by <a href="/wiki/mirc/commands/flash" title="mirc/commands/flash">/flash</a>, and $me will be evaluated to your nickname (that text appears in mIRC's titlebar).
+</p><p>The $safe solution must be used there.
+</p>
+<h1><span class="mw-headline" id="Injection_via_.24identifiers">Injection via $identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=8" title="Edit section: Injection via $identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<h2><span class="mw-headline" id=".24readini.28.29_and_.24read.28.29">$readini() and $read()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=9" title="Edit section: $readini() and $read()">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If you have visited #mSL on swiftirc, and you had some code that used <a href="/wiki/mirc/identifiers/$read" title="mirc/identifiers/$read">$read()</a> or <a href="/wiki/mirc/identifiers/$readini" title="mirc/identifiers/$readini">$readini()</a> without the n switch you would most likely had people yelling at you to always use it. But why? The reason is:
+</p>
+<pre><b>By default BOTH $read() and $readini() treat the text in the file as code!</b>
+</pre>
+<p>So what are some of its consequences? Consider the following greet script:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!setgreet*:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command"> notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> Syntax Error:&#160;!setgreet &lt;greet&gt; | <span class="mirc_control">return</span> <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/writeini" title="/writeini - mIRC Command" style="text-decoration: none"><span class="mirc_command">  writeini</span></a> greets.ini greet <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command">  notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Greet] Greet Saved.</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_control">on</span>&#160;!*:<span class="mirc_control">join</span>:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$readini" title="$readini - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$readini</span></a><span class="mirc_bracket">&#x28;</span>greets.ini, greet, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">    msg</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a> [[ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> ] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Let's see what happens:
+</p>
+<pre>&lt;Mike&gt;&#160;!setgreet
+-Bot- Syntax Error:&#160;!setgreet &lt;greet&gt;
+&lt;Mike&gt;&#160;!setgreet Two things are certain in life, death and taxes. - Benjamin Franklin
+-Bot- [Greet] Greet Saved.
+/hop
+* Rejoined channel #foobar
+&lt;Bot&gt; [foobar] Two things are certain in life, death and taxes. - Benjamin Franklin
+&lt;Mike&gt;&#160;!setgreet Hello $findfile(C:\, *, 1, quit hacked!)
+-Bot- [Greet] Greet Saved.
+/hop
+* Rejoined channel #foobar
+* Bot (~Bot@isp.example.com) Quit (Quit: hacked!)</pre>
+<p>In this example Mike used the fact that <a href="/wiki/mirc/identifiers/$findfile" title="mirc/identifiers/$findfile">$findfile()</a> can execute a command when it finds a matching file. It should be clear how dangerous this can be. 
+</p><p>So how do we fix it? Using the <b>n</b> option!
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$read" title="$read - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$read</span></a><span class="mirc_bracket">&#x28;</span>... , n, ...<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;and </span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$readini" title="$readini - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$readini</span></a><span class="mirc_bracket">&#x28;</span>..., n, ...<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Our new code would look like this:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!setgreet*:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command"> notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> Syntax Error:&#160;!setgreet &lt;greet&gt; | <span class="mirc_control">return</span> <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/writeini" title="/writeini - mIRC Command" style="text-decoration: none"><span class="mirc_command">  writeini</span></a> greets.ini greet <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/notice" title="/notice - mIRC Command" style="text-decoration: none"><span class="mirc_command">  notice</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Greet] Greet Saved.</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_control">on</span>&#160;!*:<span class="mirc_control">join</span>:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$readini" title="$readini - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$readini</span></a><span class="mirc_bracket">&#x28;</span>greets.ini, n, greet, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">    msg</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a> [[ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> ] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id=".24calc.28.29">$calc()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=10" title="Edit section: $calc()">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>ALL unknown (in advance) input to <a href="/wiki/mirc/identifiers/$calc" title="mirc/identifiers/$calc">$calc</a> should be validated. $calc has its own special evaluation routine, it possesses the ability to double evaluate variables and identifier if their value returns a&#160;%variable. Consider the following code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">//var</span></a> <span class="mirc_variable">%x</span> = 12345 |<a href="http://en.wikichip.org/wiki/mirc/commands/tokenize" title="/tokenize - mIRC Command" style="text-decoration: none"><span class="mirc_command"> tokenize</span></a> 32&#160;% <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> x |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Which will produce the following result: 
+</p>
+<pre>%x = 12345
+</pre>
+<p><b>Surprise!</b> We bet you did not expect that to happen. (This is actually a side effect of <a href="/wiki/mirc/identifiers/$calc" title="mirc/identifiers/$calc">$calc</a> being able to evaluate variables inside parenthesis or immediately after an operator without a space.) 
+</p><p>Now let's take a look at a more practical example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; Assume <span class="mirc_variable">%password</span> is set to 123456</span></span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">connect</span>:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/autojoin" title="/autojoin - mIRC Command" style="text-decoration: none"><span class="mirc_command">  autojoin</span></a> -d5</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$network" title="$network - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$network</span></a> == UnderNet<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">    msg</span></a> x@channels.undernet.org login Wiz126 <span class="mirc_variable">%password</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!calc *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">  msg</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Calc] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>- = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Like most people, this user has an on connect event to register his user and a simple&#160;!calc script. 
+</p><p>Let's see what Mike can do to him:
+</p>
+<pre>&lt;Mike&gt;&#160;!calc 3*5+55
+&lt;Wiz126&gt; [Calc] 3*5+55 = 70
+&lt;Mike&gt;&#160;!calc&#160;%password
+&lt;Wiz126&gt; [Calc]&#160;%password = 123456</pre>
+<p>It's clear how Mike was able to get the value of a pretty important variable. 
+</p><p>It's important to note that EVEN if&#160;%password was set to "1234rosebud". The $calc() will return "1234", which is not the whole password but it's a big chunk of it.
+</p><p>A simple way to prevent this from happening with such a script is to restrict the usage to input which do not contain identifiers and&#160;%variables:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">text</span>:!calc *:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-,/\$\S+|%\S+/<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">    msg</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> [Calc] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>- = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h1><span class="mw-headline" id="Injection_via_Bugs">Injection via Bugs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=11" title="Edit section: Injection via Bugs">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>There are currently a few bugs in mIRC that allow for mSL injection, most in a round-a-bout fashion
+</p>
+<h2><span class="mw-headline" id=".24iif.28_.28cond.29_.2Fcmd.2C_true.2C_false_.29">$iif( (cond) /cmd, true, false )</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/msl_injection&amp;action=edit&amp;section=12" title="Edit section: $iif( (cond) /cmd, true, false )">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Due to the way mIRC handles <a href="/wiki/mirc/identifiers/$iif" title="mirc/identifiers/$iif">$iif()</a> statements, by wrapping a condition in parens and then appending a command, mIRC will execute/eval the command/identifier.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$iif" title="$iif - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$iif</span></a><span class="mirc_bracket">&#x28;</span> <span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a See what I mean, truthy, falsey<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The above will echo "See what I mean <a href="/wiki/mirc/commands/return" title="mirc/commands/return">/!return 1</a>", and neither the truthy or falsey statements are returned nor is the outter echo statement executed.
+This is happening because internally, <a href="/wiki/mirc/identifiers/$iif" title="mirc/identifiers/$iif">$iif</a> is calling the /if construct in the following way:
+</p>
+<pre><span class="code_line"> //<span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>condition<span class="mirc_bracket">&#x29;</span>&#160;!<span class="mirc_control">return</span> 1 |&#160;!<span class="mirc_control">return</span> 0</span></pre>
+<p>which gives:
+</p>
+<pre><span class="code_line"> //<span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span> <span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a See what I mean<span class="mirc_bracket">&#x29;</span>&#160;!<span class="mirc_control">return</span> 1 |&#160;!<span class="mirc_control">return</span> 0</span></pre>
+<p>And the quirk is there, this syntax actually executes the echo command.
+</p><p>The abuse of this is limited as the user of mIRC would either have to code the malformed $iif() statement or be tricked into issuing it from something such as the editbox. Be careful!
+</p>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:38-0!*!0!!en!*!* and timestamp 20180907164702 and revision id 79066
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/msl_injection&amp;oldid=79066">https://en.wikichip.org/w/index.php?title=mirc/msl_injection&amp;oldid=79066</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>				</div>
+			</div>
+
+
+
+<script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+
+
+						<div id="wiki-footer2">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-1951113009523412"
+				     data-ad-slot="3591436790"
+				     data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>			</div>
+			
+			<div id="mw-footer">
+                                <div id="footer-icons">
+                                <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31"/></a><a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a><a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31"/></a>				<a href="https://www.linode.com/?r=f471c5ec549e4b7101502a8c241b2b6e288ff306">
+					<img src="/w/resources/assets/poweredby_linode.svg" alt="This website is powered by Linode!" width="88" height="31">
+				</a>
+				</div>
+				<div id="footer-last-mod">
+				 This page was last modified on 9 June 2018, at 09:14.				</div>
+				<div id="footer-copyright">
+				Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.				</div>
+				<div id="footer-places"><ul>
+				<li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>				</ul></div>
+			</div>
+		</div>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":549});});</script>		</body>
+		</html>
+
+		

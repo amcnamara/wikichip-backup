@@ -1,0 +1,710 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=14', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Ryzen Embedded V2546  - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/ryzen_embedded/v2546","wgTitle":"amd/ryzen embedded/v2546","wgCurRevisionId":98316,"wgRevisionId":98316,"wgArticleId":36328,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor models","microprocessor models by amd","microprocessor models by amd based on zen 2","microprocessor models by tsmc"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/ryzen_embedded/v2546","wgRelevantArticleId":36328,"wgRequestId":"cd07157fb8db522754252a80","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Ryzen_Embedded_V2546","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/amd/ryzen_embedded/v2546"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/ryzen embedded/v2546" href="/w/index.php?title=Special:ExportRDF/amd/ryzen_embedded/v2546&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/amd/ryzen_embedded/v2546"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Ryzen Embedded V2546  - AMD - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Ryzen Embedded V2546 is a 64-bit hexa-core embedded x86 microprocessor introduced by AMD in November 2020. This processor is based on AMD&#39;s Zen 2 microarchitecture and uses a single monolithic die fabricated on a TSMC 7 nm process. The V2546 operates at a base frequency of 3 GHz with a TDP of 45 W and a boost frequency of up to 3.95 GHz. This model supports a configurable TDP-down of 35 W and TDP-up of 54 W. "/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/Ryzen_Embedded_V2546"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"7db8096d-ad65-4226-4c6d-ffbb5ab5a807","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":92113,"response_time_orig":150,"serverid":"54.161.174.31:20823","state":"VA","t_epoch":1632565627,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/Ryzen_Embedded_V2546","user_id":0,"word_count":1765,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["7db8096d-ad65-4226-4c6d-ffbb5ab5a807", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_ryzen_embedded_v2546 rootpage-amd skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/ryzen_embedded/v2546">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:amd/ryzen_embedded/v2546&amp;action=edit&amp;redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=amd%2Fryzen+embedded%2Fv2546"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/ryzen_embedded/v2546"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/ryzen_embedded/v2546"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;oldid=98316"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fryzen-5Fembedded-2Fv2546"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Ryzen Embedded V2546  - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a>‎ | <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">ryzen embedded</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=Ryzen_Embedded_V2546&amp;redirect=no" class="mw-redirect" title="Ryzen Embedded V2546">Ryzen Embedded V2546</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/chip/amd/ryzen_embedded/v2546" title="Special:FormEdit/chip/amd/ryzen embedded/v2546"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Ryzen Embedded V2546</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a></td></tr><tr><td class="label">Manufacturer</td><td><a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a></td></tr><tr><td class="label">Model Number</td><td style="width: 99%;">V2546</td></tr><tr><td class="label">Part Number</td><td>100-000000246</td></tr><tr><td class="label">Market</td><td>Embedded</td></tr><tr><td class="label">Introduction</td><td>November 10, 2020 (announced)<br/>November 10, 2020 (launched)</td></tr><tr><td class="label">End-of-life</td><td>2030 (last order)</td></tr><tr><td class="label">Shop</td><td><a rel="nofollow" class="external text" href="https://www.amazon.com/gp/search?ie=UTF8&amp;tag=wikichip-20&amp;linkCode=ur2&amp;linkId=aed902a15f809f6661ea2887020a7a0e&amp;camp=1789&amp;creative=9325&amp;index=electronics&amp;keywords=AMD%20Ryzen%20Embedded%20V2546">Amazon</a></td></tr><tr><td class="header" colspan="2">General Specs</td></tr><tr><td class="label">Family</td><td><a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded</a></td></tr><tr><td class="label">Series</td><td>V2000</td></tr><tr><td class="label">Frequency</td><td>3,000 MHz</td></tr><tr><td class="label">Turbo Frequency</td><td>3,950 MHz (1 core)</td></tr><tr><td class="label">Clock multiplier</td><td>30</td></tr><tr><td class="header" colspan="2">Microarchitecture</td></tr><tr><td class="label">ISA</td><td>x86-64 (x86)</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a></td></tr><tr><td class="label">Core Name</td><td><a href="/w/index.php?title=amd/cores/grey_hawk&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/grey hawk (page does not exist)">Grey Hawk</a></td></tr><tr><td class="label">Process</td><td><a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm</a></td></tr><tr><td class="label">Technology</td><td>CMOS</td></tr><tr><td class="label">Word Size</td><td>64 bit</td></tr><tr><td class="label">Cores</td><td>6</td></tr><tr><td class="label">Threads</td><td>12</td></tr><tr><td class="label">Max Memory</td><td>64 GiB</td></tr><tr><td class="header" colspan="2">Multiprocessing</td></tr><tr><td class="label">Max SMP</td><td>1-Way (Uniprocessor)</td></tr><tr><td class="header" colspan="2">Electrical</td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td>45 W</td></tr><tr><td class="label">cTDP down</td><td>35 W</td></tr><tr><td class="label">cTDP up</td><td>54 W</td></tr><tr><td class="label">T<sub>junction</sub></td><td>0 °C – 105 °C</td></tr><tr><td class="header" colspan="2">Packaging</td></tr><tr><td class="label">Package</td><td>Socket FP6 (BGA)</td></tr><tr><td class="label">Dimension</td><td>25 mm × 35 mm × 1.38 mm</td></tr></tbody></table>
+<p><b>Ryzen Embedded V2546</b> is a <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a> <a href="/wiki/hexa-core" title="hexa-core">hexa-core</a> embedded <a href="/wiki/x86" title="x86">x86</a> microprocessor introduced by <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> in November <a href="/w/index.php?title=2020&amp;action=edit&amp;redlink=1" class="new" title="2020 (page does not exist)">2020</a>. This processor is based on AMD&#39;s <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2 microarchitecture</a> and uses a single monolithic die fabricated on a TSMC <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm process</a>. The V2546 operates at a base frequency of 3 GHz with a <a href="/wiki/TDP" class="mw-redirect" title="TDP">TDP</a> of 45 W and a <a href="/w/index.php?title=amd/precision_boost&amp;action=edit&amp;redlink=1" class="new" title="amd/precision boost (page does not exist)">boost</a> frequency of up to 3.95 GHz. This model supports a configurable TDP-down of 35 W and TDP-up of 54 W. 
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Cache"><span class="tocnumber">1</span> <span class="toctext">Cache</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Memory_controller"><span class="tocnumber">2</span> <span class="toctext">Memory controller</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Expansions"><span class="tocnumber">3</span> <span class="toctext">Expansions</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Graphics"><span class="tocnumber">4</span> <span class="toctext">Graphics</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Features"><span class="tocnumber">5</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Cache">Cache</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=1" title="Edit section: Cache">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Main article: <a href="/wiki/amd/microarchitectures/zen_2#Memory_Hierarchy" title="amd/microarchitectures/zen 2">Zen 2 § Cache</a></i></dd></dl>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/cache_size/amd/ryzen_embedded/v2546" title="Special:FormEdit/cache size/amd/ryzen embedded/v2546">[Edit/Modify Cache Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="hierarchy icon.svg" src="/w/images/thumb/e/e4/hierarchy_icon.svg/75px-hierarchy_icon.svg.png" width="75" height="75" srcset="/w/images/thumb/e/e4/hierarchy_icon.svg/113px-hierarchy_icon.svg.png 1.5x, /w/images/thumb/e/e4/hierarchy_icon.svg/150px-hierarchy_icon.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Cache Organization <span class="smw-highlighter" data-type="5" data-state="persistent" data-title="Information" title="Cache is a hardware component containing a relatively small and extremely fast memory designed to speed up the performance of a CPU by preparing ahead of time the data it needs to read from a relatively slower medium such as main memory.The organization and amount of cache can have a large impact on the performance, power consumption, die size, and consequently cost of the IC.Cache is specified by its size, number of sets, associativity, block size, sub-block size, and fetch and write-back policies.Note: All units are in kibibytes and mebibytes."><span class="smwtticon info"></span><div class="smwttcontent"><b><a href="/w/index.php?title=Cache&amp;action=edit&amp;redlink=1" class="new" title="Cache (page does not exist)">Cache</a></b> is a hardware component containing a relatively small and extremely fast memory designed to speed up the performance of a <a href="/w/index.php?title=CPU&amp;action=edit&amp;redlink=1" class="new" title="CPU (page does not exist)">CPU</a> by preparing ahead of time the data it needs to read from a relatively slower medium such as main memory.<br/><br/>The organization and amount of cache can have a large impact on the performance, power consumption, die size, and consequently cost of the IC.<br/><br/>Cache is specified by its size, number of sets, associativity, block size, sub-block size, and fetch and write-back policies.<br/><br/>Note: All units are in <a href="/wiki/kibibytes" class="mw-redirect" title="kibibytes">kibibytes</a> and <a href="/wiki/mebibytes" class="mw-redirect" title="mebibytes">mebibytes</a>.</div></span></div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="margin-left: 10px;"><tbody><tr><th style="min-width: 35px;">L1$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.375&amp;#160;MiB 393,216&amp;#160;B 3.662109e-4&amp;#160;GiB "><span class="smwtext">384 KiB</span><div class="smwttcontent">0.375 MiB <br/>393,216 B <br/>3.662109e-4 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;">L1I$</th><td style="min-width: 50px;"><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.188&amp;#160;MiB 196,608&amp;#160;B 1.831055e-4&amp;#160;GiB "><span class="smwtext">192 KiB</span><div class="smwttcontent">0.188 MiB <br/>196,608 B <br/>1.831055e-4 GiB <br/></div></span></td><td style="min-width: 75px;">6 × 32 KiB</td><td style="min-width: 175px;">8-way set associative</td><td> </td></tr><tr><th style="text-align: center; min-width: 50px;">L1D$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.188&amp;#160;MiB 196,608&amp;#160;B 1.831055e-4&amp;#160;GiB "><span class="smwtext">192 KiB</span><div class="smwttcontent">0.188 MiB <br/>196,608 B <br/>1.831055e-4 GiB <br/></div></span></td><td style="min-width: 75px;">6 × 32 KiB</td><td style="min-width: 175px;">8-way set associative</td><td>write-back</td></tr></tbody></table></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th style="min-width: 35px;">L2$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,072&amp;#160;KiB 3,145,728&amp;#160;B 0.00293&amp;#160;GiB "><span class="smwtext">3 MiB</span><div class="smwttcontent">3,072 KiB <br/>3,145,728 B <br/>0.00293 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;"> </th><td style="min-width: 50px;"> </td><td style="min-width: 75px;">6 × 512 KiB</td><td style="min-width: 175px;">8-way set associative</td><td>write-back</td></tr></tbody></table></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th style="min-width: 35px;">L3$</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB "><span class="smwtext">8 MiB</span><div class="smwttcontent">8,192 KiB <br/>8,388,608 B <br/>0.00781 GiB <br/></div></span></td><td><table><tbody><tr><th style="text-align: center; min-width: 50px;"> </th><td style="min-width: 50px;"> </td><td style="min-width: 75px;">2 × 4 MiB</td><td style="min-width: 175px;"> </td><td> </td></tr></tbody></table></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="Memory_controller">Memory controller</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=2" title="Edit section: Memory controller">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This SoC features two memory controllers, each supporting DDR4 or LPDDR4x memory. In DDR4 mode the controllers support up to 64 GiB of 64-bit dual-channel memory, one DIMM per channel, with data rates of up to 3200 MT/s (25.6 GB/s per channel) and ECC. In LPDDR4x mode the controllers support up to 32 GiB of 32-bit quad-channel memory with data rates of up to 4266 MT/s (17.07 GB/s per channel).
+</p>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/memory_controller/amd/ryzen_embedded/v2546" title="Special:FormEdit/memory controller/amd/ryzen embedded/v2546">[Edit/Modify Memory Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="ram icons.svg" src="/w/images/thumb/a/af/ram_icons.svg/75px-ram_icons.svg.png" width="75" height="69" srcset="/w/images/thumb/a/af/ram_icons.svg/113px-ram_icons.svg.png 1.5x, /w/images/thumb/a/af/ram_icons.svg/150px-ram_icons.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Memory Controller</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="margin-left: 10px;"><tbody><tr><th style="width: 200px;">Max Type</th><td style="min-width: 100px;">DDR4-3200, LPDDR4x-4266</td></tr><tr><th>Supports ECC</th><td>Yes</td></tr><tr><th style="width: 200px;">Max Mem</th><td>64 GiB</td></tr><tr><th>Controllers</th><td>2</td></tr><tr><th>Channels</th><td>4</td></tr><tr><th>Max Bandwidth</th><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="110.629&amp;#160;GB/s 65,105.92&amp;#160;MiB/s 0.0621&amp;#160;TiB/s 0.0683&amp;#160;TB/s "><span class="smwtext">63.58 GiB/s</span><div class="smwttcontent">110.629 GB/s <br/>65,105.92 MiB/s <br/>0.0621 TiB/s <br/>0.0683 TB/s <br/></div></span></td></tr><tr><th>Bandwidth</th>
+<td>
+<div style="float: left; width: 150px;"><b>Single</b> 15.89 GiB/s</div><div style="float: left; width: 150px;"><b>Double</b> 31.79 GiB/s</div><div style="float: left; width: 150px;"><b>Quad</b> 63.58 GiB/s</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="Expansions">Expansions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=3" title="Edit section: Expansions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Ryzen Embedded V2546 supports up to 20 PCIe Gen 3 (8 GT/s) lanes configurable as one x8 and three x4 links, presumably also x2 and x1 links, with a maximum of 9 links total. Two x4 links can be configured as NVMe interface. Two SATA Gen 3 (6 Gb/s) ports are available and SATA Express is supported.   Eight USB ports are available. Four ports support USB 3.1 (10 Gb/s) speeds, two of these support Type-C connectors with DisplayPort Alternate Mode and Power Delivery capability. Four additional ports are USB 2.0 compliant, The following low speed interfaces are available: 1 × 4-wire or 2 × 2-wire UART, 4 × I2C, 2 × SMBus, LPC, SPI, GPIO. <a rel="nofollow" class="external text" href="https://www.mipi.org/specifications/soundwire">SoundWire</a>. 
+</p>
+<div class="spec-box">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/expansions/amd/ryzen_embedded/v2546" title="Special:FormEdit/expansions/amd/ryzen embedded/v2546">[Edit/Modify Expansions Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td style="vertical-align:top;"><img alt="ide icon.svg" src="/w/images/thumb/8/84/ide_icon.svg/50px-ide_icon.svg.png" width="50" height="44" srcset="/w/images/thumb/8/84/ide_icon.svg/75px-ide_icon.svg.png 1.5x, /w/images/thumb/8/84/ide_icon.svg/100px-ide_icon.svg.png 2x"/></td>
+<td><div style="text-decoration: underline; font-size: 1.3em;">Expansion Options</div></td>
+</tr>
+<tr style="vertical-align:top;">
+<td colspan="2">
+<div style="min-width: 100px; padding: 10px; display: inline-block;"><table><tbody><tr><td rowspan="2"><b>PCIe</b></td><td><b>Revision:</b> 3.0</td></tr><tr><td><b>Max Lanes:</b> 20</td></tr></tbody></table></div>
+<div style="min-width: 100px; padding: 10px; display: inline-block;"><table><tbody><tr><td rowspan="2"><b>USB</b></td><td><b>Revision:</b> 3.1</td></tr><tr><td><b>Max Ports:</b> 4</td></tr></tbody></table></div>
+<div style="min-width: 100px; padding: 10px; display: inline-block;"><table><tbody><tr><td rowspan="2"><b>USB</b></td><td><b>Revision:</b> 2.0</td></tr><tr><td><b>Max Ports:</b> 4</td></tr></tbody></table></div>
+<div style="min-width: 100px; padding: 10px; display: inline-block;"><table><tbody><tr><td rowspan="2"><b>SATA</b></td><td><b>Revision:</b> 3.0</td></tr><tr><td><b>Max Ports:</b> 2</td></tr></tbody></table></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<p><br/>
+</p>
+<h2><span class="mw-headline" id="Graphics">Graphics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=4" title="Edit section: Graphics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The V2546 incorporates <a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a> graphics operating at up to 1.5 GHz and supports up to 4 independent displays with a maximum resolution of 4096 × 2160 pixels.   Supported technologies include DirectX 12, OpenCL, OpenGL, and the Vulkan API. 
+</p>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/integrated_graphics/amd/ryzen_embedded/v2546" title="Special:FormEdit/integrated graphics/amd/ryzen embedded/v2546">[Edit/Modify IGP Info]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="screen icon.svg" src="/w/images/thumb/2/29/screen_icon.svg/75px-screen_icon.svg.png" width="75" height="75" srcset="/w/images/thumb/2/29/screen_icon.svg/113px-screen_icon.svg.png 1.5x, /w/images/thumb/2/29/screen_icon.svg/150px-screen_icon.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Integrated Graphics Information</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1 tl3" style="margin-left: 10px;">
+<tbody><tr><th style="width: 150px;">GPU</th><td colspan="3"><a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">Radeon Vega 6</a></td></tr>
+<tr><th style="width: 150px;">Designer</th><td>AMD</td></tr>
+<tr><th style="width: 150px;">Execution Units</th><td>6</td><th style="width: 150px;">Max Displays</th><td>4</td></tr>
+<tr><th style="width: 150px;">Unified Shaders</th><td>384</td></tr>
+<tr></tr><tr><th style="width: 150px;">Burst Frequency</th><td>1,500 MHz<span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.5&amp;#160;GHz 1,500,000&amp;#160;KHz "><span class="smwtext"></span><div class="smwttcontent">1.5 GHz <br/>1,500,000 KHz <br/></div></span></td></tr><tr><th>Output</th><td colspan="3"><a href="/w/index.php?title=displayport&amp;action=edit&amp;redlink=1" class="new" title="displayport (page does not exist)">DisplayPort</a>, <a href="/w/index.php?title=embedded_displayport&amp;action=edit&amp;redlink=1" class="new" title="embedded displayport (page does not exist)">Embedded DisplayPort</a>, <a href="/w/index.php?title=hdmi&amp;action=edit&amp;redlink=1" class="new" title="hdmi (page does not exist)">HDMI</a></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th>Max Resolution</th><td colspan="3"><table>    <tbody><tr><th>DP</th><td>4096 × 2160 </td></tr>    </tbody></table></td></tr><tr><td colspan="4"><hr/></td></tr><tr><th>Standards</th><td colspan="3"><table><tbody><tr><th>DirectX</th><td>12</td></tr>    <tr><th>DP</th><td>1.4</td></tr> <tr><th>eDP</th><td>1.3</td></tr>  <tr><th>HDMI</th><td>2.1</td></tr>   </tbody></table></td></tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<table class="wikitable" style="text-align: center;">
+
+<tbody><tr>
+<th colspan="6"> <span style="float: left; margin-right: 4px; font-size: .7em;"><a href="/wiki/Template:zen_2_with_vega_hardware_accelerated_video_table" title="Template:zen 2 with vega hardware accelerated video table">[Edit]</a></span> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a> with Radeon <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a> Hardware Accelerated Video Capabilities
+</th></tr>
+<tr>
+<th> Codec </th>
+<th> Encode </th>
+<th> Decode
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=VP9&amp;action=edit&amp;redlink=1" class="new" title="VP9 (page does not exist)">VP9</a> 8bpc/10bpc </td>
+<td> </td>
+<td> 1080p240<br/>4K 60 FPS
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-2&amp;action=edit&amp;redlink=1" class="new" title="MPEG-2 (page does not exist)">MPEG-2</a> (H.262) 8b </td>
+<td> 1080p240<br/>4K 60 FPS </td>
+<td> 1080p480<br/>4K 120 FPS
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=HEVC&amp;action=edit&amp;redlink=1" class="new" title="HEVC (page does not exist)">HEVC</a> (H.265) 8bpc/10bpc </td>
+<td> 1080p240<br/>4K 60 FPS </td>
+<td> 1080p240<br/>4K 60 FPS
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=5" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/x86_features/amd/ryzen_embedded/v2546" title="Special:FormEdit/x86 features/amd/ryzen embedded/v2546">[Edit/Modify Supported Features]</a></span>
+</p>
+<table>
+<tbody><tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="Cog-icon-grey.svg" src="/w/images/thumb/a/ac/Cog-icon-grey.svg/75px-Cog-icon-grey.svg.png" width="75" height="95" srcset="/w/images/thumb/a/ac/Cog-icon-grey.svg/113px-Cog-icon-grey.svg.png 1.5x, /w/images/thumb/a/ac/Cog-icon-grey.svg/150px-Cog-icon-grey.svg.png 2x"/></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Supported <a href="/wiki/x86" title="x86"><span style="color: black;">x86</span></a> <a href="/wiki/x86/extensions" title="x86/extensions"><span style="color: black;">Extensions</span></a> &amp; Processor Features</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tbody><tr><th style="width: 100px;">MMX</th><td><a href="/w/index.php?title=x86/mmx&amp;action=edit&amp;redlink=1" class="new" title="x86/mmx (page does not exist)">MMX Extension</a></td></tr><tr><th style="width: 100px;">EMMX</th><td>Extended MMX Extension</td></tr><tr><th style="width: 100px;">SSE</th><td><a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">Streaming SIMD Extensions</a></td></tr><tr><th style="width: 100px;">SSE2</th><td><a href="/w/index.php?title=x86/sse2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse2 (page does not exist)">Streaming SIMD Extensions 2</a></td></tr><tr><th style="width: 100px;">SSE3</th><td><a href="/w/index.php?title=x86/sse3&amp;action=edit&amp;redlink=1" class="new" title="x86/sse3 (page does not exist)">Streaming SIMD Extensions 3</a></td></tr><tr><th style="width: 100px;">SSSE3</th><td><a href="/w/index.php?title=x86/ssse3&amp;action=edit&amp;redlink=1" class="new" title="x86/ssse3 (page does not exist)">Supplemental SSE3</a></td></tr><tr><th style="width: 100px;">SSE4.1</th><td><a href="/w/index.php?title=x86/sse4.1&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.1 (page does not exist)">Streaming SIMD Extensions 4.1</a></td></tr><tr><th style="width: 100px;">SSE4.2</th><td><a href="/w/index.php?title=x86/sse4.2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.2 (page does not exist)">Streaming SIMD Extensions 4.2</a></td></tr><tr><th style="width: 100px;">SSE4a</th><td><a href="/w/index.php?title=x86/sse4a&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4a (page does not exist)">Streaming SIMD Extensions 4a</a></td></tr><tr><th style="width: 100px;">AVX</th><td><a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">Advanced Vector Extensions</a></td></tr><tr><th style="width: 100px;">AVX2</th><td><a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">Advanced Vector Extensions 2</a></td></tr><tr><th style="width: 100px;">ABM</th><td><a href="/w/index.php?title=x86/abm&amp;action=edit&amp;redlink=1" class="new" title="x86/abm (page does not exist)">Advanced Bit Manipulation</a></td></tr><tr><th style="width: 100px;">BMI1</th><td><a href="/w/index.php?title=x86/bmi1&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi1 (page does not exist)">Bit Manipulation Instruction Set 1</a></td></tr><tr><th style="width: 100px;">BMI2</th><td><a href="/w/index.php?title=x86/bmi2&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi2 (page does not exist)">Bit Manipulation Instruction Set 2</a></td></tr><tr><th style="width: 100px;">FMA3</th><td><a href="/w/index.php?title=x86/fma3&amp;action=edit&amp;redlink=1" class="new" title="x86/fma3 (page does not exist)">3-Operand Fused-Multiply-Add</a></td></tr><tr><th style="width: 100px;">AES</th><td><a href="/w/index.php?title=x86/aes&amp;action=edit&amp;redlink=1" class="new" title="x86/aes (page does not exist)">AES Encryption Instructions</a></td></tr><tr><th style="width: 100px;">RdRand</th><td><a href="/w/index.php?title=x86/rdrand&amp;action=edit&amp;redlink=1" class="new" title="x86/rdrand (page does not exist)">Hardware RNG</a></td></tr><tr><th style="width: 100px;">SHA</th><td><a href="/w/index.php?title=x86/sha&amp;action=edit&amp;redlink=1" class="new" title="x86/sha (page does not exist)">SHA Extensions</a></td></tr><tr><th style="width: 100px;">ADX</th><td><a href="/wiki/x86/adx" title="x86/adx">Multi-Precision Add-Carry</a></td></tr><tr><th style="width: 100px;">CLMUL</th><td><a href="/w/index.php?title=x86/clmul&amp;action=edit&amp;redlink=1" class="new" title="x86/clmul (page does not exist)">Carry-less Multiplication Extension</a></td></tr><tr><th style="width: 100px;">F16C</th><td>16-bit Floating Point Conversion</td></tr></tbody></table>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tbody><tr><th style="width: 100px;">x86-16</th><td><a href="/w/index.php?title=x86/x86-16&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-16 (page does not exist)">16-bit x86</a></td></tr><tr><th style="width: 100px;">x86-32</th><td><a href="/w/index.php?title=x86/x86-32&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-32 (page does not exist)">32-bit x86</a></td></tr><tr><th style="width: 100px;">x86-64</th><td><a href="/w/index.php?title=x86/x86-64&amp;action=edit&amp;redlink=1" class="new" title="x86/x86-64 (page does not exist)">64-bit x86</a></td></tr><tr><th style="width: 100px;">Real</th><td><a href="/w/index.php?title=x86/real_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/real mode (page does not exist)">Real Mode</a></td></tr><tr><th style="width: 100px;">Protected</th><td><a href="/w/index.php?title=x86/protected_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/protected mode (page does not exist)">Protected Mode</a></td></tr><tr><th style="width: 100px;">SMM</th><td><a href="/w/index.php?title=x86/system_management_mode&amp;action=edit&amp;redlink=1" class="new" title="x86/system management mode (page does not exist)">System Management Mode</a></td></tr><tr><th style="width: 100px;">FPU</th><td><a href="/w/index.php?title=x86/x87&amp;action=edit&amp;redlink=1" class="new" title="x86/x87 (page does not exist)">Integrated x87 FPU</a></td></tr><tr><th style="width: 100px;">NX</th><td><a href="/w/index.php?title=x86/no-execute&amp;action=edit&amp;redlink=1" class="new" title="x86/no-execute (page does not exist)">No-eXecute</a></td></tr><tr><th style="width: 100px;">SMT</th><td><a href="/w/index.php?title=Simultaneous_Multithreading&amp;action=edit&amp;redlink=1" class="new" title="Simultaneous Multithreading (page does not exist)">Simultaneous Multithreading</a></td></tr><tr><th style="width: 100px;">AMD-Vi</th><td>AMD-Vi (I/O MMU virtualization)</td></tr><tr><th style="width: 100px;">AMD-V</th><td>AMD Virtualization</td></tr><tr><th style="width: 100px;">SME</th><td><a href="/wiki/x86/sme" title="x86/sme">Secure Memory Encryption</a></td></tr><tr><th style="width: 100px;">SenseMI</th><td>SenseMI Technology</td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a rel="nofollow" class="external text" href="https://www.amd.com/system/files/TechDocs/55922-A1-PUB.zip">&#34;Processor Programming Reference (PPR) for AMD Family 17h Model 60h, Revision A1 Processors&#34;</a>, AMD Publ. #55922, Rev. 3.05, July 7, 2020</li>
+<li> <a rel="nofollow" class="external text" href="https://www.amd.com/system/files/documents/v2000-product-brief.pdf">&#34;AMD Ryzen™ Embedded V2000 Processor Family&#34;</a>, AMD Publ. #20650345, Rev. A, 2020</li>
+<li> <a rel="nofollow" class="external text" href="https://www.amd.com/en/products/specifications/embedded">&#34;Embedded Processor Specifications&#34;</a>. <i>AMD.com</i>. Retrieved December 2020.</li>
+<li> <a rel="nofollow" class="external text" href="https://ir.amd.com/news-events/press-releases/detail/979/amd-unveils-amd-ryzen-embedded-v2000-processors-with">Press Release: &#34;AMD Unveils AMD Ryzen™ Embedded V2000 Processors with Enhanced Performance and Power Efficiency&#34;</a>. <i>AMD.com</i>. Retrieved December 2020.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/ryzen_embedded/v2546&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/amd/ryzen_embedded" title="amd/ryzen embedded">Ryzen Embedded Series</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:36328-0!*!0!!en!5!* and timestamp 20210925055030 and revision id 98316
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/ryzen_embedded/v2546&amp;oldid=98316">https://en.wikichip.org/w/index.php?title=amd/ryzen_embedded/v2546&amp;oldid=98316</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:all_microprocessor_models" title="Category:all microprocessor models">all microprocessor models</a></li><li><a href="/wiki/Category:microprocessor_models_by_amd" title="Category:microprocessor models by amd">microprocessor models by amd</a></li><li><a href="/wiki/Category:microprocessor_models_by_amd_based_on_zen_2" title="Category:microprocessor models by amd based on zen 2">microprocessor models by amd based on zen 2</a></li><li><a href="/wiki/Category:microprocessor_models_by_tsmc" title="Category:microprocessor models by tsmc">microprocessor models by tsmc</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fryzen-20embedded-2Fv2546" title="Special:Browse/:amd-2Fryzen-20embedded-2Fv2546">Ryzen Embedded V2546  - AMD</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/ryzen_embedded/v2546" title="Special:ExportRDF/amd/ryzen embedded/v2546">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwspecname"><span class="smw-highlighter" data-type="1" data-state="inline" data-title="Property" title="&#34;Has subobject&#34; is a predefined property representing a container construct and is provided by Semantic MediaWiki."><span class="smwbuiltin"><a href="/wiki/Property:Has_subobject" title="Property:Has subobject">Has subobject</a></span><div class="smwttcontent">&#34;Has subobject&#34; is a predefined property representing a <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Container">container</a> construct and is provided by <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Special_properties">Semantic MediaWiki</a>.</div></span></td><td class="smwspecs"><span class="smw-subobject-entity"><a href="/wiki/amd/ryzen_embedded/v2546#pcie" title="amd/ryzen embedded/v2546">Ryzen Embedded V2546  - AMD#pcie</a></span><span class="smwbrowse"><a href="/wiki/Special:Browse/:amd-2Fryzen-20embedded-2Fv2546-23pcie" title="Special:Browse/:amd-2Fryzen-20embedded-2Fv2546-23pcie"> +</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:base_frequency" title="Property:base frequency">base frequency</a></td><td class="smwprops">3,000 MHz (3 GHz, 3,000,000 kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:base-20frequency/3000-20MHz" title="Special:SearchByProperty/:base-20frequency/3000-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:clock_multiplier" title="Property:clock multiplier">clock multiplier</a></td><td class="smwprops">30  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:clock-20multiplier/30" title="Special:SearchByProperty/:clock-20multiplier/30">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/6" title="Special:SearchByProperty/:core-20count/6">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:core_name" title="Property:core name">core name</a></td><td class="smwprops">Grey Hawk  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20name/Grey-20Hawk" title="Special:SearchByProperty/:core-20name/Grey-20Hawk">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:family" title="Property:family">family</a></td><td class="smwprops">Ryzen Embedded  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:family/Ryzen-20Embedded" title="Special:SearchByProperty/:family/Ryzen-20Embedded">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">November 10, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/10-20November-202020" title="Special:SearchByProperty/:first-20announced/10-20November-202020">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">November 10, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/10-20November-202020" title="Special:SearchByProperty/:first-20launched/10-20November-202020">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">amd/ryzen embedded/v2546  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/amd-2Fryzen-20embedded-2Fv2546" title="Special:SearchByProperty/:full-20page-20name/amd-2Fryzen-20embedded-2Fv2546">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions" title="Property:has advanced vector extensions">has advanced vector extensions</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions_2" title="Property:has advanced vector extensions 2">has advanced vector extensions 2</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_amd_amd-v_technology" title="Property:has amd amd-v technology">has amd amd-v technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20amd-2Dv-20technology/true" title="Special:SearchByProperty/:has-20amd-20amd-2Dv-20technology/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_amd_amd-vi_technology" title="Property:has amd amd-vi technology">has amd amd-vi technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20amd-2Dvi-20technology/true" title="Special:SearchByProperty/:has-20amd-20amd-2Dvi-20technology/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_amd_secure_memory_encryption_technology" title="Property:has amd secure memory encryption technology">has amd secure memory encryption technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20secure-20memory-20encryption-20technology/true" title="Special:SearchByProperty/:has-20amd-20secure-20memory-20encryption-20technology/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_amd_sensemi_technology" title="Property:has amd sensemi technology">has amd sensemi technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20amd-20sensemi-20technology/true" title="Special:SearchByProperty/:has-20amd-20sensemi-20technology/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_ecc_memory_support" title="Property:has ecc memory support">has ecc memory support</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20ecc-20memory-20support/true" title="Special:SearchByProperty/:has-20ecc-20memory-20support/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_feature" title="Property:has feature">has feature</a></td><td class="smwprops">Advanced Vector Extensions  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions">+</a></span>, Advanced Vector Extensions 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202">+</a></span>, Advanced Encryption Standard Instruction Set Extension  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension" title="Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension">+</a></span> and SenseMI Technology  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/SenseMI-20Technology" title="Special:SearchByProperty/:has-20feature/SenseMI-20Technology">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_simultaneous_multithreading" title="Property:has simultaneous multithreading">has simultaneous multithreading</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20simultaneous-20multithreading/true" title="Special:SearchByProperty/:has-20simultaneous-20multithreading/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_x86_advanced_encryption_standard_instruction_set_extension" title="Property:has x86 advanced encryption standard instruction set extension">has x86 advanced encryption standard instruction set extension</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true" title="Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microprocessor  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor" title="Special:SearchByProperty/:instance-20of/microprocessor">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu" title="Property:integrated gpu">integrated gpu</a></td><td class="smwprops">Radeon Vega 6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu/Radeon-20Vega-206" title="Special:SearchByProperty/:integrated-20gpu/Radeon-20Vega-206">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_designer" title="Property:integrated gpu designer">integrated gpu designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20designer/AMD" title="Special:SearchByProperty/:integrated-20gpu-20designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:integrated_gpu_max_frequency" title="Property:integrated gpu max frequency">integrated gpu max frequency</a></td><td class="smwprops">1,500 MHz (1.5 GHz, 1,500,000 KHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:integrated-20gpu-20max-20frequency/1500-20MHz" title="Special:SearchByProperty/:integrated-20gpu-20max-20frequency/1500-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:isa" title="Property:isa">isa</a></td><td class="smwprops">x86-64  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa/x86-2D64" title="Special:SearchByProperty/:isa/x86-2D64">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:isa_family" title="Property:isa family">isa family</a></td><td class="smwprops">x86  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa-20family/x86" title="Special:SearchByProperty/:isa-20family/x86">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1$_size" title="Property:l1$ size">l1$ size</a></td><td class="smwprops">0.375 MiB (384 KiB, 393,216 B, 3.662109e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1-24-20size/0.375-20MiB" title="Special:SearchByProperty/:l1-24-20size/0.375-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1d$_description" title="Property:l1d$ description">l1d$ description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1d$_size" title="Property:l1d$ size">l1d$ size</a></td><td class="smwprops">0.188 MiB (192 KiB, 196,608 B, 1.831055e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20size/0.1875-20MiB" title="Special:SearchByProperty/:l1d-24-20size/0.1875-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1i$_description" title="Property:l1i$ description">l1i$ description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l1i-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1i$_size" title="Property:l1i$ size">l1i$ size</a></td><td class="smwprops">0.188 MiB (192 KiB, 196,608 B, 1.831055e-4 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20size/0.1875-20MiB" title="Special:SearchByProperty/:l1i-24-20size/0.1875-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l2$_description" title="Property:l2$ description">l2$ description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l2$_size" title="Property:l2$ size">l2$ size</a></td><td class="smwprops">3 MiB (3,072 KiB, 3,145,728 B, 0.00293 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20size/3-20MiB" title="Special:SearchByProperty/:l2-24-20size/3-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l3$_size" title="Property:l3$ size">l3$ size</a></td><td class="smwprops">8 MiB (8,192 KiB, 8,388,608 B, 0.00781 GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l3-24-20size/8-20MiB" title="Special:SearchByProperty/:l3-24-20size/8-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:last_order" title="Property:last order">last order</a></td><td class="smwprops">2030  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:last-20order/2030" title="Special:SearchByProperty/:last-20order/2030">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:ldate" title="Property:ldate">ldate</a></td><td class="smwprops">November 10, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:ldate/10-20November-202020" title="Special:SearchByProperty/:ldate/10-20November-202020">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market segment</a></td><td class="smwprops">Embedded  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Embedded" title="Special:SearchByProperty/:market-20segment/Embedded">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_cpu_count" title="Property:max cpu count">max cpu count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20cpu-20count/1" title="Special:SearchByProperty/:max-20cpu-20count/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_junction_temperature" title="Property:max junction temperature">max junction temperature</a></td><td class="smwprops">378.15 K (105 °C, 221 °F, 680.67 °R)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20junction-20temperature/378.15-20K" title="Special:SearchByProperty/:max-20junction-20temperature/378.15-20K">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_memory" title="Property:max memory">max memory</a></td><td class="smwprops">65,536 MiB (67,108,864 KiB, 68,719,476,736 B, 64 GiB, 0.0625 TiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory/65536-20MiB" title="Special:SearchByProperty/:max-20memory/65536-20MiB">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory_bandwidth" title="Property:max memory bandwidth">max memory bandwidth</a></td><td class="smwprops">63.58 GiB/s (110.629 GB/s, 65,105.92 MiB/s, 0.0621 TiB/s, 0.0683 TB/s)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20bandwidth/63.58-20GiB-2Fs" title="Special:SearchByProperty/:max-20memory-20bandwidth/63.58-20GiB-2Fs">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_memory_channels" title="Property:max memory channels">max memory channels</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory-20channels/4" title="Special:SearchByProperty/:max-20memory-20channels/4">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_sata_ports" title="Property:max sata ports">max sata ports</a></td><td class="smwprops">2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20sata-20ports/2" title="Special:SearchByProperty/:max-20sata-20ports/2">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_usb_ports" title="Property:max usb ports">max usb ports</a></td><td class="smwprops">4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20usb-20ports/4" title="Special:SearchByProperty/:max-20usb-20ports/4">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Zen 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-202" title="Special:SearchByProperty/:microarchitecture/Zen-202">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:min_junction_temperature" title="Property:min junction temperature">min junction temperature</a></td><td class="smwprops">273.15 K (0 °C, 32 °F, 491.67 °R)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:min-20junction-20temperature/273.15-20K" title="Special:SearchByProperty/:min-20junction-20temperature/273.15-20K">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:model_number" title="Property:model number">model number</a></td><td class="smwprops">V2546  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:model-20number/V2546" title="Special:SearchByProperty/:model-20number/V2546">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Ryzen Embedded V2546  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Ryzen-20Embedded-20V2546" title="Special:SearchByProperty/:name/Ryzen-20Embedded-20V2546">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package" title="Property:package">package</a></td><td class="smwprops">Socket FP6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/Socket-20FP6" title="Special:SearchByProperty/:package/Socket-20FP6">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:part_number" title="Property:part number">part number</a></td><td class="smwprops">100-000000246  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:part-20number/100-2D000000246" title="Special:SearchByProperty/:part-20number/100-2D000000246">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">7 nm (0.007 μm, 7.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:series" title="Property:series">series</a></td><td class="smwprops">V2000  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:series/V2000" title="Special:SearchByProperty/:series/V2000">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/w/index.php?title=Property:smp_max_ways&amp;action=edit&amp;redlink=1" class="new" title="Property:smp max ways (page does not exist)">smp max ways</a></td><td class="smwprops"><a href="/w/index.php?title=1&amp;action=edit&amp;redlink=1" class="new" title="1 (page does not exist)">1</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:smp-20max-20ways/1" title="Special:SearchByProperty/:smp-20max-20ways/1">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:supported_memory_type" title="Property:supported memory type">supported memory type</a></td><td class="smwprops">DDR4-3200  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:supported-20memory-20type/DDR4-2D3200" title="Special:SearchByProperty/:supported-20memory-20type/DDR4-2D3200">+</a></span> and LPDDR4x-4266  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:supported-20memory-20type/LPDDR4x-2D4266" title="Special:SearchByProperty/:supported-20memory-20type/LPDDR4x-2D4266">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">45 W (45,000 mW, 0.0603 hp, 0.045 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/45-20W" title="Special:SearchByProperty/:tdp/45-20W">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:tdp_down" title="Property:tdp down">tdp down</a></td><td class="smwprops">35 W (35,000 mW, 0.0469 hp, 0.035 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp-20down/35-20W" title="Special:SearchByProperty/:tdp-20down/35-20W">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp_up" title="Property:tdp up">tdp up</a></td><td class="smwprops">54 W (54,000 mW, 0.0724 hp, 0.054 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp-20up/54-20W" title="Special:SearchByProperty/:tdp-20up/54-20W">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:thread_count" title="Property:thread count">thread count</a></td><td class="smwprops">12  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:thread-20count/12" title="Special:SearchByProperty/:thread-20count/12">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(1_core)" title="Property:turbo frequency (1 core)">turbo frequency (1 core)</a></td><td class="smwprops">3,950 MHz (3.95 GHz, 3,950,000 kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(1-20core)/3950-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(1-20core)/3950-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word size</a></td><td class="smwprops">64 bit (8 octets, 16 nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 1 January 2021, at 18:52.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":104});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>

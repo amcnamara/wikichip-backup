@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>String Manipulation - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/string manipulation" href="/w/index.php?title=Special:ExportRDF/mirc/string_manipulation&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/string_manipulation&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/string_manipulation&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/string_manipulation" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/string_manipulation","wgTitle":"mirc/string manipulation","wgCurRevisionId":13074,"wgRevisionId":13074,"wgArticleId":12,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/string_manipulation","wgRelevantArticleId":12,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_string_manipulation skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">String Manipulation - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>String manipulation</b> is the building block of many of today's utilities and algorithms. Everything from formatting and validation to analysis and manipulation requires heavy use of string manipulation. Fortunately for you, the language provides powerful string manipulation facilities.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Basic_String_Operations"><span class="tocnumber">1</span> <span class="toctext">Basic String Operations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Substrings"><span class="tocnumber">2</span> <span class="toctext">Substrings</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#.24left.28.29_and_.24right.28.29"><span class="tocnumber">2.1</span> <span class="toctext">$left() and $right()</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.24mid.28.29"><span class="tocnumber">2.2</span> <span class="toctext">$mid()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Case_Transformation"><span class="tocnumber">3</span> <span class="toctext">Case Transformation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#.24lower.28.29_and_.24upper.28.29"><span class="tocnumber">3.1</span> <span class="toctext">$lower() and $upper()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Searching"><span class="tocnumber">4</span> <span class="toctext">Searching</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Substring_Replacement_and_Removal"><span class="tocnumber">5</span> <span class="toctext">Substring Replacement and Removal</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Replacement"><span class="tocnumber">5.1</span> <span class="toctext">Replacement</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Substring_Removal"><span class="tocnumber">5.2</span> <span class="toctext">Substring Removal</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Miscellaneous_Identifiers"><span class="tocnumber">6</span> <span class="toctext">Miscellaneous Identifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#.24str.28.29"><span class="tocnumber">6.1</span> <span class="toctext">$str()</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#.24strip.28.29"><span class="tocnumber">6.2</span> <span class="toctext">$strip()</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Basic_String_Operations">Basic String Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=1" title="Edit section: Basic String Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Since everything is a string in mSL, just assigning it to a variable is enough.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%x</span> = This is an example string.</span></pre>
+<p>We often want to get the length of such string. The $len identifier can be used to get that. 
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$len" title="$len - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$len</span></a><span class="mirc_bracket">&#x28;</span>apples and oranges<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;18</span></span></pre>
+<p>It is often desired to join two strings together. Such operation is called a <b>string concatenation</b>. The $+ operator can be used to concatenate two string together. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> -a A <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> B</span>
+<span class="code_line"><span class="mirc_comment">;AB</span></span></pre>
+<p>It's important to note that both identifiers and variables can be substituted instead of A and B. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>hello</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span> = Hello, World</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span> = <span class="mirc_variable">%x</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a>&#160;!</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <span class="mirc_variable">%x</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The output after executing the above code (/hello) is "Hello, World!"
+</p>
+<h2><span class="mw-headline" id="Substrings">Substrings</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=2" title="Edit section: Substrings">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A substring is a string that is part of a longer string. There are a number of built-in identifiers that can be used to retrieve a smaller portion of the original string.
+</p>
+<h3><span class="mw-headline" id=".24left.28.29_and_.24right.28.29">$left() and $right()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=3" title="Edit section: $left() and $right()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The first two identifiers you should be familiar with are the <a href="/wiki/mirc/identifiers/$left" title="mirc/identifiers/$left">$left</a> and <a href="/wiki/mirc/identifiers/$right" title="mirc/identifiers/$right">$right</a> identifiers which can be used to return the left or right most part of the original string respectably. Their syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;length&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$right" title="$right - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$right</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;length&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>$left always return text starting from the very left side while <a href="/wiki/mirc/identifiers/$right" title="mirc/identifiers/$right">$right</a> always return text starting from the right side.
+</p><p>If the length specified is a positive number, <a href="/wiki/mirc/identifiers/$left" title="mirc/identifiers/$left">$left</a> and <a href="/wiki/mirc/identifiers/$right" title="mirc/identifiers/$right">$right</a> will return up to that many characters from their respective sides. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span>abcdefg, 4<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$right" title="$right - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$right</span></a><span class="mirc_bracket">&#x28;</span>abcdefg, 4<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;Left: |abcd|efg</span></span>
+<span class="code_line"><span class="mirc_comment">;Right: abc|defg|</span></span></pre>
+<p>If the length specified is a negative number, $left and $right return the entire text minus that many characters from their respective sides. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span>abcdefg, -4<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$right" title="$right - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$right</span></a><span class="mirc_bracket">&#x28;</span>abcdefg, -4<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;Left: |abc|defg</span></span>
+<span class="code_line"><span class="mirc_comment">;Right: abcd|efg|</span></span></pre>
+<p>Here is one last example before we move on:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span>Hello There!, 5<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$right" title="$right - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$right</span></a><span class="mirc_bracket">&#x28;</span>Hi World!, 6<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>This gets the five left-most characters ("Hello") and the five right-most characters ("World!"). The final output is:
+</p>
+<pre>Hello World!</pre>
+<h3><span class="mw-headline" id=".24mid.28.29">$mid()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=4" title="Edit section: $mid()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/$left_identifier_-_mIRC" title="$left identifier - mIRC" class="mw-redirect">$left()</a> and <a href="/wiki/$right_identifier_-_mIRC" title="$right identifier - mIRC" class="mw-redirect">$right()</a> are great but they can get a little complicated if you want to get a substring from the middle of the string. For such cases, the $mid() identifier is a more powerful alternative. <a href="/w/index.php?title=$mid_identifier_-_mIRC&amp;action=edit&amp;redlink=1" class="new" title="$mid identifier - mIRC (page does not exist)">$mid()</a> has the following syntax: 
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;start&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;start&gt;, &lt;length&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Start is the start of the substring from the left. A negative value indicates a start from the right. In both case, an optional length can be specified. A negative length can be used to remove that many characters from the end.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%str</span> = I have not failed. I've just found 10,000 ways that won't work.</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, 53, 10<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Will output "won't work".
+</p>
+<h2><span class="mw-headline" id="Case_Transformation">Case Transformation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=5" title="Edit section: Case Transformation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The $islower and $isupper identifiers can be used to determine if a string is entirely made up of uppercase or lowercase letters (<a href="/wiki/mirc/identifiers/$true" title="mirc/identifiers/$true">$true</a>), or else they return <a href="/wiki/mirc/identifiers/$false" title="mirc/identifiers/$false">$false</a>. The same functionality is also built into an if statement using the isupper and islower operators. The $upper and $lower identifiers perform case conversion on an entire string or a string character.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>case_example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span> = Some random line!</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <span class="mirc_variable">%x</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$isupper" title="$isupper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$isupper</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$islower" title="$islower - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$islower</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <span class="mirc_variable">%x</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$isupper" title="$isupper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$isupper</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$islower" title="$islower - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$islower</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%x</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$lower" title="$lower - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$lower</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <span class="mirc_variable">%x</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$isupper" title="$isupper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$isupper</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$islower" title="$islower - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$islower</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Will generate the following output:
+</p>
+<pre>Some random line! = $false $false
+SOME RANDOM LINE! = $true $false
+some random line! = $false $true</pre>
+<h3><span class="mw-headline" id=".24lower.28.29_and_.24upper.28.29">$lower() and $upper()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=6" title="Edit section: $lower() and $upper()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The $lower() and $upper() identifiers can be used to transform the entire string into uppercase or lowercase letters. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span>HeLlO tHeRe<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$lower" title="$lower - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$lower</span></a><span class="mirc_bracket">&#x28;</span>HeLlO tHeRe<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Will produce:
+</p>
+<pre>HELLO THERE
+hello there</pre>
+<h2><span class="mw-headline" id="Searching">Searching</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=7" title="Edit section: Searching">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are a number of identifiers that can be used to search for a substring within a string. The first one is the $pos identifier which has the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$pos" title="$pos - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$pos</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$pos" title="$pos - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$pos</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;, &lt;occurrence&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The first variation returns the position of the first instance of the substring. If the substring is found multiple times within the string, you can specify the Nth occurrence you want. If you specify 0 for the occurrence, $pos will return the total number of substring found within the string. 
+</p><p><b>Note:</b> $poscs is a case-sensitive version of $pos; it has the same syntax. 
+</p><p>If you simply want to count the number of occurrences a list of substring is found in the string, you can use the $count identifier instead. It's syntax is as follows:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$count" title="$count - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$count</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, ...]<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Multiple substrings can be counted at once. Here is a simple example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$count" title="$count - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$count</span></a><span class="mirc_bracket">&#x28;</span>Apples and Oranges, apple, orange<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Which will print "2".
+</p><p><b>Note:</b> $countcs is a case-sensitive version of $count; it has the same syntax.
+</p>
+<h2><span class="mw-headline" id="Substring_Replacement_and_Removal">Substring Replacement and Removal</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=8" title="Edit section: Substring Replacement and Removal">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Replacement">Replacement</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=9" title="Edit section: Replacement">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There are two built-in string replacement identifiers, $replace and $replacex. The major difference between the two is that the later one will not apply replacement to any of the replaced strings. The syntax for both of them is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...]<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$replacex" title="$replacex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replacex</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;, &lt;replacement&gt;[, &lt;substring2&gt;, &lt;replacement2&gt;, ...]<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Let's start off with a small example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span>Hello World!, world, there<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Which will print "Hello there!". Below is a simple example. Note the difference between $replace and $replacex.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>rep</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%str</span> = 1 2 3 4</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; Each replacement will replace the previous one</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$replace" title="$replace - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replace</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, 1, 2, 2, 3, 3, 4, 4 , 5<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; Exclusive replacements</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$replacex" title="$replacex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replacex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, 1, 2, 2, 3, 3, 4, 4, 5<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Executing /rep will produce the following results:
+</p>
+<pre>5 5 5 5
+2 3 4 5</pre>
+<p><b>Note:</b> $replacecs/$replacexcs are case-sensitive versions of $replace/$replacex; it has the same syntax.
+</p>
+<h3><span class="mw-headline" id="Substring_Removal">Substring Removal</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=10" title="Edit section: Substring Removal">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>$remove is an identifier that can remove all occurrences of the substrings from the string. The syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$remove" title="$remove - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$remove</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;substring&gt;[, &lt;substring2&gt;, &lt;substring3&gt;, ...]<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>A small example is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$remove" title="$remove - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$remove</span></a><span class="mirc_bracket">&#x28;</span>aa bb cc dd ee aa bb cc dd ee, bb, dd<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Produces:
+</p>
+<pre>aa cc ee aa cc ee</pre>
+<h2><span class="mw-headline" id="Miscellaneous_Identifiers">Miscellaneous Identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=11" title="Edit section: Miscellaneous Identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Two more identifiers you should be aware of are $str() and $strip().
+</p>
+<h3><span class="mw-headline" id=".24str.28.29">$str()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=12" title="Edit section: $str()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>$str returns the same exact string repeated N amount of times. The syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$str" title="$str - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$str</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, &lt;N&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$str" title="$str - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$str</span></a><span class="mirc_bracket">&#x28;</span>Example, 10<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Produces: 
+</p>
+<pre>ExampleExampleExampleExampleExampleExampleExampleExampleExampleExample</pre>
+<h3><span class="mw-headline" id=".24strip.28.29">$strip()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit&amp;section=13" title="Edit section: $strip()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The $strip identifier can remove control codes from a string. The syntax for it is:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;Removes all control codes <span class="mirc_bracket">&#x28;</span>bold/underline/italics/color/reverse<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$strip" title="$strip - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$strip</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;Removes any combination of control codes</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$strip" title="$strip - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$strip</span></a><span class="mirc_bracket">&#x28;</span>&lt;string&gt;, buricmo<span class="mirc_bracket">&#x29;</span></span></pre>
+<ul><li> b = bold</li>
+<li> u = underline</li>
+<li> r = reverse</li>
+<li> i = italics</li>
+<li> c = color</li>
+<li> m = use messages option settings</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.093 seconds
+Real time usage: 0.098 seconds
+Preprocessor visited node count: 583/1000000
+Preprocessor generated node count: 1611/1000000
+Post‐expand include size: 883/2097152 bytes
+Template argument size: 331/2097152 bytes
+Highest expansion depth: 8/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   43.200      1 - -total
+ 66.85%   28.878      7 - Template:mIRC
+ 13.53%    5.845      7 - Template:url_parse_article
+ 12.18%    5.260      7 - Template:url_parse_anchor
+  9.92%    4.286      1 - Template:mirc_title
+  3.63%    1.570      1 - Template:mIRC_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:12-0!*!0!!en!*!* and timestamp 20160423093611 and revision id 13074
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/string_manipulation&amp;oldid=13074">http://en.wikichip.org/w/index.php?title=mirc/string_manipulation&amp;oldid=13074</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fstring+manipulation&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fstring+manipulation" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/string_manipulation"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/string_manipulation&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/string_manipulation" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/string_manipulation&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/string_manipulation" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/string_manipulation" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/string_manipulation&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/string_manipulation&amp;oldid=13074" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/string_manipulation&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Fstring_manipulation" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 12 December 2015, at 20:34.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":457});
+}</script>
+	</body>
+</html>

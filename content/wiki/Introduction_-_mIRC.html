@@ -1,0 +1,1351 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};</script>
+<script>window.ezslots_raw=[];var __sellerid='3c8aa5c3d999806f76e2fa0b45e0d104';var __schain_domain='';var __ez_nid ='1254144';__advertiserRule=['luckyparkclub.com','happy.luckyparkclub.com'];var ezasVars = {'cid':'2594856134','pid':'pub-1951113009523412','ssid':44};window.google_reactive_ads_global_state = {
+                adCount: {},
+                floatingAdsStacking: { maxZIndexListeners: [], maxZIndexRestrictions: {}, nextRestrictionId: 0 },
+                messageValidationEnabled: false,
+                reactiveTypeDisabledByPublisher: {},
+                reactiveTypeEnabledInAsfe: {},
+                sideRailAvailableSpace: [],
+                sideRailOverlappableElements: [],
+                stateForType: {},
+                tagSpecificState: {},
+                wasPlaTagProcessed: true,
+                wasReactiveAdConfigReceived: { 1: true, 2: true, 8: true },
+                wasReactiveAdVisible: {},
+                wasReactiveTagRequestSent: true,
+                description: "Can't disable auto ads programmatically on the page, so here we are!"
+            };window.ezasvEvent=function(e,o){if(e[0].isIntersecting===true){var i=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);window.ezoSTPixelAdd(i,'viewed',1);o.disconnect();}};window.ezaslEvent=function(m,o){if(typeof m[0].target.attributes['data-ad-status']!='undefined'){var v=m[0].target.attributes['data-ad-status'].value;var i=m[0].target.attributes[0].value.substr(0,m[0].target.attributes[0].value.length-9);if(v=='filled'){window.ezoSTPixelAdd(i,'loaded',1);var vo=new IntersectionObserver(window.ezasvEvent,{threshold:[1]});vo.observe(document.getElementById(i+'-asloaded'));}
+if(v=='unfilled'){window.ezoAdBackFill(m);}
+o.disconnect();}};window.ezoAdBackFill=function(m){var target=m[0].target;var parent=target.parentElement;target.style.display='none !important';var s=[parseInt(parent.getAttribute('ezaw')),parseInt(parent.getAttribute('ezah'))];var slsf=parent.parentElement.getAttribute('data-ez-name');var pId=parseInt(parent.parentElement.className.substr(parent.parentElement.className.lastIndexOf("-")+1));var sl=__ez_fad_initslot[parent.id]();var gId=parseInt(parent.id.substr(parent.id.lastIndexOf('-')+1,1));var man=0;if(parent.id.lastIndexOf('_')==parent.id.length-2){man=parseInt(parent.id.substr(parent.id.length-1,1));}
+var adUnit=[s,slsf,sl,pId,gId,man];var slot=window[sl];slot.setTargeting('compid','0');slot.setTargeting('bkfl','1');var br2=slot.getTargeting('br2')[0];if(typeof window.ezobfh!='undefined'&&typeof window.ezobfh[br2]!='undefined'){slot.setTargeting('br1',br2);slot.setTargeting('eb_br',window.ezobfh[br2]);}
+eval(ez_write_tag(adUnit));};window.ezoSTPixels=[];var stPixelInterval=setInterval(function(){if(typeof __ez!=='undefined'&&typeof __ezDotData!=='undefined'&&(typeof ezslots!=='undefined'&&window.ezslots_raw.length>0)){window.ezoSTPixelFire();clearInterval(stPixelInterval);}},250);window.ezoSTPixelAdd=function(id,name,value){window.ezoSTPixels.push({id:id,name:name,value:value});window.ezoSTPixelFire();};window.ezoGetSlotById=function(id){var slotId=id.split('div-gpt-ad-')[1].split('-',3).join('-');for(s in window.ezslots_raw){if(window.ezslots_raw[s].tap.includes(slotId)){return window.ezslots_raw[s];}}};window.ezoGetSlotNum=function(id){var slotId=id.split('div-gpt-ad-')[1].split('-',3).join('-');for(s in window.ezslots_raw){if(window.ezslots_raw[s].tap.includes(slotId)){return s;}}};window.ezoSTPixelFire=function(){if(typeof __ez!=='undefined'&&typeof __ezDotData!=='undefined'&&(typeof ezslots!=='undefined'&&window.ezslots_raw.length>0)){while(window.ezoSTPixels.length>0){var event=window.ezoSTPixels.shift();var s=window.ezoGetSlotById(event.id);var pxData=[{type:'impression',impression_id:s.eid,domain_id:window.did.toString(),unit:event.id,t_epoch:__ez.dot.getEpoch(0),ad_position:parseInt(s.ap),country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:1,data:__ez.dot.dataToStr([(new __ezDotData(event.name,event.value.toString()))]),is_orig:0}];var pxURL='/porpoiseant/army.gif';var pixelURL=__ez.dot.getURL(pxURL)+'?orig=0&sts='+btoa(JSON.stringify(pxData));__ez.dot.Fire(pixelURL);}}};</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<script>window.ezhbopt=true;</script>
+<link href="//ad.doubleclick.net" rel="dns-prefetch">
+<link href="//pagead2.googlesyndication.com" rel="dns-prefetch">
+<link href="//googleads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//tpc.googlesyndication.com" rel="dns-prefetch">
+<link href="//adservice.google.com" rel="dns-prefetch">
+<link href="//secureads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//www.googletagservices.com" rel="dns-prefetch">
+<link rel='preload' as='script' href='//securepubads.g.doubleclick.net/tag/js/gpt.js'>
+<link rel='preload' as='script' href='//go.ezodn.com/hb/dall.js?b=ix,pubmatic,rubicon,spotx,yahoossp,yieldmo&cb=195-3-41' onerror="window.ezDallErr=true">
+<script rel=preload async="" src="//c.amazon-adsystem.com/aax2/apstag.js"></script>
+<script data-cfasync="false" type="text/javascript" data-pagespeed-no-defer>var __ezaps=[{"slotID":"div-gpt-ad-wikichip_org-box-2-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-2","sizes":[[728,90]]},{"slotID":"div-gpt-ad-wikichip_org-box-3-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-3","sizes":[[970,90],[728,90]]},{"slotID":"div-gpt-ad-wikichip_org-medrectangle-1-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-medrectangle-1","sizes":[[580,400],[336,280],[300,250]]}];var __ezapsVideo=[];var __ezapid="aa05931b-5308-4ea3-95a2-adf84f4ffde4";!function(a9,a){if(a[a9])return;function q(c,r){a[a9]._Q.push([c,r])}
+a[a9]={init:function(){q("i",arguments)},fetchBids:function(){q("f",arguments)},setDisplayBids:function(){},targetingKeys:function(){return[]},_Q:[]};}("apstag",window);var schain_domain='ezoic.ai';if(typeof __ez_nid!='undefined'&&__ez_nid==21732118914){schain_domain='ezoic.co.uk';}
+var dom="";if(typeof location.host!='undefined'){dom=location.host;}
+window.amznVideoResponse={};apstag.init({pubID:__ezapid,adServer:'googletag',videoAdServer:'DFP',schain:{complete:1,ver:'1.0',nodes:[{asi:schain_domain,sid:__sellerid,domain:dom,hp:1}]}});function getAmazonSlotById(id){if(typeof __ezaps==='undefined'){return;}
+for(var i=0;i<__ezaps.length;i++){var slot=__ezaps[i];if(typeof slot==='undefined'){continue;}
+var slotId=slot.slotID;if(typeof slotId!=='undefined'&&slotId==id){return slot;}}
+return false;}
+function ezapsFetchBids(amazonSlots,adType){if(typeof amazonSlots==='undefined'||amazonSlots.length===0){return}
+apstag.fetchBids({slots:amazonSlots,timeout:2e3},function(bids){setA9DisplayBids(bids);});}
+function setA9VideoBids(bids){for(b in bids){var bid=bids[b];window.amznVideoResponse[bid.slotID].params=bid.qsParams;window.amznVideoResponse[bid.slotID].raw=bid;}}
+function setA9DisplayBids(bids){if(typeof bids==='undefined'||bids.length==0){return;}
+var keys=apstag.targetingKeys();for(var i=0;i<bids.length;i++){var bid=bids[i];for(var k=0;k<keys.length;k++){if(keys[k]in bid){ezSetSlotTargeting(bid.slotID,keys[k],bid[keys[k]]);}}}}
+if(typeof __tcfapi!="undefined"){}else{ezapsFetchBids(__ezaps,'banner');if(typeof __ezapsVideo!='undefined'){ezapsFetchBids(__ezapsVideo,'video')}}</script>
+<script type="text/javascript">
+	var __banger_pmp_deals=function(){var d={17:{"DealId":17,"Floor":160},18:{"DealId":18,"Floor":25},19:{"DealId":19,"Floor":100},1428:{"DealId":1428,"Floor":25},2351:{"DealId":2351,"Floor":155},2610:{"DealId":2610,"Floor":125},2688:{"DealId":2688,"Floor":100},2693:{"DealId":2693,"Floor":50},2761:{"DealId":2761,"Floor":200},2763:{"DealId":2763,"Floor":250},3044:{"DealId":3044,"Floor":175},3045:{"DealId":3045,"Floor":75},3052:{"DealId":3052,"Floor":20},3053:{"DealId":3053,"Floor":37},3154:{"DealId":3154,"Floor":275}};return[{"SlotName":"/1254144,21625046521/wikichip_org-medrectangle-1","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-2","Deals":[d[18],d[19],d[1428],d[2688],d[2693],d[3045],d[3052],d[3053]]},{"SlotName":"/1254144,21625046521/wikichip_org-large-mobile-banner-1","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[3044],d[3045],d[3052],d[3053]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-3","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[3044],d[3045],d[3052],d[3053]]}]}();
+</script>
+<script type='text/javascript'>_ebcids=[138231308856,138231308940,138231308949,138231387842,138231421744,138231421759,138231421774,138231421783,138231421789,138231421792,138242067587,138242067590,138242067602,138242067605,138242067608,138242067614,138242229406,138242229415,138242229421,138242229430];</script>
+<script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>ezobv=123;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>function ez_isclean(data){if(typeof data==='undefined'){data=document.URL;}
+var re=/(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))(@|%2540|%40)((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;var isClean=!re.test(data);return isClean;}
+var ezSlotKVStore={};function ezSetSlotTargeting(divid,key,value){var slot=ezGetSlotById(divid);if(slot){slot.setTargeting(key,value);}else{if(typeof ezSlotKVStore[divid]=='undefined'){ezSlotKVStore[divid]={};}
+ezSlotKVStore[divid][key]=value;}}
+function ezGetSlotById(id){if(typeof window.ezslots==='undefined'||window.ezslots==0){return;}
+for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var slotId=slot.getSlotElementId();if(typeof slotId!=='undefined'&&slotId==id){return slot;}}}
+function ezSetTargetingFromMap(slot,obj){if(typeof slot==='undefined'){return;}
+for(var key in obj){if(!obj.hasOwnProperty(key)){continue;}
+slot.setTargeting(key,obj[key]);}}
+var ez_queue=new Array();function sort_queue(a,b)
+{if(a.priority<b.priority)return-1;else if(a.priority==b.priority)return 0;else return 1;}
+function execute_ez_queue()
+{ez_queue.sort(sort_queue);for(var i in ez_queue)
+{if(typeof ez_queue[i].method!="undefined")
+{try{ez_queue[i].method.call(null);}
+catch(err){}}}}
+window.ez_ad_units=new Array();window.ezslots=new Array();window.ezsrqt={};function ez_write_tag(d){if(ez_isclean()&&d instanceof Array){if(typeof ezstandalone!=='undefined'&&typeof ezstandalone.selectedPlaceholders!=='undefined'&&ezstandalone.selectedPlaceholders[d[3]]===true){return "1+1";}
+if(typeof ezstandaloneForAll!=='undefined'&&typeof ezstandaloneForAll.selectedPlaceholders!=='undefined'&&ezstandaloneForAll.selectedPlaceholders[d[3]]===true){return "1+1";}
+ez_ad_units[ez_ad_units.length]=d;var dve="";if(typeof d[5]!='undefined'&&d[5]>0){dve='_'+d[5];}
+var ezcmd="googletag.cmd.push(function() {var divid = 'div-gpt-ad-"+d[1]+"-"+d[4]+""+dve+"';if(typeof ezlrarn == 'function'){ezlrarn(divid);}googletag.display(divid);var to = 0;if("+d[2]+".getTargeting('ga')[0] == '0'){to = 500;}if((window.ezDisableInitialLoad==true || googletag.pubads().isInitialLoadDisabled()) && window.ezoll != true){setTimeout(function(){if(typeof window.adjustHbValues == 'function'){window.adjustHbValues("+d[2]+");}if(typeof window.ezasBuild == 'function' && window.ezasBuild("+d[2]+")){return;}googletag.pubads().refresh(["+d[2]+"])},to);}});";return ezcmd;}
+return "1+1";}
+function in_array(needle,haystack){var length=haystack.length;for(var i=0;i<length;i++){if(haystack[i]==needle)return true;}
+return false;}
+var ezrpos=new Array();var ez_current_interval;var ez_current_load=0;function __ez_fad_load(n,r,force){if(!force&&(!__ez_fad_csnt()||!__ez_fad_rdy()||ezslit_run[n]===true||typeof __ez_fad_divs[n]==='undefined'||__ez_fad_divs[n].length===0)){return;}
+ezslit_run[n]=true;__ez_fad_gpt();if(n>0&&n!==5){__ez_fad_pb();}
+googletag.cmd.push(function(){var s=[];for(var i=0;i<__ez_fad_divs[n].length;i++){if(__ez_fad_divsd.indexOf(__ez_fad_divs[n][i])==-1){__ez_fad_divsd.push(__ez_fad_divs[n][i]);s.push(__ez_fad_initslot[__ez_fad_divs[n][i]](r));googletag.display(__ez_fad_divs[n][i]);}}
+var ws=[];for(i3=0;i3<s.length;i3++){var slot=window[s[i3]];if(typeof window.ezasBuild==='function'){if(window.ezasBuild(slot)){continue;}}
+if(typeof window.adjustHbValues==='function'){window.adjustHbValues(slot);}
+ws.push(slot);}
+if(ws.length>0){googletag.pubads().refresh(ws);}
+setTimeout(__ez_fad_floatshow,0);});if(n===0){if(document.readyState==="complete"){googletag.cmd.push(function(){__ez_fad_load(5,null);});setTimeout(function(){__ez_fad_load(1,null);__ez_fad_load(5,null);},5500);return;}
+document.addEventListener('DOMContentLoaded',function(evt){googletag.cmd.push(function(){__ez_fad_load(5,null);});setTimeout(function(){__ez_fad_load(1,null);__ez_fad_load(5,null);},5500);},false);}}
+var __ez_fad_floatshowd=false;function __ez_fad_floatshow(d){if(__ez_fad_floatshowd===true||typeof __ez_fad_floating==='undefined'){return;}
+__ez_fad_floatshowd=true;var e=document.getElementById('ezmobfooter');if(e!=null){e.classList.add('ezmobtrans');}else{head=document.head||document.getElementsByTagName('head')[0],style=document.createElement('style');head.appendChild(style);var css="body > #ezmobfooter{bottom:0px;visibility:visible;}";style.type='text/css';if(style.styleSheet){style.styleSheet.cssText=css;}else{style.appendChild(document.createTextNode(css));}}
+googletag.cmd.push(function(){for(var i=0;i<__ez_fad_floating.length;i++){var s=__ez_fad_initslot[__ez_fad_floating[i]](null);googletag.display(__ez_fad_floating[i]);if(typeof window.adjustHbValues==='function'){window.adjustHbValues(window[s]);}
+googletag.pubads().refresh([window[s]]);}});}
+var __ez_fad_initslot={};var __ez_fad_fastd=[];var __ez_fad_fastdiv=[];var __ez_fad_fastslots=[];var __ez_fad_viewslots=[];var __ez_fad_instaslots=[];var ezslit_run=[];var __ez_fad_divs=[[],[],[],[],[],[],[]];__ez_fad_divpos={};var __ez_fad_divsd=[];var __ez_fad_vw=window.screen.width;var __ez_fad_vh=window.screen.height;var __ez_fad_count=0;function __ez_fad_invisible(e){!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)}
+function __ez_fad_position(id){var did=document.getElementById(id);if(did===null){return;}
+var rect=did.getBoundingClientRect();var vs=window.scrollY||document.body.scrollTop||document.documentElement.scrollTop;var vh=vs+__ez_fad_vh;_ez_fad_vw=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;__ez_fad_vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);var height_adjust=800;if(__ez_fad_vw<1200){height_adjust=__ez_fad_vh*1.25;vh+=0;}
+if(__ez_fad_floating.indexOf(id)!==-1){__ez_fad_load(6,null,true);return;}
+__ez_fad_divpos[id]=rect.top;if(__ez_fad_invisible(did)&&isFloat!=true){__ez_fad_add(4,id);}else if(rect.top<vh&&(ezslit_run[0]!=true||ezslit_run[5]!=true)){if(ezslit_run[0]!=true){__ez_fad_gpt();__ez_fad_add(0,id);}else{__ez_fad_add(5,id);}}else if(rect.top<(vh+height_adjust)&&ezslit_run[1]!=true){if(ezslit_run[0]!=true){__ez_fad_load(0,0);};__ez_fad_add(1,id);}else if(rect.top<(vh+height_adjust+(__ez_fad_vh))&&ezslit_run[2]!=true){if(ezslit_run[0]!=true){__ez_fad_load(0,0);}
+__ez_fad_add(2,id);}else{if(ezslit_run[0]!=true){__ez_fad_load(0,0);}
+__ez_fad_add(3,id);}
+__ez_fad_count++;}
+function __ez_fad_add(d,id){__ez_fad_divs[d].push(id);if(ezslit_run[d]===true){ezslit_run[d]=false;}
+if(typeof __ez_fad_scrollmond!=='undefined'&&__ez_fad_scrollmond===true){__ez_fad_scrollmond=false;setTimeout(__ez_fad_scrollmon,500);}}
+function __ez_fad_fast(s,f,m){if(__ez_fad_fastd.indexOf(s)==-1){__ez_fad_fastd.push(s);var ebbr2='empty';var br2=0;if(typeof ezoibfh[f]!='undefined'){ebbr2=ezoibfh[f];br2=f;}
+if(typeof window['ezslot_'+s]!='undefined'){var br1=parseInt(window['ezslot_'+s].getTargeting('br1')[0]);if(isNaN(br1)||br2<br1){window['ezslot_'+s].setTargeting('br1',br2).setTargeting('eb_br',ebbr2);if(m!=null){window['ezslot_'+s].setTargeting('bvr',m);}}else{}}else{}}}
+function __ez_fad_csnt(){return document.cookie.indexOf('ezCMPCookieConsent')!==-1||typeof __ez_conestreq=='undefined';}
+var __ez_fad_haspo=false;if(typeof PerformanceObserver!='undefined'&&typeof PerformanceObserver.supportedEntryTypes!='undefined'){if(PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint')>-1){__ez_fad_haspo=true;}}
+function __ez_fad_rdy(){if(document.body!==null&&(__ez_fad_haspo==false&&__ez_fad_doc_ht>__ez_fad_vp_ht||__ez_fad_hascp)||document.readyState==="complete"){return true;}else{__ez_fad_doc_ht=__ez_fad_docht();__ez_fad_vp_ht=__ez_fad_vpht();}
+return false;}
+function __ez_fad_docht(){if(typeof document.body!='undefined'&&document.body!=null){return Math.max(document.body.scrollHeight,document.body.offsetHeight);}else if(typeof document.documentElement!='undefined'){return Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);}else{return 0;}}
+function __ez_fad_vpht(){if(typeof window.innerHeight!='undefined'){return window.innerHeight;}else if(typeof document.body!='undefined'&&document.body!=null){return document.body.clientHeight;}else if(typeof document.documentElement!='undefined'){return document.documentElement.clientHeight;}
+else{return 0;}}
+function __ez_close_anchor(){googletag.cmd.push(function(slot){for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var alS=slot.getTargeting('al')[0]%1000;if(alS==5){googletag.destroySlots([slot]);}}
+__ez_set_cnx_floor(0);var anchor=document.getElementById('ezmobfooter');if(!anchor){return;}
+anchor.innerHTML='';var styleElement=document.getElementById('ezoicCSS');if(!styleElement){return;}
+var styles=styleElement.sheet?styleElement.sheet:styleElement.styleSheet;for(var i=0;i<styles.cssRules.length;i++){var rules=styles.cssRules[i];if(rules.selectorText==='body'&&rules.style.height==='auto'&&(rules.style.paddingTop!==''||rules.style.paddingBottom!=='')){styles.deleteRule(i);}}});}
+function __ez_get_footer_height(){var anchorAdSlot=document.getElementById('ezmobfooter').querySelectorAll('[class*=\'ezoic-ad\']');if(!anchorAdSlot||anchorAdSlot.length<1||anchorAdSlot[0].innerHTML==''){return 0;}
+return Math.max(anchorAdSlot[0].scrollHeight,anchorAdSlot[0].clientHeight,anchorAdSlot[0].offsetHeight);}
+function __ez_set_cnx_floor(px){var cnx=document.getElementsByClassName('cnx-float');if(!cnx||cnx.length<1){return;}
+cnx=cnx[0];cnx.style.top=(-1*px)+'px';}
+function __ez_auto_adjust_cnx_float(){var cnxFloatOffset=0;var anchor=document.getElementById('ezmobfooter');if(anchor&&anchor.innerHTML!=''){cnxFloatOffset=__ez_get_footer_height();}else{cnxFloatOffset=0;}
+__ez_set_cnx_floor(cnxFloatOffset);}
+var __ez_fad_doc_ht=__ez_fad_docht();var __ez_fad_vp_ht=__ez_fad_vpht();var __ez_fad_hascp=false;try{const __ez__fad_po=new PerformanceObserver((entryList)=>{__ez_fad_hascp=true;});__ez__fad_po.observe({type:'largest-contentful-paint',buffered:true});}catch(e){}</script><script type='text/javascript' data-ezscrex="false">var ezorbf = []; </script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.isEZABL=false;window.ezmadspc=300;window.ezoViewCheck=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezDisableInitialLoad=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezogetbrkey = function(s){ var k = 'br1';var k2 = 'eb_br';if(window.ezogtk == ""){k='br1u';k2='eb_bru';}else if(window.ezogtk != "NT"){k='br1t';k2='eb_brt';} s.setTargeting('br1', s.getTargeting(k));s.setTargeting('eb_br', s.getTargeting(k2));};googletag.cmd.push(function() {window.ezslots_raw.push({'a':'1','iid1':'3053699211554632','eid':'3053699211554632','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1192','sap':'1192','a':'|3|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'398','ezosn':'1','reft':'n','refs':'30','ga':'2497208','gala':'','rid':'99998','pt':'722','al':'1722','compid':'1','tap':'wikichip_org-large-mobile-banner-1-3053699211554632','eb_br':'60474211daf1dfd4d90000ea01f56c30','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'28','bvm':'2','bvr':'5','shp':'3','ftsn':'12','ftsng':'12','br1':'0','br2':'100','ezoic':'1','nmau':'0','mau':'0','stl':[63,168,0,67,0,131,88,192,192,197,205,0,901,182,901,902,903],'deal1':[20,21,22,23,24,25,26,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,774,3161],'ax_ssid':'10082'});googletag.pubads().enableSingleRequest();googletag.pubads().addEventListener('slotRenderEnded', function(event) { __ez.queue.addFunc("ezbanger", "ezbanger", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('impressionViewable', function(event) { __ez.queue.addFunc("ezvb", "ezvb", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotResponseReceived', function(event) { __ez.queue.addFunc("ezsr", "ezsr", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotRequested', function(e) { window.ezsrqt[e.slot.getSlotElementId()] = Date.now();});googletag.pubads().disableInitialLoad();googletag.pubads().enableLazyLoad({fetchMarginPercent: 600, renderMarginPercent: 60, mobileScaling: 2.0});googletag.enableServices();});window.ezoll = false;window.ezoadxnc = '1254144';window.ezoadhb = '280';var ezoibfh = {0:'zero',1000000:'off',90:'b355e9227b551c119a30a68852723b62',23000:'552e8e97b01f90c98fb547b2a5981bd0',2800:'a9ec56005762ef40746ec1b6d554f472',1100:'39abb99448d54704c4afa42efe76e15d',700:'8b07bae800b215e481d05a271b3e723b',6000:'49d60519eec4f00cfb2d91dec1e48d41',220:'43aa1607a0c08c74b14a9039e7b909b4',20:'7432360301409ae695ba255f16fbcf06',550:'26dfa00588543c52511429ade391f561',38:'23b5ca1d9de2587e6a4ecfd33d61b709',7500:'0de5c793b95df3adacbee8e14c308afc',5000:'116f73d8738ced0c5546d5313109581e',2700:'401612ca672af30f67eaf5e0989ce385',950:'c410f2a2b0c2123f4b6651cda6c5cf53',44:'a928cf2c3ad36f5e9ed2d90f655c1dc9',2:'b6c98a8bb15764f1c4ee331dcb724178',26000:'3353de688cbba074dc3d34ad3502a0ff',5500:'b069a06daabd6e3043166f0e7a2edef4',4400:'a2de9c8773c426848d7815dff1d2d44f',140:'af063c244089b52ec5a0423a258f1f8e',25000:'ede18341593c9244092e13352cd25399',8500:'d5abc50791c030d76efa2ded02dcc115',30:'54d0fa6d5f6aabe7623cb24faa42a441',17000:'3da233249b44074269c3efb64036ffd5',13000:'ca9543a8ad10743f5aa794997ac1abc5',50:'3ba982fc4238dd4197b1d51b345478dc',8:'2e8b8c60843e52e5aaa1e3a52287a2bb',4800:'f0459c7057d45e6fbbed62c0762b551e',22:'1e913e99b80640fd5b86a539e5b97c94',2500:'78e9436ba8e29037bc31f94589331e0b',1600:'6dbaa2f5e27e83e2fcd15988d9095988',60:'c352ba581bd3ffd8cea608cf2d55f519',32:'d31e71883d00099e275b6c5878eed023',120:'58ef7bddb438af5e257c4377f32c243a',7000:'4552fb4beab2a055aec0d6113a8d9e42',3800:'58e03b675175bbbec8566d319041c5ee',3000:'92831edb305b955e915a7cc2288d5df6',2000:'12a3b3570adcf20fd41a00445219acaa',9000:'e4c87a0c427c95c548a2ad50bc2fc99d',3400:'2c0082dd1efc5e4dfdd4f50677fea822',1500:'d81e229576f8cb8a43ff5c6a8e596727',6500:'b6ac10cddc8471927cec0144110502e9',4600:'d297138284357206d38c781a2291b99a',16000:'0be7d3ca3d2b552da080ad176e959a53',10500:'42a903505d4ae4416a53434b5cb0a4d9',1200:'736e09a0771285737509ab8954c475a7',1000:'c5429b6ddd929d0bc40a832a87789a7c',12000:'e66f3eb6142bbf8f4ebbbd31c5540a1a',650:'5bac35e1a3b6adc56da706000a645484',400:'76163170a8636ae5b88417f095893e08',300:'90c3c48d0172916d27c102ea4aa9d49c',28:'674294a1b21a1e89fc99c14c9b17be44',8000:'e41b3739f340bda9dcfb30f79c9db1c9',2100:'b2ac58e6c0c84fc65f344f47dd85768b',29000:'c50a963ecc62061b386b119512894997',24000:'848e945a6d42b7cae5b508d9d9c916fd',11500:'8eb8a64575469eb8117112aafe0739a6',40:'ee685f77592ce296910ee91457d66ba3',2300:'a835e008e248a793da87524a4919f755',16:'e29f69dd468d31a5514dc9b5587ce757',1700:'ff69c327c284033fca821ae81630bfa9',350:'9e0a1ce5b2455cb9b48d5df4c6bf4053',100:'a495ce7dbb4cefcd3e0a722048894f41',70:'527e52c10635ac8136a4c84094ee49a8',14000:'bbd63bbbf7aa5d55b64d29b4f3919d02',1300:'bfa042bdb1583c959161b7823290dc1f',21000:'e2cb818af42582fdeb5b2404292a4fdc',600:'45a351e981f435b4c20fafca8a5d741c',27000:'8462e0f3d6ab7810a949e580cef2530d',42:'947f1d5169cc7d0f997560e34838fb04',36:'8c5ffefb122f59a66a8b7672d4452af2',9500:'6fd3046d2172040882079eb07d0038c9',48:'8fc09e60bfd78aa82afac0405213359a',10:'291d27313eb66c50243129b23df8a579',280:'c16fac08e79a971524b1c6834f5caad3',19000:'9df342ed088a8ed25a61eedd7f755215',10000:'f1e225445ec024e41bfd8ce2ba4aa91b',3200:'41ad5c6ea7dab736638507e437e60604',2400:'6240c545bce1855c4e5a6ca430f526b1',80:'dfa60cee6e1053fc0c9e607c8047bd28',12:'14e8a85d4c42ff1db8790cbef9e33493',30000:'bdc0577cc25fcd86ffc2dedc35a93ae4',20000:'1c275170760cdb315e09a0caab859d82',18000:'f889e5f2be62dc0efa8535a9ac72a5ae',240:'8de2c8ca79e8623e3cb37120a35ebaa2',3600:'81f896ad12450b2f0257b1df6d3f1edc',1900:'65b2c11be72ed8610e2ac0304f3023a9',200:'86802a923a1f32517e4c5d3b6d550271',34:'a7a863b24978e69c4cdbb5a49be70d5e',2600:'cc65d2d1fcda72df55233f97cf215dad',260:'57914c3716312cb7e954090f0717ea25',4200:'e9b52ed700c176b9b3f036aa176f3f3e',450:'6e85b37de1b1ffc2593baa5d6e4b02fc',180:'9ae587f95e95c876b7b76fd4c72a3838',15000:'12f5d1db0577f9224a03666dcf42dc53',4000:'e95a0029a1c0d52e1f82ee010826e7d9',2200:'2620dac3b050a8e36c132f49cccab5a1',14:'ad0061a38dd7c6f7bcb692aee88dfda4',6:'33dd523f8e4dda158f0aa99686dda7f2',1400:'04b5efc3207e2390972f099a6a3c4757',900:'eeb0e32289ff31f9ddef18331038e5e9',46:'fe5b0c99ab7ba15f050582be1301303f',24:'e66c30deca31b19eda212eeca1258584',750:'6ac330e431a70c7d8ce9fb95aee95c72',26:'bf9a045b836005b6c23b7b0749249612',18:'8de355ef1cf56b7da61277050d9957b1',4:'9c3e4ee8eae7f1433cb2fe69b1326605',160:'3530fcb6bcc13dc3c1712eaef7d92700',22000:'186f90c3cb2b602e78597d6478cc05e6',1800:'72c13a89ac876aaffdde39253459460b',850:'5297de5240aa45da173a0792747e0d26',500:'5f2b94bb26a5aa9b1a00e66d30cfd5ec',28000:'6e7360126718801a2c512a507353f6ba',11000:'b6b0d056da189d64dad3536d1704244e',2900:'ef3231a19d034bff92faf99318a47a5f',800:'dc3573d5dc41abdf97751be02f53537f'};var ezaxmns={};var ezaucmns={};ezaxmns["div-gpt-ad-wikichip_org-large-mobile-banner-1-0"]=0;ezaucmns["div-gpt-ad-wikichip_org-large-mobile-banner-1-0"]=0;ezaxmns["div-gpt-ad-wikichip_org-box-3-0"]=0;ezaucmns["div-gpt-ad-wikichip_org-box-3-0"]=0;ezaxmns["div-gpt-ad-wikichip_org-medrectangle-1-0"]=0;ezaucmns["div-gpt-ad-wikichip_org-medrectangle-1-0"]=0;ezaxmns["div-gpt-ad-wikichip_org-box-2-0"]=0;ezaucmns["div-gpt-ad-wikichip_org-box-2-0"]=0;
+
+		var __ez_fad_floating = [];
+		var __ez_fad_gptd = __ez_fad_gptd || false;var __ez_fad_ezpbinitd = false;var __ez_fad_pbt = setTimeout(function(){__ez_fad_pb();},5000);function __ez_fad_gpt(){if(__ez_fad_gptd == false){__ez_fad_gptd=true;(function(){var gads=document.createElement('script');gads.async=true;gads.type='text/javascript';var useSSL='https:'==document.location.protocol;gads.src=(useSSL?'https:':'http:')+
+'//securepubads.g.doubleclick.net/tag/js/gpt.js';var node=document.getElementsByTagName('script')[0];node.parentNode.insertBefore(gads,node);})();}}function __ez_fad_pb(){if(__ez_fad_ezpbinitd==false && typeof __ez_fad_ezpbinit == 'function'){__ez_fad_ezpbinitd = true;__ez_fad_ezpbinit()}};
+		__ez_fad_initslot['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(bvr){
+				googletag.cmd.push(function() {
+				var did = 'div-gpt-ad-wikichip_org-large-mobile-banner-1-0';
+				ezslot_1 = googletag.defineSlot('/1254144,21625046521/wikichip_org-large-mobile-banner-1',[[250,250],[300,250],[320,50],[320,100],[180,150],[234,60],[336,280],[200,200],[125,125],[120,240],['fluid']],'div-gpt-ad-wikichip_org-large-mobile-banner-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false).defineSizeMapping(googletag.sizeMapping().addSize([300,0],[336,280]).addSize([0,0], []).build());var ezslot_1_raw = {'a':'1','iid1':'3053699211554632','eid':'3053699211554632','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1192','sap':'1192','a':'|3|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'398','ezosn':'1','reft':'n','refs':'30','ga':'2497208','gala':'','rid':'99998','pt':'722','al':'1722','compid':'1','tap':'wikichip_org-large-mobile-banner-1-3053699211554632','eb_br':'60474211daf1dfd4d90000ea01f56c30','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'28','bvm':'2','bvr':'5','shp':'3','ftsn':'12','ftsng':'12','br1':'0','br2':'100','ezoic':'1','nmau':'0','mau':'0','stl':[63,168,0,67,0,131,88,192,192,197,205,0,901,182,901,902,903],'deal1':[20,21,22,23,24,25,26,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,774,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_1_raw);ezSetTargetingFromMap(ezslot_1,ezslot_1_raw);ezrpos[1]="1";ezslots.push("ezslot_1");
+				if(bvr != null){
+					if(typeof __ez_fad_fastslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] == 'function') {
+						__ez_fad_fastslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0']();
+					}
+				}
+				if(typeof ezSlotKVStore != 'undefined' && typeof ezSlotKVStore[did] != 'undefined') {
+					for (var name in ezSlotKVStore[did]) {
+						if (!ezSlotKVStore.hasOwnProperty(name)) {
+							ezSetSlotTargeting(did, name, ezSlotKVStore[did][name]);
+						}
+					}
+					ezSlotKVStore[did] = {};
+				}
+			});return "ezslot_1";};
+			__ez_fad_fastslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-large-mobile-banner-1-0');};
+			__ez_fad_viewslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-large-mobile-banner-1-0');};
+			__ez_fad_instaslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-large-mobile-banner-1-0');};__ez_fad_initslot['div-gpt-ad-wikichip_org-box-3-0'] = function(bvr){
+				googletag.cmd.push(function() {
+				var did = 'div-gpt-ad-wikichip_org-box-3-0';
+				ezslot_2 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-3',[970,90],'div-gpt-ad-wikichip_org-box-3-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_2_raw = {'a':'1','iid1':'1040606181564047','eid':'1040606181564047','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1160','sap':'1160','a':'|2|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'398','ezosn':'2','reft':'tf','refs':'30','ga':'2497208','gala':'','rid':'99998','pt':'2','al':'1002','compid':'0','tap':'wikichip_org-box-3-1040606181564047','eb_br':'86802a923a1f32517e4c5d3b6d550271','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'4','bvm':'0','bvr':'4','shp':'1','ftsn':'12','ftsng':'12','br1':'200','br2':'100','ezoic':'1','nmau':'0','mau':'0','stl':[37,168,0,67,0,131,196,192,192,197,205,0,901,182,901,902,903],'deal1':[20,21,22,23,24,25,26,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,774,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_2_raw);ezSetTargetingFromMap(ezslot_2,ezslot_2_raw);ezrpos[2]="2";ezslots.push("ezslot_2");
+				if(bvr != null){
+					if(typeof __ez_fad_fastslots['div-gpt-ad-wikichip_org-box-3-0'] == 'function') {
+						__ez_fad_fastslots['div-gpt-ad-wikichip_org-box-3-0']();
+					}
+				}
+				if(typeof ezSlotKVStore != 'undefined' && typeof ezSlotKVStore[did] != 'undefined') {
+					for (var name in ezSlotKVStore[did]) {
+						if (!ezSlotKVStore.hasOwnProperty(name)) {
+							ezSetSlotTargeting(did, name, ezSlotKVStore[did][name]);
+						}
+					}
+					ezSlotKVStore[did] = {};
+				}
+			});return "ezslot_2";};
+			__ez_fad_fastslots['div-gpt-ad-wikichip_org-box-3-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-3-0');};
+			__ez_fad_viewslots['div-gpt-ad-wikichip_org-box-3-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-3-0');};
+			__ez_fad_instaslots['div-gpt-ad-wikichip_org-box-3-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-3-0');};__ez_fad_initslot['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(bvr){
+				googletag.cmd.push(function() {
+				var did = 'div-gpt-ad-wikichip_org-medrectangle-1-0';
+				ezslot_3 = googletag.defineSlot('/1254144,21625046521/wikichip_org-medrectangle-1',[[580,400],[180,150],[125,125],[728,90],[300,250],[320,50],[250,250],[200,200],[970,90],[234,60],[468,60],[320,100],[120,240],[970,250],['fluid']],'div-gpt-ad-wikichip_org-medrectangle-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_3_raw = {'a':'1','iid1':'3259201657548270','eid':'3259201657548270','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1127','sap':'1127','a':'|252|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'398','ezosn':'3','reft':'tf','refs':'30','ga':'2497208','gala':'','rid':'99998','pt':'4','al':'1004','compid':'0','tap':'wikichip_org-medrectangle-1-3259201657548270','eb_br':'c16fac08e79a971524b1c6834f5caad3','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'4','bvm':'0','bvr':'4','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'280','br2':'140','ezoic':'1','nmau':'0','mau':'0','stl':[83,63,120,67,51,63,66,71,0,30,64,31,901,902,903],'deal1':[20,21,22,23,24,25,26,2310,2339,2526,2527,2764,2765,3054,3430,3455,3456,3457,3458,3460,774,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_3_raw);ezSetTargetingFromMap(ezslot_3,ezslot_3_raw);ezrpos[3]="3";ezslots.push("ezslot_3");
+				if(bvr != null){
+					if(typeof __ez_fad_fastslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] == 'function') {
+						__ez_fad_fastslots['div-gpt-ad-wikichip_org-medrectangle-1-0']();
+					}
+				}
+				if(typeof ezSlotKVStore != 'undefined' && typeof ezSlotKVStore[did] != 'undefined') {
+					for (var name in ezSlotKVStore[did]) {
+						if (!ezSlotKVStore.hasOwnProperty(name)) {
+							ezSetSlotTargeting(did, name, ezSlotKVStore[did][name]);
+						}
+					}
+					ezSlotKVStore[did] = {};
+				}
+			});return "ezslot_3";};
+			__ez_fad_fastslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-medrectangle-1-0');};
+			__ez_fad_viewslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-medrectangle-1-0');};
+			__ez_fad_instaslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-medrectangle-1-0');};__ez_fad_initslot['div-gpt-ad-wikichip_org-box-2-0'] = function(bvr){
+				googletag.cmd.push(function() {
+				var did = 'div-gpt-ad-wikichip_org-box-2-0';
+				ezslot_0 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-2',[728,90],'div-gpt-ad-wikichip_org-box-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_0_raw = {'a':'1','iid1':'6744431347572592','eid':'6744431347572592','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1138','sap':'1138','a':'|1|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'398','ezosn':'0','reft':'n','refs':'30','ga':'2497208','gala':'','rid':'99998','pt':'1','al':'1001','compid':'0','tap':'wikichip_org-box-2-6744431347572592','eb_br':'58ef7bddb438af5e257c4377f32c243a','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'0','bvm':'2','bvr':'4','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'120','br2':'60','ezoic':'1','nmau':'0','mau':'0','stl':[157,168,0,192,0,193,192,20,71,201,192,31,902,903,901,902,903],'deal1':[17,20,21,22,23,24,25,26,2310,2339,2351,2526,2527,2610,2761,2763,2764,2765,3044,3054,3154,3430,3455,3456,3457,3458,3460,774,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_0_raw);ezSetTargetingFromMap(ezslot_0,ezslot_0_raw);ezrpos[0]="0";ezslots.push("ezslot_0");
+				if(bvr != null){
+					if(typeof __ez_fad_fastslots['div-gpt-ad-wikichip_org-box-2-0'] == 'function') {
+						__ez_fad_fastslots['div-gpt-ad-wikichip_org-box-2-0']();
+					}
+				}
+				if(typeof ezSlotKVStore != 'undefined' && typeof ezSlotKVStore[did] != 'undefined') {
+					for (var name in ezSlotKVStore[did]) {
+						if (!ezSlotKVStore.hasOwnProperty(name)) {
+							ezSetSlotTargeting(did, name, ezSlotKVStore[did][name]);
+						}
+					}
+					ezSlotKVStore[did] = {};
+				}
+			});return "ezslot_0";};
+			__ez_fad_fastslots['div-gpt-ad-wikichip_org-box-2-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-2-0');};
+			__ez_fad_viewslots['div-gpt-ad-wikichip_org-box-2-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-2-0');};
+			__ez_fad_instaslots['div-gpt-ad-wikichip_org-box-2-0'] = function(){__ez_fad_fastdiv.push('div-gpt-ad-wikichip_org-box-2-0');};</script>
+<script type="text/javascript">(function(){function storageAvailable(type){var storage;try{storage=window[type];var x='__storage_test__';storage.setItem(x,x);storage.removeItem(x);return true;}
+catch(e){return e instanceof DOMException&&(e.code===22||e.code===1014||e.name==='QuotaExceededError'||e.name==='NS_ERROR_DOM_QUOTA_REACHED')&&(storage&&storage.length!==0);}}
+function remove_ama_config(){if(storageAvailable('localStorage')){localStorage.removeItem("google_ama_config");}}
+remove_ama_config()})()</script>
+<script type="text/javascript">var ezoicTestActive = true</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":1,"ad_count_adjustment":0,"ad_lazyload_version":14,"ad_load_version":102,"ad_location_ids":"1,722,2,4","ad_transform_level":0,"adx_ad_count":3,"bidder_method":1,"bidder_version":1,"city":"Helsinki","country":"FI","days_since_last_visit":-1,"display_ad_count":4,"domain_id":86609,"domain_test_group":20210308,"ds_adsize_opt_id":-1,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"iab_category":"","iab_category_0":"596","is_from_recommended_pages":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"max_ads":30,"metro_code":0,"optimization_version":1,"page_ad_positions":"1127,1138,1160,1192","page_view_count":0,"page_view_id":"01c953c1-2135-4838-5201-3bab72445a29","position_selection_id":0,"postal_code":"00100","pv_event_count":0,"response_size_orig":99842,"response_time_orig":637,"serverid":"3.120.224.31:26077","state":"18","sub_page_ad_positions":"1127,1138,1160,1192","t_epoch":1656805845,"template_id":134,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/Introduction_-_mIRC","user_id":0,"word_count":4787,"worst_bad_word_level":0};var _ezim_d = {"wikichip_org-box-2":{"adsense_stat_source_id":5,"adx_ad_count":3,"adx_stat_source_id":35,"full_id":"wikichip_org-box-2/2022-07-02/6744431347572592","height":"90","position_id":1138,"sub_position_id":1138,"width":"728"},"wikichip_org-box-3":{"adsense_stat_source_id":5,"adx_ad_count":3,"adx_stat_source_id":35,"full_id":"wikichip_org-box-3/2022-07-02/1040606181564047","height":"90","position_id":1160,"sub_position_id":1160,"width":"970"},"wikichip_org-large-mobile-banner-1":{"adsense_stat_source_id":5,"adx_ad_count":3,"adx_stat_source_id":35,"full_id":"wikichip_org-large-mobile-banner-1/2022-07-02/3053699211554632","height":"250","position_id":1192,"sub_position_id":1192,"width":"250"},"wikichip_org-medrectangle-1":{"adsense_stat_source_id":5,"adx_ad_count":3,"adx_stat_source_id":35,"full_id":"wikichip_org-medrectangle-1/2022-07-02/3259201657548270","height":"400","position_id":1127,"sub_position_id":1127,"width":"580"}};var _ezat = {"domain_id":86609,"form_factor_id":1,"framework_id":1,"pageview_date":"2022-07-02","pageview_id":"01c953c1-2135-4838-5201-3bab72445a29","template_id":134,"url":"https://en.wikichip.org/wiki/Introduction_-_mIRC","visit_uuid":"780b04de-2503-4fcf-464f-115fa00f8047"};</script><script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('banger.js', '/porpoiseant/banger.js?cb=195-3&bv=123&v=60&PageSpeed=off', true, [], true, false, false, true);</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+if(typeof isOrig==='undefined'){isOrig=false;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){if((impId!=="0"||isOrig===true)&&adUnit!==""){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}}
+function AddPixelById(impFullId,pixelData,isOrig,revenue){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];var pix={type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig};if(typeof revenue!=='undefined'){pix.revenue=revenue;}
+pixels.push(pix);}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}});}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false;}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();</script>
+
+<title>Introduction - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/introduction","wgTitle":"mirc/introduction","wgCurRevisionId":92734,"wgRevisionId":92734,"wgArticleId":101,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/introduction","wgRelevantArticleId":101,"wgRequestId":"eab742d15f86f32c164dd042","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Introduction_-_mIRC","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/mirc/introduction"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/introduction" href="/w/index.php?title=Special:ExportRDF/mirc/introduction&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/introduction&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/introduction&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/mirc/introduction"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Introduction - mIRC - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the mIRC scripting language."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<style id='ezoicCSS'>.ezoic-ad.box-2138 { display:inline-block;float:right !important;line-height:0px;margin-bottom:10px !important;margin-left:0px !important;margin-right:0px !important;margin-top:10px !important;max-width:100% !important;min-height:90px;min-width:728px;padding:0; }
+.ezoic-ad.box-3160 { display:block !important;float:right !important;line-height:0px;margin-bottom:2px !important;margin-left:0px !important;margin-right:0px !important;margin-top:2px !important;max-width:100% !important;min-height:90px;min-width:970px;padding:0;text-align:left !important; }
+.ezoic-ad.large-mobile-banner-1192 { align-items:center;display:flex !important;flex-direction:column !important;float:right !important;justify-content:center;line-height:0px;margin-bottom:15px !important;margin-left:0px !important;margin-right:0px !important;margin-top:15px !important;max-width:100% !important;min-height:280px;min-width:336px;padding:0;text-align:right !important; }
+.ezoic-ad.medrectangle-1127 { display:block !important;float:none !important;line-height:0px;margin-bottom:15px !important;margin-left:0px !important;margin-right:0px !important;margin-top:15px !important;max-width:100% !important;min-height:90px;min-width:728px;padding:0;text-align:center !important; }
+.ezoic-ad{display:inline-block;border:0px;}.ezoic-ad>div>iframe{margin:0px!important;padding:0px!important;}
+@keyframes ezIn { 
+		from { opacity: 0; } 
+	  }
+	  .ezoic-ad .ezoic-adl:before {content: "\00B7\00B7\00B7";position: absolute;display: flex!important;align-items: center;justify-content: center;text-align: center;color: #C4C4C4;font-size: 62px;letter-spacing: 2px;z-index: 0;animation: ezIn 1s infinite alternate;left: 50%;top: 50%;transform: translate(-50%, -50%);} .ezoic-ad .ezfound,.ezmob-footer .ezoic-ad .ezoic-ad,.ezoic-ad-adaptive > .ezoic-ad, .ezoic-ad-rl {background:0 0;border-radius:0;border:none}
+.adtester-container-157,.adtester-container-143,.adtester-container-176,.adtester-container-131,.adtester-container-154,.adtester-container-186,.adtester-container-190,.adtester-container-148,.adtester-container-151,.adtester-container-104,.adtester-container-178,.adtester-container-175,.adtester-container-132,.adtester-container-189,.adtester-container-102,.adtester-container-169,.adtester-container-173,.adtester-container-119,.adtester-container-144,.adtester-container-171,.adtester-container-168,.adtester-container-166,.adtester-container-174,.adtester-container-142,.adtester-container-101,.adtester-container-187,.adtester-container-183,.adtester-container-158,.adtester-container-191,.adtester-container-177,.adtester-container-147,.adtester-container-150,.adtester-container-185,.adtester-container-106,.adtester-container-126,.adtester-container-155,.adtester-container-152,.adtester-container-117,.adtester-container-179,.adtester-container-170,.adtester-container-182,.adtester-container-146,.adtester-container-167,.adtester-container-180,.adtester-container-172,.adtester-container-156,.adtester-container-107,.adtester-container-125,.adtester-container-161,.adtester-container-188,.adtester-container-153,.adtester-container-145,.adtester-container-149,.adtester-container-184{display:none!important}
+.ezoic-floating-bottom { display: none!important; }</style><script data-ezscrex="false" pagespeed_no_defer="" data-cfasync="false" type="text/javascript">
+        window.cookieconsent_options = {
+            "message":"We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.",
+            "dismiss":"Got it!",
+            "learnMore":"See details",
+            "link":"https://en.wikichip.org/wiki/WikiChip:Privacy_policy",
+            "theme":"/ezoic/styles/dark-bottom.css",
+			"domain":"wikichip.org"
+        };
+    </script>
+<script data-ezscrex="false" pagespeed_no_defer="" data-cfasync="false" type="text/javascript" src="/ezoic/cookieconsent.min.js"></script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/Introduction_-_mIRC"><script type='text/javascript'>
+var ezoTemplate = 'pub_site';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["01c953c1-2135-4838-5201-3bab72445a29", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+<script type="text/javascript">var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-3&cb=04-1y02-5y06-12y07-1y0b-5y0d-16y13-3y17-4y21-3y2d-4y55-1&cmbcb=86&sj=x04x02x06x07x0bx0dx13x17x21x2dx55', true, [], true, false, true, false);</script>
+<script type="text/javascript" defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-3&cb=03-5y0c-5y18-4&cmbcb=86&sj=x03x0cx18', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_introduction rootpage-mirc skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<span id="ezoic-pub-ad-placeholder-138"></span><span class="ezoic-ad box-2 box-2138 adtester-container adtester-container-138" data-ez-name="wikichip_org-box-2"><span id="div-gpt-ad-wikichip_org-box-2-0" ezaw="728" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[728,90],'wikichip_org-box-2','ezslot_0',138,'0','0'])};if(typeof __ez_fad_position != 'undefined'){__ez_fad_position('div-gpt-ad-wikichip_org-box-2-0')};</script></span></span>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/mirc/introduction">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:mirc/introduction"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=mirc/introduction&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=mirc/introduction&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fintroduction"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/introduction"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/introduction"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/introduction&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/introduction&amp;oldid=92734"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/introduction&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fintroduction"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Introduction - mIRC    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=Introduction_-_mIRC&amp;redirect=no" class="mw-redirect" title="Introduction - mIRC">Introduction - mIRC</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <strong class="selflink">Introduction</strong></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li>
+<li> <a href="/wiki/mirc/dcc_get_security" title="mirc/dcc get security">DCC GET security</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/mirc_installation" title="mirc/mirc installation">mIRC Installation</a></li>
+<li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">IPv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li>
+<li> <a href="/wiki/mirc/dcc_protocols" title="mirc/dcc protocols">DCC Protocols</a></li>
+<li> <a href="/w/index.php?title=mirc/line_length_limit&amp;action=edit&amp;redlink=1" class="new" title="mirc/line length limit (page does not exist)">Line Length Limit</a></li>
+<li> <a href="/w/index.php?title=mirc/font_rendering&amp;action=edit&amp;redlink=1" class="new" title="mirc/font rendering (page does not exist)">Font rendering</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style=""> <b>·</b> </span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style=""> <b>·</b> </span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p>This article focuses on the very basics of mIRC Scripting. The target audience is people with no knowledge, or very limited knowledge, of the <a href="/wiki/mirc" title="mirc">mIRC scripting language</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Where_does_the_code_go.3F"><span class="tocnumber">1</span> <span class="toctext">Where does the code go?</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_very_basics"><span class="tocnumber">2</span> <span class="toctext">The very basics</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Statements"><span class="tocnumber">2.1</span> <span class="toctext">Statements</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Piping"><span class="tocnumber">2.1.1</span> <span class="toctext">Piping</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Code_blocks"><span class="tocnumber">2.1.2</span> <span class="toctext">Code blocks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#What.27s_with_the_slashes.3F"><span class="tocnumber">2.2</span> <span class="toctext">What&#39;s with the slashes?</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#.2Fecho_command"><span class="tocnumber">2.3</span> <span class="toctext">/echo command</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Let.27s_make_it_into_an_alias.2C_shall_we.3F"><span class="tocnumber">2.4</span> <span class="toctext">Let&#39;s make it into an alias, shall we?</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Basic_Alias"><span class="tocnumber">2.4.1</span> <span class="toctext">Basic Alias</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Remote_tab"><span class="tocnumber">2.5</span> <span class="toctext">Remote tab</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Aliases_tab"><span class="tocnumber">2.6</span> <span class="toctext">Aliases tab</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#A_block_of_code:"><span class="tocnumber">3</span> <span class="toctext">A block of code:</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Right_Examples"><span class="tocnumber">3.1</span> <span class="toctext"><span>Right Examples</span></span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Wrong_Examples"><span class="tocnumber">3.2</span> <span class="toctext"><span>Wrong Examples</span></span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Using_a_block_of_code"><span class="tocnumber">3.3</span> <span class="toctext">Using a block of code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Comments"><span class="tocnumber">4</span> <span class="toctext">Comments</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#Single-line_Comments"><span class="tocnumber">4.1</span> <span class="toctext">Single-line Comments</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Multi-line_Comments"><span class="tocnumber">4.2</span> <span class="toctext">Multi-line Comments</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Right_Examples_2"><span class="tocnumber">4.3</span> <span class="toctext"><span>Right Examples</span></span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Wrong_Examples_2"><span class="tocnumber">4.4</span> <span class="toctext"><span>Wrong Examples</span></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Multiple_aliases"><span class="tocnumber">5</span> <span class="toctext">Multiple aliases</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#Wrong_Example"><span class="tocnumber">5.1</span> <span class="toctext"><span>Wrong Example</span></span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Good_Examples"><span class="tocnumber">5.2</span> <span class="toctext"><span>Good Examples</span></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="#Identifiers"><span class="tocnumber">6</span> <span class="toctext">Identifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="#.24rand.28.29"><span class="tocnumber">6.1</span> <span class="toctext">$rand()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#Evaluating.2FInterpreting"><span class="tocnumber">7</span> <span class="toctext">Evaluating/Interpreting</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#On_your_own:"><span class="tocnumber">8</span> <span class="toctext">On your own:</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="#Colors:"><span class="tocnumber">8.1</span> <span class="toctext">Colors:</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#Actions"><span class="tocnumber">8.2</span> <span class="toctext">Actions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="#Where_do_we_go_from_here.3F"><span class="tocnumber">9</span> <span class="toctext">Where do we go from here?</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Where_does_the_code_go.3F">Where does the code go?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=1" title="Edit section: Where does the code go?">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-170" class="ezoic-adpicker-ad"></span>
+<p>All of your code, regardless of its type, should go in the Script Editor. To open the script editor press-and-hold the &lt;ALT&gt; key on your keyboard, and then tap the R key (&lt;Alt&gt;+R). Alternatively, you can go to the Tools Menu -&gt; Script editor.
+</p><p>Below is a screen shot of the mIRC Script Editor:
+</p><span id="ezoic-pub-ad-placeholder-160" class="ezoic-adpicker-ad"></span><span class="ezoic-ad box-3 box-3160 adtester-container adtester-container-160" data-ez-name="wikichip_org-box-3"><span id="div-gpt-ad-wikichip_org-box-3-0" ezaw="970" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:970px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[970,90],'wikichip_org-box-3','ezslot_2',160,'0','0'])};if(typeof __ez_fad_position != 'undefined'){__ez_fad_position('div-gpt-ad-wikichip_org-box-3-0')};</script></span></span>
+<div class="center"><div class="floatnone"><a href="/wiki/File:Remote_menu.png" class="image" title="Remote Editor"><img alt="Remote Editor" src="/w/images/9/92/Remote_menu.png" width="333" height="67"/></a></div></div>
+<p>You will notice that there are five selectable tabs: <b>Aliases</b>, <b>Popups</b>, <b>Remotes</b>, <b>Users</b>, and <b>Variables</b>. Let&#39;s try and get you familiar with each one. Before we dive into what these little (or rather big) guys do, let&#39;s get to know some basics first.
+</p>
+<h2><span class="mw-headline" id="The_very_basics">The very basics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=2" title="Edit section: The very basics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let&#39;s take a few moments to help familiarize you with the following key components:
+</p>
+<h3><span class="mw-headline" id="Statements">Statements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=3" title="Edit section: Statements">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Every script is composed of one or more statements. A statement describes something that needs to happen. Each statement must go on its own line, or it must be separated by a pipe, which is the &#39;|&#39; symbol.
+</p><p>If separated by a pipe, the pipe itself must have a space in front and a space after it, otherwise it&#39;s not seen as a delimiter of statements.
+</p><p>For example, the following two are the same:
+</p>
+<h5><span class="mw-headline" id="Piping">Piping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=4" title="Edit section: Piping">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<pre>statement 1 | statement 2 | statement 3 | statement 4</pre>
+<h5><span class="mw-headline" id="Code_blocks">Code blocks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=5" title="Edit section: Code blocks">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<pre>statement 1
+statement 2
+statement 3
+statement 4</pre>
+<pre>echo -a statement 1 | statement 2 | statement 3 | statement 4</pre>
+<h3><span class="mw-headline" id="What.27s_with_the_slashes.3F">What&#39;s with the slashes?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=6" title="Edit section: What&#39;s with the slashes?">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If you asked any script related question in a help channel, you were probably told to type some code that begin with a forward slash. That&#39;s because you can execute code which is saved in the editor, but you can also execute anything from the editbox.
+</p><p>In order to execute any code from the mIRC editbox (the box where you normally type all of your text), you must prefix the code with at least one forward slash.
+</p><p>You may use two forward slash, the difference between using one or two forward slash is that with one, the rest of the line is not interpreted, we will discuss this difference later.
+</p><p>We usually refer to commands by prefixing them with a slash.
+</p>
+<h3><span class="mw-headline" id=".2Fecho_command">/echo command</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=7" title="Edit section: /echo command">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The most common type of statements are <a href="/wiki/mirc/commands" title="mirc/commands">commands</a>. Commands are a way to tell mIRC to perform a basic operation. By far the most common command you will be using is the <a href="/wiki/mirc/commands/echo" title="mirc/commands/echo">/echo</a> command. The /echo command simply prints text to the screen. Every echo command prints on a line of its own. Even if the /echo command is typed into the editbox of a #channel, nobody in channel sees the message unless you do not begin the text with the &#34;/&#34; symbol.
+</p><p>Let&#39;s dive right into an example! Type the following code into your editbox:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> Hello World!</span></pre>
+<p>When you are finished typing this echo command, hit your Return or Enter key on your keyboard. You should see the following result (<b>Note:</b> Your editbox will not have anything in it, it will be cleared once you press the Enter or Return key):
+</p>
+<pre>Hello World!</pre>
+<p><a href="/wiki/File:Hello_edit.png" class="image"><img alt="Hello edit.png" src="/w/images/6/63/Hello_edit.png" width="173" height="53"/></a>
+</p><p>The command will be in your editbox history, and you can use the UP ARROW key 1 or more times to bring previous commands into the editbox. You can press the &lt;enter&gt; key immediately to repeat the message or /command, or you can edit the text before pressing &lt;enter&gt;.
+</p><p>Recall we said earlier that multiple statements can be combined by using the pipe &#39;|&#39;? Let&#39;s print 3 lines to the screen using the echo command and some pipes. Type the following code into your editbox (<i>Remember to hit the Return or Enter keys from now on</i>):
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> Scripting |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun!</span></pre>
+<p>You should hopefully see the following results:
+</p>
+<pre>Scripting
+Is
+Fun!</pre>
+<p><a href="/wiki/File:Fun_edit.png" class="image"><img alt="Fun edit.png" src="/w/images/c/c6/Fun_edit.png" width="317" height="79"/></a>
+</p><p><b>Note</b>: As you may have noticed, from the editbox, you can only pipe statements, you can&#39;t use newlines.
+</p><p>You will notice that after the first <i>//echo</i> command, once we&#39;ve piped, we do not need to type any more slashes; this is because mIRC interprets the rest of the statements via the first initial two slashes.
+If you use one slash here, &#34;Scripting | echo Is | echo Fun!&#34; will be echoed, because the pipes have not been interpreted as statements seperator, we usually refer to something that can be interpreted that is not interpreted as &#39;plain text&#39;. We also refer to the processing of anything special (we&#39;ve only seen the pipe character for now, but they are others) as &#39;evaluation&#39;, we will discuss it later.
+</p><p>When you begin an editbox command with a double &#34;//&#34;, it does not execute the 1st command if the // is immediately followed by a space character, so be sure to not have an unnecessary space at the beginning. This example echoes only the &#34;test2&#34; message:
+</p>
+<pre>// echo test1 | echo test2</pre>
+<h3><span class="mw-headline" id="Let.27s_make_it_into_an_alias.2C_shall_we.3F">Let&#39;s make it into an alias, shall we?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=8" title="Edit section: Let&#39;s make it into an alias, shall we?">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Aliases are used to describe any piece of scripting code that can be reused. Aliases have a name by which we can refer to them, and they also have a body. The body of an alias contains a statement, or a list of statements, that execute(s) when we call that alias. You can think of aliases as commands, much like the <i>echo</i> command is. All aliases can be called from your edit box by preceding them with one or two forward-slashes, just like commands.
+</p>
+<h4><span class="mw-headline" id="Basic_Alias">Basic Alias</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=9" title="Edit section: Basic Alias">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>A basic alias will look something like this:
+</p>
+<pre>alias name &lt;statement&gt;</pre>
+<p>We can tweak the statement of this alias just a little in order to perform multiple statements through the use of piping:
+</p>
+<pre>alias name statement 1 | statement 2 | statement 3</pre>
+<p>Notice that with the piping, this alias now performs multiple actions.
+</p><p>Let&#39;s make the code we used above to print &#34;Scripting Is Fun!&#34;, all on separate lines, and call this new alias &#34;fun&#34;:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> Scripting |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun!</span></pre>
+<p>Before we continue, let us note a few things regarding the above code:
+</p>
+<ol><li> The two // were removed; we only really need one or two forward-slashes when we want to execute code directly from the editbox. Using slashes in your script editor adds nothing but clutter.</li>
+<li> The statements in the editor are always executed as though two forward slashes were used, you cannot force a statement not to be evaluated.</li>
+<li> Because we used the <b>alias</b> keyword, the code must go in the <b>Remote Tab</b> of the script editor. In order to use that code from the aliases tab, you must remove the &#34;alias&#34; keyword. The rest of the code stays the same.</li></ol>
+<h3><span class="mw-headline" id="Remote_tab">Remote tab</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=10" title="Edit section: Remote tab">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/File:Fun_alias_1.png" class="image"><img alt="Fun alias 1.png" src="/w/images/1/10/Fun_alias_1.png" width="407" height="104"/></a>
+</p>
+<h3><span class="mw-headline" id="Aliases_tab">Aliases tab</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=11" title="Edit section: Aliases tab">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="/wiki/File:Fun_alias_2.png" class="image"><img alt="Fun alias 2.png" src="/w/images/4/49/Fun_alias_2.png" width="397" height="91"/></a>
+</p><p><b>Note:</b> When you want to execute an alias, you would refer to it as wanting to <i>call the alias</i>.
+</p><p>To call on our alias <i>fun</i>, all we have to do is use its name, preceded by a forward-slash in any mIRC editbox:
+</p>
+<pre>/fun</pre>
+<p><b>Note:</b> Two forward-slashes will also call it of course, but there are nothing to be evaluated so it would be the same.
+</p><p>That should print our text again:
+</p>
+<pre>Scripting
+Is
+Fun!</pre>
+<h2><span class="mw-headline" id="A_block_of_code:">A block of code:</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=12" title="Edit section: A block of code:">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-192" class="ezoic-adpicker-ad"></span><span class="ezoic-ad large-mobile-banner-1 large-mobile-banner-1192 adtester-container adtester-container-192" data-ez-name="wikichip_org-large-mobile-banner-1"><span id="div-gpt-ad-wikichip_org-large-mobile-banner-1-0" ezaw="250" ezah="250" style="position:relative;z-index:0;display:inline-block;padding:0;width:100%;max-width:1200px;margin-left:auto !important;margin-right:auto !important;min-height:280px;min-width:336px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">
+	var asau = '5322637655';
+	var cid = '2594856134';
+	var pid = 'ca-pub-1951113009523412';
+	var slotId = 'div-gpt-ad-wikichip_org-large-mobile-banner-1-0';
+	var ffid = 1;
+	var alS = 1722 % 1000;
+
+	var container = document.getElementById(slotId);
+	container.style.width = '100%';
+
+	var ins = document.createElement('ins');
+    ins.id = slotId + '-asloaded';
+    ins.className = 'adsbygoogle ezasloaded';
+    ins.dataset.adClient = pid;
+    ins.dataset.adSlot = asau;
+	ins.dataset.adChannel = cid;
+
+	if(ffid == 2){
+		ins.dataset.fullWidthResponsive = 'true';
+	}
+
+	ins.style.display = 'block';
+	ins.style.minWidth = container.attributes.ezaw.value + 'px';
+	ins.style.width = '100%';
+	
+	ins.style.height = container.attributes.ezah.value + 'px';
+
+	container.appendChild(ins);
+
+	(adsbygoogle = window.adsbygoogle || []).push({});
+
+	window.ezoSTPixelAdd(slotId, 'stat_source_id', 44);
+	window.ezoSTPixelAdd(slotId, 'adsensetype', 1);
+	
+	var lo = new MutationObserver(window.ezaslEvent);
+    lo.observe(document.getElementById(slotId + '-asloaded'), { attributes: true });
+	</script></span></span>
+<p>When we have a group of related commands, we call it a <b>block of code</b>. Most scripts, however, are not as short as our example and putting it all on one long line, or <i>piping</i>, is messy. We can use the second format we talked about, which is storing each statement on a new line, in order to keep our code clean and easily editable. The way that we accomplish the task of creating a code block is to tell mIRC &#34;this block of code belongs to this alias&#34;. We do that by enclosing the block of code in a pair of brackets:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>name</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  statement 1</span>
+<span class="code_line">  statement 2</span>
+<span class="code_line">  statement 3</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><i>But we have just seen three statements with piping; we didn&#39;t need to use a pair of brackets there?</i>
+</p><p>Well, in fact when we use newlines as a seperator of statements, the syntax force us to use the pair of bracket, otherwise mIRC cannot reliably know where your alias definiton finishes.
+</p><p>You can use bracket with piping of course, though keep in mind it&#39;s cleaner to get statements on a new line.
+</p><p>We don&#39;t need the brackets in the piping version because they are only there to help distinguish between two or more blocks of code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">echo</span></a> Scripting |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun!</span></pre>This can be seen as one block of code:
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span> echo Scripting |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun! <span class="mirc_bracket">}</span></span></pre>All commands belong to the alias fun definition, they are all on the same &#39;root&#39;
+<p>Some statements, such as the <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">conditional statements</a>, allow you to create others blocks of code. Within those new blocks of code, you may use brackets. However, if the context allows it, you can get around using them, the example below illustrates this scenario:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>1 == 1<span class="mirc_bracket">)</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Scripting | <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>2 == 3<span class="mirc_bracket">)</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> = |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun!</span></pre>
+In the example above, the statement <i>echo Scripting</i> belongs to the <i>if (1 == 1)</i> statement. The same is true for <i>echo Is</i>, which, however, will not be echoed because the condition is not true. <i>echo =</i> <b>does not</b> belong to the <i>if (2 == 3)</i> statement like <i>echo Is</i> does; the reason being that we did not use a pair of brackets for the <i>if (2 == 3)</i> statement. Overall, the above example will echo: <pre>Scripting = Fun!</pre>. This is equivalent to:
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span> <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>1 == 1<span class="mirc_bracket">)</span> <span class="mirc_bracket">{</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Scripting <span class="mirc_bracket">}</span> | <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>2 == 3<span class="mirc_bracket">)</span> <span class="mirc_bracket">{</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is <span class="mirc_bracket">}</span> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> = |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun! <span class="mirc_bracket">}</span></span></pre>
+<p>This should help you understand how brackets are used. They are others situations with if statements where not using bracket will be a problem for example, remember the bracket helps mIRC identifying the block of code, but also the condition, when using a if/elseif/while statement, Here is a final example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>1 == 1<span class="mirc_bracket">)</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Scripting</span>
+<span class="code_line"> <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>2 == 3<span class="mirc_bracket">)</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Is </span>
+<span class="code_line"> <span class="mirc_control">if</span> <span class="mirc_bracket">(</span>3 == 3<span class="mirc_bracket">)</span> <span class="mirc_bracket">{</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> More |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Or |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Less <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> Fun!</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>This time the statement&#39;s echoing of <i>More</i>, <i>Or</i> and <i>Less</i> all belong to the same <i>if (3 == 3)</i> statement. If you were to change that condition to something such as <i>if (3 == 4)</i>, none of the echo commands will show up because this if statement is false.
+</p><p>A few notes about the language limitations:
+</p>
+<ol><li> <span style="color: #DB0000;">The opening bracket (<b>{</b>) <b>must</b> be on the same line as the alias keyword</span></li>
+<li> <span style="color: #DB0000;">The opening bracket <b>must not</b> touch anything</span></li>
+<li> <span style="color: #DB0000;">The closing bracket <b>must not</b> touch anything else</span></li>
+<li> <span style="color: #DB0000;">The closing bracket <b>must</b> be the last part of the block of code</span></li></ol>
+<p><b>Note</b>: Those limitations are only true for aliases, others context of the language can have some differences
+</p>
+<h3><span class="mw-headline" id="Right_Examples"><span style="color: #256B22;">Right Examples</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=13" title="Edit section: Right Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>alias example { echo hello! }</pre>
+<p>Note the spaces before and after both the opening and closing brackets. This is a good example of a proper code block.
+</p>
+<pre>alias example {
+  echo hello!
+}</pre>
+<p>The initial opening bracket is on the same line as the alias name, and it has proper spacing before itself. The statement 
+within the block is also perfectly executed, and the closing bracket is on its own line. This is another example of a proper
+code block.
+</p>
+<h3><span class="mw-headline" id="Wrong_Examples"><span style="color: #9E1010;">Wrong Examples</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=14" title="Edit section: Wrong Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>alias example{echo hello! }</pre>
+<p>The opening bracket is touching the &#34;example&#34; and &#34;echo&#34;.
+</p>
+<pre>alias example { echo hello!}</pre>
+<p>The closing bracket is touching the &#34;hello!&#34;.
+</p>
+<pre>alias example
+{
+  echo hello!
+}</pre>
+<p>The opening bracket must be on the same line as the &#34;alias&#34; keyword.
+</p>
+<h3><span class="mw-headline" id="Using_a_block_of_code">Using a block of code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=15" title="Edit section: Using a block of code">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Let&#39;s reuse the <i>fun</i> alias from before. However, this time we will put each statement on its own line:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Scripting</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Is</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Fun!</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Notice how this is a perfect example of a Good code block, much like the sample that we viewed above? If 
+you are noticing the repetitiveness of the <i>echo</i> command, don&#39;t worry, in later examples we will show 
+you tricks on how to get around repeating certain reused commands in your code.
+</p>
+<h2><span class="mw-headline" id="Comments">Comments</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=16" title="Edit section: Comments">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Comments are normal, readable text that can be placed inside of your script, and they are a good practice to help better explain to other scripters what&#39;s going on in your code. Technically speaking, a comment can say whatever you want it to say, and they are ignored when the program is executed, meaning they have no effect on the actual behavior of the code.
+</p>
+<h3><span class="mw-headline" id="Single-line_Comments">Single-line Comments</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=17" title="Edit section: Single-line Comments">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The most basic comment is the <b>single-line comment</b>, which has the following syntax:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; This is single-line comment.</span></span></pre>
+<p>Note on how the comment begins with a semicolon and ends at the end of the line; anything on this line is now ignored.
+</p><p>Here is another basic example of a single-line comment:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>fun</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment">  ; print &#34;Scripting&#34;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Scripting</span>
+<span class="code_line"><span class="mirc_comment">  ; print &#34;Is&#34;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Is</span>
+<span class="code_line"><span class="mirc_comment">  ; print &#34;Fun&#34;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Fun!</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><a href="/wiki/File:Fun_comment.png" class="image"><img alt="Fun comment.png" src="/w/images/e/e1/Fun_comment.png" width="365" height="220"/></a>
+</p>
+<ul><li> Note: the case-insensitive keyword REM can be used interchangeably with the semicolon, except the REM cannot be touched to its right by any text. This makes REM a reserved keyword, and you cannot create an alias named <b>rem</b> then access it as /rem or $rem.</li></ul>
+<h3><span class="mw-headline" id="Multi-line_Comments">Multi-line Comments</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=18" title="Edit section: Multi-line Comments">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The second type of comment is the multi-line comment. A multi-line comment can, as its name suggests, span multiple lines. Multi-line comments are enclosed between the <b>/*</b> &amp; <b>*/</b> characters. The syntax for a multi-line comment is:
+</p>
+<pre><span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">(</span>/* iswm <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">)</span> /</span>
+<span class="code_line"><span class="mirc_comment">/* This is</span></span>
+<span class="code_line"><span class="mirc_comment">  a multi-line</span></span>
+<span class="code_line"><span class="mirc_comment">  comment!</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span></pre>
+<p>Your text must go between the /* and the */ in order for it to be treated as a comment.
+</p><p>A few notes about the language limitations: 
+</p>
+<ol><li> <span style="color: #DB0000;">Text may touch the opening <b>/*</b> on the right; however, <b>/*</b> must start the line</span></li>
+<li> <span style="color: #DB0000;">The closing <b>*/</b> must be on a line of its own</span></li>
+<li> Text is NOT indented unless placed inside curly brackets. The opening brace can be on the same line with the <b>/*</b> and the final comment line isn&#39;t indented if there&#39;s a closing brace on that line.</li></ol>
+<h3><span class="mw-headline" id="Right_Examples_2"><span style="color: #256B22;">Right Examples</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=19" title="Edit section: Right Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>/* testing
+   out
+   a multi-line
+   comment
+*/</pre>
+<p>or
+</p>
+<pre>/*
+   testing
+   out
+   a multi-line
+   comment
+*/</pre>
+<p>In both of the above examples, the opening comment parameters are properly executed, 
+the lines are spaced out and the closing parameters are by themselves. These are both  
+examples of proper multi-line comment blocks.
+</p>
+<pre>/*
+testing
+out
+a multi-line
+comment
+{
+  then an
+  indented
+  section
+  {
+    and indented
+    even deeper
+  }
+}
+
+then back
+to not being
+indented
+*/</pre>
+<p><br/>
+</p>
+<h3><span class="mw-headline" id="Wrong_Examples_2"><span style="color: #9E1010;">Wrong Examples</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=20" title="Edit section: Wrong Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>/* testing
+   test */</pre>
+<p>The */ is not on a line of Its own.
+</p><p><br/>
+</p>
+<pre>/* comment */
+</pre>
+<p>The */ is not on a line of Its own.
+</p>
+<h2><span class="mw-headline" id="Multiple_aliases">Multiple aliases</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=21" title="Edit section: Multiple aliases">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>You can have multiple aliases in one single file but you cannot define an alias inside another alias, each alias must go on what we call the &#39;root&#39; level, or &#39;top&#39; level.
+</p><p>When you start with an empty script file, you&#39;re on the top level, meaning you can add an alias there. Inside that alias, you&#39;re not on the top level, you&#39;re inside the alias, which can be seen as the level depth &#39;1&#39;. So if you want to add more aliases, always do so on the top level:
+</p>
+<h3><span class="mw-headline" id="Wrong_Example"><span style="color: #9E1010;">Wrong Example</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=22" title="Edit section: Wrong Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>first</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> </span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>second</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> </span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"> </span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre> There the second alias is defined inside the first alias, which is wrong, mIRC will actually try to execute the command /alias, which is a valid command in mIRC to define aliases dynamically.
+<p><b>Note</b>: these aliases are empty for the sake of the example.
+</p>
+<h3><span class="mw-headline" id="Good_Examples"><span style="color: #256B22;">Good Examples</span></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=23" title="Edit section: Good Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>first</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> </span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>second</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> </span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre> This is correct, the alias second is defined after the first alias, it could also be defined before, the order in which aliases are defined is not important.
+<h2><span class="mw-headline" id="Identifiers">Identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=24" title="Edit section: Identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Main article: <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></i></dd></dl>
+<p><br/>
+Before we wrap up this tutorial, we need to talk about one last concept: $identifiers. All identifiers have a dollar symbol sigil and have the following syntax: 
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$name" title="$name - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$name</span></a></span>
+<span class="code_line"><span class="mirc_comment">;or </span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$name" title="$name - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$name</span></a><span class="mirc_bracket">(</span>&lt;argument 1&gt;, &lt;argument 2&gt;, &lt;argument 3&gt;, ...<span class="mirc_bracket">)</span></span></pre>
+<p>Identifiers are very similar to commands except that we use identifiers when we want a value.
+</p><p>Commands seperate their parameters/arguments by space, while identifiers use a comma.
+Both commands and identifiers are also referred to as alias(es): you create a custom command/identifier by creating an alias.
+</p><p>For example, if we want to print out our current nickname, we would use the following code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a></span></pre>
+<h3><span class="mw-headline" id=".24rand.28.29">$rand()</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=25" title="Edit section: $rand()">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One of the most common operations we use is to generate random numbers. This is where the <a href="/wiki/mirc/identifiers/$rand" title="mirc/identifiers/$rand">$rand</a> identifier comes into play; it can generate a random number between a given range. The $rand() has the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$rand" title="$rand - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$rand</span></a><span class="mirc_bracket">(</span>&lt;low&gt;, &lt;high&gt;<span class="mirc_bracket">)</span></span></pre>
+<p>Given both low bound and high bound number values, $rand will return a random number in between, and including, the two numbers. For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>random</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> The dice rolled on the floor .... <a href="http://en.wikichip.org/wiki/mirc/identifiers/$rand" title="$rand - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$rand</span></a><span class="mirc_bracket">(</span>1, 6<span class="mirc_bracket">)</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Here is what we got when we called out /random alias a few times:
+</p><p><a href="/wiki/File:Random_example.png" class="image"><img alt="Random example.png" src="/w/images/7/79/Random_example.png" width="397" height="227"/></a>
+The results that mIRC generates for you will be different than the ones listed above in the screenshot; this is the nature of the $rand identifier.
+</p>
+<h2><span class="mw-headline" id="Evaluating.2FInterpreting">Evaluating/Interpreting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=26" title="Edit section: Evaluating/Interpreting">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Remember what we said about the slashes in the editbox when executing commands? If you use two of them it will indicate to mIRC that it must evaluate the line. In the script editor, you don&#39;t need any slash as the lines are always executed as though two of them were used. The difference only applies when you execute commands from within an editbox inside mIRC.
+</p><p>Interpreting, which is commonly referred to as &#39;evaluating&#39;, a line or an expression means the line/expression is processed according to the language&#39;s semantic. This is how mIRC can tell what is what and how to proceed. Evaluations also include looking for meaningful characters like &#39;{&#39; and &#39;}&#39; for blocks, &#39;|&#39; for piping, and so on. In order to get the value of an identifier, you would simply evaluate it like in the example below:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a></span></pre>
+<p>The <i>//</i> indicates the the line should be evaluated. <i>$me</i> is replaced with the corresponding value twice because the spaced out pipe &#39;|&#39; is interpreted as the delimiter of commands.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">/echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a></span></pre>
+<p>The <i>/</i> indicates that the line should not be evaluated. <i>$me</i> is returned literally, as plain text as we saw earlier, and therefore is not replaced. The pipe is also not interpreted.
+</p><p><a href="/wiki/mirc/variables" title="mirc/variables">variables</a> are also special, in that they need to be evaluated the same way as identifiers. Evaluating variables is the only way to extract the value that they hold.
+</p><p>There is 1 small area where a //command typed in an editbox is interpreted differently than when the same command is placed inside an alias within a remote script. mIRC assumes that a command typed into the editbox which begins with the name of a variable or identifier is an error, so it halts execution at that point, and won&#39;t execute any remaining commands separated by the pipe symbol.
+</p>
+<pre>//var %temp echo | echo -a message 1 | %temp echo -a test $me | echo -a message 2</pre>
+<p>If this line were in a remote script (where it doesn&#39;t matter whether or not the line begins with //), the %temp variable would be evaluated into its contents before executing that command, so it behaves as if the command begins with &#34;echo echo&#34; instead of &#34;%temp echo&#34;, and it would display into the active window &#34;echo -a test&#34; followed by your current nick. However if you pasted the 4 commands into the editbox, it displays only &#34;message 1&#34;, because it halts as soon as it encounters a command beginning with a $ or % symbol. You can force the editbox to evaluate a %variable or $identifier at the beginning of the command by wrapping it inside [ square braces ]. The square braces must not touch any other character except a SPACE, or else they will not be treated as the special symbol forcing evaluation in a situation where it would not normally evaluate.
+</p>
+<pre>//var %temp echo | echo -a message 1 | [ %temp ] echo -a test $me | echo -a message 2</pre>
+<p>Adding the [ square braces ] forces the editbox to evaluate %temp, and it will then behave the same way it behaves in the remote script. If the %temp contents were $null (empty), the command in the remote script is executed as if &#34;%temp echo -a test $me&#34; changes to &#34;echo -a test $me&#34;, and the displayed message changes from &#34;echo -a test YourNick&#34; to &#34;test YourNick&#34;.
+</p><p>The same thing happens when the editbox command begins with a dollar sign:
+</p>
+<pre>//echo -a message 1 | $lower(echo) -a test | message 2</pre>
+<p>This line inside a remote script displays both &#34;test&#34; and &#34;message 2&#34;, but in the editbox it halts after displaying &#34;message 1&#34;. By using the [ square braces ] you can force it to evaluate the identifier, and uses the returned value of the identifier as part of the command:
+</p>
+<pre>//echo -a message 1 | [ $lower(echo) ] -a test | message 2</pre>
+<h2><span class="mw-headline" id="On_your_own:">On your own:</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=27" title="Edit section: On your own:">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Below are a very few, basic commands that you can use to experiment with in a safe manner. Go ahead, try them out!
+</p>
+<h3><span class="mw-headline" id="Colors:">Colors:</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=28" title="Edit section: Colors:">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Just like you can add colors when you talk by typing CTRL+K on your keyboard, and then selecting a color number, you can do the same in your aliases. Here is a simple example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a �3This �4is �6a �10cool �15example�1.</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>You may have noticed that we added a strange new thing, <b>-a</b>. The -a is called a <b>switch</b>; switches slightly alter the way a command behaves. In the case of the <i>/echo</i> command, the -a switch specifies that we wanted the command to echo to the current active window. There is another switch, the <b>-s switch</b>, which can be used to tell the echo command to print to the status window instead, regardless of which window you have open.
+</p><p>Below is an example of how we use the <b>-a</b> switch:
+</p><p><a href="/wiki/File:Color_example.png" class="image"><img alt="Color example.png" src="/w/images/a/a6/Color_example.png" width="611" height="151"/></a>
+</p><p>Will produce:
+</p>
+<pre><span style="color: #009300;">This</span> <span style="color: #FF0000;">is</span> <span style="color: #9C009C;">a</span> <span style="color: #009393;">cool</span> <span style="color: #D2D2D2;">example</span><span style="color: #009300;">.</span>
+</pre>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a The number �042� is even.</span></pre>
+<p>(This website does not correctly handle the color-code, so the above symbols containing the &#34;?&#34; should be edited in your editbox before pressing enter. Replace those symbols by the character returned from pressing Ctrl+K, holding down the CONTROL button while pressing the &#34;K&#34; button once. You can close the popup color box because the script already contains the color number.)
+</p><p>Will produce the following result:
+</p>
+<pre>The number  is even.
+</pre>
+<p>Notice that the number is not showing. That&#39;s because it was considered part of the color number &#39;42&#39;. Color index 42 is a shade of yellow, so if the 2nd color code had not been used to reset the colors, the remainder of the line would show in the index 42&#39;s shade of yellow instead of showing in red. Prefixing the color value with a zero will fix this issue:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a The number �042� is even.</span></pre>
+<p>Will produce the following result:
+</p>
+<pre>The number <span style="color: #FF0000;">2</span> is even.
+</pre>
+<p><b>Note:</b> Most fonts display strange symbols when you press the keys for formatting codes, such as Ctrl+B bold and Ctrl+K color and Ctrl+O. If you want to see these symbols differently in your script editor, search for the font &#34;Fixedsys Excelsior&#34;, because it shows these symbols with a small b/c/o inside a black square, though it won&#39;t show special symbols for other format codes like Ctrl+R Ctrl+I Ctrl+U. You can change the Font of your scripts editor to be different than the fonts of your channels, and it&#39;s usually easier to read code if you choose a non-proportional (fixed) font for the script editor. The &#34;No Liga&#34; version can be downloaded here: <a rel="nofollow" class="external free" href="http://www.xise.nl/mirc/fsex2p00se3.ttf">http://www.xise.nl/mirc/fsex2p00se3.ttf</a>
+</p>
+<h3><span class="mw-headline" id="Actions">Actions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=29" title="Edit section: Actions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Actions are very similar to your normal channel messages, except that they are displayed in a slightly different manner.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; This is good for the channel you are in right now:</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/me" title="/me - mIRC Command" style="text-decoration: none"><span class="mirc_command">me</span></a> &lt;message&gt;</span>
+<span class="code_line"><span class="mirc_comment">; This is good for any channel you specify <span class="mirc_bracket">(</span>as long as you are in that channel<span class="mirc_bracket">)</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/describe" title="/describe - mIRC Command" style="text-decoration: none"><span class="mirc_command">describe</span></a> &lt;#channe&gt; &lt;message&gt;</span></pre>
+<p>For example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>feel</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/me" title="/me - mIRC Command" style="text-decoration: none"><span class="mirc_command">  me</span></a> Feels Happy!</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/me" title="/me - mIRC Command" style="text-decoration: none"><span class="mirc_command">  me</span></a> Leaves</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The code should produce something like this (<i>Your name will obviously be different</i>):
+</p>
+<pre><span style="color: #9C009C;">* @FooBar Feels Happy!
+* @FooBar Leaves</span>
+</pre>
+<p><a href="/wiki/File:Action_example.png" class="image"><img alt="Action example.png" src="/w/images/1/11/Action_example.png" width="345" height="161"/></a>
+</p><p>If we wanted to specify a channel, we could have used:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>feel</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/describe" title="/describe - mIRC Command" style="text-decoration: none"><span class="mirc_command">  describe</span></a> #MyChannel Feels Happy!</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/describe" title="/describe - mIRC Command" style="text-decoration: none"><span class="mirc_command">  describe</span></a> #MyChannel Leaves</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Where_do_we_go_from_here.3F">Where do we go from here?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/introduction&amp;action=edit&amp;section=30" title="Edit section: Where do we go from here?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>By now you should be grasping the basics of mSL, or at the very least beginning to understand how things work. It is highly recommended that you take it upon yourself to play around with the code on your own, in order to see what happens when you change different things around.
+</p><p>Next up are the <a href="/wiki/mirc/aliases" title="mirc/aliases">aliases</a>. If you feel comfortable with aliases, feel free to move on to <a href="/wiki/mirc/variables" title="mirc/variables">variables</a>.
+</p>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:101-0!*!0!!en!5!* and timestamp 20220702150528 and revision id 92734
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/introduction&amp;oldid=92734">https://en.wikichip.org/w/index.php?title=mirc/introduction&amp;oldid=92734</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<span id="ezoic-pub-ad-placeholder-127"></span><span class="ezoic-ad medrectangle-1 medrectangle-1127 adtester-container adtester-container-127" data-ez-name="wikichip_org-medrectangle-1"><span id="div-gpt-ad-wikichip_org-medrectangle-1-0" ezaw="580" ezah="400" style="position:relative;z-index:0;display:inline-block;padding:0;width:100%;max-width:1200px;margin-left:auto !important;margin-right:auto !important;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[580,400],'wikichip_org-medrectangle-1','ezslot_3',127,'0','0'])};if(typeof __ez_fad_position != 'undefined'){__ez_fad_position('div-gpt-ad-wikichip_org-medrectangle-1-0')};</script></span><span style="width:580px;display:block;height:14px;margin:auto" class="reportline"><span style="text-align:center;font-size: smaller;float:left;line-height:normal;"><a href="https://www.ezoic.com/what-is-ezoic/" target="_blank" rel="noopener noreferrer nofollow" style="cursor:pointer"><img src="https://go.ezoic.net/utilcave_com/img/ezoic.png" alt="Ezoic" loading="lazy" style="height:12px !important; padding:2px !important; border:0px !important; cursor:pointer !important; width: 58px !important; margin:0 !important; box-sizing: content-box !important;"/></a></span><span class="ez-report-ad-button" name="?pageview_id=01c953c1-2135-4838-5201-3bab72445a29&amp;ad_position_id=127&amp;impression_group_id=wikichip_org-medrectangle-1/2022-07-02/3259201657548270&amp;ad_size=580x400&amp;domain_id=86609&amp;url=https://en.wikichip.org/wiki/Introduction_-_mIRC" style="cursor: pointer!important; font-size:12px !important;color: #a5a5a5 ;float:right;text-decoration:none !important;font-family:arial !important;line-height:normal;">report this ad</span></span></span>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 1 August 2019, at 15:48.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":208});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<!--[selectrongo:done]--><script type='text/javascript'>var __ez_rp_opts={activeLayoutTester:!1,isOn:"",showImages:"",theme:"",locations:"",title:"Related Articles on this Site",showSocial:"false",fbURL:"http://www.facebook.com/sharer.php?u=https%3A%2F%2Fen.wikichip.org%2Fwiki%2FIntroduction_-_mIRC",twitterURL:"https://twitter.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2FIntroduction_-_mIRC",gplusURL:"https://plus.google.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2FIntroduction_-_mIRC",contentURL:"https://en.wikichip.org/wiki/Introduction_-_mIRC",swipe:"false"},__ez_rp_script=document.createElement("script");__ez_rp_script.setAttribute("async",""),__ez_rp_script.setAttribute("src","/utilcave_com/apps/js/recommended_pages.js?cb=7"),document.getElementsByTagName("head")[0].appendChild(__ez_rp_script),function(b){var b=b,c=b.document,d=b.screen;b.touchSwipeListener=function(f){var g={startX:0,endX:0},h={moveHandler:function(){},redirectHandler:function(){},endHandler:function(){},startHandler:function(){},scrollEndHandler:function(){},minLengthRatio:0.2},i=function(){return g.endX>g.startX?"prev":"next"},j=function(){var m=Math.ceil(d.width*f.minLengthRatio);return Math.abs(g.endX-g.startX)>m},l={scrollEnd:function(){var n="innerHeight"in b?b.innerHeight:c.documentElement.offsetHeight,o=c.body,p=c.documentElement,q=Math.max(o.scrollHeight,o.offsetHeight,p.clientHeight,p.scrollHeight,p.offsetHeight);windowBottom=n+b.pageYOffset,windowBottom>=q&&q>n+400&&f.scrollEndHandler()},touchStart:function(m){0<m.touches.length&&(g.startX=m.touches[0].pageX,f.startHandler(i()))},touchMove:function(m){0<m.touches.length&&(g.endX=m.touches[0].pageX,f.moveHandler(i(),j()))},touchEnd:function(m){var n=m.changedTouches||m.touches;0<n.length&&(g.endX=n[0].pageX,j()&&f.redirectHandler(i())),f.endHandler(i())}};return function(){for(var m in h)h.hasOwnProperty(m)&&(f[m]||(f[m]=h[m]))}(),c.addEventListener?{on:function(){c.addEventListener("touchstart",l.touchStart,!1),c.addEventListener("touchmove",l.touchMove,!1),c.addEventListener("touchend",l.touchEnd,!1),b.addEventListener("scroll",l.scrollEnd,!1)},off:function(){c.removeEventListener("touchstart",l.touchStart),c.removeEventListener("touchmove",l.touchMove),c.removeEventListener("touchend",l.touchEnd),b.removeEventListener("scroll",l.scrollEnd)}}:{on:function(){},off:function(){}}}}(window),function(b){var c=b.document,d=function(){var h,i,e={},f={prev:null,next:null},g={prev:null,next:null};return{init:function(){this.retrievePageSiblings();f.next&&(this.renderArrows(),this.syncUI())},syncUI:function(){var j=this;h=new b.touchSwipeListener({moveHandler:function(k,l){l?g[k]&&f[k]&&g[k].classList.add("visible"):g[k].classList.remove("visible")},scrollEndHandler:function(){},startHandler:function(){i&&clearTimeout(i),e.classList.add("visible")},endHandler:function(){g.next.classList.remove("visible"),g.prev.classList.remove("visible"),i=setTimeout(function(){e.classList.remove("visible")},1500)},redirectHandler:function(k){j[k]&&j[k]()}}),h.on()},retrievePageSiblings:function(){f.prev=c.querySelector("head > link[rel=prev]"),f.next=c.querySelector("head > link[rel=next]")},renderArrows:function(){var k=function(l){var m=c.createElement("span");m.className="icon-wrap "+l;var n=c.createElement("div"),o=c.createElement("a");return o.href="prev"===l?"javascript:window.history.go(-1);":f[l].href,o.className=l,o.appendChild(m),o.appendChild(n),o};g.next=k("next"),g.prev=k("prev"),e=function(l,m){var n=c.createElement("nav");return n.className="nav-multithumb",n.appendChild(m),n.appendChild(l),c.getElementsByTagName("body")[0].appendChild(n),n}(g.next,g.prev)},showLoadingScreen:function(){b.scrollTo(0,0);var j=c.createElement("div");j.className="spn-freezing-overlay",c.getElementsByTagName("body")[0].appendChild(j)},prev:function(){this.showLoadingScreen(),setTimeout(function(){b.location.href=b.history.go(-1)},1e3)},next:function(){f.next&&(this.showLoadingScreen(),setTimeout(function(){b.location.href=f.next.href},1e3))}}}();b.swipePageNav=d}(window);</script>
+<script>function __ez_fad_ezpbinit(){var s = document.createElement( 'script' );
+	s.setAttribute( 'src', '//go.ezodn.com/hb/dall.js?b=ix,pubmatic,rubicon,spotx,yahoossp,yieldmo&cb=195-3-41' );
+	s.onerror = function () {window.ezDallErr = true};
+	document.body.appendChild( s );}var epbjs=epbjs||{};epbjs.que=epbjs.que||[];epbjs.bidderTimeout=2000;epbjs.useAdj=true;epbjs.SS={"ix":10082,"pubmatic":10061,"rubicon":10063,"spotx":11304,"yahoossp":11318,"yieldmo":11315};epbjs.bidders=['ix,pubmatic,rubicon,spotx,yahoossp,yieldmo'];epbjs.que.push(function(){});epbjs.bidderSettings={'ix': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 1.000000; var adj2 = adj1 * 1.000000; return adj2; }},'rubicon': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 1.000000; var adj2 = adj1 * 1.000000; return adj2; }},'pubmatic': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 1.000000; var adj2 = adj1 * 1.000000; return adj2; }},'yahoossp': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 1.000000; var adj2 = adj1 * 1.000000; return adj2; }},'yieldmo': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 1.000000; var adj2 = adj1 * 1.000000; return adj2; }},'spotx': { bidCpmAdjustment: function(bidCpm) { var adj1 = bidCpm * 0.560000; var adj2 = adj1 * 1.000000; return adj2; }},};epbjs.gadj=1.000000;var __enableAnalytics=false;
+var __s2sbidders=[];
+var __s2sinstreambidders=['ix','rubicon','pubmatic'];
+var __allBidders=['ix','rubicon','pubmatic','yahoossp','yieldmo','spotx'];
+__ez.queue.addFile('/detroitchicago/houston.js', '/detroitchicago/houston.js?gcb=3&cb=19', false, [], true, false, true, false);__ez.queue.addFunc("epbjsRequestAdUnits", "epbjsRequestAdUnits", [[{code: 'div-gpt-ad-wikichip_org-box-2-0', mediaTypes: {banner: { sizes:[[728,90]] }}, bids: [{bidder: 'ix', params: { siteId: '305137', size: [728,90], video: {} }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_top_of_page_728x90' }},{bidder: 'yieldmo', params: { placementId: '2834942196124164132' }}] },{code: 'div-gpt-ad-wikichip_org-box-3-0', mediaTypes: {banner: { sizes:[[970,90]] }}, bids: [{bidder: 'ix', params: { siteId: '305138', size: [970,90], video: {} }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_under_page_title_970x90' }},{bidder: 'yieldmo', params: { placementId: '2834942196124164132' }}] },{code: 'div-gpt-ad-wikichip_org-medrectangle-1-0', mediaTypes: {banner: { sizes:[[580,400],[336,280],[300,250]] }}, bids: [{bidder: 'ix', params: { siteId: '305140', size: [580,400], video: {} }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_bottom_of_page_580x400' }},{bidder: 'yieldmo', params: { placementId: '2834942196124164132' }}] }]], false, ['/detroitchicago/houston.js'], true, true, true, true);</script>
+<script>var __ez_tkn_evnt = function() { if(typeof(_ezaq) != 'undefined'){if(typeof window.ezogtk !== "undefined" && window.ezogtk !== "") {__ez.bit.AddAndFire(_ezaq.page_view_id,[new __ezDotData("ext_user_hash",window.ezogtk)]);}}};document.addEventListener("DOMContentLoaded", __ez.queue.addFunc("__ez_tkn_evnt", "__ez_tkn_evnt", event, false, ['/detroitchicago/minneapolis.js','/detroitchicago/memphis.js'], true, true, false, true));</script>
+<script async data-ezscrex="false">__ez_fad_load(0,0);__ez_fad_doc_ht=__ez_fad_docht();__ez_fad_vp_ht=__ez_fad_vpht();function __ez_fad_scroll(){return window.pageYOffset||(document.documentElement||document.body.parentNode||document.body).scrollTop}
+var __ez_fad_init_scroll=__ez_fad_scroll();var __ez_fad_scroll_delta=0;var __ez_fad_check_scroll_override=function(){var currScroll=__ez_fad_scroll();if(__ez_fad_scroll_delta>__ez_fad_vp_ht){if(currScroll===__ez_fad_init_scroll){for(var i=0;i<__ez_fad_divs.length;i++)
+if(ezslit_run[i]!==true){__ez_fad_load(i,null);}}
+document.removeEventListener('wheel',__ez_fad_wheel_check);document.removeEventListener('touchstart',__ez_fad_touch_check);}};var __ez_fad_wheel_check=function(e){__ez_fad_scroll_delta+=e.deltaY;__ez_fad_check_scroll_override();};var __ez_fad_touch_check=function(e){var delta=0;var startY=e.touches[0].pageY;var handleTouchMove=function(e){var currY=e.touches[0].pageY;delta+=startY-currY;startY=currY;};var handleTouchEnd=function(e){document.removeEventListener('touchmove',handleTouchMove);document.removeEventListener('touchend',handleTouchEnd);__ez_fad_scroll_delta+=delta;__ez_fad_check_scroll_override();};document.addEventListener('touchmove',handleTouchMove);document.addEventListener('touchend',handleTouchEnd);};document.addEventListener('wheel',__ez_fad_wheel_check);document.addEventListener('touchstart',__ez_fad_touch_check);var __ez_fad_scrollmond=false;var __ez_fad_scrollmon=function(){var sy=__ez_fad_scroll();var isShortPage=__ez_fad_doc_ht<=(__ez_fad_vh+100);var bot=(__ez_fad_vp_ht+sy);var botThresh=bot+__ez_fad_vp_ht;for(var divid in __ez_fad_divpos){if(__ez_fad_fastdiv.indexOf(divid)!=-1){continue;}
+var divPos=__ez_fad_divpos[divid];if(divPos>0&&divPos>sy&&divPos<(sy+__ez_fad_vp_ht*.5)){if(typeof __ez_fad_instaslots[divid]=='function'){__ez_fad_instaslots[divid]();}}else if(divPos>0&&divPos>sy&&divPos<(sy+__ez_fad_vp_ht)){if(typeof __ez_fad_viewslots[divid]=='function'){__ez_fad_viewslots[divid]();}}}
+__ez_fad_chkpos();if(ezslit_run[0]!==true){__ez_fad_load(0,0);}
+if((sy>0||isShortPage)&&ezslit_run[1]!=true){__ez_fad_load(1,null);__ez_fad_load(5,null);}
+if((sy>100||isShortPage)&&ezslit_run[2]!=true){__ez_fad_load(2,null);}
+if(sy>(__ez_fad_vp_ht*.75)&&ezslit_run[3]!=true){__ez_fad_load(3,null);}
+if(document.readyState==="complete"&&!__ez_fad_floatshowd&&typeof __ez_fad_floating!=='undefined'&&__ez_fad_floating.length>0&&__ez_fad_count===0){setTimeout(googletag.cmd.push(function(){__ez_fad_floatshow()}),500);}
+if((ezslit_run[1]==true&&ezslit_run[2]==true&&ezslit_run[3]==true)||__ez_fad_count===__ez_fad_divsd.length){__ez_fad_scrollmond=true;}else{setTimeout(__ez_fad_scrollmon,500);}};__ez_fad_scrollmon();function __ez_fad_chkpos(){if(typeof __ez_fad_divs[4]!='undefined'){for(var i=0;i<__ez_fad_divs[4].length;i++){var id=__ez_fad_divs[4][i];__ez_fad_divs[4][i]=null;__ez_fad_position([id]);}}}</script>
+<script type="text/javascript">(function(f,a){function g(b,a,c){b.addEventListener?b.addEventListener(a,c):b.attachEvent("on"+a,function(){c.call(b)})}function k(b){b&&("string"==typeof b["class"]&&b["class"]&&a.getElementById("uglipop_popbox").setAttribute("class",b["class"]),b.keepLayout&&!b["class"]&&a.getElementById("uglipop_popbox").setAttribute("style","position:relative;height:300px;width:300px;background-color:white;opacity:1;"),"string"==typeof b.content&&b.content&&"html"==b.source&&(a.getElementById("uglipop_popbox").innerHTML=b.content),"string"==typeof b.content&&b.content&&"div"==b.source&&(a.getElementById("uglipop_popbox").innerHTML=a.getElementById(b.content).innerHTML));a.getElementById("uglipop_overlay_wrapper").style.display="";a.getElementById("uglipop_overlay").style.display="";a.getElementById("uglipop_content_fixed").style.display=""}function h(){a.getElementById("uglipop_overlay_wrapper").style.display="none";a.getElementById("uglipop_overlay").style.display="none";a.getElementById("uglipop_content_fixed").style.display="none"}g(a,"DOMContentLoaded",function(){var b=a.createElement("div"),e=a.createElement("div"),c=a.createElement("div"),d=a.createElement("div");e.id="uglipop_content_fixed";e.setAttribute("style","position:fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);opacity:1;z-index:10000000;");c.id="uglipop_popbox";d.id="uglipop_overlay_wrapper";d.setAttribute("style","position:absolute;top:0;bottom:0;left:0;right:0;display:none");b.id="uglipop_overlay";b.setAttribute("style","position:fixed;top:0;bottom:0;left:0;right:0;opacity:0.3;width:100%;height:100%;background-color:black;");d.appendChild(b);e.appendChild(c);a.body.appendChild(d);a.body.appendChild(e);a.getElementById("uglipop_overlay_wrapper").style.display="none";a.getElementById("uglipop_overlay").style.display="none";a.getElementById("uglipop_content_fixed").style.display="none";d.addEventListener("click",h);g(f,"keydown",function(a){27==a.keyCode&&h()});f.uglipop=k})})(window,document);var ezRBA=(function(){function init(){var reportAdsBtns=document.querySelectorAll('.ez-report-ad-button');for(var i=0;i<reportAdsBtns.length;i++){reportAdsBtns[i].addEventListener('click',function(e){var url='<iframe src="https://svc.ezoic.com/pub/reportads/reportads.html'+e.target.getAttribute('name')+'" width="400" height="500" style="border-radius: 10px; box-shadow: 2px 2px 30px 6px rgba(0,0,0,0.75); border: 1px solid black;"></iframe>'
+uglipop({class:'none',source:'html',content:url,});});}
+function bindEvent(element,eventName,eventHandler){if(element.addEventListener){element.addEventListener(eventName,eventHandler,false);}else if(element.attachEvent){element.attachEvent('on'+eventName,eventHandler);}}
+bindEvent(window,'message',function(e){if(e.data==='close-report-ad-modal'){document.getElementById('uglipop_overlay_wrapper').style.display='none';document.getElementById('uglipop_overlay').style.display='none';document.getElementById('uglipop_content_fixed').style.display='none';}})}
+return{init:init};})();ezRBA.init();</script>
+<script type="text/javascript" data-cfasync="false"></script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script><script type='text/javascript' style='display:none;' async>
+</script>
+</body></html>

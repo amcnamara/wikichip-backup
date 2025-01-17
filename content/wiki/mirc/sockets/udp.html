@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>UDP Sockets - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/sockets/udp" href="/w/index.php?title=Special:ExportRDF/mirc/sockets/udp&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/sockets/udp&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/sockets/udp&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/sockets/udp" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/sockets/udp","wgTitle":"mirc/sockets/udp","wgCurRevisionId":11007,"wgRevisionId":11007,"wgArticleId":37,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/sockets/udp","wgRelevantArticleId":37,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_sockets_udp skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">UDP Sockets - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a>&lrm; | <a href="/wiki/mirc/sockets" title="mirc/sockets">sockets</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div style="margin-left: auto; margin-right: auto; white-space: pre-wrap; overflow: visible;background: #F8F8F8; width: 600px; border: 1px solid #D3DCE2; padding: 10px;"><b>Prerequisite knowledge:</b><br />This article assumes that you have intermediate to advanced knowledge of the <a href="/wiki/mIRC_Scripting_Language" title="mIRC Scripting Language" class="mw-redirect">mIRC Scripting Language</a> and familiarity with <a href="/wiki/On_events_-_mIRC" title="On events - mIRC" class="mw-redirect">on events</a> and <a href="/wiki/Aliases_-_mIRC" title="Aliases - mIRC" class="mw-redirect">custom aliases</a>.</div>
+<p>This tutorial is the <b>UDP Sockets</b> continuation of the <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets (Intro) tutorial</a>. If you haven't read that, please do so first before moving on to this one. 
+</p><p>Recall that UDP is a connectionless protocol service. Because of this there are no on sockopen/sockread/sockclose events for the different stages like TCP. The basic idea is you send a message and quit, or you send a message and wait for response.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Sending_A_Packet"><span class="tocnumber">1</span> <span class="toctext">Sending A Packet</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Listening_for_Incoming_Data"><span class="tocnumber">2</span> <span class="toctext">Listening for Incoming Data</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Socket_Failure_and_More_Data_Sending"><span class="tocnumber">3</span> <span class="toctext">Socket Failure and More Data Sending</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Example_1_-_Time_Protocol"><span class="tocnumber">4.1</span> <span class="toctext">Example 1 - Time Protocol</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Example_2_-_QOTD_Protocol"><span class="tocnumber">4.2</span> <span class="toctext">Example 2 - QOTD Protocol</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Sending_A_Packet">Sending A Packet</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=1" title="Edit section: Sending A Packet">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The /sockudp command allows you to send data to a specific address at a specific port destination. The syntax is:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; Sending some data</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockudp" title="/sockudp - mIRC Command" style="text-decoration: none"><span class="mirc_command">/sockudp</span></a> [-kb] &lt;handle&gt; &lt;ipaddress&gt; &lt;port&gt; [numbytes] [text|%var|&amp;bvar]</span></pre>
+<p>By default, /sockudp sends the entire data specified. The -b switch can be used to limit the amount of bytes sent. 
+</p><p>If you are expecting some data back, the -k switch can be used to force the UDP socket to remain open. This will allow you to listen to incoming data.
+</p>
+<h2><span class="mw-headline" id="Listening_for_Incoming_Data">Listening for Incoming Data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=2" title="Edit section: Listening for Incoming Data">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If you are expecting data back (I.E. if you specified the -k switch) you can listen for incoming data via the on udpread event.
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">udpread</span>:&lt;handle&gt;:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; your code goes here</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Socket_Failure_and_More_Data_Sending">Socket Failure and More Data Sending</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=3" title="Edit section: Socket Failure and More Data Sending">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The on sockwrite event can be used to write additional data when the previous data is sent. Additionally, If the sockudp command fails, the on sockwrite event will trigger $sockerr set to a non-zero value.
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockwrite</span>:&lt;handle&gt;:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; your code goes here</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=4" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Example_1_-_Time_Protocol">Example 1 - Time Protocol</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=5" title="Edit section: Example 1 - Time Protocol">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This example will use the Time Protocol to display the current time. The Time Protocol is a very simple network protocol that provides site-independent, machine readable date and time. The protocol is defined in <a class="external mw-magiclink-rfc" rel="nofollow" href="//tools.ietf.org/html/rfc868">RFC 868</a>. 
+</p><p>From <a class="external mw-magiclink-rfc" rel="nofollow" href="//tools.ietf.org/html/rfc868">RFC 868</a>:
+</p>
+<pre>When used via UDP the time service works as follows:
+
+ S: Listen on port 37 (45 octal).
+ U: Send an empty datagram to port 37.
+ S: Receive the empty datagram.
+ S: Send a datagram containing the time as a 32 bit binary number.
+ U: Receive the time datagram.
+
+ The server listens for a datagram on port 37. When a datagram
+ arrives, the server returns a datagram containing the 32-bit time
+ value. If the server is unable to determine the time at its site, it
+ should discard the arriving datagram and make no reply.</pre>
+<p>From the instructions above you can see that the first thing we have to do is send an empty datagram to their server. On port 37. &amp;null will hold our NULL byte.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getTime</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; NULL byte</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">  bset</span></a> &amp;null 1 0</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; Time-a.nist.gov = 129.6.15.28</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockudp" title="/sockudp - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockudp</span></a> -k getTime 129.6.15.28 37 &amp;null</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Let's add a single line of code to print if an error occurred
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">sockwrite</span>:getTime:<span class="mirc_bracket">{</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockerr" title="$sockerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a /getTime: Error: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>.wserr - <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sock" title="$sock - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sock</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a><span class="mirc_bracket">&#x29;</span>.wsmsg</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Now, all we have to do is sit and wait for the datagram response. Remember that since UDP is connectionless protocol, its header is much smaller, thus much faster (Ideal for a time protocol).
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">udpRead</span>:getTime: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; read the reply</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockread</span></a> -f &amp;time</span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment">  &#160;; bvar to var</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">   var</span></a> <span class="mirc_variable">%time</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;time,1,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;time,0<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment">  &#160;; get convert to binary</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">   var</span></a> <span class="mirc_variable">%bin</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%time</span>,/<span class="mirc_bracket">&#x28;</span>\d+<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>\1,10,2,8<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment">  &#160;; print it and close the socket</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">   echo</span></a> -a our 32-bit time value: <span class="mirc_variable">%bin</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Let's make sense of this 32bit time value, shall we?
+</p><p>Once again, from the <a class="external mw-magiclink-rfc" rel="nofollow" href="//tools.ietf.org/html/rfc868">RFC 868</a>:
+</p>
+<pre>The Time
+
+ The time is the number of seconds since 00:00 (midnight) 1 January 1900
+ GMT, such that the time 1 is 12:00:01 am on 1 January 1900 GMT; this
+ base will serve until the year 2036.
+
+ For example:
+
+ the time 2,208,988,800 corresponds to 00:00 1 Jan 1970 GMT,
+ 2,398,291,200 corresponds to 00:00 1 Jan 1976 GMT,
+ 2,524,521,600 corresponds to 00:00 1 Jan 1980 GMT,
+ 2,629,584,000 corresponds to 00:00 1 May 1983 GMT,
+ and -1,297,728,000 corresponds to 00:00 17 Nov 1858 GMT.</pre>
+<p>Since we know that 2,208,988,800 = 00:00 1 Jan 1970 GMT (Unix epoch). We can just do $calc(%time - 2208988800) to get the current Unix time. Now all we got to do is use $asctime to format it nicely. 
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">udpRead</span>:getTime: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; read the reply</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockread</span></a> -f &amp;time</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%time</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;time,1,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$bvar" title="$bvar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bvar</span></a><span class="mirc_bracket">&#x28;</span>&amp;time,0<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; convert to binary, remove spaces</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%bin</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%time</span>, /<span class="mirc_bracket">&#x28;</span>\d+<span class="mirc_bracket">&#x29;</span>\s?/g, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span>\1, 10, 2, 8<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; get the current unix time in decimal system</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%time</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$base" title="$base - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$base</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%bin</span>, 2, 10<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; print the time and close the socket</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a Currnt Time/Date: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$asctime" title="$asctime - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$asctime</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%time</span> - 2208988800<span class="mirc_bracket">&#x29;</span>, yyyy-mm-dd hh:nn:ss TT<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="Example_2_-_QOTD_Protocol">Example 2 - QOTD Protocol</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit&amp;section=6" title="Edit section: Example 2 - QOTD Protocol">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In this example we will use an interesting protocol, the Quote Of The Day, <a class="external mw-magiclink-rfc" rel="nofollow" href="//tools.ietf.org/html/rfc865">RFC 865</a>. This is a very simple protocol; you send a blank datagram, and the server responds with a quote. The hardest part was actually finding a website that still supports this protocol. (The reason most servers don't have this service enabled is because it is vulnerable to a ping-pong attack, where an attacker spoofs a server's IP (that supports QOTD protocol) and sends a request to a second server that support it, causing both server to flood each other) 
+</p><p>Send a request:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getQOTD</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; NULL byte</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/bset" title="/bset - mIRC Command" style="text-decoration: none"><span class="mirc_command">  bset</span></a> &amp;null 1 0</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; Dns resolved quotes4all.net to 85.25.143.214</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockudp" title="/sockudp - mIRC Command" style="text-decoration: none"><span class="mirc_command">  sockudp</span></a> -k getQOTD 85.25.143.214 17 &amp;null</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Now wait for the quote:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">udpRead</span>:QOTD: <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">   var</span></a> <span class="mirc_variable">%Quote</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockread" title="/sockread - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockread</span></a> -f <span class="mirc_variable">%Quote</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">   echo</span></a> -ea <span class="mirc_variable">%Quote</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/sockclose" title="/sockclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">   sockclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sockname" title="$sockname - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sockname</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.060 seconds
+Real time usage: 0.067 seconds
+Preprocessor visited node count: 173/1000000
+Preprocessor generated node count: 822/1000000
+Post‐expand include size: 683/2097152 bytes
+Template argument size: 286/2097152 bytes
+Highest expansion depth: 10/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   23.594      1 - -total
+ 66.55%   15.701      1 - Template:mIRC
+ 23.65%    5.581      1 - Template:mirc_title
+ 14.54%    3.431      1 - Template:url_parse_article
+ 11.25%    2.655      1 - Template:url_parse_anchor
+  8.53%    2.012      1 - Template:mIRC_menu
+  7.80%    1.840      1 - Template:Preknow
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:37-0!*!0!!en!*!* and timestamp 20160415095743 and revision id 11007
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/sockets/udp&amp;oldid=11007">http://en.wikichip.org/w/index.php?title=mirc/sockets/udp&amp;oldid=11007</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fsockets%2Fudp&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fsockets%2Fudp" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/sockets/udp"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/sockets/udp&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/sockets/udp" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/sockets/udp&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/sockets/udp" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/sockets/udp" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/sockets/udp&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/sockets/udp&amp;oldid=11007" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/sockets/udp&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Fsockets-2Fudp" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 04:31.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":440});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Preprocessor - C - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="c/preprocessor" href="/w/index.php?title=Special:ExportRDF/c/preprocessor&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=c/preprocessor&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=c/preprocessor&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/c/preprocessor" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/preprocessor","wgTitle":"c/preprocessor","wgCurRevisionId":11325,"wgRevisionId":11325,"wgArticleId":480,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["C programming language"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"c/preprocessor","wgRelevantArticleId":480,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_preprocessor skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Preprocessor - C</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/c" title="c">c</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The <b>C preprocessor</b> (<b>CPP</b>) is a program that implements the macro language used to transform <a href="/wiki/C_programming_language" title="C programming language" class="mw-redirect">C programming language</a> program before they are compiled. Some CPPs can be used as a stand-lone utilities which are called by the <a href="/wiki/C" title="C" class="mw-redirect">C</a> compiler during the first steps of the translation process. The C preprocessor provides the ability to include additional files, perform basic substitutions, generate errors. The C preprocessor supports conditional statements which allows conditional compilation based on some previously defined configurations.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Role"><span class="tocnumber">1</span> <span class="toctext">Role</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Directives_vs_text"><span class="tocnumber">2</span> <span class="toctext">Directives vs text</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Include_directive"><span class="tocnumber">3</span> <span class="toctext">Include directive</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Specs"><span class="tocnumber">4</span> <span class="toctext">Specs</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Role">Role</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/preprocessor&amp;action=edit&amp;section=1" title="Edit section: Role">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The C preprocessor is invoked during the first four <a href="/wiki/c/phases_of_translation" title="c/phases of translation">phases of translation</a>. The preprocessor's job is:
+</p>
+<ol><li>Perform <a href="/w/index.php?title=c/trigraphs&amp;action=edit&amp;redlink=1" class="new" title="c/trigraphs (page does not exist)">Trigraphs</a> replacement</li>
+<li>Perform escaped new-line characters removal</li>
+<li>Perform tokenization; replace comments with a single space character</li>
+<li>Perform macro expansion</li></ol>
+<h2><span class="mw-headline" id="Directives_vs_text">Directives vs text</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/preprocessor&amp;action=edit&amp;section=2" title="Edit section: Directives vs text">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The source text is separated into two parts: directives and text lines. Directives must start with a the hash character (#).
+</p>
+<h2><span class="mw-headline" id="Include_directive">Include directive</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/preprocessor&amp;action=edit&amp;section=3" title="Edit section: Include directive">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The include directive the syntax <code>#include &lt;char-sequence&gt; new-line</code> or <code>#include "char-sequence"</code>. The include directive causes the preprocessor to replace that entire line with the entire contents of the file specified.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>
+</p><p>The locations where the files are located, or how the preprocessor identifies standard headers is implementation defined. In the case where the preprocessor does not support the include directive with the double quotes, the preprocessor should treat it as if it was in angled brackets (&lt; and &gt;).<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> Some of the common implementations search system include directories for headers specified with angled brackets while searching the current directory for headers specified with double quotes.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup>
+</p><p>The most common application for the include directive is to include <a href="/wiki/c/standard_library" title="c/standard library">standard headers</a>. For example,
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span></pre></div></div>
+<h2><span class="mw-headline" id="Specs">Specs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/preprocessor&amp;action=edit&amp;section=4" title="Edit section: Specs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The exact behavior required for an implementation to become a fully conforming C preprocessor is quite ambiguous. The C Standard description of the preprocessor is based on a preprocessor macro replacement algorithm written by Dave Prosser for the WG14 team in 1984. Some of wording used to produce a clone pseudo-code of the algorithm were intentionally left out of the standard in order to prevent changing the conformance status of existing implementations. This results in various inconsistencies in the C and C++ standards.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/preprocessor&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a href="/wiki/C11" title="C11" class="mw-redirect">C11</a> §6.10.2 Source file inclusion</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a href="/wiki/C11" title="C11" class="mw-redirect">C11</a> §6.10.2 Source file inclusion p3</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text"><a href="/wiki/C11" title="C11" class="mw-redirect">C11</a> §6.10.2 Source file inclusion p1-2</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_active.html#268">WG21, Defect 268, Macro name suppression in rescanned replacement text</a></span>
+</li>
+</ol></div>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.077 seconds
+Real time usage: 0.082 seconds
+Preprocessor visited node count: 231/1000000
+Preprocessor generated node count: 1000/1000000
+Post‐expand include size: 507/2097152 bytes
+Template argument size: 288/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   56.512      1 - -total
+ 27.45%   15.515      3 - Template:C
+ 21.80%   12.317      1 - Template:reflist
+  9.45%    5.342      3 - Template:url_parse_article
+  9.37%    5.297      1 - Template:c_title
+  6.51%    3.682      3 - Template:url_parse_anchor
+  3.63%    2.049      1 - Template:c_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:480-0!*!0!!en!*!* and timestamp 20160402193746 and revision id 11325
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=c/preprocessor&amp;oldid=11325">http://en.wikichip.org/w/index.php?title=c/preprocessor&amp;oldid=11325</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:C_programming_language" title="Category:C programming language">C programming language</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fpreprocessor&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fpreprocessor" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/c/preprocessor"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:c/preprocessor&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/c/preprocessor" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=c/preprocessor&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=c/preprocessor&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-C' aria-labelledby='p-C-label'>
+			<h3 id='p-C-label'>C</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Introduction"><a href="/wiki/c/introduction">Introduction</a></li>
+													<li id="n-Program-structure"><a href="/wiki/c/program_structure">Program structure</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/c/variables">Variables</a></li>
+													<li id="n-Basic-I/O"><a href="/wiki/c/basic_i/o">Basic I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Math' aria-labelledby='p-Math-label'>
+			<h3 id='p-Math-label'>Math</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Basic-Arithmetics"><a href="/wiki/c/basic_arithmetics">Basic Arithmetics</a></li>
+													<li id="n-Math-functions"><a href="/wiki/c/math_functions">Math functions</a></li>
+													<li id="n-Complex-Numbers"><a href="/wiki/c/complex_numbers">Complex Numbers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Conditional-statements"><a href="/wiki/c/conditional_statements">Conditional statements</a></li>
+													<li id="n-Loop-Constructs"><a href="/wiki/c/loop_constructs">Loop Constructs</a></li>
+													<li id="n-Goto-Statements"><a href="/wiki/c/goto_statements">Goto Statements</a></li>
+													<li id="n-Nonlocal-Jumps"><a href="/wiki/c/Nonlocal_jumps">Nonlocal Jumps</a></li>
+													<li id="n-Functions"><a href="/wiki/c/functions">Functions</a></li>
+													<li id="n-Error-Handling"><a href="/wiki/c/error_handling">Error Handling</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Operators' aria-labelledby='p-Operators-label'>
+			<h3 id='p-Operators-label'>Operators</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Operators"><a href="/wiki/c/operators">Operators</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Arrays_.26_Pointers' aria-labelledby='p-Arrays_.26_Pointers-label'>
+			<h3 id='p-Arrays_.26_Pointers-label'>Arrays &amp; Pointers</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Arrays"><a href="/wiki/c/arrays">Arrays</a></li>
+													<li id="n-Pointers"><a href="/wiki/c/pointers">Pointers</a></li>
+													<li id="n-Memory-management"><a href="/wiki/c/memory_management">Memory management</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Strings' aria-labelledby='p-Strings-label'>
+			<h3 id='p-Strings-label'>Strings</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Character-Handling"><a href="/wiki/c/character_handling">Character Handling</a></li>
+													<li id="n-Strings-Handling"><a href="/wiki/c/strings_handling">Strings Handling</a></li>
+													<li id="n-Wide-Strings"><a href="/wiki/c/wide_strings">Wide Strings</a></li>
+													<li id="n-Unicode"><a href="/wiki/c/unicode">Unicode</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Date_and_Time' aria-labelledby='p-Date_and_Time-label'>
+			<h3 id='p-Date_and_Time-label'>Date and Time</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Date-and-Time"><a href="/wiki/c/date_and_time">Date and Time</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Structured_Types' aria-labelledby='p-Structured_Types-label'>
+			<h3 id='p-Structured_Types-label'>Structured Types</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Structures"><a href="/wiki/c/structures">Structures</a></li>
+													<li id="n-Unions"><a href="/wiki/c/unions">Unions</a></li>
+													<li id="n-Bitfields"><a href="/wiki/c/bitfields">Bitfields</a></li>
+													<li id="n-Enums"><a href="/wiki/c/enumerated_types">Enums</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-I.2FO' aria-labelledby='p-I.2FO-label'>
+			<h3 id='p-I.2FO-label'>I/O</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Standard-Streams"><a href="/wiki/c/Standard_Streams">Standard Streams</a></li>
+													<li id="n-File-I/O"><a href="/wiki/c/file_i/o">File I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Concurrency' aria-labelledby='p-Concurrency-label'>
+			<h3 id='p-Concurrency-label'>Concurrency</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Concurrency"><a href="/wiki/c/concurrency">Concurrency</a></li>
+													<li id="n-Inter‐Thread-Communication"><a href="/wiki/c/inter%E2%80%90thread_communication">Inter‐Thread Communication</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Other' aria-labelledby='p-Other-label'>
+			<h3 id='p-Other-label'>Other</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Data-Types"><a href="/wiki/c/data_types">Data Types</a></li>
+													<li id="n-Static-Assertions"><a href="/wiki/c/static_assertions">Static Assertions</a></li>
+													<li id="n-Generic-Selections"><a href="/wiki/c/generic_selections">Generic Selections</a></li>
+													<li id="n-Preprocessor"><a href="/wiki/c/preprocessor">Preprocessor</a></li>
+													<li id="n-Standard-Library"><a href="/wiki/c/standard_library">Standard Library</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/c/preprocessor" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/c/preprocessor" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=c/preprocessor&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=c/preprocessor&amp;oldid=11325" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=c/preprocessor&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/c-2Fpreprocessor" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 07:40.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":455});
+}</script>
+	</body>
+</html>

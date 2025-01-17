@@ -1,0 +1,761 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],s=[],r=!0,a=function(e,i,n,o,s,r,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,c=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=s,this.deleteWhenComplete=r,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),c.isInitialized=!0,c.isComplete=!0,f("... func.apply: "+e);var i=c.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[c.funcName]),null!=n&&n.apply(null,this.parameters),!0===c.deleteWhenComplete&&delete t[e],!0===c.isBlock&&(f("----- F'D: "+c.name),u())}},l=function(e,i,t,n,o,s,r){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=s,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=r,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===s&&(t.defer=!0),t.onerror=function(){f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},c=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function d(e){!0!==h(e)&&0!=r&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(s))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,r,a,c,h,f,u){var m=new l(e,i,n,r,a,c,h,u);!0===f?o[e]=m:s[e]=m,t[e]=m,d(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),s[e]=n,t[e]=n,d(n)},addFunc:function(e,n,r,l,c,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var y=new a(e,n,r,l,c,f,u,p);!0===m?o[e]=y:s[e]=y,t[e]=y,d(y)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),s[e]=o,t[e]=o,d(o)},items:t,processAll:u,setallowLoad:function(e){r=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new c(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};</script>
+<script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('fads.js', '/porpoiseant/fads.js?gcb=195-3&cb=11', true, [], true, false, false, true);</script>
+<script>var __ezaps=[{"slotID":"div-gpt-ad-wikichip_org-box-3-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-3","sizes":[[300,250]]},{"slotID":"div-gpt-ad-wikichip_org-box-2-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-2","sizes":[[728,90]]},{"slotID":"div-gpt-ad-wikichip_org-large-mobile-banner-1-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-large-mobile-banner-1","sizes":[[300,250]]},{"slotID":"div-gpt-ad-wikichip_org-medrectangle-1-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-medrectangle-1","sizes":[[580,400],[336,280],[300,250]]}];var __ezapsVideo=[];__ezapid='aa05931b-5308-4ea3-95a2-adf84f4ffde4';</script>
+<script data-ezscrex="false" async data-pagespeed-no-defer type="text/javascript" src="/edmontonalberta/calgary.js?cb=16"></script>
+<script>window.ezslots_raw=[];var __sellerid='4a5daa05a47056658433ffbf2fc33abf';var __schain_domain='';var __ez_nid ='1254144';__advertiserRule=['luckyparkclub.com','happy.luckyparkclub.com'];var ezasVars = {'cid':'2594856134','pid':'pub-1951113009523412','ssid':44};if(typeof window.ezAutoAdsSetup == 'undefined'){window.google_reactive_ads_global_state = {
+                adCount: {},
+                floatingAdsStacking: { maxZIndexListeners: [], maxZIndexRestrictions: {}, nextRestrictionId: 0 },
+                messageValidationEnabled: false,
+                reactiveTypeDisabledByPublisher: {},
+                reactiveTypeEnabledInAsfe: {},
+                sideRailAvailableSpace: [],
+                sideRailOverlappableElements: [],
+                stateForType: {},
+                tagSpecificState: {},
+                wasPlaTagProcessed: true,
+                wasReactiveAdConfigReceived: { 1: true, 2: true, 8: true },
+                wasReactiveAdVisible: {},
+                wasReactiveTagRequestSent: true,
+                description: "Can't disable auto ads programmatically on the page, so here we are!"
+            };};var __ezasAggressive=true;!function(){window.ezasvEvent=function(e,t){if(!0===e[0].isIntersecting){var i=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);window.ezoSTPixelAdd(i,"viewed",1),t.disconnect()}},window.ezaslEvent=function(e,t){if(void 0!==e[0].target.attributes["data-ad-status"]){var i=e[0].target.attributes["data-ad-status"].value,o=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);"filled"==i&&(window.ezoSTPixelAdd(o,"loaded",1),new IntersectionObserver(window.ezasvEvent,{threshold:[1]}).observe(document.getElementById(o+"-asloaded"))),"unfilled"==i&&setTimeout((function(){window.ezoAdBackFill(e)}),2e3),t.disconnect()}},window.ezoAdBackFill=function(e){var t=e[0].target,i=t.parentElement;t.style.display="none !important";var o,d=ezoGetSlotNum(i.id);if(o=void 0!==__ez.fads?__ez.fads.initslots[i.id]:__ez_fad_initslot[i.id],void 0===d&&"function"==typeof o&&(d=o(6)),void 0!==d)var n=window[d];if(void 0!==n){n.setTargeting("compid","0"),n.setTargeting("bkfl","1"),n.setTargeting("reft","t");var a=n.getTargeting("br2")[0];void 0!==window.ezoibfh&&void 0!==window.ezoibfh[a]&&(n.setTargeting("br1",a),n.setTargeting("eb_br",window.ezoibfh[a])),googletag.display(n),setTimeout((function(){googletag.pubads().refresh([n])}),500)}},window.ezoSTPixels=[];var e=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots&&window.ezslots_raw.length>0&&(window.ezoSTPixelFire(),clearInterval(e))}),250);window.ezoSTPixelAdd=function(e,t,i){window.ezoSTPixels.push({id:e,name:t,value:i}),window.ezoSTPixelFire()},window.ezoGetSlotById=function(e){var t=e.split("div-gpt-ad-")[1].split("-",3).join("-");for(var i in window.ezslots_raw)if(window.ezslots_raw[i].tap.includes(t))return window.ezslots_raw[i]},window.ezoGetSlotNum=function(e){if(void 0!==window.ezslots&&0!=window.ezslots)for(var t=0;t<window.ezslots.length;t++){var i=window[ezslots[t]];if(void 0!==i){var o=i.getSlotElementId();if(void 0!==o&&o==e)return ezslots[t]}}},window.ezoSTPixelFire=function(){if("undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots)for(;window.ezoSTPixels.length>0;){var e=window.ezoSTPixels.shift(),t=window.ezoGetSlotById(e.id);if(void 0===t){var i;if(i=void 0!==__ez.fads?__ez.fads.initslots[e.id]:__ez_fad_initslot[e.id],void 0===googletag.defineSlot)return void window.ezoSTPixels.push(e);if(i(1),void 0===(t=window.ezoGetSlotById(e.id)))return void window.ezoSTPixels.push(e)}var o=[{type:"impression",impression_id:t.eid,domain_id:window.did.toString(),unit:e.id,t_epoch:__ez.dot.getEpoch(0),ad_position:parseInt(t.ap),country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:1,data:__ez.dot.dataToStr([new __ezDotData(e.name,e.value.toString())]),is_orig:0}],d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig=0&sts="+btoa(JSON.stringify(o));__ez.dot.Fire(d)}}}();</script>
+<script>!function(){var e=setInterval((function(){var t=document.querySelectorAll('[id^="outbrain_widget_"]');0!==t.length&&(function(e){e.forEach((function(e){if(e.parentElement.hasAttribute("data-ez-name")){var t=e.parentElement.attributes["data-ez-name"].value;new IntersectionObserver((function(e,i){e[0].isIntersecting&&(n({unit:t,name:"viewed"}),i.disconnect())}),{threshold:[1]}).observe(e);var i=e.attributes["data-widget-id"].value;window.OBREvents=window.OBREvents||[],OBREvents.push({event:"widgetDataReturned",widgetId:i,func:function(){n({unit:t,name:"loaded"})}})}}))}(t),clearInterval(e))}),250),t=[],i=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData&&(o(),clearInterval(i))}),2500);function n(e){t.push(e),o()}var d="/porpoiseant/army.gif";function o(){var e,i;if(0!==t.length&&"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData)for(;t.length>0;){var n=t.shift(),o=(e=n.unit,i=n.name,[{type:"impression",impression_id:_ezim_d[e].full_id.split("/")[2],domain_id:window.did.toString(),unit:e,t_epoch:__ez.dot.getEpoch(0),ad_position:_ezim_d[e].position_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:2,data:__ez.dot.dataToStr([new __ezDotData(i,"1")]),is_orig:0}]),a=__ez.dot.getURL(d)+"?orig="+(!0===__ez.template.isOrig?1:0)+"&sts="+btoa(JSON.stringify(o));void 0!==window.ezWp&&ezWp&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("visit_uuid")&&(a+="&visit_uuid="+window.visit_uuid),__ez.dot.Fire(a)}}}();</script>
+<script>window.ezhbopt=true;</script>
+<script>window.ezpbCache=true;</script>
+<link href="//ad.doubleclick.net" rel="dns-prefetch">
+<link href="//pagead2.googlesyndication.com" rel="dns-prefetch">
+<link href="//googleads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//tpc.googlesyndication.com" rel="dns-prefetch">
+<link href="//adservice.google.com" rel="dns-prefetch">
+<link href="//secureads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//www.googletagservices.com" rel="dns-prefetch">
+<link rel='preload' as='script' href='//securepubads.g.doubleclick.net/tag/js/gpt.js'>
+<link rel='preload' as='script' href='//go.ezodn.com/hb/dall.js?cb=195-3-56' onerror="window.ezDallErr=true">
+<link rel='preload' as='script' href='/porpoiseant/fads.js?gcb=195-3&cb=11'>
+<script type="text/javascript">
+	var __banger_pmp_deals=function(){var d={17:{"DealId":17,"Floor":160},18:{"DealId":18,"Floor":25},19:{"DealId":19,"Floor":100},20:{"DealId":20,"Floor":300},1428:{"DealId":1428,"Floor":25},2351:{"DealId":2351,"Floor":155},2526:{"DealId":2526,"Floor":300},2527:{"DealId":2527,"Floor":300},2610:{"DealId":2610,"Floor":125},2688:{"DealId":2688,"Floor":100},2693:{"DealId":2693,"Floor":50},2761:{"DealId":2761,"Floor":200},2763:{"DealId":2763,"Floor":250},3044:{"DealId":3044,"Floor":175},3045:{"DealId":3045,"Floor":75},3052:{"DealId":3052,"Floor":20},3053:{"DealId":3053,"Floor":37},3154:{"DealId":3154,"Floor":275},3856:{"DealId":3856,"Floor":15},4276:{"DealId":4276,"Floor":65},7:{"DealId":7,"Floor":150},8:{"DealId":8,"Floor":200},9:{"DealId":9,"Floor":300},835:{"DealId":835,"Floor":200}};return[{"SlotName":"/1254144,21625046521/wikichip_org-medrectangle-1","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276],d[7],d[8],d[9],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-2","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276],d[7],d[8],d[9],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-3","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276],d[7],d[8],d[9],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-large-mobile-banner-1","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276],d[7],d[8],d[9],d[835]]}]}();
+</script>
+<script type='text/javascript'>_ebcids=[138231308856,138231308940,138231308949,138231387842,138231421744,138231421759,138231421774,138231421783,138231421789,138231421792,138242067587,138242067590,138242067602,138242067605,138242067608,138242067614,138242229406,138242229415,138242229421,138242229430];</script>
+<script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>ezobv=230;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>__ez.fads=window.__ez.fads||{cmd:[],initslots:{},kvStore:{},divs:[[],[],[],[],[],[],[]],divsd:[],fadcount:0};var ez_ad_units=[];var ezslots=[];var ezrpos=[];var ezsrqt={};var __ez_fad_haspo=false;var __ez_fad_hascp=false;if(typeof PerformanceObserver!='undefined'&&typeof PerformanceObserver.supportedEntryTypes!='undefined'){if(PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint')>-1){__ez_fad_haspo=true;}}
+try{var __ez_fad_po=new PerformanceObserver(function(entryList){window.__ez_fad_hascp=true;__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_hascp=true;});});__ez_fad_po.observe({type:'largest-contentful-paint',buffered:true});}catch(e){}
+var __ez_fad_floatshowd=false;__ez.fads.__ez_fad_floatshow=function(d){if(__ez_fad_floatshowd===true||typeof __ez_fad_floating==='undefined'){return;}
+__ez_fad_floatshowd=true;var e=document.getElementById('ezmobfooter');if(e!=null){e.classList.add('ezmobtrans');}else{var head=document.head||document.getElementsByTagName('head')[0],style=document.createElement('style');head.appendChild(style);var css="body > #ezmobfooter{bottom:0px;visibility:visible;}";style.type='text/css';if(style.styleSheet){style.styleSheet.cssText=css;}else{style.appendChild(document.createTextNode(css));}}
+googletag.cmd.push(function(){for(var i=0;i<__ez_fad_floating.length;i++){var s=__ez.fads.initslots[__ez_fad_floating[i]](null);googletag.display(__ez_fad_floating[i]);if(typeof window.adjustHbValues==='function'){window.adjustHbValues(window[s]);}
+if(typeof window.__ezWillLoadCnx!=='undefined'&&window[s].getTargeting('al')[0]=='1039'){window.__ezsbwcmd=window.__ezsbwcmd||[];let sr=[window[s]];window.__ezsbwcmd.push(function(){if(typeof __ezcnxPlayer==='undefined'||!__ezcnxPlayer.getSize()){googletag.pubads().refresh(sr);}else{__ezcnxPlayer.once('removed',function(){googletag.pubads().refresh(sr);})}});continue;}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(x){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh(x);}
+else{setTimeout(()=>{ezChkWfhb(x);},50);}}
+ezChkWfhb([window[s]]);}
+else{googletag.pubads().refresh([window[s]]);}}});};function __ez_fad_csnt(){return document.cookie.indexOf('ezCMPCookieConsent')!==-1||typeof __ez_conestreq=='undefined';}
+function __ez_fad_rdy(){var h=document.documentElement.scrollHeight;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(document.body!==null&&(__ez_fad_haspo===false&&h>vh||__ez_fad_hascp||document.readyState==='complete')){return true;}}
+function __ez_fad_position(id){if(__ez.fads.loaded){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.fadcount++;var did=document.getElementById(id);if(did===null){return;}
+var rect=did.getBoundingClientRect();var vs=window.scrollY||document.body.scrollTop||document.documentElement.scrollTop;var vh=vs+window.screen.height;var vw=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(rect.top>=vh){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.divs[0].push(id);__ez.fads.divsd.push(id);if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_display(id);}
+function __ez_fad_display(id){if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_gpt();if(__ez_fad_floating.indexOf(id)!==-1){setTimeout(__ez.fads.__ez_fad_floatshow,0);return;}
+googletag.cmd.push(function(){var sn=__ez.fads.initslots[id](0);if(!sn){return;}
+var s=window[sn];googletag.display(id);if(typeof window.ezasBuild==='function'){if(window.ezasBuild(s)){return;}}
+if(typeof window.adjustHbValues==='function'){window.adjustHbValues(s);}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh([s]);}
+else{setTimeout(ezChkWfhb,50);}}
+ezChkWfhb();}
+else{googletag.pubads().refresh([s]);}});}
+function ezSetTargetingFromMap(slot,obj){if(typeof slot==='undefined'){return;}
+for(var key in obj){if(!obj.hasOwnProperty(key)){continue;}
+slot.setTargeting(key,obj[key]);}}
+function ezSetSlotTargeting(divid,key,value){var slot=ezGetSlotById(divid);if(slot){slot.setTargeting(key,value);}else{if(typeof __ez.fads.kvStore[divid]=='undefined'){__ez.fads.kvStore[divid]={};}
+__ez.fads.kvStore[divid][key]=value;}}
+function ezGetSlotById(id){if(typeof window.ezslots==='undefined'||window.ezslots==0){return;}
+for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var slotId=slot.getSlotElementId();if(typeof slotId!=='undefined'&&slotId==id){return slot;}}}
+function __ez_close_anchor(){googletag.cmd.push(function(slot){for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var alS=slot.getTargeting('al')[0]%1000;if(alS==5){googletag.destroySlots([slot]);}}
+if(typeof window.ezdomain!=='undefined'){var d=new Date();d.setTime(d.getTime()+(2*60*60*1000));var expires="expires="+d.toGMTString();let cookie="ez_anchor_closed=true;domain=."+ezdomain+';'+expires+"; path=/";document.cookie=cookie;}
+if(typeof(__ez_set_outstream_floor)!=='undefined'){__ez_set_outstream_floor(0);}
+var anchor=document.getElementById('ezmobfooter');if(!anchor){return;}
+anchor.innerHTML='';anchor.style.paddingTop=0;var styleElement=document.getElementById('ezoicCSS');if(!styleElement){return;}
+var cert=document.getElementById('ezoic-certification-fixed');if(cert){cert.style.bottom='15px';}
+var styles=styleElement.sheet?styleElement.sheet:styleElement.styleSheet;for(var i=0;i<styles.cssRules.length;i++){var rules=styles.cssRules[i];if(rules.selectorText==='body'&&rules.style.height==='auto'&&(rules.style.paddingTop!==''||rules.style.paddingBottom!=='')){styles.deleteRule(i);}}});}</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.isEZABL=false;window.ezmadspc=300;window.ezoViewCheck=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezDisableInitialLoad=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezogetbrkey = function(s){ var k = 'br1';var k2 = 'eb_br';if(window.ezogtk == ""){k='br1u';k2='eb_bru';}else if(window.ezogtk != "NT"){k='br1t';k2='eb_brt';} s.setTargeting('br1', s.getTargeting(k));s.setTargeting('eb_br', s.getTargeting(k2));};googletag.cmd.push(function() {ezslot_interstitial = googletag.defineOutOfPageSlot('/1254144,21625046521/wikichip_org-pixel1',googletag.enums.OutOfPageFormat.INTERSTITIAL); if(ezslot_interstitial != null) {ezslot_interstitial.addService(googletag.pubads()).setTargeting('eb_br', '90c3c48d0172916d27c102ea4aa9d49c').setTargeting('bvr', '8').setTargeting('al', '1006').setTargeting('ic', '1').setTargeting('reft', 'n').setTargeting('br1', '300').setTargeting('ga', '2497208').setTargeting('iid1', '6619098041166580').setTargeting('bra', 'mod58').setTargeting('ezoic', '1').setTargeting('avc', '252').setTargeting('tap', 'wikichip_org-pixel1-6619098041166580').setTargeting('d', '86609').setTargeting('br2', '260').setTargeting('ap', '9999');}
+			googletag.pubads().enableSingleRequest();googletag.pubads().addEventListener('slotRenderEnded', function(event) { __ez.queue.addFunc("ezbanger", "ezbanger", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('impressionViewable', function(event) { __ez.queue.addFunc("ezvb", "ezvb", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotResponseReceived', function(event) { __ez.queue.addFunc("ezsr", "ezsr", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotRequested', function(e) { window.ezsrqt[e.slot.getSlotElementId()] = Date.now();});googletag.pubads().disableInitialLoad();googletag.pubads().enableLazyLoad({fetchMarginPercent: 400, renderMarginPercent: 150, mobileScaling: 2.0});googletag.enableServices();});window.ezoll = false;window.ezoadxnc = '1254144';window.ezoadhb = '300';var ezaxmns={};var ezaucmns={};
+
+		var __ez_fad_floating = [];
+		var __ez_fad_gptd = __ez_fad_gptd || false;var __ez_fad_ezpbinitd = false;var __ez_fad_pbt = setTimeout(function(){__ez_fad_pb();},5000);function __ez_fad_gpt(){if(__ez_fad_gptd == false){__ez_fad_gptd=true;!function(){var t=document.createElement("script");t.async=!0,t.type="text/javascript";var e="https:"==document.location.protocol;t.src=(e?"https:":"http:")+"//securepubads.g.doubleclick.net/tag/js/gpt.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(t,c)}();}}function __ez_fad_pb(){if(__ez_fad_ezpbinitd==false && typeof __ez_fad_ezpbinit == 'function'){__ez_fad_ezpbinitd = true;__ez_fad_ezpbinit()}};
+		
+	function __ez_init_slot(bvr, did, slotNum, defineFunc) {
+		googletag.cmd.push(function() {
+			defineFunc();
+			ezrpos[slotNum]=slotNum;
+			ezslots.push("ezslot_" + slotNum);
+			if(__ez.fads.kvStore[did] !== 'undefined') {
+				for (var name in __ez.fads.kvStore[did]) {
+					if (!__ez.fads.kvStore.hasOwnProperty(name)) {
+						ezSetSlotTargeting(did, name, __ez.fads.kvStore[did][name]);
+					}
+				}
+				__ez.fads.kvStore[did] = {};
+			}
+		});return "ezslot_" + slotNum;
+	}
+__ez.fads.initslots['div-gpt-ad-wikichip_org-box-2-0'] = function(bvr){
+				var defScript = function() {ezslot_1 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-2',[728,90],'div-gpt-ad-wikichip_org-box-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_1_raw = {'a':'1','iid1':'339004015142299','eid':'339004015142299','t':'134','d':'86609','t1':'134','pvc':'1','ap':'1138','sap':'1138','a':'|0|','as':'revenue','plat':'1','bra':'mod58','ic':'1','at':'mbf','adr':'399','ezosn':'1','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'1','al':'1001','compid':'0','tap':'wikichip_org-box-2-339004015142299','eb_br':'90c3c48d0172916d27c102ea4aa9d49c','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'252','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'300','br2':'160','ezoic':'1','nmau':'0','mau':'0','stl':[157,14,0,192,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[21,22,23,24,25,26,27,28,29,30,760,761,813,815,816,817,818,899,919,2310,2339,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3933,4184,4185,4186,4604,4605,3676,3676,774,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_1_raw);ezSetTargetingFromMap(ezslot_1,ezslot_1_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-box-2-0',1, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(bvr){
+				var defScript = function() {ezslot_3 = googletag.defineSlot('/1254144,21625046521/wikichip_org-medrectangle-1',[[580,400],[300,250],[320,50],[120,240],[180,150],[125,125],[728,90],[468,60],[320,100],[200,200],[970,90],[970,250],[234,60],[250,250],['fluid']],'div-gpt-ad-wikichip_org-medrectangle-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_3_raw = {'a':'1','iid1':'814114243108056','eid':'814114243108056','t':'134','d':'86609','t1':'134','pvc':'1','ap':'1127','sap':'1127','a':'|0|','as':'revenue','plat':'1','bra':'mod58','ic':'1','at':'mbf','adr':'399','ezosn':'3','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'4','al':'1004','compid':'0','tap':'wikichip_org-medrectangle-1-814114243108056','eb_br':'90c3c48d0172916d27c102ea4aa9d49c','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'252','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'300','br2':'160','ezoic':'1','nmau':'0','mau':'0','stl':[179,25,162,27,144,122,178,20,26,156,143,31,901,902,903],'deal1':[21,22,23,24,25,26,27,815,817,899,903,919,2310,2339,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_3_raw);ezSetTargetingFromMap(ezslot_3,ezslot_3_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-medrectangle-1-0',3, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(bvr){
+				var defScript = function() {ezslot_2 = googletag.defineSlot('/1254144,21625046521/wikichip_org-large-mobile-banner-1',[300,250],'div-gpt-ad-wikichip_org-large-mobile-banner-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_2_raw = {'a':'1','iid1':'379586213116193','eid':'379586213116193','t':'134','d':'86609','t1':'134','pvc':'1','ap':'1192','sap':'1192','a':'|0|','as':'revenue','plat':'1','bra':'mod58','ic':'1','at':'mbf','adr':'399','ezosn':'2','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'722','al':'1722','compid':'0','tap':'wikichip_org-large-mobile-banner-1-379586213116193','eb_br':'90c3c48d0172916d27c102ea4aa9d49c','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'252','shp':'3','ftsn':'12','ftsng':'12','br1':'300','br2':'160','ezoic':'1','nmau':'0','mau':'0','stl':[32,163,154,27,65,168,132,20,26,156,205,0,158,148,901,902,903],'deal1':[21,22,23,24,25,26,27,28,29,760,761,815,816,817,818,893,899,919,2310,2339,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_2_raw);ezSetTargetingFromMap(ezslot_2,ezslot_2_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-large-mobile-banner-1-0',2, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-box-3-0'] = function(bvr){
+				var defScript = function() {ezslot_0 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-3',[300,250],'div-gpt-ad-wikichip_org-box-3-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_0_raw = {'a':'1','iid1':'5727931183137904','eid':'5727931183137904','t':'134','d':'86609','t1':'134','pvc':'1','ap':'1170','sap':'1170','a':'|0|','as':'revenue','plat':'1','bra':'mod58','ic':'1','at':'mbf','adr':'399','ezosn':'0','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'2','al':'1002','compid':'0','tap':'wikichip_org-box-3-5727931183137904','eb_br':'90c3c48d0172916d27c102ea4aa9d49c','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'252','shp':'1','ftsn':'12','ftsng':'12','br1':'300','br2':'160','ezoic':'1','nmau':'0','mau':'0','stl':[32,193,0,192,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[21,22,23,24,25,26,27,28,29,30,760,761,813,815,816,817,818,819,893,899,917,918,919,2310,2339,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3915,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_0_raw);ezSetTargetingFromMap(ezslot_0,ezslot_0_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-box-3-0',0, defScript);
+			};</script>
+<script type="text/javascript">(function(){function storageAvailable(type){var storage;try{storage=window[type];var x='__storage_test__';storage.setItem(x,x);storage.removeItem(x);return true;}
+catch(e){return e instanceof DOMException&&(e.code===22||e.code===1014||e.name==='QuotaExceededError'||e.name==='NS_ERROR_DOM_QUOTA_REACHED')&&(storage&&storage.length!==0);}}
+function remove_ama_config(){if(storageAvailable('localStorage')){localStorage.removeItem("google_ama_config");}}
+remove_ama_config()})()</script>
+<script type="text/javascript">var ezoicTestActive = true</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ab_test_id":"mod58","ad_cache_level":1,"ad_count_adjustment":1,"ad_lazyload_version":4,"ad_load_version":1,"ad_location_ids":"6,2,1,722,4","adx_ad_count":4,"bidder_method":1,"bidder_version":0,"city":"Montreal","country":"CA","days_since_last_visit":-1,"display_ad_count":4,"domain_id":86609,"domain_test_group":20230808,"ds_adsize_opt_id":-1,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"iab_category":"","iab_category_0":"596","is_from_recommended_pages":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"max_ads":14,"metro_code":0,"optimization_version":1,"page_ad_positions":"1006,1127,1138,1170,1192","page_view_count":1,"page_view_id":"deb21efb-861e-4195-6133-89c10c588a35","position_selection_id":46,"postal_code":"H3A","pv_event_count":0,"response_size_orig":102766,"response_time_orig":305,"serverid":"i-01c37145e7cb24106","state":"QC","sub_page_ad_positions":"1006,1127,1138,1170,1192","t_epoch":1685558533,"template_id":134,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/amd/cores/renoir","user_id":0,"word_count":1895,"worst_bad_word_level":0};var _ezim_d = {"wikichip_org-box-2":{"adsense_stat_source_id":5,"adx_ad_count":4,"adx_stat_source_id":35,"full_id":"wikichip_org-box-2/2023-05-31/339004015142299","height":"90","position_id":1138,"sub_position_id":1138,"width":"728"},"wikichip_org-box-3":{"adsense_stat_source_id":5,"adx_ad_count":4,"adx_stat_source_id":35,"full_id":"wikichip_org-box-3/2023-05-31/5727931183137904","height":"250","position_id":1170,"sub_position_id":1170,"width":"300"},"wikichip_org-large-mobile-banner-1":{"adsense_stat_source_id":5,"adx_ad_count":4,"adx_stat_source_id":35,"full_id":"wikichip_org-large-mobile-banner-1/2023-05-31/379586213116193","height":"250","position_id":1192,"sub_position_id":1192,"width":"300"},"wikichip_org-medrectangle-1":{"adsense_stat_source_id":5,"adx_ad_count":4,"adx_stat_source_id":35,"full_id":"wikichip_org-medrectangle-1/2023-05-31/814114243108056","height":"400","position_id":1127,"sub_position_id":1127,"width":"580"},"wikichip_org-pixel1":{"adsense_stat_source_id":5,"adx_ad_count":4,"adx_stat_source_id":35,"full_id":"wikichip_org-pixel1/2023-05-31/6619098041166580","height":"3","position_id":1006,"sub_position_id":1006,"width":"3"}};var _ezat = {"domain_id":86609,"form_factor_id":1,"framework_id":1,"pageview_date":"2023-05-31","pageview_id":"deb21efb-861e-4195-6133-89c10c588a35","template_id":134,"url":"https://en.wikichip.org/wiki/amd/cores/renoir","visit_uuid":"65ac5b68-c12f-4ab4-5e52-91cb4447318c"};</script><script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('banger.js', '/porpoiseant/banger.js?cb=195-3&bv=230&v=74&PageSpeed=off', true, [], true, false, false, true);</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer></script>
+
+<title>Renoir - Cores - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/cores/renoir","wgTitle":"amd/cores/renoir","wgCurRevisionId":101260,"wgRevisionId":101260,"wgArticleId":28495,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor cores"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/cores/renoir","wgRelevantArticleId":28495,"wgRequestId":"fa5e5db0387838e7e6012685","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","ext.srf.jqplot.bar","ext.srf.jqplot.enhancedlegend","ext.srf","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/cores/renoir" href="/w/index.php?title=Special:ExportRDF/amd/cores/renoir&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/cores/renoir&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/cores/renoir&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"jqplot-series-1":"{\"data\":[[[4,3800],[4,3500],[4,2700],[4,3800],[4,3500],[4,2500],[6,2300],[6,3700],[6,3300],[6,3000],[6,3000],[6,2100],[6,2100],[6,3700],[6,3300],[6,2100],[8,3600],[8,3100],[8,2000],[8,2900],[8,2900],[8,1800],[8,2000],[8,3600],[8,3100],[8,1700],[8,3300],[8,3000]]],\"series\":[{\"label\":\"base frequency\",\"xaxis\":\"xaxis\",\"yaxis\":\"yaxis\",\"fill\":false,\"showLine\":false,\"showMarker\":true,\"trendline\":{\"show\":false,\"shadow\":true,\"type\":\"none\"},\"markerOptions\":{\"style\":\"diamond\",\"shadow\":true},\"rendererOptions\":{\"barDirection\":\"vertical\"}}],\"ticks\":[1000,2000,3000,4000],\"total\":81400,\"fcolumntypeid\":\"_num\",\"sask\":\"\\u003Ca href=\\\"/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Fbase-20frequency/mainlabel%3D-2D/limit%3D50/offset%3D28/format%3Djqplotseries/charttitle%3DCores-20vs.-20Base-20Frequency/numbersaxislabel%3DFrequency-20(MHz)/labelaxislabel%3DCore-20Count/height%3D400/width%3D400/theme%3Dvector/group%3Dproperty/grouplabel%3Dsubject/charttype%3Dscatter/class%3D/searchlabel%3D\\\" title=\\\"Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Fbase-20frequency/mainlabel=-2D/limit=50/offset=28/format=jqplotseries/charttitle=Cores-20vs.-20Base-20Frequency/numbersaxislabel=Frequency-20(MHz)/labelaxislabel=Core-20Count/height=400/width=400/theme=vector/group=property/grouplabel=subject/charttype=scatter/class=/searchlabel=\\\"\\u003E[+]\\u003C/a\\u003E\",\"mode\":\"series\",\"renderer\":\"scatter\",\"parameters\":{\"numbersaxislabel\":\"Frequency (MHz)\",\"labelaxislabel\":\"Core Count\",\"charttitle\":\"Cores vs. Base Frequency\",\"charttext\":\"\",\"infotext\":\"\",\"theme\":\"vector\",\"valueformat\":\"%d\",\"ticklabels\":true,\"highlighter\":false,\"autoscale\":false,\"gridview\":\"none\",\"direction\":\"vertical\",\"smoothlines\":false,\"cursor\":\"none\",\"chartlegend\":\"none\",\"colorscheme\":null,\"pointlabels\":false,\"datalabels\":\"none\",\"stackseries\":false,\"grid\":{\"borderColor\":\"#a7d7f9\"},\"seriescolors\":null}}"});});</script>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"jqplot-series-2":"{\"data\":[[[4,4000],[4,4000],[4,3700],[4,4000],[4,4000],[4,3700],[6,4000],[6,4200],[6,4200],[6,4000],[6,4000],[6,4000],[6,4000],[6,4200],[6,4200],[6,4000],[8,4400],[8,4300],[8,4100],[8,4200],[8,4200],[8,4200],[8,4400],[8,4400],[8,4300],[8,4100],[8,4400],[8,4300]]],\"series\":[{\"label\":\"turbo frequency\",\"xaxis\":\"xaxis\",\"yaxis\":\"yaxis\",\"fill\":false,\"showLine\":false,\"showMarker\":true,\"trendline\":{\"show\":false,\"shadow\":true,\"type\":\"none\"},\"markerOptions\":{\"style\":\"filledSquare\",\"shadow\":true},\"rendererOptions\":{\"barDirection\":\"vertical\"}}],\"ticks\":[3000,4000,5000],\"total\":115500,\"fcolumntypeid\":\"_num\",\"sask\":\"\\u003Ca href=\\\"/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Fturbo-20frequency/mainlabel%3D-2D/limit%3D50/offset%3D28/format%3Djqplotseries/charttitle%3DCores-20vs.-20Turbo-20Frequency/numbersaxislabel%3DFrequency-20(MHz)/labelaxislabel%3DCore-20Count/height%3D400/width%3D400/theme%3Dvector/group%3Dproperty/grouplabel%3Dsubject/charttype%3Dscatter/class%3D/searchlabel%3D\\\" title=\\\"Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Fturbo-20frequency/mainlabel=-2D/limit=50/offset=28/format=jqplotseries/charttitle=Cores-20vs.-20Turbo-20Frequency/numbersaxislabel=Frequency-20(MHz)/labelaxislabel=Core-20Count/height=400/width=400/theme=vector/group=property/grouplabel=subject/charttype=scatter/class=/searchlabel=\\\"\\u003E[+]\\u003C/a\\u003E\",\"mode\":\"series\",\"renderer\":\"scatter\",\"parameters\":{\"numbersaxislabel\":\"Frequency (MHz)\",\"labelaxislabel\":\"Core Count\",\"charttitle\":\"Cores vs. Turbo Frequency\",\"charttext\":\"\",\"infotext\":\"\",\"theme\":\"vector\",\"valueformat\":\"%d\",\"ticklabels\":true,\"highlighter\":false,\"autoscale\":false,\"gridview\":\"none\",\"direction\":\"vertical\",\"smoothlines\":false,\"cursor\":\"none\",\"chartlegend\":\"none\",\"colorscheme\":null,\"pointlabels\":false,\"datalabels\":\"none\",\"stackseries\":false,\"grid\":{\"borderColor\":\"#a7d7f9\"},\"seriescolors\":null}}"});});</script>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"jqplot-series-3":"{\"data\":[[[4,65],[4,35],[4,15],[4,65],[4,35],[4,15],[6,15],[6,65],[6,35],[6,45],[6,35],[6,15],[6,15],[6,65],[6,35],[6,15],[8,65],[8,35],[8,15],[8,45],[8,35],[8,15],[8,15],[8,65],[8,35],[8,15],[8,45],[8,35]]],\"series\":[{\"label\":\"tdp\",\"xaxis\":\"xaxis\",\"yaxis\":\"yaxis\",\"fill\":false,\"showLine\":false,\"showMarker\":true,\"trendline\":{\"show\":false,\"shadow\":true,\"type\":\"none\"},\"markerOptions\":{\"style\":\"filledCircle\",\"shadow\":true},\"rendererOptions\":{\"barDirection\":\"vertical\"}}],\"ticks\":[10,20,30,40,50,60,70],\"total\":990,\"fcolumntypeid\":\"_num\",\"sask\":\"\\u003Ca href=\\\"/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Ftdp/mainlabel%3D-2D/limit%3D50/offset%3D28/format%3Djqplotseries/charttitle%3DCores-20vs.-20TDP/numbersaxislabel%3DTDP-20(W)/labelaxislabel%3DCore-20Count/height%3D400/width%3D400/theme%3Dvector/group%3Dproperty/grouplabel%3Dsubject/charttype%3Dscatter/class%3D/searchlabel%3D\\\" title=\\\"Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fcore-20count/-3Ftdp/mainlabel=-2D/limit=50/offset=28/format=jqplotseries/charttitle=Cores-20vs.-20TDP/numbersaxislabel=TDP-20(W)/labelaxislabel=Core-20Count/height=400/width=400/theme=vector/group=property/grouplabel=subject/charttype=scatter/class=/searchlabel=\\\"\\u003E[+]\\u003C/a\\u003E\",\"mode\":\"series\",\"renderer\":\"scatter\",\"parameters\":{\"numbersaxislabel\":\"TDP (W)\",\"labelaxislabel\":\"Core Count\",\"charttitle\":\"Cores vs. TDP\",\"charttext\":\"\",\"infotext\":\"\",\"theme\":\"vector\",\"valueformat\":\"%d\",\"ticklabels\":true,\"highlighter\":false,\"autoscale\":false,\"gridview\":\"none\",\"direction\":\"vertical\",\"smoothlines\":false,\"cursor\":\"none\",\"chartlegend\":\"none\",\"colorscheme\":null,\"pointlabels\":false,\"datalabels\":\"none\",\"stackseries\":false,\"grid\":{\"borderColor\":\"#a7d7f9\"},\"seriescolors\":null}}"});});</script>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"jqplot-series-4":"{\"data\":[[[4000,65],[4000,35],[3700,15],[4000,65],[4000,35],[3700,15],[4000,15],[4200,65],[4200,35],[4000,45],[4000,35],[4000,15],[4000,15],[4200,65],[4200,35],[4000,15],[4400,65],[4300,35],[4100,15],[4200,45],[4200,35],[4200,15],[4400,15],[4400,65],[4300,35],[4100,15],[4400,45],[4300,35]]],\"series\":[{\"label\":\"tdp\",\"xaxis\":\"xaxis\",\"yaxis\":\"yaxis\",\"fill\":false,\"showLine\":false,\"showMarker\":true,\"trendline\":{\"show\":false,\"shadow\":true,\"type\":\"none\"},\"markerOptions\":{\"style\":\"filledSquare\",\"shadow\":true},\"rendererOptions\":{\"barDirection\":\"vertical\"}}],\"ticks\":[10,20,30,40,50,60,70],\"total\":990,\"fcolumntypeid\":\"_qty\",\"sask\":\"\\u003Ca href=\\\"/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fturbo-20frequency/-3Ftdp/mainlabel%3D-2D/limit%3D50/offset%3D28/format%3Djqplotseries/charttitle%3DFrequency-20vs.-20TDP/numbersaxislabel%3DTDP-20(W)/labelaxislabel%3DFrequency-20(MHz)/height%3D400/width%3D400/theme%3Dvector/group%3Dproperty/grouplabel%3Dsubject/charttype%3Dscatter/class%3D/searchlabel%3D\\\" title=\\\"Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bcore-20name::Renoir-5D-5D/-3Fturbo-20frequency/-3Ftdp/mainlabel=-2D/limit=50/offset=28/format=jqplotseries/charttitle=Frequency-20vs.-20TDP/numbersaxislabel=TDP-20(W)/labelaxislabel=Frequency-20(MHz)/height=400/width=400/theme=vector/group=property/grouplabel=subject/charttype=scatter/class=/searchlabel=\\\"\\u003E[+]\\u003C/a\\u003E\",\"mode\":\"series\",\"renderer\":\"scatter\",\"parameters\":{\"numbersaxislabel\":\"TDP (W)\",\"labelaxislabel\":\"Frequency (MHz)\",\"charttitle\":\"Frequency vs. TDP\",\"charttext\":\"\",\"infotext\":\"\",\"theme\":\"vector\",\"valueformat\":\"%d\",\"ticklabels\":true,\"highlighter\":false,\"autoscale\":false,\"gridview\":\"none\",\"direction\":\"vertical\",\"smoothlines\":false,\"cursor\":\"none\",\"chartlegend\":\"none\",\"colorscheme\":null,\"pointlabels\":false,\"datalabels\":\"none\",\"stackseries\":false,\"grid\":{\"borderColor\":\"#a7d7f9\"},\"seriescolors\":null}}"});});</script>
+
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Renoir - Cores - AMD - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Renoir is codename for AMD series of mainstream mobile and desktop APUs based on the Zen 2 CPU and Vega GPU microarchitectures succeeding Picasso. Renoir processors are fabricated on TSMC 7 nm process."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<style id='ezoicCSS'>.ezoic-at-0{margin-left:0px !important;min-height:250px;line-height:0px;margin-right:0px !important;max-width:100% !important;margin-bottom:15px !important;padding:0;margin-top:15px !important;}
+.ezoic-ad.box-2138{margin-top:10px !important;display:inline-block;min-width:728px;min-height:90px;float:right !important;margin-bottom:10px !important;}
+.ezoic-ad.box-3170{float:none !important;min-width:300px;display:block !important;text-align:left !important;}
+.ezoic-ad.large-mobile-banner-1192{float:right !important;display:block !important;text-align:right !important;min-width:300px;}
+.ezoic-ad.medrectangle-1127{float:none !important;margin-right:auto !important;text-align:center !important;min-width:970px;margin-left:auto !important;display:block !important;}
+.ezoic-ad{display:inline-block;border:0px;}.ezoic-ad>div>iframe{margin:0px!important;padding:0px!important;}
+.ezoic-floating-bottom { display: none!important; }</style><script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/amd/cores/renoir"><script type='text/javascript'>
+var ezoTemplate = 'pub_site';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["deb21efb-861e-4195-6133-89c10c588a35", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+<script type="text/javascript">var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-3&cb=04-3y02-8y06-13y07-2y0b-6y0d-23y17-4y1b-5y25-3y33-4y3a-12y3b-6y5d-2y68-1&cmbcb=143&sj=x04x02x06x07x0bx0dx17x1bx25x33x3ax3bx5dx68&abt=BidderTest', true, [], true, false, true, false);</script>
+<script type="text/javascript" defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-3&cb=03-8y0c-6y1c-5&cmbcb=143&sj=x03x0cx1c&abt=BidderTest', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_cores_renoir rootpage-amd skin-WikiChip2 action-view"><script>var ezAardvarkDetected;function ezDetectAardvark(){if(typeof __ez!=='undefined'&&typeof __ez.bit!=='undefined'){let bait=document.createElement("div");bait.className="textads banner-ads banner_ads ad-unit ad-zone ad-space adsbox";bait.style.height="1px";document.body.appendChild(bait);let baitOffsetHeight=bait.offsetHeight;if(typeof window["_ezaq"]!="undefined"){if(baitOffsetHeight){ezAardvarkDetected=false;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',false))]);}
+else{ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}
+var observer=new MutationObserver(function(e){if(e[0].removedNodes){ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}});}
+observer.observe(bait,{childList:true,attributes:true});}}
+window.addEventListener('load',(e)=>{ezDetectAardvark();});</script>
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<span id="ezoic-pub-ad-placeholder-138"></span><span class="ezoic-ad ezoic-at-0 box-2 box-2138 adtester-container adtester-container-138" data-ez-name="wikichip_org-box-2"><span id="div-gpt-ad-wikichip_org-box-2-0" ezaw="728" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[728,90],'wikichip_org-box-2','ezslot_1',138,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-box-2-0');</script></span></span>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/cores/renoir">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:amd/cores/renoir"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/cores/renoir&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=amd%2Fcores%2Frenoir"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/cores/renoir"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/cores/renoir"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/cores/renoir&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/cores/renoir&amp;oldid=101260"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/cores/renoir&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fcores-2Frenoir"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Renoir - Cores - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/core/amd/cores/renoir" title="Special:FormEdit/core/amd/cores/renoir"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Renoir</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a></td></tr><tr><td class="label">Manufacturer</td><td><a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a></td></tr><tr><td class="label">Introduction</td><td>January 6, 2020 (announced)<br/>January 6, 2020 (launched)</td></tr><tr><td class="header" colspan="2">Microarchitecture</td></tr><tr><td class="label">ISA</td><td>x86-64 (x86)</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a></td></tr><tr><td class="label">Word Size</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8&amp;#160;octets 16&amp;#160;nibbles "><span class="smwtext"></span><div class="smwttcontent">8 octets <br/>16 nibbles <br/></div></span>64 bit</td></tr><tr><td class="label">Process</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.007&amp;#160;μm 7.0e-6&amp;#160;mm "><span class="smwtext">7 nm</span><div class="smwttcontent">0.007 μm <br/>7.0e-6 mm <br/></div></span></td></tr><tr><td class="label">Technology</td><td>CMOS</td></tr><tr><td class="label">Clock</td><td>1,700 MHz - 3,300 MHz</td></tr><tr><td class="header" colspan="2">Packaging</td></tr><tr><td class="label">Package</td><td><a href="/wiki/amd/packages/fp6" title="amd/packages/fp6">FP6</a> (FC-OBGA)</td></tr><tr><td class="label">Dimension</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3.5&amp;#160;cm 1.378&amp;#160;in"><span class="smwtext">35 mm</span><div class="smwttcontent">3.5 cm <br/>1.378 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2.5&amp;#160;cm 0.984&amp;#160;in"><span class="smwtext">25 mm</span><div class="smwttcontent">2.5 cm <br/>0.984 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0543&amp;#160;in"><span class="smwtext">1.38 mm</span><div class="smwttcontent">0.0543 in <br/></div></span></td></tr><tr><td class="label">Pitch</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0256&amp;#160;in"><span class="smwtext">0.65 mm</span><div class="smwttcontent">0.0256 in <br/></div></span></td></tr><tr><td class="label">Contacts</td><td>1140</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/amd/cores/picasso" title="amd/cores/picasso">Picasso</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/amd/cores/cezanne" title="amd/cores/cezanne">Cezanne</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>Renoir</b> is codename for <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> series of mainstream mobile and desktop APUs based on the <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a> CPU and <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a> GPU microarchitectures succeeding <a href="/wiki/amd/cores/picasso" title="amd/cores/picasso">Picasso</a>. Renoir processors are fabricated on TSMC <a href="/wiki/N7" class="mw-redirect" title="N7">7 nm process</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Common_Features"><span class="tocnumber">1.1</span> <span class="toctext">Common Features</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Naming_Scheme"><span class="tocnumber">1.2</span> <span class="toctext">Naming Scheme</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Renoir_Processors"><span class="tocnumber">2</span> <span class="toctext">Renoir Processors</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#SKU_Comparison"><span class="tocnumber">2.1</span> <span class="toctext">SKU Comparison</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Die"><span class="tocnumber">3</span> <span class="toctext">Die</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-170" class="ezoic-adpicker-ad"></span><span class="ezoic-ad ezoic-at-0 box-3 box-3170 adtester-container adtester-container-170" data-ez-name="wikichip_org-box-3"><span id="div-gpt-ad-wikichip_org-box-3-0" ezaw="300" ezah="250" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:250px;min-width:300px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[300,250],'wikichip_org-box-3','ezslot_0',170,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-box-3-0');</script></span></span>
+<p>Renoir is an SoC for the mobile segment and mainstream desktop and workstation based on the <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a> microarchitecture incorporating a <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a> GPU.
+</p>
+<h3><span class="mw-headline" id="Common_Features">Common Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=2" title="Edit section: Common Features">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>All Renoir processors have the following:
+</p><span id="ezoic-pub-ad-placeholder-160" class="ezoic-adpicker-ad"></span>
+<ul><li> <b>Mem:</b> Up to:
+<ul><li> 64 <a href="/wiki/GiB" class="mw-redirect" title="GiB">GiB</a> of dual-channel <a href="/w/index.php?title=DDR4&amp;action=edit&amp;redlink=1" class="new" title="DDR4 (page does not exist)">DDR4</a> memory up to 3200 MT/s</li>
+<li> 32 <a href="/wiki/GiB" class="mw-redirect" title="GiB">GiB</a> of quad-channel <a href="/w/index.php?title=LPDDR4x&amp;action=edit&amp;redlink=1" class="new" title="LPDDR4x (page does not exist)">LPDDR4x</a> memory up to 4266 MT/s</li></ul></li>
+<li> <b>I/O:</b> 16 PCIe lanes (1x8 for GPU, 1x4 for storage, and 1x4 for additional peripherals)</li>
+<li> Up to <a href="/wiki/8_cores" class="mw-redirect" title="8 cores">8 cores</a> / 16 threads</li>
+<li> <b>TDP:</b> 15 W / 35 W / 45 W TDP
+<ul><li> Configurable TDP-down of 10 W and a TDP-up of 25/35/54 W</li></ul></li>
+<li> <b>ISA:</b> Everything up to <a href="/w/index.php?title=x86/&amp;action=edit&amp;redlink=1" class="new" title="x86/ (page does not exist)">AVX2</a> (i.e., <a href="/w/index.php?title=x86/smm&amp;action=edit&amp;redlink=1" class="new" title="x86/smm (page does not exist)">SMM</a>, <a href="/w/index.php?title=x86/fpu&amp;action=edit&amp;redlink=1" class="new" title="x86/fpu (page does not exist)">FPU</a>, <a href="/w/index.php?title=x86/nx&amp;action=edit&amp;redlink=1" class="new" title="x86/nx (page does not exist)">NX</a>, <a href="/w/index.php?title=x86/mmx&amp;action=edit&amp;redlink=1" class="new" title="x86/mmx (page does not exist)">MMX</a>, <a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">SSE</a>, <a href="/w/index.php?title=x86/sse2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse2 (page does not exist)">SSE2</a>, <a href="/w/index.php?title=x86/sse3&amp;action=edit&amp;redlink=1" class="new" title="x86/sse3 (page does not exist)">SSE3</a>, <a href="/w/index.php?title=x86/ssse3&amp;action=edit&amp;redlink=1" class="new" title="x86/ssse3 (page does not exist)">SSSE3</a>, <a href="/w/index.php?title=x86/sse4.1&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.1 (page does not exist)">SSE4.1</a>, <a href="/w/index.php?title=x86/sse4.2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse4.2 (page does not exist)">SSE4.2</a>, <a href="/w/index.php?title=x86/aes&amp;action=edit&amp;redlink=1" class="new" title="x86/aes (page does not exist)">AES</a>, <a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">AVX</a>, <a href="/w/index.php?title=x86/fma3&amp;action=edit&amp;redlink=1" class="new" title="x86/fma3 (page does not exist)">FMA3</a>, and <a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">AVX2</a>), and <a href="/w/index.php?title=x86/sha&amp;action=edit&amp;redlink=1" class="new" title="x86/sha (page does not exist)">SHA</a></li>
+<li> <a href="/w/index.php?title=amd/precision_boost_2&amp;action=edit&amp;redlink=1" class="new" title="amd/precision boost 2 (page does not exist)">Precision Boost 2</a>, 2-way <a href="/wiki/SMT" class="mw-redirect mw-disambig" title="SMT">SMT</a></li>
+<li> Graphics
+<ul><li> <a href="/w/index.php?title=amd/radeon_vega_11&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 11 (page does not exist)">Radeon Vega 11</a>/<a href="/w/index.php?title=amd/radeon_vega_10&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 10 (page does not exist)">10</a>/<a href="/w/index.php?title=amd/radeon_vega_8&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 8 (page does not exist)">8</a>/<a href="/w/index.php?title=amd/radeon_vega_6&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 6 (page does not exist)">6</a>/<a href="/w/index.php?title=amd/radeon_vega_3&amp;action=edit&amp;redlink=1" class="new" title="amd/radeon vega 3 (page does not exist)">3</a> (<a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a>)</li>
+<li> Up to 1.6 GHz</li></ul></li></ul>
+<h3><span class="mw-headline" id="Naming_Scheme">Naming Scheme</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=3" title="Edit section: Naming Scheme">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Renoir SKUs follow the following naming scheme.
+</p>
+<dl><dd><a href="/wiki/File:renoir_naming_scheme.svg" class="image"><img alt="renoir naming scheme.svg" src="/w/images/thumb/f/f9/renoir_naming_scheme.svg/500px-renoir_naming_scheme.svg.png" width="500" height="221" srcset="/w/images/thumb/f/f9/renoir_naming_scheme.svg/750px-renoir_naming_scheme.svg.png 1.5x, /w/images/thumb/f/f9/renoir_naming_scheme.svg/1000px-renoir_naming_scheme.svg.png 2x"/></a></dd></dl>
+<p>Where,
+</p>
+<ul><li> &#34;<i>U</i>&#34; suffix indicates a standard (15 W) mobile processor</li>
+<li> &#34;<i>H</i>&#34; suffix indicates a high-power (45 W) mobile processor</li>
+<li> &#34;<i>HS</i>&#34; suffix indicates a lower-power version of the high-power (35 W) mobile processor</li></ul>
+<h2><span class="mw-headline" id="Renoir_Processors">Renoir Processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=4" title="Edit section: Renoir Processors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc4 tc5 tc6 tc7 tc8 tc10 tc11 tc12">
+<tbody><tr class="comptable-header"><th> </th><th colspan="11">Renoir Processors</th></tr>
+<tr class="comptable-header"><th> </th><th colspan="7">Main Processor</th><th colspan="2">Integrated Graphics</th><th colspan="2">Features</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Family</th><th>Launched</th><th data-sort-type="number">Cores</th><th data-sort-type="number">Threads</th><th data-sort-type="number">Frequency</th><th data-sort-type="number">Turbo</th><th data-sort-type="number">TDP</th><th>GPU</th><th data-sort-type="number">Frequency</th><th><a href="/wiki/SMT" class="mw-redirect mw-disambig" title="SMT">SMT</a></th><th><a href="/wiki/x86/tsme" class="mw-redirect" title="x86/tsme">TSME</a></th></tr>
+<tr><td><a href="/wiki/amd/ryzen_3/4300g" title="amd/ryzen 3/4300g">4300G</a></td><td>Ryzen 3</td><td>21 July 2020</td><td>4</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8 GHz</span><div class="smwttcontent">3,800 MHz <br/>3,800,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;KHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_3/4300ge" title="amd/ryzen 3/4300ge">4300GE</a></td><td>Ryzen 3</td><td>21 July 2020</td><td>4</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5 GHz</span><div class="smwttcontent">3,500 MHz <br/>3,500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;KHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_3/4300u" title="amd/ryzen 3/4300u">4300U</a></td><td>Ryzen 3</td><td>6 January 2020</td><td>4</td><td>4</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,700&amp;#160;MHz 2,700,000&amp;#160;kHz"><span class="smwtext">2.7 GHz</span><div class="smwttcontent">2,700 MHz <br/>2,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 5</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,400&amp;#160;MHz 1,400,000&amp;#160;KHz"><span class="smwtext">1.4 GHz</span><div class="smwttcontent">1,400 MHz <br/>1,400,000 KHz <br/></div></span></td><td><b>✘</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_3/pro_4350g" title="amd/ryzen 3/pro 4350g">PRO 4350G</a></td><td>Ryzen 3</td><td>21 July 2020</td><td>4</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8 GHz</span><div class="smwttcontent">3,800 MHz <br/>3,800,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;KHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_3/pro_4350ge" title="amd/ryzen 3/pro 4350ge">PRO 4350GE</a></td><td>Ryzen 3</td><td>21 July 2020</td><td>4</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5 GHz</span><div class="smwttcontent">3,500 MHz <br/>3,500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;KHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_3/pro_4450u" title="amd/ryzen 3/pro 4450u">PRO 4450U</a></td><td>Ryzen 3</td><td>7 May 2020</td><td>4</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5 GHz</span><div class="smwttcontent">2,500 MHz <br/>2,500,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 5</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,400&amp;#160;MHz 1,400,000&amp;#160;KHz"><span class="smwtext">1.4 GHz</span><div class="smwttcontent">1,400 MHz <br/>1,400,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4500u" title="amd/ryzen 5/4500u">4500U</a></td><td>Ryzen 5</td><td>6 January 2020</td><td>6</td><td>6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✘</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4600g" title="amd/ryzen 5/4600g">4600G</a></td><td>Ryzen 5</td><td>21 July 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;KHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4600ge" title="amd/ryzen 5/4600ge">4600GE</a></td><td>Ryzen 5</td><td>21 July 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;KHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4600h" title="amd/ryzen 5/4600h">4600H</a></td><td>Ryzen 5</td><td>6 January 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4600hs" title="amd/ryzen 5/4600hs">4600HS</a></td><td>Ryzen 5</td><td>16 March 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4600u" title="amd/ryzen 5/4600u">4600U</a></td><td>Ryzen 5</td><td>6 January 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/4680u" title="amd/ryzen 5/4680u">4680U</a></td><td>Ryzen 5</td><td>13 April 2021</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/pro_4650g" title="amd/ryzen 5/pro 4650g">PRO 4650G</a></td><td>Ryzen 5</td><td>21 July 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7 GHz</span><div class="smwttcontent">3,700 MHz <br/>3,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;KHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/pro_4650ge" title="amd/ryzen 5/pro 4650ge">PRO 4650GE</a></td><td>Ryzen 5</td><td>21 July 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;KHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_5/pro_4650u" title="amd/ryzen 5/pro 4650u">PRO 4650U</a></td><td>Ryzen 5</td><td>7 May 2020</td><td>6</td><td>12</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4 GHz</span><div class="smwttcontent">4,000 MHz <br/>4,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 6</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;KHz"><span class="smwtext">1.5 GHz</span><div class="smwttcontent">1,500 MHz <br/>1,500,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4700g" title="amd/ryzen 7/4700g">4700G</a></td><td>Ryzen 7</td><td>21 July 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,600&amp;#160;MHz 3,600,000&amp;#160;kHz"><span class="smwtext">3.6 GHz</span><div class="smwttcontent">3,600 MHz <br/>3,600,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;KHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4700ge" title="amd/ryzen 7/4700ge">4700GE</a></td><td>Ryzen 7</td><td>21 July 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1 GHz</span><div class="smwttcontent">3,100 MHz <br/>3,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,300&amp;#160;MHz 4,300,000&amp;#160;kHz"><span class="smwtext">4.3 GHz</span><div class="smwttcontent">4,300 MHz <br/>4,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;KHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4700u" title="amd/ryzen 7/4700u">4700U</a></td><td>Ryzen 7</td><td>6 January 2020</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,100&amp;#160;MHz 4,100,000&amp;#160;kHz"><span class="smwtext">4.1 GHz</span><div class="smwttcontent">4,100 MHz <br/>4,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;KHz"><span class="smwtext">1.6 GHz</span><div class="smwttcontent">1,600 MHz <br/>1,600,000 KHz <br/></div></span></td><td><b>✘</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4800h" title="amd/ryzen 7/4800h">4800H</a></td><td>Ryzen 7</td><td>6 January 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;KHz"><span class="smwtext">1.6 GHz</span><div class="smwttcontent">1,600 MHz <br/>1,600,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4800hs" title="amd/ryzen 7/4800hs">4800HS</a></td><td>Ryzen 7</td><td>16 March 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;KHz"><span class="smwtext">1.6 GHz</span><div class="smwttcontent">1,600 MHz <br/>1,600,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4800u" title="amd/ryzen 7/4800u">4800U</a></td><td>Ryzen 7</td><td>6 January 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2 GHz</span><div class="smwttcontent">4,200 MHz <br/>4,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,750&amp;#160;MHz 1,750,000&amp;#160;KHz"><span class="smwtext">1.75 GHz</span><div class="smwttcontent">1,750 MHz <br/>1,750,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/4980u" title="amd/ryzen 7/4980u">4980U</a></td><td>Ryzen 7</td><td>13 April 2021</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,950&amp;#160;MHz 1,950,000&amp;#160;KHz"><span class="smwtext">1.95 GHz</span><div class="smwttcontent">1,950 MHz <br/>1,950,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/pro_4750g" title="amd/ryzen 7/pro 4750g">PRO 4750G</a></td><td>Ryzen 7</td><td>21 July 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,600&amp;#160;MHz 3,600,000&amp;#160;kHz"><span class="smwtext">3.6 GHz</span><div class="smwttcontent">3,600 MHz <br/>3,600,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="65,000&amp;#160;mW 0.0872&amp;#160;hp 0.065&amp;#160;kW"><span class="smwtext">65 W</span><div class="smwttcontent">65,000 mW <br/>0.0872 hp <br/>0.065 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;KHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/pro_4750ge" title="amd/ryzen 7/pro 4750ge">PRO 4750GE</a></td><td>Ryzen 7</td><td>21 July 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1 GHz</span><div class="smwttcontent">3,100 MHz <br/>3,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,300&amp;#160;MHz 4,300,000&amp;#160;kHz"><span class="smwtext">4.3 GHz</span><div class="smwttcontent">4,300 MHz <br/>4,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;KHz"><span class="smwtext">2.1 GHz</span><div class="smwttcontent">2,100 MHz <br/>2,100,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_7/pro_4750u" title="amd/ryzen 7/pro 4750u">PRO 4750U</a></td><td>Ryzen 7</td><td>7 May 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,100&amp;#160;MHz 4,100,000&amp;#160;kHz"><span class="smwtext">4.1 GHz</span><div class="smwttcontent">4,100 MHz <br/>4,100,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="15,000&amp;#160;mW 0.0201&amp;#160;hp 0.015&amp;#160;kW"><span class="smwtext">15 W</span><div class="smwttcontent">15,000 mW <br/>0.0201 hp <br/>0.015 kW <br/></div></span></td><td>Radeon Vega 7</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;KHz"><span class="smwtext">1.6 GHz</span><div class="smwttcontent">1,600 MHz <br/>1,600,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✔</b></td></tr><tr><td><a href="/wiki/amd/ryzen_9/4900h" title="amd/ryzen 9/4900h">4900H</a></td><td>Ryzen 9</td><td>16 March 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3 GHz</span><div class="smwttcontent">3,300 MHz <br/>3,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,400&amp;#160;MHz 4,400,000&amp;#160;kHz"><span class="smwtext">4.4 GHz</span><div class="smwttcontent">4,400 MHz <br/>4,400,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45 W</span><div class="smwttcontent">45,000 mW <br/>0.0603 hp <br/>0.045 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,750&amp;#160;MHz 1,750,000&amp;#160;KHz"><span class="smwtext">1.75 GHz</span><div class="smwttcontent">1,750 MHz <br/>1,750,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr><tr><td><a href="/wiki/amd/ryzen_9/4900hs" title="amd/ryzen 9/4900hs">4900HS</a></td><td>Ryzen 9</td><td>16 March 2020</td><td>8</td><td>16</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3 GHz</span><div class="smwttcontent">3,000 MHz <br/>3,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,300&amp;#160;MHz 4,300,000&amp;#160;kHz"><span class="smwtext">4.3 GHz</span><div class="smwttcontent">4,300 MHz <br/>4,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35 W</span><div class="smwttcontent">35,000 mW <br/>0.0469 hp <br/>0.035 kW <br/></div></span></td><td>Radeon Vega 8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,750&amp;#160;MHz 1,750,000&amp;#160;KHz"><span class="smwtext">1.75 GHz</span><div class="smwttcontent">1,750 MHz <br/>1,750,000 KHz <br/></div></span></td><td><b>✔</b></td><td><b>✘</b></td></tr>
+<tr class="comptable-header"><th>Count: 28</th></tr>
+</tbody></table>
+</div></div>
+<h3><span class="mw-headline" id="SKU_Comparison">SKU Comparison</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=5" title="Edit section: SKU Comparison">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Below are a number of SKU comparison graphs based on their specifications.
+</p>
+<div style="float: left; margin: 10px">
+<div class="srf-jqplot-scatter jqplot-common"><div class="srf-spinner mw-small-spinner"><span class="srf-processing-text">Loading...</span></div><div id="jqplot-series-1" class="container" style="display:none; width: 400px; height: 400px;"></div></div>
+</div>
+<div style="float: left; margin: 10px">
+<div class="srf-jqplot-scatter jqplot-common"><div class="srf-spinner mw-small-spinner"><span class="srf-processing-text">Loading...</span></div><div id="jqplot-series-2" class="container" style="display:none; width: 400px; height: 400px;"></div></div>
+</div>
+<div style="float: left; margin: 10px">
+<div class="srf-jqplot-scatter jqplot-common"><div class="srf-spinner mw-small-spinner"><span class="srf-processing-text">Loading...</span></div><div id="jqplot-series-3" class="container" style="display:none; width: 400px; height: 400px;"></div></div>
+</div>
+<div style="float: left; margin: 10px">
+<div class="srf-jqplot-scatter jqplot-common"><div class="srf-spinner mw-small-spinner"><span class="srf-processing-text">Loading...</span></div><div id="jqplot-series-4" class="container" style="display:none; width: 400px; height: 400px;"></div></div>
+</div>
+<div style="clear:both;"></div>
+<h2><span class="mw-headline" id="Die">Die</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=6" title="Edit section: Die">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-192" class="ezoic-adpicker-ad"></span><span class="ezoic-ad ezoic-at-0 large-mobile-banner-1 large-mobile-banner-1192 adtester-container adtester-container-192" data-ez-name="wikichip_org-large-mobile-banner-1"><span id="div-gpt-ad-wikichip_org-large-mobile-banner-1-0" ezaw="300" ezah="250" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:250px;min-width:300px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[300,250],'wikichip_org-large-mobile-banner-1','ezslot_2',192,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-large-mobile-banner-1-0');</script></span></span>
+<dl><dd><i>Main article: <a href="/wiki/amd/microarchitectures/zen_2#Die" title="amd/microarchitectures/zen 2">Zen 2 § Die</a></i></dd></dl>
+<p><strong class="selflink">Renoir</strong> microprocessors are fabricated on <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>&#39;s <a href="/wiki/N7" class="mw-redirect" title="N7">7-nanometer process</a>. This SoC integrates 9.8 billion <a href="/w/index.php?title=transistors&amp;action=edit&amp;redlink=1" class="new" title="transistors (page does not exist)">transistors</a> on a single 156 mm² monolithic die which includes both the <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a> CPU cores along with the <a href="/wiki/amd/microarchitectures/vega" title="amd/microarchitectures/vega">Vega</a> GPU and various other additional components.
+</p>
+<ul><li> <a href="/wiki/N7" class="mw-redirect" title="N7">7-nanometer process (N7)</a></li>
+<li> 9,800,000,000 transistors</li>
+<li> 156 mm² die size</li></ul>
+<p><br/>
+<a href="/wiki/amd/microarchitectures/zen_2#Renoir" title="amd/microarchitectures/zen 2#Renoir"><img alt="renoir die.png" src="/w/images/thumb/1/15/renoir_die.png/400px-renoir_die.png" width="400" height="302" srcset="/w/images/thumb/1/15/renoir_die.png/600px-renoir_die.png 1.5x, /w/images/thumb/1/15/renoir_die.png/800px-renoir_die.png 2x"/></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/cores/renoir&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table>
+<tbody><tr>
+<td>
+<ul><li> <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+<ul><li> <a href="/wiki/amd/cores/rome" title="amd/cores/rome">Rome</a></li>
+<li> <a href="/wiki/amd/cores/castle_peak" title="amd/cores/castle peak">Castle Peak</a></li>
+<li> <a href="/wiki/amd/cores/matisse" title="amd/cores/matisse">Matisse</a></li>
+<li> <strong class="selflink">Renoir</strong></li></ul></li></ul>
+</td>
+<td>
+<p><a href="/wiki/File:arrow_up_1.svg" class="image"><img alt="arrow up 1.svg" src="/w/images/thumb/9/9f/arrow_up_1.svg/25px-arrow_up_1.svg.png" width="25" height="75" srcset="/w/images/thumb/9/9f/arrow_up_1.svg/38px-arrow_up_1.svg.png 1.5x, /w/images/thumb/9/9f/arrow_up_1.svg/50px-arrow_up_1.svg.png 2x"/></a>Power/Performance
+</p>
+</td></tr></tbody></table>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:28495-0!*!0!default!!en!5!* and timestamp 20230531123050 and revision id 101260
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/cores/renoir&amp;oldid=101260">https://en.wikichip.org/w/index.php?title=amd/cores/renoir&amp;oldid=101260</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:all_microprocessor_cores" title="Category:all microprocessor cores">all microprocessor cores</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fcores-2Frenoir" title="Special:Browse/:amd-2Fcores-2Frenoir">Renoir - Cores - AMD</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/cores/renoir" title="Special:ExportRDF/amd/cores/renoir">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">January 6, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/6-20January-202020" title="Special:SearchByProperty/:first-20announced/6-20January-202020">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">January 6, 2020  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/6-20January-202020" title="Special:SearchByProperty/:first-20launched/6-20January-202020">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">core  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/core" title="Special:SearchByProperty/:instance-20of/core">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:isa" title="Property:isa">isa</a></td><td class="smwprops">x86-64  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa/x86-2D64" title="Special:SearchByProperty/:isa/x86-2D64">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:isa_family" title="Property:isa family">isa family</a></td><td class="smwprops">x86  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa-20family/x86" title="Special:SearchByProperty/:isa-20family/x86">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Zen 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-202" title="Special:SearchByProperty/:microarchitecture/Zen-202">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Renoir  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Renoir" title="Special:SearchByProperty/:name/Renoir">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package" title="Property:package">package</a></td><td class="smwprops">FP6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/FP6" title="Special:SearchByProperty/:package/FP6">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">7 nm (0.007 μm, 7.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word size</a></td><td class="smwprops">64 bit (8 octets, 16 nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<span id="ezoic-pub-ad-placeholder-127"></span><span class="ezoic-ad ezoic-at-0 medrectangle-1 medrectangle-1127 adtester-container adtester-container-127" data-ez-name="wikichip_org-medrectangle-1"><span id="div-gpt-ad-wikichip_org-medrectangle-1-0" ezaw="580" ezah="400" style="position:relative;z-index:0;display:inline-block;padding:0;width:100%;max-width:1200px;margin-left:auto !important;margin-right:auto !important;min-height:250px;min-width:970px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[580,400],'wikichip_org-medrectangle-1','ezslot_3',127,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-medrectangle-1-0');</script></span><span style="width:580px;display:block;height:14px;margin:auto" class="reportline"><span style="text-align:center;font-size:12px !important;font-family: arial!important;float:left;line-height:normal;"><a href="https://www.ezoic.com/what-is-ezoic/" target="_blank" rel="noopener noreferrer nofollow" style="cursor:pointer"><img src="https://go.ezodn.com/utilcave_com/img/ezoic.png" alt="Ezoic" loading="lazy" style="height:12px !important; padding:2px !important; border:0px !important; cursor:pointer !important; width: 58px !important; margin:0 !important; box-sizing: content-box !important;"/></a></span><span class="ez-report-ad-button" name="?pageview_id=deb21efb-861e-4195-6133-89c10c588a35&amp;ad_position_id=127&amp;impression_group_id=wikichip_org-medrectangle-1/2023-05-31/814114243108056&amp;ad_size=580x400&amp;domain_id=86609&amp;url=https://en.wikichip.org/wiki/amd/cores/renoir" style="cursor: pointer!important; font-size:12px !important;color: #a5a5a5 ;float:right;text-decoration:none !important;font-family:arial !important;line-height:normal;">report this ad</span></span></span>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 17 March 2023, at 14:07.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":133});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<!--[selectrongo:done]--><script type='text/javascript'>var __ez_rp_opts={activeLayoutTester:!1,isOn:"",showImages:"",theme:"",locations:"",title:"Related Articles on this Site",showSocial:"false",fbURL:"http://www.facebook.com/sharer.php?u=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Famd%2Fcores%2Frenoir",twitterURL:"https://twitter.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Famd%2Fcores%2Frenoir",gplusURL:"https://plus.google.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Famd%2Fcores%2Frenoir",contentURL:"https://en.wikichip.org/wiki/amd/cores/renoir",swipe:"false"},__ez_rp_script=document.createElement("script");__ez_rp_script.setAttribute("async",""),__ez_rp_script.setAttribute("src","/utilcave_com/apps/js/recommended_pages.js?cb=7"),document.getElementsByTagName("head")[0].appendChild(__ez_rp_script),function(b){var b=b,c=b.document,d=b.screen;b.touchSwipeListener=function(f){var g={startX:0,endX:0},h={moveHandler:function(){},redirectHandler:function(){},endHandler:function(){},startHandler:function(){},scrollEndHandler:function(){},minLengthRatio:0.2},i=function(){return g.endX>g.startX?"prev":"next"},j=function(){var m=Math.ceil(d.width*f.minLengthRatio);return Math.abs(g.endX-g.startX)>m},l={scrollEnd:function(){var n="innerHeight"in b?b.innerHeight:c.documentElement.offsetHeight,o=c.body,p=c.documentElement,q=Math.max(o.scrollHeight,o.offsetHeight,p.clientHeight,p.scrollHeight,p.offsetHeight);windowBottom=n+b.pageYOffset,windowBottom>=q&&q>n+400&&f.scrollEndHandler()},touchStart:function(m){0<m.touches.length&&(g.startX=m.touches[0].pageX,f.startHandler(i()))},touchMove:function(m){0<m.touches.length&&(g.endX=m.touches[0].pageX,f.moveHandler(i(),j()))},touchEnd:function(m){var n=m.changedTouches||m.touches;0<n.length&&(g.endX=n[0].pageX,j()&&f.redirectHandler(i())),f.endHandler(i())}};return function(){for(var m in h)h.hasOwnProperty(m)&&(f[m]||(f[m]=h[m]))}(),c.addEventListener?{on:function(){c.addEventListener("touchstart",l.touchStart,!1),c.addEventListener("touchmove",l.touchMove,!1),c.addEventListener("touchend",l.touchEnd,!1),b.addEventListener("scroll",l.scrollEnd,!1)},off:function(){c.removeEventListener("touchstart",l.touchStart),c.removeEventListener("touchmove",l.touchMove),c.removeEventListener("touchend",l.touchEnd),b.removeEventListener("scroll",l.scrollEnd)}}:{on:function(){},off:function(){}}}}(window),function(b){var c=b.document,d=function(){var h,i,e={},f={prev:null,next:null},g={prev:null,next:null};return{init:function(){this.retrievePageSiblings();f.next&&(this.renderArrows(),this.syncUI())},syncUI:function(){var j=this;h=new b.touchSwipeListener({moveHandler:function(k,l){l?g[k]&&f[k]&&g[k].classList.add("visible"):g[k].classList.remove("visible")},scrollEndHandler:function(){},startHandler:function(){i&&clearTimeout(i),e.classList.add("visible")},endHandler:function(){g.next.classList.remove("visible"),g.prev.classList.remove("visible"),i=setTimeout(function(){e.classList.remove("visible")},1500)},redirectHandler:function(k){j[k]&&j[k]()}}),h.on()},retrievePageSiblings:function(){f.prev=c.querySelector("head > link[rel=prev]"),f.next=c.querySelector("head > link[rel=next]")},renderArrows:function(){var k=function(l){var m=c.createElement("span");m.className="icon-wrap "+l;var n=c.createElement("div"),o=c.createElement("a");return o.href="prev"===l?"javascript:window.history.go(-1);":f[l].href,o.className=l,o.appendChild(m),o.appendChild(n),o};g.next=k("next"),g.prev=k("prev"),e=function(l,m){var n=c.createElement("nav");return n.className="nav-multithumb",n.appendChild(m),n.appendChild(l),c.getElementsByTagName("body")[0].appendChild(n),n}(g.next,g.prev)},showLoadingScreen:function(){b.scrollTo(0,0);var j=c.createElement("div");j.className="spn-freezing-overlay",c.getElementsByTagName("body")[0].appendChild(j)},prev:function(){this.showLoadingScreen(),setTimeout(function(){b.location.href=b.history.go(-1)},1e3)},next:function(){f.next&&(this.showLoadingScreen(),setTimeout(function(){b.location.href=f.next.href},1e3))}}}();b.swipePageNav=d}(window);</script>
+<script>function __ez_fad_ezpbinit(){var s = document.createElement( 'script' );
+	s.setAttribute( 'src', '//go.ezodn.com/hb/dall.js?cb=195-3-56' );
+	s.onerror = function () {window.ezDallErr = true};
+	document.body.appendChild( s );}__ez.queue.addFile('/detroitchicago/kenai.js', '/detroitchicago/kenai.js?gcb=3&cb=6', false, [], true, false, true, false);var ezjsps=function(obj){return JSON.parse(JSON.stringify(obj));};var epbjs=epbjs||{};epbjs.que=epbjs.que||[];epbjs.bidderTimeout=2500;epbjs.useAdj=true;epbjs.SS={"sharethrough":11309,"yahoossp":11318};epbjs.bidders=['sharethrough','yahoossp'];epbjs.que.push(function(){});epbjs.bidderSettings={};epbjs.gadj=1.000000;var __enableAnalytics=false;epbjs.testFeatures=[''];
+var __s2sbidders=[];
+var __s2sinstreambidders=[];
+var __allBidders=['sharethrough','yahoossp'];
+__ez.queue.addFile('/detroitchicago/portland.js', '/detroitchicago/portland.js?gcb=3&cb=5', true, [], true, false, true, false);__ez.queue.addFunc("epbjsRequestAdUnits", "epbjsRequestAdUnits", [[{code: 'div-gpt-ad-wikichip_org-box-3-0', mediaTypes: {banner: { sizes:[[300,250]] }}, bids: [{bidder:'sharethrough',params:{pkey:'ZuLKhEvL3Xpyu8vcJZvy4GGZ'}}] },{code: 'div-gpt-ad-wikichip_org-box-2-0', mediaTypes: {banner: { sizes:[[728,90]] }}, bids: [{bidder:'sharethrough',params:{pkey:'e1sI5HKO9lbvTm6UAa1WEpg9'}}] },{code: 'div-gpt-ad-wikichip_org-large-mobile-banner-1-0', mediaTypes: {banner: { sizes:[[300,250]] }}, bids: [{bidder:'sharethrough',params:{pkey:'ZuLKhEvL3Xpyu8vcJZvy4GGZ'}}] },{code: 'div-gpt-ad-wikichip_org-medrectangle-1-0', mediaTypes: {banner: { sizes:[[580,400],[336,280],[300,250]] }}, bids: [] }]], false, ['/detroitchicago/portland.js'], true, true, true, true);var ez__id5pd = 'MTA9MTY3LjExNC4xMTguMjEwJjEyPU1vemlsbGElMkY1LjArJTI4V2luZG93cytOVCs2LjElM0IrcnYlM0E2MC4wJTI5K0dlY2tvJTJGMjAxMDAxMDErRmlyZWZveCUyRjYwLjA=';var ez__uIdHash = '35c2ee59068bf91c7e4742ae4433de058db0645348e79eb9b3523dcb0aa70d93';var ez__sspDomain = 'en.wikichip.org';</script>
+<script async data-ezscrex="false">__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_load(0,0);__ez.fads.__ez_fad_scrollmon();});</script>
+
+		<script>setTimeout(function(){let cookieTest=getCookie("ezvignetteviewed");if(cookieTest==""){window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];googletag.cmd.push(function(){if(ezslot_interstitial==null){return;}
+googletag.display(ezslot_interstitial);googletag.pubads().refresh([ezslot_interstitial]);});}},1000);function getCookie(cname){let name=cname+"=";let ca=document.cookie.split(';');for(let i=0;i<ca.length;i++){let c=ca[i];while(c.charAt(0)==' '){c=c.substring(1);}
+if(c.indexOf(name)==0){return c.substring(name.length,c.length);}}
+return "";}</script>
+<script type="text/javascript" data-cfasync="false"></script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script><script type='text/javascript' style='display:none;' async>
+</script>
+</body></html>

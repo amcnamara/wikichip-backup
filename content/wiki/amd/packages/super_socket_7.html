@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(pixel=>pixel.is_orig),pixels.filter(pixel=>!pixel.is_orig)];allPixels.forEach(pixels=>{while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=2', false, [], true, false, true, false);</script>
+
+<title>Super Socket 7  - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/packages/super_socket_7","wgTitle":"amd/packages/super socket 7","wgCurRevisionId":97668,"wgRevisionId":97668,"wgArticleId":36213,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all ic packages","amd"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/packages/super_socket_7","wgRelevantArticleId":36213,"wgRequestId":"87e98626aba080084466b5e1","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/packages/super socket 7" href="/w/index.php?title=Special:ExportRDF/amd/packages/super_socket_7&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Super Socket 7  - AMD - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Super Socket 7 a.k.a. Super 7 was the socket for CPGA-321-packaged AMD K6-2 and K6-III microprocessors, compatible with Intel's earlier Socket 7, and an open standard unlike Intel's competing Socket 8 and Slot 1. The Super7 platform added new features such as AGP support, a backside L2 and frontside L3 cache, dynamic core voltage for extended battery life, higher core frequencies, and raised the frontside bus clock to 100 MHz. For mobile and embedded processors AMD developed the CBGA-360 and OBGA-349 packages. Super Socket 7 was superseded by Slot A." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod21',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/amd/packages/super_socket_7"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"189c35dc-541a-4693-494d-c06eba381ff5","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":2004,"serverid":"52.3.223.66:7036","state":"VA","t_epoch":1603443421,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/amd/packages/super_socket_7","user_id":0,"word_count":1915,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["189c35dc-541a-4693-494d-c06eba381ff5", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_packages_super_socket_7 rootpage-amd skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/packages/super_socket_7">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:amd/packages/super_socket_7&action=edit&redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/packages/super_socket_7&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/packages/super_socket_7&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=amd%2Fpackages%2Fsuper+socket+7"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/packages/super_socket_7"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/packages/super_socket_7"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/packages/super_socket_7&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/packages/super_socket_7&oldid=97668"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/packages/super_socket_7&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Fsuper-5Fsocket-5F7"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Super Socket 7  - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="wc_out_template1"></div><table class="infobox"><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/package/amd/packages/super_socket_7" title="Special:FormEdit/package/amd/packages/super socket 7"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Super Socket 7</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a></td></tr><tr><td class="label">Introduction</td><td>May 1998 (launched)</td></tr><tr><td class="label">Market</td><td>Desktop</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/k6" title="amd/microarchitectures/k6">K6</a></td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td>30 W</td></tr><tr><td class="header" colspan="2">Package</td></tr><tr><td class="label">Name</td><td>CPGA-321</td></tr><tr><td class="label">Type</td><td>Ceramic Pin Grid Array</td></tr><tr><td class="label">Contacts</td><td>321</td></tr><tr><td class="label">Dimension</td><td>49.5 mm × 49.5 mm</td></tr><tr><td class="label">Pitch</td><td>2.54 mm</td></tr><tr><td class="header" colspan="2">Socket</td></tr><tr><td class="label">Name</td><td>Super Socket 7</td></tr><tr><td class="label">Type</td><td>PGA</td></tr></table><div id="wc_out_template1"></div>
+<p><b>Super Socket 7</b> a.k.a. <b>Super 7</b> was the socket for <b>CPGA-321</b>-packaged <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> <a href="/wiki/amd/k6-2" title="amd/k6-2">K6-2</a> and <a href="/wiki/amd/k6-iii" title="amd/k6-iii">K6-III</a> microprocessors, compatible with <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>'s earlier Socket 7, and an open standard unlike Intel's competing Socket 8 and Slot 1. The Super7 platform added new features such as <a href="/w/index.php?title=AGP&amp;action=edit&amp;redlink=1" class="new" title="AGP (page does not exist)">AGP</a> support, a backside L2 and frontside L3 cache, dynamic core voltage for extended battery life, higher core frequencies, and raised the frontside bus clock to 100 MHz. For mobile and embedded processors AMD developed the <a href="/wiki/amd/packages/cbga-360" title="amd/packages/cbga-360">CBGA-360</a> and <a href="/wiki/amd/packages/obga-349" title="amd/packages/obga-349">OBGA-349</a> packages. Super Socket 7 was superseded by <a href="/w/index.php?title=amd/packages/slot_a&amp;action=edit&amp;redlink=1" class="new" title="amd/packages/slot a (page does not exist)">Slot A</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Features"><span class="tocnumber">1</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Chipsets"><span class="tocnumber">2</span> <span class="toctext">Chipsets</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Processors_using_Super_Socket_7"><span class="tocnumber">3</span> <span class="toctext">Processors using Super Socket 7</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Package_Diagram"><span class="tocnumber">4</span> <span class="toctext">Package Diagram</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Socket_Outline"><span class="tocnumber">5</span> <span class="toctext">Socket Outline</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Pin_Map"><span class="tocnumber">6</span> <span class="toctext">Pin Map</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=1" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> 321-pin staggered pin grid array, 1.27/2.54 mm pitch, 19 × 19 pins, 49.5 × 49.5 mm ceramic substrate</li>
+<li> 1.5-1.8, 2.0, 2.2, 2.4, 2.9, 3.2 V core supply voltage</li>
+<li> 3.135 - 3.6 V (3.3 V nominal) I/O voltage</li>
+<li> 66/100 MHz frontside bus, up to 800 MByte/s</li>
+<li> Optional 100 MHz frontside L3 cache</li></ul>
+<h2><span class="mw-headline" id="Chipsets">Chipsets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=2" title="Edit section: Chipsets">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> AMD 640</li>
+<li> SiS 500 series</li>
+<li> VIA Apollo series</li></ul>
+<h2><span class="mw-headline" id="Processors_using_Super_Socket_7">Processors using Super Socket 7</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=3" title="Edit section: Processors using Super Socket 7">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> AMD K6, K6-2, K6-III</li>
+<li> Mobile AMD K6, K6-2+, K6-III+, K6-III-P</li>
+<li> AMD K6-2E, K6-2E+, K6-IIIE+ embedded processor</li>
+<li> Cyrix M-II</li>
+<li> IDT WinChip</li>
+<li> Rise mP6</li></ul>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc13 tc14 tc15 tc16 tc17 tc18 tc19">
+<tr class="comptable-header"><th>&#160;</th><th colspan="19">List of all Super Socket 7-based Processors</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Price</th><th>Process</th><th>Launched</th><th>µarch</th><th>Family</th><th>Core</th><th>C</th><th>T</th><th>Freq</th><th>Turbo</th><th>TDP</th></tr>
+<tr><td><a href="/wiki/amd/k6-2/k6-2-233amz" title="amd/k6-2/k6-2-233amz">K6-2/233AMZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.33&amp;#160;MHz 233,330&amp;#160;kHz"><span class="smwtext">0.233&#160;GHz</span><div class="smwttcontent">233.33&#160;MHz <br />233,330&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-266amz" title="amd/k6-2/k6-2-266amz">K6-2/266AMZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="266.66&amp;#160;MHz 266,660&amp;#160;kHz"><span class="smwtext">0.267&#160;GHz</span><div class="smwttcontent">266.66&#160;MHz <br />266,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-266anz" title="amd/k6-2/k6-2-266anz">K6-2/266ANZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="266.66&amp;#160;MHz 266,660&amp;#160;kHz"><span class="smwtext">0.267&#160;GHz</span><div class="smwttcontent">266.66&#160;MHz <br />266,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-266bnz" title="amd/k6-2/k6-2-266bnz">K6-2/266BNZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="266.66&amp;#160;MHz 266,660&amp;#160;kHz"><span class="smwtext">0.267&#160;GHz</span><div class="smwttcontent">266.66&#160;MHz <br />266,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-300anz" title="amd/k6-2/k6-2-300anz">K6-2/300ANZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="299.99&amp;#160;MHz 299,990&amp;#160;kHz"><span class="smwtext">0.3&#160;GHz</span><div class="smwttcontent">299.99&#160;MHz <br />299,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-300bnz" title="amd/k6-2/k6-2-300bnz">K6-2/300BNZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="299.99&amp;#160;MHz 299,990&amp;#160;kHz"><span class="smwtext">0.3&#160;GHz</span><div class="smwttcontent">299.99&#160;MHz <br />299,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-333amz" title="amd/k6-2/k6-2-333amz">K6-2/333AMZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>14 June 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-333anz" title="amd/k6-2/k6-2-333anz">K6-2/333ANZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>14 June 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-333bnz" title="amd/k6-2/k6-2-333bnz">K6-2/333BNZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>14 June 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iii%2B-475acz" title="amd/k6-iii+/amd-k6-iii+-475acz">AMD-K6-III+/475ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>18 April 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="475&amp;#160;MHz 475,000&amp;#160;kHz"><span class="smwtext">0.475&#160;GHz</span><div class="smwttcontent">475&#160;MHz <br />475,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-333afk" title="amd/k6-iii-p/amd-k6-iii-333afk">AMD-K6-III/333AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>31 May 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii/amd-k6-iii-333afr" title="amd/k6-iii/amd-k6-iii-333afr">AMD-K6-III/333AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>13 May 1999</td><td>K6-III</td><td>K6-III</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-350afk" title="amd/k6-iii-p/amd-k6-iii-350afk">AMD-K6-III/350AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>31 May 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="349.99&amp;#160;MHz 349,990&amp;#160;kHz"><span class="smwtext">0.35&#160;GHz</span><div class="smwttcontent">349.99&#160;MHz <br />349,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-366afk" title="amd/k6-iii-p/amd-k6-iii-366afk">AMD-K6-III/366AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>31 May 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="366.66&amp;#160;MHz 366,660&amp;#160;kHz"><span class="smwtext">0.367&#160;GHz</span><div class="smwttcontent">366.66&#160;MHz <br />366,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-380afk" title="amd/k6-iii-p/amd-k6-iii-380afk">AMD-K6-III/380AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>31 May 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="380&amp;#160;MHz 380,000&amp;#160;kHz"><span class="smwtext">0.38&#160;GHz</span><div class="smwttcontent">380&#160;MHz <br />380,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-400ack" title="amd/k6-iii-p/amd-k6-iii-400ack">AMD-K6-III/400ACK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>20 September 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.999&amp;#160;MHz 399,999&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.999&#160;MHz <br />399,999&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii/amd-k6-iii-400afr" title="amd/k6-iii/amd-k6-iii-400afr">AMD-K6-III/400AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>26 February 1999</td><td>K6-III</td><td>K6-III</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii/amd-k6-iii-400ahx" title="amd/k6-iii/amd-k6-iii-400ahx">AMD-K6-III/400AHX</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>26 February 1999</td><td>K6-III</td><td>K6-III</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-433ack" title="amd/k6-iii-p/amd-k6-iii-433ack">AMD-K6-III/433ACK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>20 September 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="433&amp;#160;MHz 433,000&amp;#160;kHz"><span class="smwtext">0.433&#160;GHz</span><div class="smwttcontent">433&#160;MHz <br />433,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii-p/amd-k6-iii-450ack" title="amd/k6-iii-p/amd-k6-iii-450ack">AMD-K6-III/450ACK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>20 September 1999</td><td>K6-III</td><td>K6-III-P</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="449.99&amp;#160;MHz 449,990&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">449.99&#160;MHz <br />449,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii/amd-k6-iii-450afx" title="amd/k6-iii/amd-k6-iii-450afx">AMD-K6-III/450AFX</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>13 May 1999</td><td>K6-III</td><td>K6-III</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="449.99&amp;#160;MHz 449,990&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">449.99&#160;MHz <br />449,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii/amd-k6-iii-450ahx" title="amd/k6-iii/amd-k6-iii-450ahx">AMD-K6-III/450AHX</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>13 May 1999</td><td>K6-III</td><td>K6-III</td><td>Sharptooth</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="449.99&amp;#160;MHz 449,990&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">449.99&#160;MHz <br />449,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-400acr" title="amd/k6-iii+/amd-k6-iiie+-400acr">AMD-K6-IIIE+/400ACR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="9,500&amp;#160;mW 0.0127&amp;#160;hp 0.0095&amp;#160;kW"><span class="smwtext">9.5&#160;W</span><div class="smwttcontent">9,500&#160;mW <br />0.0127&#160;hp <br />0.0095&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-400atz" title="amd/k6-iii+/amd-k6-iiie+-400atz">AMD-K6-IIIE+/400ATZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399&amp;#160;MHz 399,000&amp;#160;kHz"><span class="smwtext">0.399&#160;GHz</span><div class="smwttcontent">399&#160;MHz <br />399,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="9,500&amp;#160;mW 0.0127&amp;#160;hp 0.0095&amp;#160;kW"><span class="smwtext">9.5&#160;W</span><div class="smwttcontent">9,500&#160;mW <br />0.0127&#160;hp <br />0.0095&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-400icr" title="amd/k6-iii+/amd-k6-iiie+-400icr">AMD-K6-IIIE+/400ICR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="9,500&amp;#160;mW 0.0127&amp;#160;hp 0.0095&amp;#160;kW"><span class="smwtext">9.5&#160;W</span><div class="smwttcontent">9,500&#160;mW <br />0.0127&#160;hp <br />0.0095&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-400itz" title="amd/k6-iii+/amd-k6-iiie+-400itz">AMD-K6-IIIE+/400ITZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="9,500&amp;#160;mW 0.0127&amp;#160;hp 0.0095&amp;#160;kW"><span class="smwtext">9.5&#160;W</span><div class="smwttcontent">9,500&#160;mW <br />0.0127&#160;hp <br />0.0095&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-450acr" title="amd/k6-iii+/amd-k6-iiie+-450acr">AMD-K6-IIIE+/450ACR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="449.99&amp;#160;MHz 449,990&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">449.99&#160;MHz <br />449,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12,000&amp;#160;mW 0.0161&amp;#160;hp 0.012&amp;#160;kW"><span class="smwtext">12&#160;W</span><div class="smwttcontent">12,000&#160;mW <br />0.0161&#160;hp <br />0.012&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-450apz" title="amd/k6-iii+/amd-k6-iiie+-450apz">AMD-K6-IIIE+/450APZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="449.99&amp;#160;MHz 449,990&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">449.99&#160;MHz <br />449,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12,000&amp;#160;mW 0.0161&amp;#160;hp 0.012&amp;#160;kW"><span class="smwtext">12&#160;W</span><div class="smwttcontent">12,000&#160;mW <br />0.0161&#160;hp <br />0.012&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-iii%2B/amd-k6-iiie%2B-500acr" title="amd/k6-iii+/amd-k6-iiie+-500acr">AMD-K6-IIIE+/500ACR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>25 September 2000</td><td>K6-III</td><td>K6-III+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="499.99&amp;#160;MHz 499,990&amp;#160;kHz"><span class="smwtext">0.5&#160;GHz</span><div class="smwttcontent">499.99&#160;MHz <br />499,990&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="14,500&amp;#160;mW 0.0194&amp;#160;hp 0.0145&amp;#160;kW"><span class="smwtext">14.5&#160;W</span><div class="smwttcontent">14,500&#160;mW <br />0.0194&#160;hp <br />0.0145&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2%2B/k6-2%2B-450acz" title="amd/k6-2+/k6-2+-450acz">K6-2+/450ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>18 April 2000</td><td>K6-III</td><td>K6-2+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="450&amp;#160;MHz 450,000&amp;#160;kHz"><span class="smwtext">0.45&#160;GHz</span><div class="smwttcontent">450&#160;MHz <br />450,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,000&amp;#160;mW 0.0215&amp;#160;hp 0.016&amp;#160;kW"><span class="smwtext">16&#160;W</span><div class="smwttcontent">16,000&#160;mW <br />0.0215&#160;hp <br />0.016&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2%2B/k6-2%2B-475acz" title="amd/k6-2+/k6-2+-475acz">K6-2+/475ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>18 April 2000</td><td>K6-III</td><td>K6-2+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="475&amp;#160;MHz 475,000&amp;#160;kHz"><span class="smwtext">0.475&#160;GHz</span><div class="smwttcontent">475&#160;MHz <br />475,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,000&amp;#160;mW 0.0215&amp;#160;hp 0.016&amp;#160;kW"><span class="smwtext">16&#160;W</span><div class="smwttcontent">16,000&#160;mW <br />0.0215&#160;hp <br />0.016&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2%2B/k6-2%2B-500acz" title="amd/k6-2+/k6-2+-500acz">K6-2+/500ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>18 April 2000</td><td>K6-III</td><td>K6-2+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="500&amp;#160;MHz 500,000&amp;#160;kHz"><span class="smwtext">0.5&#160;GHz</span><div class="smwttcontent">500&#160;MHz <br />500,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,000&amp;#160;mW 0.0215&amp;#160;hp 0.016&amp;#160;kW"><span class="smwtext">16&#160;W</span><div class="smwttcontent">16,000&#160;mW <br />0.0215&#160;hp <br />0.016&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2%2B/k6-2%2B-533acz" title="amd/k6-2+/k6-2+-533acz">K6-2+/533ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>5 September 2000</td><td>K6-III</td><td>K6-2+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="533&amp;#160;MHz 533,000&amp;#160;kHz"><span class="smwtext">0.533&#160;GHz</span><div class="smwttcontent">533&#160;MHz <br />533,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="18,000&amp;#160;mW 0.0241&amp;#160;hp 0.018&amp;#160;kW"><span class="smwtext">18&#160;W</span><div class="smwttcontent">18,000&#160;mW <br />0.0241&#160;hp <br />0.018&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2%2B/k6-2%2B-550acz" title="amd/k6-2+/k6-2+-550acz">K6-2+/550ACZ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.18&amp;#160;μm 1.8e-4&amp;#160;mm"><span class="smwtext">180&#160;nm</span><div class="smwttcontent">0.18&#160;μm <br />1.8e-4&#160;mm <br /></div></span></td><td>5 September 2000</td><td>K6-III</td><td>K6-2+</td><td></td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="550&amp;#160;MHz 550,000&amp;#160;kHz"><span class="smwtext">0.55&#160;GHz</span><div class="smwttcontent">550&#160;MHz <br />550,000&#160;kHz <br /></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="18,000&amp;#160;mW 0.0241&amp;#160;hp 0.018&amp;#160;kW"><span class="smwtext">18&#160;W</span><div class="smwttcontent">18,000&#160;mW <br />0.0241&#160;hp <br />0.018&#160;kW <br /></div></span></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-200afr" title="amd/k6-2/k6-2-200afr">K6-2/200AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>4 June 1998</td><td>K6-2</td><td>K6-2</td><td>Chomper</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="200&amp;#160;MHz 200,000&amp;#160;kHz"><span class="smwtext">0.2&#160;GHz</span><div class="smwttcontent">200&#160;MHz <br />200,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-233afr" title="amd/k6-2/k6-2-233afr">K6-2/233AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>4 June 1998</td><td>K6-2</td><td>K6-2</td><td>Chomper</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="233.33&amp;#160;MHz 233,330&amp;#160;kHz"><span class="smwtext">0.233&#160;GHz</span><div class="smwttcontent">233.33&#160;MHz <br />233,330&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-300afr" title="amd/k6-2/k6-2-300afr">K6-2/300AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>4 June 1998</td><td>K6-2</td><td>K6-2</td><td>Chomper</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="299.99&amp;#160;MHz 299,990&amp;#160;kHz"><span class="smwtext">0.3&#160;GHz</span><div class="smwttcontent">299.99&#160;MHz <br />299,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-333afr" title="amd/k6-2/k6-2-333afr">K6-2/333AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>4 June 1998</td><td>K6-2</td><td>K6-2</td><td>Chomper Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.66&amp;#160;MHz 333,660&amp;#160;kHz"><span class="smwtext">0.334&#160;GHz</span><div class="smwttcontent">333.66&#160;MHz <br />333,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-333afr-66" title="amd/k6-2/k6-2-333afr-66">K6-2/333AFR-66</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>4 June 1998</td><td>K6-2</td><td>K6-2</td><td>Chomper Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="333.33&amp;#160;MHz 333,330&amp;#160;kHz"><span class="smwtext">0.333&#160;GHz</span><div class="smwttcontent">333.33&#160;MHz <br />333,330&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-337afr" title="amd/k6-2/k6-2-337afr">K6-2/337AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>1998</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="337&amp;#160;MHz 337,000&amp;#160;kHz"><span class="smwtext">0.337&#160;GHz</span><div class="smwttcontent">337&#160;MHz <br />337,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-350afr" title="amd/k6-2/k6-2-350afr">K6-2/350AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>15 October 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="349.99&amp;#160;MHz 349,990&amp;#160;kHz"><span class="smwtext">0.35&#160;GHz</span><div class="smwttcontent">349.99&#160;MHz <br />349,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-366afk" title="amd/k6-2/k6-2-366afk">K6-2/366AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="366.66&amp;#160;MHz 366,660&amp;#160;kHz"><span class="smwtext">0.367&#160;GHz</span><div class="smwttcontent">366.66&#160;MHz <br />366,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-366afr" title="amd/k6-2/k6-2-366afr">K6-2/366AFR</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>15 October 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="366.66&amp;#160;MHz 366,660&amp;#160;kHz"><span class="smwtext">0.367&#160;GHz</span><div class="smwttcontent">366.66&#160;MHz <br />366,660&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-380afk" title="amd/k6-2/k6-2-380afk">K6-2/380AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="380&amp;#160;MHz 380,000&amp;#160;kHz"><span class="smwtext">0.38&#160;GHz</span><div class="smwttcontent">380&#160;MHz <br />380,000&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400ack" title="amd/k6-2/k6-2-400ack">K6-2/400ACK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400ack-66" title="amd/k6-2/k6-2-400ack-66">K6-2/400ACK-66</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>22 March 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400afk" title="amd/k6-2/k6-2-400afk">K6-2/400AFK</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>14 June 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400afq" title="amd/k6-2/k6-2-400afq">K6-2/400AFQ</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>15 October 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400afq-66" title="amd/k6-2/k6-2-400afq-66">K6-2/400AFQ-66</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>15 October 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><tr><td><a href="/wiki/amd/k6-2/k6-2-400ahx-66" title="amd/k6-2/k6-2-400ahx-66">K6-2/400AHX-66</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;μm 2.5e-4&amp;#160;mm"><span class="smwtext">250&#160;nm</span><div class="smwttcontent">0.25&#160;μm <br />2.5e-4&#160;mm <br /></div></span></td><td>15 October 1999</td><td>K6-2</td><td>K6-2</td><td>Chomper Extended</td><td>1</td><td>1</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="399.99&amp;#160;MHz 399,990&amp;#160;kHz"><span class="smwtext">0.4&#160;GHz</span><div class="smwttcontent">399.99&#160;MHz <br />399,990&#160;kHz <br /></div></span></td><td></td><td></td></tr><span class="smw-template-furtherresults"><a href="/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Binstance-20of::microprocessor-5D-5D-20-5B-5Bplatform::Super-207-5D-5D/-3Ffull-20page-20name/-3Fmodel-20number/-3Frelease-20price/-3Fprocess/-3Ffirst-20launched/-3Fmicroarchitecture/-3Ffamily/-3Fcore-20name/-3Fcore-20count/-3Fthread-20count/-3Fbase-20frequency-23GHz/-3Fturbo-20frequency-20(1-20core)-23GHz/-3Ftdp/mainlabel%3D-2D/limit%3D50/offset%3D50/format%3Dtemplate/template%3Dproc-20table-203/userparam%3D13" title="Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Binstance-20of::microprocessor-5D-5D-20-5B-5Bplatform::Super-207-5D-5D/-3Ffull-20page-20name/-3Fmodel-20number/-3Frelease-20price/-3Fprocess/-3Ffirst-20launched/-3Fmicroarchitecture/-3Ffamily/-3Fcore-20name/-3Fcore-20count/-3Fthread-20count/-3Fbase-20frequency-23GHz/-3Fturbo-20frequency-20(1-20core)-23GHz/-3Ftdp/mainlabel=-2D/limit=50/offset=50/format=template/template=proc-20table-203/userparam=13">... further results</a></span>
+<tr class="comptable-header"><th>Count: 85</th></tr>
+</table>
+</div></div>
+<h2><span class="mw-headline" id="Package_Diagram">Package Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=4" title="Edit section: Package Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><a href="/wiki/File:CPGA-321_K6_diag.svg" class="image"><img alt="CPGA-321 K6 diag.svg" src="/w/images/thumb/2/2e/CPGA-321_K6_diag.svg/839px-CPGA-321_K6_diag.svg.png" width="839" height="573" srcset="/w/images/thumb/2/2e/CPGA-321_K6_diag.svg/1259px-CPGA-321_K6_diag.svg.png 1.5x, /w/images/thumb/2/2e/CPGA-321_K6_diag.svg/1678px-CPGA-321_K6_diag.svg.png 2x" /></a></dd></dl>
+<p>CPGA-321 package of the AMD K6. All dimensions in millimeters.
+</p>
+<dl><dd><a href="/wiki/File:CPGA-321_K6-2_diag.svg" class="image"><img alt="CPGA-321 K6-2 diag.svg" src="/w/images/thumb/a/a2/CPGA-321_K6-2_diag.svg/839px-CPGA-321_K6-2_diag.svg.png" width="839" height="573" srcset="/w/images/thumb/a/a2/CPGA-321_K6-2_diag.svg/1259px-CPGA-321_K6-2_diag.svg.png 1.5x, /w/images/thumb/a/a2/CPGA-321_K6-2_diag.svg/1678px-CPGA-321_K6-2_diag.svg.png 2x" /></a></dd></dl>
+<p>CPGA-321 package of AMD K6-2, K6-III. All dimensions in millimeters.
+</p>
+<dl><dd><a href="/wiki/File:CPGA-321_MK6_diag.svg" class="image"><img alt="CPGA-321 MK6 diag.svg" src="/w/images/thumb/d/dc/CPGA-321_MK6_diag.svg/839px-CPGA-321_MK6_diag.svg.png" width="839" height="573" srcset="/w/images/thumb/d/dc/CPGA-321_MK6_diag.svg/1259px-CPGA-321_MK6_diag.svg.png 1.5x, /w/images/thumb/d/dc/CPGA-321_MK6_diag.svg/1678px-CPGA-321_MK6_diag.svg.png 2x" /></a></dd></dl>
+<p>CPGA-321 package of AMD K6 mobile and embedded processors. All dimensions in millimeters.
+</p>
+<h2><span class="mw-headline" id="Socket_Outline">Socket Outline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=5" title="Edit section: Socket Outline">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><a href="/wiki/File:Socket_7_diag.svg" class="image"><img alt="Socket 7 diag.svg" src="/w/images/thumb/1/16/Socket_7_diag.svg/576px-Socket_7_diag.svg.png" width="576" height="553" srcset="/w/images/thumb/1/16/Socket_7_diag.svg/864px-Socket_7_diag.svg.png 1.5x, /w/images/thumb/1/16/Socket_7_diag.svg/1152px-Socket_7_diag.svg.png 2x" /></a></dd></dl>
+<p>Socket 7. All dimensions in millimeters.
+</p>
+<h2><span class="mw-headline" id="Pin_Map">Pin Map</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=6" title="Edit section: Pin Map">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><a href="/wiki/File:CPGA-321_K6-2_pinmap.svg" class="image"><img alt="CPGA-321 K6-2 pinmap.svg" src="/w/images/thumb/3/3c/CPGA-321_K6-2_pinmap.svg/800px-CPGA-321_K6-2_pinmap.svg.png" width="800" height="902" srcset="/w/images/thumb/3/3c/CPGA-321_K6-2_pinmap.svg/1200px-CPGA-321_K6-2_pinmap.svg.png 1.5x, /w/images/thumb/3/3c/CPGA-321_K6-2_pinmap.svg/1600px-CPGA-321_K6-2_pinmap.svg.png 2x" /></a></dd></dl>
+<p>Notes:
+</p>
+<ul><li> Pin AN5 VCC2H/L# is INC on K6 Model 6.</li>
+<li> Pin C1 is INC on K6 Model 6 and 7, NC on other models.</li>
+<li> Pins E17, E25, R34, AN35, AH32 are VID[4:0] (Voltage Identification) outputs only on K6-2 and K6-III low power models, NC otherwise. Models with PowerNow! technology can change the VID dynamically.</li>
+<li> Pin AH32 (KEY) prevents CPU insertion into Socket 5.</li>
+<li> On Pentium processors for Socket 7:
+<ul><li> Pins H34, J33, L35, AD4, AE3, AA3, AC3, AE35, Q35 (all RSVD on Super Socket 7) carry the APIC and dual processor interface.</li>
+<li> Pins Q3, R4, S3, S5 (all RSVD) carry debug signals.</li>
+<li> Pin AL7 (INC) is defined as BUSCHK#. Allows the system to signal an unsuccessful completion of a bus cycle. </li>
+<li> Pin Y35 (INC) is FRCMC#. Functional redundancy checking master/checker mode input.</li>
+<li> Pin P4 (RSVD) is IERR#. Output indicating internal parity and functional redundancy errors.</li>
+<li> Pin Z34 (INC) is PEN#. Input to determine whether a machine check exception will be taken as a result of a data parity error on a read cycle.</li>
+<li> Pin AC35 (INC) is R/S#. Interrupt pin to stop normal execution and place the processor into an idle state.</li>
+<li> Pin AC5 (RSVD) is PRDY. Indicates that the processor has stopped in response to R/S#.</li>
+<li> Pin W35 (BF2), AN5 (VCC2H/L#), B2 (VCC2), A3 (VSS) are NC/INC.</li>
+<li> Pin AL1 (VCC2DET) is INC on the Pentium 75/90/100/120/133/150/166/200 (these processors do not support split power planes), VCC2DET# on the Pentium MMX to indicate VCC2 must be 2.8 V. On Super Socket 7 VCC2DET and VCC2H/L# distinguish processors with VCC2 of 2.4 V or lower.</li></ul></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> "AMD-K6 Processor Data Sheet", AMD Publ. #20695, Rev. H, March 1998</li>
+<li> "AMD-K6-2 Processor Data Sheet", AMD Publ. #21850, Rev. J, February 2000</li>
+<li> "AMD-K6-2E Processor Data Sheet", AMD Publ. #22529, Rev. B, January 2000</li>
+<li> "AMD-K6-2E+ Embedded Processor Data Sheet", AMD Publ. #23542, Rev. A, September 2000</li>
+<li> "AMD-K6-III Processor Data Sheet", AMD Publ. #21918, Rev. B, October 1999</li>
+<li> "AMD-K6-IIIE+ Embedded Processor Data Sheet", AMD Publ. #23543, Rev. A, September 2000</li>
+<li> "Mobile AMD-K6 Processor Data Sheet", AMD Publ. #21049, Rev. H, September 1998</li>
+<li> "Mobile AMD-K6®-2+ Processor Data Sheet", AMD Publ. #23446, Rev. B, June 1, 2000</li>
+<li> "Mobile AMD-K6-III+ Processor Data Sheet", AMD Publ. #23535, Rev. A, May 2000</li>
+<li> "Mobile AMD-K6-III-P Processor Data Sheet", AMD Publ. #22655, Rev. C, September 2000</li>
+<li> "AMD-K6® Processor Revision Guide Model 6", AMD Publ. #21266, Rev. G, August 1, 1998</li>
+<li> "AMD-K6 Processor Revision Guide - Model 7", AMD Publ. #21846, Rev. H, June 1999</li>
+<li> "AMD-K6-2 Processor Revision Guide - Model 8", AMD Publ. #21641, Rev. F, June 1999</li>
+<li> "AMD-K6-III Processor Revision Guide - Model 9", AMD Publ. #22473, Rev. C, July 1999</li>
+<li> "AMD-K6® Processor 100-MHz Bus Specification Application Note", AMD Publ. #21644, Rev. G, June 1, 1999</li>
+<li> "Pentium® Processor Family Developer’s Manual", Intel Corp., Order Nr. 24142805, 1997</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/super_socket_7&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/amd/packages/obga-349" title="amd/packages/obga-349">OBGA-349</a></li>
+<li> <a href="/wiki/amd/packages/cbga-360" title="amd/packages/cbga-360">CBGA-360</a></li>
+<li> <a href="/w/index.php?title=amd/packages/slot_a&amp;action=edit&amp;redlink=1" class="new" title="amd/packages/slot a (page does not exist)">Slot A</a></li>
+<li> <a href="/w/index.php?title=amd/packages/socket_a&amp;action=edit&amp;redlink=1" class="new" title="amd/packages/socket a (page does not exist)">Socket A</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:36213-0!*!0!default!!en!5!* and timestamp 20201023085701 and revision id 97668
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/packages/super_socket_7&amp;oldid=97668">https://en.wikichip.org/w/index.php?title=amd/packages/super_socket_7&amp;oldid=97668</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/w/index.php?title=Category:all_ic_packages&amp;action=edit&amp;redlink=1" class="new" title="Category:all ic packages (page does not exist)">all ic packages</a></li><li><a href="/wiki/Category:amd" title="Category:amd">amd</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Fsuper-20socket-207" title="Special:Browse/:amd-2Fpackages-2Fsuper-20socket-207">Super Socket 7  - AMD</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/packages/super_socket_7" title="Special:ExportRDF/amd/packages/super socket 7">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">May 1998  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/May-201998" title="Special:SearchByProperty/:first-20launched/May-201998">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">package  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/package" title="Special:SearchByProperty/:instance-20of/package">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market&#160;segment</a></td><td class="smwprops">Desktop  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Desktop" title="Special:SearchByProperty/:market-20segment/Desktop">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">K6  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/K6" title="Special:SearchByProperty/:microarchitecture/K6">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Super Socket 7  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Super-20Socket-207" title="Special:SearchByProperty/:name/Super-20Socket-207">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">30&#160;W (30,000&#160;mW, 0.0402&#160;hp, 0.03&#160;kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/30-20W" title="Special:SearchByProperty/:tdp/30-20W">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 27 July 2020, at 09:30.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1957});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

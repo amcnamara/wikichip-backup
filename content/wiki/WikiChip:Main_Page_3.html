@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(pixel=>pixel.is_orig),pixels.filter(pixel=>!pixel.is_orig)];allPixels.forEach(pixels=>{while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=2', false, [], true, false, true, false);</script>
+
+<title>WikiChip:Main Page 3 - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"Project","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":4,"wgPageName":"WikiChip:Main_Page_3","wgTitle":"Main Page 3","wgCurRevisionId":32446,"wgRevisionId":32446,"wgArticleId":11026,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"WikiChip:Main_Page_3","wgRelevantArticleId":11026,"wgRequestId":"7171dc0e387656ac7132ed77","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="WikiChip:Main Page 3" href="/w/index.php?title=Special:ExportRDF/WikiChip:Main_Page_3&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=WikiChip:Main_Page_3&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=WikiChip:Main_Page_3&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="WikiChip:Main Page 3 - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod1',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/WikiChip:Main_Page_3"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"6ba82640-6ba5-4639-6cc6-8d778eb4c4f0","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":1729,"serverid":"3.84.206.60:3934","state":"VA","t_epoch":1603215831,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/WikiChip:Main_Page_3","user_id":0,"word_count":2107,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["6ba82640-6ba5-4639-6cc6-8d778eb4c4f0", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-4 ns-subject page-WikiChip_Main_Page_3 rootpage-WikiChip_Main_Page_3 skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li class="selected"><a href="/wiki/WikiChip:Main_Page_3">Project page&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></a><ul></ul></li><li class="new"><a href="/w/index.php?title=WikiChip_talk:Main_Page_3&action=edit&redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=WikiChip:Main_Page_3&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=WikiChip:Main_Page_3&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=WikiChip%3AMain+Page+3"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/WikiChip:Main_Page_3"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/WikiChip:Main_Page_3"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=WikiChip:Main_Page_3&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=WikiChip:Main_Page_3&oldid=32446"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=WikiChip:Main_Page_3&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:WikiChip:Main-5FPage-5F3"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    WikiChip:Main Page 3    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+										<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="vertical-align:top; border-collapse: collapse; margin: 0 10px 10px 10px; width: 100%;">
+<tr>
+<td colspan="3" style="text-align: center;">
+<table style="vertical-align:top; border-collapse: collapse; width: 98%;">
+<tr>
+<td style="text-align: center; vertical-align: middle; width: 300px;">
+<div style="margin-top: 1px;">
+<p><img alt="wikichip lcd.svg" src="/w/images/thumb/1/15/wikichip_lcd.svg/250px-wikichip_lcd.svg.png" width="250" height="44" srcset="/w/images/thumb/1/15/wikichip_lcd.svg/375px-wikichip_lcd.svg.png 1.5x, /w/images/thumb/1/15/wikichip_lcd.svg/500px-wikichip_lcd.svg.png 2x" />
+</p>
+</div>
+</td>
+<td style="border-left: 1px dashed rgba(0,0,0,.11);">
+<div style="margin: 0 auto; width: 85%;">
+<p><b>WikiChip</b> is a <a href="/wiki/WikiChip:semantic_wikichip" title="WikiChip:semantic wikichip">semantic</a> computer engineering wiki aimed at documenting past and present electronic systems and technologies as well as general topics, concepts, and methodologies. <a href="/wiki/WikiChip:welcome" title="WikiChip:welcome">Want to help?</a>
+</p>
+<hr />
+<p><b>Stats</b><br />
+<b><a href="/wiki/Special:Statistics" title="Special:Statistics">4,534</a></b> Articles &#9642;
+<b>193</b> Families &#9642;
+<b>2,094</b> Microprocessors &#9642;
+<b>97</b> Microcontrollers
+</p>
+</div>
+</td></tr></table>
+</td></tr>
+<tr>
+<td colspan="3">
+<hr style="margin-left: 10px; width: 98.5%;" />
+</td></tr>
+
+<tr>
+<td style="vertical-align:top; width: 450px;">
+<div style="margin: 10px; border:1px solid #a7d7f9; background:#f9f9f9; vertical-align:top; display: inline-block; width: 450px">
+<p><a class="twitter-timeline"   data-height="400"   data-limit="4" data-chrome="noheader nofooter noborders transparent" data-dnt="true" href="https://twitter.com/wikichip">Twitter Link</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+</div>
+<div style="margin: 10px; border:1px solid #a7d7f9; background:#f9f9f9; vertical-align:top; display: inline-block">
+<h3 style="background:#e6f3ff; border:1px solid #a7d7f9; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Architectures">Architectures</span></h3>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/1-bit_architecture" title="1-bit architecture">1-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/2-bit_architecture" title="2-bit architecture">2-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/4-bit_architecture" title="4-bit architecture">4-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/8-bit_architecture" title="8-bit architecture">8-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/12-bit_architecture" title="12-bit architecture">12-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/15-bit_architecture" title="15-bit architecture">15-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/16-bit_architecture" title="16-bit architecture">16-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/18-bit_architecture" title="18-bit architecture">18-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/20-bit_architecture" title="20-bit architecture">20-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/24-bit_architecture" title="24-bit architecture">24-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/32-bit_architecture" title="32-bit architecture">32-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a></div>
+<div style="display:inline-block; width: 60px; margin: 1px 1px 1px 10px">• <a href="/wiki/128-bit_architecture" title="128-bit architecture">128-bit</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #ffbf80; background:#f9f9f9; vertical-align:top; display: inline-block">
+<h3 style="background:#fff2e5; border:1px solid #ffbf80; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Semiconductor_manufacturing_processes">Semiconductor manufacturing processes</span></h3>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/50_%C2%B5m_lithography_process" title="50 µm lithography process">50 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/20_%C2%B5m_lithography_process" title="20 µm lithography process">20 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/16_%C2%B5m_lithography_process" title="16 µm lithography process">16 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/10_%C2%B5m_lithography_process" title="10 µm lithography process">10 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/8_%C2%B5m_lithography_process" title="8 µm lithography process">8 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/7_%C2%B5m_lithography_process" title="7 µm lithography process">7 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/6_%C2%B5m_lithography_process" title="6 µm lithography process">6 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/5_%C2%B5m_lithography_process" title="5 µm lithography process">5 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/3.5_%C2%B5m_lithography_process" title="3.5 µm lithography process">3.5 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/3_%C2%B5m_lithography_process" title="3 µm lithography process">3 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/2.5_%C2%B5m_lithography_process" title="2.5 µm lithography process">2.5 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/2_%C2%B5m_lithography_process" title="2 µm lithography process">2 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/1.5_%C2%B5m_lithography_process" title="1.5 µm lithography process">1.5 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/1.3_%C2%B5m_lithography_process" title="1.3 µm lithography process">1.3 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/1.2_%C2%B5m_lithography_process" title="1.2 µm lithography process">1.2 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/1_%C2%B5m_lithography_process" title="1 µm lithography process">1 µm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/800_nm_lithography_process" title="800 nm lithography process">800 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/750_nm_lithography_process" title="750 nm lithography process">750 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/700_nm_lithography_process" title="700 nm lithography process">700 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/650_nm_lithography_process" title="650 nm lithography process">650 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/600_nm_lithography_process" title="600 nm lithography process">600 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/500_nm_lithography_process" title="500 nm lithography process">500 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/350_nm_lithography_process" title="350 nm lithography process">350 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/280_nm_lithography_process" title="280 nm lithography process">280 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/250_nm_lithography_process" title="250 nm lithography process">250 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/240_nm_lithography_process" title="240 nm lithography process">240 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/220_nm_lithography_process" title="220 nm lithography process">220 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/180_nm_lithography_process" title="180 nm lithography process">180 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/150_nm_lithography_process" title="150 nm lithography process">150 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/130_nm_lithography_process" title="130 nm lithography process">130 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/110_nm_lithography_process" title="110 nm lithography process">110 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/90_nm_lithography_process" title="90 nm lithography process">90 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/80_nm_lithography_process" title="80 nm lithography process">80 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/65_nm_lithography_process" title="65 nm lithography process">65 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/55_nm_lithography_process" title="55 nm lithography process">55 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/45_nm_lithography_process" title="45 nm lithography process">45 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/40_nm_lithography_process" title="40 nm lithography process">40 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/32_nm_lithography_process" title="32 nm lithography process">32 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/28_nm_lithography_process" title="28 nm lithography process">28 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/22_nm_lithography_process" title="22 nm lithography process">22 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/20_nm_lithography_process" title="20 nm lithography process">20 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/16_nm_lithography_process" title="16 nm lithography process">16 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/14_nm_lithography_process" title="14 nm lithography process">14 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/10_nm_lithography_process" title="10 nm lithography process">10 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/7_nm_lithography_process" title="7 nm lithography process">7 nm</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/5_nm_lithography_process" title="5 nm lithography process">5 nm</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #ff9999; background:#fafafa; vertical-align:top; display: inline-block">
+<h3 style="background:#ffe5e5; border:1px solid #ff9999; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Common_ISAs">Common ISAs</span></h3>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/wiki/x86" title="x86">x86</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/wiki/Power" class="mw-redirect" title="Power">Power</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=Itanium&amp;action=edit&amp;redlink=1" class="new" title="Itanium (page does not exist)">Itanium</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=SPARC&amp;action=edit&amp;redlink=1" class="new" title="SPARC (page does not exist)">SPARC</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=MIPS&amp;action=edit&amp;redlink=1" class="new" title="MIPS (page does not exist)">MIPS</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=SuperH&amp;action=edit&amp;redlink=1" class="new" title="SuperH (page does not exist)">SuperH</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=AVR&amp;action=edit&amp;redlink=1" class="new" title="AVR (page does not exist)">AVR</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=PIC&amp;action=edit&amp;redlink=1" class="new" title="PIC (page does not exist)">PIC</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=68K&amp;action=edit&amp;redlink=1" class="new" title="68K (page does not exist)">68K</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=ARCompact&amp;action=edit&amp;redlink=1" class="new" title="ARCompact (page does not exist)">ARCompact</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=Xtensa&amp;action=edit&amp;redlink=1" class="new" title="Xtensa (page does not exist)">Xtensa</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=Cortus&amp;action=edit&amp;redlink=1" class="new" title="Cortus (page does not exist)">Cortus</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=AndeStar&amp;action=edit&amp;redlink=1" class="new" title="AndeStar (page does not exist)">AndeStar</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=M16C&amp;action=edit&amp;redlink=1" class="new" title="M16C (page does not exist)">M16C</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=M32C&amp;action=edit&amp;redlink=1" class="new" title="M32C (page does not exist)">M32C</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=V850&amp;action=edit&amp;redlink=1" class="new" title="V850 (page does not exist)">V850</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=Z80&amp;action=edit&amp;redlink=1" class="new" title="Z80 (page does not exist)">Z80</a></div>
+<div style="display:inline-block; width: 90px; margin: 1px 1px 1px 10px">• <a href="/wiki/RISC-V" class="mw-redirect" title="RISC-V">RISC-V</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #c7b3ff; background:#fafafa; vertical-align:top; display: inline-block">
+<h3 style="background:#ece5ff; border:1px solid #c7b3ff; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Technology">Technology</span></h3>
+<p><span style="padding: 10px; float: right;"><img alt="Intel 82258 die.JPG" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Intel_82258_die.JPG/100px-Intel_82258_die.JPG" width="100" height="88" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Intel_82258_die.JPG/150px-Intel_82258_die.JPG 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Intel_82258_die.JPG/200px-Intel_82258_die.JPG 2x" /></span>
+</p>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/bicmos" title="bicmos">BiCMOS</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/cmos" title="cmos">CMOS</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=diode-transistor_logic&amp;action=edit&amp;redlink=1" class="new" title="diode-transistor logic (page does not exist)">DTL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=emitter-coupled_logic&amp;action=edit&amp;redlink=1" class="new" title="emitter-coupled logic (page does not exist)">ECL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=gunning_transceiver_logic&amp;action=edit&amp;redlink=1" class="new" title="gunning transceiver logic (page does not exist)">GTL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=integrated_injection_logic&amp;action=edit&amp;redlink=1" class="new" title="integrated injection logic (page does not exist)">IIL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=nmos&amp;action=edit&amp;redlink=1" class="new" title="nmos (page does not exist)">NMOS</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=pmos&amp;action=edit&amp;redlink=1" class="new" title="pmos (page does not exist)">PMOS</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=relay&amp;action=edit&amp;redlink=1" class="new" title="relay (page does not exist)">Relay</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=resistor-transistor_logic&amp;action=edit&amp;redlink=1" class="new" title="resistor-transistor logic (page does not exist)">RTL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/schottky_transistor-transistor_logic" title="schottky transistor-transistor logic">STTL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/wiki/transistor-transistor_logic" title="transistor-transistor logic">TTL</a></div>
+<div style="display:inline-block; width: 65px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=vacuum_tube&amp;action=edit&amp;redlink=1" class="new" title="vacuum tube (page does not exist)">Tube</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #c6ffbf; background:#f9f9f9; vertical-align:top; display: inline-block">
+<h3 style="background:#c6ffbf; border:1px solid #81cd78; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Operating_System">Operating System</span></h3>
+<p><span style="padding: 10px; float: right; display: inline-block;"><img alt="colored rows.svg" src="/w/images/thumb/2/2a/colored_rows.svg/50px-colored_rows.svg.png" width="50" height="34" srcset="/w/images/thumb/2/2a/colored_rows.svg/75px-colored_rows.svg.png 1.5x, /w/images/thumb/2/2a/colored_rows.svg/100px-colored_rows.svg.png 2x" /></span>
+</p>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=booting&amp;action=edit&amp;redlink=1" class="new" title="booting (page does not exist)">booting</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=scheduling&amp;action=edit&amp;redlink=1" class="new" title="scheduling (page does not exist)">scheduling</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=shell&amp;action=edit&amp;redlink=1" class="new" title="shell (page does not exist)">shell</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=process&amp;action=edit&amp;redlink=1" class="new" title="process (page does not exist)">process</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=memory_management&amp;action=edit&amp;redlink=1" class="new" title="memory management (page does not exist)">memory</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=interrupt&amp;action=edit&amp;redlink=1" class="new" title="interrupt (page does not exist)">interrupt</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=device_driver&amp;action=edit&amp;redlink=1" class="new" title="device driver (page does not exist)">device driver</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=kernel&amp;action=edit&amp;redlink=1" class="new" title="kernel (page does not exist)">kernel</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=single-user_operating_system&amp;action=edit&amp;redlink=1" class="new" title="single-user operating system (page does not exist)">Single-user</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=multi-user_operating_system&amp;action=edit&amp;redlink=1" class="new" title="multi-user operating system (page does not exist)">Multi-user</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=distributed_operating_system&amp;action=edit&amp;redlink=1" class="new" title="distributed operating system (page does not exist)">Distributed</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=embedded_operating_system&amp;action=edit&amp;redlink=1" class="new" title="embedded operating system (page does not exist)">Embedded</a></div>
+<div style="display:inline-block; width: 100px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=real-time_operating_system&amp;action=edit&amp;redlink=1" class="new" title="real-time operating system (page does not exist)">Real-time</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #80bfff; background:#f9f9f9; vertical-align:top; display: inline-block">
+<h3 style="background:#cce5ff; border:1px solid #3399ff; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Digital">Digital</span></h3>
+<p><span style="padding: 10px; float: right; display: inline-block;"><img alt="logic (main page).svg" src="/w/images/thumb/e/ee/logic_%28main_page%29.svg/100px-logic_%28main_page%29.svg.png" width="100" height="108" srcset="/w/images/thumb/e/ee/logic_%28main_page%29.svg/150px-logic_%28main_page%29.svg.png 1.5x, /w/images/thumb/e/ee/logic_%28main_page%29.svg/200px-logic_%28main_page%29.svg.png 2x" /></span>
+</p>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/wiki/number_systems" class="mw-redirect" title="number systems">number systems</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/wiki/boolean_algebra" title="boolean algebra">boolean algebra</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/wiki/Karnaugh_map" class="mw-redirect" title="Karnaugh map">Karnaugh map</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=switching_theory&amp;action=edit&amp;redlink=1" class="new" title="switching theory (page does not exist)">switching theory</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=sequential_logic&amp;action=edit&amp;redlink=1" class="new" title="sequential logic (page does not exist)">sequential logic</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/wiki/logic_gates" class="mw-redirect" title="logic gates">logic gates</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=combinational_logic&amp;action=edit&amp;redlink=1" class="new" title="combinational logic (page does not exist)">combinational logic</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=memory&amp;action=edit&amp;redlink=1" class="new" title="memory (page does not exist)">memory</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=synchronous_circuit&amp;action=edit&amp;redlink=1" class="new" title="synchronous circuit (page does not exist)">synchronous circuit</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=event-driven_circuit&amp;action=edit&amp;redlink=1" class="new" title="event-driven circuit (page does not exist)">event-driven circuit</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=arithmetic_circuit&amp;action=edit&amp;redlink=1" class="new" title="arithmetic circuit (page does not exist)">arithmetic circuit</a></div>
+<div style="display:inline-block; width: 140px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=hazards&amp;action=edit&amp;redlink=1" class="new" title="hazards (page does not exist)">hazards</a></div>
+</div>
+<div style="margin: 10px; border:1px solid #ddcef2; background:#f9f9f9; vertical-align:top; display: inline-block">
+<h3 style="background:#ddcef2; border:1px solid #ab86df; text-align:left; margin: 5px; margin-bottom: 1px; padding:2px;"><span class="mw-headline" id="Electronics">Electronics</span></h3>
+<p><span style="padding: 10px; float: right; display: inline-block;"><img alt="multimeter.svg" src="/w/images/thumb/f/fd/multimeter.svg/80px-multimeter.svg.png" width="80" height="103" srcset="/w/images/thumb/f/fd/multimeter.svg/120px-multimeter.svg.png 1.5x, /w/images/thumb/f/fd/multimeter.svg/160px-multimeter.svg.png 2x" /></span>
+</p>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=electronic_circuit&amp;action=edit&amp;redlink=1" class="new" title="electronic circuit (page does not exist)">electronic circuit</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=resistive_circuit&amp;action=edit&amp;redlink=1" class="new" title="resistive circuit (page does not exist)">resistive circuit</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=series_circuits&amp;action=edit&amp;redlink=1" class="new" title="series circuits (page does not exist)">series circuits</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=parallel_circuits&amp;action=edit&amp;redlink=1" class="new" title="parallel circuits (page does not exist)">parallel circuits</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=voltage_divider&amp;action=edit&amp;redlink=1" class="new" title="voltage divider (page does not exist)">voltage divider</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=Kirchhoff%27s_Laws&amp;action=edit&amp;redlink=1" class="new" title="Kirchhoff's Laws (page does not exist)">Kirchhoff's Laws</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=network_analysis&amp;action=edit&amp;redlink=1" class="new" title="network analysis (page does not exist)">network analysis</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=equivalent_circuit&amp;action=edit&amp;redlink=1" class="new" title="equivalent circuit (page does not exist)">equivalent circuit</a></div>
+<div style="display:inline-block; width: 150px; margin: 1px 1px 1px 10px">• <a href="/w/index.php?title=superposition_theorem&amp;action=edit&amp;redlink=1" class="new" title="superposition theorem (page does not exist)">superposition theorem</a></div>
+</div>
+</td>
+<td colspan="2" valign="top" style="vertical-align:top;">
+<div style="text-decoration: underline; font-size: 1.3em; padding-bottom: 10px;">Recent &amp; Future Chips</div>
+<div style="height: 300px; overflow-y: scroll;">
+<div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Apple Ax <a href="/wiki/apple/ax/a14" title="apple/ax/a14">A14 Bionic</a> (6/6) </div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/3600xt" title="amd/ryzen 5/3600xt">3600XT</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8&#160;GHz</span><div class="smwttcontent">3,800&#160;MHz <br />3,800,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 7 <a href="/wiki/amd/ryzen_7/3800xt" title="amd/ryzen 7/3800xt">3800XT</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,900&amp;#160;MHz 3,900,000&amp;#160;kHz"><span class="smwtext">3.9&#160;GHz</span><div class="smwttcontent">3,900&#160;MHz <br />3,900,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 9 <a href="/wiki/amd/ryzen_9/3900xt" title="amd/ryzen 9/3900xt">3900XT</a> (12/24)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8&#160;GHz</span><div class="smwttcontent">3,800&#160;MHz <br />3,800,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 3 <a href="/wiki/amd/ryzen_3/pro_4450u" title="amd/ryzen 3/pro 4450u">PRO 4450U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5&#160;GHz</span><div class="smwttcontent">2,500&#160;MHz <br />2,500,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br />
+<div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2102" title="intel/xeon w/w-2102">W-2102</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9&#160;GHz</span><div class="smwttcontent">2,900&#160;MHz <br />2,900,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8550u" title="intel/core i7/i7-8550u">i7-8550U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8&#160;GHz</span><div class="smwttcontent">1,800&#160;MHz <br />1,800,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8350u" title="intel/core i5/i5-8350u">i5-8350U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7&#160;GHz</span><div class="smwttcontent">1,700&#160;MHz <br />1,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;HiSilicon, ARM Holdings Kirin <a href="/wiki/hisilicon/kirin/980" title="hisilicon/kirin/980">980</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6&#160;GHz</span><div class="smwttcontent">2,600&#160;MHz <br />2,600,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,920&amp;#160;MHz 1,920,000&amp;#160;kHz"><span class="smwtext">1.92&#160;GHz</span><div class="smwttcontent">1,920&#160;MHz <br />1,920,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8&#160;GHz</span><div class="smwttcontent">1,800&#160;MHz <br />1,800,000&#160;kHz <br /></div></span> [<a href="/wiki/hisilicon/cortex-a76" class="mw-redirect" title="hisilicon/cortex-a76">Cortex-A76</a>, <a href="/wiki/hisilicon/cortex-a55" class="mw-redirect" title="hisilicon/cortex-a55"> Cortex-A55</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7120t" title="intel/core i3/i3-7120t">i3-7120T</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen Threadripper <a href="/wiki/amd/ryzen_threadripper/3960x" title="amd/ryzen threadripper/3960x">3960X</a> (24/48)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8&#160;GHz</span><div class="smwttcontent">3,800&#160;MHz <br />3,800,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;PEZY PEZY-SCx <a href="/wiki/pezy/pezy-scx/pezy-sc3" title="pezy/pezy-scx/pezy-sc3">PEZY-SC3</a> (8,192/65,536)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,333.333&amp;#160;MHz 1,333,333&amp;#160;kHz"><span class="smwtext">1.333&#160;GHz</span><div class="smwttcontent">1,333.333&#160;MHz <br />1,333,333&#160;kHz <br /></div></span> </div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 7 <a href="/wiki/amd/ryzen_7/pro_1700x" title="amd/ryzen 7/pro 1700x">PRO 1700X</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,400&amp;#160;MHz 3,400,000&amp;#160;kHz"><span class="smwtext">3.4&#160;GHz</span><div class="smwttcontent">3,400&#160;MHz <br />3,400,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-7920x" title="intel/core i9/i9-7920x">i9-7920X</a> (12/24)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9&#160;GHz</span><div class="smwttcontent">2,900&#160;MHz <br />2,900,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8320" title="intel/core i3/i3-8320">i3-8320</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8&#160;GHz</span><div class="smwttcontent">3,800&#160;MHz <br />3,800,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 7 <a href="/wiki/amd/ryzen_7/2700" title="amd/ryzen 7/2700">2700</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen%2B" class="mw-redirect" title="amd/zen+">Zen+</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8320t" title="intel/core i3/i3-8320t">i3-8320T</a> (4/4) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2170b" title="intel/xeon w/w-2170b">W-2170B</a> (14/28)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5&#160;GHz</span><div class="smwttcontent">2,500&#160;MHz <br />2,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core M3 <a href="/wiki/intel/core_m/m3-8114y" title="intel/core m/m3-8114y">M3-8114Y</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,500&amp;#160;MHz 1,500,000&amp;#160;kHz"><span class="smwtext">1.5&#160;GHz</span><div class="smwttcontent">1,500&#160;MHz <br />1,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/cannon_lake" class="mw-redirect" title="intel/cannon lake">Cannon Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen Threadripper <a href="/wiki/amd/ryzen_threadripper/3990x" title="amd/ryzen threadripper/3990x">3990X</a> (64/128)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9&#160;GHz</span><div class="smwttcontent">2,900&#160;MHz <br />2,900,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-7510u" title="intel/core i7/i7-7510u">i7-7510U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,700&amp;#160;MHz 2,700,000&amp;#160;kHz"><span class="smwtext">2.7&#160;GHz</span><div class="smwttcontent">2,700&#160;MHz <br />2,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon Platinum <a href="/wiki/intel/xeon_platinum/8170f" title="intel/xeon platinum/8170f">8170F</a> (26/52)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1&#160;GHz</span><div class="smwttcontent">2,100&#160;MHz <br />2,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;HiSilicon, ARM Holdings Kirin <a href="/wiki/Kirin_990_4G" title="Kirin 990 4G">990 4G</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,860&amp;#160;MHz 2,860,000&amp;#160;kHz"><span class="smwtext">2.86&#160;GHz</span><div class="smwttcontent">2,860&#160;MHz <br />2,860,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,860&amp;#160;MHz 1,860,000&amp;#160;kHz"><span class="smwtext">1.86&#160;GHz</span><div class="smwttcontent">1,860&#160;MHz <br />1,860,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,088&amp;#160;MHz 2,088,000&amp;#160;kHz"><span class="smwtext">2.088&#160;GHz</span><div class="smwttcontent">2,088&#160;MHz <br />2,088,000&#160;kHz <br /></div></span> [<a href="/wiki/hisilicon/cortex-a76" class="mw-redirect" title="hisilicon/cortex-a76">Cortex-A76</a>, <a href="/wiki/hisilicon/cortex-a55" class="mw-redirect" title="hisilicon/cortex-a55"> Cortex-A55</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8420" title="intel/core i5/i5-8420">i5-8420</a> (6/6) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 9 <a href="/wiki/amd/ryzen_9/3950x" title="amd/ryzen 9/3950x">3950X</a> (16/32)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8550" title="intel/core i5/i5-8550">i5-8550</a> (6/6) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8250u" title="intel/core i5/i5-8250u">i5-8250U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;kHz"><span class="smwtext">1.6&#160;GHz</span><div class="smwttcontent">1,600&#160;MHz <br />1,600,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7320t" title="intel/core i3/i3-7320t">i3-7320T</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,600&amp;#160;MHz 3,600,000&amp;#160;kHz"><span class="smwtext">3.6&#160;GHz</span><div class="smwttcontent">3,600&#160;MHz <br />3,600,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2104" title="intel/xeon w/w-2104">W-2104</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen Threadripper <a href="/wiki/amd/ryzen_threadripper/3970x" title="amd/ryzen threadripper/3970x">3970X</a> (32/64)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7&#160;GHz</span><div class="smwttcontent">3,700&#160;MHz <br />3,700,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-9000t" title="intel/core i3/i3-9000t">i3-9000T</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2150b" title="intel/xeon w/w-2150b">W-2150B</a> (10/20)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3&#160;GHz</span><div class="smwttcontent">3,000&#160;MHz <br />3,000,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8650k" title="intel/core i5/i5-8650k">i5-8650K</a> (6/6) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7310u" title="intel/core i3/i3-7310u">i3-7310U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,700&amp;#160;MHz 2,700,000&amp;#160;kHz"><span class="smwtext">2.7&#160;GHz</span><div class="smwttcontent">2,700&#160;MHz <br />2,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8020t" title="intel/core i3/i3-8020t">i3-8020T</a> (4/4) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-7210u" title="intel/core i5/i5-7210u">i5-7210U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,500&amp;#160;MHz 2,500,000&amp;#160;kHz"><span class="smwtext">2.5&#160;GHz</span><div class="smwttcontent">2,500&#160;MHz <br />2,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 3 <a href="/wiki/amd/ryzen_3/pro_1200" title="amd/ryzen 3/pro 1200">PRO 1200</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1&#160;GHz</span><div class="smwttcontent">3,100&#160;MHz <br />3,100,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/2600" title="amd/ryzen 5/2600">2600</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,400&amp;#160;MHz 3,400,000&amp;#160;kHz"><span class="smwtext">3.4&#160;GHz</span><div class="smwttcontent">3,400&#160;MHz <br />3,400,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen%2B" class="mw-redirect" title="amd/zen+">Zen+</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Xiaomi, ARM Holdings Surge <a href="/wiki/xiaomi/surge/s2" title="xiaomi/surge/s2">S2</a> (8/8) [<a href="/wiki/xiaomi/cortex-a53" class="mw-redirect" title="xiaomi/cortex-a53">Cortex-A53</a>, <a href="/wiki/xiaomi/cortex-a73" class="mw-redirect" title="xiaomi/cortex-a73"> Cortex-A73</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9940x" title="intel/core i9/i9-9940x">i9-9940X</a> (14/28)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3&#160;GHz</span><div class="smwttcontent">3,300&#160;MHz <br />3,300,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8670" title="intel/core i7/i7-8670">i7-8670</a> (6/12) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-9000" title="intel/core i3/i3-9000">i3-9000</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7&#160;GHz</span><div class="smwttcontent">3,700&#160;MHz <br />3,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8130u" title="intel/core i3/i3-8130u">i3-8130U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2&#160;GHz</span><div class="smwttcontent">2,200&#160;MHz <br />2,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7120" title="intel/core i3/i3-7120">i3-7120</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4&#160;GHz</span><div class="smwttcontent">4,000&#160;MHz <br />4,000,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/3500x" title="amd/ryzen 5/3500x">3500X</a> (6/6)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,600&amp;#160;MHz 3,600,000&amp;#160;kHz"><span class="smwtext">3.6&#160;GHz</span><div class="smwttcontent">3,600&#160;MHz <br />3,600,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2140b" title="intel/xeon w/w-2140b">W-2140B</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8420t" title="intel/core i5/i5-8420t">i5-8420T</a> (6/6) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8706g" title="intel/core i7/i7-8706g">i7-8706G</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1&#160;GHz</span><div class="smwttcontent">3,100&#160;MHz <br />3,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 3 <a href="/wiki/amd/ryzen_3/pro_1300" title="amd/ryzen 3/pro 1300">PRO 1300</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8120" title="intel/core i3/i3-8120">i3-8120</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7&#160;GHz</span><div class="smwttcontent">3,700&#160;MHz <br />3,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9900x" title="intel/core i9/i9-9900x">i9-9900X</a> (10/20)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon Gold <a href="/wiki/intel/xeon_gold/6161" title="intel/xeon gold/6161">6161</a> (22/44)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2&#160;GHz</span><div class="smwttcontent">2,200&#160;MHz <br />2,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8120t" title="intel/core i3/i3-8120t">i3-8120T</a> (4/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8709g" title="intel/core i7/i7-8709g">i7-8709G</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1&#160;GHz</span><div class="smwttcontent">3,100&#160;MHz <br />3,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7007u" title="intel/core i3/i3-7007u">i3-7007U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1&#160;GHz</span><div class="smwttcontent">2,100&#160;MHz <br />2,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8365u" title="intel/core i5/i5-8365u">i5-8365U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;kHz"><span class="smwtext">1.6&#160;GHz</span><div class="smwttcontent">1,600&#160;MHz <br />1,600,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/whiskey_lake" class="mw-redirect" title="intel/whiskey lake">Whiskey Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 7 <a href="/wiki/amd/ryzen_7/pro_1700" title="amd/ryzen 7/pro 1700">PRO 1700</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3&#160;GHz</span><div class="smwttcontent">3,000&#160;MHz <br />3,000,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-9800x" title="intel/core i7/i7-9800x">i7-9800X</a> (8/16)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,800&amp;#160;MHz 3,800,000&amp;#160;kHz"><span class="smwtext">3.8&#160;GHz</span><div class="smwttcontent">3,800&#160;MHz <br />3,800,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Xiaomi, ARM Holdings Surge <a href="/wiki/xiaomi/surge/s1" title="xiaomi/surge/s1">S1</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,400&amp;#160;MHz 1,400,000&amp;#160;kHz"><span class="smwtext">1.4&#160;GHz</span><div class="smwttcontent">1,400&#160;MHz <br />1,400,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2&#160;GHz</span><div class="smwttcontent">2,200&#160;MHz <br />2,200,000&#160;kHz <br /></div></span> [<a href="/wiki/xiaomi/cortex-a53" class="mw-redirect" title="xiaomi/cortex-a53">Cortex-A53</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8305g" title="intel/core i5/i5-8305g">i5-8305G</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,800&amp;#160;MHz 2,800,000&amp;#160;kHz"><span class="smwtext">2.8&#160;GHz</span><div class="smwttcontent">2,800&#160;MHz <br />2,800,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2135" title="intel/xeon w/w-2135">W-2135</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,700&amp;#160;MHz 3,700,000&amp;#160;kHz"><span class="smwtext">3.7&#160;GHz</span><div class="smwttcontent">3,700&#160;MHz <br />3,700,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8265u" title="intel/core i5/i5-8265u">i5-8265U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;kHz"><span class="smwtext">1.6&#160;GHz</span><div class="smwttcontent">1,600&#160;MHz <br />1,600,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/whiskey_lake" class="mw-redirect" title="intel/whiskey lake">Whiskey Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/2600x" title="amd/ryzen 5/2600x">2600X</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,600&amp;#160;MHz 3,600,000&amp;#160;kHz"><span class="smwtext">3.6&#160;GHz</span><div class="smwttcontent">3,600&#160;MHz <br />3,600,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen%2B" class="mw-redirect" title="amd/zen+">Zen+</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8650u" title="intel/core i7/i7-8650u">i7-8650U</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;kHz"><span class="smwtext">1.9&#160;GHz</span><div class="smwttcontent">1,900&#160;MHz <br />1,900,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Bitmain Sophon <a href="/wiki/bitmain/sophon/bm1880" title="bitmain/sophon/bm1880">BM1880</a>  [<a href="/wiki/bitmain/cortex-a53" class="mw-redirect" title="bitmain/cortex-a53">Cortex-A53</a>, <a href="/w/index.php?title=bitmain/risc-v&amp;action=edit&amp;redlink=1" class="new" title="bitmain/risc-v (page does not exist)"> RISC-V</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;MediaTek Dimensity <a href="/wiki/mediatek/dimensity/1000l" title="mediatek/dimensity/1000l">1000L</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2&#160;GHz</span><div class="smwttcontent">2,200&#160;MHz <br />2,200,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2&#160;GHz</span><div class="smwttcontent">2,000&#160;MHz <br />2,000,000&#160;kHz <br /></div></span> [<a href="/w/index.php?title=mediatek/cortex-a77&amp;action=edit&amp;redlink=1" class="new" title="mediatek/cortex-a77 (page does not exist)">Cortex-A77</a>, <a href="/wiki/mediatek/cortex-a55" class="mw-redirect" title="mediatek/cortex-a55"> Cortex-A55</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Samsung, ARM Holdings Exynos <a href="/wiki/samsung/exynos/9610" title="samsung/exynos/9610">9610</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3&#160;GHz</span><div class="smwttcontent">2,300&#160;MHz <br />2,300,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7&#160;GHz</span><div class="smwttcontent">1,700&#160;MHz <br />1,700,000&#160;kHz <br /></div></span> [<a href="/wiki/samsung/cortex-a73" class="mw-redirect" title="samsung/cortex-a73">Cortex-A73</a>, <a href="/wiki/samsung/cortex-a53" class="mw-redirect" title="samsung/cortex-a53"> Cortex-A53</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/1400" title="amd/ryzen 5/1400">1400</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon W <a href="/wiki/intel/xeon_w/w-2191b" title="intel/xeon w/w-2191b">W-2191B</a> (18/36)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3&#160;GHz</span><div class="smwttcontent">2,300&#160;MHz <br />2,300,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9960x" title="intel/core i9/i9-9960x">i9-9960X</a> (16/32)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1&#160;GHz</span><div class="smwttcontent">3,100&#160;MHz <br />3,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Bitmain Sophon <a href="/wiki/bitmain/sophon/bm1684" title="bitmain/sophon/bm1684">BM1684</a>  </div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9980xe" title="intel/core i9/i9-9980xe">i9-9980XE</a> (18/36)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3&#160;GHz</span><div class="smwttcontent">3,000&#160;MHz <br />3,000,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Qualcomm, ARM Holdings Snapdragon 800 <a href="/wiki/qualcomm/snapdragon_800/8cx" title="qualcomm/snapdragon 800/8cx">8cx</a> (8/8) [<a href="/wiki/qualcomm/cortex-a76" class="mw-redirect" title="qualcomm/cortex-a76">Cortex-A76</a>, <a href="/wiki/qualcomm/cortex-a55" class="mw-redirect" title="qualcomm/cortex-a55"> Cortex-A55</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/1500x" title="amd/ryzen 5/1500x">1500X</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9820x" title="intel/core i9/i9-9820x">i9-9820X</a> (10/20)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,300&amp;#160;MHz 3,300,000&amp;#160;kHz"><span class="smwtext">3.3&#160;GHz</span><div class="smwttcontent">3,300&#160;MHz <br />3,300,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen Threadripper <a href="/wiki/amd/ryzen_threadripper/3980x" title="amd/ryzen threadripper/3980x">3980X</a> (48/96)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen_2" class="mw-redirect" title="amd/zen 2">Zen 2</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;ARM Holdings  <a href="/wiki/baikal/baikal-m" title="baikal/baikal-m">Baikal-M</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2&#160;GHz</span><div class="smwttcontent">2,000&#160;MHz <br />2,000,000&#160;kHz <br /></div></span> [<a href="/wiki/arm_holdings/cortex-a57" class="mw-redirect" title="arm holdings/cortex-a57">Cortex-A57</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Socionext, ARM Holdings  <a href="/wiki/socionext/sc2a11" title="socionext/sc2a11">SC2A11</a> (24/24)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,000&amp;#160;MHz 1,000,000&amp;#160;kHz"><span class="smwtext">1&#160;GHz</span><div class="smwttcontent">1,000&#160;MHz <br />1,000,000&#160;kHz <br /></div></span> [<a href="/wiki/socionext/cortex-a53" class="mw-redirect" title="socionext/cortex-a53">Cortex-A53</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;PEZY PEZY-SCx <a href="/wiki/pezy/pezy-scx/pezy-sc4" title="pezy/pezy-scx/pezy-sc4">PEZY-SC4</a> (16,384/131,072)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,600&amp;#160;MHz 1,600,000&amp;#160;kHz"><span class="smwtext">1.6&#160;GHz</span><div class="smwttcontent">1,600&#160;MHz <br />1,600,000&#160;kHz <br /></div></span> </div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8670t" title="intel/core i7/i7-8670t">i7-8670T</a> (6/12) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Celeron <a href="/wiki/intel/celeron/3965y" title="intel/celeron/3965y">3965Y</a> (2/2)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,300&amp;#160;MHz 1,300,000&amp;#160;kHz"><span class="smwtext">1.3&#160;GHz</span><div class="smwttcontent">1,300&#160;MHz <br />1,300,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9990xe" title="intel/core i9/i9-9990xe">i9-9990XE</a> (14/28)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,000&amp;#160;MHz 4,000,000&amp;#160;kHz"><span class="smwtext">4&#160;GHz</span><div class="smwttcontent">4,000&#160;MHz <br />4,000,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/1600" title="amd/ryzen 5/1600">1600</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7110u" title="intel/core i3/i3-7110u">i3-7110U</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6&#160;GHz</span><div class="smwttcontent">2,600&#160;MHz <br />2,600,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i9 <a href="/wiki/intel/core_i9/i9-9920x" title="intel/core i9/i9-9920x">i9-9920X</a> (12/24)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,500&amp;#160;MHz 3,500,000&amp;#160;kHz"><span class="smwtext">3.5&#160;GHz</span><div class="smwttcontent">3,500&#160;MHz <br />3,500,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;AMD Ryzen 5 <a href="/wiki/amd/ryzen_5/pro_1600" title="amd/ryzen 5/pro 1600">PRO 1600</a> (6/12)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,200&amp;#160;MHz 3,200,000&amp;#160;kHz"><span class="smwtext">3.2&#160;GHz</span><div class="smwttcontent">3,200&#160;MHz <br />3,200,000&#160;kHz <br /></div></span> [<a href="/wiki/amd/zen" class="mw-redirect" title="amd/zen">Zen</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Qualcomm, ARM Holdings Snapdragon 600 <a href="/wiki/qualcomm/snapdragon_600/665" title="qualcomm/snapdragon 600/665">SM6125</a> (8/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2&#160;GHz</span><div class="smwttcontent">2,000&#160;MHz <br />2,000,000&#160;kHz <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8&#160;GHz</span><div class="smwttcontent">1,800&#160;MHz <br />1,800,000&#160;kHz <br /></div></span> [<a href="/w/index.php?title=qualcomm/cortex-a73&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/cortex-a73 (page does not exist)">Cortex-A73</a>, <a href="/wiki/qualcomm/cortex-a53" class="mw-redirect" title="qualcomm/cortex-a53"> Cortex-A53</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-8020" title="intel/core i3/i3-8020">i3-8020</a> (4/4) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Xeon Platinum <a href="/wiki/intel/xeon_platinum/8173m" title="intel/xeon platinum/8173m">8173M</a> (28/56)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,100&amp;#160;MHz 2,100,000&amp;#160;kHz"><span class="smwtext">2.1&#160;GHz</span><div class="smwttcontent">2,100&#160;MHz <br />2,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/skylake_(server)" class="mw-redirect" title="intel/skylake (server)">Skylake (server)</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i3 <a href="/wiki/intel/core_i3/i3-7340" title="intel/core i3/i3-7340">i3-7340</a> (2/4)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,200&amp;#160;MHz 4,200,000&amp;#160;kHz"><span class="smwtext">4.2&#160;GHz</span><div class="smwttcontent">4,200&#160;MHz <br />4,200,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Bitmain Sophon <a href="/wiki/bitmain/sophon/bm1686" title="bitmain/sophon/bm1686">BM1686</a>  </div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i5 <a href="/wiki/intel/core_i5/i5-8650" title="intel/core i5/i5-8650">i5-8650</a> (6/6) [<a href="/wiki/intel/coffee_lake" class="mw-redirect" title="intel/coffee lake">Coffee Lake</a>]</div><br /><div style="display:inline-block; padding-right: 20px;">■&#160;&#160;Intel Core i7 <a href="/wiki/intel/core_i7/i7-8705g" title="intel/core i7/i7-8705g">i7-8705G</a> (4/8)&#160;@ <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,100&amp;#160;MHz 3,100,000&amp;#160;kHz"><span class="smwtext">3.1&#160;GHz</span><div class="smwttcontent">3,100&#160;MHz <br />3,100,000&#160;kHz <br /></div></span> [<a href="/wiki/intel/kaby_lake" class="mw-redirect" title="intel/kaby lake">Kaby Lake</a>]</div><br />
+</div>
+<div style="text-decoration: underline; font-size: 1.3em;">Popular Processor Families (Current)</div>
+<div style="height: 400px; overflow-y: scroll;">
+<table style="font-type: Courier;">
+<tr>
+<td rowspan="2"> <a href="/wiki/x86" title="x86"><img alt="mainpage x86 chip.svg" src="/w/images/thumb/7/76/mainpage_x86_chip.svg/75px-mainpage_x86_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/7/76/mainpage_x86_chip.svg/113px-mainpage_x86_chip.svg.png 1.5x, /w/images/thumb/7/76/mainpage_x86_chip.svg/150px-mainpage_x86_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/amd" title="amd"><b>AMD</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/a10" title="amd/a10">A10</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=amd/a4&amp;action=edit&amp;redlink=1" class="new" title="amd/a4 (page does not exist)">A4</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=amd/a6&amp;action=edit&amp;redlink=1" class="new" title="amd/a6 (page does not exist)">A6</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/a8" title="amd/a8">A8</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/athlon_x4" title="amd/athlon x4">Athlon X4</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/epyc" title="amd/epyc">EPYC</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=amd/fx&amp;action=edit&amp;redlink=1" class="new" title="amd/fx (page does not exist)">FX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/opteron" title="amd/opteron">Opteron</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/ryzen_3" title="amd/ryzen 3">Ryzen 3</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/ryzen_5" title="amd/ryzen 5">Ryzen 5</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/ryzen_7" title="amd/ryzen 7">Ryzen 7</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/ryzen_threadripper" title="amd/ryzen threadripper">Threadripper</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/amd/sempron" title="amd/sempron">Sempron</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/intel" title="intel"><b>Intel</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/atom" title="intel/atom">Atom</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/celeron" title="intel/celeron">Celeron</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_i3" title="intel/core i3">Core i3</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_i5" title="intel/core i5">Core i5</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_i7" title="intel/core i7">Core i7</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_i7ee" title="intel/core i7ee">Core i7EE</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_i9" title="intel/core i9">Core i9</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/core_m" title="intel/core m">Core M</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/pentium_(2009)" title="intel/pentium (2009)">Pentium</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_d" title="intel/xeon d">Xeon D</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=intel/xeon_e3&amp;action=edit&amp;redlink=1" class="new" title="intel/xeon e3 (page does not exist)">Xeon E3</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_e5" title="intel/xeon e5">Xeon E5</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_e7" title="intel/xeon e7">Xeon E7</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_w" title="intel/xeon w">Xeon W</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_bronze" title="intel/xeon bronze">Xeon Bronze</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_silver" title="intel/xeon silver">Xeon Silver</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_gold" title="intel/xeon gold">Xeon Gold</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/intel/xeon_platinum" title="intel/xeon platinum">Xeon Platinum</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/x86/list_of_processor_families" title="x86/list of processor families"><b>[more...]</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/via_technologies" title="via technologies"><b>VIA</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=via_technologies/quadcore&amp;action=edit&amp;redlink=1" class="new" title="via technologies/quadcore (page does not exist)">QuadCore</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/zhaoxin" title="zhaoxin"><b>Zhaoxin</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/zhaoxin/kaixian" title="zhaoxin/kaixian">KaiXian</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/zhaoxin/kaisheng" title="zhaoxin/kaisheng">KaisHeng</a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/arm" title="arm"><img alt="mainpage arm chip.svg" src="/w/images/thumb/c/ca/mainpage_arm_chip.svg/75px-mainpage_arm_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/c/ca/mainpage_arm_chip.svg/113px-mainpage_arm_chip.svg.png 1.5x, /w/images/thumb/c/ca/mainpage_arm_chip.svg/150px-mainpage_arm_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/apm" title="apm"><b>APM</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/apm/x-gene" title="apm/x-gene">X-Gene</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/heliX&amp;action=edit&amp;redlink=1" class="new" title="apm/heliX (page does not exist)">HeliX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/apple" title="apple"><b>Apple</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/apple/ax" title="apple/ax">Ax</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=broadcom&amp;action=edit&amp;redlink=1" class="new" title="broadcom (page does not exist)"><b>Broadcom</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=broadcom/stratagx&amp;action=edit&amp;redlink=1" class="new" title="broadcom/stratagx (page does not exist)">StrataGX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/cavium" title="cavium"><b>Cavium</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/cavium/thunderx" title="cavium/thunderx">ThunderX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/cavium/thunderx2" title="cavium/thunderx2">ThunderX2</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=cypress&amp;action=edit&amp;redlink=1" class="new" title="cypress (page does not exist)"><b>Cypress</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=cypress/psoc&amp;action=edit&amp;redlink=1" class="new" title="cypress/psoc (page does not exist)">PSoC</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=freescale&amp;action=edit&amp;redlink=1" class="new" title="freescale (page does not exist)"><b>Freescale</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=freescale/i.mx&amp;action=edit&amp;redlink=1" class="new" title="freescale/i.mx (page does not exist)">i.MX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/hisilicon" title="hisilicon"><b>HiSilicon</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/hisilicon/kirin" title="hisilicon/kirin">Kirin</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/marvell" title="marvell"><b>Marvell</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_7k&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada 7k (page does not exist)">ARMADA 7K</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_8k&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada 8k (page does not exist)">ARMADA 8K</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_3700&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada 3700 (page does not exist)">ARMADA 3700</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_38x&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada 38x (page does not exist)">ARMADA 38X</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_xp&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada xp (page does not exist)">ARMADA XP</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=marvell/armada_xp&amp;action=edit&amp;redlink=1" class="new" title="marvell/armada xp (page does not exist)">IAP140</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/mediatek" title="mediatek"><b>MediaTek</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/mediatek/helio" title="mediatek/helio">Helio</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/nxp" title="nxp"><b>NXP</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/nxp/qoriq" title="nxp/qoriq">QorIQ</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=nxp/lpc&amp;action=edit&amp;redlink=1" class="new" title="nxp/lpc (page does not exist)">LPC</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=nxp/kinetis&amp;action=edit&amp;redlink=1" class="new" title="nxp/kinetis (page does not exist)">Kinetis</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/nvidia" title="nvidia"><b>Nvidia</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=nvidia/tegra&amp;action=edit&amp;redlink=1" class="new" title="nvidia/tegra (page does not exist)">Tegra</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/qualcomm" title="qualcomm"><b>Qualcomm</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/qualcomm/centriq" title="qualcomm/centriq">Centriq</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=qualcomm/snapdragon_200&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/snapdragon 200 (page does not exist)">Snapdragon 200</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=qualcomm/snapdragon_400&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/snapdragon 400 (page does not exist)">Snapdragon 400</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=qualcomm/snapdragon_600&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/snapdragon 600 (page does not exist)">Snapdragon 600</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=qualcomm/snapdragon_800&amp;action=edit&amp;redlink=1" class="new" title="qualcomm/snapdragon 800 (page does not exist)">Snapdragon 800</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/renesas" title="renesas"><b>Renesas</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=renesas/rz&amp;action=edit&amp;redlink=1" class="new" title="renesas/rz (page does not exist)">RZ</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/renesas/r-car" title="renesas/r-car">R-Car</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/samsung" title="samsung"><b>Samsung</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/samsung/exynos" title="samsung/exynos">Exynos</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/stmicroelectronics" title="stmicroelectronics"><b>ST</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=stmicroelectronics/stm32&amp;action=edit&amp;redlink=1" class="new" title="stmicroelectronics/stm32 (page does not exist)">STM32</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=spreadtrum&amp;action=edit&amp;redlink=1" class="new" title="spreadtrum (page does not exist)"><b>Spreadtrum</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=spreadtrum/SC7xxx_xp&amp;action=edit&amp;redlink=1" class="new" title="spreadtrum/SC7xxx xp (page does not exist)">SC7xxx</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=spreadtrum/SC8xxx_xp&amp;action=edit&amp;redlink=1" class="new" title="spreadtrum/SC8xxx xp (page does not exist)">SC8xxx</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=spreadtrum/SC9xxx_xp&amp;action=edit&amp;redlink=1" class="new" title="spreadtrum/SC9xxx xp (page does not exist)">SC9xxx</a></span></div><div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/ti" title="ti"><b>TI</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ti/omap&amp;action=edit&amp;redlink=1" class="new" title="ti/omap (page does not exist)">OMAP</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ti/sitara&amp;action=edit&amp;redlink=1" class="new" title="ti/sitara (page does not exist)">Sitara</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ti/hercules&amp;action=edit&amp;redlink=1" class="new" title="ti/hercules (page does not exist)">Hercules</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ti/tiva_c&amp;action=edit&amp;redlink=1" class="new" title="ti/tiva c (page does not exist)">Tiva C</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ti/c2000&amp;action=edit&amp;redlink=1" class="new" title="ti/c2000 (page does not exist)">C2000</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/arm/list_of_processor_families" title="arm/list of processor families"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/power" title="power"><img alt="mainpage power chip.svg" src="/w/images/thumb/a/a5/mainpage_power_chip.svg/75px-mainpage_power_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/a/a5/mainpage_power_chip.svg/113px-mainpage_power_chip.svg.png 1.5x, /w/images/thumb/a/a5/mainpage_power_chip.svg/150px-mainpage_power_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/apm" title="apm"><b>APM</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/catalina&amp;action=edit&amp;redlink=1" class="new" title="apm/catalina (page does not exist)">Catalina</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/keelback&amp;action=edit&amp;redlink=1" class="new" title="apm/keelback (page does not exist)">Keelback</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/mamba&amp;action=edit&amp;redlink=1" class="new" title="apm/mamba (page does not exist)">Mamba</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/ibm" title="ibm"><b>IBM</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=ibm/power&amp;action=edit&amp;redlink=1" class="new" title="ibm/power (page does not exist)">POWER</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/stmicroelectronics" title="stmicroelectronics"><b>ST</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=stmicroelectronics/spc5&amp;action=edit&amp;redlink=1" class="new" title="stmicroelectronics/spc5 (page does not exist)">SPC5</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/nxp" title="nxp"><b>NXP</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/nxp/qoriq" title="nxp/qoriq">QorIQ</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=nxp/mpc5xxx&amp;action=edit&amp;redlink=1" class="new" title="nxp/mpc5xxx (page does not exist)">MPC5xxx</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=power/list_of_processor_families&amp;action=edit&amp;redlink=1" class="new" title="power/list of processor families (page does not exist)"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td>
+<td>
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/mips" title="mips"><img alt="mainpage mips chip.svg" src="/w/images/thumb/0/07/mainpage_mips_chip.svg/75px-mainpage_mips_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/0/07/mainpage_mips_chip.svg/113px-mainpage_mips_chip.svg.png 1.5x, /w/images/thumb/0/07/mainpage_mips_chip.svg/150px-mainpage_mips_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/cavium" title="cavium"><b>Cavium</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/octeon_ii&amp;action=edit&amp;redlink=1" class="new" title="apm/octeon ii (page does not exist)">OCTEON II</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/octeon_iii&amp;action=edit&amp;redlink=1" class="new" title="apm/octeon iii (page does not exist)">OCTEON III</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=apm/octeon_tx&amp;action=edit&amp;redlink=1" class="new" title="apm/octeon tx (page does not exist)">OCTEON TX</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/loongson" title="loongson"><b>Loongson</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/loongson/godson_1" title="loongson/godson 1">Godson 1</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/loongson/godson_2" title="loongson/godson 2">Godson 2</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/loongson/godson_3" title="loongson/godson 3">Godson 3</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=niisi&amp;action=edit&amp;redlink=1" class="new" title="niisi (page does not exist)"><b>NIISI</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=niisi/komdiv&amp;action=edit&amp;redlink=1" class="new" title="niisi/komdiv (page does not exist)">KOMDIV-64</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=mips/list_of_processor_families&amp;action=edit&amp;redlink=1" class="new" title="mips/list of processor families (page does not exist)"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/sparc" title="sparc"><img alt="mainpage sparc chip.svg" src="/w/images/thumb/9/96/mainpage_sparc_chip.svg/75px-mainpage_sparc_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/9/96/mainpage_sparc_chip.svg/113px-mainpage_sparc_chip.svg.png 1.5x, /w/images/thumb/9/96/mainpage_sparc_chip.svg/150px-mainpage_sparc_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/fujitsu" title="fujitsu"><b>Fujitsu</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/fujitsu/sparc64" title="fujitsu/sparc64">SPARC64</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/oracle" title="oracle"><b>Oracle</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=oracle/sparc&amp;action=edit&amp;redlink=1" class="new" title="oracle/sparc (page does not exist)">SPARC</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/sparc/list_of_processor_families" title="sparc/list of processor families"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/avr" title="avr"><img alt="mainpage avr chip.svg" src="/w/images/thumb/2/2e/mainpage_avr_chip.svg/75px-mainpage_avr_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/2/2e/mainpage_avr_chip.svg/113px-mainpage_avr_chip.svg.png 1.5x, /w/images/thumb/2/2e/mainpage_avr_chip.svg/150px-mainpage_avr_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/atmel" title="atmel"><b>Atmel</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=atmel/ap7&amp;action=edit&amp;redlink=1" class="new" title="atmel/ap7 (page does not exist)">AP7</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=atmel/uc3&amp;action=edit&amp;redlink=1" class="new" title="atmel/uc3 (page does not exist)">UC3</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=atmel/xmega&amp;action=edit&amp;redlink=1" class="new" title="atmel/xmega (page does not exist)">XMEGA</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=atmel/megaavr&amp;action=edit&amp;redlink=1" class="new" title="atmel/megaavr (page does not exist)">megaAVR</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=atmel/tinyavr&amp;action=edit&amp;redlink=1" class="new" title="atmel/tinyavr (page does not exist)">tinyAVR</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=avr/list_of_processor_families&amp;action=edit&amp;redlink=1" class="new" title="avr/list of processor families (page does not exist)"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/pic" title="pic"><img alt="mainpage pic chip.svg" src="/w/images/thumb/3/3b/mainpage_pic_chip.svg/75px-mainpage_pic_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/3/3b/mainpage_pic_chip.svg/113px-mainpage_pic_chip.svg.png 1.5x, /w/images/thumb/3/3b/mainpage_pic_chip.svg/150px-mainpage_pic_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=microchip_technology&amp;action=edit&amp;redlink=1" class="new" title="microchip technology (page does not exist)"><b>Microchip</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=microchip_technology/pic16&amp;action=edit&amp;redlink=1" class="new" title="microchip technology/pic16 (page does not exist)">PIC16</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=microchip_technology/pic18&amp;action=edit&amp;redlink=1" class="new" title="microchip technology/pic18 (page does not exist)">PIC18</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=microchip_technology/pic24&amp;action=edit&amp;redlink=1" class="new" title="microchip technology/pic24 (page does not exist)">PIC24</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=microchip_technology/pic32&amp;action=edit&amp;redlink=1" class="new" title="microchip technology/pic32 (page does not exist)">PIC32</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=microchip_technology/dspic&amp;action=edit&amp;redlink=1" class="new" title="microchip technology/dspic (page does not exist)">dsPIC</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=pic/list_of_processor_families&amp;action=edit&amp;redlink=1" class="new" title="pic/list of processor families (page does not exist)"><b>[more...]</b></a></span></div>
+</td></tr>
+<tr>
+<td colspan="2"> <hr />
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/superh" title="superh"><img alt="mainpage superh chip.svg" src="/w/images/thumb/c/c8/mainpage_superh_chip.svg/75px-mainpage_superh_chip.svg.png" width="75" height="67" srcset="/w/images/thumb/c/c8/mainpage_superh_chip.svg/113px-mainpage_superh_chip.svg.png 1.5x, /w/images/thumb/c/c8/mainpage_superh_chip.svg/150px-mainpage_superh_chip.svg.png 2x" /></a>
+</td></tr>
+<tr>
+<td>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/stmicroelectronics" title="stmicroelectronics"><b>ST</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=stmicroelectronics/st40&amp;action=edit&amp;redlink=1" class="new" title="stmicroelectronics/st40 (page does not exist)">ST40</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/renesas" title="renesas"><b>Renesas</b></a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/wiki/renesas/r-car" title="renesas/r-car">R-Car</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=renesas/sh7xxx&amp;action=edit&amp;redlink=1" class="new" title="renesas/sh7xxx (page does not exist)">SH7xxx</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=renesas/sh-tiny&amp;action=edit&amp;redlink=1" class="new" title="renesas/sh-tiny (page does not exist)">SH/Tiny</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.8em;">■ <a href="/w/index.php?title=renesas/sh-ether&amp;action=edit&amp;redlink=1" class="new" title="renesas/sh-ether (page does not exist)">SH-Ether</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=superh/list_of_processor_families&amp;action=edit&amp;redlink=1" class="new" title="superh/list of processor families (page does not exist)"><b>[more...]</b></a></span></div>
+</td></tr></table>
+</div>
+<div style="text-decoration: underline; font-size: 1.3em;">Languages<span style="float:right;"><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:main/langs&amp;action=edit"><span style="font-size: 0.75em;">Edit</span></a></span></div>
+<p><span style="padding: 10px; float: left; display: inline-block;"><img alt="flow chart icon.svg" src="/w/images/thumb/e/e5/flow_chart_icon.svg/100px-flow_chart_icon.svg.png" width="100" height="105" srcset="/w/images/thumb/e/e5/flow_chart_icon.svg/150px-flow_chart_icon.svg.png 1.5x, /w/images/thumb/e/e5/flow_chart_icon.svg/200px-flow_chart_icon.svg.png 2x" /></span>
+</p>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=assembly&amp;action=edit&amp;redlink=1" class="new" title="assembly (page does not exist)">assembly</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=autohotkey&amp;action=edit&amp;redlink=1" class="new" title="autohotkey (page does not exist)">autohotkey</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=bash&amp;action=edit&amp;redlink=1" class="new" title="bash (page does not exist)">bash</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=basic&amp;action=edit&amp;redlink=1" class="new" title="basic (page does not exist)">basic</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/brainfuck" title="brainfuck">brainfuck</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/c" title="c">c</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/c%2B%2B" title="c++">c++</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=cobol&amp;action=edit&amp;redlink=1" class="new" title="cobol (page does not exist)">cobol</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=coldfusion&amp;action=edit&amp;redlink=1" class="new" title="coldfusion (page does not exist)">coldfusion</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=css&amp;action=edit&amp;redlink=1" class="new" title="css (page does not exist)">css</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=c_sharp&amp;action=edit&amp;redlink=1" class="new" title="c sharp (page does not exist)">c sharp</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=d&amp;action=edit&amp;redlink=1" class="new" title="d (page does not exist)">d</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=delphi&amp;action=edit&amp;redlink=1" class="new" title="delphi (page does not exist)">delphi</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=forth&amp;action=edit&amp;redlink=1" class="new" title="forth (page does not exist)">forth</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=fortran&amp;action=edit&amp;redlink=1" class="new" title="fortran (page does not exist)">fortran</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=go&amp;action=edit&amp;redlink=1" class="new" title="go (page does not exist)">go</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=html&amp;action=edit&amp;redlink=1" class="new" title="html (page does not exist)">html</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=java&amp;action=edit&amp;redlink=1" class="new" title="java (page does not exist)">java</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=javascript&amp;action=edit&amp;redlink=1" class="new" title="javascript (page does not exist)">javascript</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=lisp&amp;action=edit&amp;redlink=1" class="new" title="lisp (page does not exist)">lisp</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=lua&amp;action=edit&amp;redlink=1" class="new" title="lua (page does not exist)">lua</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=makefile&amp;action=edit&amp;redlink=1" class="new" title="makefile (page does not exist)">makefile</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=matlab&amp;action=edit&amp;redlink=1" class="new" title="matlab (page does not exist)">matlab</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=objective_c&amp;action=edit&amp;redlink=1" class="new" title="objective c (page does not exist)">objective c</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=pascal&amp;action=edit&amp;redlink=1" class="new" title="pascal (page does not exist)">pascal</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=perl&amp;action=edit&amp;redlink=1" class="new" title="perl (page does not exist)">perl</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/php" title="php">php</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=powershell&amp;action=edit&amp;redlink=1" class="new" title="powershell (page does not exist)">powershell</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/wiki/python" title="python">python</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=r&amp;action=edit&amp;redlink=1" class="new" title="r (page does not exist)">r</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=rpg&amp;action=edit&amp;redlink=1" class="new" title="rpg (page does not exist)">rpg</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=ruby&amp;action=edit&amp;redlink=1" class="new" title="ruby (page does not exist)">ruby</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=scheme&amp;action=edit&amp;redlink=1" class="new" title="scheme (page does not exist)">scheme</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=smalltalk&amp;action=edit&amp;redlink=1" class="new" title="smalltalk (page does not exist)">smalltalk</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=sql&amp;action=edit&amp;redlink=1" class="new" title="sql (page does not exist)">sql</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=swift&amp;action=edit&amp;redlink=1" class="new" title="swift (page does not exist)">swift</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=tcl&amp;action=edit&amp;redlink=1" class="new" title="tcl (page does not exist)">tcl</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=vb_script&amp;action=edit&amp;redlink=1" class="new" title="vb script (page does not exist)">vb script</a></span></div>
+<div style="display:inline-block; width: 95px; margin: 1px 1px 1px 10px"><span style="font-size: 0.9em;">■ <a href="/w/index.php?title=visual_basic&amp;action=edit&amp;redlink=1" class="new" title="visual basic (page does not exist)">visual basic</a></span></div>
+</td></tr></table>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:11026-0!*!0!default!!en!5!* and timestamp 20201020174352 and revision id 32446
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=WikiChip:Main_Page_3&amp;oldid=32446">https://en.wikichip.org/w/index.php?title=WikiChip:Main_Page_3&amp;oldid=32446</a>"</div><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 2 January 2017, at 23:39.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1679});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

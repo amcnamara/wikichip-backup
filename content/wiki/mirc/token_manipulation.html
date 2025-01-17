@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Token Manipulation - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/token manipulation" href="/w/index.php?title=Special:ExportRDF/mirc/token_manipulation&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/token_manipulation&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/token_manipulation&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/token_manipulation" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/token_manipulation","wgTitle":"mirc/token manipulation","wgCurRevisionId":15386,"wgRevisionId":15386,"wgArticleId":13,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/token_manipulation","wgRelevantArticleId":13,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_token_manipulation skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Token Manipulation - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>If you are like many people who are coming from another programming language it might come as a surprise to you that there are no true arrays in mSL. This is because the paradigm is a little different: an array in mSL can be thought of as simply a list or vector of tokens. In mSL, a <b>token</b> is simply a string of characters that is separated by a single, unique character. mIRC provides an extensive set of identifiers and commands to help you manipulate this list of tokens.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Lists"><span class="tocnumber">1</span> <span class="toctext">Lists</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Delimiter"><span class="tocnumber">2</span> <span class="toctext">Delimiter</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.24N_Identifiers"><span class="tocnumber">3</span> <span class="toctext">$N Identifiers</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Adding.2FInserting.2FReplace_tokens_to_a_list"><span class="tocnumber">4</span> <span class="toctext">Adding/Inserting/Replace tokens to a list</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Replacing_Tokens"><span class="tocnumber">4.1</span> <span class="toctext">Replacing Tokens</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Removing_tokens"><span class="tocnumber">4.2</span> <span class="toctext">Removing tokens</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Practical_applications"><span class="tocnumber">5</span> <span class="toctext">Practical applications</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Token_Searching.2FRetrieval"><span class="tocnumber">6</span> <span class="toctext">Token Searching/Retrieval</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Miscellaneous_Identifiers"><span class="tocnumber">7</span> <span class="toctext">Miscellaneous Identifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Size_of_list"><span class="tocnumber">7.1</span> <span class="toctext">Size of list</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Existence_and_Sorting"><span class="tocnumber">7.2</span> <span class="toctext">Existence and Sorting</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Tokenizing_a_string"><span class="tocnumber">7.3</span> <span class="toctext">Tokenizing a string</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Case_Sensitivity"><span class="tocnumber">8</span> <span class="toctext">Case Sensitivity</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Lists">Lists</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=1" title="Edit section: Lists">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To better understand this concept; let's consider a simple alias that returns the day of the week from a given Nth day. In this case, our list of tokens will look something like this:
+</p>
+<pre>Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</pre>
+<p>The first thing you can see is that we have the tokens (in this case, the days of the week) separated by a comma. In this example, the comma is called a delimiter. In mSL, a <b>delimiter</b> is a single character used to specify the boundary between two separate tokens in a list. The example above also has a special name: <b>comma-separated values</b> (<b>CSV</b>).
+</p><p>One of the most commonly used identifiers is the <i>$gettok</i> identifier. The <i>$gettok</i> identifier can be used to retrieve a single token from a list separated by a specific character according to its position. For example, Sunday is the first token and thus position 1. Monday is position 2.
+</p><p>Lets take a look at a working $getday alias. We will talk about the exact syntax of $gettok later on.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/* <a href="http://en.wikichip.org/wiki/mirc/identifiers/$getday" title="$getday - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$getday</span></a><span class="mirc_bracket">&#x28;</span>&lt;1-7&gt;<span class="mirc_bracket">&#x29;</span> - returns the day of the week</span></span>
+<span class="code_line"><span class="mirc_comment"> */</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getday</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>&#160;!isnum 1-7<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> -sce info * Invalid parameters: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>getday</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">    halt</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%days</span> = Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday</span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%days</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, 44<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The example above will return the day of the week given its Nth position, for example $getday(1) will return Sunday.  Notice how $gettok took the list of days, the position (first argument), and the delimiter. 44 is the code point for the comma character (U+002C). We will talk about how the $gettok identifier works in more detail later on.
+</p>
+<h2><span class="mw-headline" id="Delimiter">Delimiter</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=2" title="Edit section: Delimiter">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>As we said before, a delimiter is a single character used to specify the boundary between two separate tokens in a list. For all the built-in token manipulation commands and identifiers, the delimiter is the <strong>code point</strong> value of the character. For more information, check out Unicode.
+</p><p>It is important to note that you cannot represent a $null or empty token. Additionally, multiple consecutive delimiters are treated as a single delimiter. Leading and trailing delimiters are ignored.
+</p>
+<h2><span class="mw-headline" id=".24N_Identifiers">$N Identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=3" title="Edit section: $N Identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>You may have noticed the use of the $1 identifier in the getday alias above. $1 returns the first argument that was passed to the alias. For example, if we use $getday(3), $1 will be 3. The exact rules on how the $N identifiers work can be found in the <a href="/wiki/Aliases_-_mIRC" title="Aliases - mIRC" class="mw-redirect">aliases tutorial</a>. The number of tokens in $N is stored in $0.
+</p><p>It is important to note that you can also populate the $N identifiers via the <a href="#Tokenizing_a_string">/tokenize command</a>.
+</p>
+<h2><span class="mw-headline" id="Adding.2FInserting.2FReplace_tokens_to_a_list">Adding/Inserting/Replace tokens to a list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=4" title="Edit section: Adding/Inserting/Replace tokens to a list">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are two built-in ways to add or insert a token into a list: the $addtok and $instok identifiers.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%newList</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$addtok" title="$addtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$addtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%newList</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$instok" title="$instok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$instok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The major difference between $instok and $addtok is that $addtok will not append a token that is already found in the string while $instok will. &lt;Nth_pos&gt; is the position of where the token should be placed. For example 5 will be the 5th element. A negative number can be used as well to indicate the Nth token from the end instead of the begging. For example -1 is the 2nd to last element, or the 1 element before the last element.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$addtok" title="$addtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$addtok</span></a><span class="mirc_bracket">&#x28;</span>A B C D, E, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">A B C D E</span>
+<span class="code_line"><span class="mirc_comment">;remember <a href="http://en.wikichip.org/wiki/mirc/identifiers/$addtok" title="$addtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$addtok</span></a> will not add duplicates</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$addtok" title="$addtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$addtok</span></a><span class="mirc_bracket">&#x28;</span>A B C D, A, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">A B C D</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$instok" title="$instok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$instok</span></a><span class="mirc_bracket">&#x28;</span>a b c, @, 1, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">@ a b c</span>
+<span class="code_line"><span class="mirc_comment">;instok will add duplicates</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$instok" title="$instok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$instok</span></a><span class="mirc_bracket">&#x28;</span>a b c, a, 2, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">a a b c</span></pre>
+<p>A nice application is an auto-joiner script. Using the /ajoin_add command we can add more channels to our auto-join script.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; add channel to auto-join list</span></span>
+<span class="code_line"><span class="mirc_comment">; /ajoin_add #foo</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>ajoin_add</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">  set</span></a> <span class="mirc_variable">%auto_join</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$addtok" title="$addtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$addtok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%auto_join</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, 44<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">connect</span>:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/timer" title="/timer - mIRC Command" style="text-decoration: none"><span class="mirc_command">  timer</span></a> 1 1 join <span class="mirc_variable">%auto_join</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="Replacing_Tokens">Replacing Tokens</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=5" title="Edit section: Replacing Tokens">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>To replace a token you can use $puttok and the $reptok. $puttok replaces by the Nth token while $reptok replaces by the token's value.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$puttok" title="$puttok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$puttok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$reptok" title="$reptok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$reptok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;newToken&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>for example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; mask an ip address</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>maskIP</em> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$puttok" title="$puttok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$puttok</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, xxx, 3-, 46<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; //echo -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$maskIP" title="$maskIP - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$maskIP</span></a><span class="mirc_bracket">&#x28;</span>192.168.1.1<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><span class="mirc_comment">; 192.168.xxx.xxx</span></span></pre>
+<h3><span class="mw-headline" id="Removing_tokens">Removing tokens</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=6" title="Edit section: Removing tokens">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There are two identifiers that lets you remove tokens from the list: $deltok allows the deletion of tokens by their position while $remtok can be used to delete tokens by their value.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;<a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a> also supports a range of tokens</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;Nth_pos-N2th_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$remtok" title="$remtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$remtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>$deltok can delete a single token or multiple depending on the specified range. $remtok's &lt;Nth_pos&gt; parameter is used to specify the Nth matching token to be removed. If &lt;Nth_pos&gt; is 0, all matching tokens are removed.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a><span class="mirc_bracket">&#x28;</span>this is not really cool!, 3-4, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">this is cool!</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a><span class="mirc_bracket">&#x28;</span>A B C D, -1, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">A B C</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$remtok" title="$remtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$remtok</span></a><span class="mirc_bracket">&#x28;</span>A:B:C:A:B:C:A:B:C, A, 0, 58<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">B:C:B:C:B:C</span></pre>
+<h2><span class="mw-headline" id="Practical_applications">Practical applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=7" title="Edit section: Practical applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>By now, you should be seeing why arrays in other languages can be visualized as a list of tokens in mSL. Below is a practical example of a simple queue (a FIFO, first-in-first-out, data structure). You can run the driver by calling /queue_example.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/* A very simple queue example</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>queue_push</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">  set</span></a> <span class="mirc_variable">%queue</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$instok" title="$instok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$instok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%queue</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, 0, 7<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>queue_pop</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%tok</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%queue</span>, 1, 7<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">  set</span></a> <span class="mirc_variable">%queue</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$deltok" title="$deltok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$deltok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%queue</span>, 1, 7<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%queue<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/unset" title="/unset - mIRC Command" style="text-decoration: none"><span class="mirc_command"> unset</span></a> <span class="mirc_variable">%queue</span></span>
+<span class="code_line">  <span class="mirc_control">return</span> <span class="mirc_variable">%tok</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>queue_example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  queue_push item1</span>
+<span class="code_line">  queue_push item2</span>
+<span class="code_line">  queue_push item3</span>
+<span class="code_line">  <span class="mirc_control">while</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$queue_pop" title="$queue_pop - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$queue_pop</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The script above uses character with the code point of 7 as its delimiter. The script works pretty well for small values (can store as much as 200 items with an average value length of 20 characters or 20 lines with an average of 200 characters per line). Clearly one of the preconditions is that the value cannot contain any characters with a code point value of 7. This example is clearly not suitable for large queues or queues that must execute really fast. (The reason we've used code point 7 is because it's a control character that means bell signal. This makes it one of the least likely characters to be used as a value).
+</p>
+<h2><span class="mw-headline" id="Token_Searching.2FRetrieval">Token Searching/Retrieval</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=8" title="Edit section: Token Searching/Retrieval">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Sometimes we do not know the position or the entire value of a token. There are a number of built-in identifiers to help search a list for a specific token. To search for a token in a string there are three useful identifiers for that: $findtok, $matchtok, and $wildtok. To retrieve the Nth token from a string there is $gettok.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;will return the position of the Nth matching token</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%pos</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$findtok" title="$findtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$findtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$matchtok" title="$matchtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$matchtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;substring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$wildtok" title="$wildtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$wildtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;wildstring&gt;, &lt;Nth_pos&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;to get the Nth token</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%tok</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;N&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>$findtok looks for an exact match while $matchtok looks for a partial match. $wildtok supports wildcard characters (? &amp; *) in the substring parameter. They also support 0 for &lt;Nth_pos&gt; to get the total number of matches.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$findtok" title="$findtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$findtok</span></a><span class="mirc_bracket">&#x28;</span>a a b c d, a, 0, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">2</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$matchtok" title="$matchtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$matchtok</span></a><span class="mirc_bracket">&#x28;</span>this is an example, e, 1, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">example</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$wildtok" title="$wildtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$wildtok</span></a><span class="mirc_bracket">&#x28;</span>this is a test,&#160;?e?t, 1, 32<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">test</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span>192.168.1.0, 1, 46<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">192</span></pre>
+<h2><span class="mw-headline" id="Miscellaneous_Identifiers">Miscellaneous Identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=9" title="Edit section: Miscellaneous Identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In addition to the identifiers we've introduced above, there are a few identifiers that have a more general purpose.
+</p>
+<h3><span class="mw-headline" id="Size_of_list">Size of list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=10" title="Edit section: Size of list">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>To get the size or number of tokens in a list, you can use the $numtok identifier:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%count</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$numtok" title="$numtok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$numtok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<h3><span class="mw-headline" id="Existence_and_Sorting">Existence and Sorting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=11" title="Edit section: Existence and Sorting">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The $istok identifier is perhaps the most commonly used identifier in the entire language. It simply returns true or false if the token exists in a list or not.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$istok" title="$istok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$istok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;token&gt;, &lt;code_point&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Another useful feature is the $sorttok identifier which lets you sort the list of tokens numerically, alphabetically, or according to the channel mode prefix. Using r with any of the options will reverse the order.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sorttok" title="$sorttok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sorttok</span></a><span class="mirc_bracket">&#x28;</span>&lt;list&gt;, &lt;code_point&gt;, &lt;sortingOption&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>A common application is to validate that a value is one of a few possible options.
+</p>
+<pre><span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$istok" title="$istok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$istok</span></a><span class="mirc_bracket">&#x28;</span>red green blue yellow, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, 32<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -sce info * Invalid color: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>foobar</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">  halt</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The sorting options are <em>n</em> for numeric, <em>c</em> for channel prefix, and <em>a</em> for alphabetical. <em>r</em> can be used with any of the options to reverse the order.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;reverse numeric sort</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sorttok" title="$sorttok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sorttok</span></a><span class="mirc_bracket">&#x28;</span>456 3 7 2345 78 23 9943 123 54 1 34 -45 -22, 32, nr<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">9943 2345 456 123 78 54 34 23 7 3 1 -22 -45</span>
+<span class="code_line"><span class="mirc_comment">;channel prefix</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$sorttok" title="$sorttok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$sorttok</span></a><span class="mirc_bracket">&#x28;</span>+aa @bb +cc dd @ee, 32, c<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">@bb @ee +aa +cc dd</span></pre>
+<h3><span class="mw-headline" id="Tokenizing_a_string">Tokenizing a string</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=12" title="Edit section: Tokenizing a string">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Recall from an earlier tutorial that when you call an alias as a command, all the parameters you pass to it are stored in $N. It's possible to programmatically create this same result using the /tokenize command. That command lets you break down a string into tokens that will be stored in $N.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/tokenize" title="/tokenize - mIRC Command" style="text-decoration: none"><span class="mirc_command">tokenize</span></a> &lt;code_point&gt; &lt;string&gt;</span></pre>
+<p>For example
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/tokenize" title="/tokenize - mIRC Command" style="text-decoration: none"><span class="mirc_command">//tokenize</span></a> 32 A B C |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$0" title="$0 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$0</span></a> - <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a></span>
+<span class="code_line">3 - C, B, A</span></pre>
+<h2><span class="mw-headline" id="Case_Sensitivity">Case Sensitivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit&amp;section=13" title="Edit section: Case Sensitivity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>None of the identifiers explained above are case sensitive. If you wish to work with a case sensitive list or tokens, it's still possible. All the identifiers have their counterpart case sensitive version. They follow the same syntax and they names are identifier with the addition of the "cs" at the end.
+</p><p>For example:
+</p>
+<ul><li> $istok -&gt; $istokcs</li>
+<li> $matchtok -&gt; $matchtokcs</li>
+<li> $findtok -&gt; $findtokcs</li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.077 seconds
+Real time usage: 0.079 seconds
+Preprocessor visited node count: 233/1000000
+Preprocessor generated node count: 484/1000000
+Post‐expand include size: 88/2097152 bytes
+Template argument size: 18/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.329      1 - -total
+100.00%    4.329      1 - Template:mirc_title
+ 37.81%    1.637      1 - Template:mIRC_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:13-0!*!0!!en!*!* and timestamp 20160427201847 and revision id 15386
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/token_manipulation&amp;oldid=15386">http://en.wikichip.org/w/index.php?title=mirc/token_manipulation&amp;oldid=15386</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Ftoken+manipulation&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Ftoken+manipulation" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/token_manipulation"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/token_manipulation&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/token_manipulation" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/token_manipulation&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/token_manipulation" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/token_manipulation" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/token_manipulation&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/token_manipulation&amp;oldid=15386" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/token_manipulation&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Ftoken_manipulation" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 February 2016, at 02:29.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":429});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>X-Gene  - AppliedMicro - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"apm/x-gene","wgTitle":"apm/x-gene","wgCurRevisionId":82865,"wgRevisionId":82865,"wgArticleId":31394,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor families"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"apm/x-gene","wgRelevantArticleId":31394,"wgRequestId":"6ef2508ddd20b04ea81fecdd","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"appliedmicro/x-gene","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/apm/x-gene"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="apm/x-gene" href="/w/index.php?title=Special:ExportRDF/apm/x-gene&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=apm/x-gene&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=apm/x-gene&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/apm/x-gene"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/images/thumb/9/9d/x-gene_front.jpg/200px-x-gene_front.jpg" />
+<meta property="og:image" content="https://en.wikichip.org/w/images/thumb/9/9d/x-gene_front.jpg/200px-x-gene_front.jpg" />
+<meta property="og:title" content="X-Gene  - AppliedMicro - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="X-Gene was a family of 64-bit ARM server microprocessors designed and introduced by AppliedMicro." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod20-c',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/appliedmicro/x-gene"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"dc968544-d46b-4332-4a7e-00fed7dcd84c","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":628,"serverid":"34.238.159.110:5356","state":"VA","t_epoch":1606881159,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/appliedmicro/x-gene","user_id":0,"word_count":1089,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["dc968544-d46b-4332-4a7e-00fed7dcd84c", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-apm_x-gene rootpage-apm skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/apm/x-gene">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:apm/x-gene"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=apm/x-gene&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=apm/x-gene&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=apm%2Fx-gene"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/apm/x-gene"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/apm/x-gene"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=apm/x-gene&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=apm/x-gene&oldid=82865"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=apm/x-gene&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:apm-2Fx-2Dgene"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    X-Gene  - AppliedMicro    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/apm" title="apm">apm</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=appliedmicro/x-gene&amp;redirect=no" class="mw-redirect" title="appliedmicro/x-gene">appliedmicro/x-gene</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="border: solid 1px #e5e5ff; width: 325px; float: right; margin: 0 10px 10px 10px; text-align: left; font-size: 12px;">
+<tr>
+<td style="text-align: center; background: #CEE3F6; font-size: 16px;" colspan="2"> <b>X-Gene</b>
+</td></tr>
+<tr>
+<td style="text-align: center;" colspan="2"> <a href="/wiki/File:x-gene_front.jpg" class="image"><img alt="x-gene front.jpg" src="/w/images/thumb/9/9d/x-gene_front.jpg/200px-x-gene_front.jpg" width="200" height="181" class="wikichip_ogimage" srcset="/w/images/thumb/9/9d/x-gene_front.jpg/300px-x-gene_front.jpg 1.5x, /w/images/thumb/9/9d/x-gene_front.jpg/400px-x-gene_front.jpg 2x" /></a>
+</td></tr>
+<tr>
+<td style="text-align: center; font-size: 12px;" colspan="2">
+<div></div>
+<div></div> 
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Developer</b> </td>
+<td style="text-align:left;"> AppliedMicro
+</td></tr>
+<tr>
+<td> <b>Manufacturer</b> </td>
+<td> TSMC
+</td></tr>
+<tr>
+<td> <b>Type</b> </td>
+<td> Microprocessors
+</td></tr>
+<tr>
+<td> <b>Introduction</b> </td>
+<td> October 28, 2011 (announced)<br />2012 (launch)
+<div></div>
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>ISA</b> </td>
+<td> <a href="/wiki/appliedmicro/arm_(isa)" class="mw-redirect" title="appliedmicro/arm (isa)">ARM</a>
+</td></tr>
+<tr>
+<td> <b>µarch</b> </td>
+<td> <a href="/wiki/appliedmicro/storm_(microarch)" class="mw-redirect" title="appliedmicro/storm (microarch)">Storm</a>, <a href="/wiki/appliedmicro/shadowcat_(microarch)" class="mw-redirect" title="appliedmicro/shadowcat (microarch)">Shadowcat</a>, <a href="/wiki/appliedmicro/skylark_(microarch)" class="mw-redirect" title="appliedmicro/skylark (microarch)">Skylark</a>
+</td></tr>
+<tr>
+<td> <b>Word size</b> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8&amp;#160;octets 16&amp;#160;nibbles "><span class="smwtext">64 bit</span><div class="smwttcontent">8&#160;octets <br />16&#160;nibbles <br /></div></span>
+</td></tr>
+<tr>
+<td> <b>Process</b> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.04&amp;#160;μm 4.0e-5&amp;#160;mm "><span class="smwtext">40 nm</span><div class="smwttcontent">0.04&#160;μm <br />4.0e-5&#160;mm <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.028&amp;#160;μm 2.8e-5&amp;#160;mm "><span class="smwtext">28 nm</span><div class="smwttcontent">0.028&#160;μm <br />2.8e-5&#160;mm <br /></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.016&amp;#160;μm 1.6e-5&amp;#160;mm "><span class="smwtext">16 nm</span><div class="smwttcontent">0.016&#160;μm <br />1.6e-5&#160;mm <br /></div></span>
+</td></tr>
+<tr>
+<td> <b>Technology</b> </td>
+<td> CMOS
+</td></tr>
+<tr>
+<td> <b>Clock</b> </td>
+<td> 2.4 GHz-3.3 GHz
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td style="text-align: center; background: #ccffcc; font-size: 12px;" colspan="2"> <b>Succession</b>
+</td></tr>
+<tr>
+<td style="min-width: 150px;"> <b>←</b> </td>
+<td style="text-align: right; min-width: 150px;"> <b>→</b>
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=apm/packetpro&amp;action=edit&amp;redlink=1" class="new" title="apm/packetpro (page does not exist)">PACKETPro</a> </td>
+<td style="text-align: right;"> <a href="/wiki/ampere_computing/emag" title="ampere computing/emag">eMAG</a>
+</td></tr></table>
+<p><b>X-Gene</b> was a family of <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a> <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> server microprocessors designed and introduced by <a href="/wiki/AppliedMicro" class="mw-redirect" title="AppliedMicro">AppliedMicro</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Naming_Scheme"><span class="tocnumber">1.1</span> <span class="toctext">Naming Scheme</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Members"><span class="tocnumber">2</span> <span class="toctext">Members</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#X-Gene_1"><span class="tocnumber">2.1</span> <span class="toctext">X-Gene 1</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#X-Gene_2"><span class="tocnumber">2.2</span> <span class="toctext">X-Gene 2</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#X-Gene_3"><span class="tocnumber">2.3</span> <span class="toctext">X-Gene 3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Bibliography"><span class="tocnumber">4</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>X-Gene was a family of high-performance multi-core ARM microprocessors first announced by <a href="/wiki/AppliedMicro" class="mw-redirect" title="AppliedMicro">AppliedMicro</a> in 2011. Unlike their traditional product offering, X-Gene directly targeted high-performance data center servers, a market predominantly dominated by <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> <a href="/wiki/intel/xeon" title="intel/xeon">Xeon</a> processors. AppliedMicro introduced two generations of server processors based on their own custom <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> microarchitectures - <a href="/wiki/apm/microarchitectures/storm" title="apm/microarchitectures/storm">Storm</a> and <a href="/wiki/apm/microarchitectures/shadowcat" title="apm/microarchitectures/shadowcat">Shadowcat</a>. Those two generations shipped a total of 25,000 units. In late <a href="/wiki/2016" title="2016">2016</a>, <a href="/w/index.php?title=MACOM&amp;action=edit&amp;redlink=1" class="new" title="MACOM (page does not exist)">MACOM</a> acquired AppliedMicro resulting in the shelving of third-generation X-Gene based on the <a href="/wiki/apm/microarchitectures/skylark" title="apm/microarchitectures/skylark">Skylark</a> microarchitecture. The X-Gene <a href="/w/index.php?title=intellectual_property&amp;action=edit&amp;redlink=1" class="new" title="intellectual property (page does not exist)">intellectual property</a> including most of the design team was eventually sold to <a href="/wiki/Ampere_Computing" class="mw-redirect" title="Ampere Computing">Ampere Computing</a> has rebranded the design and improved on it under the <a href="/wiki/ampere_computing/emag" title="ampere computing/emag">eMAG</a> brand.
+</p>
+<h3><span class="mw-headline" id="Naming_Scheme">Naming Scheme</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=2" title="Edit section: Naming Scheme">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><a href="/wiki/File:appliedmicro_x-gene_naming.svg" class="image"><img alt="appliedmicro x-gene naming.svg" src="/w/images/thumb/a/a6/appliedmicro_x-gene_naming.svg/550px-appliedmicro_x-gene_naming.svg.png" width="550" height="316" srcset="/w/images/thumb/a/a6/appliedmicro_x-gene_naming.svg/825px-appliedmicro_x-gene_naming.svg.png 1.5x, /w/images/thumb/a/a6/appliedmicro_x-gene_naming.svg/1100px-appliedmicro_x-gene_naming.svg.png 2x" /></a></dd></dl>
+<h2><span class="mw-headline" id="Members">Members</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=3" title="Edit section: Members">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="X-Gene_1">X-Gene 1</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=4" title="Edit section: X-Gene 1">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>See also: <a href="/wiki/apm/microarchitectures/storm" title="apm/microarchitectures/storm">Storm microarchitecture</a></i></dd></dl>
+<p>First-generation of X-Gene processors were announced in October 2011 and later launched in late 2012. X-Gene 1 processors are based on the <a href="/wiki/apm/microarchitectures/storm" title="apm/microarchitectures/storm">Storm</a> microarchitecture and were fabricated on <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>'s <a href="/wiki/40_nm_process" class="mw-redirect" title="40 nm process">40 nm process</a>. Those processors had up to four memory channels and up to <a href="/wiki/eight_cores" class="mw-redirect" title="eight cores">eight cores</a> operating at up to 2.4 GHz.
+</p>
+<ul><li> <b>Mem:</b> up to 4 memory channels, DDR3 @ up to 1866 MT/s</li>
+<li> <b>Tech:</b> <a href="/wiki/ARMv8" class="mw-redirect" title="ARMv8">ARMv8</a> (ARMv8.0-A)</li>
+<li> <b>I/O:</b> 17 PCIe, SATA/SGMII, 2x SGMII/XFI, 1x RGMII</li></ul>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc2 tc3 tc3 tc7">
+<tr class="comptable-header"><th>&#160;</th><th colspan="7">List of Storm-based Processors</th></tr>
+<tr class="comptable-header"><th>&#160;</th><th colspan="5">Processor</th><th colspan="2">Memory</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Launched</th><th>TDP</th><th>Cores</th><th data-sort-type="number">Turbo</th><th>L3$</th><th>Type</th><th>Chans</th></tr>
+<tr><td><a href="/wiki/apm/x-gene/apm883204-x1" title="apm/x-gene/apm883204-x1">APM883204-X1</a></td><td>2012</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45&#160;W</span><div class="smwttcontent">45,000&#160;mW <br />0.0603&#160;hp <br />0.045&#160;kW <br /></div></span></td><td>4</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,400&amp;#160;MHz 2,400,000&amp;#160;kHz"><span class="smwtext">2.4&#160;GHz</span><div class="smwttcontent">2,400&#160;MHz <br />2,400,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4&#160;MiB</span><div class="smwttcontent">4,096&#160;KiB <br />4,194,304&#160;B <br />0.00391&#160;GiB <br /></div></span></td><td>DDR3-1866</td><td>4</td></tr><tr><td><a href="/wiki/apm/x-gene/apm883208-x1" title="apm/x-gene/apm883208-x1">APM883208-X1</a></td><td>2012</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45&#160;W</span><div class="smwttcontent">45,000&#160;mW <br />0.0603&#160;hp <br />0.045&#160;kW <br /></div></span></td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,400&amp;#160;MHz 2,400,000&amp;#160;kHz"><span class="smwtext">2.4&#160;GHz</span><div class="smwttcontent">2,400&#160;MHz <br />2,400,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8&#160;MiB</span><div class="smwttcontent">8,192&#160;KiB <br />8,388,608&#160;B <br />0.00781&#160;GiB <br /></div></span></td><td>DDR3-1866</td><td>2</td></tr><tr><td><a href="/wiki/apm/x-gene/apm883408-x1" title="apm/x-gene/apm883408-x1">APM883408-X1</a></td><td>2012</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="45,000&amp;#160;mW 0.0603&amp;#160;hp 0.045&amp;#160;kW"><span class="smwtext">45&#160;W</span><div class="smwttcontent">45,000&#160;mW <br />0.0603&#160;hp <br />0.045&#160;kW <br /></div></span></td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,400&amp;#160;MHz 2,400,000&amp;#160;kHz"><span class="smwtext">2.4&#160;GHz</span><div class="smwttcontent">2,400&#160;MHz <br />2,400,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8&#160;MiB</span><div class="smwttcontent">8,192&#160;KiB <br />8,388,608&#160;B <br />0.00781&#160;GiB <br /></div></span></td><td>DDR3-1866</td><td>4</td></tr>
+<tr class="comptable-header"><th>Count: 3</th></tr>
+</table>
+</div></div>
+<h3><span class="mw-headline" id="X-Gene_2">X-Gene 2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=5" title="Edit section: X-Gene 2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>See also: <a href="/wiki/apm/microarchitectures/shadowcat" title="apm/microarchitectures/shadowcat">Shadowcat microarchitecture</a></i></dd></dl>
+<p>Second-generation of X-Gene processors were announced in September 2014 and later launched in early 2015. X-Gene 2 processors are based on the <a href="/wiki/apm/microarchitectures/shadowcat" title="apm/microarchitectures/shadowcat">Shadowcat</a> microarchitecture and were fabricated on <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>'s <a href="/wiki/28_nm_process" class="mw-redirect" title="28 nm process">28 nm process</a>. Though those processors were more of a refresh over their predecessor, the new <a href="/wiki/process_technology" class="mw-redirect" title="process technology">process technology</a> produced lower-power chips at similar performance. Those processors had up to four memory channels and up to <a href="/wiki/eight_cores" class="mw-redirect" title="eight cores">eight cores</a> operating at up to 2.4 GHz.
+</p>
+<ul><li> <b>Mem:</b> up to 4 memory channels, DDR3 @ up to 1866 MT/s</li>
+<li> <b>Tech:</b> <a href="/wiki/ARMv8" class="mw-redirect" title="ARMv8">ARMv8</a> (ARMv8.0-A)</li>
+<li> <b>I/O:</b> 17 PCIe, SATA/SGMII, 2x SGMII/XFI, 1x RGMII</li></ul>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc2 tc3 tc4 tc8">
+<tr class="comptable-header"><th>&#160;</th><th colspan="7">List of Shadowcat-based Processors</th></tr>
+<tr class="comptable-header"><th>&#160;</th><th colspan="5">Processor</th><th colspan="2">Memory</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Launched</th><th>TDP</th><th>Cores</th><th data-sort-type="number">Turbo</th><th>L3$</th><th>Type</th><th>Chans</th></tr>
+<tr><td><a href="/wiki/apm/x-gene/apm883208-x2" title="apm/x-gene/apm883208-x2">APM883208-X2</a></td><td>March 2015</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35&#160;W</span><div class="smwttcontent">35,000&#160;mW <br />0.0469&#160;hp <br />0.035&#160;kW <br /></div></span></td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,400&amp;#160;MHz 2,400,000&amp;#160;kHz"><span class="smwtext">2.4&#160;GHz</span><div class="smwttcontent">2,400&#160;MHz <br />2,400,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8&#160;MiB</span><div class="smwttcontent">8,192&#160;KiB <br />8,388,608&#160;B <br />0.00781&#160;GiB <br /></div></span></td><td>DDR3-1866</td><td>2</td></tr><tr><td><a href="/wiki/apm/x-gene/apm883408-x2" title="apm/x-gene/apm883408-x2">APM883408-X2</a></td><td>March 2015</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="35,000&amp;#160;mW 0.0469&amp;#160;hp 0.035&amp;#160;kW"><span class="smwtext">35&#160;W</span><div class="smwttcontent">35,000&#160;mW <br />0.0469&#160;hp <br />0.035&#160;kW <br /></div></span></td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,400&amp;#160;MHz 2,400,000&amp;#160;kHz"><span class="smwtext">2.4&#160;GHz</span><div class="smwttcontent">2,400&#160;MHz <br />2,400,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;KiB 8,388,608&amp;#160;B 0.00781&amp;#160;GiB"><span class="smwtext">8&#160;MiB</span><div class="smwttcontent">8,192&#160;KiB <br />8,388,608&#160;B <br />0.00781&#160;GiB <br /></div></span></td><td>DDR3-1866</td><td>4</td></tr>
+<tr class="comptable-header"><th>Count: 2</th></tr>
+</table>
+</div></div>
+<h3><span class="mw-headline" id="X-Gene_3">X-Gene 3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=6" title="Edit section: X-Gene 3">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>See also: <a href="/wiki/apm/microarchitectures/skylark" title="apm/microarchitectures/skylark">Skylark microarchitecture</a></i></dd></dl>
+<p>Third-generation of X-Gene processors were announced in 2016 and started sampling in 2017. X-Gene 2 processors are based on the <a href="/wiki/apm/microarchitectures/skylark" title="apm/microarchitectures/skylark">Skylark</a> microarchitecture and were fabricated on <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>'s <a href="/wiki/16_nm_process" class="mw-redirect" title="16 nm process">16 nm process</a>. AppliedMicro made large changed to the system architecture of the chip and some minor changes to the core. The chip design shifted from incorporating an array of accelerators on-die to offering a large set of I/O (mostly PCIe lanes) so that high-performance <a href="/w/index.php?title=PCIe&amp;action=edit&amp;redlink=1" class="new" title="PCIe (page does not exist)">PCIe</a>-based <a href="/wiki/accelerators" class="mw-redirect" title="accelerators">accelerators</a> could be attached instead. In 2017 AppliedMicro sold the X-Gene assets to <a href="/wiki/Ampere_Computing" class="mw-redirect" title="Ampere Computing">Ampere Computing</a> and consequently discontinued the X-Gene line. X-Gene 3 has re-launched by Ampere under the <a href="/wiki/ampere_computing/emag" title="ampere computing/emag">eMAG</a> family.
+</p>
+<ul><li> <b>Mem:</b> 8x DDR4 channels, up to 2666 MT/s with ECC; 1 TiB/socket</li>
+<li> <b>I/O:</b> 42 PCIe Gen 3 lanes</li>
+<li> <b>TDP:</b> Up to 125 W</li></ul>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc2 tc3 tc4 tc8">
+<tr class="comptable-header"><th>&#160;</th><th colspan="7">List of Skylark-based Processors</th></tr>
+<tr class="comptable-header"><th>&#160;</th><th colspan="5">Processor</th><th colspan="2">Memory</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Launched</th><th>TDP</th><th>Cores</th><th data-sort-type="number">Turbo</th><th>L3$</th><th>Type</th><th>Chans</th></tr>
+<tr><td><a href="/wiki/apm/x-gene/apm883832-x3" title="apm/x-gene/apm883832-x3">APM883832-X3</a></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="125,000&amp;#160;mW 0.168&amp;#160;hp 0.125&amp;#160;kW"><span class="smwtext">125&#160;W</span><div class="smwttcontent">125,000&#160;mW <br />0.168&#160;hp <br />0.125&#160;kW <br /></div></span></td><td>32</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,000&amp;#160;MHz 3,000,000&amp;#160;kHz"><span class="smwtext">3&#160;GHz</span><div class="smwttcontent">3,000&#160;MHz <br />3,000,000&#160;kHz <br /></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="32,768&amp;#160;KiB 33,554,432&amp;#160;B 0.0313&amp;#160;GiB"><span class="smwtext">32&#160;MiB</span><div class="smwttcontent">32,768&#160;KiB <br />33,554,432&#160;B <br />0.0313&#160;GiB <br /></div></span></td><td>DDR4-2666 DDR4-2400</td><td>8</td></tr>
+<tr class="comptable-header"><th>Count: 1</th></tr>
+</table>
+</div></div>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Cavium <a href="/wiki/cavium/thunderx2" title="cavium/thunderx2">ThunderX2</a></li>
+<li> Qualcomm <a href="/wiki/qualcomm/centriq" title="qualcomm/centriq">Centriq</a></li></ul>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=apm/x-gene&amp;action=edit&amp;section=8" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> AppliedMicro. (October 30, 2013). <i>"<a rel="nofollow" class="external text" href="https://www.apm.com/news/appliedmicro-announces-general-availability-of-x-gene-system-development-ki/">AppliedMicro Announces General Availability of X-Gene System Development Kit for ARM 64-Bit Platform</a>"</i>.</li>
+<li> AppliedMicro. (March 08, 2017). <i>"<a rel="nofollow" class="external text" href="https://www.apm.com/news/macom-announces-sampling-of-x-gene-3-server-on-a-chip-solution/">MACOM Announces Sampling of X-Gene® 3 Server-on-a-Chip® Solution</a>"</i>.</li>
+<li> David Schor. (February 5, 2018). "<i><a rel="nofollow" class="external text" href="https://fuse.wikichip.org/news/776/x-gene-3-gets-a-second-chance-at-ampere-with-a-new-32-core-16nm-arm-processor/">X-Gene 3 gets a second chance at Ampere with a new 32-core 16nm ARM processor</a></i>".</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:31394-0!*!0!default!!en!5!* and timestamp 20201202024041 and revision id 82865
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=apm/x-gene&amp;oldid=82865">https://en.wikichip.org/w/index.php?title=apm/x-gene&amp;oldid=82865</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:all_microprocessor_families" title="Category:all microprocessor families">all microprocessor families</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:apm-2Fx-2Dgene" title="Special:Browse/:apm-2Fx-2Dgene">X-Gene  - AppliedMicro</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/apm/x-gene" title="Special:ExportRDF/apm/x-gene">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AppliedMicro  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AppliedMicro" title="Special:SearchByProperty/:designer/AppliedMicro">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first&#160;announced</a></td><td class="smwprops">October 28, 2011  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/28-20October-202011" title="Special:SearchByProperty/:first-20announced/28-20October-202011">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">2012  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/2012" title="Special:SearchByProperty/:first-20launched/2012">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full&#160;page&#160;name</a></td><td class="smwprops">apm/x-gene  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/apm-2Fx-2Dgene" title="Special:SearchByProperty/:full-20page-20name/apm-2Fx-2Dgene">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">microprocessor family  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor-20family" title="Special:SearchByProperty/:instance-20of/microprocessor-20family">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction&#160;set&#160;architecture</a></td><td class="smwprops">ARM  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARM" title="Special:SearchByProperty/:instruction-20set-20architecture/ARM">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:main_designer" title="Property:main designer">main&#160;designer</a></td><td class="smwprops">AppliedMicro  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:main-20designer/AppliedMicro" title="Special:SearchByProperty/:main-20designer/AppliedMicro">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Storm  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Storm" title="Special:SearchByProperty/:microarchitecture/Storm">+</a></span>, Shadowcat  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Shadowcat" title="Special:SearchByProperty/:microarchitecture/Shadowcat">+</a></span> and Skylark  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Skylark" title="Special:SearchByProperty/:microarchitecture/Skylark">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">X-Gene  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/X-2DGene" title="Special:SearchByProperty/:name/X-2DGene">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">40&#160;nm (0.04&#160;μm, 4.0e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/40-20nm" title="Special:SearchByProperty/:process/40-20nm">+</a></span>, 28&#160;nm (0.028&#160;μm, 2.8e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/28-20nm" title="Special:SearchByProperty/:process/28-20nm">+</a></span> and 16&#160;nm (0.016&#160;μm, 1.6e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/16-20nm" title="Special:SearchByProperty/:process/16-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word&#160;size</a></td><td class="smwprops">64&#160;bit (8&#160;octets, 16&#160;nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 26 September 2018, at 01:11.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":147});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

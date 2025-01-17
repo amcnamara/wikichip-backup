@@ -1,0 +1,890 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("Added dummyfile: "+items[filename]);}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=194-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=194-3&cb=7', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=194-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=194-3&cb=10', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=194-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=194-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=194-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>HECToR - Supercomputers - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"supercomputers/hector","wgTitle":"supercomputers/hector","wgCurRevisionId":94140,"wgRevisionId":94140,"wgArticleId":35491,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all supercomputers"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"supercomputers/hector","wgRelevantArticleId":35491,"wgRequestId":"d3222b0d7e98b31986558d3e","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="supercomputers/hector" href="/w/index.php?title=Special:ExportRDF/supercomputers/hector&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=supercomputers/hector&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=supercomputers/hector&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="HECToR - Supercomputers - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="HECToR (High-End Computing Terascale Resource) was terascale x86 supercomputer serving as the UK&#39;s primary academic research supercomputer. HECToR has been superseded by ARCHER."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/supercomputers/hector"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"3aa809a6-196a-4658-51ad-94e71077665e","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":58095,"response_time_orig":187,"serverid":"54.147.124.27:13925","state":"VA","t_epoch":1618883863,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/supercomputers/hector","user_id":0,"word_count":1443,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script src="//www.ezojs.com/ezoic/ezd.js" defer async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["3aa809a6-196a-4658-51ad-94e71077665e", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-supercomputers_hector rootpage-supercomputers skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/supercomputers/hector">Page</a></li></ul></li><li class="new"><a href="/w/index.php?title=Talk:supercomputers/hector&amp;action=edit&amp;redlink=1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=supercomputers/hector&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=supercomputers/hector&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=supercomputers%2Fhector"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/supercomputers/hector"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/supercomputers/hector"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=supercomputers/hector&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=supercomputers/hector&amp;oldid=94140"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=supercomputers/hector&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:supercomputers-2Fhector"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    HECToR - Supercomputers    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/supercomputers" class="mw-redirect" title="supercomputers">supercomputers</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/supercomputer/supercomputers/hector" title="Special:FormEdit/supercomputer/supercomputers/hector"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">HECToR</td></tr><tr><td colspan="2" style="text-align: center;"><img alt="hector phase3.jpg" src="/w/images/thumb/e/ea/hector_phase3.jpg/200px-hector_phase3.jpg" width="200" height="133" srcset="/w/images/thumb/e/ea/hector_phase3.jpg/300px-hector_phase3.jpg 1.5x, /w/images/thumb/e/ea/hector_phase3.jpg/400px-hector_phase3.jpg 2x"/></td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Sponsors</td><td><a href="/w/index.php?title=EPSRC&amp;action=edit&amp;redlink=1" class="new" title="EPSRC (page does not exist)">EPSRC</a>,<br/> <a href="/w/index.php?title=NERC&amp;action=edit&amp;redlink=1" class="new" title="NERC (page does not exist)">NERC</a>,<br/> <a href="/w/index.php?title=BBSRC&amp;action=edit&amp;redlink=1" class="new" title="BBSRC (page does not exist)">BBSRC</a></td></tr><tr><td class="label">Designers</td><td><a href="/w/index.php?title=Cray&amp;action=edit&amp;redlink=1" class="new" title="Cray (page does not exist)">Cray</a></td></tr><tr><td class="label">Operators</td><td><a href="/w/index.php?title=EPCC&amp;action=edit&amp;redlink=1" class="new" title="EPCC (page does not exist)">EPCC</a></td></tr><tr><td class="label">Introduction</td><td>October 2007</td></tr><tr><td class="label">Retired</td><td>March 24 2014</td></tr><tr><td class="label">Peak FLOPS</td><td>829 teraFLOPS</td></tr><tr><td class="label">Price</td><td>$85,000,000</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/supercomputers/archer" title="supercomputers/archer">ARCHER</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>HECToR</b> (<b>High-End Computing Terascale Resource</b>) was <a href="/w/index.php?title=terascale&amp;action=edit&amp;redlink=1" class="new" title="terascale (page does not exist)">terascale</a> <a href="/wiki/x86" title="x86">x86</a> <a href="/wiki/supercomputer" title="supercomputer">supercomputer</a> serving as the UK&#39;s primary academic research supercomputer. HECToR has been superseded by <a href="/wiki/supercomputers/archer" title="supercomputers/archer">ARCHER</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Phases"><span class="tocnumber">2</span> <span class="toctext">Phases</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Phase_1"><span class="tocnumber">2.1</span> <span class="toctext">Phase 1</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Phase_1b"><span class="tocnumber">2.1.1</span> <span class="toctext">Phase 1b</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#Phase_2"><span class="tocnumber">2.2</span> <span class="toctext">Phase 2</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Phase_2a"><span class="tocnumber">2.2.1</span> <span class="toctext">Phase 2a</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Phase_2b"><span class="tocnumber">2.2.2</span> <span class="toctext">Phase 2b</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Phase_3"><span class="tocnumber">2.3</span> <span class="toctext">Phase 3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#TOP500"><span class="tocnumber">3</span> <span class="toctext">TOP500</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>HECToR was a UK academic national supercomputer service funded by NERC, EPSRC, and BBSRC for the academic community. HECTor was deployed in a number of phases with each phase upgrading it to over double the performance.
+</p>
+<h2><span class="mw-headline" id="Phases">Phases</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=2" title="Edit section: Phases">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>HECToR underwent 5 major upgrades.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Cores </th>
+<th> Peak Compute
+</th></tr>
+<tr>
+<td> 11,328 </td>
+<td> 63.44 teraFLOPS
+</td></tr>
+<tr>
+<td> 12,288 </td>
+<td> 113.05 teraFLOPS
+</td></tr>
+<tr>
+<td> 22,656 </td>
+<td> 208.44 teraFLOPS
+</td></tr>
+<tr>
+<td> 44,544 </td>
+<td> 366.74 teraFLOPS
+</td></tr>
+<tr>
+<td> 90,112 </td>
+<td> 829.01 teraFLOPS
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Phase_1">Phase 1</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=3" title="Edit section: Phase 1">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Phase 1 was the initial system was based on the Cray XT4 (Rainier) system. The system comprised of 1416 compute blades across 60 cabinets. There are four sockets per blade. The processors are dual-core AMD Opteron operating at 2.8 GHz. There is 6 GB of memory per socket for a total system memory of 33.2 TiB. Rainier had a peak compute performance of 63.44 teraFLOPS.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Count
+</th></tr>
+<tr>
+<td> Nodes </td>
+<td> 1,416
+</td></tr>
+<tr>
+<td> CPUs </td>
+<td> 5,664
+</td></tr>
+<tr>
+<td> Cores </td>
+<td> 11,328
+</td></tr></tbody></table>
+<p>In addition to the computational nodes, there were 24 additional service blades with dual-socket dual-core processors that were used for facilitating the supercomputer services such as login, control, and network management.
+</p><p>The system relies on Cray SeaStar2 interconnect. There&#39;s one SeaStar2 chip for every two node which comes with 6 network links. The network implements a 3D-torus. The MPI point-to-point bandwidth is was 2.17 GB/s, with a minimum bi-section bandwidth of 4.1 TB/s, and with a node-to-node latency of around 6 μs.
+</p><p>The memory subsystem:
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Capacity
+</th></tr>
+<tr>
+<td> Direct attached storage </td>
+<td> 576 TiB
+</td></tr>
+<tr>
+<td> NAS storage </td>
+<td> 40 TiB
+</td></tr>
+<tr>
+<td> MAID storage </td>
+<td> 56 TiB
+</td></tr>
+<tr>
+<td> Tape drives </td>
+<td> 3 TiB
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="Phase_1b">Phase 1b</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=4" title="Edit section: Phase 1b">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The system was upgraded in August 2008 with a small vector system. 28 Cray X2 (Black Widow) vector compute nodes were added. Each node had 4 Cray vector processor. There are 32 GiB of memory for node for a total of 896 GiB of memory.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Count
+</th></tr>
+<tr>
+<td> Nodes </td>
+<td> 28
+</td></tr>
+<tr>
+<td> CPUs </td>
+<td> 112
+</td></tr></tbody></table>
+<p>With each vector processor capable of 25.6 gigaFLOPS, the new addition adds 2.87 teraFLOPS of compute to the existing system. The MPI point-to-point bandwidth is was 16 GB/s, with a minimum bi-section bandwidth of 254 GB/s, and with a node-to-node latency of around 4.6 μs.
+</p><p>The memory has also been upgraded.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Capacity
+</th></tr>
+<tr>
+<td> Direct attached storage </td>
+<td> 934 TiB
+</td></tr>
+<tr>
+<td> NAS storage </td>
+<td> 70 TiB
+</td></tr>
+<tr>
+<td> MAID storage </td>
+<td> 112 TiB
+</td></tr>
+<tr>
+<td> Tape drives </td>
+<td> 6 TiB
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Phase_2">Phase 2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=5" title="Edit section: Phase 2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:hector-2a-xt4.jpg" class="image"><img alt="" src="/w/images/thumb/d/d0/hector-2a-xt4.jpg/300px-hector-2a-xt4.jpg" width="300" height="225" class="thumbimage" srcset="/w/images/thumb/d/d0/hector-2a-xt4.jpg/450px-hector-2a-xt4.jpg 1.5x, /w/images/d/d0/hector-2a-xt4.jpg 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:hector-2a-xt4.jpg" class="internal" title="Enlarge"></a></div>Phase 2a</div></div></div><div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:hector-2a-cabinets.jpg" class="image"><img alt="" src="/w/images/thumb/5/5c/hector-2a-cabinets.jpg/300px-hector-2a-cabinets.jpg" width="300" height="201" class="thumbimage" srcset="/w/images/thumb/5/5c/hector-2a-cabinets.jpg/450px-hector-2a-cabinets.jpg 1.5x, /w/images/5/5c/hector-2a-cabinets.jpg 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:hector-2a-cabinets.jpg" class="internal" title="Enlarge"></a></div>Phase 2a</div></div></div>
+<h4><span class="mw-headline" id="Phase_2a">Phase 2a</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=6" title="Edit section: Phase 2a">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>HECToR phase two is a Cray XT4 system with a vector X2 system. The system comprises 1416 compute blades across 60 cabinets. Each blade incorporates four compute nodes. Within a compute node are quad-core AMD Opteron CPUs operating at 2.3 GHz along with 8 GB of memory for a total system memory of 44.25 TiB.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Count
+</th></tr>
+<tr>
+<td> Nodes </td>
+<td> 1,416
+</td></tr>
+<tr>
+<td> CPUs </td>
+<td> 5,664
+</td></tr>
+<tr>
+<td> Cores </td>
+<td> 22,656
+</td></tr></tbody></table>
+<p>With a total of 22,656 cores, the system has a peak compute performance of 208.4 teraFLOPS. In addition to the computational nodes, there are 24 additional blades with two dual-core processors per node which is used for various services such as login, control, and network management.
+</p><p>The system relies on Cray SeaStar2 interconnect. There&#39;s one SeaStar2 chip for every four nodes which comes with 6 network links. The network implements a 3D-torus. The MPI point-to-point bandwidth is was 2.17 GB/s, with a minimum bi-section bandwidth of 4.1 TB/s, and with a node-to-node latency of around 6 μs.
+</p><p>This system had an Cray X2 vector compute cluster with 28 nodes. There were 4 vector processors per node for a total of 112 processors. With each vector processor capable of 25.6 gigaFLOPS, the new addition adds 2.87 teraFLOPS of compute to the existing system. The MPI point-to-point bandwidth is was 16 GB/s, with a minimum bi-section bandwidth of 254 GB/s, and with a node-to-node latency of around 4.6 μs.
+</p><p>Storage systems
+</p>
+<ul><li> high-performance RAID: 934 TiB</li>
+<li> NAS (Network Attached Storage): 70 TiB</li>
+<li> MAID (Massive Array of Idle Disks): 112 TiB</li></ul>
+<h4><span class="mw-headline" id="Phase_2b">Phase 2b</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=7" title="Edit section: Phase 2b">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Phase 2b upgraded the system to a Cray XE6 comprising 464 blades across 20 cabinets. There are four nodes per blade. Each node is a dual-socket 12-core AMD Opteron Magny Cours CPUs operating at 2.1 GHz. 
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Count
+</th></tr>
+<tr>
+<td> Nodes </td>
+<td> 464
+</td></tr>
+<tr>
+<td> CPUs </td>
+<td> 3,712
+</td></tr>
+<tr>
+<td> Cores </td>
+<td> 44,544
+</td></tr></tbody></table>
+<p>There are 16 GiB of memory per socket for a total system memory of 58 TiB. With 44,544 cores, the system had a peak compute performance of 374.2 teraFLOPS. In addition to the computational nodes, there are 16 additional blades with two dual-core processors per node which is used for various services such as login, control, and network management.
+</p><p>The system relies on Cray Gemini interconnect. There&#39;s one Gemini chip for every two nodes which comes with 10 network links. The network implements a 3D-torus. The MPI point-to-point bandwidth is &gt;= 5 GB/s with a node-to-node latency of around 1-1.5μs.
+</p><p>Storage:
+</p>
+<ul><li> high-performance RAID disks: 596 TiB</li>
+<li> NAS (Network Attached Storage): 70 TiB</li>
+<li> MAID (Massive Array of Idle Disks): 168 TiB</li></ul>
+<h3><span class="mw-headline" id="Phase_3">Phase 3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=8" title="Edit section: Phase 3">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="/wiki/File:hector_phase3_cabs2.jpg" class="image"><img alt="" src="/w/images/thumb/3/3f/hector_phase3_cabs2.jpg/300px-hector_phase3_cabs2.jpg" width="300" height="169" class="thumbimage" srcset="/w/images/thumb/3/3f/hector_phase3_cabs2.jpg/450px-hector_phase3_cabs2.jpg 1.5x, /w/images/thumb/3/3f/hector_phase3_cabs2.jpg/600px-hector_phase3_cabs2.jpg 2x"/></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:hector_phase3_cabs2.jpg" class="internal" title="Enlarge"></a></div>Phase 3</div></div></div>
+<p>HECToR Phase 3 is a Cray XE6 supercomputer. The system comprises 704 compute blades across 30 cabinets. Each blade incorporates four compute nodes. Within a compute node are two 16-core <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> <a href="/wiki/amd/opteron" title="amd/opteron">Opteron</a> 2.3GHz <a href="/w/index.php?title=amd/cores/interlagos&amp;action=edit&amp;redlink=1" class="new" title="amd/cores/interlagos (page does not exist)">Interlagos</a>-based processors.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Type </th>
+<th> Count
+</th></tr>
+<tr>
+<td> Nodes </td>
+<td> 2,816
+</td></tr>
+<tr>
+<td> CPUs </td>
+<td> 5,632
+</td></tr>
+<tr>
+<td> Cores </td>
+<td> 90,112
+</td></tr></tbody></table>
+<p>There are 16 GiB of memory per socket for a total system memory of 88 TiB. With 90,112 cores, the system had a peak compute performance of 829 teraFLOPS. In addition to the computational nodes, there are 16 additional blades with two dual-core processors per node which is used for various services such as login, control, and network management.
+</p><p>The system relies on Cray Gemini interconnect. There&#39;s one Gemini chip for every two node which comes with 10 network links. The network implements a 3D-torus. The MPI point-to-point bandwidth is &gt;= 5 GB/s with a node-to-node latency of around 1-1.5μs.
+</p>
+<ul><li> high-performance RAID disks: &gt;1 PiB</li>
+<li> Network Attached Storage: 70 TiB</li>
+<li> MAID (Massive Array of Idle Disks): 168 TiB</li></ul>
+<h2><span class="mw-headline" id="TOP500">TOP500</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=supercomputers/hector&amp;action=edit&amp;section=9" title="Edit section: TOP500">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th> List </th>
+<th> Phase </th>
+<th> Rank </th>
+<th> Rmax </th>
+<th> Rpeak
+</th></tr>
+<tr>
+<td> 11/2007 </td>
+<td rowspan="4"> Phase 1 </td>
+<td> 17 </td>
+<td rowspan="4"> 54.6 </td>
+<td rowspan="4"> 63.4
+</td></tr>
+<tr>
+<td> 06/2008 </td>
+<td> 30
+</td></tr>
+<tr>
+<td> 11/2008 </td>
+<td> 47
+</td></tr>
+<tr>
+<td> 06/2009 </td>
+<td> 68
+</td></tr>
+<tr>
+<td> 11/2010 </td>
+<td rowspan="2"> Phase 2a </td>
+<td> 78 </td>
+<td rowspan="2"> 95.1 </td>
+<td rowspan="2"> 113.0
+</td></tr>
+<tr>
+<td> 06/2011 </td>
+<td> 94
+</td></tr>
+<tr>
+<td> 11/2009 </td>
+<td rowspan="2"> Phase 2b </td>
+<td> 20 </td>
+<td rowspan="2"> 174.1 </td>
+<td rowspan="2"> 208.4
+</td></tr>
+<tr>
+<td> 06/2010 </td>
+<td> 26
+</td></tr>
+<tr>
+<td> 06/2010 </td>
+<td rowspan="2"> Phase 2b </td>
+<td> 16 </td>
+<td rowspan="2"> 274.7 </td>
+<td rowspan="2"> 366.7
+</td></tr>
+<tr>
+<td> 11/2010 </td>
+<td> 25
+</td></tr>
+<tr>
+<td> 06/2011 </td>
+<td rowspan="9"> Phase 3 </td>
+<td> 24 </td>
+<td rowspan="9"> 660.2 </td>
+<td rowspan="9"> 829.0
+</td></tr>
+<tr>
+<td> 11/2011 </td>
+<td> 19
+</td></tr>
+<tr>
+<td> 06/2012 </td>
+<td> 32
+</td></tr>
+<tr>
+<td> 11/2012 </td>
+<td> 35
+</td></tr>
+<tr>
+<td> 06/2013 </td>
+<td> 41
+</td></tr>
+<tr>
+<td> 11/2013 </td>
+<td> 50
+</td></tr>
+<tr>
+<td> 06/2014 </td>
+<td> 59
+</td></tr>
+<tr>
+<td> 11/2014 </td>
+<td> 79
+</td></tr>
+<tr>
+<td> 06/2015 </td>
+<td> 105
+</td></tr></tbody></table>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:35491-0!*!0!!en!5!* and timestamp 20210420001029 and revision id 94140
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=supercomputers/hector&amp;oldid=94140">https://en.wikichip.org/w/index.php?title=supercomputers/hector&amp;oldid=94140</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/w/index.php?title=Category:all_supercomputers&amp;action=edit&amp;redlink=1" class="new" title="Category:all supercomputers (page does not exist)">all supercomputers</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:supercomputers-2Fhector" title="Special:Browse/:supercomputers-2Fhector">HECToR - Supercomputers</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/supercomputers/hector" title="Special:ExportRDF/supercomputers/hector">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Cray  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Cray" title="Special:SearchByProperty/:designer/Cray">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/w/index.php?title=Property:discontinuation_date&amp;action=edit&amp;redlink=1" class="new" title="Property:discontinuation date (page does not exist)">discontinuation date</a></td><td class="smwprops"><a href="/w/index.php?title=March_24_2014&amp;action=edit&amp;redlink=1" class="new" title="March 24 2014 (page does not exist)">March 24 2014</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:discontinuation-20date/March-2024-202014" title="Special:SearchByProperty/:discontinuation-20date/March-2024-202014">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/w/index.php?title=Property:introductory_date&amp;action=edit&amp;redlink=1" class="new" title="Property:introductory date (page does not exist)">introductory date</a></td><td class="smwprops"><a href="/w/index.php?title=October_2007&amp;action=edit&amp;redlink=1" class="new" title="October 2007 (page does not exist)">October 2007</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:introductory-20date/October-202007" title="Special:SearchByProperty/:introductory-20date/October-202007">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/w/index.php?title=Property:logo&amp;action=edit&amp;redlink=1" class="new" title="Property:logo (page does not exist)">logo</a></td><td class="smwprops"><a href="/wiki/File:hector_phase3.jpg" class="image" title="File:hector phase3.jpg"><img alt="File:hector phase3.jpg" src="/w/images/thumb/e/ea/hector_phase3.jpg/300px-hector_phase3.jpg" width="300" height="200" style="vertical-align: text-top" class="thumbborder" srcset="/w/images/thumb/e/ea/hector_phase3.jpg/450px-hector_phase3.jpg 1.5x, /w/images/thumb/e/ea/hector_phase3.jpg/600px-hector_phase3.jpg 2x"/></a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:logo/File:hector-20phase3.jpg" title="Special:SearchByProperty/:logo/File:hector-20phase3.jpg">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">HECToR  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/HECToR" title="Special:SearchByProperty/:name/HECToR">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/w/index.php?title=Property:operator&amp;action=edit&amp;redlink=1" class="new" title="Property:operator (page does not exist)">operator</a></td><td class="smwprops"><a href="/w/index.php?title=EPCC&amp;action=edit&amp;redlink=1" class="new" title="EPCC (page does not exist)">EPCC</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:operator/EPCC" title="Special:SearchByProperty/:operator/EPCC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:peak_flops_(double-precision)" title="Property:peak flops (double-precision)">peak flops (double-precision)</a></td><td class="smwprops">829,000,000,000,000 FLOPS (829,000,000,000 KFLOPS, 829,000,000 MFLOPS, 829,000 GFLOPS, 829 TFLOPS, 0.829 PFLOPS, 8.29e-4 EFLOPS, 8.29e-7 ZFLOPS)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:peak-20flops-20(double-2Dprecision)/8.29e%2B14-20FLOPS" title="Special:SearchByProperty/:peak-20flops-20(double-2Dprecision)/8.29e+14-20FLOPS">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:release_price" title="Property:release price">release price</a></td><td class="smwprops">$ 85,000,000.00 (€ 76,500,000.00, £ 68,850,000.00, ¥ 8,783,050,000.00)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:release-20price/-24-2085000000" title="Special:SearchByProperty/:release-20price/-24-2085000000">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/w/index.php?title=Property:sponsor&amp;action=edit&amp;redlink=1" class="new" title="Property:sponsor (page does not exist)">sponsor</a></td><td class="smwprops"><a href="/w/index.php?title=EPSRC&amp;action=edit&amp;redlink=1" class="new" title="EPSRC (page does not exist)">EPSRC</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:sponsor/EPSRC" title="Special:SearchByProperty/:sponsor/EPSRC">+</a></span>, <a href="/w/index.php?title=NERC&amp;action=edit&amp;redlink=1" class="new" title="NERC (page does not exist)">NERC</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:sponsor/NERC" title="Special:SearchByProperty/:sponsor/NERC">+</a></span> and <a href="/w/index.php?title=BBSRC&amp;action=edit&amp;redlink=1" class="new" title="BBSRC (page does not exist)">BBSRC</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:sponsor/BBSRC" title="Special:SearchByProperty/:sponsor/BBSRC">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 19 April 2021, at 21:57.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":146});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=194-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>

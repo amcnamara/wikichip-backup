@@ -1,0 +1,1891 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("Added dummyfile: "+items[filename]);}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=194-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=194-3&cb=7', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=194-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=194-3&cb=10', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=194-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=194-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=194-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Gen9.5 - Microarchitectures - Intel - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"intel/microarchitectures/gen9.5","wgTitle":"intel/microarchitectures/gen9.5","wgCurRevisionId":96775,"wgRevisionId":96775,"wgArticleId":16597,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["gpu microarchitectures by intel","microarchitectures by intel","all microarchitectures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"intel/microarchitectures/gen9.5","wgRelevantArticleId":16597,"wgRequestId":"702c2cd5e54b31108795b00e","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"intel/microarchitectures/gen9.5_lp","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/intel/microarchitectures/gen9.5"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.cite.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="intel/microarchitectures/gen9.5" href="/w/index.php?title=Special:ExportRDF/intel/microarchitectures/gen9.5&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/intel/microarchitectures/gen9.5"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Gen9.5 - Microarchitectures - Intel - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Gen9.5 (Generation 9.5) is the microarchitecture for Intel&#39;s graphics processing unit utilized by Kaby Lake-based, Coffee Lake-based, Comet Lake-based,and Goldmont Plus-based microprocessors. Gen9.5 is the successor to Gen9 used by Skylake and introduces a number of light enhancements."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/intel/microarchitectures/gen9.5_lp"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"bf851a16-f289-49a1-786b-e3d6c7619173","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":107528,"response_time_orig":188,"serverid":"184.73.117.217:28238","state":"VA","t_epoch":1619115581,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/intel/microarchitectures/gen9.5_lp","user_id":0,"word_count":3953,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script src="//www.ezojs.com/ezoic/ezd.js" defer async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["bf851a16-f289-49a1-786b-e3d6c7619173", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-intel_microarchitectures_gen9_5 rootpage-intel skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/intel/microarchitectures/gen9.5">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:intel/microarchitectures/gen9.5"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=intel%2Fmicroarchitectures%2Fgen9.5"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/intel/microarchitectures/gen9.5"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/intel/microarchitectures/gen9.5"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;oldid=96775"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:intel-2Fmicroarchitectures-2Fgen9.5"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Gen9.5 - Microarchitectures - Intel    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/intel" title="intel">intel</a>‎ | <a href="/wiki/intel/microarchitectures" title="intel/microarchitectures">microarchitectures</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=intel/microarchitectures/gen9.5_lp&amp;redirect=no" class="mw-redirect" title="intel/microarchitectures/gen9.5 lp">intel/microarchitectures/gen9.5 lp</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/intel/microarchitectures/gen9.5" title="Special:FormEdit/microarchitecture/intel/microarchitectures/gen9.5"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Gen9.5 µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">GPU</td></tr><tr><td class="label">Designer</td><td class="value">Intel</td></tr><tr><td class="label">Manufacturer</td><td class="value">Intel</td></tr><tr><td class="label">Introduction</td><td class="value">August 30, 2016</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm</a></td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/intel/microarchitectures/gen9" title="intel/microarchitectures/gen9">Gen9</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/intel/microarchitectures/gen10" title="intel/microarchitectures/gen10">Gen10</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>Gen9.5</b> (<i>Generation 9.5</i>) is the <a href="/wiki/microarchitecture" title="microarchitecture">microarchitecture</a> for <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s <a href="/w/index.php?title=graphics_processing_unit&amp;action=edit&amp;redlink=1" class="new" title="graphics processing unit (page does not exist)">graphics processing unit</a> utilized by <a href="/wiki/intel/microarchitectures/kaby_lake" title="intel/microarchitectures/kaby lake">Kaby Lake</a>-based, <a href="/wiki/intel/microarchitectures/coffee_lake" title="intel/microarchitectures/coffee lake">Coffee Lake</a>-based, <a href="/wiki/intel/microarchitectures/comet_lake" title="intel/microarchitectures/comet lake">Comet Lake</a>-based,and <a href="/wiki/intel/microarchitectures/goldmont_plus" title="intel/microarchitectures/goldmont plus">Goldmont Plus</a>-based microprocessors. Gen9.5 is the successor to <a href="/wiki/intel/microarchitectures/gen9" title="intel/microarchitectures/gen9">Gen9</a> used by <a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a> and introduces a number of light enhancements.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Codenames"><span class="tocnumber">1</span> <span class="toctext">Codenames</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Models"><span class="tocnumber">2</span> <span class="toctext">Models</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Performance"><span class="tocnumber">3</span> <span class="toctext">Performance</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Hardware_Accelerated_Video"><span class="tocnumber">4</span> <span class="toctext">Hardware Accelerated Video</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Process_Technology"><span class="tocnumber">5</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Architecture"><span class="tocnumber">6</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Key_changes_from_Gen9"><span class="tocnumber">6.1</span> <span class="toctext">Key changes from Gen9</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Block_Diagram"><span class="tocnumber">6.2</span> <span class="toctext">Block Diagram</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Entire_SoC_Overview"><span class="tocnumber">6.2.1</span> <span class="toctext">Entire SoC Overview</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Gen9.5"><span class="tocnumber">6.2.2</span> <span class="toctext">Gen9.5</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Individual_Core"><span class="tocnumber">6.2.3</span> <span class="toctext">Individual Core</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Unslice"><span class="tocnumber">6.3</span> <span class="toctext">Unslice</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#Fixed-Function"><span class="tocnumber">6.3.1</span> <span class="toctext">Fixed-Function</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#3D_Pipeline_Stages"><span class="tocnumber">6.4</span> <span class="toctext">3D Pipeline Stages</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Slice"><span class="tocnumber">6.5</span> <span class="toctext">Slice</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Execution_Unit_.28EU.29"><span class="tocnumber">6.6</span> <span class="toctext">Execution Unit (EU)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#Preemption_Granularity"><span class="tocnumber">6.6.1</span> <span class="toctext">Preemption Granularity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#Display"><span class="tocnumber">6.7</span> <span class="toctext">Display</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#Multiple_Display_Planes_in_a_Pipe"><span class="tocnumber">6.7.1</span> <span class="toctext">Multiple Display Planes in a Pipe</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="#Scalability"><span class="tocnumber">7</span> <span class="toctext">Scalability</span></a>
+<ul>
+<li class="toclevel-2 tocsection-21"><a href="#GT1_.28ULP.29"><span class="tocnumber">7.1</span> <span class="toctext">GT1 (ULP)</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#GT1.5"><span class="tocnumber">7.2</span> <span class="toctext">GT1.5</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#GT2"><span class="tocnumber">7.3</span> <span class="toctext">GT2</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#GT3"><span class="tocnumber">7.4</span> <span class="toctext">GT3</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Halo_.28GT4.29"><span class="tocnumber">7.5</span> <span class="toctext">Halo (GT4)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#Configuration"><span class="tocnumber">8</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#Datasheets"><span class="tocnumber">9</span> <span class="toctext">Datasheets</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="#Programmer.27s_Reference_Manual"><span class="tocnumber">9.1</span> <span class="toctext">Programmer&#39;s Reference Manual</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Codenames">Codenames</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=1" title="Edit section: Codenames">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="floatright"><a href="/wiki/File:iris_graphics_logo.svg" class="image"><img alt="iris graphics logo.svg" src="/w/images/thumb/d/dc/iris_graphics_logo.svg/200px-iris_graphics_logo.svg.png" width="200" height="218" srcset="/w/images/thumb/d/dc/iris_graphics_logo.svg/300px-iris_graphics_logo.svg.png 1.5x, /w/images/thumb/d/dc/iris_graphics_logo.svg/400px-iris_graphics_logo.svg.png 2x"/></a></div>
+<p>Various models support different Graphics Tiers (GT) which provides different levels of performance. Some models also support an additional <a href="/w/index.php?title=eDRAM&amp;action=edit&amp;redlink=1" class="new" title="eDRAM (page does not exist)">eDRAM</a> side cache.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Code Name </th>
+<th> Description
+</th></tr>
+<tr>
+<td> GT1 </td>
+<td> Contains 1 slice with 12 execution units.
+</td></tr>
+<tr>
+<td> GT2 </td>
+<td> Contains 1 slice with 24 execution units.
+</td></tr>
+<tr>
+<td> GT3 </td>
+<td> Contains 2 slices with 48 execution units.
+</td></tr>
+<tr>
+<td> GT3e </td>
+<td> Contains 2 slices with 48 execution units. Has an additional <a href="/w/index.php?title=eDRAM&amp;action=edit&amp;redlink=1" class="new" title="eDRAM (page does not exist)">eDRAM</a> side cache.
+</td></tr>
+<tr>
+<td> Halo (GT4e) </td>
+<td> Contains 3 slices with 72 execution units. Has an additional <a href="/w/index.php?title=eDRAM&amp;action=edit&amp;redlink=1" class="new" title="eDRAM (page does not exist)">eDRAM</a> side cache.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Models">Models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=2" title="Edit section: Models">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable tc2 tc3">
+
+<tbody><tr>
+<th colspan="5"> Gen9.5 <a href="/wiki/IGP" class="mw-redirect" title="IGP">IGP</a> Models </th>
+<th colspan="9"> Standards
+</th></tr>
+<tr>
+<th rowspan="2"> Name </th>
+<th rowspan="2"> Execution Units </th>
+<th rowspan="2"> Tier </th>
+<th rowspan="2"> Series </th>
+<th rowspan="2"> eDRAM </th>
+<th colspan="2"> <a href="/w/index.php?title=Vulkan&amp;action=edit&amp;redlink=1" class="new" title="Vulkan (page does not exist)">Vulkan</a> </th>
+<th colspan="3"> <a href="/w/index.php?title=Direct3D&amp;action=edit&amp;redlink=1" class="new" title="Direct3D (page does not exist)">Direct3D</a> </th>
+<th colspan="2"> <a href="/w/index.php?title=OpenGL&amp;action=edit&amp;redlink=1" class="new" title="OpenGL (page does not exist)">OpenGL</a> </th>
+<th colspan="2"> <a href="/w/index.php?title=OpenCL&amp;action=edit&amp;redlink=1" class="new" title="OpenCL (page does not exist)">OpenCL</a>
+</th></tr>
+<tr>
+<td> Windows </td>
+<td> Linux </td>
+<td> Windows </td>
+<td> Linux </td>
+<td> <a href="/w/index.php?title=High_Level_Shading_Language&amp;action=edit&amp;redlink=1" class="new" title="High Level Shading Language (page does not exist)">HLSL</a> </td>
+<td> Windows </td>
+<td> Linux </td>
+<td> Windows </td>
+<td> Linux
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/uhd_graphics_600" class="mw-redirect" title="intel/uhd graphics 600">UHD Graphics 600</a> </td>
+<td> 12 </td>
+<td> GT1 </td>
+<td> <a href="/wiki/intel/cores/gemini_lake" title="intel/cores/gemini lake">Gemini Lake</a> </td>
+<td> - </td>
+<td rowspan="11" colspan="2" style="text-align: center;"> <b>1.1</b> </td>
+<td rowspan="11" style="text-align: center;"> <b>12</b> </td>
+<td rowspan="11" style="text-align: center;"> <b>N/A</b> </td>
+<td rowspan="11" style="text-align: center;"> <b>5.1</b> </td>
+<td rowspan="11" style="text-align: center;"> <b>4.5</b> </td>
+<td rowspan="11" style="text-align: center;"> <b>4.5</b> </td>
+<td rowspan="11" style="text-align: center;" colspan="1"> <b>2.1</b> </td>
+<td style="text-align: center;" rowspan="11"> <b>2.0</b>
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/uhd_graphics_605" class="mw-redirect" title="intel/uhd graphics 605">UHD Graphics 605</a> </td>
+<td> 18 </td>
+<td> GT1.5 </td>
+<td> <a href="/wiki/intel/cores/gemini_lake" title="intel/cores/gemini lake">Gemini Lake</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_610" title="intel/hd graphics 610">HD Graphics 610</a> </td>
+<td> 12 </td>
+<td> GT1 </td>
+<td> <a href="/wiki/intel/kaby_lake_s" class="mw-redirect" title="intel/kaby lake s">S</a>, <a href="/wiki/intel/kaby_lake_u" class="mw-redirect" title="intel/kaby lake u">U</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_615" title="intel/hd graphics 615">HD Graphics 615</a> </td>
+<td> 24 </td>
+<td> GT2</td>
+<td> <a href="/wiki/intel/kaby_lake_y" class="mw-redirect" title="intel/kaby lake y">Y</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_620" title="intel/hd graphics 620">HD Graphics 620</a> </td>
+<td> 24 </td>
+<td> GT2 </td>
+<td> <a href="/wiki/intel/kaby_lake_u" class="mw-redirect" title="intel/kaby lake u">U</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/uhd_graphics_620" class="mw-redirect" title="intel/uhd graphics 620">UHD Graphics 620</a> </td>
+<td> 24 </td>
+<td> GT2 </td>
+<td> <a href="/wiki/intel/kaby_lake_u" class="mw-redirect" title="intel/kaby lake u">U</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_630" title="intel/hd graphics 630">HD Graphics 630</a> </td>
+<td> 24 </td>
+<td> GT2 </td>
+<td> <a href="/wiki/intel/kaby_lake_s" class="mw-redirect" title="intel/kaby lake s">S</a>, <a href="/wiki/intel/kaby_lake_h" class="mw-redirect" title="intel/kaby lake h">H</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/uhd_graphics_630" class="mw-redirect" title="intel/uhd graphics 630">UHD Graphics 630</a> </td>
+<td> 23/24 </td>
+<td> GT2 </td>
+<td> <a href="/wiki/intel/coffee_lake_s" class="mw-redirect" title="intel/coffee lake s">S</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_p630" title="intel/hd graphics p630">HD Graphics P630</a> </td>
+<td> 24 </td>
+<td> GT2 </td>
+<td> <a href="/wiki/intel/kaby_lake_h" class="mw-redirect" title="intel/kaby lake h">H</a> </td>
+<td> -
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/iris_plus_graphics_640" title="intel/iris plus graphics 640">Iris Plus Graphics 640</a> </td>
+<td> 48 </td>
+<td> GT3e</td>
+<td> <a href="/wiki/intel/kaby_lake_u" class="mw-redirect" title="intel/kaby lake u">U</a> </td>
+<td> 64 MiB
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/iris_plus_graphics_650" title="intel/iris plus graphics 650">Iris Plus Graphics 650</a> </td>
+<td> 48 </td>
+<td> GT3e </td>
+<td> <a href="/wiki/intel/kaby_lake_u" class="mw-redirect" title="intel/kaby lake u">U</a> </td>
+<td> 64 MiB
+</td></tr></tbody></table>
+<p><br/>
+</p>
+<table class="wikitable" style="text-align: center;">
+<tbody><tr>
+<th> Model </th>
+<th> SKU </th>
+<th> EUs </th>
+<th> CPU Stepping<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[devID 1</a>]</sup> </th>
+<th> GT Stepping<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[devID 2</a>]</sup> </th>
+<th> Device2 ID<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[devID 3</a>]</sup> </th>
+<th> GT Device2 ID Revision<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[devID 4</a>]</sup>
+</th></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/intel/hd_graphics_610" title="intel/hd graphics 610">HD Graphics 610</a> </td>
+<td> KBL DT 2+1F </td>
+<td rowspan="2"> 12 </td>
+<td>  </td>
+<td>  </td>
+<td> 0x5902 </td>
+<td>
+</td></tr>
+<tr>
+<td> KBL U - ULT 2+1F  </td>
+<td>  </td>
+<td>  </td>
+<td> 0x5906 </td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_615" title="intel/hd graphics 615">HD Graphics 615</a> </td>
+<td> KBL Y - ULX 2+2 </td>
+<td rowspan="5"> 24 </td>
+<td>  </td>
+<td>  </td>
+<td> 0x591E </td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_620" title="intel/hd graphics 620">HD Graphics 620</a> </td>
+<td> KBL-U 2+2 </td>
+<td> H0 </td>
+<td> C0/B0 </td>
+<td> 0x5916 </td>
+<td> 0x2
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/uhd_graphics_620" class="mw-redirect" title="intel/uhd graphics 620">UHD Graphics 620</a> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> 0x5917 </td>
+<td>
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/intel/hd_graphics_630" title="intel/hd graphics 630">HD Graphics 630</a> </td>
+<td> KBL-S 4+2 </td>
+<td> B0 </td>
+<td> F0/C0  </td>
+<td> 0x5912 </td>
+<td> 0x4
+</td></tr>
+<tr>
+<td> KBL Halo 4+2 </td>
+<td>  </td>
+<td>  </td>
+<td> 0x591B </td>
+<td>
+</td></tr>
+<tr>
+<td rowspan="2"> <a href="/wiki/intel/uhd_graphics_630" class="mw-redirect" title="intel/uhd graphics 630">UHD Graphics 630</a> </td>
+<td> CFL-S 4+2 </td>
+<td rowspan="2"> 23/24 </td>
+<td> U0 </td>
+<td>  </td>
+<td> 0x3E91 </td>
+<td>
+</td></tr>
+<tr>
+<td> CFL-S 6+2 </td>
+<td> U0 </td>
+<td>  </td>
+<td> 0x3E92 </td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/hd_graphics_p630" title="intel/hd graphics p630">HD Graphics P630</a> </td>
+<td> KBL WKS 4+2 </td>
+<td> 24 </td>
+<td>  </td>
+<td>  </td>
+<td> 0x591D </td>
+<td>
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/iris_plus_graphics_640" title="intel/iris plus graphics 640">Iris Plus Graphics 640</a> </td>
+<td> KBL-U 2+3 </td>
+<td rowspan="2"> 48 </td>
+<td>  J1 </td>
+<td> D1/B1 </td>
+<td> 0x5926 </td>
+<td> 0x6
+</td></tr>
+<tr>
+<td> <a href="/wiki/intel/iris_plus_graphics_650" title="intel/iris plus graphics 650">Iris Plus Graphics 650</a> </td>
+<td> KBL U - ULT 2+3E (28W) </td>
+<td>  </td>
+<td>  </td>
+<td> 0x5927 </td>
+<td>
+</td></tr></tbody></table>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">The CPU Stepping is the actual CPU design stepping.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">The GT Stepping refers to the GT design stepping.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">The Device2 ID is the PCI device ID that identifies the GT SKU for driver software</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">The GT Device2 Revision ID identifies the silicon stepping for driver software.</span>
+</li>
+</ol>
+<h2><span class="mw-headline" id="Performance">Performance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=3" title="Edit section: Performance">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="overflow-x: auto;">
+<table class="wikitable" style="text-align: center; white-space: nowrap;">
+<tbody><tr>
+<th rowspan="2"> Frequency </th>
+<th colspan="12"> Peak Performance
+</th></tr>
+<tr>
+<th rowspan="13">   </th>
+<th colspan="3"> Half Precision </th>
+<th rowspan="13">   </th>
+<th colspan="3"> Single Precision </th>
+<th rowspan="13">   </th>
+<th colspan="3"> Double Precision
+</th></tr>
+<tr>
+<td> Models </td>
+<td> <a href="/wiki/intel/hd_graphics_610" title="intel/hd graphics 610">610</a> </td>
+<td> <a href="/wiki/intel/hd_graphics_615" title="intel/hd graphics 615">615</a>, <a href="/wiki/intel/hd_graphics_620" title="intel/hd graphics 620">620</a>, <a href="/wiki/intel/hd_graphics_630" title="intel/hd graphics 630">630</a>, <a href="/wiki/intel/hd_graphics_p630" title="intel/hd graphics p630">P630</a> </td>
+<td> <a href="/wiki/intel/iris_plus_graphics_640" title="intel/iris plus graphics 640">640</a>, <a href="/wiki/intel/iris_plus_graphics_650" title="intel/iris plus graphics 650">650</a> </td>
+<td> <a href="/wiki/intel/hd_graphics_610" title="intel/hd graphics 610">610</a> </td>
+<td> <a href="/wiki/intel/hd_graphics_615" title="intel/hd graphics 615">615</a>, <a href="/wiki/intel/hd_graphics_620" title="intel/hd graphics 620">620</a>, <a href="/wiki/intel/hd_graphics_630" title="intel/hd graphics 630">630</a>, <a href="/wiki/intel/hd_graphics_p630" title="intel/hd graphics p630">P630</a> </td>
+<td> <a href="/wiki/intel/iris_plus_graphics_640" title="intel/iris plus graphics 640">640</a>, <a href="/wiki/intel/iris_plus_graphics_650" title="intel/iris plus graphics 650">650</a> </td>
+<td> <a href="/wiki/intel/hd_graphics_610" title="intel/hd graphics 610">610</a> </td>
+<td> <a href="/wiki/intel/hd_graphics_615" title="intel/hd graphics 615">615</a>, <a href="/wiki/intel/hd_graphics_620" title="intel/hd graphics 620">620</a>, <a href="/wiki/intel/hd_graphics_630" title="intel/hd graphics 630">630</a>, <a href="/wiki/intel/hd_graphics_p630" title="intel/hd graphics p630">P630</a> </td>
+<td> <a href="/wiki/intel/iris_plus_graphics_640" title="intel/iris plus graphics 640">640</a>, <a href="/wiki/intel/iris_plus_graphics_650" title="intel/iris plus graphics 650">650</a>
+</td></tr>
+<tr>
+<td> Tiers </td>
+<td> GT1 </td>
+<td> GT2 </td>
+<td> GT3e </td>
+<td> GT1 </td>
+<td> GT2 </td>
+<td> GT3e </td>
+<td>  GT1 </td>
+<td> GT2 </td>
+<td> GT3e
+</td></tr>
+<tr>
+<td> Ref (FLOP/clk) </td>
+<td> 384/cycle </td>
+<td> 768/cycle </td>
+<td> 1536/cycle </td>
+<td> 192/cycle </td>
+<td> 384/cycle </td>
+<td> 768/cycle </td>
+<td> 48/cycle </td>
+<td> 96/cycle </td>
+<td> 192/cycle
+</td></tr>
+<tr>
+<td> Base (300 MHz) </td>
+<td> 115.2 <a href="/w/index.php?title=GFLOPS&amp;action=edit&amp;redlink=1" class="new" title="GFLOPS (page does not exist)">GFLOPS</a> </td>
+<td> 230.4 GFLOPS </td>
+<td> 460.8 GFLOPS </td>
+<td> 57.6 GFLOPS </td>
+<td> 115.2 GFLOPS </td>
+<td> 230.4 GFLOPS </td>
+<td> 14.4 GFLOPS </td>
+<td> 28.8 GFLOPS </td>
+<td> 38.7 GFLOPS
+</td></tr>
+<tr>
+<td> Base (350 MHz) </td>
+<td> 134.4 GFLOPS </td>
+<td> 268.8 GFLOPS </td>
+<td> 537.6 GFLOPS </td>
+<td> 67.2 GFLOPS </td>
+<td> 134.4 GFLOPS </td>
+<td> 268.8 GFLOPS </td>
+<td> 16.8 GFLOPS </td>
+<td> 33.6 GFLOPS </td>
+<td> 45.15 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (850 MHz) </td>
+<td> 326.4 GFLOPS </td>
+<td> 652.8 GFLOPS </td>
+<td> 1,305.6 GFLOPS </td>
+<td> 163.2 GFLOPS </td>
+<td> 326.4 GFLOPS </td>
+<td> 652.8 GFLOPS </td>
+<td> 40.8 GFLOPS </td>
+<td> 81.6 GFLOPS </td>
+<td> 109.65 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (900 MHz) </td>
+<td> 345.6 GFLOPS </td>
+<td> 691.2 GFLOPS </td>
+<td> 1,382.4 GFLOPS </td>
+<td> 172.8 GFLOPS </td>
+<td> 345.6 GFLOPS </td>
+<td> 691.2 GFLOPS </td>
+<td> 43.2 GFLOPS </td>
+<td> 86.4 GFLOPS </td>
+<td> 116.1 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (950 MHz) </td>
+<td> 364.8 GFLOPS </td>
+<td> 729.6 GFLOPS </td>
+<td> 1,459.2 GFLOPS </td>
+<td> 182.4 GFLOPS </td>
+<td> 364.8 GFLOPS </td>
+<td> 729.6 GFLOPS </td>
+<td> 45.6 GFLOPS </td>
+<td> 91.2 GFLOPS </td>
+<td> 122.55 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (1,000 MHz) </td>
+<td> 384 GFLOPS </td>
+<td> 768 GFLOPS </td>
+<td> 1,536 GFLOPS </td>
+<td> 192 GFLOPS </td>
+<td> 384 GFLOPS </td>
+<td> 768 GFLOPS </td>
+<td> 48 GFLOPS </td>
+<td> 96 GFLOPS </td>
+<td> 129 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (1,050 MHz) </td>
+<td> 403.2 GFLOPS </td>
+<td> 806.4 GFLOPS </td>
+<td> 1,612.8 GFLOPS </td>
+<td> 201.6 GFLOPS </td>
+<td> 403.2 GFLOPS </td>
+<td> 806.4 GFLOPS </td>
+<td> 50.4 GFLOPS </td>
+<td> 100.8 GFLOPS </td>
+<td> 135.45 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (1,100 MHz) </td>
+<td> 422.4 GFLOPS </td>
+<td> 844.8 GFLOPS </td>
+<td> 1,689.6 GFLOPS </td>
+<td> 211.2 GFLOPS </td>
+<td> 422.4 GFLOPS </td>
+<td> 844.8 GFLOPS </td>
+<td> 52.8 GFLOPS </td>
+<td> 105.6 GFLOPS </td>
+<td> 141.9 GFLOPS
+</td></tr>
+<tr>
+<td> Boost (1,150 MHz) </td>
+<td> 441.6 GFLOPS </td>
+<td> 883.2 GFLOPS </td>
+<td> 1,766.4 GFLOPS </td>
+<td> 220.8 GFLOPS </td>
+<td> 441.6 GFLOPS </td>
+<td> 883.2 GFLOPS </td>
+<td> 55.2 GFLOPS </td>
+<td> 110.4 GFLOPS </td>
+<td> 148.35 GFLOPS
+</td></tr></tbody></table>
+</div>
+<h2><span class="mw-headline" id="Hardware_Accelerated_Video">Hardware Accelerated Video</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=4" title="Edit section: Hardware Accelerated Video">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th colspan="8"> <span style="float: left; margin-right: 4px; font-size: .7em;"><a href="/wiki/Template:kaby_lake_hardware_accelerated_video_table" title="Template:kaby lake hardware accelerated video table">[Edit]</a></span> <a href="/wiki/intel/microarchitectures/kaby_lake" title="intel/microarchitectures/kaby lake">Kaby Lake</a> (<strong class="selflink">Gen9.5</strong>) Hardware Accelerated Video Capabilities
+</th></tr>
+<tr>
+<th rowspan="2"> Codec </th>
+<th colspan="3"> Encode </th>
+<th colspan="3"> Decode
+</th></tr>
+<tr>
+<th> Profiles </th>
+<th> Levels </th>
+<th> Max Resolution </th>
+<th> Profiles </th>
+<th> Levels </th>
+<th> Max Resolution
+</th></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-2&amp;action=edit&amp;redlink=1" class="new" title="MPEG-2 (page does not exist)">MPEG-2</a> (H.262) </td>
+<td> Main </td>
+<td> High </td>
+<td> 1080p (FHD) </td>
+<td> Main </td>
+<td> Main, High </td>
+<td> 1080p (FHD)
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=MPEG-4_AVC&amp;action=edit&amp;redlink=1" class="new" title="MPEG-4 AVC (page does not exist)">MPEG-4 AVC</a> (H.264) </td>
+<td> High, Main </td>
+<td> 5.1 </td>
+<td> 2160p (4K) </td>
+<td> Main, High, MVC, Stereo </td>
+<td> 5.1 </td>
+<td> 2160p (4K)
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=JPEG&amp;action=edit&amp;redlink=1" class="new" title="JPEG (page does not exist)">JPEG</a>/<a href="/w/index.php?title=MJPEG&amp;action=edit&amp;redlink=1" class="new" title="MJPEG (page does not exist)">MJPEG</a> </td>
+<td> Baseline </td>
+<td> - </td>
+<td> 16k x 16k </td>
+<td> Baseline </td>
+<td> Unified </td>
+<td> 16k x 16k
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=HEVC&amp;action=edit&amp;redlink=1" class="new" title="HEVC (page does not exist)">HEVC</a> (H.265) </td>
+<td> Main, Main 10 </td>
+<td> 5.1 </td>
+<td> 2160p (4K) </td>
+<td> Main, Main 10 </td>
+<td> 5.1 </td>
+<td> 2160p (4K)
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VC-1&amp;action=edit&amp;redlink=1" class="new" title="VC-1 (page does not exist)">VC-1</a> </td>
+<td style="background-color: #ffdad6; text-align: center;" colspan="3"> ✘ </td>
+<td> Advanced, Main, Simple </td>
+<td> 3, High, Simple </td>
+<td> 3840x3840
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VP8&amp;action=edit&amp;redlink=1" class="new" title="VP8 (page does not exist)">VP8</a> </td>
+<td> Unified </td>
+<td> Unified </td>
+<td> N/A </td>
+<td> 0  </td>
+<td> Unified </td>
+<td> 1080p
+</td></tr>
+<tr>
+<td> <a href="/w/index.php?title=VP9&amp;action=edit&amp;redlink=1" class="new" title="VP9 (page does not exist)">VP9</a> </td>
+<td> 0 </td>
+<td> </td>
+<td> 2160p (4K) </td>
+<td> 0, 2 </td>
+<td> Unified </td>
+<td> 2160p (4K)
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=5" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Main article: <a href="/wiki/intel/microarchitectures/kaby_lake#Process_Technology" title="intel/microarchitectures/kaby lake">Kaby Lake § Process Technology</a></i></dd></dl>
+<p>Gen9.5 are part of the Kaby Lake SoC die which uses an enhanced <a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14nm+ process</a>.
+</p>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=6" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Gen9.5 is very similar to <a href="/wiki/intel/microarchitectures/gen9" title="intel/microarchitectures/gen9">Gen9</a> with a number of enhancements.
+</p>
+<h3><span class="mw-headline" id="Key_changes_from_Gen9">Key changes from <a href="/wiki/intel/microarchitectures/gen9" title="intel/microarchitectures/gen9">Gen9</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=7" title="Edit section: Key changes from Gen9">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Enhanced &#34;14nm+&#34; process (while CPU cores base frequency was increased, GPU speed remains unchanged)
+<ul><li> Power consumption is reduced</li></ul></li>
+<li> Display block
+<ul><li> <a href="/w/index.php?title=Embedded_DisplayPort&amp;action=edit&amp;redlink=1" class="new" title="Embedded DisplayPort (page does not exist)">Embedded DisplayPort</a> (<a href="/w/index.php?title=eDP&amp;action=edit&amp;redlink=1" class="new" title="eDP (page does not exist)">eDP</a>) now supports eDP Standard 1.4 (From 1.3)</li></ul></li>
+<li> Unslice
+<ul><li> New native hardware support for 4K HEVC/VP9</li>
+<li> WiDi (Miracast) support has been enhanced</li>
+<li> VQE wider color gamma</li></ul></li>
+<li> DRM
+<ul><li> Support for Microsoft&#39;s PlayReady 3.0</li>
+<li> HDCP 2.2</li></ul></li></ul>
+<h3><span class="mw-headline" id="Block_Diagram">Block Diagram</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=8" title="Edit section: Block Diagram">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Entire_SoC_Overview">Entire SoC Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=9" title="Edit section: Entire SoC Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p><a href="/wiki/File:kaby_lake_soc_block_diagram.svg" class="image"><img alt="kaby lake soc block diagram.svg" src="/w/images/thumb/6/62/kaby_lake_soc_block_diagram.svg/900px-kaby_lake_soc_block_diagram.svg.png" width="900" height="327" srcset="/w/images/thumb/6/62/kaby_lake_soc_block_diagram.svg/1350px-kaby_lake_soc_block_diagram.svg.png 1.5x, /w/images/thumb/6/62/kaby_lake_soc_block_diagram.svg/1800px-kaby_lake_soc_block_diagram.svg.png 2x"/></a>
+</p>
+<h4><span class="mw-headline" id="Gen9.5">Gen9.5</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=10" title="Edit section: Gen9.5">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>This block is for the most common setup, which is GT2 with 24 execution units.
+</p><p><a href="/wiki/File:gen9_lp_gt2_block_diagram.svg" class="image"><img alt="gen9 lp gt2 block diagram.svg" src="/w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/900px-gen9_lp_gt2_block_diagram.svg.png" width="900" height="518" srcset="/w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/1350px-gen9_lp_gt2_block_diagram.svg.png 1.5x, /w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/1800px-gen9_lp_gt2_block_diagram.svg.png 2x"/></a>
+</p>
+<h4><span class="mw-headline" id="Individual_Core">Individual Core</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=11" title="Edit section: Individual Core">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>See <a href="/wiki/intel/microarchitectures/kaby_lake#Individual_Core" title="intel/microarchitectures/kaby lake">Kaby Lake#Individual_Core</a>.
+</p>
+<h3><span class="mw-headline" id="Unslice">Unslice</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=12" title="Edit section: Unslice">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="floatright"><a href="/wiki/File:gen9_lp_media_pipeline.svg" class="image"><img alt="gen9 lp media pipeline.svg" src="/w/images/thumb/9/93/gen9_lp_media_pipeline.svg/500px-gen9_lp_media_pipeline.svg.png" width="500" height="357" srcset="/w/images/thumb/9/93/gen9_lp_media_pipeline.svg/750px-gen9_lp_media_pipeline.svg.png 1.5x, /w/images/thumb/9/93/gen9_lp_media_pipeline.svg/1000px-gen9_lp_media_pipeline.svg.png 2x"/></a></div>
+<p>The Unslice is one of the major components and is responsible for the fixed-function geometry capabilities, fixed-function media capabilities, and it provides the interface to the memory fabric. One of the big changes in Gen9 was that the Unslice now sits on its own power/clock domain. This change allows the Unslice to operate at its own speed provided higher on-demand performance when desired. This change has a number of other benefits such as being able to turn off the slices (one or more) when they&#39;re not used in cases where pure fixed-function media is used. Additionally, the Unslice is now capable of running at a higher clock while the slice can run at a slower clock when the scenario demands it (such as in cases where higher fixed-function geometry or memory demands occur).
+</p><p>The <b>Command Stream</b> (<b>CS</b>) unit manages the the flow of execution for the FF Pipeline (3D Pipeline) and the Media pipelines. The CS unit performs the switching between pipelines and forwarding command streams to the different stages. Data in the pipeline are passed to the next unit using a messaging network. Messages can be passed directly through registers or by using the URB. The Command Stream also manages the allocation of the URB and supports the Constant URB Entry (CURB) function. The <b>Unified Return Buffer</b> (<b>URB</b>) is globally shared and is explicitly addressed. The pipeline&#39;s fixed-function blocks have both read and write access to the URB, additionally the shader cores have write access to the URB.
+</p><p>The <b>media general-purpose pipeline</b> consists of two fixed-function units: Video Front End (<b>VFE</b>) and the <b>Thread Spawner</b> (<b>TS</b>). The VFE unit handles the interfacing with the Command Streamer, writes thread payload data into the Unified Return Buffer, as well as prepares threads to be dispatched through TS unit. The VFE unit also contains the hardware <b>Variable Length Decode</b> (<b>VLD</b>) engine for MPEG-2 video decode. The TS unit is primarily responsible for interfacing with the <b>Thread Dispatcher</b> (<b>TD</b>) unit which is responsible for spawning new root-node parent threads originated from VFE unit and for spawning child threads (either leaf-node child threads or branch-node parent thread).
+</p>
+<h4><span class="mw-headline" id="Fixed-Function">Fixed-Function</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=13" title="Edit section: Fixed-Function">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="floatright"><a href="/wiki/File:gen9_multi-format_codec_(mfx).svg" class="image"><img alt="gen9 multi-format codec (mfx).svg" src="/w/images/thumb/4/4a/gen9_multi-format_codec_%28mfx%29.svg/350px-gen9_multi-format_codec_%28mfx%29.svg.png" width="350" height="57" srcset="/w/images/thumb/4/4a/gen9_multi-format_codec_%28mfx%29.svg/525px-gen9_multi-format_codec_%28mfx%29.svg.png 1.5x, /w/images/thumb/4/4a/gen9_multi-format_codec_%28mfx%29.svg/700px-gen9_multi-format_codec_%28mfx%29.svg.png 2x"/></a></div>
+<ul><li> <b>Multi-Format Codec</b> (<b>MFX</b>)
+<ul><li> HEVC Decode</li>
+<li> Support for HEVC &amp; VP8 in PAK (for encode)</li>
+<li> New fixed function within MFX for real-time  AVC encoding usages</li></ul></li></ul>
+<div class="floatright"><a href="/wiki/File:gen9_video_quality_engine_(vqe).svg" class="image"><img alt="gen9 video quality engine (vqe).svg" src="/w/images/thumb/b/bf/gen9_video_quality_engine_%28vqe%29.svg/300px-gen9_video_quality_engine_%28vqe%29.svg.png" width="300" height="72" srcset="/w/images/thumb/b/bf/gen9_video_quality_engine_%28vqe%29.svg/450px-gen9_video_quality_engine_%28vqe%29.svg.png 1.5x, /w/images/thumb/b/bf/gen9_video_quality_engine_%28vqe%29.svg/600px-gen9_video_quality_engine_%28vqe%29.svg.png 2x"/></a></div>
+<ul><li> <b>Video Quality Engine</b> (<b>VQE</b>)
+<ul><li> 16-bit processing path</li>
+<li> 5x5 spatial denoise filter</li>
+<li> Local Adaptive Contrast Enhancement (LACE)</li>
+<li> Camera processing features to allow high-resolution raw camera processing</li></ul></li></ul>
+<div class="floatright"><a href="/wiki/File:gen9_scalar_and_format_conv_(sfc).svg" class="image"><img alt="gen9 scalar and format conv (sfc).svg" src="/w/images/thumb/3/37/gen9_scalar_and_format_conv_%28sfc%29.svg/250px-gen9_scalar_and_format_conv_%28sfc%29.svg.png" width="250" height="82" srcset="/w/images/thumb/3/37/gen9_scalar_and_format_conv_%28sfc%29.svg/375px-gen9_scalar_and_format_conv_%28sfc%29.svg.png 1.5x, /w/images/thumb/3/37/gen9_scalar_and_format_conv_%28sfc%29.svg/500px-gen9_scalar_and_format_conv_%28sfc%29.svg.png 2x"/></a></div>
+<ul><li> <b>Scalar and Format Conversion</b> (<b>SFC</b>)
+<ul><li> Allows for inline format conversion &amp; upscaling or downscaling of imagest</li>
+<li> Can be coupled with decoder to allow high-quality video processing in the FF units in the unslice without utilizing the media sampler in the slices themselves.</li></ul></li></ul>
+<h3><span class="mw-headline" id="3D_Pipeline_Stages">3D Pipeline Stages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=14" title="Edit section: 3D Pipeline Stages">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th> Pipeline Stage </th>
+<th> Functions Performed
+</th></tr>
+<tr>
+<td> Command Stream (CS) </td>
+<td> The Command Stream stage is responsible for managing the 3D pipeline and passing commands down the pipeline. In addition, the CS unit reads “constant data” from memory
+<p>buffers and places it in the URB. Note that the CS stage is shared between the 3D, GPGPU and Media pipelines.
+</p>
+</td></tr>
+<tr>
+<td> Vertex Fetch (VF) </td>
+<td> The Vertex Fetch stage, in response to 3D Primitive Processing commands, is responsible for reading vertex data from memory, reformatting it, and writing the results into Vertex URB Entries. It then outputs primitives by passing references to the VUEs down the pipeline.
+</td></tr>
+<tr>
+<td> Vertex Shader (VS) </td>
+<td> The Vertex Shader stage is responsible for processing (shading) incoming vertices by passing them to VS threads.
+</td></tr>
+<tr>
+<td> Hull Shader (HS) </td>
+<td> The Hull Shader is responsible for processing (shading) incoming patch primitives as part of the tessellation process.
+</td></tr>
+<tr>
+<td> Tessellation Engine (TE) </td>
+<td> The Tessellation Engine is responsible for using tessellation factors (computed in the HS stage) to tessellate U,V parametric domains into domain point topologies.
+<p>Domain Shader (DS) The Domain Shader stage is responsible for processing (shading) the domain points (generated by the TE stage) into corresponding vertices.
+</p>
+</td></tr>
+<tr>
+<td> Geometry Shader (GS) </td>
+<td> The Geometry Shader stage is responsible for processing incoming objects by passing each object’s vertices to a GS thread.
+</td></tr>
+<tr>
+<td> Stream Output Logic (SOL) </td>
+<td> The Stream Output Logic is responsible for outputting incoming object vertices into Stream Out Buffers in memory.
+</td></tr>
+<tr>
+<td> Clipper (CLIP) </td>
+<td> The Clipper stage performs Clip Tests on incoming objects and clips objects if required. Objects are clipped using fixed-function hardware
+</td></tr>
+<tr>
+<td> Strip/Fan (SF) </td>
+<td> The Strip/Fan stage performs object setup. Object setup uses fixed-function hardware.
+</td></tr>
+<tr>
+<td> Windower/Masker (WM) </td>
+<td> The Windower/Masker performs object rasterization and determines visibility coverage
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Slice">Slice</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=15" title="Edit section: Slice">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Slices are a cluster of subslices. For most configurations in Gen9.5, 3 subslices are aggregated into 1 slice to form a total of 24 execution units (depending on the model, some low end models do have less). The slice incorporates the thread dispatch routine, level 3 cache (L3$), a highly banked shared local memory structure, fixed function logic for atomics and barriers, and a number of fixed-function units for various media capabilities. The <b>Global Thread Dispatcher</b> (<b>GTD</b>) is responsible for load balancing thread distribution across the entire device. The global thread dispatcher works in concert with local thread dispatchers in each subslice.
+</p>
+<h3><span class="mw-headline" id="Execution_Unit_.28EU.29">Execution Unit (EU)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=16" title="Edit section: Execution Unit (EU)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <b>Execution Units</b> (<b>EUs</b>) are the programmable <a href="/w/index.php?title=shader_units&amp;action=edit&amp;redlink=1" class="new" title="shader units (page does not exist)">shader units</a> - each one is an independent computational unit used for execution of 3D shaders, media, and <a href="/w/index.php?title=GPGPU&amp;action=edit&amp;redlink=1" class="new" title="GPGPU (page does not exist)">GPGPU</a> kernels. Internally, each unit is hardware multi-threaded capable of executing multi-issue <a href="/w/index.php?title=SIMD&amp;action=edit&amp;redlink=1" class="new" title="SIMD (page does not exist)">SIMD</a> operations. Execution is multi-issue per clock to pipelines capable of integer, single and double precision floating point operations, SIMD branch capability, logical operations, transcendental operations, and other miscellaneous operations. Communication between the EUs and the support units (shared function units such as operations involving texture sampling or scatter/gather load/stores) is done via messages that were programmatically constructed. Dependency hardware allows threads to sleep until the requested data is returned from those units.
+</p><p><b>Shared Functions</b> are hardware units that provide a set of specialized supplemental functionality for the EUs. As their name implies they implement functions with insufficient demand to justify the cost of being implemented in the individual EUs. Functionality in these units are shared among the EUs in the subslice. Communication between the EUs and the Shared Function is done via  lightweight message passing. Messages are a small self-contained packet of information created by a kernel and directed to a specific shared function. EU threads awaiting the return of a message from the Shared Function unit go into temporary sleep.
+</p><p>The Execution Unit is composed of 7 threads. Each thread has 128 SIMD-8 32-bit registers in a General-Purpose Register File (GRF) and supporting architecture specific registers (ARF). The EU can co-issue to four instruction processing units, including two FPUs, a branch unit, and a message send unit.
+</p><p><a href="/wiki/File:gen9_eu.svg" class="image"><img alt="gen9 eu.svg" src="/w/images/thumb/6/61/gen9_eu.svg/600px-gen9_eu.svg.png" width="600" height="509" srcset="/w/images/thumb/6/61/gen9_eu.svg/900px-gen9_eu.svg.png 1.5x, /w/images/thumb/6/61/gen9_eu.svg/1200px-gen9_eu.svg.png 2x"/></a>
+</p>
+<h4><span class="mw-headline" id="Preemption_Granularity">Preemption Granularity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=17" title="Edit section: Preemption Granularity">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Preemption in Gen9 (<a href="/wiki/intel/microarchitectures/skylake" class="mw-redirect" title="intel/microarchitectures/skylake">Skylake</a>) was improved over Gen8 in a number of way. Preemption is important for multi-tasking system and especially important for improving responsiveness of operations (i.e. the ability to stop and start operations quickly with minimal latency interruption for the end user). In <a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a> (<a href="/wiki/intel/microarchitectures/gen8" title="intel/microarchitectures/gen8">Gen8</a>) Intel added support for the ability to stop operations on object-level for 3D workloads such as on a triangle boundary (i.e. beginning of a triangle, between two triangles, between two lines  or points) and be able to preempt and restore back to those operations. In Gen9 Intel added the ability to stop execution units on an instruction boundary and be able to restore them (previously such preemption was only possible at the boundary of a kernel - i.e. the entire kernel execution must take places before preemption was possible). Gen9 added support for thread-group (complete kernel execution) to mid-thread (instruction boundary) for compute workloads: 
+</p><p>Example of responsiveness (Source: IDF15)
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th rowspan="2"> Application </th>
+<th colspan="2"> Thread-Group Preemption </th>
+<th colspan="2"> Mid-Thread Preemption
+</th></tr>
+<tr>
+<td> <a href="/wiki/intel/cores/kaby_lake_u" title="intel/cores/kaby lake u">U Series</a> </td>
+<td> <a href="/wiki/intel/cores/kaby_lake_y" title="intel/cores/kaby lake y">Y Series</a> </td>
+<td> <a href="/wiki/intel/cores/kaby_lake_u" title="intel/cores/kaby lake u">U Series</a> </td>
+<td> <a href="/wiki/intel/cores/kaby_lake_y" title="intel/cores/kaby lake y">Y Series</a>
+</td></tr>
+<tr>
+<td> Adobe Photoshop </td>
+<td> 4-6 ms </td>
+<td> 17-22 ms </td>
+<td> 300 µs </td>
+<td> 800 µs
+</td></tr>
+<tr>
+<td> Sample App1 </td>
+<td> 200-500 ms </td>
+<td> 200-500 ms </td>
+<td> 300 µs </td>
+<td> 280-320 µs
+</td></tr>
+<tr>
+<td> Sample App2 </td>
+<td> 17 ms </td>
+<td> 24 ms </td>
+<td> 240 µs </td>
+<td> 200-430 µs
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Display">Display</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=18" title="Edit section: Display">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The display has a memory interface (supporting high memory bandwidth coming directly to the display sub-system), a front-end that is responsible for sorting and sequencing the requests (as well as handling things such as rotated displays), and display pipes. The display pipes perform input format conversion, multi-plane composition, color conversion, and scaling the result. The final part of the display port are the prot encoders that convert the input form the display pipes to the appropriate standard used (DP/HDMI/eDP). A number of improvements in Gen9 in the display block were done with respect to the display pipes, specifically being able to consume lossless compression directly without doing any extra unnecessary conversion operations. Additionally the pipes now support render compressed surfaces, Y-tiled surfaces, and on the fly 90/270 rotations.
+</p><p><a href="/wiki/File:gen9_display_block.svg" class="image"><img alt="gen9 display block.svg" src="/w/images/thumb/d/d2/gen9_display_block.svg/650px-gen9_display_block.svg.png" width="650" height="321" srcset="/w/images/thumb/d/d2/gen9_display_block.svg/975px-gen9_display_block.svg.png 1.5x, /w/images/thumb/d/d2/gen9_display_block.svg/1300px-gen9_display_block.svg.png 2x"/></a>
+</p>
+<h4><span class="mw-headline" id="Multiple_Display_Planes_in_a_Pipe">Multiple Display Planes in a Pipe</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=19" title="Edit section: Multiple Display Planes in a Pipe">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="floatright"><a href="/wiki/File:gen9_display_planes_pipe.svg" class="image"><img alt="gen9 display planes pipe.svg" src="/w/images/thumb/5/55/gen9_display_planes_pipe.svg/550px-gen9_display_planes_pipe.svg.png" width="550" height="334" srcset="/w/images/thumb/5/55/gen9_display_planes_pipe.svg/825px-gen9_display_planes_pipe.svg.png 1.5x, /w/images/thumb/5/55/gen9_display_planes_pipe.svg/1100px-gen9_display_planes_pipe.svg.png 2x"/></a></div>
+<ul><li> Three plane sources + background
+<ul><li> All 3 are independent</li>
+<li> Fixed order (highest priority is plane3, lowest is background)</li>
+<li> Planes can be:
+<ul><li> YUV video</li>
+<li> RGB windows/desktop</li></ul></li>
+<li> Fixed visual priority/blending order</li>
+<li> Color correction of result</li>
+<li> Two 7x5 scalers
+<ul><li> Bind to individual planes or pipe output</li></ul></li></ul></li>
+<li> Intended to support various OS features such as
+<ul><li> Microsoft&#39;s MPO (Multiplane overlay support)</li>
+<li> Android&#39;s SurfaceFlinger</li></ul></li></ul>
+<h2><span class="mw-headline" id="Scalability">Scalability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=20" title="Edit section: Scalability">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Gen9.5 can scale from 1 to 3 slices producing SKUs ranging from 12 to 72 execution units (note that the 12 EUs are formed from half a slice effectively).
+</p>
+<h3><span class="mw-headline" id="GT1_.28ULP.29">GT1 (ULP)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=21" title="Edit section: GT1 (ULP)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>GT1 is the most compact configuration offering two benefits: reduced cost and reduced power. GT1 is made of 1 slice containing 2 subslices with 6 EUs/subslice for a total of 12 EUs. With the scale-down, GT1 changes the ratio to 6:1 EU:sampler ratio. Note that this does retains the same ratio of 12 texels/clock and 8 pixels/clock at the backend. This configuration is better suited for some of the low power workload (e.g. ASTC-LDR+HDR, ETC1/2 compression). Note that software stack remains unchanged compared to the larger models.
+</p><p><a href="/wiki/File:gen9_lp_gt1_block_diagram.svg" class="image"><img alt="gen9 lp gt1 block diagram.svg" src="/w/images/thumb/2/28/gen9_lp_gt1_block_diagram.svg/600px-gen9_lp_gt1_block_diagram.svg.png" width="600" height="369" srcset="/w/images/thumb/2/28/gen9_lp_gt1_block_diagram.svg/900px-gen9_lp_gt1_block_diagram.svg.png 1.5x, /w/images/thumb/2/28/gen9_lp_gt1_block_diagram.svg/1200px-gen9_lp_gt1_block_diagram.svg.png 2x"/></a>
+</p>
+<h3><span class="mw-headline" id="GT1.5">GT1.5</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=22" title="Edit section: GT1.5">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>GT1.5, offers 3 subslices of 6 EUs each for a total of 18 EUs.
+</p><p><a href="/wiki/File:gen9_lp_gt1.5_block_diagram.svg" class="image"><img alt="gen9 lp gt1.5 block diagram.svg" src="/w/images/thumb/3/38/gen9_lp_gt1.5_block_diagram.svg/600px-gen9_lp_gt1.5_block_diagram.svg.png" width="600" height="369" srcset="/w/images/thumb/3/38/gen9_lp_gt1.5_block_diagram.svg/900px-gen9_lp_gt1.5_block_diagram.svg.png 1.5x, /w/images/thumb/3/38/gen9_lp_gt1.5_block_diagram.svg/1200px-gen9_lp_gt1.5_block_diagram.svg.png 2x"/></a>
+</p>
+<h3><span class="mw-headline" id="GT2">GT2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=23" title="Edit section: GT2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>GT2 is the standard configuration consisting of 1 slice with 3 subslices and 8 EU/subslice for a total of 24 EUs.
+</p><p><a href="/wiki/File:gen9_lp_gt2_block_diagram.svg" class="image"><img alt="gen9 lp gt2 block diagram.svg" src="/w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/600px-gen9_lp_gt2_block_diagram.svg.png" width="600" height="346" srcset="/w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/900px-gen9_lp_gt2_block_diagram.svg.png 1.5x, /w/images/thumb/1/18/gen9_lp_gt2_block_diagram.svg/1200px-gen9_lp_gt2_block_diagram.svg.png 2x"/></a>
+</p>
+<h3><span class="mw-headline" id="GT3">GT3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=24" title="Edit section: GT3">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>GT3 consists of 2 slices with 3 subslices in each and 8 EU/subslice for a total of 48 EUs.
+</p><p><a href="/wiki/File:gen9_lp_gt3_block_diagram.svg" class="image"><img alt="gen9 lp gt3 block diagram.svg" src="/w/images/thumb/8/82/gen9_lp_gt3_block_diagram.svg/700px-gen9_lp_gt3_block_diagram.svg.png" width="700" height="265" srcset="/w/images/thumb/8/82/gen9_lp_gt3_block_diagram.svg/1050px-gen9_lp_gt3_block_diagram.svg.png 1.5x, /w/images/thumb/8/82/gen9_lp_gt3_block_diagram.svg/1400px-gen9_lp_gt3_block_diagram.svg.png 2x"/></a>
+</p>
+<h3><span class="mw-headline" id="Halo_.28GT4.29">Halo (GT4)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=25" title="Edit section: Halo (GT4)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Codename Halo (GT4) is the most complex configuration offering the highest execution units count. Halo incorporates 3 slices with 3 subslices/slice and 8 EU/subslice for a total of 72 EUs.
+</p><p><a href="/wiki/File:gen9_lp_gt4_block_diagram.svg" class="image"><img alt="gen9 lp gt4 block diagram.svg" src="/w/images/thumb/7/7e/gen9_lp_gt4_block_diagram.svg/800px-gen9_lp_gt4_block_diagram.svg.png" width="800" height="225" srcset="/w/images/thumb/7/7e/gen9_lp_gt4_block_diagram.svg/1200px-gen9_lp_gt4_block_diagram.svg.png 1.5x, /w/images/thumb/7/7e/gen9_lp_gt4_block_diagram.svg/1600px-gen9_lp_gt4_block_diagram.svg.png 2x"/></a>
+</p>
+<h2><span class="mw-headline" id="Configuration">Configuration</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=26" title="Edit section: Configuration">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th colspan="7"> Configuration Attribute (Source: <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a>&#39;s Programmer&#39;s Ref Manual)
+</th></tr>
+<tr>
+<th rowspan="2"> Attribute </th>
+<th colspan="5"> Model
+</th></tr>
+<tr>
+<th> GT1F<br/>(1x2x6) </th>
+<th> GT1.5F<br/>(1x3x6) </th>
+<th> GT2<br/>(1x3x8) </th>
+<th> GT3<br/>(2x3x8)
+</th></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Global Attributes</b>
+</td></tr>
+<tr>
+<td>Slice count </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>Subslice Count </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>EU/Subslice </td>
+<td> 6 </td>
+<td> 6 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>EU count (total) </td>
+<td> 12 </td>
+<td> 18 </td>
+<td> 24 </td>
+<td> 48
+</td></tr>
+<tr>
+<td>Thread Count </td>
+<td> 7 </td>
+<td> 7 </td>
+<td> 7 </td>
+<td> 7
+</td></tr>
+<tr>
+<td>Thread Count (Total) </td>
+<td> 84 </td>
+<td> 126 </td>
+<td> 161 / 168 </td>
+<td> 329 / 336
+</td></tr>
+<tr>
+<td>FLOPs/Clk - Half Precision, MAD (peak) </td>
+<td> 384 </td>
+<td> 576 </td>
+<td> 736 / 768 </td>
+<td> 1504 / 1536
+</td></tr>
+<tr>
+<td>FLOPs/Clk - Single Precision, MAD (peak) </td>
+<td> 192 </td>
+<td> 288 </td>
+<td> 368 / 384 </td>
+<td> 752 / 768
+</td></tr>
+<tr>
+<td>FLOPs/Clk - Double Precision, MAD (peak) </td>
+<td> 48 </td>
+<td> 72 </td>
+<td> 92 / 96 </td>
+<td> 188 / 192
+</td></tr>
+<tr>
+<td>Unslice clocking (coupled/decoupled from Cr slice) </td>
+<td> coupled </td>
+<td> coupled </td>
+<td> coupled </td>
+<td> coupled
+</td></tr>
+<tr>
+<td>GTI / Ring Interfaces </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+<tr>
+<td>GTI bandwidth (bytes/unslice-clk) </td>
+<td> 64: R<br/>64: W </td>
+<td> 64: R<br/>64: W </td>
+<td> 64: R<br/>64: W </td>
+<td> 64: R<br/>64: W
+</td></tr>
+<tr>
+<td>eDRAM Support </td>
+<td> N/A </td>
+<td> N/A </td>
+<td> N/A </td>
+<td> 0, 64 MiB
+</td></tr>
+<tr>
+<td>Graphics Virtual Address Range </td>
+<td> 48 bit </td>
+<td> 48 bit </td>
+<td> 48 bit </td>
+<td> 48 bit
+</td></tr>
+<tr>
+<td>Graphics Physical Address Range </td>
+<td> 39 bit </td>
+<td> 39 bit </td>
+<td> 39 bit </td>
+<td> 39 bit
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Caches &amp; Dedicated Memories</b>
+</td></tr>
+<tr>
+<td>L3 Cache, total size (bytes) </td>
+<td> 384K </td>
+<td> 768K </td>
+<td> 768K </td>
+<td> 1536K
+</td></tr>
+<tr>
+<td>L3 Cache, bank count </td>
+<td> 2 </td>
+<td> 4 </td>
+<td> 4 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>L3 Cache, bandwidth (bytes/clk) </td>
+<td> 2x 64: R 2x 64: W </td>
+<td> 4x 64: R 4x 64: W </td>
+<td> 4x 64: R 4x 64: W </td>
+<td> 8x 64: R 8x 64: W
+</td></tr>
+<tr>
+<td>L3 Cache, D$ Size (Kbytes) </td>
+<td> 192K - 256K </td>
+<td> 512K </td>
+<td> 512K </td>
+<td> 1024K
+</td></tr>
+<tr>
+<td>URB Size (kbytes) </td>
+<td> 128K - 192K </td>
+<td> 384K </td>
+<td> 384K </td>
+<td> 768K
+</td></tr>
+<tr>
+<td>SLM Size (kbytes) </td>
+<td> 0, 128K </td>
+<td> 0, 192K </td>
+<td> 0, 192K </td>
+<td> 0, 384K
+</td></tr>
+<tr>
+<td>LLC/L4 size (bytes) </td>
+<td>  ~2MiB/CPU core </td>
+<td> ~2MiB/CPU core </td>
+<td> ~2MiB/CPU core </td>
+<td>  ~2MiB/CPU core
+</td></tr>
+<tr>
+<td>Instruction Cache (IC, bytes) </td>
+<td> 2x 48K </td>
+<td> 3x 48K </td>
+<td> 3x 48K </td>
+<td> 6x 48K
+</td></tr>
+<tr>
+<td>Color Cache (RCC, bytes) </td>
+<td> 24K </td>
+<td> 24K </td>
+<td> 24K </td>
+<td> 2x 24K
+</td></tr>
+<tr>
+<td>MSC Cache (MSC, bytes) </td>
+<td> 16K </td>
+<td> 16K </td>
+<td> 16K </td>
+<td> 2x 16K
+</td></tr>
+<tr>
+<td>HiZ Cache (HZC, bytes) </td>
+<td> 12K </td>
+<td> 12K </td>
+<td> 12K </td>
+<td> 2x 12K
+</td></tr>
+<tr>
+<td>Z Cache (RCZ, bytes) </td>
+<td> 32K </td>
+<td> 32K </td>
+<td> 32K </td>
+<td> 2x 32K
+</td></tr>
+<tr>
+<td>Stencil Cache (STC, bytes) </td>
+<td> 8K </td>
+<td> 8K </td>
+<td> 8K </td>
+<td> 2x 8K
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Instruction Issue Rates</b>
+</td></tr>
+<tr>
+<td>FMAD, SP (ops/EU/clk) </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>FMUL, SP (ops/EU/clk) </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>FADD, SP (ops/EU/clk) </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>MIN,MAX, SP (ops/EU/clk) </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>CMP, SP (ops/EU/clk) </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8 </td>
+<td> 8
+</td></tr>
+<tr>
+<td>INV, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>SQRT, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>RSQRT, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>LOG, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>EXP, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>POW, SP (ops/EU/clk) </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+<tr>
+<td>IDIV, SP (ops/EU/clk) </td>
+<td> 1-6 </td>
+<td> 1-6 </td>
+<td> 1-6 </td>
+<td> 1-6
+</td></tr>
+<tr>
+<td>TRIG, SP (ops/EU/clk) </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>FDIV, SP (ops/EU/clk) </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Load/Store</b>
+</td></tr>
+<tr>
+<td>Data Ports (HDC) </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>L3 Load/Store (dwords/clk) </td>
+<td> 2x 64 </td>
+<td> 3x 64 </td>
+<td> 3x 64 </td>
+<td> 6x 64
+</td></tr>
+<tr>
+<td>SLM Load/Store (dwords/clk) </td>
+<td> 2x 64 </td>
+<td> 3x 64 </td>
+<td> 3x 64 </td>
+<td> 6x 64
+</td></tr>
+<tr>
+<td>Atomic Inc, 32b - sequential addresses (dwords/clk) </td>
+<td> 2x 64 </td>
+<td> 3x 64 </td>
+<td> 3x 64 </td>
+<td> 6x 64
+</td></tr>
+<tr>
+<td>Atomic Inc, 32b - same address (dwords/clk) </td>
+<td> 2x 4 </td>
+<td> 3x 4 </td>
+<td> 3x 4 </td>
+<td> 6x 4
+</td></tr>
+<tr>
+<td>Atomic CmpWr, 32b - sequential addresses (dwords/clk) </td>
+<td> 2x 32 </td>
+<td> 3x 32 </td>
+<td> 3x 32 </td>
+<td> 6x 32
+</td></tr>
+<tr>
+<td>Atomic CmpWr, 32b - same address (dwords/clk) </td>
+<td> 2x 4 </td>
+<td> 3x 4 </td>
+<td> 3x 4 </td>
+<td> 6x 4
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>3D Attributes</b>
+</td></tr>
+<tr>
+<td>Geometry pipes </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+<tr>
+<td>Samplers (3D) </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>Texel Rate, point, 32b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, point, 64b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, point, 128b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, bilinear, 32b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, bilinear, 64b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, bilinear, 128b (tex/clk) </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>Texel Rate, trilinear, 32b (tex/clk) </td>
+<td> 8 </td>
+<td> 12 </td>
+<td> 12 </td>
+<td> 24
+</td></tr>
+<tr>
+<td>Texel Rate, trilinear, 64b (tex/clk) </td>
+<td> 4 </td>
+<td> 6 </td>
+<td> 6 </td>
+<td> 12
+</td></tr>
+<tr>
+<td>Texel Rate, trilinear, 128b (tex/clk) </td>
+<td> 1 </td>
+<td> 1.5 </td>
+<td> 1.5 </td>
+<td> 3
+</td></tr>
+<tr>
+<td>Texel Rate, aniso 2x, MIP Linear,, 32b (tex/clk) </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>Texel Rate, aniso 4x, MIP Linear,, 32b (tex/clk) </td>
+<td> 1 </td>
+<td> 1.5 </td>
+<td> 1.5 </td>
+<td> 3
+</td></tr>
+<tr>
+<td>Texel Rate, ansio 8x, MIP Linear,, 32b (tex/clk) </td>
+<td> 0.5 </td>
+<td> 0.75 </td>
+<td> 0.75 </td>
+<td> 1.5
+</td></tr>
+<tr>
+<td>Texel Rate, ansio 16x, MIP Linear,, 32b (tex/clk) </td>
+<td> 0.25 </td>
+<td> 0.375 </td>
+<td> 0.375 </td>
+<td> 0.75
+</td></tr>
+<tr>
+<td>HiZ Rate, (ppc) </td>
+<td> 64 </td>
+<td> 64 </td>
+<td> 64 </td>
+<td> 2x 64
+</td></tr>
+<tr>
+<td>IZ Rate, (ppc) </td>
+<td> 16 </td>
+<td> 16 </td>
+<td> 16 </td>
+<td> 2x 16
+</td></tr>
+<tr>
+<td>Stencil Rate (ppc) </td>
+<td> 64 </td>
+<td> 64 </td>
+<td> 64 </td>
+<td> 2x 64
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Media Attributes</b>
+</td></tr>
+<tr>
+<td>Samplers (media) </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 6
+</td></tr>
+<tr>
+<td>VDBox Instances </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>VEBox Instances </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>SFC Instances </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+<tr>
+<td colspan="7" style="background:#f2f7ff; text-align: center;"> <b>Display Attributes</b>
+</td></tr>
+<tr>
+<td>Display Pipes </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 3
+</td></tr>
+<tr>
+<td>Display Planes per Pipe </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 3 </td>
+<td> 3
+</td></tr>
+<tr>
+<td>DDI ports </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2 </td>
+<td> 2
+</td></tr>
+<tr>
+<td>eDP ports </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1 </td>
+<td> 1
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Datasheets">Datasheets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=27" title="Edit section: Datasheets">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Programmer.27s_Reference_Manual">Programmer&#39;s Reference Manual</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/microarchitectures/gen9.5&amp;action=edit&amp;section=28" title="Edit section: Programmer&#39;s Reference Manual">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol01-preface.pdf" title="File:intel-gfx-prm-osrc-kbl-vol01-preface.pdf">Volume 1: Preface</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol02a-commandreference-instructions.pdf" title="File:intel-gfx-prm-osrc-kbl-vol02a-commandreference-instructions.pdf">Volume 2a: Command Reference: Instructions (Command Opcodes)</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol02b-commandreference-enumerations.pdf" title="File:intel-gfx-prm-osrc-kbl-vol02b-commandreference-enumerations.pdf">Volume 2b: Command Reference: Enumerations</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol02c-commandreference-registers-part1.pdf" title="File:intel-gfx-prm-osrc-kbl-vol02c-commandreference-registers-part1.pdf">Volume 2c: Command Reference: Registers Part 1 – Registers A through L</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol02c-commandreference-registers-part2.pdf" title="File:intel-gfx-prm-osrc-kbl-vol02c-commandreference-registers-part2.pdf">Volume 2c: Command Reference: Registers Part 2 – Registers M through Z</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol02d-commandreference-structures.pdf" title="File:intel-gfx-prm-osrc-kbl-vol02d-commandreference-structures.pdf">Volume 2d: Command Reference: Structures</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol03-gpu_overview.pdf" title="File:intel-gfx-prm-osrc-kbl-vol03-gpu overview.pdf">Volume 3: GPU Overview</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol04-configurations.pdf" title="File:intel-gfx-prm-osrc-kbl-vol04-configurations.pdf">Volume 4: Configurations</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol05-memory_views.pdf" title="File:intel-gfx-prm-osrc-kbl-vol05-memory views.pdf">Volume 5: Memory Views</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol06-command_stream_programming.pdf" title="File:intel-gfx-prm-osrc-kbl-vol06-command stream programming.pdf">Volume 6: Command Stream Programming</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol07-3d_media_gpgpu.pdf" title="File:intel-gfx-prm-osrc-kbl-vol07-3d media gpgpu.pdf">Volume 7: 3D-Media-GPGPU</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol08-media_vdbox.pdf" title="File:intel-gfx-prm-osrc-kbl-vol08-media vdbox.pdf">Volume 8: Media VDBOX</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol09-media_vebox.pdf" title="File:intel-gfx-prm-osrc-kbl-vol09-media vebox.pdf">Volume 9: Media Video Enhancement (VEBOX) Engine</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol10-hevc.pdf" title="File:intel-gfx-prm-osrc-kbl-vol10-hevc.pdf">Volume 10: HEVC Codec Pipeline (HCP)</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol11-blitter.pdf" title="File:intel-gfx-prm-osrc-kbl-vol11-blitter.pdf">Volume 11: Blitter</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol12-display.pdf" title="File:intel-gfx-prm-osrc-kbl-vol12-display.pdf">Volume 12: Display</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol13-mmio.pdf" title="File:intel-gfx-prm-osrc-kbl-vol13-mmio.pdf">Volume 13: Memory-mapped Input/Output (MMIO)</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol14-observability.pdf" title="File:intel-gfx-prm-osrc-kbl-vol14-observability.pdf">Volume 14: Observability</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol15-sfc.pdf" title="File:intel-gfx-prm-osrc-kbl-vol15-sfc.pdf">Volume 15: Scaler Format Converter (SFC)</a></li>
+<li> <a href="/wiki/File:intel-gfx-prm-osrc-kbl-vol16-workarounds.pdf" title="File:intel-gfx-prm-osrc-kbl-vol16-workarounds.pdf">Volume 16: Workarounds</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:16597-0!*!0!!en!5!* and timestamp 20210422145350 and revision id 96775
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=intel/microarchitectures/gen9.5&amp;oldid=96775">https://en.wikichip.org/w/index.php?title=intel/microarchitectures/gen9.5&amp;oldid=96775</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:gpu_microarchitectures_by_intel" title="Category:gpu microarchitectures by intel">gpu microarchitectures by intel</a></li><li><a href="/wiki/Category:microarchitectures_by_intel" title="Category:microarchitectures by intel">microarchitectures by intel</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:intel-2Fmicroarchitectures-2Fgen9.5" title="Special:Browse/:intel-2Fmicroarchitectures-2Fgen9.5">Gen9.5 - Microarchitectures - Intel</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/intel/microarchitectures/gen9.5" title="Special:ExportRDF/intel/microarchitectures/gen9.5">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Gen9.5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Gen9.5" title="Special:SearchByProperty/:codename/Gen9.5">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Intel" title="Special:SearchByProperty/:designer/Intel">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">August 30, 2016  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/30-20August-202016" title="Special:SearchByProperty/:first-20launched/30-20August-202016">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">intel/microarchitectures/gen9.5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/intel-2Fmicroarchitectures-2Fgen9.5" title="Special:SearchByProperty/:full-20page-20name/intel-2Fmicroarchitectures-2Fgen9.5">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Intel" title="Special:SearchByProperty/:manufacturer/Intel">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture type</a></td><td class="smwprops">GPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/GPU" title="Special:SearchByProperty/:microarchitecture-20type/GPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Gen9.5  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Gen9.5" title="Special:SearchByProperty/:name/Gen9.5">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">14 nm (0.014 μm, 1.4e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/14-20nm" title="Special:SearchByProperty/:process/14-20nm">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 8 May 2020, at 16:40.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":131});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=194-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>

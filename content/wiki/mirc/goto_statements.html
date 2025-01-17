@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Goto Statements - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/goto statements" href="/w/index.php?title=Special:ExportRDF/mirc/goto_statements&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/goto_statements&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/goto_statements&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/goto_statements" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/goto_statements","wgTitle":"mirc/goto statements","wgCurRevisionId":10995,"wgRevisionId":10995,"wgArticleId":19,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/goto_statements","wgRelevantArticleId":19,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_goto_statements skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Goto Statements - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>Goto</b> is a command that allows you to jump unconditionally to a specific location within a procedure. Gotos can 'jump' forward or backward within a script but they may not leave the alias or event itself (they cannot jump to any calling routine as well). The goto command tells mIRC to jump to another line which matches a label.
+</p><p>Although in many cases the use of gotos can often lead to <a href="http://en.wikipedia.org/wiki/spaghetti-code" class="extiw" title="wikipedia:spaghetti-code">spaghetti-code</a>. and can usually be replaced with easier to read and follow <a href="/wiki/While_Loops_-_mIRC" title="While Loops - mIRC" class="mw-redirect">while statements</a> and <a href="/wiki/Conditional_statements_-_mIRC" title="Conditional statements - mIRC" class="mw-redirect">if statements</a>, it is still important to understand this command and have it in your toolbox.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Syntax"><span class="tocnumber">1</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Jumping"><span class="tocnumber">2</span> <span class="toctext">Jumping</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Conditional_transfer_of_control"><span class="tocnumber">3</span> <span class="toctext">Conditional transfer of control</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Goto_Loops"><span class="tocnumber">4</span> <span class="toctext">Goto Loops</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Random_Name_Example"><span class="tocnumber">5</span> <span class="toctext">Random Name Example</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Error_Handling"><span class="tocnumber">6</span> <span class="toctext">Error Handling</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Syntax">Syntax</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=1" title="Edit section: Syntax">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The goto command has the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">goto</span></a> label</span></pre>
+<p>A line is labeled using the following syntax:
+</p>
+<pre><span class="code_line">:label</span></pre>
+<p>The label has to start with the colon symbol (:) and must be a single word.&lt;/p&gt;
+</p>
+<h2><span class="mw-headline" id="Jumping">Jumping</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=2" title="Edit section: Jumping">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There is a neat difference in the way mIRC jumps backward and the way it jumps forward.
+To get mIRC to reach a goto label that is before the current position, mIRC must has seen that goto label, for example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>test</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>a == b<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"> &#160;:label</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">goto</span></a> label</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>displays "* /goto: 'label' not found (line N, script.mrc)"
+since the condition does not get executed, the goto label is not seen by mIRC.
+</p><p>Change the code to:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>test</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>a == a<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"> &#160;:label</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/inc" title="/inc - mIRC Command" style="text-decoration: none"><span class="mirc_command">  inc</span></a> -us <span class="mirc_variable">%test</span></span>
+<span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%test</span> == 2<span class="mirc_bracket">&#x29;</span> <span class="mirc_control">return</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">goto</span></a> label</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Now the goto is seen by mIRC and you should see&#160;%test being increased to 1 and then to 2.
+</p><p>To get mIRC to jump to a goto label that is after the current position, this is less strict: mIRC parse the code without executing it, which means it is basically parsing the code according to major rules defining the language, the '{', '}', '|' and newlines tokens. so considering the following:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>test</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">goto</span></a> label</span>
+<span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>a == b<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"> &#160;:label</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/inc" title="/inc - mIRC Command" style="text-decoration: none"><span class="mirc_command">  inc</span></a> -us <span class="mirc_variable">%test</span></span>
+<span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%test</span> == 2<span class="mirc_bracket">&#x29;</span> <span class="mirc_control">return</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">goto</span></a> label</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>The first /goto label statement gets mIRC to parse the rest as token, probably just words, and&#160;:label is found despite the if statement being false,&#160;%test is increased to 1 and then to 2, proving that the label is found from the first time with the first goto label (forward jump) and then backward since the label was found the first time.
+<h2><span class="mw-headline" id="Conditional_transfer_of_control">Conditional transfer of control</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=3" title="Edit section: Conditional transfer of control">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Many times you only want a script to go to a specific location according to a certain condition. You can use an if statement to achieve this. A simple syntax looks like this:
+</p>
+<pre><span class="code_line"><span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>&lt;condition&gt;<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command">  goto</span></a> label</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Goto_Loops">Goto Loops</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=4" title="Edit section: Goto Loops">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Goto statements can also be used to create a loop by jumping back to a previous location in the script. The example below is a simple loop counting from 1 to 10. If for any reason you mistakenly caused your script to execute endlessly, you manually break the loop using the Ctrl+Break keys.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>Count</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> &#160;:loop</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%c</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%c</span> + 1<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <span class="mirc_variable">%c</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%c</span> &lt;= 9<span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command"> goto</span></a> loop</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Random_Name_Example">Random Name Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=5" title="Edit section: Random Name Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Sometimes a goto can result in smaller code if we need a do-while style loop like other languages. A practical example of this is a random nickname generator which excludes us from the list. Such alias might look like this:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; precondition: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a>, 0<span class="mirc_bracket">&#x29;</span> &gt; 1</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>rnd</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"> &#160;:retry</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$rand" title="$rand - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$rand</span></a><span class="mirc_bracket">&#x28;</span>1, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a>, 0<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> == <a href="http://en.wikichip.org/wiki/mirc/identifiers/$me" title="$me - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$me</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/goto" title="/goto - mIRC Command" style="text-decoration: none"><span class="mirc_command"> goto</span></a> retry</span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Error_Handling">Error Handling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit&amp;section=6" title="Edit section: Error Handling">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Although it is rare to use this feature, the "error" label is a designated goto section for error checking.
+If there is an error in the script, mIRC try to find an&#160;:error label in the current routine.
+If no&#160;:error label is found in the current routine, mIRC will propagate the error backward to any calling routine and look for an&#160;:error label in those routines.
+</p><p><br />
+This gives you the ability to continue with the script at any point regardless of the error, if you want.
+</p><p><br />
+After catching an error with&#160;:error, you must check for an error by checking $error with a typical /if statement to make sure you reached the&#160;:error part because of an error and not because the script is just reaching that point.
+</p><p>If you want to keep going with the code, use /reseterror as soon as possible, this reset the error (and therefore $error's value), mIRC leaves the error state and you can safely execute anything you want.
+</p><p>If you don't use /reseterror, you can also use /return to tell mIRC to look for a different&#160;:error label in previous routines.
+If you don't use /reseterror or /return you must be careful:
+mIRC is in an error state, yet it must still process your code somehow to allow you to *at least* check for error and reset it, so the if statement feature probably always works, /echo itself also probably does always work but it's unclear what you can do and what you can't do. You would think that since mIRC is somehow forced to allow you to use the scripting engine to check for error and reset it, you could be able to do anything even without calling /reseterror first, this is not true (see examples), the exact list of features that are working in this situation are unknown, it's recommended not to do anything before using /reseterror in this situation.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/*  EXAMPLE 1</span></span>
+<span class="code_line"><span class="mirc_comment">    This typical example shows that after reaching&#160;:error and without using /reseterror, /echo itself works, but see the next example, a lot of simple operation might be done there.</span></span>
+<span class="code_line"><span class="mirc_comment">    Since we don't halt or reset the error, mIRC will display both our echo and its own error for $rand.</span></span>
+<span class="code_line"><span class="mirc_comment"> */</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>Example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$rand" title="$rand - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$rand</span></a><span class="mirc_bracket">&#x28;</span>1,<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">return</span></span>
+<span class="code_line"> &#160;:error</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a Error: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$error" title="$error - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$error</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment">/* EXAMPLE 2</span></span>
+<span class="code_line"><span class="mirc_comment">   In this case, we try to execute /echo again after a /if error, but on $regsubex, for some reasons, that $regsubex gets mIRC to silentely halts while inside a routine.</span></span>
+<span class="code_line"><span class="mirc_comment">   You should get the first echo 'ok' and an echo '&gt; $str&#x28;ab,2000&#x29;' is expected, but you shouldn't see it.</span></span>
+<span class="code_line"><span class="mirc_comment">   Use /reseterror first and it works as expected.</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>testgoto</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  <span class="mirc_control">if</span></span>
+<span class="code_line"> &#160;:error</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a ok |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a &gt; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$str" title="$str - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$str</span></a><span class="mirc_bracket">&#x28;</span>ab,2000<span class="mirc_bracket">&#x29;</span>,/<span class="mirc_bracket">&#x28;</span>a*<span class="mirc_bracket">&#x29;</span>b*<span class="mirc_bracket">&#x28;</span>a*<span class="mirc_bracket">&#x29;</span>*b/,<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment">/* EXAMPLE 3</span></span>
+<span class="code_line"><span class="mirc_comment">Although this example might look a little confusing, bear with me:</span></span>
+<span class="code_line"><span class="mirc_comment">Calling alias /Foo will echo what alias FooBar returns.</span></span>
+<span class="code_line"><span class="mirc_comment">Alias foobar will return what alias bar returns.</span></span>
+<span class="code_line"><span class="mirc_comment">Because alias bar errors out &#x28;since $mid is missing a few parameters&#x29;, mIRC will look for an&#160;:error label in alias Bar but won't find any.</span></span>
+<span class="code_line"><span class="mirc_comment">So it will look in the previous routine, the alias FooBar. an&#160;:error label is found in the alias FooBar.</span></span>
+<span class="code_line"><span class="mirc_comment">It is executed, echoing Error followed by the error message and returning 1000 to alias foo.</span></span>
+<span class="code_line"><span class="mirc_comment">The /reseterror command effectively prevents mIRC from halting the script and allows it to finish executing.</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>Foo</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$FooBar" title="$FooBar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$FooBar</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>Bar</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span> </span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>FooBar</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$Bar" title="$Bar - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$Bar</span></a><span class="mirc_bracket">&#x28;</span>Example<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"> &#160;:error</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> -a Error Using Value 1000 instead! <span class="mirc_bracket">&#x28;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$error" title="$error - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$error</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/reseterror" title="/reseterror - mIRC Command" style="text-decoration: none"><span class="mirc_command">  reseterror</span></a></span>
+<span class="code_line">  <span class="mirc_control">return</span> 1000</span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.040 seconds
+Real time usage: 0.043 seconds
+Preprocessor visited node count: 109/1000000
+Preprocessor generated node count: 256/1000000
+Post‐expand include size: 88/2097152 bytes
+Template argument size: 15/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.470      1 - -total
+100.00%    4.470      1 - Template:mirc_title
+ 35.01%    1.565      1 - Template:mIRC_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:19-0!*!0!!en!*!* and timestamp 20160404143239 and revision id 10995
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/goto_statements&amp;oldid=10995">http://en.wikichip.org/w/index.php?title=mirc/goto_statements&amp;oldid=10995</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fgoto+statements&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fgoto+statements" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/goto_statements"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/goto_statements&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/goto_statements" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/goto_statements&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/goto_statements&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/goto_statements" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/goto_statements" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/goto_statements&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/goto_statements&amp;oldid=10995" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/goto_statements&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Fgoto_statements" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 04:12.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":349});
+}</script>
+	</body>
+</html>

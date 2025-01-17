@@ -1,0 +1,788 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("markLoaded dummyfile: "+items[filename].name);}
+function logWhatsBlocked(){for(var i in items){if(items.hasOwnProperty(i)===false)continue;var item=items[i];isBlocked(item)}}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,logWhatsBlocked:logWhatsBlocked,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=195-3&cb=14', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=195-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=195-3&cb=12', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=4', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=195-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>ARMv1 - ARM - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"arm/armv1","wgTitle":"arm/armv1","wgCurRevisionId":50004,"wgRevisionId":50004,"wgArticleId":19268,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"arm/armv1","wgRelevantArticleId":19268,"wgRequestId":"adf1a6b71717c125211ba55f","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"ARMv1","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/arm/armv1"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="arm/armv1" href="/w/index.php?title=Special:ExportRDF/arm/armv1&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=arm/armv1&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=arm/armv1&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/arm/armv1"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="ARMv1 - ARM - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="ARMv1 is the first ARM instruction set version. Introduced with the ARM1 on April 26 1985, the ARMv1 defines a 32-bit ISA along with 26-bit addressing space. The ARMv1 was only implemented by the ARM1 and was replaced soon after by the ARM2. Only a few hundred of those chips were ever fabricated."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/ARMv1"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"b062720f-e6dd-4f46-5ed1-241b58118c45","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":55357,"response_time_orig":124,"serverid":"3.208.9.246:20919","state":"VA","t_epoch":1632861279,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/ARMv1","user_id":0,"word_count":1476,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["b062720f-e6dd-4f46-5ed1-241b58118c45", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-arm_armv1 rootpage-arm skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/arm/armv1">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:arm/armv1"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=arm/armv1&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=arm/armv1&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=arm%2Farmv1"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/arm/armv1"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/arm/armv1"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=arm/armv1&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=arm/armv1&amp;oldid=50004"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=arm/armv1&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:arm-2Farmv1"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    ARMv1 - ARM    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/arm" title="arm">arm</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=ARMv1&amp;redirect=no" class="mw-redirect" title="ARMv1">ARMv1</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="guidebox">
+<tbody><tr><td colspan="2"><span class="noprint plainlinks navbar" style="float:left;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:arm_isa_main" title="Template:arm isa main"><span style="" title="View this template">v</span></a><span style=""> <b>·</b> </span><a href="/wiki/Template:arm_isa_main" title="Template:arm isa main"><span style="" title="Discuss this template">d</span></a><span style=""> <b>·</b> </span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:arm_isa_main&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span></td></tr>
+<tr><td class="header-main" colspan="2"><a href="/wiki/arm" title="arm"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">ARM ISA</span></a></td></tr>
+<tr><td class="header" colspan="2">General</td></tr>
+<tr><td colspan="2">
+<ul><li> <a href="/wiki/arm/history" title="arm/history">History</a></li>
+<li> <a href="/wiki/arm/list_of_processor_families" title="arm/list of processor families">Families</a></li></ul>
+</td></tr>
+<tr><td class="header" colspan="2">Variants</td></tr>
+<tr><td colspan="2">
+<div class="wiki-ul-col3">
+<ul><li> <a href="/wiki/arm/26-bit_architectures" title="arm/26-bit architectures">26-bit</a></li>
+<li> <a href="/w/index.php?title=arm/aarch32&amp;action=edit&amp;redlink=1" class="new" title="arm/aarch32 (page does not exist)">32-bit</a></li>
+<li> <a href="/wiki/arm/aarch64" title="arm/aarch64">64-bit</a></li></ul>
+</div>
+</td></tr>
+<tr><td class="header" colspan="2">Extensions</td></tr>
+<tr><td colspan="2">
+<div class="wiki-ul-col3">
+<ul><li> <a href="/w/index.php?title=arm/arm&amp;action=edit&amp;redlink=1" class="new" title="arm/arm (page does not exist)">ARM</a></li>
+<li> <a href="/w/index.php?title=arm/thumb&amp;action=edit&amp;redlink=1" class="new" title="arm/thumb (page does not exist)">Thumb</a></li>
+<li> <a href="/wiki/arm/thumbee" title="arm/thumbee">ThumbEE</a></li>
+<li> <a href="/wiki/arm/jazelle" title="arm/jazelle">Jazelle</a></li>
+<li> <a href="/w/index.php?title=arm/vfp&amp;action=edit&amp;redlink=1" class="new" title="arm/vfp (page does not exist)">VFP</a></li>
+<li> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">Neon</a></li>
+<li> <a href="/wiki/arm/helium" title="arm/helium">Helium</a></li></ul>
+</div>
+</td></tr>
+
+
+<tr><td class="header" colspan="2">Topics</td></tr>
+<tr><td colspan="2">
+<ul><li> <a href="/w/index.php?title=arm/addressing_modes&amp;action=edit&amp;redlink=1" class="new" title="arm/addressing modes (page does not exist)">Addressing Modes</a></li>
+<li> <a href="/w/index.php?title=arm/registers&amp;action=edit&amp;redlink=1" class="new" title="arm/registers (page does not exist)">Registers</a></li>
+<li> <a href="/w/index.php?title=arm/assembly&amp;action=edit&amp;redlink=1" class="new" title="arm/assembly (page does not exist)">Assembly</a></li>
+<li> <a href="/w/index.php?title=arm/interrupts&amp;action=edit&amp;redlink=1" class="new" title="arm/interrupts (page does not exist)">Interrupts</a></li>
+<li> <a href="/w/index.php?title=arm/cpsr&amp;action=edit&amp;redlink=1" class="new" title="arm/cpsr (page does not exist)">CPSR</a></li>
+<li> <a href="/w/index.php?title=arm/modes&amp;action=edit&amp;redlink=1" class="new" title="arm/modes (page does not exist)">Modes</a></li>
+<li> <a href="/w/index.php?title=arm/calling_convention&amp;action=edit&amp;redlink=1" class="new" title="arm/calling convention (page does not exist)">Calling Convention</a></li>
+<li> <a href="/wiki/arm/microarchitectures" class="mw-redirect" title="arm/microarchitectures">Microarchitectures</a></li></ul>
+</td></tr>
+<tr><td class="header" colspan="2">Versions<small style="float: right;">(<a href="/wiki/arm/versions" title="arm/versions">all</a>)</small></td></tr>
+<tr><td colspan="2">
+<div class="wiki-ul-col3">
+<ul><li> <strong class="selflink">ARMv1</strong></li>
+<li> <a href="/wiki/arm/armv2" title="arm/armv2">ARMv2</a></li>
+<li> <a href="/w/index.php?title=arm/armv2a&amp;action=edit&amp;redlink=1" class="new" title="arm/armv2a (page does not exist)">ARMv2a</a></li>
+<li> <a href="/w/index.php?title=arm/armv3&amp;action=edit&amp;redlink=1" class="new" title="arm/armv3 (page does not exist)">ARMv3</a></li>
+<li> <a href="/w/index.php?title=arm/armv4&amp;action=edit&amp;redlink=1" class="new" title="arm/armv4 (page does not exist)">ARMv4</a></li>
+<li> <a href="/w/index.php?title=arm/armv5&amp;action=edit&amp;redlink=1" class="new" title="arm/armv5 (page does not exist)">ARMv5</a></li>
+<li> <a href="/w/index.php?title=arm/armv6&amp;action=edit&amp;redlink=1" class="new" title="arm/armv6 (page does not exist)">ARMv6</a></li>
+<li> <a href="/w/index.php?title=arm/armv7&amp;action=edit&amp;redlink=1" class="new" title="arm/armv7 (page does not exist)">ARMv7</a></li>
+<li> <a href="/wiki/arm/armv8" title="arm/armv8">ARMv8</a></li>
+<li> <a href="/wiki/arm/armv8.1" title="arm/armv8.1">ARMv8.1</a></li>
+<li> <a href="/w/index.php?title=arm/armv8.2&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.2 (page does not exist)">ARMv8.2</a></li>
+<li> <a href="/w/index.php?title=arm/armv8.3&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.3 (page does not exist)">ARMv8.3</a></li></ul>
+</div>
+</td></tr>
+</tbody></table>
+<p><b>ARMv1</b> is the first <a href="/wiki/ARM" class="mw-redirect" title="ARM">ARM</a> instruction set version. Introduced with the <a href="/wiki/acorn/arm1" class="mw-redirect" title="acorn/arm1">ARM1</a> on April 26 1985, the ARMv1 defines a <a href="/wiki/32-bit_architecture" title="32-bit architecture">32-bit</a> ISA along with <a href="/wiki/arm/26-bit" class="mw-redirect" title="arm/26-bit">26-bit addressing space</a>. The ARMv1 was only implemented by the <a href="/wiki/acorn/arm1" class="mw-redirect" title="acorn/arm1">ARM1</a> and was replaced soon after by the <a href="/wiki/acorn/arm2" class="mw-redirect" title="acorn/arm2">ARM2</a>. Only a few hundred of those chips were ever fabricated.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Registers"><span class="tocnumber">2</span> <span class="toctext">Registers</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Addressing_Mode"><span class="tocnumber">3</span> <span class="toctext">Addressing Mode</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Instruction_Listing"><span class="tocnumber">4</span> <span class="toctext">Instruction Listing</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Multiplication_and_Floating_Point"><span class="tocnumber">5</span> <span class="toctext">Multiplication and Floating Point</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Exception_Vector_Map"><span class="tocnumber">6</span> <span class="toctext">Exception Vector Map</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ARMv1 presents a simple instruction set architecture, albeit bigger and more complex than many of its <a href="/w/index.php?title=RISC&amp;action=edit&amp;redlink=1" class="new" title="RISC (page does not exist)">RISC</a> contemporaries, consisting of mostly simple operations along with a number of complex ones borrowed from early <a href="/wiki/8-bit_architecture" title="8-bit architecture">8-bit</a> CISC microprocessors. Each instruction is 32-bit in size and operates on two 32-bit operands. There is a 24-bit <a href="/wiki/program_counter" title="program counter">program counter</a> allowing for a 26-bit address space of up to 64 MiB of memory.
+</p>
+<h2><span class="mw-headline" id="Registers">Registers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=2" title="Edit section: Registers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are 16 <a href="/w/index.php?title=general_purpose_registers&amp;action=edit&amp;redlink=1" class="new" title="general purpose registers (page does not exist)">general purpose</a> 32-bit registers. With the exception of <a href="/w/index.php?title=arm/r15&amp;action=edit&amp;redlink=1" class="new" title="arm/r15 (page does not exist)">register 15</a> and 14, all registers are orthogonal with no specific designated purpose.
+</p>
+<h2><span class="mw-headline" id="Addressing_Mode">Addressing Mode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=3" title="Edit section: Addressing Mode">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ARMv1 has five addressing modes:
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Mode </th>
+<th> Syntax </th>
+<th> Operation
+</th></tr>
+<tr>
+<td> PC Relative </td>
+<td> Label </td>
+<td> Effective_Address = PC ± Offset (12 bits)
+</td></tr>
+<tr>
+<td> Base Register Offset<br/>With Post-Increment </td>
+<td> [Rn], offset </td>
+<td> Effective_Address = Rn<br/>Rn = Rn ± offset
+</td></tr>
+<tr>
+<td> Base Register Offset<br/>With Pre-Increment </td>
+<td> [Rn, offset] </td>
+<td> Effective_Address = Rn ± offset (12 bits)<br/>Rn = Rn ± offset
+</td></tr>
+<tr>
+<td> Base Register Index<br/>With Post-Increment </td>
+<td> [Rn], Rm </td>
+<td> Effective_Address = Rn<br/>Rn = Rn ± Rm
+</td></tr>
+<tr>
+<td> Base Register Index<br/>With Pre-Increment </td>
+<td> [Rn, Rm] </td>
+<td> Effective_Address = Rn ± Rm<br/>Rn = Rn ± Rm
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Instruction_Listing">Instruction Listing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=4" title="Edit section: Instruction Listing">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The ARMv1 ISA has 45 operations under 23 mnemonics. The ARMv1 is broken down into 8 classes of instruction:
+</p>
+<ul><li> <a href="#movement_instructions">Movement Instructions</a></li>
+<li> <a href="#load_instructions">Load Instructions</a></li>
+<li> <a href="#store_instructions">Store Instructions</a></li>
+<li> <a href="#arithmetic_instructions">Arithmetic Instructions</a></li>
+<li> <a href="#logical_instructions">Logical Instructions</a></li>
+<li> <a href="#comparison_instructions">Comparison Instructions</a></li>
+<li> <a href="#branch_instructions">Branch Instructions</a></li>
+<li> <a href="#miscellaneous_instructions">Miscellaneous Instructions</a></li></ul>
+<table class="wikitable">
+<tbody><tr><th colspan="5" style="background: #b3b3ff;">ARMv1 ISA</th></tr>
+<tr><th>Mnemonic</th><th> Syntax
+</th><th> Description
+</th><th> Action
+</th></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="movement_instructions"><b>Movement Instructions</b></span><br/><small>Movement instructions move data between registers and operands.</small></td></tr>
+<tr><td>MOV</td><td>MOV&lt;cond&gt;{S} Rd, #imm</td><td>Move value immed</td><td>Rd = immed</td></tr>
+<tr><td>MOV</td><td>MOV&lt;cond&gt;{S} Rd, Rm, {, &lt;shift&gt;}</td><td>Move value</td><td>Rd = Shift(Rm)</td></tr>
+<tr><td>MVN</td><td>MVN&lt;cond&gt;{S} Rd, #imm</td><td>Move NOT value immed</td><td>Rd = ¬immed</td></tr>
+<tr><td>MVN</td><td>MVN&lt;cond&gt;{S} Rd, Rm, {, &lt;shift&gt;}</td><td>Move NOT value</td><td>Rd = ¬Shift(Rm)</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="load_instructions"><b>Load Instructions</b></span><br/><small>Load instructions move the content of memory addresses into registers.</small></td></tr>
+<tr><td>LDM</td><td>LDM&lt;cond&gt;&lt;type&gt; Rn{!}, &lt;reglist&gt;{^}</td><td>Load multiple</td><td>addr = Rn<br/>for each Rd in {reglist}:<br/>     Rd = [addr]<br/>     update address based on {type}</td></tr>
+<tr><td>LDR</td><td>LDR&lt;cond&gt;{B} Rd, [Rn {, #imm}]{!}</td><td>Load register immed</td><td>Rd = [Rn + imm]<br/>If !: Rn = Rn + imm</td></tr>
+<tr><td>LDR</td><td>LDR&lt;cond&gt;{B} Rd,  [Rn, Rm {, &lt;shift&gt;}]{!}</td><td>Load register</td><td>Rd = [Rn + Shift(Rm)]<br/>If !: Rn = Rn + Shift(Rm)]</td></tr>
+<tr><td>LDR</td><td>LDR&lt;cond&gt;{B}{T} Rd,  [Rn], #imm</td><td>Load register, post index</td><td>Rd = [Rn]<br/>Rn = Rn + imm</td></tr>
+<tr><td>LDR</td><td>LDR&lt;cond&gt;{B}{T} Rd,  [Rn], Rm {, &lt;shift&gt;}</td><td>Load register, post index</td><td>Rd = [Rn]<br/>Rn = Rn + Shift(Rm)</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="store_instructions"><b>Store Instructions</b></span><br/><small>Store instructions moves the values from registers into memory.</small></td></tr>
+<tr><td>STM</td><td>STM&lt;cond&gt;&lt;type&gt; Rn{!}, &lt;reglist&gt;{^}</td><td>Store multiple</td><td>addr = Rn<br/>for each Rd in {reglist}:<br/>     [addr] = Rd<br/>     update address based on {type}</td></tr>
+<tr><td>STR</td><td>STR&lt;cond&gt;{B} Rd, [Rn {, #imm}]{!}</td><td>Store register immed</td><td>[Rn + imm] = Rd<br/>If !: Rn = Rn + imm</td></tr>
+<tr><td>STR</td><td>STR&lt;cond&gt;{B} Rd,  [Rn, Rm {, &lt;shift&gt;}]{!}</td><td>Store register</td><td>[Rn + Shift(Rm)] = Rd<br/>If !: Rn = Rn + Shift(Rm)]</td></tr>
+<tr><td>STR</td><td>STR&lt;cond&gt;{B}{T} Rd,  [Rn], #imm</td><td>Store register, post index</td><td>[Rn] = Rd<br/>Rn = Rn + imm</td></tr>
+<tr><td>STR</td><td>STR&lt;cond&gt;{B}{T} Rd,  [Rn], Rm {, &lt;shift&gt;}</td><td>Store register, post index</td><td>[Rn] = Rd<br/>Rn = Rn + Shift(Rm)</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="arithmetic_instructions"><b>Arithmetic Instructions</b></span><br/><small>Arithmetic instructions perform basic mathematical operations on two operands.</small></td></tr>
+<tr><td>ADC</td><td>ADC&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Add and carry immed</td><td>Rd = Rn + imm + C</td></tr>
+<tr><td>ADC</td><td>ADC&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Add and carry</td><td>Rd = Rn + Shift(Rm) + C</td></tr>
+<tr><td>ADD</td><td>ADD&lt;cond&gt;S Rd, Rn, #imm</td><td>Add immed</td><td>Rd = Rn + imm</td></tr>
+<tr><td>ADD</td><td>ADD&lt;cond&gt;S Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Add</td><td>Rd = Rn + Shift(Rm)</td></tr>
+<tr><td>RSB</td><td>RSB&lt;cond&gt;S Rd, Rn, #imm</td><td>Reverse subtract immed</td><td>Rd = imm - Rn</td></tr>
+<tr><td>RSB</td><td>RSB&lt;cond&gt;S Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Reverse subtract</td><td>Rd = Shift(Rm) - Rn</td></tr>
+<tr><td>RSC</td><td>RSB&lt;cond&gt;S Rd, Rn, #imm</td><td>Reverse subtract with carry immed</td><td>Rd = imm - Rn - ¬C</td></tr>
+<tr><td>RSC</td><td>RSB&lt;cond&gt;S Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Reverse subtract with carry</td><td>Rd = Shift(Rm) - Rn - ¬C</td></tr>
+<tr><td>SBC</td><td>SBC&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Subtract with carry immed</td><td>Rd = Rn - imm - ¬C</td></tr>
+<tr><td>SBC</td><td>SBC&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Subtract with carry</td><td>Rd = Rn - Shift(Rm) - ¬C</td></tr>
+<tr><td>SUB</td><td>SUB&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Subtract immed</td><td>Rd = Rn - imm</td></tr>
+<tr><td>SUB</td><td>SUB&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Subtract</td><td>Rd = Rn - Shift(Rm)</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="logical_instructions"><b>Logical Instructions</b></span><br/><small>Logical instructions perform logical bitwise operations on operands.</small></td></tr>
+<tr><td>AND</td><td>AND&lt;cond&gt;{S} Rd, Rn, #imm</td><td>AND immed</td><td>Rd = Rn &amp; imm</td></tr>
+<tr><td>AND</td><td>AND&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>AND</td><td>Rd = Rn &amp; Shift(Rm)</td></tr>
+<tr><td>BIC</td><td>BIC&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Bit clear immed</td><td>Rd = Rn &amp; ¬imm</td></tr>
+<tr><td>BIC</td><td>BIC&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Bit clear</td><td>Rd = Rn &amp; ¬Rm</td></tr>
+<tr><td>EOR</td><td>EOR&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Exclusive OR immed</td><td>Rd = Rn ⊕ imm</td></tr>
+<tr><td>EOR</td><td>EOR&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Exclusive OR</td><td>Rd = Rn ⊕ Shift(Rm)</td></tr>
+<tr><td>ORR</td><td>ORR&lt;cond&gt;{S} Rd, Rn, #imm</td><td>Logical OR immed</td><td>Rd = Rn ∥ imm</td></tr>
+<tr><td>ORR</td><td>ORR&lt;cond&gt;{S} Rd, Rn, Rm{, &lt;shift&gt;}</td><td>Logical OR</td><td>Rd = Rn ∥ Shift(Rm)</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="comparison_instructions"><b>Comparison Instructions</b></span><br/><small>Comparison instructions compare two values and set appropriate status flags.</small></td></tr>
+<tr><td>CMN</td><td>CMN&lt;cond&gt; Rn, #imm</td><td>Compare negative immed</td><td>CPSR flags set on (Rn + imm)</td></tr>
+<tr><td>CMN</td><td>CMN&lt;cond&gt; Rn, Rm{, &lt;shift&gt;}</td><td>Compare negative</td><td>CPSR flags set on (Rn + Shift(Rm))</td></tr>
+<tr><td>CMP</td><td>CMP&lt;cond&gt; Rn, #imm</td><td>Compare immed</td><td>CPSR flags set on (Rn - imm)</td></tr>
+<tr><td>CMP</td><td>CMP&lt;cond&gt; Rn, Rm{, &lt;shift&gt;}</td><td>Compare</td><td>CPSR flags set on (Rn - Shift(Rm))</td></tr>
+<tr><td>TEQ</td><td>TEQ&lt;cond&gt; Rn, #imm</td><td>Test equality immed</td><td>CPSR flags set on (Rn ⊕ imm)</td></tr>
+<tr><td>TEQ</td><td>TEQ&lt;cond&gt; Rn, Rm{, &lt;shift&gt;}</td><td>Test equality</td><td>CPSR flags set on (Rn ⊕ Shift(Rm))</td></tr>
+<tr><td>TST</td><td>TST&lt;cond&gt; Rn, #imm</td><td>Test bits immed</td><td>CPSR flags set on (Rn &amp; imm)</td></tr>
+<tr><td>TST</td><td>TST&lt;cond&gt; Rn, Rm{, &lt;shift&gt;}</td><td>Test bits</td><td>CPSR flags set on (Rn &amp; Shift(Rm))</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="branch_instructions"><b>Branch Instructions</b></span><br/><small>Branch instructions order instruction processing to start elsewhere conditionally or unconditionally.</small></td></tr>
+<tr><td>B</td><td>B&lt;cond&gt; imm</td><td>Branch relative</td><td>PC = PC + address</td></tr>
+<tr><td>BL</td><td>BL&lt;cond&gt; imm</td><td>Branch and link relative</td><td>LR = RET<br/>PC = PC + address</td></tr>
+<tr style="background: #e6f0ff;"><td colspan="5" style="text-align: center;"><span id="miscellaneous_instructions"><b>Miscellaneous Instructions</b></span><br/><small>Any instruction that doesn&#39;t belong anywhere else.</small></td></tr>
+<tr><td>SWI</td><td>SWI&lt;cond&gt; imm</td><td>Software interrupt</td><td>LR = RET<br/>Execute SWI vector in supervisor mode</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Multiplication_and_Floating_Point">Multiplication and Floating Point</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=5" title="Edit section: Multiplication and Floating Point">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>ARMv1 does not have support for multiplication. Software that requires multiplication will have to resort to a software implementation (e.g., <a href="/w/index.php?title=Shift-and-Add_Multiplication&amp;action=edit&amp;redlink=1" class="new" title="Shift-and-Add Multiplication (page does not exist)">Shift-and-Add Multiplication</a>). This was considerably slow and was consequently added in later ARM versions. Likewise there was no support for hardware floating point or an ability to do such operations on an external FPU coprocessor.
+</p>
+<h2><span class="mw-headline" id="Exception_Vector_Map">Exception Vector Map</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm/armv1&amp;action=edit&amp;section=6" title="Edit section: Exception Vector Map">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Address </th>
+<th> Function </th>
+<th> Priority
+</th></tr>
+<tr>
+<td> 000 0000 </td>
+<td> Reset </td>
+<td> 0
+</td></tr>
+<tr>
+<td> 000 0004 </td>
+<td> Undefined Instruction Trap </td>
+<td> 6
+</td></tr>
+<tr>
+<td> 000 0008 </td>
+<td> Software Interrupt </td>
+<td> 7
+</td></tr>
+<tr>
+<td> 000 000C </td>
+<td> Abort (Prefetch) </td>
+<td> 5
+</td></tr>
+<tr>
+<td> 000 0010 </td>
+<td> Abort (Data) </td>
+<td> 2
+</td></tr>
+<tr>
+<td> 000 0014 </td>
+<td> Address Exception </td>
+<td> 1
+</td></tr>
+<tr>
+<td> 000 0018 </td>
+<td> Normal Interrupt (IRQ) </td>
+<td> 4
+</td></tr>
+<tr>
+<td> 000 001C </td>
+<td> Fast Interrupt (FIRQ) </td>
+<td> 3
+</td>
+</tr>
+</tbody></table>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:19268-0!*!0!!en!*!* and timestamp 20210928182207 and revision id 50004
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=arm/armv1&amp;oldid=50004">https://en.wikichip.org/w/index.php?title=arm/armv1&amp;oldid=50004</a>&#34;</div><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 2 July 2017, at 15:07.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":86});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('/detroitchicago/edmonton.webp', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('/porpoiseant/jellyfish.webp', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>

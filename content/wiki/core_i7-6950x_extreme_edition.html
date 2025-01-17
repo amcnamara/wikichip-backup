@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData)});}}
+function AddPixelById(impFullId,pixelData){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=2', false, [], true, false, true, false);</script>
+
+<title>Core i7-6950X Extreme Edition  - Intel - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"intel/core_i7ee/i7-6950x","wgTitle":"intel/core i7ee/i7-6950x","wgCurRevisionId":87272,"wgRevisionId":87272,"wgArticleId":6872,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor models","microprocessor models by intel","microprocessor models by intel based on broadwell","Articles with invalid parameter in template"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"intel/core_i7ee/i7-6950x","wgRelevantArticleId":6872,"wgRequestId":"b0278ca20601ea2fb82484f4","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"core_i7-6950x_extreme_edition","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/intel/core_i7ee/i7-6950x"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@16x7iwb",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="intel/core i7ee/i7-6950x" href="/w/index.php?title=Special:ExportRDF/intel/core_i7ee/i7-6950x&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/intel/core_i7ee/i7-6950x"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Core i7-6950X Extreme Edition  - Intel - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="The Core i7-6950X Extreme Edition is a 64-bit deca-core top-of-the-line MPU introduced by Intel for the enthusiasts market in mid-2016. The i7-6950X replaced the i7-5960X as Intel's flagship microprocessor based on Broadwell microarchitecture - also becoming the first consumer-class deca-core microprocessor." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod1',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/core_i7-6950x_extreme_edition"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"forensiq_score":-1,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"4be5cec7-564f-4ff3-7da3-fbb9b7e49ecc","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_time_orig":148,"serverid":"18.234.151.4:12256","state":"VA","t_epoch":1601379655,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/core_i7-6950x_extreme_edition","user_id":0,"word_count":1218,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?cb=191-3&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["4be5cec7-564f-4ff3-7da3-fbb9b7e49ecc", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-intel_core_i7ee_i7-6950x rootpage-intel skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/intel/core_i7ee/i7-6950x">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:intel/core_i7ee/i7-6950x"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=intel%2Fcore+i7ee%2Fi7-6950x"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/intel/core_i7ee/i7-6950x"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/intel/core_i7ee/i7-6950x"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&oldid=87272"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:intel-2Fcore-5Fi7ee-2Fi7-2D6950x"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Core i7-6950X Extreme Edition  - Intel    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/intel" title="intel">intel</a>&lrm; | <a href="/wiki/intel/core_i7ee" title="intel/core i7ee">core i7ee</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=core_i7-6950x_extreme_edition&amp;redirect=no" class="mw-redirect" title="core i7-6950x extreme edition">core i7-6950x extreme edition</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/chip/intel/core_i7ee/i7-6950x" title="Special:FormEdit/chip/intel/core i7ee/i7-6950x"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Core i7-6950X Extreme Edition</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a></td></tr><tr><td class="label">Manufacturer</td><td><a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a></td></tr><tr><td class="label">Model Number</td><td style="width: 99%;">i7-6950X</td></tr><tr><td class="label">Part Number</td><td>BX80671I76950X,<br /> BXC80671I76950X,<br /> CM8067102055800</td></tr><tr><td class="label">S-Spec</td><td>SR2PA</td></tr><tr><td class="label">Market</td><td>Desktop</td></tr><tr><td class="label">Introduction</td><td>May 31, 2016 (launched)</td></tr><tr><td class="label">Release Price</td><td>$1743.00</td></tr><tr><td class="label">Shop</td><td><a rel="nofollow" class="external text" href="https://www.amazon.com/gp/search?ie=UTF8&amp;tag=wikichip-20&amp;linkCode=ur2&amp;linkId=aed902a15f809f6661ea2887020a7a0e&amp;camp=1789&amp;creative=9325&amp;index=electronics&amp;keywords=Intel%20Core%20i7-6950X%20Extreme%20Edition">Amazon</a></td></tr><tr><td class="header" colspan="2">General Specs</td></tr><tr><td class="label">Family</td><td><a href="/wiki/intel/core_i7ee" title="intel/core i7ee">Core i7EE</a></td></tr><tr><td class="label">Series</td><td>i7-6900</td></tr><tr><td class="label">Locked</td><td>No</td></tr><tr><td class="label">Frequency</td><td>3000 MHz</td></tr><tr><td class="label">Turbo Frequency</td><td>4000 MHz (1 core),<br />3500 MHz (2 cores),<br />3400MHz (3 cores),<br />3400MHz (4 cores),<br />3400MHz (5 cores),<br />3400MHz (6 cores),<br />3400MHz (7 cores),<br />3400MHz (8 cores),<br />3400MHz (9 cores),<br />3400MHz (10 cores)</td></tr><tr><td class="label">Bus type</td><td>DMI 2.0</td></tr><tr><td class="label">Bus speed</td><td>5 GT/s</td></tr><tr><td class="label">Clock multiplier</td><td>30</td></tr><tr><td class="label">CPUID</td><td>406F1</td></tr><tr><td class="header" colspan="2">Microarchitecture</td></tr><tr><td class="label">ISA</td><td>x86-64&#160;(x86)</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/intel/microarchitectures/broadwell" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell</a></td></tr><tr><td class="label">Chipset</td><td>Wellsburg</td></tr><tr><td class="label">Core Name</td><td><a href="/wiki/intel/cores/broadwell_e" title="intel/cores/broadwell e">Broadwell E</a></td></tr><tr><td class="label">Core Stepping</td><td>M0</td></tr><tr><td class="label">Process</td><td><a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm</a></td></tr><tr><td class="label">Transistors</td><td>3,400,000,000</td></tr><tr><td class="label">Technology</td><td>CMOS</td></tr><tr><td class="label">Die</td><td>246 mm²</td></tr><tr><td class="label">Word Size</td><td>64 bit</td></tr><tr><td class="label">Cores</td><td>10</td></tr><tr><td class="label">Threads</td><td>20</td></tr><tr><td class="label">Max Memory</td><td>128 GiB</td></tr><tr><td class="header" colspan="2">Multiprocessing</td></tr><tr><td class="label">Max SMP</td><td>1-Way (Uniprocessor)</td></tr><tr><td class="header" colspan="2">Electrical</td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td>140 W</td></tr><tr><td class="label">T<sub>junction</sub></td><td>0&#160;–&#160;96 °C</td></tr></table>
+<p>The <b>Core i7-6950X <a href="/wiki/intel/core_i7ee" title="intel/core i7ee">Extreme Edition</a></b> is a <a href="/wiki/64-bit_architecture" title="64-bit architecture">64-bit</a> deca-core top-of-the-line <a href="/wiki/MPU" class="mw-redirect" title="MPU">MPU</a> introduced by <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> for the enthusiasts market in mid-2016. The i7-6950X replaced the <a href="/wiki/intel/core_i7ee/i7-5960x" title="intel/core i7ee/i7-5960x">i7-5960X</a> as Intel's flagship microprocessor based on <a href="/wiki/intel/broadwell" class="mw-redirect" title="intel/broadwell">Broadwell</a> microarchitecture - also becoming the first consumer-class deca-core microprocessor.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Cache"><span class="tocnumber">1</span> <span class="toctext">Cache</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Graphics"><span class="tocnumber">2</span> <span class="toctext">Graphics</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Memory_controller"><span class="tocnumber">3</span> <span class="toctext">Memory controller</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Expansions"><span class="tocnumber">4</span> <span class="toctext">Expansions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Features"><span class="tocnumber">5</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Frequencies"><span class="tocnumber">6</span> <span class="toctext">Frequencies</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Die_Shot"><span class="tocnumber">7</span> <span class="toctext">Die Shot</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Documents"><span class="tocnumber">8</span> <span class="toctext">Documents</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Cache">Cache</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=1" title="Edit section: Cache">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>Main article: <a href="/wiki/intel/microarchitectures/broadwell#Memory_Hierarchy" class="mw-redirect" title="intel/microarchitectures/broadwell">Broadwell § Cache</a></i></dd></dl>
+<table style="border: solid 1px #e5e5ff; width: 450px; margin: 0 10px 10px 10px; text-align: left; font-size: 12px;">
+<tr>
+<td style="text-align: center; background: #ccffcc; font-size: 16px;" colspan="3"> <b>Cache Info</b> <span style="float: right;"><a href="/wiki/Special:FormEdit/Cache_info/intel/core_i7ee/i7-6950x" title="Special:FormEdit/Cache info/intel/core i7ee/i7-6950x"><small>[Edit Values]</small></a></span>
+<div></div>
+</td></tr>
+<tr>
+<td style="text-align: left;"> <b>L1I$</b> </td>
+<td style="text-align: center; width: 50px;"> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.313&amp;#160;MiB 327,680&amp;#160;B 3.051758e-4&amp;#160;GiB "><span class="smwtext">320 KiB</span><div class="smwttcontent">0.313&#160;MiB <br />327,680&#160;B <br />3.051758e-4&#160;GiB <br /></div></span> </td>
+<td> 10x32 KiB 8-way set associative (per core)
+</td></tr>
+<tr>
+<td style="text-align: left;"> <b>L1D$</b> </td>
+<td style="text-align: center; width: 50px;">  <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.313&amp;#160;MiB 327,680&amp;#160;B 3.051758e-4&amp;#160;GiB "><span class="smwtext">320 KiB</span><div class="smwttcontent">0.313&#160;MiB <br />327,680&#160;B <br />3.051758e-4&#160;GiB <br /></div></span> </td>
+<td> 10x32 KiB 8-way set associative (per core)
+</td></tr>
+<tr>
+<td style="text-align: left;"> <b>L2$</b> </td>
+<td style="text-align: center; width: 50px;">  <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,560&amp;#160;KiB 2,621,440&amp;#160;B 0.00244&amp;#160;GiB "><span class="smwtext">2.5 MiB</span><div class="smwttcontent">2,560&#160;KiB <br />2,621,440&#160;B <br />0.00244&#160;GiB <br /></div></span> </td>
+<td> 10x256 KiB 8-way set associative (per core)
+</td></tr>
+<tr>
+<td style="text-align: left;"> <b>L3$</b> </td>
+<td style="text-align: center; width: 50px;">  <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="25,600&amp;#160;KiB 26,214,400&amp;#160;B 0.0244&amp;#160;GiB "><span class="smwtext">25 MiB</span><div class="smwttcontent">25,600&#160;KiB <br />26,214,400&#160;B <br />0.0244&#160;GiB <br /></div></span> </td>
+<td> 10x2.5 MiB 20-way set associative (shared)
+<div></div>
+</td></tr></table>
+<h2><span class="mw-headline" id="Graphics">Graphics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=2" title="Edit section: Graphics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This processor has no integrated graphics processing unit.
+</p>
+<h2><span class="mw-headline" id="Memory_controller">Memory controller</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=3" title="Edit section: Memory controller">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table style="border: solid 1px #e5e5ff; width: 400px; margin: 0 10px 10px 10px; text-align: left; font-size: 12px;">
+<tr>
+<td style="text-align: center; background: #ffe5ff; font-size: 16px;" colspan="2"> <b>Integrated Memory Controller</b>
+</td></tr>
+
+<tr>
+<td style="min-width: 125px;"> <b>Type</b> </td>
+<td> DDR4-2133, DDR4-2400
+</td></tr>
+<tr>
+<td> <b>Controllers</b> </td>
+<td> 1
+</td></tr>
+<tr>
+<td> <b>Channels</b> </td>
+<td> 4
+</td></tr>
+<tr>
+<td> <b>ECC Support</b> </td>
+<td> No
+</td></tr>
+<tr>
+<td> <b>Max bandwidth</b> </td>
+<td> 76.8 GB/s
+</td></tr>
+<tr>
+<td> <b>Bandwidth (single)</b> </td>
+<td> 19,200 MB/s
+</td></tr>
+<tr>
+<td> <b>Bandwidth (dual)</b> </td>
+<td> 38,400 MB/s
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Bandwidth (quad)</b> </td>
+<td> 76,800 MB/s
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Max memory</b> </td>
+<td> 128 GiB
+<div></div>
+</td></tr></table>
+<h2><span class="mw-headline" id="Expansions">Expansions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=4" title="Edit section: Expansions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; width: 700px;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/expansion/intel/core_i7ee/i7-6950x" title="Special:FormEdit/expansion/intel/core i7ee/i7-6950x">[Edit/Modify Expansions Info]</a></span>
+</p>
+<table>
+<tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="ide icon.svg" src="/w/images/thumb/8/84/ide_icon.svg/75px-ide_icon.svg.png" width="75" height="66" srcset="/w/images/thumb/8/84/ide_icon.svg/113px-ide_icon.svg.png 1.5x, /w/images/thumb/8/84/ide_icon.svg/150px-ide_icon.svg.png 2x" /></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Expansion Options</div>
+</td>
+</tr>
+<tr style="vertical-align:top;">
+<td>
+<div style="width: 300px; display: inline-block;"><table><tr><th style="width: 50px;">PCIe</th><td><table style="text-align: left;"><tr><th>Revision</th><td>3.0</td></tr><tr><th style="width: 80px;">Max Lanes</th><td>40</td></tr><tr><th style="width: 80px;">Configs</th><td>2x16 + 1x8</td></tr></table></td></tr></table></div>
+</td>
+</tr>
+</table>
+</div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=5" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/x86_features/intel/core_i7ee/i7-6950x" title="Special:FormEdit/x86 features/intel/core i7ee/i7-6950x">[Edit/Modify Supported Features]</a></span>
+</p>
+<table>
+<tr>
+<td rowspan="2" style="vertical-align:top;"><img alt="Cog-icon-grey.svg" src="/w/images/thumb/a/ac/Cog-icon-grey.svg/75px-Cog-icon-grey.svg.png" width="75" height="95" srcset="/w/images/thumb/a/ac/Cog-icon-grey.svg/113px-Cog-icon-grey.svg.png 1.5x, /w/images/thumb/a/ac/Cog-icon-grey.svg/150px-Cog-icon-grey.svg.png 2x" /></td>
+<td colspan="2">
+<div style="text-decoration: underline; font-size: 1.3em;">Supported <a href="/wiki/x86" title="x86"><span style="color: black;">x86</span></a> <a href="/wiki/x86/extensions" title="x86/extensions"><span style="color: black;">Extensions</span></a> &amp; Processor Features</div>
+</td>
+</tr>
+<tr style="vertical-align:top;"><td>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tr><th style="width: 100px;">MMX</th><td><a href="/w/index.php?title=x86/mmx&amp;action=edit&amp;redlink=1" class="new" title="x86/mmx (page does not exist)">MMX Extension</a></td></tr><tr><th style="width: 100px;">SSE</th><td><a href="/w/index.php?title=x86/sse&amp;action=edit&amp;redlink=1" class="new" title="x86/sse (page does not exist)">Streaming SIMD Extensions</a></td></tr><tr><th style="width: 100px;">SSE2</th><td><a href="/w/index.php?title=x86/sse2&amp;action=edit&amp;redlink=1" class="new" title="x86/sse2 (page does not exist)">Streaming SIMD Extensions 2</a></td></tr><tr><th style="width: 100px;">SSE3</th><td><a href="/w/index.php?title=x86/sse3&amp;action=edit&amp;redlink=1" class="new" title="x86/sse3 (page does not exist)">Streaming SIMD Extensions 3</a></td></tr><tr><th style="width: 100px;">SSSE3</th><td><a href="/w/index.php?title=x86/ssse3&amp;action=edit&amp;redlink=1" class="new" title="x86/ssse3 (page does not exist)">Supplemental SSE3</a></td></tr><tr><th style="width: 100px;">AVX</th><td><a href="/w/index.php?title=x86/avx&amp;action=edit&amp;redlink=1" class="new" title="x86/avx (page does not exist)">Advanced Vector Extensions</a></td></tr><tr><th style="width: 100px;">AVX2</th><td><a href="/w/index.php?title=x86/avx2&amp;action=edit&amp;redlink=1" class="new" title="x86/avx2 (page does not exist)">Advanced Vector Extensions 2</a></td></tr><tr><th style="width: 100px;">BMI1</th><td><a href="/w/index.php?title=x86/bmi1&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi1 (page does not exist)">Bit Manipulation Instruction Set 1</a></td></tr><tr><th style="width: 100px;">BMI2</th><td><a href="/w/index.php?title=x86/bmi2&amp;action=edit&amp;redlink=1" class="new" title="x86/bmi2 (page does not exist)">Bit Manipulation Instruction Set 2</a></td></tr><tr><th style="width: 100px;">FMA3</th><td><a href="/w/index.php?title=x86/fma3&amp;action=edit&amp;redlink=1" class="new" title="x86/fma3 (page does not exist)">3-Operand Fused-Multiply-Add</a></td></tr><tr><th style="width: 100px;">AES</th><td><a href="/w/index.php?title=x86/aes&amp;action=edit&amp;redlink=1" class="new" title="x86/aes (page does not exist)">AES Encryption Instructions</a></td></tr><tr><th style="width: 100px;">F16C</th><td>16-bit Floating Point Conversion</td></tr></table>
+<table class="tl1" style="font-size: 0.9em; float: left; margin-right: 10px;"><tr><th style="width: 100px;">NX</th><td><a href="/w/index.php?title=x86/no-execute&amp;action=edit&amp;redlink=1" class="new" title="x86/no-execute (page does not exist)">No-eXecute</a></td></tr><tr><th style="width: 100px;">HT</th><td><a href="/w/index.php?title=intel/hyper-threading&amp;action=edit&amp;redlink=1" class="new" title="intel/hyper-threading (page does not exist)">Hyper-Threading</a></td></tr><tr><th style="width: 100px;">TBT 2.0</th><td><a href="/wiki/intel/turbo_boost_technology" title="intel/turbo boost technology">Turbo Boost Technology</a> 2.0</td></tr><tr><th style="width: 100px;">TBMT 3.0</th><td><a href="/wiki/intel/turbo_boost_max_technology" title="intel/turbo boost max technology">Turbo Boost Max Technology</a> 3.0</td></tr><tr><th style="width: 100px;">EIST</th><td><a href="/w/index.php?title=intel/enhanced_speedstep_technology&amp;action=edit&amp;redlink=1" class="new" title="intel/enhanced speedstep technology (page does not exist)">Enhanced SpeedStep Technology</a></td></tr><tr><th style="width: 100px;">EPT</th><td>Extended Page Tables (<a href="/w/index.php?title=Second_Level_Address_Translation&amp;action=edit&amp;redlink=1" class="new" title="Second Level Address Translation (page does not exist)">SLAT</a>)</td></tr></table>
+</td>
+</tr>
+</table>
+</div>
+<h2><span class="mw-headline" id="Frequencies">Frequencies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=6" title="Edit section: Frequencies">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><i>See also: <a href="/wiki/intel/frequency_behavior" title="intel/frequency behavior">Intel's CPU Frequency Behavior</a></i></dd></dl>
+<div style="background:#f9f9f9; margin: 10px 2px 10px 2px; padding: 5px; border: 1px solid #a7d7f9; display: inline-block; max-width: 100%;">
+<p><span style="margin: -12px -2px; float: right;"><a href="/wiki/Special:FormEdit/frequency_table/intel/core_i7ee/i7-6950x" title="Special:FormEdit/frequency table/intel/core i7ee/i7-6950x">[Modify Frequency Info]</a></span>
+</p>
+<div style="overflow-x: auto; padding: 10px">
+<table class="wikitable" style="white-space: nowrap;"><tr><th rowspan="2">Mode</th><th rowspan="2">Base</th><th colspan="10" style="text-align: left;">Turbo Frequency/Active Cores</th></tr><tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr><tr><th>Normal</th><th>3,000 MHz</th><td style="background-color:hsl(120, 100%, 50%)">4,000 MHz</td><td style="background-color:hsl(53.333333333333, 100%, 50%)">3,500 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td></tr><tr><th>AVX2</th><th></th><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(40, 100%, 50%)">3,400 MHz</td><td style="background-color:hsl(13.333333333333, 100%, 50%)">3,200 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td><td style="background-color:hsl(0, 100%, 50%)">3,100 MHz</td></tr></table>
+</div>
+</div>
+<h2><span class="mw-headline" id="Die_Shot">Die Shot</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=7" title="Edit section: Die Shot">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> 3,400,000,000 transistors</li>
+<li> 246 mm<sup>2</sup></li></ul>
+<dl><dd><a href="/wiki/File:broadwell_(deca-core)_die_shot.png" class="image"><img alt="broadwell (deca-core) die shot.png" src="/w/images/thumb/7/7f/broadwell_%28deca-core%29_die_shot.png/650px-broadwell_%28deca-core%29_die_shot.png" width="650" height="694" srcset="/w/images/thumb/7/7f/broadwell_%28deca-core%29_die_shot.png/975px-broadwell_%28deca-core%29_die_shot.png 1.5x, /w/images/thumb/7/7f/broadwell_%28deca-core%29_die_shot.png/1300px-broadwell_%28deca-core%29_die_shot.png 2x" /></a></dd></dl>
+<p><br />
+</p>
+<dl><dd><a href="/wiki/File:broadwell_(deca-core)_die_shot_(annotated).png" class="image"><img alt="broadwell (deca-core) die shot (annotated).png" src="/w/images/thumb/1/18/broadwell_%28deca-core%29_die_shot_%28annotated%29.png/650px-broadwell_%28deca-core%29_die_shot_%28annotated%29.png" width="650" height="694" srcset="/w/images/thumb/1/18/broadwell_%28deca-core%29_die_shot_%28annotated%29.png/975px-broadwell_%28deca-core%29_die_shot_%28annotated%29.png 1.5x, /w/images/thumb/1/18/broadwell_%28deca-core%29_die_shot_%28annotated%29.png/1300px-broadwell_%28deca-core%29_die_shot_%28annotated%29.png 2x" /></a></dd></dl>
+<h2><span class="mw-headline" id="Documents">Documents</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=8" title="Edit section: Documents">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/File:Intel%C2%AE_Core_i7_processor_family_for_X-series_platforms_Product_Brief.pdf" title="File:Intel® Core i7 processor family for X-series platforms Product Brief.pdf">Intel® Core i7 processor family for X-series platforms Product Brief</a></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=intel/core_i7ee/i7-6950x&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/intel/core_i7ee" title="intel/core i7ee">Core i7 Extreme Edition</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:6872-0!*!0!!en!5!* and timestamp 20200929104934 and revision id 87272
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=intel/core_i7ee/i7-6950x&amp;oldid=87272">https://en.wikichip.org/w/index.php?title=intel/core_i7ee/i7-6950x&amp;oldid=87272</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:all_microprocessor_models" title="Category:all microprocessor models">all microprocessor models</a></li><li><a href="/wiki/Category:microprocessor_models_by_intel" title="Category:microprocessor models by intel">microprocessor models by intel</a></li><li><a href="/wiki/Category:microprocessor_models_by_intel_based_on_broadwell" title="Category:microprocessor models by intel based on broadwell">microprocessor models by intel based on broadwell</a></li><li><a href="/wiki/Category:Articles_with_invalid_parameter_in_template" title="Category:Articles with invalid parameter in template">Articles with invalid parameter in template</a></li></ul></div></div><div id='mw-data-after-content'>
+	<div class="smwfact"><div class="smwfactboxhead">Facts about "<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:intel-2Fcore-20i7ee-2Fi7-2D6950x" title="Special:Browse/:intel-2Fcore-20i7ee-2Fi7-2D6950x">Core i7-6950X Extreme Edition  - Intel</a></span>"</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/intel/core_i7ee/i7-6950x" title="Special:ExportRDF/intel/core i7ee/i7-6950x">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tr class="row-odd"><td class="smwspecname"><span class="smw-highlighter" data-type="1" data-state="inline" data-title="Property" title="&quot;Has subobject&quot; is a predefined property representing a container construct and is provided by Semantic MediaWiki."><span class="smwbuiltin"><a href="/wiki/Property:Has_subobject" title="Property:Has subobject">Has subobject</a></span><div class="smwttcontent">"Has subobject" is a predefined property representing a <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Container">container</a> construct and is provided by <a rel="nofollow" class="external text" href="https://www.semantic-mediawiki.org/wiki/Help:Special_properties">Semantic MediaWiki</a>.</div></span></td><td class="smwspecs"><span class="smw-subobject-entity"><a href="/wiki/intel/core_i7ee/i7-6950x#io" title="intel/core i7ee/i7-6950x">Core i7-6950X Extreme Edition  - Intel#io</a></span><span class="smwbrowse"><a href="/wiki/Special:Browse/:intel-2Fcore-20i7ee-2Fi7-2D6950x-23io" title="Special:Browse/:intel-2Fcore-20i7ee-2Fi7-2D6950x-23io"> +</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:base_frequency" title="Property:base frequency">base&#160;frequency</a></td><td class="smwprops">3,000&#160;MHz (3&#160;GHz, 3,000,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:base-20frequency/3000-20MHz" title="Special:SearchByProperty/:base-20frequency/3000-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:bus_type" title="Property:bus type">bus&#160;type</a></td><td class="smwprops">DMI 2.0  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:bus-20type/DMI-202.0" title="Special:SearchByProperty/:bus-20type/DMI-202.0">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:chipset" title="Property:chipset">chipset</a></td><td class="smwprops">Wellsburg  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:chipset/Wellsburg" title="Special:SearchByProperty/:chipset/Wellsburg">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:clock_multiplier" title="Property:clock multiplier">clock&#160;multiplier</a></td><td class="smwprops">30  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:clock-20multiplier/30" title="Special:SearchByProperty/:clock-20multiplier/30">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core&#160;count</a></td><td class="smwprops">10  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/10" title="Special:SearchByProperty/:core-20count/10">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:core_name" title="Property:core name">core&#160;name</a></td><td class="smwprops">Broadwell E  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20name/Broadwell-20E" title="Special:SearchByProperty/:core-20name/Broadwell-20E">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_stepping" title="Property:core stepping">core&#160;stepping</a></td><td class="smwprops">M0  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20stepping/M0" title="Special:SearchByProperty/:core-20stepping/M0">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:cpuid" title="Property:cpuid">cpuid</a></td><td class="smwprops">406F1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:cpuid/406F1" title="Special:SearchByProperty/:cpuid/406F1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/Intel" title="Special:SearchByProperty/:designer/Intel">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:die_area" title="Property:die area">die&#160;area</a></td><td class="smwprops">246&#160;mm² (0.381&#160;in², 2.46&#160;cm², 246,000,000&#160;µm²)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:die-20area/246-20mm%C2%B2" title="Special:SearchByProperty/:die-20area/246-20mm²">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:family" title="Property:family">family</a></td><td class="smwprops">Core i7EE  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:family/Core-20i7EE" title="Special:SearchByProperty/:family/Core-20i7EE">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first&#160;launched</a></td><td class="smwprops">May 31, 2016  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/31-20May-202016" title="Special:SearchByProperty/:first-20launched/31-20May-202016">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full&#160;page&#160;name</a></td><td class="smwprops">intel/core i7ee/i7-6950x  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/intel-2Fcore-20i7ee-2Fi7-2D6950x" title="Special:SearchByProperty/:full-20page-20name/intel-2Fcore-20i7ee-2Fi7-2D6950x">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions" title="Property:has advanced vector extensions">has&#160;advanced&#160;vector extensions</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_advanced_vector_extensions_2" title="Property:has advanced vector extensions 2">has&#160;advanced&#160;vector extensions 2</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true" title="Special:SearchByProperty/:has-20advanced-20vector-20extensions-202/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_extended_page_tables_support" title="Property:has extended page tables support">has&#160;extended&#160;page tables support</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20extended-20page-20tables-20support/true" title="Special:SearchByProperty/:has-20extended-20page-20tables-20support/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_feature" title="Property:has feature">has&#160;feature</a></td><td class="smwprops">Advanced Vector Extensions  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions">+</a></span>, Advanced Vector Extensions 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202" title="Special:SearchByProperty/:has-20feature/Advanced-20Vector-20Extensions-202">+</a></span>, Advanced Encryption Standard Instruction Set Extension  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension" title="Special:SearchByProperty/:has-20feature/Advanced-20Encryption-20Standard-20Instruction-20Set-20Extension">+</a></span>, Hyper-Threading Technology  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Hyper-2DThreading-20Technology" title="Special:SearchByProperty/:has-20feature/Hyper-2DThreading-20Technology">+</a></span>, Turbo Boost Technology 2.0  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Turbo-20Boost-20Technology-202.0" title="Special:SearchByProperty/:has-20feature/Turbo-20Boost-20Technology-202.0">+</a></span>, Turbo Boost Max Technology 3.0  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Turbo-20Boost-20Max-20Technology-203.0" title="Special:SearchByProperty/:has-20feature/Turbo-20Boost-20Max-20Technology-203.0">+</a></span>, Enhanced SpeedStep Technology  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Enhanced-20SpeedStep-20Technology" title="Special:SearchByProperty/:has-20feature/Enhanced-20SpeedStep-20Technology">+</a></span> and Extended Page Tables  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20feature/Extended-20Page-20Tables" title="Special:SearchByProperty/:has-20feature/Extended-20Page-20Tables">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_intel_enhanced_speedstep_technology" title="Property:has intel enhanced speedstep technology">has&#160;intel&#160;enhanced speedstep technology</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20intel-20enhanced-20speedstep-20technology/true" title="Special:SearchByProperty/:has-20intel-20enhanced-20speedstep-20technology/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_intel_turbo_boost_max_technology_3_0" title="Property:has intel turbo boost max technology 3 0">has&#160;intel&#160;turbo boost max technology 3 0</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20intel-20turbo-20boost-20max-20technology-203-200/true" title="Special:SearchByProperty/:has-20intel-20turbo-20boost-20max-20technology-203-200/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_intel_turbo_boost_technology_2_0" title="Property:has intel turbo boost technology 2 0">has&#160;intel&#160;turbo boost technology 2 0</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20intel-20turbo-20boost-20technology-202-200/true" title="Special:SearchByProperty/:has-20intel-20turbo-20boost-20technology-202-200/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_locked_clock_multiplier" title="Property:has locked clock multiplier">has&#160;locked&#160;clock multiplier</a></td><td class="smwprops">false  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20locked-20clock-20multiplier/false" title="Special:SearchByProperty/:has-20locked-20clock-20multiplier/false">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_second_level_address_translation_support" title="Property:has second level address translation support">has&#160;second&#160;level address translation support</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20second-20level-20address-20translation-20support/true" title="Special:SearchByProperty/:has-20second-20level-20address-20translation-20support/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:has_simultaneous_multithreading" title="Property:has simultaneous multithreading">has&#160;simultaneous&#160;multithreading</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20simultaneous-20multithreading/true" title="Special:SearchByProperty/:has-20simultaneous-20multithreading/true">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:has_x86_advanced_encryption_standard_instruction_set_extension" title="Property:has x86 advanced encryption standard instruction set extension">has&#160;x86&#160;advanced encryption standard instruction set extension</a></td><td class="smwprops">true  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true" title="Special:SearchByProperty/:has-20x86-20advanced-20encryption-20standard-20instruction-20set-20extension/true">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance&#160;of</a></td><td class="smwprops">microprocessor  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor" title="Special:SearchByProperty/:instance-20of/microprocessor">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:isa" title="Property:isa">isa</a></td><td class="smwprops">x86-64  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa/x86-2D64" title="Special:SearchByProperty/:isa/x86-2D64">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:isa_family" title="Property:isa family">isa&#160;family</a></td><td class="smwprops">x86  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:isa-20family/x86" title="Special:SearchByProperty/:isa-20family/x86">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1d$_description" title="Property:l1d$ description">l1d$&#160;description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l1d-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1d$_size" title="Property:l1d$ size">l1d$&#160;size</a></td><td class="smwprops">0.313&#160;MiB (320&#160;KiB, 327,680&#160;B, 3.051758e-4&#160;GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1d-24-20size/0.3125-20MiB" title="Special:SearchByProperty/:l1d-24-20size/0.3125-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l1i$_description" title="Property:l1i$ description">l1i$&#160;description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l1i-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l1i$_size" title="Property:l1i$ size">l1i$&#160;size</a></td><td class="smwprops">0.313&#160;MiB (320&#160;KiB, 327,680&#160;B, 3.051758e-4&#160;GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l1i-24-20size/0.3125-20MiB" title="Special:SearchByProperty/:l1i-24-20size/0.3125-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l2$_description" title="Property:l2$ description">l2$&#160;description</a></td><td class="smwprops">8-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative" title="Special:SearchByProperty/:l2-24-20description/8-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l2$_size" title="Property:l2$ size">l2$&#160;size</a></td><td class="smwprops">2.5&#160;MiB (2,560&#160;KiB, 2,621,440&#160;B, 0.00244&#160;GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l2-24-20size/2.5-20MiB" title="Special:SearchByProperty/:l2-24-20size/2.5-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:l3$_description" title="Property:l3$ description">l3$&#160;description</a></td><td class="smwprops">20-way set associative  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l3-24-20description/20-2Dway-20set-20associative" title="Special:SearchByProperty/:l3-24-20description/20-2Dway-20set-20associative">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:l3$_size" title="Property:l3$ size">l3$&#160;size</a></td><td class="smwprops">25&#160;MiB (25,600&#160;KiB, 26,214,400&#160;B, 0.0244&#160;GiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:l3-24-20size/25-20MiB" title="Special:SearchByProperty/:l3-24-20size/25-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:ldate" title="Property:ldate">ldate</a></td><td class="smwprops">May 31, 2016  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:ldate/31-20May-202016" title="Special:SearchByProperty/:ldate/31-20May-202016">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">Intel  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Intel" title="Special:SearchByProperty/:manufacturer/Intel">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market&#160;segment</a></td><td class="smwprops">Desktop  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Desktop" title="Special:SearchByProperty/:market-20segment/Desktop">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_cpu_count" title="Property:max cpu count">max&#160;cpu&#160;count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20cpu-20count/1" title="Special:SearchByProperty/:max-20cpu-20count/1">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_junction_temperature" title="Property:max junction temperature">max&#160;junction&#160;temperature</a></td><td class="smwprops">369.15&#160;K (96&#160;°C, 204.8&#160;°F, 664.47&#160;°R)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20junction-20temperature/369.15-20K" title="Special:SearchByProperty/:max-20junction-20temperature/369.15-20K">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:max_memory" title="Property:max memory">max&#160;memory</a></td><td class="smwprops">131,072&#160;MiB (134,217,728&#160;KiB, 137,438,953,472&#160;B, 128&#160;GiB, 0.125&#160;TiB)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20memory/131072-20MiB" title="Special:SearchByProperty/:max-20memory/131072-20MiB">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:max_pcie_lanes" title="Property:max pcie lanes">max&#160;pcie&#160;lanes</a></td><td class="smwprops">40  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:max-20pcie-20lanes/40" title="Special:SearchByProperty/:max-20pcie-20lanes/40">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Broadwell  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Broadwell" title="Special:SearchByProperty/:microarchitecture/Broadwell">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:min_junction_temperature" title="Property:min junction temperature">min&#160;junction&#160;temperature</a></td><td class="smwprops">0&#160;K (-273.15&#160;°C, -459.67&#160;°F, 0&#160;°R)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:min-20junction-20temperature/0-20K" title="Special:SearchByProperty/:min-20junction-20temperature/0-20K">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:model_number" title="Property:model number">model&#160;number</a></td><td class="smwprops">i7-6950X  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:model-20number/i7-2D6950X" title="Special:SearchByProperty/:model-20number/i7-2D6950X">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Core i7-6950X Extreme Edition  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Core-20i7-2D6950X-20Extreme-20Edition" title="Special:SearchByProperty/:name/Core-20i7-2D6950X-20Extreme-20Edition">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:part_number" title="Property:part number">part&#160;number</a></td><td class="smwprops">BX80671I76950X  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:part-20number/BX80671I76950X" title="Special:SearchByProperty/:part-20number/BX80671I76950X">+</a></span>, BXC80671I76950X  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:part-20number/BXC80671I76950X" title="Special:SearchByProperty/:part-20number/BXC80671I76950X">+</a></span> and CM8067102055800  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:part-20number/CM8067102055800" title="Special:SearchByProperty/:part-20number/CM8067102055800">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">14&#160;nm (0.014&#160;μm, 1.4e-5&#160;mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/14-20nm" title="Special:SearchByProperty/:process/14-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:release_price" title="Property:release price">release&#160;price</a></td><td class="smwprops">$&#160;1,743.00 (€&#160;1,568.70, £&#160;1,411.83, ¥&#160;180,104.19)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:release-20price/-24-201743" title="Special:SearchByProperty/:release-20price/-24-201743">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:s-spec" title="Property:s-spec">s-spec</a></td><td class="smwprops">SR2PA  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:s-2Dspec/SR2PA" title="Special:SearchByProperty/:s-2Dspec/SR2PA">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:series" title="Property:series">series</a></td><td class="smwprops">i7-6900  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:series/i7-2D6900" title="Special:SearchByProperty/:series/i7-2D6900">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/w/index.php?title=Property:smp_max_ways&amp;action=edit&amp;redlink=1" class="new" title="Property:smp max ways (page does not exist)">smp&#160;max&#160;ways</a></td><td class="smwprops"><a href="/w/index.php?title=1&amp;action=edit&amp;redlink=1" class="new" title="1 (page does not exist)">1</a>  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:smp-20max-20ways/1" title="Special:SearchByProperty/:smp-20max-20ways/1">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">140&#160;W (140,000&#160;mW, 0.188&#160;hp, 0.14&#160;kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/140-20W" title="Special:SearchByProperty/:tdp/140-20W">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:thread_count" title="Property:thread count">thread&#160;count</a></td><td class="smwprops">20  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:thread-20count/20" title="Special:SearchByProperty/:thread-20count/20">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:transistor_count" title="Property:transistor count">transistor&#160;count</a></td><td class="smwprops">3,400,000,000  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:transistor-20count/3400000000" title="Special:SearchByProperty/:transistor-20count/3400000000">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(10_cores)" title="Property:turbo frequency (10 cores)">turbo&#160;frequency&#160;(10 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(10-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(10-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(1_core)" title="Property:turbo frequency (1 core)">turbo&#160;frequency&#160;(1 core)</a></td><td class="smwprops">4,000&#160;MHz (4&#160;GHz, 4,000,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(1-20core)/4000-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(1-20core)/4000-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(2_cores)" title="Property:turbo frequency (2 cores)">turbo&#160;frequency&#160;(2 cores)</a></td><td class="smwprops">3,500&#160;MHz (3.5&#160;GHz, 3,500,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(2-20cores)/3500-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(2-20cores)/3500-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(3_cores)" title="Property:turbo frequency (3 cores)">turbo&#160;frequency&#160;(3 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(3-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(3-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(4_cores)" title="Property:turbo frequency (4 cores)">turbo&#160;frequency&#160;(4 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(4-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(4-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(5_cores)" title="Property:turbo frequency (5 cores)">turbo&#160;frequency&#160;(5 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(5-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(5-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(6_cores)" title="Property:turbo frequency (6 cores)">turbo&#160;frequency&#160;(6 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(6-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(6-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(7_cores)" title="Property:turbo frequency (7 cores)">turbo&#160;frequency&#160;(7 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(7-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(7-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(8_cores)" title="Property:turbo frequency (8 cores)">turbo&#160;frequency&#160;(8 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(8-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(8-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:turbo_frequency_(9_cores)" title="Property:turbo frequency (9 cores)">turbo&#160;frequency&#160;(9 cores)</a></td><td class="smwprops">3,400&#160;MHz (3.4&#160;GHz, 3,400,000&#160;kHz)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:turbo-20frequency-20(9-20cores)/3400-20MHz" title="Special:SearchByProperty/:turbo-20frequency-20(9-20cores)/3400-20MHz">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:word_size" title="Property:word size">word&#160;size</a></td><td class="smwprops">64&#160;bit (8&#160;octets, 16&#160;nibbles)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:word-20size/64-20bit" title="Special:SearchByProperty/:word-20size/64-20bit">+</a></span></td></tr></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 24 March 2019, at 14:29.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":98});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

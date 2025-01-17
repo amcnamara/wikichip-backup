@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=191-3&cb=1', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);(new Image()).src=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+(new Image()).src=pixelURL;}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=191-3&cb=2', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=191-3&cb=1', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=191-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>RegEx - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/regex","wgTitle":"mirc/regex","wgCurRevisionId":98292,"wgRevisionId":98292,"wgArticleId":2521,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/regex","wgRelevantArticleId":2521,"wgRequestId":"114958912bd6eabc790f9d25","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/regex" href="/w/index.php?title=Special:ExportRDF/mirc/regex&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/regex&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/regex&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="RegEx - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Regular expressions, from here on referred to as regex, can be used to perform complicated pattern matching operations. Users should already be familiar with, and comfortable using, Regular expressions at this point. The Regular Expressions page contains more detailed information for users who are new to regex but a reminder of the syntax will be provided at the end." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">window.google_analytics_uacct = "UA-123156094-3";</script>
+<script data-ezscrex="false" data-cfasync="false" type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(function(){
+	_gat._createTracker('UA-123156094-3', 'e');
+});
+_gaq.push(function(){
+	_gat._createTracker('UA-38339005-1', 'f');
+});
+_gaq.push(['e._setDomainName', 'wikichip.org']);
+_gaq.push(['f._setDomainName', 'wikichip.org']);
+_gaq.push(['e._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['e._setCustomVar',2,'t','126',3]);
+_gaq.push(['e._setCustomVar',3,'rid','0',2]);
+_gaq.push(['e._setCustomVar',4,'bra','mod20-c',3]);
+_gaq.push(['e._setAllowAnchor',true]);
+_gaq.push(['e._setSiteSpeedSampleRate', 10]);
+_gaq.push(['f._setCustomVar',1,'template','old_site_gc',3]);
+_gaq.push(['f._setCustomVar',2,'domain','wikichip.org',3]);
+_gaq.push(['f._setSiteSpeedSampleRate', 20]);
+_gaq.push(['e._trackPageview']);
+_gaq.push(['f._trackPageview']);
+
+
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/mirc/regex"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"4382bdea-aa1e-467f-5693-d916da81e0bf","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":114725,"response_time_orig":471,"serverid":"54.221.102.211:13804","state":"VA","t_epoch":1610856362,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/mirc/regex","user_id":0,"word_count":5207,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?dcb=191-3&cb=1&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["4382bdea-aa1e-467f-5693-d916da81e0bf", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_regex rootpage-mirc skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/mirc/regex">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:mirc/regex"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=mirc/regex&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=mirc/regex&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fregex"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/regex"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/regex"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/regex&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/regex&oldid=98292"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/regex&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fregex"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    RegEx - mIRC    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <strong class="selflink">Regex</strong></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li>
+<li> <a href="/wiki/mirc/dcc_get_security" title="mirc/dcc get security">DCC GET security</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/mirc_installation" title="mirc/mirc installation">mIRC Installation</a></li>
+<li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">IPv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li>
+<li> <a href="/wiki/mirc/dcc_protocols" title="mirc/dcc protocols">DCC Protocols</a></li>
+<li> <a href="/w/index.php?title=mirc/line_length_limit&amp;action=edit&amp;redlink=1" class="new" title="mirc/line length limit (page does not exist)">Line Length Limit</a></li>
+<li> <a href="/w/index.php?title=mirc/font_rendering&amp;action=edit&amp;redlink=1" class="new" title="mirc/font rendering (page does not exist)">Font rendering</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p>Regular expressions, from here on referred to as <b>regex</b>, can be used to perform complicated pattern matching operations. Users should already be familiar with, and comfortable using, Regular expressions at this point. The <a href="/w/index.php?title=regular_expressions&amp;action=edit&amp;redlink=1" class="new" title="regular expressions (page does not exist)">Regular Expressions</a> page contains more detailed information for users who are new to regex but a reminder of the syntax will be provided at the end.
+</p><p><b>Note</b>: a back reference is the same as a capturing group.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#General_Information"><span class="tocnumber">1</span> <span class="toctext">General Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Sanitizing_the_input"><span class="tocnumber">1.1</span> <span class="toctext">Sanitizing the input</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Regex_Identifiers"><span class="tocnumber">2</span> <span class="toctext">Regex Identifiers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#.24regex"><span class="tocnumber">2.1</span> <span class="toctext">$regex</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#.24regml"><span class="tocnumber">2.2</span> <span class="toctext">$regml</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#.24regmlex"><span class="tocnumber">2.3</span> <span class="toctext">$regmlex</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#.24regsub"><span class="tocnumber">2.4</span> <span class="toctext">$regsub</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#.24regsubex"><span class="tocnumber">2.5</span> <span class="toctext">$regsubex</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Markers.2C_.241-_and_Nested_.24regsubex_calls"><span class="tocnumber">2.5.1</span> <span class="toctext">Markers, $1- and Nested $regsubex calls</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Nested_calls"><span class="tocnumber">2.5.2</span> <span class="toctext">Nested calls</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#No_Marker"><span class="tocnumber">2.5.3</span> <span class="toctext">No Marker</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#.2Ffilter"><span class="tocnumber">3</span> <span class="toctext">/filter</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#.24hfind"><span class="tocnumber">4</span> <span class="toctext">$hfind</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#.2Fwrite.2C_.24read.2C_.24fline.2C_etc"><span class="tocnumber">5</span> <span class="toctext">/write, $read, $fline, etc</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Syntax"><span class="tocnumber">6</span> <span class="toctext">Syntax</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Outside_square_brackets"><span class="tocnumber">6.1</span> <span class="toctext">Outside square brackets</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Inside_a_character_class"><span class="tocnumber">6.2</span> <span class="toctext">Inside a character class</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#The_Backslash_.5C"><span class="tocnumber">6.3</span> <span class="toctext">The Backslash \</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="General_Information">General Information</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=1" title="Edit section: General Information">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>mIRC uses the 8bits version of <a href="/w/index.php?title=PCRE_library&amp;action=edit&amp;redlink=1" class="new" title="PCRE library (page does not exist)">PCRE library</a> to implement regex with the following options enabled:
+</p>
+<ul><li> --enable-utf8</li>
+<li> --enable-unicode-properties</li>
+<li> --with-match-limit - around 1,000,000</li>
+<li> --with-match-limit-recursion - 999</li></ul>
+<p>The newline sequence by default is $lf.
+</p><p>mIRC has four custom modifiers for regex:
+</p>
+<ul><li> S - Strips control codes from the input before matching (not supported by $hfind).</li>
+<li> g - Performs global matches: after one match has been found, mIRC tries to match again from the current position.</li>
+<li> F - Enable the correct regex behavior: before mIRC 7.44, non participating capturing group were ignored in $regml, see <a rel="nofollow" class="external free" href="http://forums.mirc.com/ubbthreads.php/topics/260397/Bug_$regmlex#Post260397">http://forums.mirc.com/ubbthreads.php/topics/260397/Bug_$regmlex#Post260397</a></li>
+<li> u - Enable the (*UCP) option (makes \b and \w works for unicode letters) and the (*UTF8) option (forces the string and pattern to be interpreted as utf8). </li></ul>
+<p>mIRC does not allow you to retrieve the full match. You can access simple captures but you cannot access named capture. Here is an alias which allow you to get the full match (made by jaytea):
+</p>
+<pre><span class="code_line"><span class="mirc_comment">&#160;;<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regexm" title="$regexm - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regexm</span></a><span class="mirc_bracket">&#x28;</span>input,regex,Nth<span class="mirc_bracket">&#x29;</span>.pos returns the Nth full match or its position</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/alias" title="/alias - mIRC Command" style="text-decoration: none"><span class="mirc_command"> alias</span></a> regexm <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">  noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>full, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>, /^<span class="mirc_bracket">&#x28;</span>?|m<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>?|<span class="mirc_bracket">&#x28;</span>/<span class="mirc_bracket">&#x29;</span>|^<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>.*?<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>?:\1<span class="mirc_bracket">&#x28;</span>?!.*\1<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>.*<span class="mirc_bracket">&#x29;</span>$<span class="mirc_bracket">&#x29;</span>?$/usD<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">  noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>pcre, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>full, 1, 2<span class="mirc_bracket">&#x29;</span>, /^<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x28;</span>?:<span class="mirc_bracket">&#x28;</span>?!\<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x28;</span>?:<span class="mirc_bracket">&#x28;</span>?:MARK|PRUNE|SKIP|THEN|\*<span class="mirc_bracket">&#x28;</span>?=:<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>?::[^<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x29;</span>]*<span class="mirc_bracket">&#x29;</span>?|ACCEPT|COMMIT<span class="mirc_bracket">&#x29;</span>\<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>\<span class="mirc_bracket">&#x28;</span>\*.*?\<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>*<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>.*<span class="mirc_bracket">&#x29;</span>/us<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span> , <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>/, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>pcre, 1, 1<span class="mirc_bracket">&#x29;</span>, |, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>pcre, 1, 2<span class="mirc_bracket">&#x29;</span>, /<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> -eagc i * <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>regexm: Invalid expression <span class="mirc_bracket">&#x28;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regerrstr" title="$regerrstr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regerrstr</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">    <span class="mirc_control">return</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%char</span>, <span class="mirc_variable">%exp</span></span>
+<span class="code_line">  <span class="mirc_control">while</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$chr" title="$chr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chr</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$r" title="$r - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$r</span></a><span class="mirc_bracket">&#x28;</span>2048, 55295<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> isin <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span> /</span>
+<span class="code_line">  <span class="mirc_variable">%char</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%exp</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>m, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>full, 1, 1<span class="mirc_bracket">&#x29;</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>pcre, 1, 1<span class="mirc_bracket">&#x29;</span>, <span class="mirc_bracket">&#x28;</span>?: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>pcre, 1, 2<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> \E<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>?<span class="mirc_bracket">&#x28;</span>R<span class="mirc_bracket">&#x29;</span>|\K<span class="mirc_bracket">&#x29;</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>full, 1, 1<span class="mirc_bracket">&#x29;</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>full, 1, 3<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, <span class="mirc_variable">%exp</span>, <span class="mirc_variable">%char<span class="mirc_bracket">&#x29;</span></span> .</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$pos" title="$pos - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$pos</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, <span class="mirc_variable">%char</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">    noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>check, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>, <span class="mirc_variable">%char<span class="mirc_bracket">&#x29;</span></span>, / <span class="mirc_variable">%char</span> <span class="mirc_bracket">&#x28;</span> <span class="mirc_variable">%char</span>&#160;?<span class="mirc_bracket">&#x29;</span>/gxu<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">    <span class="mirc_variable">%str</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>fix, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, -2<span class="mirc_bracket">&#x29;</span>, / <span class="mirc_variable">%char</span> \K/gxu, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>check, \n<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> .</span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">  noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>final, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$left" title="$left - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$left</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%str</span>, -2<span class="mirc_bracket">&#x29;</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>/\Q, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$replacecs" title="$replacecs - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$replacecs</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>, <span class="mirc_variable">%char<span class="mirc_bracket">&#x29;</span></span>, \E, \E\\E\Q, <span class="mirc_variable">%char</span>, \E<span class="mirc_bracket">&#x28;</span>.*?<span class="mirc_bracket">&#x29;</span>\Q <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_variable">%char<span class="mirc_bracket">&#x29;</span></span>, \E/u<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$prop" title="$prop - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$prop</span></a> == pos<span class="mirc_bracket">&#x29;</span> &amp;&amp; <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$3." title="$3. - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3.</span></a> isnum 1- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>final, 0<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span>1 + <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>final, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a><span class="mirc_bracket">&#x29;</span>.pos - <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">return</span>ex <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>final, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a> 1<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"> <span class="mirc_bracket">}</span></span></pre>
+<p><br />
+mIRC remembers up to 50 regex matches. After 50 matches, the first match is overwritten and the backreferences for that match are lost.
+</p><p>Example: 
+</p><p>/(This is) (a ) pattern/
+</p><p>This represent one regular expression (or one pattern) with 2 captured backreferences.
+</p>
+<h3><span class="mw-headline" id="Sanitizing_the_input">Sanitizing the input</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=2" title="Edit section: Sanitizing the input">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If you pass value dynamically in a regex pattern, you have to escape any characters in such value that could otherwise be interpreted by the PCRE regex engine.
+</p><p>Instead of escaping a bunch of characters with \, which is supported, PCRE allows for the \Q \E construct to not interpret anything between that construct:
+</p><p>Looking for a match on a nickname such as nick[name], you could use /\b $+ \Q $+ $nick $+ \E\b/
+</p><p>This is good but still has one flaw, if $nick contains \E, it will terminate the escaping sequence and subsequent character would be interpreted by PCRE.
+</p><p>To solve the issue, you have to "escape" all the \E inside the value you're using: /b\Q $+ $replacecs($nick,\E,\E\\E\Q) $+ \E\b/
+</p><p>There's no way to escape a character inside the escaping sequence \Q\E, you have to first terminate the sequence yourself with \E, then you have to match the actual \E from the input with \\E, and then start a new escape sequence with \Q.
+</p>
+<h2><span class="mw-headline" id="Regex_Identifiers">Regex Identifiers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=3" title="Edit section: Regex Identifiers">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The four main identifiers, <i>$regex</i>, <i>$regsub</i>, <i>$regml</i>, and <i>$regsubex</i>, can take an optional <i>Name</i> as a parameter. This name can be used to get the backreference captured by the regex match. If a name is not specified, mIRC uses a default one.
+</p>
+<h3><span class="mw-headline" id=".24regex">$regex</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=4" title="Edit section: $regex">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>[name],&lt;input&gt;,&lt;regex&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The sample above performs a regular expression match and returns the number of matches found.
+</p><p>If the /g modifier is used, that number can be greater than 1.
+You may see a negative value being returned if an error occured, the list below is not exhaustive, but the error ommited are the one that can only happen because of a bug in mIRC in the way it uses pcre, which should never happen in practice.
+</p>
+<ul><li> -5 - rare, the compiled pattern has an error in it, could be due to a bug in pcre or because the pattern has been overwritten</li>
+<li> -6 - memory could not be allocated</li>
+<li> -7 - memory could not be allocated (specific to retrieving capturing groups)</li>
+<li> -8 - you reached the maximum number of backtracks allowed, for example: $regex($str(a,4000),(a+a+)*b)</li>
+<li> -14 - mIRC uses this value when compiling the pattern fails but it's a valid value meaning an internal error occured as well. If this error is returned because compiling the pattern failed, <a href="/wiki/mirc/identifiers/$regerrstr" title="mirc/identifiers/$regerrstr">$regerrstr</a> is set with an error string, otherwise -14 is the pcre meaning, which is more or less the same as -5 but happens elsewhere in the code.</li>
+<li> -21 - you reached an internal recursion limit, for example: $regex($str(a, 1000), (a)+)</li>
+<li> -26 - this error is returned when pcre detects a recursion loop within the pattern. Specifically, it means that either the whole pattern or a subpattern has been called recursively for the second time at the same position in the input string. Some simple patterns that might do this are detected and faulted at compile time, but more  complicated cases, in particular mutual recursions between two different subpatterns, cannot be detected until run time. ex: $regex(,((?2))((?3))((?1)))</li></ul>
+<h3><span class="mw-headline" id=".24regml">$regml</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=5" title="Edit section: $regml">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>[name],N<span class="mirc_bracket">&#x29;</span></span></pre>
+<p><i>$regml</i> can be used to return the Nth back-reference. It takes the optional [name] used in $regex/$regsub/$regsubex. As with all other aspects of mIRC identifier, if <i>0</i> is specified as the Nth reference, then the total number of backreferences is returned.
+</p><p>$regml also has a <i>.pos</i> property, which returns the position within the input where the capture occurred.
+</p><p>Below is an example of a regular expression, using <i>name</i> as the optional <i>[Name]</i> property, and then using $regml to reference the match(es):
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">//noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>name, test, /<span class="mirc_bracket">&#x28;</span>[es]<span class="mirc_bracket">&#x29;</span>/g<span class="mirc_bracket">&#x29;</span> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 0<span class="mirc_bracket">&#x29;</span>&#160;: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 1<span class="mirc_bracket">&#x29;</span> -- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 2<span class="mirc_bracket">&#x29;</span></span></pre> would display "2&#160;: e -- s"
+<p><b>Note</b>: $regml is a list of all captures accross all the matches made (/g modifier), which is often enough, but can be a problem in some cases.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">//noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regex" title="$regex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regex</span></a><span class="mirc_bracket">&#x28;</span>name, teasat, /<span class="mirc_bracket">&#x28;</span>[es]<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>a<span class="mirc_bracket">&#x29;</span>/g<span class="mirc_bracket">&#x29;</span> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 0<span class="mirc_bracket">&#x29;</span>&#160;: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 1<span class="mirc_bracket">&#x29;</span> -- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name, 2<span class="mirc_bracket">&#x29;</span> -- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name,3<span class="mirc_bracket">&#x29;</span> -- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name,4<span class="mirc_bracket">&#x29;</span></span></pre>would display "4&#160;: e -- a -- s -- a "
+<p>You can now access the Nth captured group for a given match number with <a href="/wiki/mirc/identifiers/$regmlex" title="mirc/identifiers/$regmlex">$regmlex</a>.
+</p>
+<h3><span class="mw-headline" id=".24regmlex">$regmlex</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=6" title="Edit section: $regmlex">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regmlex" title="$regmlex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regmlex</span></a><span class="mirc_bracket">&#x28;</span>[name],M,N<span class="mirc_bracket">&#x29;</span></span></pre>
+<p><br />
+As stated above for $regml, when /g is used, $regml can be inconvenient: you cannot get all the captured group for a given match number for sure when you don't know about the pattern or input string in advance, this identifier allows you to retrieve these captured groups (backreferences). M is the Mth match and N is the Nth capturing group, N default to 1 if not specified. It supports the same properties as $regml.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id=".24regsub">$regsub</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=7" title="Edit section: $regsub">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsub" title="$regsub - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsub</span></a><span class="mirc_bracket">&#x28;</span>[name], &lt;input&gt;, &lt;regex&gt;, &lt;subtext&gt;, &lt;<span class="mirc_variable">%varname&gt;<span class="mirc_bracket">&#x29;</span></span></span></pre>
+<p>Performs a regular expression match, like $regex, and then performs a substitution using &lt;subtext&gt;. Returns the number of substitution made and fills &lt;%varname&gt; with the resulting text
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">//var</span></a> <span class="mirc_variable">%res</span> |<a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command"> noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsub" title="$regsub - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsub</span></a><span class="mirc_bracket">&#x28;</span>name,test,/<span class="mirc_bracket">&#x28;</span>[es]<span class="mirc_bracket">&#x29;</span>/g,t,<span class="mirc_variable">%res<span class="mirc_bracket">&#x29;</span></span> |<a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name,0<span class="mirc_bracket">&#x29;</span>&#160;: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name,1<span class="mirc_bracket">&#x29;</span> -- <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regml" title="$regml - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regml</span></a><span class="mirc_bracket">&#x28;</span>name,2<span class="mirc_bracket">&#x29;</span>&#160;: <span class="mirc_variable">%res</span></span></pre>
+<h3><span class="mw-headline" id=".24regsubex">$regsubex</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=8" title="Edit section: $regsubex">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>[name],&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>$regsubex is a more modern version of $regsub, in that it performs the match, then the substitution, and finally returns the result of the substitution.
+</p><p>This time, &lt;subtext&gt; is evaluated during substitution so you can use&#160;%variables and $identifiers there, they will be evaluated.
+</p><p><b>Note</b>: You can now use $regsubex the same way as $regsub to get it to return the number of match and filling a&#160;%variable with the result, the name is required, both also supports output to a binvar: $regsubex(name,&lt;input&gt;,&lt;regex&gt;,&lt;subtext&gt;,%var|&amp;binvar)
+</p>
+<h4><span class="mw-headline" id="Markers.2C_.241-_and_Nested_.24regsubex_calls">Markers, $1- and Nested $regsubex calls</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=9" title="Edit section: Markers, $1- and Nested $regsubex calls">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Special markers can be used inside the &lt;subtext&gt; parameter of $regsubex:
+</p>
+<ul><li> \0 - Returns the number of matches.</li>
+<li> \n - Returns the current match number.</li>
+<li> \t - Returns the current match text (same as $regml(\n)).</li>
+<li> \a - Returns all matching items.</li>
+<li> \A - Returns a non-spaced version of \a.</li>
+<li> \1 \2 \N ... - Returns the Nth back-reference made for a given match</li></ul>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>a@bc@ef,/<span class="mirc_bracket">&#x28;</span>[a-z]<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x28;</span>[a-z]<span class="mirc_bracket">&#x29;</span>/g,&lt;\1&gt;&lt;\n&gt;&lt;\t&gt;&lt;\a&gt;&lt;\A&gt;&lt;\2&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Here you have two matches with two backreferences made per match:
+</p><p>First match is on 'bc':
+</p>
+<ul><li> \1 is 'b'</li>
+<li> \2 is 'c'</li>
+<li> \n is 1 because it's the first match.</li>
+<li> \t is the current matchtext (same as $regml(\n)), which is 'b'</li>
+<li> \a is "b c" while \A is "bc"</li></ul>
+<p>Second match is on 'ef':
+</p>
+<ul><li> \1 is 'e'</li>
+<li> \2 is 'f'</li>
+<li> \n is 2 because it's the second match.</li>
+<li> \t is the current matchtext (same as $regml(\n)), which is 'c' and not 'e' (\n is 2), it is important to note that when you have more than one backreference and more than one match (because of the /g modifier), \t is a bit meaningless.</li>
+<li> \a is "e f" while \A is "ef"</li></ul>
+<p>The way mIRC evaluates those markers is special, it is important at this point to talk about the main steps happening when evaluating $identifiers:
+</p>
+<ul><li> Process <b>[ ]</b>, which evaluates any variables/identifiers inside of the brackets once, and <b>[[ ]]</b>, which turns into <b>[ ]</b>.</li>
+<li> Separates the identifier's parameters and evaluates each parameter once. These evaluations take place in order from left to right.</li>
+<li> Passes the parameters to the identifier</li></ul>
+<p><b>$regsubex</b> is a bit different, it has its own parsing routine. By design, <b>$regsubex</b> must not evaluate the <i>subtext</i> parameter before doing the regex match. The steps for <b>$regsubex</b> are shown below:
+</p>
+<ul><li> Process [ ] and [[ ]].</li>
+<li> Seperate parameters, evaluate the 'input' and the 'regex' parameters.</li>
+<li> Perform the regex match.</li>
+<li> Tokenize <b>$1-</b> according to the number of markers used in the 'subtext' parameters.</li>
+<li> Replaces any markers used in the subtext with their corresponding <b>$N</b> identifiers's values.</li>
+<li> Evaluate the <b>subtext</b> parameter (one or more times, if /g is used).</li>
+<li> Performs the substitutions and returns the result.</li></ul>
+<p>mIRC internally uses <b>$1-</b> to store the values of the markers, it means the previous tokenization of $1- cannot be used in the <b>subtext</b> parameter (it is restored after). 
+</p><p>The way mIRC does this is quite special, it checks how many markers you have and creates a list of tokens (so, with $1-). Each token is assigned a value and mIRC then replaces the markers with the corresponding $N value before evaluating that result.
+</p><p>Let's have a look at an example, consider the following subtext:
+</p>
+<pre><span class="code_line">\t \t \1 \n</span></pre>
+<p>mIRC assigns the value of \t to <i>$1</i> &amp; <i>$2</i>, \1 is assigned to <i>$3</i> and finally, \n is assigned to <i>$4</i>.
+</p><p>Then each marker is replaced with their corresponding values, the subtext becomes:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$4" title="$4 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$4</span></a></span></pre>
+<p>And now mIRC evaluates that for each match and use it as a replacement.
+</p><p><b>Note</b>: If the form <b>\N</b> is used in the subtext, where N is a positive number greater-than or equal to 1 (such as <b>\1</b>), and there is no such back-reference number in the pattern, mIRC will use the value of <b>$regml(\n + N - 1)</b>.
+</p><p>An example of this is shown below:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>abcdefgij,/<span class="mirc_bracket">&#x28;</span>[a-z]<span class="mirc_bracket">&#x29;</span>/g,&lt;\6&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Here we have a break-down of the results of this regex:
+</p>
+<ul><li> The <b>\6</b> doesn't mean anything, as there are not 6 back-references made in the pattern (only one backreference, the pattern will, however, be applied 6 times and more because of the /g modifier)</li>
+<li> When <i>a</i> is matched, <b>\n</b> is <i>1</i>, and only one marker is used. Therefore, <b>$1</b> (used to represent \6) is filled with <i>$regml(1 + 6 -1) = $regml(6)</i>, which is <b>f</b></li>
+<li> When <i>b</i> is matched, <b>\n</b> is <i>2</i>, <b>$1</b> is then filled with <i>$regml(2 + 6 - 1) = $regml(7)</i>, which is <b>g</b></li>
+<li> And so on until <b>\n + N - 1</b> is greater than the total number of back-references, which at this point, <b>$null</b> is used.</li></ul>
+<h4><span class="mw-headline" id="Nested_calls">Nested calls</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=10" title="Edit section: Nested calls">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Nested <b>$regsubex</b> calls are possible, but caution must be taken with markers.
+</p><p>First of all, if you use the /g modifier in either the outer or the inner $regsubex call and you need to use the different backreferences made in either of them, you must give a name to either one or both of them, otherwise, the call of the inner $regsubex will overwrite the backreferences of the outer $regsubex (if you don't use a name, mIRC use a default name, which would be the same here).
+</p><p>When mIRC replaces the markers, it will do so on the whole subtext parameter, consider:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span>\t<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>In the above example, the outer <b>$regsubex</b> will make the regex match, then it will loop on the result and replace <i>\t</i> accordingly everywhere in the subtext. Notice the subtext of the outer <b>$regsubex</b> is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span>\t<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>All occurences of <b>\t</b> (can appear anywhere and it can be touching others characters) are changed with their corresponding $N value, even the one inside <b>$upper</b>; this means that the code won't work as expected. Typically we want this <b>\t</b> inside $upper() to be the corresponding value from the inner $regsubex, not the outer one.
+</p><p>The idea is to get mIRC to see something other than <b>\t</b> (inside that $upper()) when looking for markers from the outer <b>$regsubex</b> context.
+</p><p>A simple $+ cannot be used:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> \ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> t <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Having this as the subtext of the $regsubex would end up calling <b>$upper(\t)</b> with plain text "\t", because the <b>$+</b> is going to be evaluated after the inner $regsubex made his own regex match &amp; loop over its results, which is after both $regsubex looked for markers. Something need to be done before the markers of the inner $regsubex are replaced but after the outer $regsubex made his match: when the outer $regsubex is ready to loop over its result.
+</p><p>The solution is to use the <b>[[ \ $+ t ]]</b> construct:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [[ \ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> t ]] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Indeed, the processing of <b>[ ] and [[ ]]</b> is done for the whole line. mIRC first changes this line into:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [ \ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> t ] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The example above conveys how only the <b>[[ ]]</b> has changed. Remember <b>$+</b> was not evaluated because the subtext parameter of $regsubex is not evaluated until the regex match is performed.
+</p><p>Now, the outer <b>$regsubex</b> is evaluated, it gets its parameters (without evaluating the subtext), makes the regex match, and calls the subtext for each match, the subtext is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>&lt;value of \t from the outer <a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a>&gt;,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [ \ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> t ] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>And when this $regsubex evaluates (for each replacement of the outer $regsubex) [ \ $+ t ] will first produce \t, and everything works as we wanted.
+</p><p>The more nested $regsubex you have, the more you have to make sure each subtext has the correct number of [[ ]].
+</p><p>Obviously, you can make this cleaner by calling a custom alias as the subtext with the markers passed as parameters and doing the nested $regsubex call here, but this is possible.
+</p>
+<h4><span class="mw-headline" id="No_Marker">No Marker</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=11" title="Edit section: No Marker">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>You cannot use a marker inside the subtext of the inner $regsubex to get the value of the marker of the outer $regsubex context, that's why our previous example fails:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span>\t<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>You are tempted to think that \t inside $upper should always be "cd", because that's the only value that \t can have from the outer $regsubex and we just saw how the marker are replaced for the whole subtext, no matter where it appears. However, we also saw that mIRC does not blindly replace the markers with their real value, it uses the intermediate tokens identifiers ($1 etc), this is required otherwise element such as ) would be taken as closing parenthesis for identifier for example, or comma as argument seperator inside an identifier:
+</p><p>Two markers are used in the subtext of the outer $regsubex, so mIRC make the match, cd is found twice so a two iterations loop is made, each time replacing the match with the evaluation of the subtext parameter. Right before that loop, because two markers are used, mIRC fills $1 with \t as well as $2 with \t and then evaluate the subtext, which gives before evaluation:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>However remember that the subtext is not evaluated before the regex match is done, so only $1 gets evaluated here:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>cd,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>As you can see, mIRC adds the <b>$+</b> if the markers have text surrounding them, that's why you don't need to space them out like identifiers.
+You might understand why it's failing at this point: $2 has no value in this example because no marker are used in this inner $regsubex's subtext parameter, so $2 is $null.
+</p><p>So how do you use the value of the marker of the outer $regsubex inside the subtext of the inner $regsubex?
+</p><p>The solution is to use <b>[[ \t ]]</b>:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [[ \t ]] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>As we saw, mIRC will first turn this line into
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>name,abcdefcdab,/<span class="mirc_bracket">&#x28;</span>cd<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span>\t,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [ \t ] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Then the outer $regsubex will make the regex match and replaces markers so the subtext of the outer regsubex becomes:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$regsubex" title="$regsubex - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$regsubex</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>,/<span class="mirc_bracket">&#x28;</span>.<span class="mirc_bracket">&#x29;</span>/g,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$upper" title="$upper - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$upper</span></a><span class="mirc_bracket">&#x28;</span> [ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> ] <span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span></pre>
+<p>The difference is that you now have a pair of bracket, which are processed first, forcing the evaluation of $2, which has the correct value at this point.
+</p><p><b>Note</b>: the more you are nesting, the more you need to get mIRC to see the correct things, which easily gets ugly, calling an alias in the subtext to do the replacement is recommended.
+</p>
+<h2><span class="mw-headline" id=".2Ffilter">/filter</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=12" title="Edit section: /filter">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/mirc/commands/filter" title="mirc/commands/filter">/filter</a> supports the <i>-g</i> switch, which uses a regular expression. It is important to note that the back-reference value cannot be obtained using <b>$regml</b> if a custom alias is used as the output (<i>-k</i>). In order to be able to use <b>$regml</b>, <b>$regex</b> would need to be called.
+</p>
+<h2><span class="mw-headline" id=".24hfind">$hfind</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=13" title="Edit section: $hfind">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>$hfind</b> can be used along with <b>regex</b>. However, <b>$hfind</b> does not support the custom <b>S</b> modifier.
+</p>
+<h2><span class="mw-headline" id=".2Fwrite.2C_.24read.2C_.24fline.2C_etc">/write, $read, $fline, etc</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=14" title="Edit section: /write, $read, $fline, etc">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>These, and many more, are various places where <a href="/w/index.php?title=regular_expression&amp;action=edit&amp;redlink=1" class="new" title="regular expression (page does not exist)">Regular Expression</a> can be used.
+</p>
+<h2><span class="mw-headline" id="Syntax">Syntax</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=15" title="Edit section: Syntax">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This part is meant to document all the different features of PCRE that work with mIRC, and to explain a bit of regular expression works.
+</p><p>A regular expression is a pattern that is matched against a subject string from left to right. Most characters stand for themselves in a pattern, and match the corresponding characters in the subject.
+</p><p>As a trivial example, the pattern "The quick brown fox" matches a portion of a subject string that is identical to itself.
+</p><p>The power of regular expressions comes from the ability to include alternatives and repetitions in the pattern.
+</p><p>These are encoded in the pattern by the use of metacharacters, which do not stand for themselves but instead are interpreted in some special way.
+</p><p>There are two different sets of metacharacters: those that are recognized anywhere in the pattern except within square brackets, and those that are recognized within square brackets.
+</p>
+<h3><span class="mw-headline" id="Outside_square_brackets">Outside square brackets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=16" title="Edit section: Outside square brackets">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The metacharacters are as follows:
+</p>
+<pre>\   general escape character with several uses
+^   assert start of string (or line, in multiline mode)
+$   assert end of string (or line, in multiline mode)
+.   match any character except newline (by default)
+[   start character class definition
+|   start of alternative branch
+(   start subpattern
+)   end subpattern
+?   extends the meaning of '(', also 0 or 1 quantifier, also "quantifier minimizer"
+*   0 or more quantifier
++   1 or more quantifier, also "possessive quantifier"
+{   start min/max quantifier
+</pre>
+<h3><span class="mw-headline" id="Inside_a_character_class">Inside a character class</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=17" title="Edit section: Inside a character class">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Part  of  a  pattern  that is in square brackets is called a "character class".
+</p><p>In a character class the only metacharacters are:
+</p>
+<pre>\   general escape character
+^   negate the class, but only if the first character
+-   indicates character range
+[   POSIX character class (only if followed by POSIX syntax)
+]   terminates the character class
+</pre>
+<h3><span class="mw-headline" id="The_Backslash_.5C">The Backslash \</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/regex&amp;action=edit&amp;section=18" title="Edit section: The Backslash \">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The backslash character has several uses. Firstly, if it is followed by a character that is not a number or a letter, it takes away any special meaning that character may have.
+</p><p>This use of backslash as an escape character applies both inside and outside character classes.
+</p><p>Another usage of the backslash is to represent non printable character, they can all be used inside a character class:
+</p>
+<pre>\a         Bel character, ascii 07
+\cx        where x is any ascii character. The  precise effect of \cx on ASCII characters is as follows: if x is a lower case letter, it is converted to upper case. Then bit 6  of  the character (hex 40) is inverted. Thus \cA to \cZ become hex 01 to hex 1A (A is 41, Z is 5A), but \c{ becomes hex 3B ({ is 7B), and  \c;  becomes hex  7B (; is 3B). If the data item (byte or 16-bit value) following \c has a value greater than 127, a compile-time error occurs.  This locks out non-ASCII characters.
+\e escape character, ascii 27
+\f        form feed character, ascii 12
+\n        linefeed character, ascii 10
+\r        carriage return character, ascii 13
+\t        tab character, ascii 09
+\0dd      character with octal code 0dd. After \0, up to two further octal digits are read. If there are fewer than two digits, just those that are present are used. Thus the sequence \0\x\015 specifies two binary zeros followed by a CR character. Make sure you supply two digits after the initial zero if the pattern character that follows is itself an octal digit.
+\ddd      character with octal code ddd, or back reference
+\o{ddd..} character with octal code ddd..  The escape \o must be followed by a sequence of octal digits, enclosed in braces. An error occurs if this is not the case. This escape is an addition to Perl; it provides way of specifying character code points as octal numbers greater than 0777, and it also allows octal numbers and back references to be unambiguously specified.
+\xhh      character with hex code hh
+\x{hhh..} character with hex code hhh..
+</pre>
+<p>For greater clarity and unambiguity, it is best to avoid following \ by a digit greater than zero. Instead, use \o{} or \x{} to specify character numbers, and \g{} to specify back references. The  following  paragraphs describe the old, ambiguous syntax.
+</p><p>The handling of a backslash followed by a digit other than 0 is complicated, and Perl has changed in recent releases, causing PCRE also to change.
+</p><p>Outside a character class, PCRE reads the digit and any following digits as a decimal number.
+If the number is less than 8, or if there  have been at least that many previous capturing left parentheses in the expression, the entire sequence is taken as a back reference.
+</p><p>Inside a character class, or if the decimal number following \ is greater than 7 and there have not been that many capturing subpatterns, PCRE handles \8 and \9 as the literal characters "8" and "9", and otherwise re-reads up to three octal digits following the backslash, using them to generate a data character. Any subsequent digits  stand for themselves. 
+</p><p>For example:
+</p>
+<pre>        \040   is another way of writing an ASCII space
+        \40    is the same, provided there are fewer than 40 previous capturing subpatterns
+        \7     is always a back reference
+        \11    might be a back reference, or another way of writing a tab
+        \011   is always a tab
+        \0113  is a tab followed by the character "3"
+        \113   might be a back reference, otherwise the character with octal code 113
+        \377   might be a back reference, otherwise the value 255 (decimal)
+        \81    is either a back reference, or the two characters "8" and "1"
+</pre>
+<p>Note that octal values of 100 or greater that are specified using this syntax must not be introduced by a leading zero, because no more than three octal digits are ever read.
+</p><p>By  default, after \x that is not followed by {, from zero to two hexadecimal digits are read (letters can be in upper or lower  case).
+Any number of hexadecimal digits may appear between \x{ and }. If a character other than a hexadecimal digit appears between \x{  and  }, or if there is no terminating }, an error occurs.
+</p><p>Characters that are specified using octal or hexadecimal numbers are limited to certain values, less than 0x10ffff and a valid codepoint.
+</p><p>Invalid Unicode codepoints are the range  0xd800  to  0xdfff  (the  so called "surrogate" codepoints), and 0xffef.
+</p><p>All the sequences that define a single character value can be used both inside and outside character classes. In addition, inside a character class, \b is interpreted as the backspace character (ascii 08).
+</p><p>\N matches a non newline character, (same as the dot '.' without single line mode (/s modifier), it is not allowed inside a character class.
+</p><p>\g+N or \g-N is a relative back reference, it matches the value of the capturing group that can be found by counting as many opening parentheses of named or numbered capturing groups as specified by the number from right to left starting at the backreference. (a)(b)(c)(d)\g&lt;-3&gt; matches abcdb.
+</p><p>Another use of backslash is for specifying generic character types:
+</p>
+<pre>        \d     any decimal digit
+        \D     any character that is not a decimal digit
+        \h     any horizontal white space character
+        \H     any character that is not a horizontal white space character
+        \s     any white space character
+        \S     any character that is not a white space character
+        \v     any vertical white space character
+        \V     any character that is not a vertical white space character
+        \w     any "word" character
+        \W     any "non-word" character
+</pre>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:2521-0!*!0!!en!*!* and timestamp 20210117040602 and revision id 98292
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/regex&amp;oldid=98292">https://en.wikichip.org/w/index.php?title=mirc/regex&amp;oldid=98292</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 23 December 2020, at 07:56.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":426});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=191-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><noscript><img src="https://sb.scorecardresearch.com/p?c1=2&c2=20015427&cv=2.0&cj=1"/></noscript>
+<script type='text/javascript' data-cfasync='false'></script></body>
+</html>
+

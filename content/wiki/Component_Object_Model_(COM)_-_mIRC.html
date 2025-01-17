@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=192-3&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=192-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=192-3&cb=3', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/pacoima.js', '/detroitchicago/pacoima.js?gcb=192-3&cb=1', false, ['/detroitchicago/memphis.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=192-3&cb=4', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=192-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=192-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Component Object Model - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/component_object_model","wgTitle":"mirc/component object model","wgCurRevisionId":83704,"wgRevisionId":83704,"wgArticleId":301,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/component_object_model","wgRelevantArticleId":301,"wgRequestId":"0666172df52e9daf7c7e18bf","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Component_Object_Model_(COM)_-_mIRC","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/mirc/component_object_model"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/component object model" href="/w/index.php?title=Special:ExportRDF/mirc/component_object_model&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/component_object_model&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/component_object_model&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/mirc/component_object_model"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Component Object Model - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="Component Object Model (COM) is a specification for applications (like exe and dll files) to make their functionality available to any COM-compliant application. The applications interact with each other through a collection of functions called interfaces. The advantages of COM objects are that they are object-oriented, customizable, modular, upgradeable, and language-independent. Regardless of in which language they were programmed, any other language/script that supports the COM specification will be able to use it. mSL offers a variety of commands and identifiers to handle COM objects." />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/Component_Object_Model_(COM)_-_mIRC"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Dover","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20200408,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":506,"page_ad_positions":"","page_view_count":0,"page_view_id":"4f393c96-e762-48d1-4061-5becaadebc90","position_selection_id":0,"postal_code":"02030","pv_event_count":0,"response_size_orig":140773,"response_time_orig":558,"serverid":"3.80.170.99:14729","state":"MA","t_epoch":1614212222,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/Component_Object_Model_(COM)_-_mIRC","user_id":0,"word_count":3846,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?dcb=192-3&cb=2&v=9" async></script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["4f393c96-e762-48d1-4061-5becaadebc90", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_component_object_model rootpage-mirc skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"></a><br>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                        style="display:block;"
+                        data-ad-client="ca-pub-1951113009523412"
+                        data-ad-slot="1822985275"
+                        data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Architectures&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Chips&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/mirc/component_object_model">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:mirc/component_object_model"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=mirc/component_object_model&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=mirc/component_object_model&action=history" ><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fcomponent+object+model"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/component_object_model"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/component_object_model"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/component_object_model&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/component_object_model&oldid=83704"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/component_object_model&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fcomponent-5Fobject-5Fmodel"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+
+</nav>
+
+    Component Object Model - mIRC    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=Component_Object_Model_(COM)_-_mIRC&amp;redirect=no" class="mw-redirect" title="Component Object Model (COM) - mIRC">Component Object Model (COM) - mIRC</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <a href="/wiki/mirc/hash_tables" title="mirc/hash tables">Hash Tables</a></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li>
+<li> <a href="/wiki/mirc/dcc_get_security" title="mirc/dcc get security">DCC GET security</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/mirc_installation" title="mirc/mirc installation">mIRC Installation</a></li>
+<li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">IPv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li>
+<li> <a href="/wiki/mirc/dcc_protocols" title="mirc/dcc protocols">DCC Protocols</a></li>
+<li> <a href="/w/index.php?title=mirc/line_length_limit&amp;action=edit&amp;redlink=1" class="new" title="mirc/line length limit (page does not exist)">Line Length Limit</a></li>
+<li> <a href="/w/index.php?title=mirc/font_rendering&amp;action=edit&amp;redlink=1" class="new" title="mirc/font rendering (page does not exist)">Font rendering</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p><b>Component Object Model</b> (<b>COM</b>) is a specification for applications (like exe and dll files) to make their functionality available to any COM-compliant application. The applications interact with each other through a collection of functions called interfaces. The advantages of COM objects are that they are object-oriented, customizable, modular, upgradeable, and language-independent. Regardless of in which language they were programmed, any other language/script that supports the COM specification will be able to use it. mSL offers a variety of commands and identifiers to handle COM objects.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Com_objects"><span class="tocnumber">1</span> <span class="toctext">Com objects</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Opening_and_closing_a_COM_connection"><span class="tocnumber">2</span> <span class="toctext">Opening and closing a COM connection</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Connecting.2FDisconnecting_Example"><span class="tocnumber">2.1</span> <span class="toctext">Connecting/Disconnecting Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Object_interaction"><span class="tocnumber">3</span> <span class="toctext">Object interaction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Members"><span class="tocnumber">3.1</span> <span class="toctext">Members</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Invoke_method"><span class="tocnumber">3.2</span> <span class="toctext">Invoke method</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Variable_Type"><span class="tocnumber">3.3</span> <span class="toctext">Variable Type</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Invoking_members"><span class="tocnumber">4</span> <span class="toctext">Invoking members</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Invoking_example"><span class="tocnumber">4.1</span> <span class="toctext">Invoking example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Value_of_A_Property_.2F_Enumerated_Collection"><span class="tocnumber">5</span> <span class="toctext">Value of A Property / Enumerated Collection</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Retrieving_return_values"><span class="tocnumber">6</span> <span class="toctext">Retrieving return values</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Object_dispatching"><span class="tocnumber">7</span> <span class="toctext">Object dispatching</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Dispatching_example_-_CPU_info"><span class="tocnumber">7.1</span> <span class="toctext">Dispatching example - CPU info</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Other_useful_properties"><span class="tocnumber">8</span> <span class="toctext">Other useful properties</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#Limitations_of_COM"><span class="tocnumber">9</span> <span class="toctext">Limitations of COM</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#COM_Passing"><span class="tocnumber">9.1</span> <span class="toctext">COM Passing</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#COM_Events"><span class="tocnumber">9.2</span> <span class="toctext">COM Events</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Examples"><span class="tocnumber">10</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#.24file_get_contents.28.3Cwebsite.3E.29"><span class="tocnumber">10.1</span> <span class="toctext">$file_get_contents(&lt;website&gt;)</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Queue_example"><span class="tocnumber">10.2</span> <span class="toctext">Queue example</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Sendkeys_example"><span class="tocnumber">10.3</span> <span class="toctext">Sendkeys example</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#RAM_information"><span class="tocnumber">10.4</span> <span class="toctext">RAM information</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Finding_ProgIDs"><span class="tocnumber">11</span> <span class="toctext">Finding ProgIDs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Point_of_interest"><span class="tocnumber">11.1</span> <span class="toctext">Point of interest</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Com_objects">Com objects</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=1" title="Edit section: Com objects">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A <b>COM object</b> is a component that exposes the application's properties, methods, and events. COM objects are identified by a unique string called a Programmatic IDentifier or <b>ProgID</b>. 
+</p><p>Some examples of COM object with their ProgIDs:
+</p>
+<ul><li> iTunes.Application - an interface that lets you interact with the iTunes application</li>
+<li> WScript.Shell - an interface that provides access to the native windows shell</li>
+<li> Shell.Application - an interface that provides methods to control the shell and execute commands within the shell, as well as methods to obtain other shell-related objects.</li>
+<li> MSScriptControl.ScriptControl - an interface that provides methods to evaluate and execut scripts (The MSScript control supports VBScript and JavaScript scripting languages)</li>
+<li> Word.Application - an interface that provides methods and properties associated with the Word application.</li>
+<li> WMPlayer.ocx - An interface that provides methods and properties associated with the windows media player program</li></ul>
+<p>Note: A single computer might have thousands of COM objects available.
+</p>
+<h2><span class="mw-headline" id="Opening_and_closing_a_COM_connection">Opening and closing a COM connection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=2" title="Edit section: Opening and closing a COM connection">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To open a COM connection to a specific object, we use the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">/comopen</span></a> &lt;hName&gt; &lt;progid&gt;</span></pre>
+<p>The <b>&lt;hName&gt;</b> is the handle name of the COM connection to which we will need to refer to at a later time to call methods from this object. It is wise to name it something meaningful. The <b>&lt;progid&gt;</b> is the programmatic identifier we discussed earlier. 
+</p><p>To close the COM connection, we need to use the handle name we used to create that connection.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">/comclose</span></a> &lt;hName&gt;</span></pre>
+<p>Before we can go on to use the COM object, we have to confirm a successful connection has been established. The <a href="/wiki/mirc/identifiers/$comerr" title="mirc/identifiers/$comerr">$comerr</a> will return 1 if the connection has failed, 0 otherwise.
+</p>
+<h3><span class="mw-headline" id="Connecting.2FDisconnecting_Example">Connecting/Disconnecting Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=3" title="Edit section: Connecting/Disconnecting Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Below is a simple example of connecting to the windows script shell and disconnecting.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>example</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> shellCOM WScript.Shell</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to the Windows Script Host</span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;no errors, continue here</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> shellCOM </span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Object_interaction">Object interaction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=4" title="Edit section: Object interaction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Before we can talk about how to interact with the COM object we have connected to, we have to discuss a few other things first.
+</p>
+<h3><span class="mw-headline" id="Members">Members</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=5" title="Edit section: Members">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Object's <b>Members</b> are all the methods and properties that are provided by the Object. Later on, we will be able invoke these members. For example, The WScript.Shell object has as an <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx">Exec method</a> that lets us run an application in a child command-shell. <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx">Here is a link</a> to a complete list of properties and methods that the WScript.Shell object has.
+</p>
+<h3><span class="mw-headline" id="Invoke_method">Invoke method</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=6" title="Edit section: Invoke method">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The invocation method is the way the invocation should be applied. Some members of the object require that they just be called, others might return a value. Sometimes we might need to set some kind of a property by either a value or by reference. Below is a list of possible methods:
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Value </th>
+<th> Method
+</th></tr>
+<tr>
+<td> 1 </td>
+<td> Call a member of an object
+</td></tr>
+<tr>
+<td> 2 </td>
+<td> Return a value
+</td></tr>
+<tr>
+<td> 3 </td>
+<td> (1+2) Call a member and return a value *
+</td></tr>
+<tr>
+<td> 4 </td>
+<td> Set a property
+</td></tr>
+<tr>
+<td> 5 </td>
+<td> (1+4) Set a property with a member call *
+</td></tr>
+<tr>
+<td> 6 </td>
+<td> (2+4) Set a property and return a value *
+</td></tr>
+<tr>
+<td> 7 </td>
+<td> (1+2+4) Set a property and return a value with a member call *
+</td></tr>
+<tr>
+<td> 8 </td>
+<td> Set a property by reference
+</td></tr>
+<tr>
+<td> 9 </td>
+<td> (1+8) Set a property by reference with a member call *
+</td></tr>
+<tr>
+<td> 10 </td>
+<td> (2+8) Set a property by reference and return a value *
+</td></tr></table>
+<ul><li> These methods with an * are the result of a combination of multiple methods using the four basic methods (1, 2, 4, and 8). For example 5 = 1 + 4, set a property with a member call. Other combinations not included in the table above are possible.</li></ul>
+<h3><span class="mw-headline" id="Variable_Type">Variable Type</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=7" title="Edit section: Variable Type">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Unlike mSL, COM objects must have a data type for every value. For example, if we want to invoke a method that takes an integer value, we have to use the int data type. Below is a list of possible variable data types.
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Type </th>
+<th> Description </th>
+<th> Values
+</th></tr>
+<tr>
+<td>i1 </td>
+<td> single byte signed integer </td>
+<td> -128 to 127
+</td></tr>
+<tr>
+<td>ui1 </td>
+<td> single byte unsigned integer </td>
+<td> 0 to 255
+</td></tr>
+<tr>
+<td>i2 </td>
+<td> two byte signed integer </td>
+<td> -32768 to 32767
+</td></tr>
+<tr>
+<td>ui2 </td>
+<td> two byte unsigned integer </td>
+<td> 0 to 65535
+</td></tr>
+<tr>
+<td>i4 </td>
+<td> four byte signed integer </td>
+<td> +/- 2147483647
+</td></tr>
+<tr>
+<td>ui4 </td>
+<td> Holds unsigned 32-bit (4-byte) integers </td>
+<td> 0 through 4,294,967,295
+</td></tr>
+<tr>
+<td>int </td>
+<td> integer </td>
+<td> -2147483648 to 2147483647
+</td></tr>
+<tr>
+<td>uint </td>
+<td> unsigned integer </td>
+<td> 0 to 4294967295
+</td></tr>
+<tr>
+<td>r4 </td>
+<td> real, 4-byte floating point number </td>
+<td> 1.17549435E-38 to 3.40282347E+38
+</td></tr>
+<tr>
+<td>r8 </td>
+<td> double real, 8-byte floating point number </td>
+<td> 2.2250738585072014E-308 - 1.7976931348623157E+308
+</td></tr>
+<tr>
+<td>cy </td>
+<td> eight byte curreny number </td>
+<td> -922337203685477.5625 to 922337203685477.5625
+</td></tr>
+<tr>
+<td>date </td>
+<td> contains date and time, stored as an 8-byte floating-point number </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>decimal </td>
+<td> Holds signed 128-bit (16-byte) values representing 96-bit (12-byte) integer numbers. </td>
+<td> +/-79,228,162,514,264,337,593,543,950,335
+</td></tr>
+<tr>
+<td>bool </td>
+<td> contain any string or numeric representation.
+</td></tr>
+<tr>
+<td>bstr </td>
+<td> null-terminated unicode character string value. </td>
+<td> A string can contain from 0 to approximately 2 billion (2^31) Unicode characters.
+</td></tr>
+<tr>
+<td>variant </td>
+<td>can contain string, date, time, boolean, or numeric values. When used, a data type must follow it: for example: variant int 5
+</td></tr>
+<tr>
+<td>dispatch </td>
+<td>  This data type indicates a pointer to an IDispatch interface on an OLE object (DBTYPE_IDISPATCH).
+</td></tr>
+<tr>
+<td>unknown </td>
+<td> This data type indicates a pointer to an IUnknown interface on an OLE object (DBTYPE_IUNKNOWN).
+</td></tr>
+<tr>
+<td>error </td>
+<td> This data type indicates a 32-bit error code (DBTYPE_ERROR)
+</td></tr></table>
+<p>To make a variable by reference, postfix the data type with an asterisk and a variable name, for example: int* pIntOfBeer.
+</p>
+<h2><span class="mw-headline" id="Invoking_members">Invoking members</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=8" title="Edit section: Invoking members">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To invoke a member of a COM object, we use the <a href="/wiki/mirc/identifiers/$com" title="mirc/identifiers/$com">$com</a> identifier using the following sytax:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;member with no arguments</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;member with one argument</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;, &lt;type&gt;, &lt;value&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;member with N amount of arguments</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>&lt;hName&gt;, &lt;member&gt;, &lt;Invoke Method&gt;, &lt;type1&gt;, &lt;value1&gt;, ..., &lt;typeN&gt;, &lt;valueN&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<h3><span class="mw-headline" id="Invoking_example">Invoking example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=9" title="Edit section: Invoking example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For example, if we go back to the WScript.Shell object. Let's say we wanted to open calc using the exec method we saw earlier. First, let's revisit the MSDN page of the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ateytk4a(v=VS.85).aspx">Exec Method</a>.
+</p><p>We see the syntax is:
+</p>
+<pre>object.Exec(strCommand)
+</pre>
+<p>where object is the WshShell object and strCommand is the string value indicating the command line used to run the script. From this information we know the following things:
+</p>
+<ol><li>This is a member call - the invoke method is 1</li>
+<li>The Exec method accepts 1 argument</li>
+<li>The argument is a string - data type is bstr</li></ol>
+<p>Using the information above we can write our <a href="/wiki/mirc/identifiers/$com" title="mirc/identifiers/$com">$com</a> identifier to invoke that method:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;Exec is the Object's member we are invoking</span></span>
+<span class="code_line"><span class="mirc_comment">;1 = Call a member of an object</span></span>
+<span class="code_line"><span class="mirc_comment">;bstr is the string data type of &quot;calc&quot;</span></span>
+<span class="code_line"><span class="mirc_comment">;calc is what we are trying to execute</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>shellCOM, Exec, 1, bstr, calc<span class="mirc_bracket">&#x29;</span></span></pre>
+<p><a href="/wiki/mirc/identifiers/$com" title="mirc/identifiers/$com">$com</a> will return either 1 if the invocation of the Object's member was successful, 0 otherwise. It is a good practice to check if the invocation was a success. Below is the complete script:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>openCalc</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> shellCOM WScript.Shell</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to the Windows Script Host</span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>shellCOM, Exec, 1, bstr, calc<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">      echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error executing the Exec method.</span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> shellCOM </span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Value_of_A_Property_.2F_Enumerated_Collection">Value of A Property / Enumerated Collection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=10" title="Edit section: Value of A Property / Enumerated Collection">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Retrieving a value from an enumerated collection or a property (like a variable) can be done using the <a href="/wiki/mirc/identifiers/$comval" title="mirc/identifiers/$comval">$comval</a> identifier following this syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>&lt;hName&gt;, &lt;N&gt;, &lt;member&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>If the member returns an enumeration of values, you can traverse through them. When n = 0, it will return the total number of values in the enumeration.
+</p>
+<h2><span class="mw-headline" id="Retrieving_return_values">Retrieving return values</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=11" title="Edit section: Retrieving return values">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Recall from before, if we use invocation method value 2, we are indicating we want a return value. Well, to retrieve that value we can use the <a href="/wiki/mirc/identifiers/$com" title="mirc/identifiers/$com">$com</a> identifier in a different way:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%value</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>&lt;hName&gt;<span class="mirc_bracket">&#x29;</span>.result</span></pre>
+<h2><span class="mw-headline" id="Object_dispatching">Object dispatching</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=12" title="Edit section: Object dispatching">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In many cases, you might need to invoke a member on an object that is nested inside another object (sometimes that object might be nested inside another object as well). In most cases the parent object will have a member method that when called will return an instance of the child object that we could use. This operation is called dispatching. In the process we dispatch the child object onto its own COM connection with its own handle name. This will allow us to conveniently access this object's members (and perhaps access more child objects). 
+</p><p>Note: when dispatching an object, the parent object will still remain open. If not used anymore, it's recommended that you close the connection right after the dispatching occurs. 
+</p><p>Dispatching takes this general syntax:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;open parent object</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">comopen</span></a> mainObj some.object</span>
+<span class="code_line"><span class="mirc_comment">;dispatch the child's object onto his own com connection, named childObj</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>mainObj, memberName, 3, dispatch* childObj<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;close the parent object</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">comclose</span></a> mainObj</span>
+<span class="code_line"><span class="mirc_comment">;do something with the child object</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>childObj, memberName, 1, ...<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;close the child object</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">comclose</span></a> childObj</span></pre>
+<h3><span class="mw-headline" id="Dispatching_example_-_CPU_info">Dispatching example - CPU info</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=13" title="Edit section: Dispatching example - CPU info">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One good example of using a dispatch is if you wanted to retrieve some information pertaining to your computer's processor. The processor information will be stored in an instance of the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">Win32_Processor class</a>. Here is the tricky part: the Win32_Processor is found deep inside the windows API:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">Win32_Processor Class</a>
+<ul><li>Retrieved using the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx">InstanceOf method</a>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx">SWbemServices Class</a>
+<ul><li>Retrieved using the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx">ConnectServer method</a>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx">SWbemLocator Class</a>
+<ul><li>Retrieved using the following ProgID: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx">WbemScripting.SWbemLocator</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>
+<p>From the hierarchy tree above you can see we are going to have to dispatch twice to get to our final object we want. 
+</p><p>Let's start writing our code: opening a COM connection the SWbemLocator object:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getProcInfo</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> SWbemLocator WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;rest of code here...</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comopen</span></a> SWbemLocator </span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Now, from the SWbemLocator object, we need to use the ConnectServer method to dispatch and get a SWbemServices object.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getProcInfo</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> SWbemLocator WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemLocator, ConnectServer, 3, dispatch* SWbemServices<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> SWbemLocator </span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error instantiating SWbemServices object.</span>
+<span class="code_line">    <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">     &#160;;rest of code here ...</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .comclose</span></a> SWbemServices</span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>At this point we have a COM connection called "SWbemServices" which is an object instance of the SWbemServices Class. Now all we have to do is use the InstanceOf method and dispatch to a new COM connection to get the Win32_Processor Object.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getProcInfo</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> SWbemLocator WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemLocator, ConnectServer, 3, dispatch* SWbemServices<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> SWbemLocator </span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error instantiating SWbemServices object.</span>
+<span class="code_line">    <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">      var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemServices, InstancesOf, 3, string, Win32_Processor, dispatch* Win32_Processor<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .comclose</span></a> SWbemServices</span>
+<span class="code_line">      <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error retrieving an instance of the Win32_Processor class</span>
+<span class="code_line">      <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">       &#160;;get some cool information about the CPU here</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">        .comclose</span></a> Win32_Processor</span>
+<span class="code_line">      <span class="mirc_bracket">}</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Since we are now at the Win32_Porocessor object, all we have to do is retrieve the values. Recall from above that we can do that using the <a href="/wiki/mirc/identifiers/$comval" title="mirc/identifiers/$comval">$comval</a> identifier:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_Processor, 1, &lt;property&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Where &lt;property&gt; can be any of the members of the Win32_Processor class that can be <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394373(VS.85).aspx">found here</a>. 
+</p><p>Let's get the "name" property, which usually holds a string of interesting things.
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getProcInfo</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> SWbemLocator WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemLocator, ConnectServer, 3, dispatch* SWbemServices<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> SWbemLocator </span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error instantiating SWbemServices object.</span>
+<span class="code_line">    <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">      var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemServices, InstancesOf, 3, string, Win32_Processor,dispatch* Win32_Processor<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .comclose</span></a> SWbemServices</span>
+<span class="code_line">      <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error retrieving an instance of the Win32_Processor class</span>
+<span class="code_line">      <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">       &#160;;get the CPU's name</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">        echo</span></a> -a * CPU Info: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_Processor, 1, Name<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">        .comclose</span></a> Win32_Processor</span>
+<span class="code_line">      <span class="mirc_bracket">}</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Which can be invoked by just typing:
+</p>
+<pre>/getProcInfo
+</pre>
+<p>Returns something like:
+</p>
+<pre>* CPU Info: Intel(R) Core(TM) i7 CPU 980x @ 3.33GHz
+</pre>
+<h2><span class="mw-headline" id="Other_useful_properties">Other useful properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=14" title="Edit section: Other useful properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <a href="/wiki/mirc/identifiers/$com" title="mirc/identifiers/$com">$com</a> identifier has a few other useful properties:
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Property </th>
+<th> Description
+</th></tr>
+<tr>
+<td>argerr </td>
+<td> the argument that have caused the error
+</td></tr>
+<tr>
+<td>error </td>
+<td> error value, when applicable
+</td></tr>
+<tr>
+<td>errortext </td>
+<td> error description
+</td></tr>
+<tr>
+<td>progid </td>
+<td> object's name
+</td></tr>
+<tr>
+<td>dispatch/unknown </td>
+<td> return <a href="/wiki/mirc/identifiers/$true" title="mirc/identifiers/$true">$true</a> or <a href="/wiki/mirc/identifiers/$null" title="mirc/identifiers/$null">$null</a> if a pointer to this object exists
+</td></tr></table>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Limitations_of_COM">Limitations of COM</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=15" title="Edit section: Limitations of COM">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Currently mIRC/mSL's COM implantation has a few limitations that other languages may not encounter.
+</p>
+<h3><span class="mw-headline" id="COM_Passing">COM Passing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=16" title="Edit section: COM Passing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There is no way to pass the raw result or object from one COM instance to another. For results that mIRC can interpret, such as strings or integers, this isn't an issue(unless the result is excessively long) but for a returned object there is currently no way to pass it to another com. 
+</p>
+<h3><span class="mw-headline" id="COM_Events">COM Events</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=17" title="Edit section: COM Events">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>mIRC/mSL does not support events that a COM instance may issue. The implantation works on a ask-receive programa, where mIRC requests the COM instance for data or to do something, and the instance is to return an immediate result.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=18" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id=".24file_get_contents.28.3Cwebsite.3E.29">$file_get_contents(&lt;website&gt;)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=19" title="Edit section: $file get contents(&lt;website&gt;)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>ProgID: Msxml2.ServerXMLHTTP.3.0
+</p><p>Object's Members: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms760305(v=VS.85).aspx">XMLHTTPRequest Members</a>
+</p><p>Example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/*</span></span>
+<span class="code_line"><span class="mirc_comment">############################################################</span></span>
+<span class="code_line"><span class="mirc_comment">#              Get source of a file/website                #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                                          #</span></span>
+<span class="code_line"><span class="mirc_comment"># Syntax:                                                  #</span></span>
+<span class="code_line"><span class="mirc_comment">#    var&#160;%source = $file_get_contents&#x28;&lt;website&gt;&#x29;           #</span></span>
+<span class="code_line"><span class="mirc_comment"># Example:                                                 #</span></span>
+<span class="code_line"><span class="mirc_comment">#    //echo -a $file_get_contents&#x28;http://www.example.com/&#x29; #</span></span>
+<span class="code_line"><span class="mirc_comment">############################################################</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>file_get_contents</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -est * Too few parameters: <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>file_get_contents</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">    halt</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;make sure it wasn't left open from last time</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>tcpCom<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command"> .comclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;connect to the COM object</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> tcpCom Msxml2.ServerXMLHTTP.3.0</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -est <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>file_get_contents failed opening com</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;initializes the object</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;oXMLHttpRequest.open<span class="mirc_bracket">&#x28;</span>bstrMethod, bstrUrl, varAsync, bstrUser, bstrPassword<span class="mirc_bracket">&#x29;</span>;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">    noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>tcpCom, open, 2, bstr, GET, bstr, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;sent to the server, get response</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">    noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>tcpCom, send, 1<span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>tcpCom, responseText, 2<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -est <a href="http://en.wikichip.org/wiki/mirc/identifiers/$!" title="$! - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$!</span></a>file_get_contents failed opening connection</span>
+<span class="code_line">    <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">     &#160;;get the result of the response, and return it</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">      var</span></a> <span class="mirc_variable">%r</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>tcpCom<span class="mirc_bracket">&#x29;</span>.result</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .comclose</span></a> tcpCom</span>
+<span class="code_line">      <span class="mirc_control">return</span> <span class="mirc_variable">%r</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="Queue_example">Queue example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=20" title="Edit section: Queue example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>ProID: System.Collections.Queue
+</p><p>Object's Members: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/system.collections.queue.aspx">Queue Class Members</a>
+</p><p>Example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/*</span></span>
+<span class="code_line"><span class="mirc_comment">#########################################################################</span></span>
+<span class="code_line"><span class="mirc_comment">#                           Queue                                       #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                                                       #</span></span>
+<span class="code_line"><span class="mirc_comment"># Represents a first-in, first-out collection of elements               #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                                                       #</span></span>
+<span class="code_line"><span class="mirc_comment"># Syntax:                                                               #</span></span>
+<span class="code_line"><span class="mirc_comment">#    /enqueue &lt;queue_name&gt; &lt;value&gt;                                      #</span></span>
+<span class="code_line"><span class="mirc_comment">#    /freeQueue &lt;queue_name&gt;                                            #</span></span>
+<span class="code_line"><span class="mirc_comment">#    var&#160;%value = $queue&#x28;&lt;queue_name&gt;&#x29;.dequeue                          #</span></span>
+<span class="code_line"><span class="mirc_comment">#    var&#160;%value = $queue&#x28;&lt;queue_name&#x29;.peek                              #</span></span>
+<span class="code_line"><span class="mirc_comment">#    var&#160;%count = $queue&#x28;&lt;queue_name&#x29;.count                             #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                                                       #</span></span>
+<span class="code_line"><span class="mirc_comment"># Example:                                                              #</span></span>
+<span class="code_line"><span class="mirc_comment">#  /enqueue example a                                                   #</span></span>
+<span class="code_line"><span class="mirc_comment">#  /enqueue example b                                                   #</span></span>
+<span class="code_line"><span class="mirc_comment">#  /enqueue example c                                                   #</span></span>
+<span class="code_line"><span class="mirc_comment">#  //while &#x28;$queue&#x28;example&#x29;.count&#x29; { echo -a $queue&#x28;example&#x29;.dequeue }  #</span></span>
+<span class="code_line"><span class="mirc_comment">#  /freequeue example                                                   #</span></span>
+<span class="code_line"><span class="mirc_comment">#########################################################################</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>enqueue</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$0" title="$0 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$0</span></a> &lt; 2<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet /enqueue: insufficient parameters</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">    halt</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;if there is no connection, open one</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command"> .comopen</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> System.Collections.Queue</span>
+<span class="code_line"><span class="mirc_comment"> &#160;;enqueu</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">  noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, enqueue, 1, bstr, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a>-<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet /enqueue: queue error</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/halt" title="/halt - mIRC Command" style="text-decoration: none"><span class="mirc_command">    halt</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>queue</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;check if its an ident, com exists, and the proprty is either dequeue/peek</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$isid" title="$isid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$isid</span></a><span class="mirc_bracket">&#x29;</span> &amp;&amp; <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$istok" title="$istok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$istok</span></a><span class="mirc_bracket">&#x28;</span>dequeue peek count, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$prop" title="$prop - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$prop</span></a>, 32<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> &amp;&amp; <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;call the peek<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x29;</span> or dequeue<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x29;</span> method, get the return value</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/noop" title="/noop - mIRC Command" style="text-decoration: none"><span class="mirc_command">    noop</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$prop" title="$prop - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$prop</span></a>, 2<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;get the return value</span></span>
+<span class="code_line">    <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span>.result</span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>freeQueue</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;close the com connection, if exists</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command"> .comclose</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="Sendkeys_example">Sendkeys example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=21" title="Edit section: Sendkeys example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>ProID: WScript.Shell
+</p><p>Object's Members: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ahcz2kh6(v=VS.85).aspx">WshShellObject Properties and Methods</a>
+</p><p>Example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;sends &quot;Hello there!&quot; to the editbox and presses enter</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>sendkeys</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;open a com connection</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> x WScript.Shell</span>
+<span class="code_line"><span class="mirc_comment"> &#160;;excute the sendkeys<span class="mirc_bracket">&#x28;</span><span class="mirc_bracket">&#x29;</span> method and close the com connection</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comclose</span></a> x <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>x, sendkeys, 1, bstr, Hello there!<span class="mirc_bracket">{</span>ENTER<span class="mirc_bracket">}</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h3><span class="mw-headline" id="RAM_information">RAM information</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=22" title="Edit section: RAM information">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>ProID: WbemScripting.SWbemLocator
+</p><p>Object's Members: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx">Win32_PhysicalMemory Class</a>
+</p><p>Hierarchy Tree:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394347(v=VS.85).aspx">Win32_PhysicalMemory Class</a>
+<ul><li>Retrieved using the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393870(v=VS.85).aspx">InstanceOf method</a>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393854(v=VS.85).aspx">SWbemServices Class</a>
+<ul><li>Retrieved using the <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393720(v=VS.85).aspx">ConnectServer method</a>
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa393719(VS.85).aspx">SWbemLocator Class</a>
+<ul><li>Retrieved using the its ProgID: <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa389744(VS.85).aspx">WbemScripting.SWbemLocator</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>
+<p>Example:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">/*</span></span>
+<span class="code_line"><span class="mirc_comment">####################################</span></span>
+<span class="code_line"><span class="mirc_comment">#              RAM Info            #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                  #</span></span>
+<span class="code_line"><span class="mirc_comment"># Gets some interesting RAM info   #</span></span>
+<span class="code_line"><span class="mirc_comment">#                                  #</span></span>
+<span class="code_line"><span class="mirc_comment"># Syntax:                          #</span></span>
+<span class="code_line"><span class="mirc_comment">#    /getRamSpecs                  #</span></span>
+<span class="code_line"><span class="mirc_comment">####################################</span></span>
+<span class="code_line"><span class="mirc_comment">*/</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>getRamSpecs</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;open COM connection</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comopen" title="/comopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .comopen</span></a> SWbemLocator WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comerr" title="$comerr - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comerr</span></a><span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error connection to WbemScripting.SWbemLocator</span>
+<span class="code_line">  <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;dispatch and get an instance of the SWbemServices class</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemLocator, ConnectServer, 3, dispatch* SWbemServices<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .comclose</span></a> SWbemLocator </span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error instantiating SWbemServices object.</span>
+<span class="code_line">    <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">     &#160;;dispatch and get an instance of the Win32_PhysicalMemory class</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">      var</span></a> <span class="mirc_variable">%result</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$com" title="$com - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$com</span></a><span class="mirc_bracket">&#x28;</span>SWbemServices, InstancesOf, 3, string, Win32_PhysicalMemory,dispatch* Win32_PhysicalMemory<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .comclose</span></a> SWbemServices</span>
+<span class="code_line">      <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span>!<span class="mirc_variable">%result<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command"> echo</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$color" title="$color - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$color</span></a><span class="mirc_bracket">&#x28;</span>info<span class="mirc_bracket">&#x29;</span> -aet * Error retrieving an instance of the Win32_PhysicalMemory class</span>
+<span class="code_line">      <span class="mirc_control">else</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">       &#160;;0 will return the total number of elements <span class="mirc_bracket">&#x28;</span>memory sticks in this case<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">        var</span></a> <span class="mirc_variable">%memSticks</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_PhysicalMemory, 0, Caption<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">        echo</span></a> -a * RAM: <span class="mirc_variable">%memSticks</span> Sticks</span>
+<span class="code_line">        <span class="mirc_control">while</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%memSticks<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">         &#160;;Each of these members returns an enumeration containing</span></span>
+<span class="code_line"><span class="mirc_comment">         &#160;;the values for all the physical memory</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">          var</span></a> <span class="mirc_variable">%size</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$bytes" title="$bytes - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$bytes</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_PhysicalMemory, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a>, Capacity<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span>.suf</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">          var</span></a> <span class="mirc_variable">%location</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_PhysicalMemory, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a>, DeviceLocator<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">          var</span></a> <span class="mirc_variable">%speed</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_PhysicalMemory, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a>, Speed<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">          var</span></a> <span class="mirc_variable">%type</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$getType" title="$getType - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$getType</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$comval" title="$comval - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$comval</span></a><span class="mirc_bracket">&#x28;</span>Win32_PhysicalMemory, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a>, MemoryType<span class="mirc_bracket">&#x29;</span><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">          echo</span></a> -a * Stick <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a>&#160;: Size: <span class="mirc_variable">%size</span> Location: <span class="mirc_variable">%location</span> Speed: <span class="mirc_variable">%speed</span> Type: <span class="mirc_variable">%type</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/dec" title="/dec - mIRC Command" style="text-decoration: none"><span class="mirc_command">          dec</span></a> <span class="mirc_variable">%memSticks</span></span>
+<span class="code_line">        <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/comclose" title="/comclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">        .comclose</span></a> Win32_PhysicalMemory</span>
+<span class="code_line">      <span class="mirc_bracket">}</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span>
+<span class="code_line">&#160;</span>
+<span class="code_line"><span class="mirc_comment">;get the actual type from the numeric value</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> -l <em>getType</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%types</span> = Unknown,Other,DRAM,Synchronous DRAM,Cache DRAM,EDO,EDRAM, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$&amp;" title="$&amp; - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$&amp;</span></a></span>
+<span class="code_line">    VRAM,SRAM,RAM,ROM,Flash,EEPROM,FEPROM,EPROM,CDRAM,3DRAM,SDRAM,SGRAM, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$&amp;" title="$&amp; - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$&amp;</span></a></span>
+<span class="code_line">    RDRAM,DDR,DDR-2</span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%types</span>, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> +1<span class="mirc_bracket">&#x29;</span>, 44<span class="mirc_bracket">&#x29;</span> </span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Finding_ProgIDs">Finding ProgIDs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=23" title="Edit section: Finding ProgIDs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The only thing you might still be wondering about is: how do I find other ProgIDs? The answer is, you need to do a little research. They are all over the place. Below are two great tools you can use to find some of the ProgIDs that nest on your computer: 
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="https://docs.microsoft.com/en-us/windows/desktop/com/ole-com-object-viewer">OLE-COM Object Viewer</a> - Microsoft tool for locating COM Objects</li>
+<li> <a rel="nofollow" class="external text" href="http://www.nirsoft.net/utils/axhelper.html">ActiveXHelper</a> - A small utility that allows you to view info about ActiveX components</li></ul>
+<h3><span class="mw-headline" id="Point_of_interest">Point of interest</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/component_object_model&amp;action=edit&amp;section=24" title="Edit section: Point of interest">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa394084(VS.85).aspx">Win32 Classes</a> - Part of the Windows Management Instrumentation Classes (WMI Classes, Enable you access to monitor and manage system hardware and features.
+</p>
+<ul><li>Application Objects 
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/kw65a0we(VS.80).aspx">Word.Application</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/wss56bz7(VS.80).aspx">Excel.Application</a></li>
+<li>PowerPoint.Application</li>
+<li>Access.Application</li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa752084(VS.85).aspx">InternetExplorer.Application</a></li>
+<li>FrontPage.Application*</li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa210897(office.11).aspx">Outlook.Application</a></li>
+<li><a rel="nofollow" class="external text" href="http://portal.aauj.edu/portal_resources/downloads/multimedia/adobephotoshop7_scripting_guide.pdf">Photoshop.Application</a>
+<ul><li><a rel="nofollow" class="external text" href="http://portal.aauj.edu/portal_resources/downloads/multimedia/adobephotoshop7_scripting_guide.pdf">Photoshop.Application.7</a> (for Photoshop with Support plug-in installed)</li></ul></li>
+<li>ShockwaveFlash.ShockwaveFlash</li>
+<li>iTunes.Application</li></ul></li>
+<li>Scripting Objects 
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa227633(VS.60).aspx">MSScriptControl.ScriptControl</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aew9yb99(VS.85).aspx">WScript.Shell</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ahcz2kh6(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/s6wt333f(VS.85).aspx">WScript.Network</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/907chf30(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/bb773984(VS.85).aspx">Shell.UIHelper</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ff521724(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/yab2dx62(VS.85).aspx">VBScript.Regexp</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/kxt24tyh(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/x4k5wbx4(VS.85).aspx">Scripting.Dictionary</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/6kxy1a51(VS.85).aspx">Scripting.FileSystemObject</a></li></ul></li>
+<li>XML Document Objects 
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms753804(VS.85).aspx">MSXML.DOMDocument</a>
+<ul><li>Msxml2.DOMDocument</li>
+<li>Msxml2.DOMDocument.3.0</li>
+<li>Msxml2.DOMDocument.4.0</li>
+<li>Msxml2.DOMDocument.6.0</li>
+<li>Microsoft.XMLDOM</li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms759148(VS.85).aspx">MSXML2.XMLHTTP</a>
+<ul><li>MSXML2.XMLHTTP.3.0</li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms535874(VS.85).aspx">Microsoft.XMLHTTP</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms753751(VS.85).aspx">MSXML2.DSOControl</a>
+<ul><li>MSXML2.DSOControl.3.0</li></ul></li></ul></li>
+<li>ADO Database Objects 
+<ul><li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms681519(VS.85).aspx">ADODB.Connection</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms681546(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms675032(VS.85).aspx">ADODB.Stream</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms677486(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms677502(VS.85).aspx">ADODB.Command</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms675022(VS.85).aspx">Members</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms681510(VS.85).aspx">DODB.Recordset</a> - <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/ms675841(VS.85).aspx">Members</a></li></ul></li></ul>
+<p>This is by no means an exhaustive list but simply a compilation of the most common objects.
+* Discontinued Product
+</p>
+<!-- Saved in parser cache with key wikichip:pcache:idhash:301-0!*!0!!en!*!* and timestamp 20210225001703 and revision id 83704
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/component_object_model&amp;oldid=83704">https://en.wikichip.org/w/index.php?title=mirc/component_object_model&amp;oldid=83704</a>"</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle"
+                	            style="display:block"
+                	            data-ad-client="ca-pub-1951113009523412"
+                	            data-ad-slot="3591436790"
+                	            data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 25 October 2018, at 10:41.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":505});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- A:IL01 END -->
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=192-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script></body>
+</html>
+

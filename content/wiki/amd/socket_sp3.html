@@ -1,0 +1,1913 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],r=[],s=!0,a=function(e,i,n,o,r,s,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,d=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=r,this.deleteWhenComplete=s,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),d.isInitialized=!0,d.isComplete=!0,f("... func.apply: "+e);var i=d.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[d.funcName]),null!=n&&n.apply(null,this.parameters),!0===d.deleteWhenComplete&&delete t[e],!0===d.isBlock&&(f("----- F'D: "+d.name),u())}},l=function(e,i,t,n,o,r,s){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=r,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=s,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)&&"banger.js"!==this.name?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===r&&(t.defer=!0),t.onerror=function(){var e={url:window.location.href,name:l.name,path:l.path,user_agent:window.navigator.userAgent};"undefined"!=typeof _ezaq&&(e.pageview_id=_ezaq.page_view_id);var i=encodeURIComponent(JSON.stringify(e)),t=new XMLHttpRequest;t.open("GET","//g.ezoic.net/ezqlog?d="+i,!0),t.send(),f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},d=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function c(e){!0!==h(e)&&0!=s&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(r))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,s,a,d,h,f,u){var m=new l(e,i,n,s,a,d,h,u);!0===f?o[e]=m:r[e]=m,t[e]=m,c(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),r[e]=n,t[e]=n,c(n)},addFunc:function(e,n,s,l,d,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var w=new a(e,n,s,l,d,f,u,p);!0===m?o[e]=w:r[e]=w,t[e]=w,c(w)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),r[e]=o,t[e]=o,c(o)},items:t,processAll:u,setallowLoad:function(e){s=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new d(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=195-3&cb=2', true, [], true, false, true, false);__ez.queue.addFile('/parsonsmaize/abilene.js', '/parsonsmaize/abilene.js?gcb=195-3&cb=28', true, [], true, false, true, false);</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ad_cache_level":1,"domain_id":86609,"ezcache_level":0,"ezcache_skip_code":0,"has_bad_image":0,"has_bad_words":0,"is_sitespeed":0,"lt_cache_level":0,"page_view_id":"cff590e0-6724-4fb1-732b-531e6b1af798","response_size_orig":139452,"response_time_orig":184,"template_id":5,"url":"https://en.wikichip.org/wiki/amd/socket_sp3","word_count":0,"worst_bad_word_level":0});__ez.queue.markLoaded('ezaqBaseReady');</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.queue.addFile('/parsonsmaize/mulvane.js', '/parsonsmaize/mulvane.js?gcb=195-3&cb=5', true, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/parsonsmaize/olathe.js', '/parsonsmaize/olathe.js?gcb=195-3&cb=20', false, ['/parsonsmaize/abilene.js','/parsonsmaize/mulvane.js'], true, false, true, false);__ez.queue.addFile('/porpoiseant/et.js', '/porpoiseant/et.js?gcb=195-3&cb=2', false, [], true, false, true, false);!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){function e(i){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(i)}__ez.pel=function(){var i=[];function t(t,o,d,_,n,r,a,s){if(__ez.dot.isDefined(t)&&0!=__ez.dot.isAnyDefined(t.getSlotElementId,t.ElementId)){void 0===s&&(s=!1);var p=parseInt(__ez.dot.getTargeting(t,"ap")),f=__ez.dot.getSlotIID(t),u=__ez.dot.getAdUnit(t,s),z=parseInt(__ez.dot.getTargeting(t,"compid")),g=0,c=0,l=function(i){if("undefined"==typeof _ezim_d)return!1;var t=__ez.dot.getAdUnitPath(i).split("/").pop();if("object"===("undefined"==typeof _ezim_d?"undefined":e(_ezim_d))&&_ezim_d.hasOwnProperty(t))return _ezim_d[t];for(var o in _ezim_d)if(o.split("/").pop()===t)return _ezim_d[o];return!1}(t);"object"==e(l)&&(void 0!==l.creative_id&&(c=l.creative_id),void 0!==l.line_item_id&&(g=l.line_item_id)),__ez.dot.isDefined(f,u)&&__ez.dot.isValid(o)&&("0"===f&&!0!==s||""===u||i.push({type:"impression",impression_id:f,domain_id:__ez.dot.getDID(),unit:u,t_epoch:__ez.dot.getEpoch(0),revenue:d,est_revenue:_,ad_position:p,ad_size:"",bid_floor_filled:n,bid_floor_prev:r,stat_source_id:a,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:z,line_item_id:g,creative_id:c,data:__ez.dot.dataToStr(o),is_orig:s||__ez.template.isOrig}))}}function o(){void 0!==document.visibilityState&&"prerender"===document.visibilityState||(__ez.dot.isDefined(i)&&i.length>0&&[i.filter((function(e){return e.is_orig})),i.filter((function(e){return!e.is_orig}))].forEach((function(e){for(;e.length>0;){var i=e[0].is_orig||!1,t=5;t>e.length&&(t=e.length);var o=e.splice(0,t),d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig="+(!0===i?1:0)+"&sts="+btoa(JSON.stringify(o));(void 0!==window.isAmp&&isAmp||void 0!==window.ezWp&&ezWp)&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("domain_id")&&(d+="&visit_uuid="+_ezaq.visit_uuid),__ez.dot.Fire(d)}})),i=[])}return{Add:t,AddAndFire:function(e,i){t(e,i,0,0,0,0,0),o()},AddAndFireOrig:function(e,i){t(e,i,0,0,0,0,0,!0),o()},AddById:function(e,t,o,d){var _=e.split("/");if(__ez.dot.isDefined(e)&&3===_.length&&__ez.dot.isValid(t)){var n=_[0],r={type:"impression",impression_id:_[2],domain_id:__ez.dot.getDID(),unit:n,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(t),is_orig:o||__ez.template.isOrig};void 0!==d&&(r.revenue=d),i.push(r)}},Fire:o,GetPixels:function(){return i}}}()}();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=195-3&cb=6', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/vista.js', '/detroitchicago/vista.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=195-3&cb=5', false, ['/parsonsmaize/abilene.js'], true, false, true, false);</script><base href="https://en.wikichip.org/wiki/amd/socket_sp3"/>
+
+<title>Socket SP3 - Packages - AMD - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"amd/packages/socket_sp3","wgTitle":"amd/packages/socket sp3","wgCurRevisionId":101190,"wgRevisionId":101190,"wgArticleId":31042,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all ic packages","amd"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"amd/packages/socket_sp3","wgRelevantArticleId":31042,"wgRequestId":"a6e9542fd00bcab334f367db","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"amd/socket_sp3","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/amd/packages/socket_sp3"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","mediawiki.page.gallery.styles":"ready","ext.cite.styles":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.page.gallery.styles%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="amd/packages/socket sp3" href="/w/index.php?title=Special:ExportRDF/amd/packages/socket_sp3&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/amd/packages/socket_sp3"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Socket SP3 - Packages - AMD - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Socket SP3 is a microprocessor socket designed by AMD for the first three generations of their EPYC family of high performance server processors. It supports eight channels of DDR4 memory and eight 16-lane PCIe I/O links. Socket SP3 succeeded Socket G34 and was superseded by Socket SP5."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type='text/javascript'>
+var ezoTemplate = 'orig_site';
+var ezouid = '1';
+var ezoFormfactor = '1';
+</script><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = window._ezaq = Object.assign({}, typeof window._ezaq !== "undefined" ? window._ezaq : {}, {"ab_test_id":"mod143","ad_cache_level":1,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20230808,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"is_embed":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"cff590e0-6724-4fb1-732b-531e6b1af798","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":139452,"response_time_orig":184,"serverid":"i-07f9966ccbe052c7a","state":"VA","t_epoch":1696411458,"template_id":5,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/amd/socket_sp3","word_count":7375,"worst_bad_word_level":0});var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl() {
+	var d = new Date();
+	d.setTime(d.getTime() + (365*24*60*60*1000));
+	var expires = "expires="+d.toUTCString();
+	__ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + _ezaq.page_view_id + "|" + _ezaq.is_return_visitor + "; " + expires, 3);
+}
+function attach_ezolpl() {
+	if (document.readyState === "complete") {
+		create_ezolpl();
+		return;
+	}
+	window.addEventListener("load", create_ezolpl);
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", null, false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-amd_packages_socket_sp3 rootpage-amd skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/amd/packages/socket_sp3">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:amd/packages/socket_sp3"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=amd%2Fpackages%2Fsocket+sp3"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/amd/packages/socket_sp3"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/amd/packages/socket_sp3"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=amd/packages/socket_sp3&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=amd/packages/socket_sp3&amp;oldid=101190"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Fsocket-5Fsp3"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Socket SP3 - Packages - AMD    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/amd" title="amd">amd</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=amd/socket_sp3&amp;redirect=no" class="mw-redirect" title="amd/socket sp3">amd/socket sp3</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="wc_out_template1"></div><table class="infobox"><tbody><tr><td colspan="2"><small style="float: left; font-weight: bold;"><a href="/wiki/Special:FormEdit/package/amd/packages/socket_sp3" title="Special:FormEdit/package/amd/packages/socket sp3"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Socket SP3</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Designer</td><td style="width: 99%;"><a href="/wiki/amd" title="amd">AMD</a></td></tr><tr><td class="label">Introduction</td><td>May 16, 2017 (announced)<br/>June 20, 2017 (launched)</td></tr><tr><td class="label">Market</td><td>Server</td></tr><tr><td class="label">Microarchitecture</td><td><a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a>, <a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>, <a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a></td></tr><tr><td class="label"><abbr title="Thermal Design Power">TDP</abbr></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="120,000&amp;#160;mW 0.161&amp;#160;hp 0.12&amp;#160;kW "><span class="smwtext">120 W</span><div class="smwttcontent">120,000 mW <br/>0.161 hp <br/>0.12 kW <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="155,000&amp;#160;mW 0.208&amp;#160;hp 0.155&amp;#160;kW "><span class="smwtext">155 W</span><div class="smwttcontent">155,000 mW <br/>0.208 hp <br/>0.155 kW <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="180,000&amp;#160;mW 0.241&amp;#160;hp 0.18&amp;#160;kW "><span class="smwtext">180 W</span><div class="smwttcontent">180,000 mW <br/>0.241 hp <br/>0.18 kW <br/></div></span></td></tr><tr><td class="header" colspan="2">Package</td></tr><tr><td class="label">Name</td><td>SP3,<br/>FCLGA-4094</td></tr><tr><td class="label">Type</td><td>FC-OLGA</td></tr><tr><td class="label">Contacts</td><td>4094</td></tr><tr><td class="label">Dimension</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="7.54&amp;#160;cm 2.969&amp;#160;in "><span class="smwtext">75.40 mm</span><div class="smwttcontent">7.54 cm <br/>2.969 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="5.85&amp;#160;cm 2.303&amp;#160;in "><span class="smwtext">58.50 mm</span><div class="smwttcontent">5.85 cm <br/>2.303 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.246&amp;#160;in "><span class="smwtext">6.26 mm</span><div class="smwttcontent">0.246 in <br/></div></span></td></tr><tr><td class="label">Pitch</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0343&amp;#160;in "><span class="smwtext">0.87 mm</span><div class="smwttcontent">0.0343 in <br/></div></span> × <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.0394&amp;#160;in "><span class="smwtext">1.00 mm</span><div class="smwttcontent">0.0394 in <br/></div></span></td></tr><tr><td class="header" colspan="2">Socket</td></tr><tr><td class="label">Name</td><td>SP3,<br/>LGA-4094</td></tr><tr><td class="label">Type</td><td>SM-LGA</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/amd/packages/socket_g34" title="amd/packages/socket g34">Socket G34</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/amd/packages/socket_sp5" title="amd/packages/socket sp5">Socket SP5</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr><tr><td class="header" colspan="2">Contemporary</td></tr><tr><td colspan="2" style="text-align: center;"><a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">Socket TR4</a><br/><a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">Socket sTRX4</a><br/><a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">Socket sWRX8</a></td></tr></tbody></table><div id="wc_out_template1"></div>
+<p><b>Socket SP3</b> is a microprocessor socket designed by <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a> for the first three generations of their <a href="/wiki/amd/epyc" title="amd/epyc">EPYC</a> family of high performance server processors. It supports eight channels of <a href="/w/index.php?title=DDR4&amp;action=edit&amp;redlink=1" class="new" title="DDR4 (page does not exist)">DDR4</a> memory and eight 16-lane PCIe I/O links. Socket SP3 succeeded <a href="/wiki/amd/packages/socket_g34" title="amd/packages/socket g34">Socket G34</a> and was superseded by <a href="/wiki/amd/packages/socket_sp5" title="amd/packages/socket sp5">Socket SP5</a>.
+</p><p>Three other sockets were derived from, and are mechanically identical to Socket SP3 but differ electrically: <a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">Socket TR4</a> a.k.a. Socket SP3r2 for first and second generation, and <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">Socket sTRX4</a> for third generation <a href="/wiki/amd/ryzen_threadripper" title="amd/ryzen threadripper">Ryzen Threadripper</a> high end desktop processors. These infrastructures support only four memory channels and <abbr title="Unbuffered Dual In-line Memory Module">UDIMM</abbr>s instead of <a href="http://en.wikipedia.org/wiki/Registered_memory" class="extiw" title="wikipedia:Registered memory"><abbr title="Registered Dual In-line Memory Module">RDIMM</abbr>s</a>. Processors for these sockets are not compatible with Socket SP3 or vice versa. <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">Socket sWRX8</a> is designated for Ryzen Threadripper workstation processors which support eight memory channels and both UDIMM and RDIMM types.
+</p><p>For mainstream desktop processors AMD developed <a href="/wiki/amd/packages/socket_am4" title="amd/packages/socket am4">Socket AM4</a>.
+Contemporary mobile and embedded processors use the <abbr title="Ball Grid Array">BGA</abbr>
+packages <a href="/w/index.php?title=amd/packages/ft5&amp;action=edit&amp;redlink=1" class="new" title="amd/packages/ft5 (page does not exist)">FT5</a>, <a href="/wiki/amd/packages/fp5" title="amd/packages/fp5">FP5</a>, <a href="/wiki/amd/packages/fp6" title="amd/packages/fp6">FP6</a>, and <a href="/wiki/amd/packages/sp4" title="amd/packages/sp4">SP4</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Package_Description"><span class="tocnumber">2</span> <span class="toctext">Package Description</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Socket_Description"><span class="tocnumber">3</span> <span class="toctext">Socket Description</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Feature_Summary"><span class="tocnumber">4</span> <span class="toctext">Feature Summary</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Processors_using_Socket_SP3"><span class="tocnumber">5</span> <span class="toctext">Processors using Socket SP3</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Photos"><span class="tocnumber">6</span> <span class="toctext">Photos</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Package_Diagrams"><span class="tocnumber">7</span> <span class="toctext">Package Diagrams</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Socket_Diagrams"><span class="tocnumber">8</span> <span class="toctext">Socket Diagrams</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Pin_Map"><span class="tocnumber">9</span> <span class="toctext">Pin Map</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Pin_Description"><span class="tocnumber">9.1</span> <span class="toctext">Pin Description</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Pin_Types"><span class="tocnumber">9.1.1</span> <span class="toctext">Pin Types</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Bibliography"><span class="tocnumber">10</span> <span class="toctext">Bibliography</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#See_also"><span class="tocnumber">11</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Socket SP3 is a zero insertion force, screw actuated, <a href="http://en.wikipedia.org/wiki/Surface-mount_technology" class="extiw" title="wikipedia:Surface-mount technology">surface-mount</a> <a href="/w/index.php?title=land_grid_array&amp;action=edit&amp;redlink=1" class="new" title="land grid array (page does not exist)">land grid array</a> socket for use with a 4094-contact, 1.00 mm × 0.87 mm interstitial pitch, organic land grid array CPU package.
+</p><p>It supports eight channels of 72-bit <a href="/w/index.php?title=DDR4&amp;action=edit&amp;redlink=1" class="new" title="DDR4 (page does not exist)">DDR4</a> memory with up to 2 DIMMs per channel, eight 16-lane PCIe Gen 3/4 I/O links, three or four of which are repurposed as inter-socket links on dual socket systems, four USB 3.1 Gen 1 ports, and up to 32 SATA Gen 3 ports.
+</p><p>This compares to four <a href="/w/index.php?title=DDR3&amp;action=edit&amp;redlink=1" class="new" title="DDR3 (page does not exist)">DDR3</a> channels and five <a href="/w/index.php?title=HyperTransport&amp;action=edit&amp;redlink=1" class="new" title="HyperTransport (page does not exist)">HyperTransport</a> links on its predecessor <a href="/wiki/amd/packages/socket_g34" title="amd/packages/socket g34">Socket G34</a>, while the newer <a href="/wiki/amd/packages/socket_sp5" title="amd/packages/socket sp5">Socket SP5</a> supports 12 channels of <a href="/w/index.php?title=DDR5&amp;action=edit&amp;redlink=1" class="new" title="DDR5 (page does not exist)">DDR5</a> memory, eight PCIe Gen 5 links, and four USB 3.2 Gen 1 ports. (<a href="/wiki/amd/packages/sp4" title="amd/packages/sp4">SP4 and SP4r2</a> are <a href="/w/index.php?title=ball_grid_array&amp;action=edit&amp;redlink=1" class="new" title="ball grid array (page does not exist)">ball grid array</a> packages of <a href="/wiki/amd/epyc_embedded#3000_Series_.28Zen.29" title="amd/epyc embedded">EPYC 3000</a> embedded processors.)
+</p><p>The following AMD processor families use Socket SP3:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th> </th>
+<th> CPU Family </th>
+<th> Microarch. </th>
+<th> Process </th>
+<th> Products
+</th></tr>
+<tr>
+<td>Type 0
+</td>
+<td><a href="/wiki/amd/cpuid#Family_23_.2817h.29" title="amd/cpuid">Family 17h</a> Models 00h–0Fh
+</td>
+<td><a href="/wiki/amd/microarchitectures/zen" title="amd/microarchitectures/zen">Zen</a>
+</td>
+<td><a href="/wiki/14_nm" class="mw-redirect" title="14 nm">14 nm</a>
+</td>
+<td>EPYC 7001 &#34;<a href="/wiki/amd/cores/naples" title="amd/cores/naples">Naples</a>&#34; (Model 01h), EPYC Embedded 7001
+</td></tr>
+<tr>
+<td>Type 1
+</td>
+<td>Family 17h Models 30h–3Fh
+</td>
+<td><a href="/wiki/amd/microarchitectures/zen_2" title="amd/microarchitectures/zen 2">Zen 2</a>
+</td>
+<td><a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a>
+</td>
+<td>EPYC 7002 &#34;<a href="/wiki/amd/cores/rome" title="amd/cores/rome">Rome</a>&#34; (Model 31h), EPYC Embedded 7002
+</td></tr>
+<tr>
+<td>Type 2
+</td>
+<td><a href="/wiki/amd/cpuid#Family_25_.2819h.29" title="amd/cpuid">Family 19h</a> Models 00h–0Fh
+</td>
+<td><a href="/wiki/amd/microarchitectures/zen_3" title="amd/microarchitectures/zen 3">Zen 3</a>
+</td>
+<td><a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a>
+</td>
+<td>EPYC 7003 &#34;<a href="/wiki/amd/cores/milan" title="amd/cores/milan">Milan</a>&#34; (Model 01h)
+</td></tr></tbody></table>
+<p>Codenames of AMD SP3 reference platforms (CRBs) are &#34;Diesel&#34;, &#34;Ethanol&#34;, &#34;Daytona&#34;, and &#34;Ethanol-X&#34;. 
+</p><p>Specifications of a dual socket EPYC blade motherboard and collaterals including BOM, CAD file, CPLD programming data, Eagle layout, and schematic were published by the <a rel="nofollow" class="external text" href="https://opencompute.org">Open Compute Project</a> under Project Olympus AMD EPYC, specifically the US1-EPYC implementation by <a href="http://en.wikipedia.org/wiki/Quanta_Computer" class="extiw" title="wikipedia:Quanta Computer">Quanta</a>.
+</p>
+<h2><span class="mw-headline" id="Package_Description">Package Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=2" title="Edit section: Package Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The SP3 CPU package is lidded, has a 58.50 mm × 75.40 mm organic substrate with <a href="/w/index.php?title=flip_chip&amp;action=edit&amp;redlink=1" class="new" title="flip chip (page does not exist)">flip chip</a> die attachment, 4094 nickel and gold plated land pads, and weighs up to 140 g. It leaves AMD&#39;s <abbr title="Outsourced Semiconductor Assembly and Test">OSAT</abbr> partner in a shipping tray with a carrier frame pre-installed. The carrier frame is a part of the package loading mechanism and remains on the package in the socket.
+</p><p>The package substrate has six keying notches along the short edges preventing it from being inserted 180 degrees rotated into the carrier frame or socket, or in an incompatible socket with mismatching keying features. Four additional positions are reserved for future models. However all sockets SP3, TR4, sTRX4, and sWRX8, and all processors for these sockets have the same keying. It is worth noting that these processors are also electrically keyed by pin <a href="#CORETYPE">CORETYPE</a>, <a href="#SP3R1">SP3R1</a>, and <a href="#SP3R2">SP3R2</a>, and SP3 motherboards are not supposed to power up the socket if a TR4 or sTRX4 processor is installed. To boot the processor compatible firmware is also required. A triangular symbol on both sides of the substrate marks the location of pin A1, with corresponding markings on the socket.
+</p><p>The lid a.k.a. integrated heat spreader of Type-0 processors has an internal support bar bisecting their four dies. SP3 packages place <a href="http://en.wikipedia.org/wiki/Decoupling_capacitor" class="extiw" title="wikipedia:Decoupling capacitor">decoupling capacitors</a> under the lid around the chiplet periphery on the top side, and in two windows in the pad grid on the bottom side.
+</p><p>All SP3 packages are <a href="/w/index.php?title=multi-chip_package&amp;action=edit&amp;redlink=1" class="new" title="multi-chip package (page does not exist)">multi-chip modules</a>. Type-0 packages integrate four identical &#34;Zeppelin&#34; rev. ZP-B2 dies, each containing eight CPU cores and implementing one quarter of the processor&#39;s memory and I/O interfaces. AMD used the same dies in various revisions for first generation EPYC server and embedded processors, and the first two generations of Ryzen Threadripper and Ryzen desktop processors without <abbr title="Integrated Graphics Processing Unit">iGPU</abbr>; see <a href="/wiki/amd/cpuid#Family_23_.2817h.29" title="amd/cpuid">CPU Family 17h</a>.
+Customized, single-ended, 4:1 <a href="http://en.wikipedia.org/wiki/SerDes" class="extiw" title="wikipedia:SerDes"><abbr title="Serializer/Deserializer">SerDes</abbr></a> links routed on
+two package layers, 32 lanes wide in each direction, connect the dies.
+AMD chose not to route these signals on a 2.5D interposer or <a href="/w/index.php?title=EMIB&amp;action=edit&amp;redlink=1" class="new" title="EMIB (page does not exist)">EMIB</a>
+for reasons of product flexibility and reach. The SerDes run at <abbr title="Infinity Fabric clock">FCLK</abbr>
+so for instance a 1.33 GHz FCLK coupled to the bus clock of
+DDR4-2666 SDRAM gives a raw data rate of 5.33 GT/s per lane or
+21.33 GB/s in each direction. The following diagram illustrates the routing
+of high speed signals between the dies and the package contacts. Four
+package layers were used for these signals: Layer A, B, or both for
+the GMI links, C &amp; D for the xGMI and I/O links, and all four layers
+(one per channel) for the memory interfaces.
+</p>
+<div class="floatleft"><a href="/wiki/File:Socket_SP3_Type-0_routing.svg" class="image"><img alt="Socket SP3 Type-0 routing.svg" src="/w/images/thumb/c/cf/Socket_SP3_Type-0_routing.svg/365px-Socket_SP3_Type-0_routing.svg.png" width="365" height="429" srcset="/w/images/thumb/c/cf/Socket_SP3_Type-0_routing.svg/548px-Socket_SP3_Type-0_routing.svg.png 1.5x, /w/images/thumb/c/cf/Socket_SP3_Type-0_routing.svg/730px-Socket_SP3_Type-0_routing.svg.png 2x"/></a></div> Type-0 package top view, not to scale. <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Coherent AMD socKet Extender">CAKE</abbr>s</a> extend the Data Fabric transport layer off-chip by connecting to a CAKE in another die. Their <abbr title="Physical Coding Sublayer">PCS</abbr> interface drives a <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Global Memory Interconnect (AMD Scalable Data Fabric on-package link between chiplets)">GMI</abbr></a> (same socket) or <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> (different socket) physical link. Each die has two 16-lane multi-function I/O interfaces. Type A supports the PCIe, SATA, and XGBE protocols, Type B only PCIe. CAKE2/CAKE3 and the I/O controllers share a 16-lane <a href="http://en.wikipedia.org/wiki/Physical_layer#PHY" class="extiw" title="wikipedia:Physical layer">PHY</a> group. <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Coherent Slave">CS</abbr></a>0 and CS1 are the Data Fabric&#39;s interface to the memory controllers, <abbr title="Unified Memory Controller">UMC</abbr>0 and UMC1 respectively. Not shown are the Control Fabric interfaces which use <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="The WAFL In-socket eXtension (AMD Scalable Control Fabric on-package link between chiplets)">TWIX</abbr></a> (same socket) or <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a> (different socket) physical links, USB signals (USB0 group from die 0, USB1 from die 1), and low speed busses. For details and the on-chip topology see AMD <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric">Infinity Fabric</a>. <div style="clear:both;"></div> 
+<p>Type-1/2 packages integrate one central I/O die and 2, 4, 6, or 8 identical Core Complex Dies which contain eight CPU cores each, populated in order CCD2/CCD4, CCD0/CCD6, and CCD1/CCD7. This silicon is &#34;Starship&#34; rev. SSP-B0 (<a href="/wiki/amd/cpuid#Family_23_.2817h.29" title="amd/cpuid">CPU Family 17h</a>) and &#34;Genesis&#34; GN-B1 (<a href="/wiki/amd/cpuid#Family_25_.2819h.29" title="amd/cpuid">19h</a>). AMD used the same chips, possibly different revisions, for second and third generation EPYC server and embedded processors, and Ryzen Threadripper <abbr title="High-End Desktop">HEDT</abbr> and workstation processors.
+</p>
+<div class="floatleft"><a href="/wiki/File:Socket_SP3_Type-1_routing.svg" class="image"><img alt="Socket SP3 Type-1 routing.svg" src="/w/images/thumb/4/47/Socket_SP3_Type-1_routing.svg/365px-Socket_SP3_Type-1_routing.svg.png" width="365" height="429" srcset="/w/images/thumb/4/47/Socket_SP3_Type-1_routing.svg/548px-Socket_SP3_Type-1_routing.svg.png 1.5x, /w/images/thumb/4/47/Socket_SP3_Type-1_routing.svg/730px-Socket_SP3_Type-1_routing.svg.png 2x"/></a></div> Type-1/2 package top view, not to scale. Eight <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="CPU/CCX/Core/Cache Coherent Master">CCM</abbr></a> blocks extend the Data Fabric on the IOD to the CCDs, each driving a GMI2 physical link routed on two package layers. SSP-B0 CCDs contain two <abbr title="Core Complex">CCX</abbr>s with 16 MiB L3 cache each, the GMI2 port and its die bumps are located in the center to reduce memory latency from the L3 cache. GN-B1 CCDs contain one CCX with 32 MiB L3 cache, the GMI2 signals are routed to the chip edge. These are serial, single-ended links with 31 transmit (to IOD) and 39 receive lanes, one clock gating lane per direction, and a differential pair of clock lanes. GMI2 uses 10:1 SerDes running at FCLK, so for instance a 1.46 GHz FCLK (~ DDR4-2933) gives a raw data rate of 14.6 GT/s per lane or 71.2 GB/s per link from IOD to CCD. Not shown are eight TWIX ports extending the Control Fabric to the CCDs, these links run on four data and two clock lanes, as well as WAFL links, USB signals, and low speed busses. The &#34;Rome&#34; package actually has 20 layers (9-2-9) in total.  For details and the IOD internal topology see AMD <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric">Infinity Fabric</a>. <div style="clear:both;"></div>
+<p>Socket SP3 supports eight 72-bit DDR4 memory channels A-H with up to 2 DIMMs per channel. The DIMMs are placed in order A-D and E-H parallel to the socket&#39;s broad sides. This also applies to Socket sTRX4 (where only the four channels A, D, E, and H are available), Socket sWRX8 (with a maximum of one DIMM per channel), as well as SP3 and sTRX4 motherboards supporting only one DIMM per channel as a trade-off between performance (as point-to-point connections improve signal integrity and permit higher data rates), board size and memory capacity.
+</p><p>Furthermore Socket SP3 supports eight 16-lane multi-function I/O interfaces P0-P3 and G0-G3. All of these interfaces can be configured as PCIe link, some alternatively as <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> link or S-Link, and some lanes as SATA, SATA Express, or XGBE link.
+</p><p>S-Link is a cache coherent link to <a href="/wiki/ccix" title="ccix"><abbr title="Cache Coherent Interconnect for accelerators">CCIX</abbr></a> memory expanders introduced on Type-1 processors. As AMD switched to <a href="http://en.wikipedia.org/wiki/Compute_Express_Link" class="extiw" title="wikipedia:Compute Express Link">CXL</a>, first available on <a href="/wiki/amd/packages/socket_sp5" title="amd/packages/socket sp5">Socket SP5</a>, support for S-Link and CCIX/PCIe ESM mode (using 25 GT/s PHYs on Type-1/2 IODs) was canceled.
+</p><p><a href="http://en.wikipedia.org/wiki/SATA_Express" class="extiw" title="wikipedia:SATA Express">SATA Express</a> combines PCIe and SATA controllers on the same two lanes with a <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIO</a> pin for a device to indicate its controller type. XGBE links support the <a href="http://en.wikipedia.org/wiki/10_Gigabit_Ethernet#Backplane" class="extiw" title="wikipedia:10 Gigabit Ethernet">10GBASE-KR</a>, <a href="http://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-KX" class="extiw" title="wikipedia:Gigabit Ethernet">1000BASE-KX</a>, and <a href="http://en.wikipedia.org/wiki/Media-independent_interface#Serial_gigabit_media-independent_interface" class="extiw" title="wikipedia:Media-independent interface">SGMII</a> (10/100/1000 Mbit/s) backplane Ethernet protocols. The SATAe and XGBE functions are implemented on Type-0 processors but not Type-1/2, and support for these interfaces on Socket SP3 was withdrawn.
+</p><p><a href="/wiki/File:Socket_SP3_2P_routing.svg" class="image" title="DIMM order and 2P xGMI links"><img alt="DIMM order and 2P xGMI links" src="/w/images/thumb/a/a9/Socket_SP3_2P_routing.svg/562px-Socket_SP3_2P_routing.svg.png" width="562" height="312" srcset="/w/images/thumb/a/a9/Socket_SP3_2P_routing.svg/843px-Socket_SP3_2P_routing.svg.png 1.5x, /w/images/thumb/a/a9/Socket_SP3_2P_routing.svg/1124px-Socket_SP3_2P_routing.svg.png 2x"/></a>
+</p><p>On dual socket (2P) systems the cache coherent xGMI links connect the Data Fabrics of each processor. Type-0 processors use four links, each attached to one die on the package, creating a NUMA system with three memory distances and one or two hops between any two dies. Type-1/2 processors can use three or four xGMI links depending on bandwidth requirements, all connected to the central I/O die. xGMI links use 16 lanes, unused links release 16 lanes per socket for I/O. The integrated <a href="/w/index.php?title=amd/system_management_unit&amp;action=edit&amp;redlink=1" class="new" title="amd/system management unit (page does not exist)"><abbr title="System Management Unit">SMU</abbr></a> dynamically adjusts the link width (number of active lanes) for power saving. The <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a> link, one or two lanes, connect the Control Fabrics on each processor, i.e. the <a href="/wiki/amd/secure_processor" title="amd/secure processor"><abbr title="Platform Security Processor">PSP</abbr></a>, SMUs and other IPs, primarily for temperature monitoring, power and frequency control. Four socket systems are not supported although the available resources do not seem to rule this out.
+</p><p>Type-0 processors support DDR4-2666 memory and PCIe Gen 3 (8 GT/s) on their I/O links. Type-1/2 processors support DDR4-3200 memory and PCIe Gen 4 (16 GT/s), with xGMI links reaching 18 GT/s. Optimized motherboards are required to realize these data rates. Accordingly Type-1 processors can only run at restricted rates on Type-0 boards, after a BIOS update providing compatible firmware. Type-2 processors are not supported on first generation EPYC boards. Conversely EPYC 7001 &#34;Naples&#34; processors are incompatible with dual socket boards implementing only three xGMI links.
+</p>
+<h2><span class="mw-headline" id="Socket_Description">Socket Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=3" title="Edit section: Socket Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Socket SP3, <a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">TR4</a>, <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">sTRX4</a>, and <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">sWRX8</a> are mechanically identical. They have a 79.9 mm × 120.3 mm footprint and consist of the following components, from top to bottom:
+</p>
+<ul><li> Force Frame</li>
+<li> Rail Frame</li>
+<li> Socket Housing</li>
+<li> Stiffener Frame</li>
+<li> Insulators</li>
+<li> Backplate</li></ul>
+<p>Removable components are:
+</p>
+<ul><li> Heatsink</li>
+<li> Carrier Frame</li>
+<li> External Cap</li>
+<li> PnP Cover Cap</li></ul>
+<p>The force frame, rail frame, and stiffener frame constitute the Socket Actuation Mechanism. The heatsink, the CPU in a carrier frame, the SAM, housing, and backplate are separately orderable parts. The latter three are motherboard components for OEMs. Socket SP3 suppliers are <a href="http://en.wikipedia.org/wiki/Foxconn" class="extiw" title="wikipedia:Foxconn">Foxconn Interconnect Technology</a> (<a rel="nofollow" class="external text" href="https://www.fit-foxconn.com">website</a>) and Lotes Co. Ltd. (<a rel="nofollow" class="external text" href="https://www.lotes.cc/en">website</a>).
+</p><p><abbr title="Land Grid Array">LGA</abbr> sockets use cantilever springs in the socket housing to make electrical contact with flat pads on the bottom of the CPU package. The SAM creates the Z-axis compression load between the CPU package and the housing soldered to the motherboard. Considerable force is required to deflect thousands of springs at once. According to AMD the SP3 SAM must exert a minimum force of 95 kg-f (932 N) to ensure proper mating of the package with the socket, a maximum of 125 kg-f (1226 N), so SP3 sockets are not actuated by a lever but three <a href="http://en.wikipedia.org/wiki/Torx" class="extiw" title="wikipedia:Torx">Torx</a> screws linking their force frame and stiffener frame. The stiffener frame is attached to the backplate on the bottom side of the motherboard.
+</p><p>The <b>force frame</b> a.k.a. load plate is a largely flat piece stamped out of 2.0 mm thick stainless steel sheets. It has a window allowing the top of the CPU package lid to protrude for contact with the heatsink. When actuated it applies a load to the flanges on the sides of the lid. The force frame is attached to the stiffener frame by a hinge. It permits vertical motion when the socket is actuated, integrates a torsional spring to keep the frame open while the user inserts or removes the CPU, and a stop feature limiting the opening angle to some 105 degrees. The force frame is actuated by three <a href="http://en.wikipedia.org/wiki/Captive_fastener" class="extiw" title="wikipedia:Captive fastener">captive screws</a> with a <a href="http://en.wikipedia.org/wiki/Torx" class="extiw" title="wikipedia:Torx">Torx</a> T20 head and <a href="http://en.wikipedia.org/wiki/ISO_metric_screw_thread" class="extiw" title="wikipedia:ISO metric screw thread">M3.5×0.6</a> or larger thread. They mate with <a href="http://en.wikipedia.org/wiki/Swage_nut" class="extiw" title="wikipedia:Swage nut">self-clinching PEM nuts</a> on the stiffener frame.
+</p><p>These screws must be tightened in a particular order to avoid damage to the contact springs, the order is marked on the force frame. The lone screw opposite the hinge first, followed by the two screws next to it, with a maximum torque of 16.1 ± 1.2 kgf-cm (14.0 ± 1.0 lbf-in, 1.58 ± 0.1 N⋅m) according to AMD. <a href="/wiki/amd/ryzen_threadripper" title="amd/ryzen threadripper">Ryzen Threadripper</a> boxed processors come with a small preset torque limiting screwdriver for this purpose. Some sources recommend two passes to engage the threads, then tighten the screws. To remove the processor the screws should be opened in reverse order.
+</p><p>The <b>rail frame</b> together with the carrier frame constitute the package loading mechanism. Its main purpose is to minimize the risk of contact spring damage due to handling errors or accidents when loading the package into the housing. The rail frame is a stainless steel frame overmolded with black polycarbonate plastic and attached to the stiffener frame with a second hinge similar to the force frame. The steel frame forms a closed loop for stability and extends into a pair of finger lift tabs marked with blue color. The carrier frame slides into the rail frame along rails molded into both parts. They also have locking features which secure the carrier frame in the final position. When the rail frame is closed, latching features engage with undercut steps on the housing to ensure the package remains properly seated during actuation.
+</p><p>The <b>carrier frame</b> is made from colored polycarbonate material. EPYC 7001 series processors use blue, 7002 series green, 7003 series grey, and Threadripper processors (for <a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">Socket TR4</a>, <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">sTRX4</a>, and <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">sWRX8</a>) orange carriers. The carrier frame has a window for the package lid and a handle to pick up, insert, and remove the carrier without touching and contaminating the contact pads on the package. The handle bears the name of the supplier, commonly Lotes, and has a hole to provide access for one of the actuation screws. The opposite side of the frame is marked with a date and revision code. The carrier frame has six latches and is designed to snap onto the top side of the package substrate while the CPU package is sitting in the shipping tray. Keying features match two keying notches in the package to prevent it from being inserted 180 degrees rotated. Four alignment pegs on the carrier frame engage with alignment holes in the socket housing when the rail frame is closed.
+</p><p>The carrier frame is not supposed to be removed and not sold to consumers. Owners of a processor under warranty with a broken frame should contact the vendor or AMD customer service. Third parties may sell carrier frames salvaged from defective CPUs. If a replacement can or should be 3D-printed is unclear. It is evidently possible, with some care, to insert the package into the housing without the carrier.
+</p><p>The <b>external cap</b> is made from a transparent polycarbonate material. It has the same outer dimensions as the carrier frame, and the same rail and locking features to slide into the rail frame. The external cap ships with the SAM and protects the contact springs when no processor is installed in the socket. A label on its top side reminds users to remove the cap before inserting the processor. On the reverse side the external cap has a cavity fitting the cover cap, so the SAM with external cap can be installed over the housing with cover cap.
+</p><p>The <b>cover cap</b> is made from black <a href="http://en.wikipedia.org/wiki/Liquid-crystal_polymer" class="extiw" title="wikipedia:Liquid-crystal polymer">liquid crystal polymer</a> (LCP). It has the same alignment pegs as the carrier frame and latching features engaging with undercut steps on the housing, separate from those for the rail frame. The position of the pegs is asymmetric so the cap cannot be installed 180 degrees rotated. The cover cap ships with the socket housing and facilitates pick-and-place with a vacuum nozzle during board assembly. Its top protrusion has vent holes, bears the name of the socket and supplier, and serves as an alignment feature against the SAM with external cap.
+</p><p>The <b>socket housing</b> is a black LCP casing with two windows where <a href="http://en.wikipedia.org/wiki/Decoupling_capacitor" class="extiw" title="wikipedia:Decoupling capacitor">decoupling capacitors</a> can be placed on the top side of the motherboard. Its outline is asymmetric, preventing the SAM from being installed 180 degrees rotated. The walls have undercut steps on the outside for the rail frame and cover cap latches, cavities accomodating the carrier frame latches and keying features, finger access cut-outs in the middle of the long edges, and four alignment holes to receive the alignment pegs on the carrier frame. A chamfered corner marks the location of pin A1. The contact springs extend into a J-lead at the bottom of the housing with 0.6 mm diameter solder balls attached for <a href="http://en.wikipedia.org/wiki/Surface-mount_technology" class="extiw" title="wikipedia:Surface-mount technology">surface mounting</a>. Standoffs limit the distance to the <abbr title="Printed Circuit Board">PCB</abbr>.
+</p><p>The <b>stiffener frame</b> a.k.a. base plate is a flat, 1.7 mm thick stainless steel plate with a window fitting the socket housing, and seven <a href="http://en.wikipedia.org/wiki/Swage_nut" class="extiw" title="wikipedia:Swage nut">self-clinching</a>, flush integrated nuts to fasten the force frame and a heatsink. The position of the four heatsink nuts (PEM nut standoffs) is asymmetric so the heatsink can only be installed in one orientation. They have a <a href="http://en.wikipedia.org/wiki/ISO_metric_screw_thread" class="extiw" title="wikipedia:ISO metric screw thread">M3.5×0.6</a> internal thread, and height 6.0 mm including the stiffener frame thickness or 6.18 mm from the top of the PCB. The top of the CPU package lid is 8.959 mm from the top of the PCB when the socket is actuated.
+</p><p>The SAM must be attached to a backplate on the bottom side of the motherboard or directly mounted to the chassis. This is facilitated by four M3.5×0.6 captive nuts on the stiffener frame with a Torx T20 head, a head diameter of 6.0 mm and maximum head height of 2.3 mm, to be tightened in a diagonal pattern with a maximum torque of 16.1 ± 1.2 kgf-cm (14.0 ± 1.0 lbf-in, 1.58 ± 0.1 N⋅m).
+</p><p>The <b>backplate</b> is a flat, 2.5 mm thick stainless steel plate with four self-clinching studs with a M3.5×0.6 external thread. Its dimensions are symmetric so it can be installed 180 degrees rotated, and like the housing it has a window for bottom side components. The studs protrude upwards through holes in the PCB and mate with the captive nuts on the stiffener frame. Backplates with stud heights between 4.0 and 5.6 mm are available to account for different PCB thicknesses. 
+</p><p>Two sheets made from insulating material, 0.18 mm thick and about as large as the respective metal part separate the stiffener frame and backplate from the motherboard.
+</p><p>Socket SP3 processors require a <b>heatsink</b>. Heatsinks weighing up to 450 g can be mounted to the PEM nuts on the stiffener frame, heavier heatsinks require additional support such as direct chassis attachment. The allowable spring force exerted by the heatsink on the package lid is 75 ± 15 lb-f (334 ± 67 N). Thermal interface material should be applied between the lid and heatsink. The four captive spring screws on the heatsink should be tightened in a diagonal pattern with the same maximum torque of 16.1 ± 1.2 kgf-cm (14.0 ± 1.0 lbf-in, 1.58 ± 0.1 N⋅m) as the actuation screws.
+</p>
+<h2><span class="mw-headline" id="Feature_Summary">Feature Summary</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=4" title="Edit section: Feature Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Lidded <a href="/w/index.php?title=land_grid_array&amp;action=edit&amp;redlink=1" class="new" title="land grid array (page does not exist)">land grid array</a> package, 75.40 mm × 58.50 mm
+<ul><li> 4094 contacts in a 82 × 55 grid with 0.87 mm × 1.00 mm interstitial pitch</li>
+<li> Organic substrate, <a href="/w/index.php?title=flip_chip&amp;action=edit&amp;redlink=1" class="new" title="flip chip (page does not exist)">flip chip</a> die attachment</li></ul></li></ul>
+<ul><li> 8 × 72 bit DDR4 SDRAM interface
+<ul><li> Type-0 processors: Up to 1333 MHz, PC4-21333 (DDR4-2666), 170.67 GB/s total raw bandwidth</li>
+<li> Type-1/2 processors: Up to 1600 MHz, PC4-25600 (DDR4-3200), 204.8 GB/s total raw bandwidth</li>
+<li> Up to 2 DIMMs/channel, up to 16 DIMMs total</li>
+<li> <a href="http://en.wikipedia.org/wiki/Registered_memory" class="extiw" title="wikipedia:Registered memory"><abbr title="Registered Dual In-line Memory Module">RDIMM</abbr></a>, <a href="http://en.wikipedia.org/wiki/Registered_memory" class="extiw" title="wikipedia:Registered memory"><abbr title="Load-Reduced Dual In-line Memory Module">LRDIMM</abbr></a>, <a href="/wiki/3ds_dimm" title="3ds dimm"><abbr title="3D-Stacked Dual In-line Memory Module">3DS DIMM</abbr></a>, <a href="http://en.wikipedia.org/wiki/NVDIMM" class="extiw" title="wikipedia:NVDIMM"><abbr title="Non-Volatile Dual In-line Memory Module, N type (DRAM with NVM backup on power loss)">NVDIMM-N</abbr></a> types</li>
+<li> ECC supported</li>
+<li> Memory capacity 256 GiB/channel (Type-0) or 512 GiB/channel (Type-1/2)</li></ul></li></ul>
+<ul><li> Eight multi-function I/O interfaces P0-P3, G0-G3</li></ul>
+<dl><dd><table class="wikitable" style="text-align:center">
+<tbody><tr>
+<td>Lane</td>
+<td>15</td>
+<td>14</td>
+<td>13</td>
+<td>12</td>
+<td>11</td>
+<td>10</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0
+</td></tr>
+<tr>
+<td> </td>
+<td colspan="16">xGMI
+</td></tr>
+<tr>
+<td> </td>
+<td colspan="16">S-Link
+</td></tr>
+<tr>
+<td rowspan="5">PCIe</td>
+<td colspan="16">x16
+</td></tr>
+<tr>
+<td colspan="8">x8</td>
+<td colspan="8">x8
+</td></tr>
+<tr>
+<td colspan="4">x4</td>
+<td colspan="4">x4</td>
+<td colspan="4">x4</td>
+<td colspan="4">x4
+</td></tr>
+<tr>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2</td>
+<td colspan="2">x2
+</td></tr>
+<tr>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1</td>
+<td>x1
+</td></tr>
+<tr>
+<td>SATAe</td>
+<td colspan="12"> </td>
+<td colspan="2">1</td>
+<td colspan="2">0
+</td></tr>
+<tr>
+<td>SATA</td>
+<td colspan="8"> </td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0
+</td></tr>
+<tr>
+<td>XGBE</td>
+<td colspan="8"> </td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td colspan="4">
+</td></tr>
+<tr>
+<td>Type-0 PHYs</td>
+<td colspan="4">PHY 4</td>
+<td colspan="4">PHY 3</td>
+<td colspan="4">PHY 2</td>
+<td colspan="2">PHY 1</td>
+<td colspan="2">PHY 0
+</td></tr>
+<tr>
+<td>Type-1/2 PHYs</td>
+<td colspan="4">PHY 3</td>
+<td colspan="4">PHY 2</td>
+<td colspan="4">PHY 1</td>
+<td colspan="4">PHY 0
+</td></tr></tbody></table></dd></dl>
+<dl><dd><ul><li> PCIe protocol supported on all interfaces
+<ul><li> Type-0 processors: PCIe Gen 1, 2, 3 (8 GT/s)</li>
+<li> Type-1/2 processors: PCIe Gen 1, 2, 3, 4 (16 GT/s)</li>
+<li> 16 lanes, up to 8 ports per interface configurable x16, x8, x4, x2, x1 with power-of-two alignment (e.g. 1x4 + 4x1 + 1x8)</li>
+<li> Max. 7 PCIe ports in each 8-lane subset (e.g. 0x8 + 8x1 is not possible)</li>
+<li> Max. 7 PCIe ports per interface if any lane is configured as SATA port</li>
+<li> Different PCIe generations supported on the ports in the same interface</li>
+<li> Lane polarity inversion, per port lane reversal</li>
+<li> Up to 128 PCIe lanes total on 1P systems</li>
+<li> Up to 64 or 80 PCIe lanes total per socket on 2P systems</li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> protocol supported on G0-G3, used on 2P systems only
+<ul><li> Type-0 processors: Four x16 links per socket required</li>
+<li> Type-1/2: Three or four links depending on bandwidth requirements</li>
+<li> Four links: G0 (socket 0) ↔ G2 (socket 1), G1 ↔ G3, G2 ↔ G0, G3 ↔ G1</li>
+<li> Three links: G0 ↔ G2, G1 ↔ G3, G2 ↔ G0</li>
+<li> Max. raw data rate  18 GT/s (Type-1/2)</li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> S-Link protocol on P0-P3
+<ul><li> Not supported on Socket SP3</li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> SATA Gen 1, 2, 3 (6 Gb/s) protocol supported on the lower 8 lanes of P0, P1, G2, G3
+<ul><li> P0: SATA00-07, P1: SATA10-17, G2: SATA20-27, G3: SATA30-37</li>
+<li> Up to 32 SATA ports total on 1P systems</li>
+<li> Up to 16 SATA ports total per socket on 2P systems</li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> XGBE protocols on lanes 4-7 of P0, P1, G2, G3
+<ul><li> P0: XGBE00-03, P1: XGBE10-13, G2: XGBE20-23, G3: XGBE30-33</li>
+<li> Not supported on Socket SP3</li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> Five (Type-0 processors) or four (Type-1/2) PHY groups on each interface
+<ul><li> Lanes sharing a PHY group must use the same protocol (PCIe, SATA)</li>
+<li> On Type-0 platforms lanes 0-3 must use the same protocol for compatibility with Type-1 processors</li></ul></li></ul></dd></dl>
+<ul><li> Supplementary I/O interface
+<ul><li> PCIe Gen 1, 2 (5 GT/s), 2 lanes</li>
+<li> <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a> interface on 2P systems
+<ul><li> Option 1: WAFL[0] (socket 0) ↔ WAFL[1] (socket 1), WAFL[1] (s0) ↔ WAFL[0] (s1)</li>
+<li> Option 2 (Type-1/2 only): WAFL[0] (s0) ↔ WAFL[1] (s1), WAFL[1] (s0) and WAFL[0] (s1) not used</li></ul></li>
+<li> Type-0 processors: Unused lanes remain unconnected</li>
+<li> Type-1/2: Unused lanes are available for I/O, e.g. to attach a <a href="http://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface#Baseboard_management_controller" class="extiw" title="wikipedia:Intelligent Platform Management Interface"><abbr title="Baseboard Management Controller">BMC</abbr></a></li></ul></li></ul>
+<ul><li> 4 × USB 1.1, 2.0, 3.1 Gen 1 (5 Gb/s) ports</li></ul>
+<ul><li> Low speed interfaces (some sharing pins):
+<ul><li> 8-bit <a href="http://en.wikipedia.org/wiki/MultiMediaCard#eMMC" class="extiw" title="wikipedia:MultiMediaCard"><abbr title="Embedded MultiMediaCard">eMMC</abbr></a> v5.0 (400 MB/s)</li>
+<li> 2 × 4-wire or 4 × 2-wire <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a> modeled after the <a href="http://en.wikipedia.org/wiki/16550_UART" class="extiw" title="wikipedia:16550 UART">16550</a></li>
+<li> <a href="http://en.wikipedia.org/wiki/Low_Pin_Count" class="extiw" title="wikipedia:Low Pin Count"><abbr title="Low Pin Count bus">LPC</abbr></a>, two clocks</li>
+<li> 1/2/4-bit <a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI/eSPI</a> up to 100 MHz (SPI) and 66 MHz (eSPI)</li>
+<li> 6 × <a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="extiw" title="wikipedia:I²C">I<sup>2</sup>C</a></li>
+<li> 2 × <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a></li>
+<li> 4 × <a href="http://en.wikipedia.org/wiki/SGPIO" class="extiw" title="wikipedia:SGPIO">SGPIO</a></li>
+<li> 2 × SATA <a href="http://en.wikipedia.org/wiki/DevSlp" class="extiw" title="wikipedia:DevSlp"><abbr title="SATA Device Sleep">DevSlp</abbr></a></li>
+<li> 78 × <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIO</a></li>
+<li> Sideband Interface a.k.a. <abbr title="Advanced Platform Management Link">APML</abbr> (<abbr title="Sideband Remote Management Interface">SB-RMI</abbr>, <a href="/wiki/amd/sb-tsi" title="amd/sb-tsi"><abbr title="Sideband Temperature Sensor Interface">SB-TSI</abbr></a>)</li>
+<li> 2 × Serial VID Interface (SVI2)</li>
+<li> <a href="http://en.wikipedia.org/wiki/JTAG" class="extiw" title="wikipedia:JTAG">JTAG</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Processors_using_Socket_SP3">Processors using Socket SP3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=5" title="Edit section: Processors using Socket SP3">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <span class="smw-broadtable-furtherresults"><a href="/wiki/Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bsocket::Socket-20SP3-5D-5D/-3Ffirst-20launched/-3Fcore-20name/-3Fmicroarchitecture/-3Fcore-20count/-3Fthread-20count/-3Ftdp/mainlabel%3D/offset%3D0/format%3Dbroadtable/link%3Dall/headers%3Dshow/searchlabel%3DShow-20processors-20for-20Socket-20SP3/class%3Dsortable-20wikitable-20smwtable/sep%3D," title="Special:Ask/-5B-5BCategory:microprocessor-20models-20by-20amd-5D-5D-20-5B-5Bsocket::Socket-20SP3-5D-5D/-3Ffirst-20launched/-3Fcore-20name/-3Fmicroarchitecture/-3Fcore-20count/-3Fthread-20count/-3Ftdp/mainlabel=/offset=0/format=broadtable/link=all/headers=show/searchlabel=Show-20processors-20for-20Socket-20SP3/class=sortable-20wikitable-20smwtable/sep=,">Show processors for Socket SP3</a></span></li></ul>
+<h2><span class="mw-headline" id="Photos">Photos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=6" title="Edit section: Photos">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 535px"><div style="width: 535px">
+			<div class="thumb" style="width: 530px;"><div style="margin:64.5px auto;"><a href="/wiki/File:amd_naples_(front).png" class="image"><img alt="" src="/w/images/thumb/d/df/amd_naples_%28front%29.png/500px-amd_naples_%28front%29.png" width="500" height="301" srcset="/w/images/thumb/d/df/amd_naples_%28front%29.png/750px-amd_naples_%28front%29.png 1.5x, /w/images/thumb/d/df/amd_naples_%28front%29.png/1000px-amd_naples_%28front%29.png 2x"/></a></div></div>
+			<div class="gallerytext">
+<p>FCLGA-4094, package front
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 535px"><div style="width: 535px">
+			<div class="thumb" style="width: 530px;"><div style="margin:44.5px auto;"><a href="/wiki/File:amd_naples_(back).png" class="image"><img alt="" src="/w/images/thumb/b/b7/amd_naples_%28back%29.png/500px-amd_naples_%28back%29.png" width="500" height="341" srcset="/w/images/thumb/b/b7/amd_naples_%28back%29.png/750px-amd_naples_%28back%29.png 1.5x, /w/images/thumb/b/b7/amd_naples_%28back%29.png/1000px-amd_naples_%28back%29.png 2x"/></a></div></div>
+			<div class="gallerytext">
+<p>FCLGA-4094, package back
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 535px"><div style="width: 535px">
+			<div class="thumb" style="width: 530px;"><div style="margin:48px auto;"><a href="/wiki/File:Amd_socket_sp3_IMGP3469_smial_wp.jpg" class="image"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Amd_socket_sp3_IMGP3469_smial_wp.jpg/500px-Amd_socket_sp3_IMGP3469_smial_wp.jpg" width="500" height="334" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Amd_socket_sp3_IMGP3469_smial_wp.jpg/750px-Amd_socket_sp3_IMGP3469_smial_wp.jpg 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Amd_socket_sp3_IMGP3469_smial_wp.jpg/1000px-Amd_socket_sp3_IMGP3469_smial_wp.jpg 2x"/></a></div></div>
+			<div class="gallerytext">
+<p>Socket SP3, open
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Package_Diagrams">Package Diagrams</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=7" title="Edit section: Package Diagrams">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/File:LGA-4094_diag.svg" class="image"><img alt="LGA-4094 diag.svg" src="/w/images/thumb/0/02/LGA-4094_diag.svg/1155px-LGA-4094_diag.svg.png" width="1155" height="794" srcset="/w/images/thumb/0/02/LGA-4094_diag.svg/1733px-LGA-4094_diag.svg.png 1.5x, /w/images/thumb/0/02/LGA-4094_diag.svg/2310px-LGA-4094_diag.svg.png 2x"/></a> 
+</p><p>SP3 package. All dimensions in millimeters.
+</p>
+<table style="text-align: center;">
+<tbody><tr>
+<td><a href="/wiki/File:LGA-4094_SP3_Naples_diag.svg" class="image"><img alt="LGA-4094 SP3 Naples diag.svg" src="/w/images/thumb/e/ea/LGA-4094_SP3_Naples_diag.svg/489px-LGA-4094_SP3_Naples_diag.svg.png" width="489" height="645" srcset="/w/images/thumb/e/ea/LGA-4094_SP3_Naples_diag.svg/734px-LGA-4094_SP3_Naples_diag.svg.png 1.5x, /w/images/thumb/e/ea/LGA-4094_SP3_Naples_diag.svg/978px-LGA-4094_SP3_Naples_diag.svg.png 2x"/></a><br/>&#34;Naples&#34; package
+</td>
+<td> 
+</td>
+<td><a href="/wiki/File:LGA-4094_SP3_Rome_diag.svg" class="image"><img alt="LGA-4094 SP3 Rome diag.svg" src="/w/images/thumb/5/5b/LGA-4094_SP3_Rome_diag.svg/489px-LGA-4094_SP3_Rome_diag.svg.png" width="489" height="645" srcset="/w/images/thumb/5/5b/LGA-4094_SP3_Rome_diag.svg/734px-LGA-4094_SP3_Rome_diag.svg.png 1.5x, /w/images/thumb/5/5b/LGA-4094_SP3_Rome_diag.svg/978px-LGA-4094_SP3_Rome_diag.svg.png 2x"/></a><br/>&#34;Rome&#34; package
+</td></tr></tbody></table>
+<p><a href="/wiki/File:LGA-4094_carrier_diag.svg" class="image"><img alt="LGA-4094 carrier diag.svg" src="/w/images/thumb/c/c8/LGA-4094_carrier_diag.svg/1233px-LGA-4094_carrier_diag.svg.png" width="1233" height="843" srcset="/w/images/thumb/c/c8/LGA-4094_carrier_diag.svg/1850px-LGA-4094_carrier_diag.svg.png 1.5x, /w/images/thumb/c/c8/LGA-4094_carrier_diag.svg/2466px-LGA-4094_carrier_diag.svg.png 2x"/></a>
+</p><p>SP3 carrier frame (AMD ref. design, not Lotes). All dimensions in millimeters.
+</p>
+<h2><span class="mw-headline" id="Socket_Diagrams">Socket Diagrams</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=8" title="Edit section: Socket Diagrams">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/File:Socket_SP3_housing_diag.svg" class="image"><img alt="Socket SP3 housing diag.svg" src="/w/images/thumb/c/c3/Socket_SP3_housing_diag.svg/1269px-Socket_SP3_housing_diag.svg.png" width="1269" height="751" srcset="/w/images/thumb/c/c3/Socket_SP3_housing_diag.svg/1904px-Socket_SP3_housing_diag.svg.png 1.5x, /w/images/thumb/c/c3/Socket_SP3_housing_diag.svg/2538px-Socket_SP3_housing_diag.svg.png 2x"/></a>
+</p><p>Socket SP3 housing (AMD). The 4094 contact springs are not shown. All dimensions in millimeters.<br/> <a href="/wiki/File:Socket_SP3_FIT_housing_diag.svg" title="File:Socket SP3 FIT housing diag.svg">Foxconn version</a>.
+</p><p><a href="/wiki/File:Socket_SP3_PCB_layout.svg" class="image"><img alt="Socket SP3 PCB layout.svg" src="/w/images/thumb/b/b4/Socket_SP3_PCB_layout.svg/645px-Socket_SP3_PCB_layout.svg.png" width="645" height="928" srcset="/w/images/thumb/b/b4/Socket_SP3_PCB_layout.svg/968px-Socket_SP3_PCB_layout.svg.png 1.5x, /w/images/thumb/b/b4/Socket_SP3_PCB_layout.svg/1290px-Socket_SP3_PCB_layout.svg.png 2x"/></a>
+</p><p>Socket SP3 PCB layout. NPTH = Non-Plated Through Hole. All dimensions in millimeters.
+</p>
+<h2><span class="mw-headline" id="Pin_Map">Pin Map</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=9" title="Edit section: Pin Map">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/File:Socket_SP3_pinmap.svg" class="image"><img alt="Socket SP3 pinmap.svg" src="/w/images/thumb/9/93/Socket_SP3_pinmap.svg/800px-Socket_SP3_pinmap.svg.png" width="800" height="857" srcset="/w/images/thumb/9/93/Socket_SP3_pinmap.svg/1200px-Socket_SP3_pinmap.svg.png 1.5x, /w/images/thumb/9/93/Socket_SP3_pinmap.svg/1600px-Socket_SP3_pinmap.svg.png 2x"/></a>
+</p><p>Socket SP3 pinout, top view. This is a preview, click for a larger image and other views.
+</p><p><br/>
+</p>
+<h3><span class="mw-headline" id="Pin_Description">Pin Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=10" title="Edit section: Pin Description">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Socket SP3, <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">sTRX4</a>, and <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">sWRX8</a> have the same pinout with some constraints as noted.
+</p>
+<table class="wikitable sortable">
+<tbody><tr>
+<th>Signal</th>
+<th>Type</th>
+<th>Description
+</th></tr>
+<tr>
+<td>MA-MD_ACT_L</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Channel A-D<sup id="cite_ref-memch_1-0" class="reference"><a href="#cite_note-memch-1">[1</a>]</sup> Activation Command
+</td></tr>
+<tr>
+<td>MA-MD_ADD[13:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Column/Row Address
+</td></tr>
+<tr>
+<td>MA-MD_ADD_17</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Column/Row Address 17
+</td></tr>
+<tr>
+<td>MA-MD_ALERT_L</td>
+<td>I-IOMEM_ABCD-S</td>
+<td>DRAM Alert (CRC error and Command/Address parity error)
+</td></tr>
+<tr>
+<td>MA-MD_BANK[1:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Bank Address
+</td></tr>
+<tr>
+<td>MA-MD_BG[1:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Bank Group
+</td></tr>
+<tr>
+<td>MA-MD_CAS_L_ADD[15]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Column Address Strobe or Column/Row Address 15
+</td></tr>
+<tr>
+<td>MA-MD_CHECK[7:0]</td>
+<td>B-IOMEM_ABCD-S</td>
+<td>DRAM ECC Check Bits
+</td></tr>
+<tr>
+<td>MA-MD_C[2:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Chip ID Signals
+</td></tr>
+<tr>
+<td>MA-MD_DATA[63:0]</td>
+<td>B-IOMEM_ABCD-S</td>
+<td>DRAM Data Bus
+</td></tr>
+<tr>
+<td>MA-MD_DQS_H/L[8:0]</td>
+<td>B-IOMEM_ABCD-S</td>
+<td>DRAM Differential Data Strobe
+</td></tr>
+<tr>
+<td>MA-MD_DQS_H[17:9]</td>
+<td>B-IOMEM_ABCD-S</td>
+<td>DRAM Differential Data Strobe for RDIMMs, DM[8:0] Data Mask output for UDIMMs<sup id="cite_ref-memtype_2-0" class="reference"><a href="#cite_note-memtype-2">[2</a>]</sup>
+</td></tr>
+<tr>
+<td>MA-MD_DQS_L[17:9]</td>
+<td>B-IOMEM_ABCD-S</td>
+<td>DRAM Differential Data Strobe for RDIMMs, not connected for UDIMMs
+</td></tr>
+<tr>
+<td>MA-MD_EVENT_L</td>
+<td>I-IOMEM_ABCD-S</td>
+<td>DRAM Thermal Event
+</td></tr>
+<tr>
+<td>MA-MD_PAROUT</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Command and Address Parity
+</td></tr>
+<tr>
+<td>MA-MD_RAS_L_ADD[16]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Row Address Strobe or Column/Row Address 16
+</td></tr>
+<tr>
+<td>MA-MD_RESET_L</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Reset
+</td></tr>
+<tr>
+<td>MA-MD_WE_L_ADD[14]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Write Enable or Column/Row Address 14
+</td></tr>
+<tr>
+<td>MA-MD_ZVSS</td>
+<td>A</td>
+<td>DRAM Interface Drive-Strength Auto-Compensation Resistor to VSS
+</td></tr>
+<tr>
+<td>MA0-MD0_CKE[1:0]<br/>MA1-MD1_CKE[1:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Channel A-D DIMM 0-1 Clock Enable
+</td></tr>
+<tr>
+<td>MA0-MD0_CLK_H/L[1:0]<br/>MA1-MD1_CLK_H/L[1:0]</td>
+<td>O-IOMEM_ABCD-D</td>
+<td>DRAM Channel A-D DIMM 0-1 Differential Clock
+</td></tr>
+<tr>
+<td>MA0-MD0_CS_L[1:0]<br/>MA1-MD1_CS_L[1:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Channel A-D DIMM 0-1 Chip Select
+</td></tr>
+<tr>
+<td>MA0-MD0_ODT[1:0]<br/>MA1-MD1_ODT[1:0]</td>
+<td>O-IOMEM_ABCD-S</td>
+<td>DRAM Channel A-D DIMM 0-1 Enable Pin for On Die Termination
+</td></tr>
+<tr>
+<td>ME-MH_ACT_L</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Channel E-H<sup id="cite_ref-memch_1-1" class="reference"><a href="#cite_note-memch-1">[1</a>]</sup> Activation Command
+</td></tr>
+<tr>
+<td>ME-MH_ADD[13:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Column/Row Address
+</td></tr>
+<tr>
+<td>ME-MH_ADD_17</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Column/Row Address 17
+</td></tr>
+<tr>
+<td>ME-MH_ALERT_L</td>
+<td>I-IOMEM_EFGH-S</td>
+<td>DRAM Alert (CRC error and Command/Address parity error)
+</td></tr>
+<tr>
+<td>ME-MH_BANK[1:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Bank Address
+</td></tr>
+<tr>
+<td>ME-MH_BG[1:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Bank Group
+</td></tr>
+<tr>
+<td>ME-MH_CAS_L_ADD[15]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Column Address Strobe or Column/Row Address 15
+</td></tr>
+<tr>
+<td>ME-MH_CHECK[7:0]</td>
+<td>B-IOMEM_EFGH-S</td>
+<td>DRAM ECC Check Bits
+</td></tr>
+<tr>
+<td>ME-MH_C[2:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Chip ID Signals
+</td></tr>
+<tr>
+<td>ME-MH_DATA[63:0]</td>
+<td>B-IOMEM_EFGH-S</td>
+<td>DRAM Data Bus
+</td></tr>
+<tr>
+<td>ME-MH_DQS_H/L[8:0]</td>
+<td>B-IOMEM_EFGH-S</td>
+<td>DRAM Differential Data Strobe
+</td></tr>
+<tr>
+<td>ME-MH_DQS_H[17:9]</td>
+<td>B-IOMEM_EFGH-S</td>
+<td>DRAM Differential Data Strobe for RDIMMs, DM[8:0] Data Mask output for UDIMMs<sup id="cite_ref-memtype_2-1" class="reference"><a href="#cite_note-memtype-2">[2</a>]</sup>
+</td></tr>
+<tr>
+<td>ME-MH_DQS_L[17:9]</td>
+<td>B-IOMEM_EFGH-S</td>
+<td>DRAM Differential Data Strobe for RDIMMs, not connected for UDIMMs
+</td></tr>
+<tr>
+<td>ME-MH_EVENT_L</td>
+<td>I-IOMEM_EFGH-S</td>
+<td>DRAM Thermal Event
+</td></tr>
+<tr>
+<td>ME-MH_PAROUT</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Command and Address Parity
+</td></tr>
+<tr>
+<td>ME-MH_RAS_L_ADD[16]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Row Address Strobe or Column/Row Address 16
+</td></tr>
+<tr>
+<td>ME-MH_RESET_L</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Reset
+</td></tr>
+<tr>
+<td>ME-MH_WE_L_ADD[14]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Write Enable or Column/Row Address 14
+</td></tr>
+<tr>
+<td>ME-MH_ZVSS</td>
+<td>A</td>
+<td>DRAM Interface Drive-Strength Auto-Compensation Resistor to VSS
+</td></tr>
+<tr>
+<td>ME0-MH0_CKE[1:0]<br/>ME1-MH1_CKE[1:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Channel E-H DIMM 0-1 Clock Enable
+</td></tr>
+<tr>
+<td>ME0-MH0_CLK_H/L[1:0]<br/>ME1-MH1_CLK_H/L[1:0]</td>
+<td>O-IOMEM_ABCD-D</td>
+<td>DRAM Channel E-H DIMM 0-1 Differential Clock
+</td></tr>
+<tr>
+<td>ME0-MH0_CS_L[1:0]<br/>ME1-MH1_CS_L[1:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Channel E-H DIMM 0-1 Chip Select
+</td></tr>
+<tr>
+<td>ME0-MH0_ODT[1:0]<br/>ME1-MH1_ODT[1:0]</td>
+<td>O-IOMEM_EFGH-S</td>
+<td>DRAM Channel E-H DIMM 0-1 Enable Pin for On Die Termination
+</td></tr>
+<tr>
+<td>FORCE_SELFREFRESH</td>
+<td>I-IO18S5-S</td>
+<td>NVDIMM Force Self-Refresh<sup id="cite_ref-FSR_3-0" class="reference"><a href="#cite_note-FSR-3">[3</a>]</sup>
+</td></tr>
+<tr>
+<td>NV_SAVE_L</td>
+<td>O-IO18S5-S</td>
+<td>NVDIMM SAVE Signal<sup id="cite_ref-FSR_3-1" class="reference"><a href="#cite_note-FSR-3">[3</a>]</sup>
+</td></tr>
+<tr>
+<td>P0-P3_RXP/RXN[15:0]</td>
+<td>I-PCIE-D</td>
+<td>PCIe Interface P0-P3<sup id="cite_ref-pcie_4-0" class="reference"><a href="#cite_note-pcie-4">[4</a>]</sup> Receive Data Differential Pairs
+</td></tr>
+<tr>
+<td>P0-P3_TXP/TXN[15:0]</td>
+<td>O-PCIE-D</td>
+<td>PCIe Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>P0A/P1A/P2B/P3B_ZVSS</td>
+<td>A</td>
+<td>PCIe Drive-Strength Auto-Compensation Resistor to VSS for P0-P3
+</td></tr>
+<tr>
+<td>G0-G3_RXP/RXN[15:0]</td>
+<td>I-XGMI-D or I-PCIE-D</td>
+<td><a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> or PCIe Interface G0-G3<sup id="cite_ref-pcie_4-1" class="reference"><a href="#cite_note-pcie-4">[4</a>]</sup> Receive Data Differential Pairs
+</td></tr>
+<tr>
+<td>G0-G3_TXP/TXN[15:0]</td>
+<td>O-XGMI-D or O-PCIE-D</td>
+<td>xGMI or PCIe Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>G0B/G1B/G2A/G3A_ZVSS</td>
+<td>A</td>
+<td>PCIe Drive-Strength Auto-Compensation Resistor to VSS for G0-G3
+</td></tr>
+<tr>
+<td>PCIE_RST(0-3)_L</td>
+<td>O-IO33S5-S</td>
+<td>Reset signal for PCIe devices.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5</a>]</sup> Type-0: from die 0-3, Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>WAFL_RXP/RXN[1:0]</td>
+<td>I-WAFL-D</td>
+<td><a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6</a>]</sup> Receive Data Differential Pairs
+</td></tr>
+<tr>
+<td>WAFL_TXP/TXN[1:0]</td>
+<td>O-WAFL-D</td>
+<td>WAFL Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>WAFL(0-3)_ZVSS</td>
+<td>A</td>
+<td>WAFL Drive-Strength Auto-Compensation Resistor to VSS; Type-0: die 0-3, Type-1/2: I/O die
+</td></tr>
+<tr>
+<td>SATA(0-3)(0-7)_RXP/RXN</td>
+<td>I-SATA-D</td>
+<td>SATA Receive Data Differential Pairs (alt. func. of P0, P1, G2, and G3<sup id="cite_ref-pcie_4-2" class="reference"><a href="#cite_note-pcie-4">[4</a>]</sup> lane 0-7)
+</td></tr>
+<tr>
+<td>SATA(0-3)(0-7)_TXP/TXN</td>
+<td>O-SATA-D</td>
+<td>SATA Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>DEVSLP(0-1)</td>
+<td>I-IO33S5-OD</td>
+<td>SATA <a href="http://en.wikipedia.org/wiki/DevSlp" class="extiw" title="wikipedia:DevSlp"><abbr title="SATA Device Sleep">DEVSLP</abbr></a>
+</td></tr>
+<tr>
+<td>SGPIO(0-3)_CLK</td>
+<td>O-IO33S5-S</td>
+<td><a href="http://en.wikipedia.org/wiki/SGPIO" class="extiw" title="wikipedia:SGPIO">SGPIO</a> Interface 0-3<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7</a>]</sup> CLK Output; Type-0: from die 0-3, Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>SGPIO(0-3)_DATAIN</td>
+<td>I-IO33S5-S</td>
+<td>Type-0: SGPIO DATA Input, Type-1/2: Reserved
+</td></tr>
+<tr>
+<td>SGPIO(0-3)_DATAOUT</td>
+<td>O-IO33S5-S</td>
+<td>SGPIO DATA Output
+</td></tr>
+<tr>
+<td>SGPIO(0-3)_LOAD</td>
+<td>O-IO33S5-S</td>
+<td>SGPIO LOAD Output
+</td></tr>
+<tr>
+<td>XGBE(0-3)(0-3)_RXP/RXN</td>
+<td></td>
+<td>XGBE Receive Data Differential Pairs (alt. func. of P0, P1, G2, G3 lane 4-7)<sup id="cite_ref-noxgbe_8-0" class="reference"><a href="#cite_note-noxgbe-8">[8</a>]</sup>
+</td></tr>
+<tr>
+<td>XGBE(0-3)(0-3)_TXP/TXN</td>
+<td></td>
+<td>XGBE Transmit Data Differential Pairs
+</td></tr>
+<tr>
+<td>MDIO(0-7)_SCL</td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/Management_Data_Input/Output" class="extiw" title="wikipedia:Management Data Input/Output">MDIO</a> Port 0-7 Clock (alt. func. of SGPIO interface)
+</td></tr>
+<tr>
+<td>MDIO(0-7)_SDA</td>
+<td></td>
+<td>MDIO Data
+</td></tr>
+<tr>
+<td>USB_0/1_HSD(0-3)P/N</td>
+<td>B-IO33S5-D</td>
+<td>USB Port 0-3 High Speed I/O Differential Pairs; Type-0: from die 0/1 (die 0 ports 0-1, die 1 ports 2-3), Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>USB_0/1_SS_(0-3)RXP/RXN</td>
+<td>I-USB_S5-D</td>
+<td>USB Port 0-3 Super Speed Receive Differential Pairs; Type-0: from die 0/1 (die 0 ports 0-1, die 1 ports 2-3), Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>USB_0/1_SS_(0-3)TXP/TXN</td>
+<td>O-USB_S5-D</td>
+<td>USB Port 0-3 Super Speed Transmit Differential Pairs
+</td></tr>
+<tr>
+<td>USB_OC(0-3)_L</td>
+<td>I-IO33S5-S</td>
+<td>USB Port 0-3 Over Current signal from USB connector; Type-0: to die 0, 0, 1, 1; Type-1/2: to I/O die
+</td></tr>
+<tr>
+<td>USB(0-3)_0/1_ZVSS</td>
+<td>A</td>
+<td>USB Port 0-3 Drive-Strength Auto-Compensation Resistor to VSS; Type-0: die 0/1, Type-1/2: I/O die
+</td></tr>
+<tr>
+<td>UART(0-1)_CTS_L</td>
+<td>I-IO33-S</td>
+<td><a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver_transmitter" class="extiw" title="wikipedia:Universal asynchronous receiver transmitter">UART</a> Clear To Send Input (alt. func. of UART(2-3)_RXD)
+</td></tr>
+<tr>
+<td>UART(0-1)_INTR</td>
+<td>I-IO33-S</td>
+<td>UART Interrupt Request
+</td></tr>
+<tr>
+<td>UART(0-1)_RTS_L</td>
+<td>O-IO33-S</td>
+<td>UART Request To Send Output (alt. func. of UART(2-3)_TXD)
+</td></tr>
+<tr>
+<td>UART(0-3)_RXD</td>
+<td>I-IO33-S</td>
+<td>UART Receive Data
+</td></tr>
+<tr>
+<td>UART(0-3)_TXD</td>
+<td>O-IO33-S</td>
+<td>UART Transmit Data
+</td></tr>
+<tr>
+<td>SPI_CLK</td>
+<td>O-IO18-S</td>
+<td><a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface" class="extiw" title="wikipedia:Serial Peripheral Interface">SPI</a> Clock
+</td></tr>
+<tr>
+<td>SPI_DO</td>
+<td>B-IO18-S</td>
+<td>SPI Data Out or Data[0] for multi-I/O SPI/eSPI device
+</td></tr>
+<tr>
+<td>SPI_DI</td>
+<td>B-IO18-S</td>
+<td>SPI Data In or Data[1]
+</td></tr>
+<tr>
+<td>SPI_WP_L</td>
+<td>B-IO18-S</td>
+<td>SPI Write Protect or Data[2]
+</td></tr>
+<tr>
+<td>SPI_HOLD_L</td>
+<td>B-IO18-S</td>
+<td>SPI Hold Signal (asserted low to hold the SPI transaction) or Data[3]
+</td></tr>
+<tr>
+<td>PSP_ROM_CS_L<br/>SPI_TPM_CS_L</td>
+<td>O-IO18-S</td>
+<td>SPI Chip Select for <a href="/wiki/amd/secure_processor" title="amd/secure processor"><abbr title="Platform Security Processor">PSP</abbr></a> ROM or <a href="http://en.wikipedia.org/wiki/Trusted_Platform_Module" class="extiw" title="wikipedia:Trusted Platform Module">TPM</a>
+</td></tr>
+<tr>
+<td>SPI_CS1/CS2_L</td>
+<td>O-IO18-S</td>
+<td>SPI Chip Select
+</td></tr>
+<tr>
+<td>ESPI_CLK</td>
+<td>O-IO18-S</td>
+<td><a href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface#Intel_Enhanced_Serial_Peripheral_Interface_Bus" class="extiw" title="wikipedia:Serial Peripheral Interface"><abbr title="Enhanced Serial Peripheral Interface">ESPI</abbr></a> Clock (alt. func. of SPI_CLK)
+</td></tr>
+<tr>
+<td>ESPI_DAT(0-3)</td>
+<td>B-IO33-S</td>
+<td>ESPI Data[0], Data[1:0], Data[3:0] (alt. func. of SPI_DO/DI/WP_L/HOLD_L)
+</td></tr>
+<tr>
+<td>ESPI_CS_L</td>
+<td>O-IO18-S</td>
+<td>ESPI Chip Select (SPI_CS2_L)
+</td></tr>
+<tr>
+<td>ESPI_ALERT_L</td>
+<td>I-IO18-S</td>
+<td>ESPI Alert Input (LDRQ0_L); Requests service from eSPI master
+</td></tr>
+<tr>
+<td>ESPI_RESET_L</td>
+<td>I-IO33-S</td>
+<td>ESPI Reset Input (KBRST_L); PCIE_RST0_L suggested as reset output
+</td></tr>
+<tr>
+<td>LPC</td>
+<td>ROM,</td>
+<td>1=SPI ROM (default)
+</td></tr>
+<tr>
+<td>LAD(0-3)</td>
+<td>B-IO33-S</td>
+<td><a href="http://en.wikipedia.org/wiki/Low_Pin_Count" class="extiw" title="wikipedia:Low Pin Count"><abbr title="Low Pin Count bus">LPC</abbr></a> Command/Address/Data
+</td></tr>
+<tr>
+<td>LDRQ0_L</td>
+<td>I-IO33-S</td>
+<td>Encoded DMA/Bus Master Request 0
+</td></tr>
+<tr>
+<td>LFRAME_L</td>
+<td>O-IO33-S</td>
+<td>LPC Bus Frame
+</td></tr>
+<tr>
+<td>LPCCLK(0-1)</td>
+<td>O-IO33-S</td>
+<td>LPC 33 MHz Clock
+</td></tr>
+<tr>
+<td>LPC_CLKRUN_L</td>
+<td>B-IO33-OD</td>
+<td>LPC Clock Run Signal
+</td></tr>
+<tr>
+<td>LPC_PD_L</td>
+<td>O-IO33S5-S</td>
+<td>LPC Power Down
+</td></tr>
+<tr>
+<td>LPC_PME_L</td>
+<td>I-IO33S5-S</td>
+<td>LPC Power Management Event
+</td></tr>
+<tr>
+<td>LPC_RST_L</td>
+<td>O-IO33S5-S</td>
+<td>LPC Reset
+</td></tr>
+<tr>
+<td>LPC_SMI_L</td>
+<td>I-IO33-S</td>
+<td>LPC System Management Interrupt
+</td></tr>
+<tr>
+<td>SERIRQ</td>
+<td>B-IO33-S</td>
+<td>Serial IRQ for DMA
+</td></tr>
+<tr>
+<td>EMMC_CLK</td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/MultiMediaCard#eMMC" class="extiw" title="wikipedia:MultiMediaCard"><abbr title="Embedded MultiMediaCard">eMMC</abbr></a> Clock Output (0-200 MHz)
+</td></tr>
+<tr>
+<td>EMMC_CMD</td>
+<td></td>
+<td>eMMC Command/Response (LPC_PD_L)
+</td></tr>
+<tr>
+<td>EMMC_DAT(0-7)</td>
+<td></td>
+<td>eMMC Data (alt. func. of LAD0-LAD3, LPCCLK0, LPC_CLKRUN_L, LPCCLK1, SERIRQ)
+</td></tr>
+<tr>
+<td>EMMC_DS</td>
+<td></td>
+<td>eMMC HS400 Data Strobe Input (LFRAME_L)
+</td></tr>
+<tr>
+<td>EMMC_PWR_CTRL</td>
+<td></td>
+<td>(LPC_PME_L)
+</td></tr>
+<tr>
+<td>I2C(0-5)_SCL</td>
+<td>B-DUAL-OD</td>
+<td><a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="extiw" title="wikipedia:I²C">I<sup>2</sup>C</a> Port 0-5 Clock
+</td></tr>
+<tr>
+<td>I2C(0-5)_SDA</td>
+<td>B-DUAL-OD</td>
+<td>I<sup>2</sup>C Data
+</td></tr>
+<tr>
+<td>SCL0</td>
+<td>B-IO33-OD</td>
+<td><a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> Port 0 Clock (alt. func. of I2C2)
+</td></tr>
+<tr>
+<td>SDA0</td>
+<td>B-IO33-OD</td>
+<td>SMBus Port 0 Data
+</td></tr>
+<tr>
+<td>SCL1</td>
+<td>B-IO33S5-OD</td>
+<td>SMBus Port 1 Clock (alt. func. of I2C3)
+</td></tr>
+<tr>
+<td>SDA1</td>
+<td>B-IO33S5-OD</td>
+<td>SMBus Port 1 Data
+</td></tr>
+<tr>
+<td>HP_SCL, HP_SDA</td>
+<td></td>
+<td>Hotplug SMBus (I2C0)
+</td></tr>
+<tr>
+<td>SFP_SCL, SFP_SDA</td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/Small_form-factor_pluggable_transceiver" class="extiw" title="wikipedia:Small form-factor pluggable transceiver">SFP</a> Bus (I2C1)
+</td></tr>
+<tr>
+<td>SPD_SCL, SPD_SDA</td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/Serial_presence_detect" class="extiw" title="wikipedia:Serial presence detect">SPD</a> Bus (I2C2)
+</td></tr>
+<tr>
+<td>BMC_SCL, BMC_SDA</td>
+<td></td>
+<td><a href="http://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface#Baseboard_management_controller" class="extiw" title="wikipedia:Intelligent Platform Management Interface"><abbr title="Baseboard Management Controller">BMC</abbr></a> SMBus (I2C3)
+</td></tr>
+<tr>
+<td>AGPIO*_(0-3)</td>
+<td></td>
+<td>Advanced <a href="http://en.wikipedia.org/wiki/General-purpose_input/output" class="extiw" title="wikipedia:General-purpose input/output">GPIO</a> pin for interrupt, wake, or I/O; Type-0: die 0-3, Type-1/2: I/O die
+</td></tr>
+<tr>
+<td>EGPIO*_(0-3)</td>
+<td></td>
+<td>Enhanced GPIO for I/O only; Type-0: die 0-3, Type-1/2: I/O die
+</td></tr>
+<tr>
+<td>EGPIO*</td>
+<td></td>
+<td>Enhanced GPIO for I/O only; Type-0: die 0, Type-1/2: I/O die
+</td></tr>
+<tr>
+<td>REFCLK100SSC_P/N</td>
+<td>O-CLK-D or I-CLK-D</td>
+<td>100 MHz CPU Reference Clock; Output from <abbr title="Boot Strap Processor (cf. Application Processors in the other sockets on a multiprocessor system)">BSP</abbr>, or input for <abbr title="Application Processor (cf. Boot Strap Processor which initializes a multiprocessor system)">AP</abbr>; <a href="http://en.wikipedia.org/wiki/Spread_spectrum#Clock_signal_generation" class="extiw" title="wikipedia:Spread spectrum"><abbr title="Spread Spectrum Clocking">SSC</abbr></a> option
+</td></tr>
+<tr>
+<td>GPP_CLK(0-3)BP/N</td>
+<td>O-CLK-D</td>
+<td>100 MHz Differential PCIe Reference Clock; Type-0: from die 0-3, Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>GPP_CLK(0-3)TP/N</td>
+<td>O-CLK-D</td>
+<td>100 MHz Differential PCIe Reference Clock; Type-0: from die 0-3, Type-1/2: from I/O die
+</td></tr>
+<tr>
+<td>X156M_H/L[3:0]</td>
+<td>I-XGBECLK-D</td>
+<td>Differential 156.25 MHz Reference CLK Input<sup id="cite_ref-noxgbe_8-1" class="reference"><a href="#cite_note-noxgbe-8">[8</a>]</sup>; Type-0: to die 0-3, Type-1/2: to I/O die
+</td></tr>
+<tr>
+<td>X32K_X1/X2</td>
+<td>I-IO18S5-S</td>
+<td>32768 Hz Clock XTAL or (X32K_X1 only) Clock Input, for the integrated <abbr title="Real Time Clock">RTC</abbr>
+</td></tr>
+<tr>
+<td>X48M_X1/X2</td>
+<td>I-IO18S5-S</td>
+<td>48 MHz Clock XTAL or (X48M_X1 only) Clock Input, for the integrated clock generator
+</td></tr>
+<tr>
+<td>RTCCLK</td>
+<td>O-IO18S5-S</td>
+<td>32 kHz Real Time Clock Output, e.g. BSP to AP, or for a device requiring an RTC clock
+</td></tr>
+<tr>
+<td>KBRST_L</td>
+<td>I-IO33-S</td>
+<td>Keyboard Controller Reset Input (warm reset)
+</td></tr>
+<tr>
+<td>PM_INTR_L</td>
+<td>I-IO33-S</td>
+<td>PM_INTR_L function for NVMe drive I<sup>2</sup>C subsystem and PCIe hot-plug subsystem
+</td></tr>
+<tr>
+<td>PWR_BTN_L</td>
+<td>I-IO33S5</td>
+<td>Power Button; Requests sleep state or causes wake event
+</td></tr>
+<tr>
+<td>PWR_GOOD</td>
+<td>I-IO33S5-S</td>
+<td>Power Good Input; Asserted when all voltages and clock inputs are within specification; From motherboard to <abbr title="Boot Strap Processor (cf. Application Processors in the other sockets on a multiprocessor system)">BSP</abbr>, or from BSP to <abbr title="Application Processor (cf. Boot Strap Processor which initializes a multiprocessor system)">AP</abbr>
+</td></tr>
+<tr>
+<td>PWRGD_OUT</td>
+<td>O-IO33S5-S</td>
+<td>Power Good Output, from BSP to PWR_GOOD input of AP
+</td></tr>
+<tr>
+<td>PWROK</td>
+<td>B-IO18-OD</td>
+<td>Power OK; Asserted by the processor after all power planes are active, the system clock generators are powered up and run stably
+</td></tr>
+<tr>
+<td>RESET_L</td>
+<td>B-IO18-OD</td>
+<td>Bidirectional signal that resets the processor when asserted; Normally controlled by an internal state machine but can also be asserted by a second external source
+</td></tr>
+<tr>
+<td>RSMRST_L</td>
+<td>I-IO18S5-S</td>
+<td>Resume Reset from motherboard, resets all in-processor S5 and S0 logic; Asserted on power up, deasserted when S5 power supplies are within specification
+</td></tr>
+<tr>
+<td>SLP_S3/S5_L</td>
+<td>O-IO33S5-S</td>
+<td>S3/S5 Sleep State Power Plane Control Signals<br/><table class="wikitable"><tbody><tr><th>SLP_S3_L</th><th>SLP_S5_L</th><th>State</th></tr><tr><td>High</td><td>High</td><td>S0</td></tr><tr><td>Low</td><td>High</td><td>S3</td></tr><tr><td>Low</td><td>Low</td><td>S4/S5</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>SYS_RESET_L</td>
+<td>I-IO33S5-S</td>
+<td>System Reset Input (reset button)
+</td></tr>
+<tr>
+<td>WAKE_L</td>
+<td>B-IO33S5-S</td>
+<td>PCIe WAKE_L signal, wake system out of sleep state
+</td></tr>
+<tr>
+<td>WOL(0-3)</td>
+<td>I_IO33S5-OD</td>
+<td>Wake-on-LAN function
+</td></tr>
+<tr>
+<td>NMI_SYNC_FLOOD_L</td>
+<td>I-IO33-S</td>
+<td>This pin signals a <abbr title="Non-Maskable Interrupt">NMI</abbr> or Sync Flood<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9</a>]</sup>
+</td></tr>
+<tr>
+<td>ALERT_L</td>
+<td>O-IO33-OD</td>
+<td>Programmable pin that can indicate different events, including a <a href="/wiki/amd/sb-tsi" title="amd/sb-tsi"><abbr title="Sideband Temperature Sensor Interface">SB-TSI</abbr></a> interrupt
+</td></tr>
+<tr>
+<td>PROCHOT_L</td>
+<td>I-IO33-OD</td>
+<td>Asserted to force the processor into <a href="/wiki/x86/hardware_thermal_control" title="x86/hardware thermal control"><abbr title="Hardware Thermal Control">HTC</abbr></a>-active state
+</td></tr>
+<tr>
+<td>SIC</td>
+<td>I-DUAL-OD</td>
+<td>Sideband Interface Clock<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10</a>]</sup>
+</td></tr>
+<tr>
+<td>SID</td>
+<td>B-DUAL-OD</td>
+<td>Sideband Interface Data
+</td></tr>
+<tr>
+<td>THERMTRIP_L</td>
+<td>B-IO33-OD</td>
+<td><a href="/wiki/x86/thermal_protection" title="x86/thermal protection">Temperature Trip</a> Input/Output
+</td></tr>
+<tr>
+<td>BP(0-5)</td>
+<td>B-IO18-S</td>
+<td>Break Point Indicator; Used to trigger external test equipment such as oscilloscopes and logic analyzers
+</td></tr>
+<tr>
+<td>DBREQ_L</td>
+<td>I-IO18S5-S</td>
+<td>Debug Request input to JTAG controller
+</td></tr>
+<tr>
+<td>TCK</td>
+<td>I-IO18S5-S</td>
+<td><a href="http://en.wikipedia.org/wiki/JTAG" class="extiw" title="wikipedia:JTAG">JTAG</a> Clock
+</td></tr>
+<tr>
+<td>TDI</td>
+<td>I-IO18S5-S</td>
+<td>JTAG Data Input
+</td></tr>
+<tr>
+<td>TDO</td>
+<td>O-IO18S5-S</td>
+<td>JTAG Data Output
+</td></tr>
+<tr>
+<td>TMS</td>
+<td>I-IO18S5-S</td>
+<td>JTAG Mode Select
+</td></tr>
+<tr>
+<td>TRST_L</td>
+<td>I-IO18S5-S</td>
+<td>JTAG Reset
+</td></tr>
+<tr>
+<td>TEST*</td>
+<td></td>
+<td>Test Pins
+</td></tr>
+<tr>
+<td>XTRIG_L[7:4]</td>
+<td>B-IO18-OD</td>
+<td>XTRIG Debug Signals
+</td></tr>
+<tr>
+<td>SVC_CPU, SVC_SOC</td>
+<td>O-IO18-S</td>
+<td>Serial VID Interface Clock for VDDCR_CPU, VDDCR_SOC regulator
+</td></tr>
+<tr>
+<td>SVD_CPU, SVD_SOC</td>
+<td>B-IO18-S</td>
+<td>Serial VID Interface Data
+</td></tr>
+<tr>
+<td>SVT_CPU, SVT_SOC</td>
+<td>I-IO18-S</td>
+<td>Serial VID Interface Telemetry
+</td></tr>
+<tr>
+<td>VDDBT_RTC_G</td>
+<td>S</td>
+<td>Integrated Real Time Clock battery power supply, 1.5 V ±5% or 1.8 V ±5%<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11</a>]</sup>
+</td></tr>
+<tr>
+<td>VDDCR_CPU</td>
+<td>S</td>
+<td>Supply voltage for the CPU core
+</td></tr>
+<tr>
+<td>VDDCR_CPU_SENSE</td>
+<td>A</td>
+<td>VDDCR_CPU voltage sense output, differential feedback with VSS_SENSE_A
+</td></tr>
+<tr>
+<td>VDDCR_SOC</td>
+<td>S</td>
+<td>Supply voltage for the Northbridge (integrated <abbr title="Fusion Controller Hub (chipset)">FCH</abbr>, Ethernet, SATA, <abbr title="Northbridge I/O unit">NBIO</abbr>, <a href="/w/index.php?title=amd/system_management_unit&amp;action=edit&amp;redlink=1" class="new" title="amd/system management unit (page does not exist)"><abbr title="System Management Unit">SMU</abbr></a>, DDR PHY logic)
+</td></tr>
+<tr>
+<td>VDDCR_SOC_SENSE</td>
+<td>A</td>
+<td>VDDCR_SOC voltage sense output, differential feedback with VSS_SENSE_B
+</td></tr>
+<tr>
+<td>VDDCR_SOC_S5</td>
+<td>S</td>
+<td>Always on 0.9 V ± 20 mV supply voltage for the FCH and USB PHYs
+</td></tr>
+<tr>
+<td>VDDCR_SOC_S5_SENSE</td>
+<td>A</td>
+<td>VDDCR_SOC_S5 voltage sense output, differential feedback with VSS_SENSE_B
+</td></tr>
+<tr>
+<td>VDDIO_MEM_S3_ABCD/EFGH</td>
+<td>S</td>
+<td>1.2 V (1.14 - 1.28 V) supply voltage for the DRAM PHYs, channels A-D / E-H
+</td></tr>
+<tr>
+<td>VDDIO_MEM_S3_ABCD_FB_H/L</td>
+<td>A</td>
+<td>VDDIO_MEM_S3_ABCD voltage differential feedback to VDDIO_MEM_S3_ABCD regulator
+</td></tr>
+<tr>
+<td>VDDIO_MEM_S3_EFGH_FB_H/L</td>
+<td>A</td>
+<td>VDDIO_MEM_S3_EFGH voltage differential feedback
+</td></tr>
+<tr>
+<td>VDD_18</td>
+<td>S</td>
+<td>1.8 V ±5% supply voltage for analog circuits
+</td></tr>
+<tr>
+<td>VDD_18_SENSE</td>
+<td>A</td>
+<td>VDD_18 voltage sense output, differential feedback with VSS_SENSE_A
+</td></tr>
+<tr>
+<td>VDD_18_S5</td>
+<td>S</td>
+<td>Always on 1.8 V ±5% supply voltage for analog circuits
+</td></tr>
+<tr>
+<td>VDD_18_S5_SENSE</td>
+<td>A</td>
+<td>VDD_18_S5 voltage sense output, differential feedback with VSS_SENSE_A
+</td></tr>
+<tr>
+<td>VDD_33</td>
+<td>S</td>
+<td>3.3 V ±5% supply voltage for GPIO
+</td></tr>
+<tr>
+<td>VDD_33_SENSE</td>
+<td>A</td>
+<td>VDD_33 voltage sense output, differential feedback with VSS_SENSE_B
+</td></tr>
+<tr>
+<td>VDD_33_S5</td>
+<td>S</td>
+<td>Always on 3.3 V ±5% supply voltage for GPIO
+</td></tr>
+<tr>
+<td>VDD_33_S5_SENSE</td>
+<td>A</td>
+<td>VDD_33_S5 voltage sense output, differential feedback with VSS_SENSE_B
+</td></tr>
+<tr>
+<td>VSS</td>
+<td>S</td>
+<td>Ground
+</td></tr>
+<tr>
+<td>VSS_SENSE_A</td>
+<td>A</td>
+<td>VSS sense output for VDDCR_CPU, VDD_18, VDD_18_S5 regulator
+</td></tr>
+<tr>
+<td>VSS_SENSE_B</td>
+<td>A</td>
+<td>VSS sense output for VDDCR_SOC, VDD_33, VDD_33_S5, VDDCR_SOC_S5 regulator
+</td></tr>
+<tr>
+<td><span id="CORETYPE">CORETYPE</span></td>
+<td></td>
+<td>Processor Core Type Indicator; NC = Not connected, VSS = connected to VSS on the package<br/><table class="wikitable"><tbody><tr><th>Processor</th><th>CORETYPE</th></tr><tr><td>SP3 Type-0</td><td>VSS</td></tr><tr><td>SP3 Type-1/2</td><td>NC</td></tr><tr><td><a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">TR4</a>/<a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">sTRX4</a>/<a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">sWRX8</a></td><td>NC</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td><span id="SP3R1">SP3R1</span>, <span id="SP3R2">SP3R2</span></td>
+<td></td>
+<td>Processor Family Revision Identifier (electrical keying); NC = Not connected, VSS = connected to VSS on the package<br/><table class="wikitable"><tbody><tr><th>Processor</th><th>SP3R1</th><th>SP3R2</th></tr><tr><td>SP3</td><td>NC</td><td>VSS</td></tr><tr><td>TR4</td><td>NC</td><td>NC</td></tr><tr><td>sTRX4</td><td>VSS</td><td>NC</td></tr><tr><td>sWRX8</td><td>NC</td><td>VSS</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>CPU_PRESENT_L</td>
+<td></td>
+<td>CPU Presence Indicator, connected to VSS on the package
+</td></tr>
+<tr>
+<td>SA[2:0]</td>
+<td>I-IO18S5-S</td>
+<td>Socket Identifier; 0 = connected to VSS, 1 = 10 kΩ PU to VDD_18_S5<br/><table class="wikitable"><tbody><tr><th>Socket</th><th>SA[2]</th><th>SA[1]</th><th>SA[0]</th></tr><tr><td>SP3 <abbr title="Boot Strap Processor (cf. Application Processors in the other sockets on a multiprocessor system)">BSP</abbr></td><td>0</td><td>0</td><td>0</td></tr><tr><td>SP3 <abbr title="Application Processor (cf. Boot Strap Processor which initializes a multiprocessor system)">AP</abbr> (2P systems)</td><td>0</td><td>0</td><td>1</td></tr><tr><td>sTRX4/sWRX8</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>RSVD</td>
+<td></td>
+<td>Reserved
+</td></tr></tbody></table>
+<ol class="references">
+<li id="cite_note-memch-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-memch_1-0">1.0</a></sup> <sup><a href="#cite_ref-memch_1-1">1.1</a></sup></span> <span class="reference-text">Only memory channels A, D, E, and H are available on <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">Socket sTRX4</a>.</span>
+</li>
+<li id="cite_note-memtype-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-memtype_2-0">2.0</a></sup> <sup><a href="#cite_ref-memtype_2-1">2.1</a></sup></span> <span class="reference-text"><abbr title="Unbuffered Dual In-line Memory Module">UDIMM</abbr>s are not supported on Socket SP3. <a href="http://en.wikipedia.org/wiki/Registered_memory" class="extiw" title="wikipedia:Registered memory"><abbr title="Registered Dual In-line Memory Module">RDIMM</abbr>s</a> are not supported on Socket sTRX4.</span>
+</li>
+<li id="cite_note-FSR-3"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-FSR_3-0">3.0</a></sup> <sup><a href="#cite_ref-FSR_3-1">3.1</a></sup></span> <span class="reference-text">At a power loss event FORCE_SELFREFRESH signals the processor to flush all pending writes inside and outside of the CPU caches, but not cache contents, to memory (including S-Link attached memory) and put the DRAMs into self-refresh mode. The processor asserts NV_SAVE_L when the operation has completed (&lt; 1 ms) and the platform can signal NVDIMMs to backup the DRAM contents to non-volatile memory. NVDIMMs are not supported on <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">Socket sTRX4</a> and <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">sWRX8</a>.</span>
+</li>
+<li id="cite_note-pcie-4"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-pcie_4-0">4.0</a></sup> <sup><a href="#cite_ref-pcie_4-1">4.1</a></sup> <sup><a href="#cite_ref-pcie_4-2">4.2</a></sup></span> <span class="reference-text">Only the I/O interfaces P0, P2, G0, and G2 are available on Socket sTRX4. The <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> protocol is not supported on Socket sTRX4 and sWRX8.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">The PCIE_RST1/RST3_L signals are not available on Socket sTRX4.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">The <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a> interface is not available on Socket sTRX4 and sWRX8.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">The SGPIO interfaces 1 and 3 are not available on Socket sTRX4.</span>
+</li>
+<li id="cite_note-noxgbe-8"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-noxgbe_8-0">8.0</a></sup> <sup><a href="#cite_ref-noxgbe_8-1">8.1</a></sup></span> <span class="reference-text">XGBE is not supported on Socket SP3, sTRX4, and sWRX8.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">In the <a href="/w/index.php?title=HyperTransport&amp;action=edit&amp;redlink=1" class="new" title="HyperTransport (page does not exist)">HyperTransport</a> protocol Sync packets request serial link resynchronization. Sync Flood is a line state receivers recognize as unrecoverable and as signal to stop propagating potentially bad data. In other words this historic term refers to a low-level fatal error signal. The condition is passed on through the Data Fabric and ultimately requires a system reset.</span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text">The Sideband Interface (SBI) a.k.a. <abbr title="Advanced Platform Management Link">APML</abbr> is a <a href="http://en.wikipedia.org/wiki/System_Management_Bus" class="extiw" title="wikipedia:System Management Bus">SMBus</a> interconnect to the processor&#39;s <abbr title="Sideband Remote Management Interface">SB-RMI</abbr> and <a href="/wiki/amd/sb-tsi" title="amd/sb-tsi"><abbr title="Sideband Temperature Sensor Interface">SB-TSI</abbr></a> interfaces.</span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text">From 1.5 V or 1.8 V always on supply, or 3 V coin cell battery using an <a href="http://en.wikipedia.org/wiki/Low-dropout_regulator" class="extiw" title="wikipedia:Low-dropout regulator"><abbr title="Low-DropOut DC-to-DC voltage regulator">LDO</abbr></a>, or jumpered to VSS to &#34;Clear CMOS&#34;.</span>
+</li>
+</ol>
+<h4><span class="mw-headline" id="Pin_Types">Pin Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=11" title="Edit section: Pin Types">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="2">Voltage Domain Internal to <abbr title="System on a Chip">SoC</abbr>, derived from VDDIO_MEM_S3_*
+</th></tr>
+<tr>
+<td>I/O-xGMI/PCIE/SATA/WAFL-D</td>
+<td>Input / Output, <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="eXternal Global Memory Interconnect (AMD Scalable Data Fabric inter-socket link)">xGMI</abbr></a> / PCIe / SATA / <a href="/wiki/amd/infinity_fabric" title="amd/infinity fabric"><abbr title="Wide Area Functional Link (AMD Scalable Control Fabric inter-socket link)">WAFL</abbr></a> Domain, Differential
+</td></tr>
+<tr>
+<th colspan="2">VDDCR_SOC_S5 Voltage Domain
+</th></tr>
+<tr>
+<td>I/O/B-USB_S5-D</td>
+<td>Input / Output / Bidirectional, USB, Differential
+</td></tr>
+<tr>
+<td>I/O-CLK-D</td>
+<td>Input / Output, CLK, Differential
+</td></tr>
+<tr>
+<th colspan="2">Other Voltage Domains
+</th></tr>
+<tr>
+<td>I/O/B-IOMEM_ABCD-D/S</td>
+<td>Input / Output / Bidirectional, VDDIO_MEM_S3_ABCD Voltage Domain, Differential / Single-Ended
+</td></tr>
+<tr>
+<td>I/O/B-IOMEM_EFGH-D/S</td>
+<td>Input / Output / Bidirectional, VDDIO_MEM_S3_EFGH, Differential / Single-Ended
+</td></tr>
+<tr>
+<td>I/O/B-IO18-D/S/OD</td>
+<td>Input / Output / Bidirectional, VDD_18, Differential / Single-Ended / Open Drain
+</td></tr>
+<tr>
+<td>I/O/B-IO18S-D/S/OD</td>
+<td>Input / Output / Bidirectional, VDD_18_S5, Differential / Single-Ended / Open Drain
+</td></tr>
+<tr>
+<td>I/O/B-IO33-D/S/OD</td>
+<td>Input / Output / Bidirectional, VDD_33, Differential / Single-Ended / Open Drain
+</td></tr>
+<tr>
+<td>I/O/B-IO33S5-D/S/OD</td>
+<td>Input / Output / Bidirectional, VDD_33_S5, Differential / Single-Ended / Open Drain
+</td></tr>
+<tr>
+<td>I/B-DUAL-OD</td>
+<td>Input / Bidirectional, VDD_18 or VDD_33, Open Drain
+</td></tr>
+<tr>
+<td>A</td>
+<td>Analog
+</td></tr>
+<tr>
+<td>S</td>
+<td>Supply Voltage
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=12" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> David. S. (March 2018). &#34;<a rel="nofollow" class="external text" href="https://fuse.wikichip.org/news/1064/isscc-2018-amds-zeppelin-multi-chip-routing-and-packaging/">ISSCC 2018: AMD’s Zeppelin; Multi-chip routing and packaging</a>&#34;</li>
+<li> &#34;Socket SP3 Design Specification&#34;, AMD Publ. #55260, Rev. 1.16, August 2020</li>
+<li> <a rel="nofollow" class="external text" href="https://www.amd.com/system/files/TechDocs/55423.pdf">&#34;Thermal Design Guide for SP3 Processors&#34;</a>, AMD Publ. #55423, Rev. 3.00, November 13, 2017</li>
+<li> &#34;Socket SP3 Processor Functional Data Sheet for AMD Family 17h Models 00h–0Fh, Family 17h Models 30h–3Fh, and Family 19h Models 00h–0Fh&#34;, AMD Publ. #55426, Rev. 1.04, October 2020</li>
+<li> &#34;Functional Data Sheet for sTRX4 and sWRX8 Processors&#34;, AMD Publ. #56515, Rev. 0.81, August 2019</li>
+<li> &#34;Electrical Data Sheet for AMD Family 17h Models 00h–0Fh and 30h–3Fh and Family 19h Models 00h–0Fh Socket SP3 Processors&#34;, AMD Publ. #55441, Rev. 0.65, July 2020</li>
+<li> &#34;Electrical Data Sheet for AMD Family 17h Models 30h–3Fh and Family 19h Model 08h sTRX4, sWRX8 Processors&#34;, AMD Publ. #55441cpw, Rev. 0.66, March 2021</li>
+<li> &#34;Infrastructure Roadmap (IRM) for Socket SP3 Processors&#34;, AMD Publ. #55418, Rev. 1.18, October 2020</li>
+<li> &#34;Infrastructure Roadmap for sTRX4 and sWRX8 Processors&#34;, AMD Publ. #56443, Rev. 0.92, July 2021</li>
+<li> &#34;Socket SP3 Processor Motherboard Design Guide for AMD Family 17h Models 00h-0Fh, Models 30h-3Fh, and Family 19h Models 00h-0Fh&#34;, AMD Publ. #55414, Rev. 1.10, November 2020</li>
+<li> &#34;SP3r2 Processor Motherboard Design Guide&#34;, AMD Publ. #55809, Rev. 1.03, October 2017</li>
+<li> &#34;Motherboard Design Guide for sTRX4 High-End Desktop Processors&#34;, AMD Publ. #56724, Rev. 1.00, September 2020</li>
+<li> &#34;Motherboard Design Guide for sTRX4 and sWRX8 Processors&#34;, AMD Publ. #56437, Rev. 1.01, June 2021</li>
+<li> &#34;Processor Programming Reference (PPR) for AMD Family 17h Model 01h, Revision B1 Processors&#34;, AMD Publ. #54945, Rev. 3.00, April 14, 2019</li>
+<li> &#34;Preliminary Processor Programming Reference (PPR) for AMD Family 17h Model 31h, Revision B0 Processors&#34;, AMD Publ. #55803, Rev. 0.93, October 28, 2020</li>
+<li> &#34;NVDIMM-N Support for Family 17h Models 00h-0Fh Processors Application Note&#34;, AMD Publ. #56014, Rev. 0.74, May 2018</li>
+<li> &#34;NVDIMM-N Support for Socket SP3 Family 17h Models 30h–3Fh Processors Application Note&#34;, AMD Publ. #56333, Rev. 0.60, April 2020</li>
+<li> &#34;Revision Guide for AMD Family 17h Models 00h-0Fh Processors&#34;, AMD Publ. #55449, Rev. 1.19, December 2019</li>
+<li> &#34;Revision Guide for AMD Family 17h Models 30h-3Fh Processors&#34;, AMD Publ. #56323, Rev. 0.78, February 2021</li>
+<li> &#34;Revision Guide for AMD Family 19h Models 00h-0Fh Processors&#34;, AMD Publ. #56683, Rev. 1.04, June 2021</li>
+<li> Beck, Noah; White, Sean; Paraschou, Milam; Naffziger, Samuel (2018). <cite>‘Zeppelin’: An SoC for multichip architectures</cite>. Proceedings of IEEE ISSCC 2018. pp. 40-42. <a href="http://en.wikipedia.org/wiki/Digital_object_identifier" class="extiw" title="wikipedia:Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109/ISSCC.2018.8310173">10.1109/ISSCC.2018.8310173</a></li>
+<li> Burd, Thomas et al. (2018). <cite>“Zeppelin”: An SoC for Multichip Architectures</cite>. IEEE JSSC. 54 (1): 133-143. <a href="http://en.wikipedia.org/wiki/Digital_object_identifier" class="extiw" title="wikipedia:Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109/JSSC.2018.2873584">10.1109/JSSC.2018.2873584</a></li>
+<li> Singh, Teja et al. (2020). <cite>Zen 2: The AMD 7nm Energy-Efficient High-Performance x86-64 Microprocessor Core</cite>. Proceedings of IEEE ISSCC 2020. pp. 42-44. <a href="http://en.wikipedia.org/wiki/Digital_object_identifier" class="extiw" title="wikipedia:Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109/ISSCC19947.2020.9063113">10.1109/ISSCC19947.2020.9063113</a></li>
+<li> Naffziger, Samuel; Lepak, Kevin; Paraschou, Milam; Subramony, Mahesh (2020). <cite>AMD Chiplet Architecture for High-Performance Server and Desktop Products</cite>. Proceedings of IEEE ISSCC 2020. pp. 44-45. <a href="http://en.wikipedia.org/wiki/Digital_object_identifier" class="extiw" title="wikipedia:Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109/ISSCC19947.2020.9063103">10.1109/ISSCC19947.2020.9063103</a></li>
+<li> Naffziger, Samuel. <a rel="nofollow" class="external text" href="https://www.slideshare.net/AMD/amd-chiplet-architecture-for-highperformance-server-and-desktop-products">&#34;AMD Chiplet Architecture for High-Performance Server and Desktop Products&#34;</a>, IEEE ISSCC 2020, February 17, 2020</li>
+<li> &#34;EPYC Tech Day&#34;, June 20, 2017</li>
+<li> 2nd Gen AMD EPYC launch event, August 7, 2019</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=amd/packages/socket_sp3&amp;action=edit&amp;section=13" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> <a href="/wiki/amd/packages/socket_am4" title="amd/packages/socket am4">Socket AM4</a></li>
+<li> <a href="/wiki/amd/packages/socket_tr4" title="amd/packages/socket tr4">Socket TR4</a></li>
+<li> <a href="/wiki/amd/packages/socket_strx4" title="amd/packages/socket strx4">Socket sTRX4</a></li>
+<li> <a href="/wiki/amd/packages/socket_swrx8" title="amd/packages/socket swrx8">Socket sWRX8</a></li>
+<li> <a href="/wiki/amd/packages/socket_sp5" title="amd/packages/socket sp5">Socket SP5</a></li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:31042-0!*!0!default!!en!5!* and timestamp 20231004075808 and revision id 101190
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=amd/packages/socket_sp3&amp;oldid=101190">https://en.wikichip.org/w/index.php?title=amd/packages/socket_sp3&amp;oldid=101190</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/w/index.php?title=Category:all_ic_packages&amp;action=edit&amp;redlink=1" class="new" title="Category:all ic packages (page does not exist)">all ic packages</a></li><li><a href="/wiki/Category:amd" title="Category:amd">amd</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:amd-2Fpackages-2Fsocket-20sp3" title="Special:Browse/:amd-2Fpackages-2Fsocket-20sp3">Socket SP3 - Packages - AMD</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/amd/packages/socket_sp3" title="Special:ExportRDF/amd/packages/socket sp3">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">AMD  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/AMD" title="Special:SearchByProperty/:designer/AMD">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">May 16, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/16-20May-202017" title="Special:SearchByProperty/:first-20announced/16-20May-202017">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">June 20, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/20-20June-202017" title="Special:SearchByProperty/:first-20launched/20-20June-202017">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">package  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/package" title="Special:SearchByProperty/:instance-20of/package">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:market_segment" title="Property:market segment">market segment</a></td><td class="smwprops">Server  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:market-20segment/Server" title="Special:SearchByProperty/:market-20segment/Server">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:microarchitecture" title="Property:microarchitecture">microarchitecture</a></td><td class="smwprops">Zen  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen" title="Special:SearchByProperty/:microarchitecture/Zen">+</a></span>, Zen 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-202" title="Special:SearchByProperty/:microarchitecture/Zen-202">+</a></span> and Zen 3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture/Zen-203" title="Special:SearchByProperty/:microarchitecture/Zen-203">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Socket SP3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Socket-20SP3" title="Special:SearchByProperty/:name/Socket-20SP3">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package" title="Property:package">package</a></td><td class="smwprops">SP3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/SP3" title="Special:SearchByProperty/:package/SP3">+</a></span> and FCLGA-4094  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package/FCLGA-2D4094" title="Special:SearchByProperty/:package/FCLGA-2D4094">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_contacts" title="Property:package contacts">package contacts</a></td><td class="smwprops">4,094  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20contacts/4094" title="Special:SearchByProperty/:package-20contacts/4094">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_height" title="Property:package height">package height</a></td><td class="smwprops">6.26 mm (0.246 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20height/6.26-20mm" title="Special:SearchByProperty/:package-20height/6.26-20mm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_length" title="Property:package length">package length</a></td><td class="smwprops">75.4 mm (7.54 cm, 2.969 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20length/75.4-20mm" title="Special:SearchByProperty/:package-20length/75.4-20mm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_pitch" title="Property:package pitch">package pitch</a></td><td class="smwprops">0.87 mm (0.0343 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20pitch/0.87-20mm" title="Special:SearchByProperty/:package-20pitch/0.87-20mm">+</a></span> and 1 mm (0.0394 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20pitch/1-20mm" title="Special:SearchByProperty/:package-20pitch/1-20mm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:package_type" title="Property:package type">package type</a></td><td class="smwprops">FC-OLGA  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20type/FC-2DOLGA" title="Special:SearchByProperty/:package-20type/FC-2DOLGA">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:package_width" title="Property:package width">package width</a></td><td class="smwprops">58.5 mm (5.85 cm, 2.303 in)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:package-20width/58.5-20mm" title="Special:SearchByProperty/:package-20width/58.5-20mm">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:socket" title="Property:socket">socket</a></td><td class="smwprops">SP3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:socket/SP3" title="Special:SearchByProperty/:socket/SP3">+</a></span> and LGA-4094  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:socket/LGA-2D4094" title="Special:SearchByProperty/:socket/LGA-2D4094">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:tdp" title="Property:tdp">tdp</a></td><td class="smwprops">120 W (120,000 mW, 0.161 hp, 0.12 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/120-20W" title="Special:SearchByProperty/:tdp/120-20W">+</a></span>, 155 W (155,000 mW, 0.208 hp, 0.155 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/155-20W" title="Special:SearchByProperty/:tdp/155-20W">+</a></span> and 180 W (180,000 mW, 0.241 hp, 0.18 kW)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:tdp/180-20W" title="Special:SearchByProperty/:tdp/180-20W">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 13 March 2023, at 02:46.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":135});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/parsonsmaize/mulvane.js'], true, false, true, false);</script>
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezodn.com/detroitchicago/audins.js?cb=195-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script>__ez.queue.addFile('/beardeddragon/drake.js', '/beardeddragon/drake.js?gcb=3&cb=4', false, [], true, false, true, false);</script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/parsonsmaize/chanute.js', '/parsonsmaize/chanute.js?a=a&cb=4&dcb=195-3&shcb=34', true, ['/parsonsmaize/mulvane.js'], true, false, false, false);</script>
+<script type='text/javascript' style='display:none;' async>__ez.queue.addFile('/porpoiseant/jellyfish.js', '/porpoiseant/jellyfish.js?a=a&cb=10&dcb=195-3&shcb=34', false, [], true, false, false, false);</script></body></html>

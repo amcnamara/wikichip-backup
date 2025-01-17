@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Hash Tables - mIRC - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/hash_tables","wgTitle":"mirc/hash tables","wgCurRevisionId":79313,"wgRevisionId":79313,"wgArticleId":31,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/hash_tables","wgRelevantArticleId":31,"wgRequestId":"942b93023804036d726daf30","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.mirc":"ready","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@0pv4jey",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.mirc%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip&amp;only=styles&amp;skin=WikiChip"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/hash tables" href="/w/index.php?title=Special:ExportRDF/mirc/hash_tables&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/hash_tables&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/hash_tables&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<meta name="twitter:site" content="@WikiChip" />
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png" />
+<meta property="og:title" content="Hash Tables - mIRC - WikiChip" />
+<meta name="twitter:card" content="summary" />
+<meta property="og:type" content="article" />
+<meta property="twitter:description" content="A hash table is an associative array with item-data pairing. That is, data stored in the table is associated with a specific item. Logically speaking, a basic table would like something like this:" />
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-mirc_hash_tables rootpage-mirc skin-WikiChip action-view">		<div id="mw-wrapper">
+			<div class="mw-body" role="main">
+				<div id="wikichip-header">
+<div class="wgrid-container">
+	<div class="wgrid-row">
+		<div class="wgrid-col-2">
+			<a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo2.svg" width="200px"></a>
+		</div>
+		<div class="wgrid-col-10">
+
+<div id="nav">
+    <div id="nav-wrapper">
+        <ul>
+            <li class="mob-collapse"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent</a></li>
+            <li class="mob-collapse"><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Rand</a></li>
+            <li><a><i class="fa fa-wrench" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Tools&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+              <ul>
+                <li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li>              </ul>
+	    </li>
+            <li><a><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse">&nbsp;WikiChip&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                <ul>
+                    <li><a href="/wiki/WikiChip:chip_feed"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Chip Feed</a></li>
+                    <li><a href="/wiki/WikiChip:welcome"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Welcome</a></li>
+                    <li><a href="/wiki/WikiChip_talk:general_discussion"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;General Discussion</a></li>
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Personal&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Contributions</a></li><li class="pt-createaccount pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&returnto=mirc%2Fhash+tables"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Create account</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&returnto=mirc%2Fhash+tables"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log in</a></li>		</ul>
+	</li>
+
+            <li><a href="/wiki/Special:Search">Search</a></li>
+                <li class="wikichip-search-li">
+                <form class="navbar-form pull-right mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title">
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists" id="search-button"><i class="fa fa-search" aria-hidden="true"></i>Go!</button>
+</form>
+
+                </li>
+
+	</ul>
+    </div>
+</div>
+
+
+<div id="tagline-ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1951113009523412"
+        data-ad-slot="1822985275"
+        data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+		</div> <!-- <div class="wgrid-col-7"> -->
+	</div> <!-- <div class="wgrid-row"> -->
+</div> <!-- <div class="wgrid-container"> -->
+
+</div>
+<nav id="primary_nav_wrap">
+<span id="tagline">Semiconductor &amp; Computer Engineering</span>
+<ul>
+<li class="selected"><a href="/wiki/mirc/hash_tables">Page</a></li><li class=""><a href="/wiki/Talk:mirc/hash_tables">Discussion</a></li><li class="selected"><a href="/wiki/mirc/hash_tables" >&nbsp;View</a></li><li class=""><a href="/w/index.php?title=mirc/hash_tables&action=edit"  title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Edit</span></a></li><li class=""><a href="/w/index.php?title=mirc/hash_tables&action=history" ><i class="fa fa-history" aria-hidden="true"></i><span class="mob-collapse">&nbsp;History</span></a></li><li><a><i class="fa fa-cogs" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Options&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/hash_tables"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/hash_tables"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Related changes</a></li><li id="t-print"><a href="/w/index.php?title=mirc/hash_tables&printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=mirc/hash_tables&oldid=79313"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=mirc/hash_tables&action=info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:mirc-2Fhash-5Ftables"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="mob-collapse">&nbsp;Accessibility&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14">&nbsp;Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14">&nbsp;Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i>&nbsp;Normal Size</a></li>
+  </ul>
+</li>
+</nav>
+				<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>										<div id="article-title">Hash Tables - mIRC<span id="article-indicator"><div class="mw-indicators">
+</div>
+</span></div>
+									<div id="article-breadcrumbs">
+						<span class="pull-left"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></span>
+					</div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidebox">
+<div style="text-align: center;"><a href="/wiki/mirc" title="mirc"><span style="color: rgba(0,0,0,.53); text-shadow: 0px 2px 3px rgba(0,0,0,.33); font-size: 20pt; font-weight: bold;">mIRC</span></a></div>
+<div class="header">Commands &amp; Identifiers</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li></ul>
+<div class="header">Basics</div>
+<ul><li> <a href="/wiki/mirc/introduction" title="mirc/introduction">Introduction</a></li>
+<li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/string_manipulation" title="mirc/string manipulation">String Manipulation</a></li>
+<li> <a href="/wiki/mirc/token_manipulation" title="mirc/token manipulation">Token Manipulation</a></li>
+<li> <a href="/wiki/mirc/aliases" title="mirc/aliases">Aliases</a></li></ul>
+<div class="header">Events</div>
+<ul><li> <a href="/wiki/mirc/on_events" title="mirc/on events">On events</a></li>
+<li> <a href="/wiki/mirc/access_levels" title="mirc/access levels">Access levels</a></li>
+<li> <a href="/wiki/mirc/raw_events" title="mirc/raw events">Raw Events</a></li>
+<li> <a href="/wiki/mirc/ctcp_events" title="mirc/ctcp events">Ctcp Events</a></li></ul>
+<div class="header">Matching Tools</div>
+<ul><li> <a href="/wiki/mirc/wildcard" title="mirc/wildcard">Wildcard</a></li>
+<li> <a href="/wiki/mirc/regex" title="mirc/regex">Regex</a></li></ul>
+<div class="header">Data Storage</div>
+<ul><li> <a href="/wiki/mirc/variables" title="mirc/variables">Variables</a></li>
+<li> <a href="/wiki/mirc/file_handling" title="mirc/file handling">File Handling</a></li>
+<li> <strong class="selflink">Hash Tables</strong></li>
+<li> <a href="/wiki/mirc/binary_variables" title="mirc/binary variables">Binary variables</a></li>
+<li> <a href="/wiki/mirc/ini_files" title="mirc/ini files">INI Files</a></li>
+<li> <a href="/wiki/mirc/text_files" title="mirc/text files">Text Files</a></li></ul>
+<div class="header">Control Structures</div>
+<ul><li> <a href="/wiki/mirc/conditional_statements" title="mirc/conditional statements">If Then Else</a></li>
+<li> <a href="/wiki/mirc/operators" title="mirc/operators">Operators</a></li>
+<li> <a href="/wiki/mirc/while_loops" title="mirc/while loops">While Loops</a></li>
+<li> <a href="/wiki/mirc/goto_statements" title="mirc/goto statements">Goto Loops</a></li>
+<li> <a href="/wiki/mirc/groups" title="mirc/groups">Groups</a></li></ul>
+<div class="header">GUI Scripting</div>
+<ul><li> <a href="/wiki/mirc/custom_windows" title="mirc/custom windows">Custom Windows</a></li>
+<li> <a href="/wiki/mirc/picture_windows" title="mirc/picture windows">Picture Windows</a></li>
+<li> <a href="/wiki/mirc/dialogs" title="mirc/dialogs">Dialogs</a></li>
+<li> <a href="/wiki/mirc/dialog_components" title="mirc/dialog components">Dialog Components</a></li></ul>
+<div class="header">Sockets</div>
+<ul><li> <a href="/wiki/mirc/sockets" title="mirc/sockets">Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/tcp" title="mirc/sockets/tcp">TCP Sockets</a></li>
+<li> <a href="/wiki/mirc/sockets/udp" title="mirc/sockets/udp">UDP Sockets</a></li></ul>
+<div class="header">Advanced Scripting</div>
+<ul><li> <a href="/wiki/mirc/eval_brackets" class="mw-redirect" title="mirc/eval brackets">Eval Brackets</a></li>
+<li> <a href="/wiki/mirc/com" class="mw-redirect" title="mirc/com">COM</a></li>
+<li> <a href="/wiki/mirc/dll" class="mw-redirect" title="mirc/dll">DLL</a></li>
+<li> <a href="/wiki/mirc/sendmessage" title="mirc/sendmessage">SendMessage</a></li></ul>
+<div class="header">Additional Resources</div>
+<ul><li> <a href="/wiki/mirc/commands" title="mirc/commands">mSL Commands</a></li>
+<li> <a href="/wiki/mirc/identifiers" title="mirc/identifiers">mSL Identifiers</a></li>
+<li> <a href="/wiki/mirc/local_identifiers" title="mirc/local identifiers">mSL Local Identifiers</a></li>
+<li> <a href="/wiki/mirc/on_events" title="mirc/on events">mSL Events</a></li>
+<li> <a href="/wiki/mirc/access_levels#Event_prefixes" title="mirc/access levels">mSL Event Prefixes</a></li></ul>
+<div class="header">Security</div>
+<ul><li> <a href="/wiki/mirc/msl_injection" title="mirc/msl injection">mSL Injection</a></li></ul>
+<div class="header">Other</div>
+<ul><li> <a href="/wiki/mirc/virtual_profile" title="mirc/virtual profile">Virtual Profile</a></li>
+<li> <a href="/wiki/mirc/playing_music" title="mirc/playing music">Playing music</a></li>
+<li> <a href="/wiki/mirc/unicode" title="mirc/unicode">Unicode</a></li>
+<li> <a href="/wiki/mirc/ipv6" title="mirc/ipv6">Ipv6</a></li>
+<li> <a href="/wiki/mirc/optimization" title="mirc/optimization">Optimization</a></li>
+<li> <a href="/wiki/mirc/thread" title="mirc/thread">Threads</a></li></ul>
+<div></div><span class="noprint plainlinks navbar" style="float:right;"><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a href="/wiki/Template:mirc_guide" title="Template:mirc guide"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=Template:mirc_guide&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span>
+</div>
+<p>A <b>hash table</b> is an associative array with item-data pairing. That is, data stored in the table is associated with a specific item. Logically speaking, a basic table would like something like this:
+</p>
+<table class="wikitable">
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>Item1 </td>
+<td> Data1
+</td></tr>
+<tr>
+<td>Item2 </td>
+<td> Data2
+</td></tr>
+<tr>
+<td>Item3 </td>
+<td> Data3
+</td></tr></table>
+<p>mIRC provides facilities for manipulating the table and the values in variety of ways.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#General_Details"><span class="tocnumber">1</span> <span class="toctext">General Details</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Creating_a_table"><span class="tocnumber">2</span> <span class="toctext">Creating a table</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Adding_Items"><span class="tocnumber">3</span> <span class="toctext">Adding Items</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Deleting_Items"><span class="tocnumber">4</span> <span class="toctext">Deleting Items</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Value_retrieval"><span class="tocnumber">5</span> <span class="toctext">Value retrieval</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Saving.2FLoading_Hash_Table_to.2Ffrom_file"><span class="tocnumber">6</span> <span class="toctext">Saving/Loading Hash Table to/from file</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Deleting_a_Table"><span class="tocnumber">7</span> <span class="toctext">Deleting a Table</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Iterating_Over_a_Hash_Table"><span class="tocnumber">8</span> <span class="toctext">Iterating Over a Hash Table</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Searching_for_a_Item_and_value_pair"><span class="tocnumber">9</span> <span class="toctext">Searching for a Item and value pair</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_Also"><span class="tocnumber">10</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="General_Details">General Details</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=1" title="Edit section: General Details">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Hash tables, unlike INI files, are stored completely in memory and are never written to disk (unless the /hsave command is used), making them much faster when it comes to storing and retrieving information. The performance gain is much more obvious with a large amount of item/data pairs.
+</p><p><b>Note:</b> Because hash tables are only in memory, it must be saved to a file if mIRC has to exit for any reason. You can reload the table from a file at a later period.
+</p>
+<h2><span class="mw-headline" id="Creating_a_table">Creating a table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=2" title="Edit section: Creating a table">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A hash table must be created before you can work with it. This also applies to loading a hash table from a file. To create a table you need to use the /hmake command. The syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hmake" title="/hmake - mIRC Command" style="text-decoration: none"><span class="mirc_command">hmake</span></a> &lt;table_name&gt;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hmake" title="/hmake - mIRC Command" style="text-decoration: none"><span class="mirc_command">hmake</span></a> &lt;table_name&gt; &lt;buckets&gt;</span>
+<span class="code_line"><span class="mirc_comment">;hmake also have an -s switch which prints debug info</span></span></pre>
+<p>If you don't specify the number of buckets, the default is used which is 100. Generally speaking the number of buckets should be decided based on the following equation:
+</p><p><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="45.292ex" height="5.509ex" style="vertical-align: -2.005ex;" viewBox="0 -1508.9 19500.6 2372" xmlns="http://www.w3.org/2000/svg" role="math" aria-labelledby="MathJax-SVG-1-Title MathJax-SVG-1-Desc">
+<title id="MathJax-SVG-1-Title">Equation</title>
+<desc id="MathJax-SVG-1-Desc">buckets equals StartFraction number of items that will be used Over 0.78 EndFraction</desc>
+<defs aria-hidden="true">
+<path stroke-width="10" id="E1-MJMAIN-62" d="M307 -11Q234 -11 168 55L158 37Q156 34 153 28T147 17T143 10L138 1L118 0H98V298Q98 599 97 603Q94 622 83 628T38 637H20V660Q20 683 22 683L32 684Q42 685 61 686T98 688Q115 689 135 690T165 693T176 694H179V543Q179 391 180 391L183 394Q186 397 192 401T207 411T228 421T254 431T286 439T323 442Q401 442 461 379T522 216Q522 115 458 52T307 -11ZM182 98Q182 97 187 90T196 79T206 67T218 55T233 44T250 35T271 29T295 26Q330 26 363 46T412 113Q424 148 424 212Q424 287 412 323Q385 405 300 405Q270 405 239 390T188 347L182 339V98Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-75" d="M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6B" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T97 124T98 167T98 217T98 272T98 329Q98 366 98 407T98 482T98 542T97 586T97 603Q94 622 83 628T38 637H20V660Q20 683 22 683L32 684Q42 685 61 686T98 688Q115 689 135 690T165 693T176 694H179V463L180 233L240 287Q300 341 304 347Q310 356 310 364Q310 383 289 385H284V431H293Q308 428 412 428Q475 428 484 431H489V385H476Q407 380 360 341Q286 278 286 274Q286 273 349 181T420 79Q434 60 451 53T500 46H511V0H505Q496 3 418 3Q322 3 307 0H299V46H306Q330 48 330 65Q330 72 326 79Q323 84 276 153T228 222L176 176V120V84Q176 65 178 59T189 49Q210 46 238 46H254V0H246Q231 3 137 3T28 0H20V46H36Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-68" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 124T102 167T103 217T103 272T103 329Q103 366 103 407T103 482T102 542T102 586T102 603Q99 622 88 628T43 637H25V660Q25 683 27 683L37 684Q47 685 66 686T103 688Q120 689 140 690T170 693T181 694H184V367Q244 442 328 442Q451 442 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-77" d="M90 368Q84 378 76 380T40 385H18V431H24L43 430Q62 430 84 429T116 428Q206 428 221 431H229V385H215Q177 383 177 368Q177 367 221 239L265 113L339 328L333 345Q323 374 316 379Q308 384 278 385H258V431H264Q270 428 348 428Q439 428 454 431H461V385H452Q404 385 404 369Q404 366 418 324T449 234T481 143L496 100L537 219Q579 341 579 347Q579 363 564 373T530 385H522V431H529Q541 428 624 428Q692 428 698 431H703V385H697Q696 385 691 385T682 384Q635 377 619 334L559 161Q546 124 528 71Q508 12 503 1T487 -11H479Q460 -11 456 -4Q455 -3 407 133L361 267Q359 263 266 -4Q261 -11 243 -11H238Q225 -11 220 -3L90 368Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path>
+<path stroke-width="10" id="E1-MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMAIN-62"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="1122" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6B" x="1571" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="2104" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="2553" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2947" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-3D" x="3623" y="0"></use>
+<g transform="translate(4684,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="14576" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#E1-MJMAIN-6E"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="561" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6D" x="1122" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-62" x="1960" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="2521" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="2970" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="3617" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-66" x="4122" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="4683" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="4966" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="5360" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6D" x="5809" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="6647" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="7296" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-68" x="7690" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="8251" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="8756" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-77" x="9400" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="10127" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="10410" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="10693" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-62" x="11226" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="11787" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="12486" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="13047" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="13446" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="13895" y="0"></use>
+</g>
+<g transform="translate(6389,-706)">
+ <use xlink:href="#E1-MJMAIN-30"></use>
+ <use xlink:href="#E1-MJMAIN-2E" x="505" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-37" x="788" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-38" x="1293" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg>
+</p><p>For example: a table with 100 buckets is optimal for 78 items. For 1000 items, 1300 buckets is best. <b>Note:</b> The maximum valid number of buckets is 10000.
+</p>
+<h2><span class="mw-headline" id="Adding_Items">Adding Items</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=3" title="Edit section: Adding Items">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The /hadd command is used to add an item/data pair to the table. The syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">hadd</span></a> &lt;table_name&gt; &lt;item&gt; &lt;data&gt;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">hadd</span></a> -b &lt;table_name&gt; &lt;item&gt; &lt;&amp;bvar&gt;</span>
+<span class="code_line">An item can be added to the table with null data:</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">hadd</span></a> &lt;table_name&gt; &lt;item&gt;</span></pre>
+<p>Let's consider a table of favorite colors:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hadd</span></a> -ms colors John Blue</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hadd</span></a> -s colors Mary Green</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hadd" title="/hadd - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hadd</span></a> -s colors Gary Orange</span></pre>
+<p>The code above will produce the following result: 
+</p>
+<pre>* Made hash table 'colors' (100)
+* Added item 'John' to hash table 'colors'
+* Added item 'Mary' to hash table 'colors'
+* Added item 'Gary' to hash table 'colors'</pre>
+<table class="wikitable">
+<caption> "Colors" Hash Table
+</caption>
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>John </td>
+<td> Blue
+</td></tr>
+<tr>
+<td>Mary </td>
+<td> Green
+</td></tr>
+<tr>
+<td>Gary </td>
+<td> Orange
+</td></tr></table>
+<h2><span class="mw-headline" id="Deleting_Items">Deleting Items</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=4" title="Edit section: Deleting Items">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To delete pairs from the table, you need to use the /hdel command. Its syntax is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hdel" title="/hdel - mIRC Command" style="text-decoration: none"><span class="mirc_command">hdel</span></a> &lt;table_name&gt; &lt;item&gt;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hdel" title="/hdel - mIRC Command" style="text-decoration: none"><span class="mirc_command">hdel</span></a> -w &lt;table_name&gt; &lt;wild_item&gt;</span>
+<span class="code_line"><span class="mirc_comment">;hdel has a -s switch which is the same as /hmake's</span></span></pre>
+<p>A wildcard pattern for the item can be specified to delete multiple items at once. If we go back to our example:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hdel" title="/hdel - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hdel</span></a> colors Mary</span></pre>
+<p>Will leave our table looking like this:
+</p>
+<table class="wikitable">
+<caption> "Colors" Hash Table
+</caption>
+<tr>
+<th> Item </th>
+<th> Data
+</th></tr>
+<tr>
+<td>John </td>
+<td> Blue
+</td></tr>
+<tr>
+<td>Gary </td>
+<td> Orange
+</td></tr></table>
+<h2><span class="mw-headline" id="Value_retrieval">Value retrieval</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=5" title="Edit section: Value retrieval">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To get a data value associated with a given item we will use the $hget identifier which has the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;item&gt;<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>For example, if we were to check what is John's favorite color from our table; we will use the following piece of code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>colors, John<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">;Blue</span></span></pre>
+<p>The $hget identifier can also be used to check if a table exists using the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; returns <a href="http://en.wikichip.org/wiki/mirc/identifiers/$null" title="$null - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$null</span></a> if the table does not exist</span></span></pre>
+<h2><span class="mw-headline" id="Saving.2FLoading_Hash_Table_to.2Ffrom_file">Saving/Loading Hash Table to/from file</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=6" title="Edit section: Saving/Loading Hash Table to/from file">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Because a hash table is stored exclusively in memory, it is important to save it to a file if one wishes to keep its content after a reboot or shut down. If a hash table is not stored in a file before mIRC closes, it will be gone for good. 
+</p><p>mIRC offers the /hsave and /hload commands to handle the saving and loading of hash tables from your hard disk. 
+</p><p>The syntax for the /hsave command is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hsave" title="/hsave - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hsave</span></a> &lt;table_name&gt; &lt;filename&gt;</span>
+<span class="code_line"><span class="mirc_comment">; The -s switch displays debug information</span></span>
+<span class="code_line"><span class="mirc_comment">; The -a switch will append to an existing file, instead of the default overwriting</span></span>
+<span class="code_line"><span class="mirc_comment">; The -i switch will create an ini file</span></span>
+<span class="code_line"><span class="mirc_comment">; The -n switch saves the file containing only the data and not the item names.</span></span>
+<span class="code_line"><span class="mirc_comment">; The -u switch avoids skipping temporary items created with /hadd's -uN switch.</span></span>
+<span class="code_line"><span class="mirc_comment">; The -b switch will treat the file as a binary file, making it possible to save things like carriage returns and line feeds.</span></span></pre>
+<p>If we wanted to save our little colors table to an INI file, we could use the following piece of code.:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hsave" title="/hsave - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hsave</span></a> -i Colors colors.ini</span>
+<span class="code_line"><span class="mirc_comment">;colors.ini will have:</span></span>
+<span class="code_line"><span class="mirc_comment">;  [hashtable]</span></span>
+<span class="code_line"><span class="mirc_comment">;  Gary=Orange</span></span>
+<span class="code_line"><span class="mirc_comment">;  John=Blue</span></span></pre>
+<p>To load a hash table we use the following syntax:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; NOTE: The table must exists. I.e. you must have called /hmake first</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hload" title="/hload - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hload</span></a> &lt;table_name&gt; &lt;filename&gt;</span>
+<span class="code_line"><span class="mirc_comment">; The -s switch displays debug information</span></span>
+<span class="code_line"><span class="mirc_comment">; The -i switch will read from an ini file containing lines of item=data</span></span>
+<span class="code_line"><span class="mirc_comment">; The -n switch interprets the file as if it were /hsave'ed with the -n switch to contain only data, assigning item names as sequential integers beginning with 1.</span></span>
+<span class="code_line"><span class="mirc_comment">; The -m[N] switch creates the hashtable if it does not already exist, optionally giving it N buckets different than the default 100 buckets.</span></span>
+<span class="code_line"><span class="mirc_comment">; The -b switch will treat the file as a binary file, making it possible to save things like carriage returns and line feeds.</span></span></pre>
+<p>To load the table we've just saved we would use the following code:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hload" title="/hload - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hload</span></a> -i Colors colors.ini</span></pre>
+<h2><span class="mw-headline" id="Deleting_a_Table">Deleting a Table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=7" title="Edit section: Deleting a Table">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To complete destroy a table and all its values, you can use the hfree command:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hfree" title="/hfree - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hfree</span></a> &lt;table_name&gt;</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/hfree" title="/hfree - mIRC Command" style="text-decoration: none"><span class="mirc_command">/hfree</span></a> -w &lt;*wild*table*&gt;</span>
+<span class="code_line"><span class="mirc_comment">;hfree has a -s switch which is the same as /hmake's</span></span></pre>
+<p>With the -w switch you can specify a wildcard pattern. All matching tables will be freed. If you already deleted a table and try to delete it again, "hfree tablename" halts your script. You must either use $hget(tablename) to verify the table's existence, or use -w without a wildcard. "hfree -w tablename_without_wildcards"
+</p>
+<h2><span class="mw-headline" id="Iterating_Over_a_Hash_Table">Iterating Over a Hash Table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=8" title="Edit section: Iterating Over a Hash Table">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The $hget identifier can be used to iterate over the hash table. The syntax is:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; Total Number of items in the table:</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, 0<span class="mirc_bracket">&#x29;</span>.item</span>
+<span class="code_line"><span class="mirc_comment">; Get the Nth Item</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;Nth&gt;<span class="mirc_bracket">&#x29;</span>.item</span>
+<span class="code_line"><span class="mirc_comment">; Get the value associated with the Nth Item</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;Nth&gt;<span class="mirc_bracket">&#x29;</span>.data</span></pre>
+<p><b>Note:</b> Iterating over a hash table like this is an inefficient way to retrieve values and items. It's best to get a value using its item name.
+</p><p>An example of looping over every value in our Colors table will look like this:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">Alias</span></a> <em>print_fav_colors</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%i</span> = 1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">  echo</span></a> Colors Table:</span>
+<span class="code_line"><span class="mirc_comment"> &#160;; iterate over each item</span></span>
+<span class="code_line">  <span class="mirc_control">while</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>Colors, <span class="mirc_variable">%i<span class="mirc_bracket">&#x29;</span>.item<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; print the item/value pair</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">    echo</span></a> -a <span class="mirc_variable">%i</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <span class="mirc_bracket">&#x29;</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a> =&gt; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$hget" title="$hget - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hget</span></a><span class="mirc_bracket">&#x28;</span>Colors, <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a><span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/inc" title="/inc - mIRC Command" style="text-decoration: none"><span class="mirc_command">    inc</span></a> <span class="mirc_variable">%i</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>The execution of the alias (/print_fav_colors) will produce the following result:
+</p>
+<pre>Colors Table:
+1) Gary =&gt; Orange
+2) John =&gt; Blue</pre>
+<h2><span class="mw-headline" id="Searching_for_a_Item_and_value_pair">Searching for a Item and value pair</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=9" title="Edit section: Searching for a Item and value pair">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The $hfind identifier can be used to search the table for a particular pair.
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; The Nth Item name that matches the wildcard pattern</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;pattern&gt;, &lt;Nth&gt;, w<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; The Nth Item that matches the RegExp pattern</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;pattern&gt;, &lt;Nth&gt;, r<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; The Nth Item that wildcard matches the text</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;text&gt;, &lt;Nth&gt;, W<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; The Nth Item that RegExp matches the text</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>&lt;table_name&gt;, &lt;text&gt;, &lt;Nth&gt;, R<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment">; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>...<span class="mirc_bracket">&#x29;</span>.data will search the data instead of the item name.</span></span></pre>
+<p>If you specify 0 for Nth Item, the total number of matches will be returned instead. An example from our Colors table would be:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/echo" title="/echo - mIRC Command" style="text-decoration: none"><span class="mirc_command">//echo</span></a> -a <a href="http://en.wikichip.org/wiki/mirc/identifiers/$hfind" title="$hfind - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$hfind</span></a><span class="mirc_bracket">&#x28;</span>Colors, *ary*, 1, w<span class="mirc_bracket">&#x29;</span></span></pre>
+<p>Which will return "Gary".
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/hash_tables&amp;action=edit&amp;section=10" title="Edit section: See Also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>More detailed information can be found at the pages for each hashtable-related command and identifier.
+</p>
+<div class="wiki-ul-col3" style="display: inline-block; width: 60%; display: inherit;">
+<ul><li> <a href="/wiki/mirc/commands/hmake" title="mirc/commands/hmake">/hmake</a></li>
+<li> <a href="/wiki/mirc/commands/hfree" title="mirc/commands/hfree">/hfree</a></li>
+<li> <a href="/wiki/mirc/commands/hload" title="mirc/commands/hload">/hload</a></li>
+<li> <a href="/wiki/mirc/commands/hsave" title="mirc/commands/hsave">/hsave</a></li>
+<li> <a href="/wiki/mirc/commands/hadd" title="mirc/commands/hadd">/hadd</a></li>
+<li> <a href="/wiki/mirc/commands/hdel" title="mirc/commands/hdel">/hdel</a></li>
+<li> <a href="/wiki/mirc/commands/hinc" title="mirc/commands/hinc">/hinc</a></li>
+<li> <a href="/wiki/mirc/commands/hdec" title="mirc/commands/hdec">/hdec</a></li>
+<li> <a href="/wiki/mirc/identifiers/$hget" title="mirc/identifiers/$hget">$hget</a></li>
+<li> <a href="/wiki/mirc/identifiers/$hfind" title="mirc/identifiers/$hfind">$hfind</a></li></ul>
+</div>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:31-0!*!0!!en!*!* and timestamp 20180910162943 and revision id 79313
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=mirc/hash_tables&amp;oldid=79313">https://en.wikichip.org/w/index.php?title=mirc/hash_tables&amp;oldid=79313</a>"</div><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				</div>
+			</div>
+
+
+
+<script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+
+
+						<div id="wiki-footer2">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-1951113009523412"
+				     data-ad-slot="3591436790"
+				     data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>			</div>
+			
+			<div id="mw-footer">
+                                <div id="footer-icons">
+                                <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31"/></a><a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a><a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31"/></a>				<a href="https://www.linode.com/?r=f471c5ec549e4b7101502a8c241b2b6e288ff306">
+					<img src="/w/resources/assets/poweredby_linode.svg" alt="This website is powered by Linode!" width="88" height="31">
+				</a>
+				</div>
+				<div id="footer-last-mod">
+				 This page was last modified on 13 June 2018, at 02:16.				</div>
+				<div id="footer-copyright">
+				Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.				</div>
+				<div id="footer-places"><ul>
+				<li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>				</ul></div>
+			</div>
+		</div>
+
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":957});});</script>		</body>
+		</html>
+
+		

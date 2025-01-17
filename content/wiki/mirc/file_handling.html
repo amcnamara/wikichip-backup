@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>File Handling - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/file handling" href="/w/index.php?title=Special:ExportRDF/mirc/file_handling&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/file_handling&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/file_handling&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/file_handling" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/file_handling","wgTitle":"mirc/file handling","wgCurRevisionId":11692,"wgRevisionId":11692,"wgArticleId":2504,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/file_handling","wgRelevantArticleId":2504,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_file_handling skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">File Handling - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>File Handling</b> allows you to manipulate files on disk using seperate, simple operations. This allows for efficiency.
+</p><p>To understand how it works, you must be familiar with text file operations such as <a href="/wiki/mirc/commands/write" title="mirc/commands/write">/write</a> and <a href="/w/index.php?title=mirc/identifiers/$read&amp;action=edit&amp;redlink=1" class="new" title="mirc/identifiers/$read (page does not exist)">$read</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.2Ffopen"><span class="tocnumber">1</span> <span class="toctext">/fopen</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.2Ffseek"><span class="tocnumber">2</span> <span class="toctext">/fseek</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.2Ffwrite"><span class="tocnumber">3</span> <span class="toctext">/fwrite</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.2Ffclose"><span class="tocnumber">4</span> <span class="toctext">/fclose</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.2Fflist"><span class="tocnumber">5</span> <span class="toctext">/flist</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.24fopen.28name_.7C_N.29"><span class="tocnumber">6</span> <span class="toctext">$fopen(name | N)</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#.24fread.28name_.7C_N.29"><span class="tocnumber">7</span> <span class="toctext">$fread(name | N)</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#.24fread.28name_.7C_N.2C_M.2C_.26binvar.29"><span class="tocnumber">8</span> <span class="toctext">$fread(name | N, M, &amp;binvar)</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#.24fgetc.28name_.7C_N.29"><span class="tocnumber">9</span> <span class="toctext">$fgetc(name | N)</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#When_to_use_File_handling"><span class="tocnumber">10</span> <span class="toctext">When to use File handling</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Example"><span class="tocnumber">11</span> <span class="toctext">Example</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id=".2Ffopen">/fopen</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=1" title="Edit section: /fopen">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>/fopen [-nox] &lt;name&gt; &lt;filename&gt;
+</p><p><a href="/wiki/mirc/commands/fopen" title="mirc/commands/fopen">/fopen</a> opens the filename and use the specified name to reference it.
+</p><p>The command fail by default if the file does not exists, the -n switch create the file if it does not exist, fails if it exists. The -o switch create a new file if it does not exist but overwrite the file if it exists. The -x switch opens the file for exclusive access, others processus cannot access that file
+</p><p><b>Note</b>: if /fopen fails, it does not halt processing, you must check <a href="/w/index.php?title=mirc/identifiers/$ferr&amp;action=edit&amp;redlink=1" class="new" title="mirc/identifiers/$ferr (page does not exist)">$ferr</a> to see if any error occured, see below.
+</p><p>After you opened a file with /fopen, you have a pointer of the content of the file, it starts at 0. This pointer is the starting position to read/write from.
+</p>
+<h2><span class="mw-headline" id=".2Ffseek">/fseek</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=2" title="Edit section: /fseek">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>/fseek -lnwr &lt;name&gt; &lt;position&gt;
+</p><p><a href="/wiki/mirc/commands/fseek" title="mirc/commands/fseek">/fseek</a> sets the read/write pointer to the specified &lt;position&gt; in the file, unless you use a switch:
+</p>
+<ul><li> -l - sets the pointer to the beginning of the Nth line, use &lt;position&gt; to specify the Nth line</li>
+<li> -n - sets the pointer to the beginning of the next line (from the current position of the read/write pointer), this does not take a parameter</li>
+<li> -w - sets the pointer to the beginning of the line matching the wildcard expression, use &lt;position&gt; to specify the wildcard expression</li>
+<li> -r - sets the pointer to the beginning of the line matching the regular expression, use &lt;position&gt; to specify the regular expression</li></ul>
+<p>If /fseek fails, it sets the pointer to the end of the file.
+</p>
+<h2><span class="mw-headline" id=".2Ffwrite">/fwrite</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=3" title="Edit section: /fwrite">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>/fwrite [-bn] &lt;name&gt; &lt;text | &amp;binvar&gt;
+</p><p><a href="/wiki/mirc/commands/fwrite" title="mirc/commands/fwrite">/fwrite</a> allows you to write to the file at the current pointer position, -b specify a binary variable, -n adds a $crlf at the end of the line.
+</p>
+<h2><span class="mw-headline" id=".2Ffclose">/fclose</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=4" title="Edit section: /fclose">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>/fclose &lt;name | wildcard&gt;
+</p><p><a href="/wiki/mirc/commands/fclose" title="mirc/commands/fclose">/fclose</a> closes all the matching name (wildcard expression allowed)
+</p>
+<h2><span class="mw-headline" id=".2Fflist">/flist</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=5" title="Edit section: /flist">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>/flist just lists all the current handles.
+</p>
+<h2><span class="mw-headline" id=".24fopen.28name_.7C_N.29">$fopen(name | N)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=6" title="Edit section: $fopen(name | N)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Returns the name of that handle if it exists, or the Nth handle.
+</p><p>Properties:
+</p>
+<ul><li> .fname - returns the complete filename opened for that handle</li>
+<li> .pos - returns the current position of the read/write pointer</li>
+<li> .eof - returns $true if the end of the file has been reached</li>
+<li> .err - returns $true if an error occured on the file</li></ul>
+<p>In a script, $ferr = $fopen(handle).err and $feof = $fopen(handle).eof, always returns the state of last involved handle in a file handing command.
+</p><p>Note: the .eof and .err properties must be checked after each file access command or identifier, since file access errors will not halt a script.
+</p>
+<h2><span class="mw-headline" id=".24fread.28name_.7C_N.29">$fread(name | N)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=7" title="Edit section: $fread(name | N)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Returns the next $crlf delimited line, useful to read line by line
+</p>
+<h2><span class="mw-headline" id=".24fread.28name_.7C_N.2C_M.2C_.26binvar.29">$fread(name | N, M, &amp;binvar)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=8" title="Edit section: $fread(name | N, M, &amp;binvar)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Returns the number of bytes read (from the file pointed by name or the Nth handle) into the specified binary variable, where M is the number of bytes to read.
+</p>
+<h2><span class="mw-headline" id=".24fgetc.28name_.7C_N.29">$fgetc(name | N)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=9" title="Edit section: $fgetc(name | N)">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Returns the next character.
+</p>
+<h2><span class="mw-headline" id="When_to_use_File_handling">When to use File handling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=10" title="Edit section: When to use File handling">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>It important to know when to use file handling.
+</p><p>Let's take a look at /write, /write is a powerful tool which allows you to write to a file according to severals predefined options.
+</p><p>A simple "/write filename.txt line" involves the following file handling operations:
+</p>
+<ul><li> /fopen - opens the file</li>
+<li> /fseek - goes to the end of the file</li>
+<li> /fwrite - writes to the file</li>
+<li> /fclose - closes the file</li></ul>
+<p>So, executing /write twice involves 8 file handling operations, the more you have to write, the more operations you have, considers 3 /write, the 12 operations can be reduced to 5:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">; assuming text.txt is empty</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/write" title="/write - mIRC Command" style="text-decoration: none"><span class="mirc_command">write</span></a> test.txt line 1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/write" title="/write - mIRC Command" style="text-decoration: none"><span class="mirc_command">write</span></a> test.txt line 2</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/write" title="/write - mIRC Command" style="text-decoration: none"><span class="mirc_command">write</span></a> test.txt line 3</span>
+<span class="code_line"><span class="mirc_comment">; is better written as</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fopen" title="/fopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">fopen</span></a> test test.txt</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fwrite" title="/fwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">fwrite</span></a> -n line 1</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fwrite" title="/fwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">fwrite</span></a> -n line 2</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fwrite" title="/fwrite - mIRC Command" style="text-decoration: none"><span class="mirc_command">fwrite</span></a> -n line 3</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fclose" title="/fclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">fclose</span></a> test</span></pre>
+<p>The same thing applies to reading, $read opens the file, try to match and close the file, so any consecutive call to $read means the file is opened/closed each time. You can apply all $read search options with /fseek.
+</p><p>Whenever you are going to use /write or $read in a loop to write/read a lot of things, if the loop isn't small and if the file isn't small, it might get slow very quickly, and you should consider using file handling.
+</p>
+<h2><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit&amp;section=11" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Here is an example, I wanted to be able to get the associated country for an ip address. You may use socket but I wanted to get the result without leaving the current scope (having to wait for the socket), COM may have been used but that would limit the use under Wine, so I found www.IP2Location.com, which provides a small database, each line being a range of long ip address, here is the first line:
+</p>
+<pre>&quot;16777216&quot;,&quot;16777471&quot;,&quot;AU&quot;,&quot;AUSTRALIA&quot;</pre>
+<p>So you have to convert your ip to a long ip using $longip, and then start to look in which range your number belong.
+</p><p>The file is pretty big, you certainly don't want to look line by line, I did the following:
+</p>
+<pre><span class="code_line"><span class="mirc_comment">;<a href="http://en.wikichip.org/wiki/mirc/identifiers/$iptocountry" title="$iptocountry - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$iptocountry</span></a><span class="mirc_bracket">&#x28;</span>85.125.126.112<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/aliases" title="Aliases - mIRC" style="text-decoration: none;"><span class="mirc_control">alias</span></a> <em>iptocountry</em> <span class="mirc_bracket"><span class="mirc_bracket">{</span></span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;convert to a long ip, get the length of the file, and prepare a wildcard expression for /fseek</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">  var</span></a> <span class="mirc_variable">%n</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$longip" title="$longip - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$longip</span></a><span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a><span class="mirc_bracket">&#x29;</span>,<span class="mirc_variable">%a</span> 1,<span class="mirc_variable">%p</span>,<span class="mirc_variable">%l</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$lof" title="$lof - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$lof</span></a><span class="mirc_bracket">&#x28;</span>path\to\ip2country.txt<span class="mirc_bracket">&#x29;</span>,<span class="mirc_variable">%v</span>,<span class="mirc_variable">%x</span> *&quot;,&quot;*&quot;,&quot;??&quot;,&quot;*&quot;</span>
+<span class="code_line"><span class="mirc_comment"> &#160;;opens the file</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fopen" title="/fopen - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .fopen</span></a> ip2c path\to\ip2country.txt</span>
+<span class="code_line"><span class="mirc_comment"> &#160;;depending on the length of the ip address, we can jump to a fixed line number, which is the start of ranges for that length</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$len" title="$len - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$len</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%n<span class="mirc_bracket">&#x29;</span></span> == 9<span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command"> .fseek</span></a> -l ip2c 2266</span>
+<span class="code_line">  <span class="mirc_control">elseif</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a> == 10<span class="mirc_bracket">&#x29;</span><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command"> .fseek</span></a> -l ip2c 11951</span>
+<span class="code_line"><span class="mirc_comment"> &#160;;<span class="mirc_variable">%a</span> starts at 1, as long as we can find a matching line which start with the maximum number of character from the ip address</span></span>
+<span class="code_line">  <span class="mirc_control">while</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%n</span>,1,<span class="mirc_variable">%a<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .fseek</span></a> -w ip2c <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a><span class="mirc_bracket">&#x28;</span>&quot;,<a href="http://en.wikichip.org/wiki/mirc/identifiers/$mid" title="$mid - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$mid</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%n</span>,1,<span class="mirc_variable">%a<span class="mirc_bracket">&#x29;</span></span>,<span class="mirc_variable">%x<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;; if no match, we break</span></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$fopen" title="$fopen - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$fopen</span></a><span class="mirc_bracket">&#x28;</span>ip2c<span class="mirc_bracket">&#x29;</span>.pos == <span class="mirc_variable">%l<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/break" title="/break - mIRC Command" style="text-decoration: none"><span class="mirc_command"> break</span></a></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;otherwise we keep the position in a variable to know which line we have the last match</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/var" title="/var - mIRC Command" style="text-decoration: none"><span class="mirc_command">    var</span></a> <span class="mirc_variable">%p</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a>,<span class="mirc_variable">%a</span> <span class="mirc_variable">%a</span> + 1</span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;get to that line</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .fseek</span></a> ip2c <span class="mirc_variable">%p</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;from here we must check if the line we are on is already the correct line</span></span>
+<span class="code_line">  <span class="mirc_variable">%v</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$fread" title="$fread - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$fread</span></a><span class="mirc_bracket">&#x28;</span>ip2c<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;if the right value of the range is bigger than our number, we must go upward in the file</span></span>
+<span class="code_line">  <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,3,34<span class="mirc_bracket">&#x29;</span> &gt; <span class="mirc_variable">%n<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;well if the left value of the range is smaller than our number, we have our line!</span></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,1,34<span class="mirc_bracket">&#x29;</span> &lt; <span class="mirc_variable">%n<span class="mirc_bracket">&#x29;</span></span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">    &#160;;if it is, we return</span></span>
+<span class="code_line">      <span class="mirc_variable">%v</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,7,34<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fclose" title="/fclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .fclose</span></a> ip2c</span>
+<span class="code_line">      <span class="mirc_control">return</span> <span class="mirc_variable">%v</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment">   &#160;;otherwise we must go upward one line, they can't be more line to check <span class="mirc_bracket">&#x28;</span>can't remember why though!<span class="mirc_bracket">&#x29;</span></span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command">    .fseek</span></a> ip2c <a href="http://en.wikichip.org/wiki/mirc/identifiers/$calc" title="$calc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$calc</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%p</span> - 3<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/dec" title="/dec - mIRC Command" style="text-decoration: none"><span class="mirc_command">    dec</span></a> <span class="mirc_variable">%p</span> 3</span>
+<span class="code_line">    <span class="mirc_control">while</span> <span class="mirc_bracket">&#x28;</span>1<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line">      <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$fgetc" title="$fgetc - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$fgetc</span></a><span class="mirc_bracket">&#x28;</span>ip2c<span class="mirc_bracket">&#x29;</span> == 10<span class="mirc_bracket">&#x29;</span>  <span class="mirc_bracket">{</span></span>
+<span class="code_line">        <span class="mirc_variable">%v</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$fread" title="$fread - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$fread</span></a><span class="mirc_bracket">&#x28;</span>ip2c<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fclose" title="/fclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">        .fclose</span></a> ip2c</span>
+<span class="code_line">        <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,7,34<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line">      <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/dec" title="/dec - mIRC Command" style="text-decoration: none"><span class="mirc_command">      dec</span></a> <span class="mirc_variable">%p</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fseek" title="/fseek - mIRC Command" style="text-decoration: none"><span class="mirc_command">      .fseek</span></a> ip2c <span class="mirc_variable">%p</span></span>
+<span class="code_line">    <span class="mirc_bracket">}</span></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;;otherwise, we must go downward in the file until the right value of the range is bigger than our number</span></span>
+<span class="code_line">  <span class="mirc_control">while</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$fread" title="$fread - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$fread</span></a><span class="mirc_bracket">&#x28;</span>ip2c<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line">    <span class="mirc_variable">%v</span> = <a href="http://en.wikichip.org/wiki/mirc/identifiers/$v1" title="$v1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$v1</span></a></span>
+<span class="code_line">    <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,3,34<span class="mirc_bracket">&#x29;</span> &gt; <span class="mirc_variable">%n<span class="mirc_bracket">&#x29;</span></span><a href="http://en.wikichip.org/wiki/mirc/commands/break" title="/break - mIRC Command" style="text-decoration: none"><span class="mirc_command"> break</span></a></span>
+<span class="code_line">  <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/fclose" title="/fclose - mIRC Command" style="text-decoration: none"><span class="mirc_command">  .fclose</span></a> ip2c</span>
+<span class="code_line">  <span class="mirc_control">return</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$gettok" title="$gettok - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$gettok</span></a><span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%v</span>,7,34<span class="mirc_bracket">&#x29;</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>You can find the file here if you want to try: <a rel="nofollow" class="external free" href="https://dl.dropboxusercontent.com/u/4249275/ip2country.txt">https://dl.dropboxusercontent.com/u/4249275/ip2country.txt</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.083 seconds
+Real time usage: 0.091 seconds
+Preprocessor visited node count: 305/1000000
+Preprocessor generated node count: 1083/1000000
+Post‐expand include size: 688/2097152 bytes
+Template argument size: 317/2097152 bytes
+Highest expansion depth: 8/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   34.624      1 - -total
+ 81.03%   28.056      7 - Template:mIRC
+ 17.71%    6.132      7 - Template:url_parse_article
+ 16.23%    5.618      7 - Template:url_parse_anchor
+ 14.26%    4.938      1 - Template:mirc_title
+  5.12%    1.772      1 - Template:mIRC_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:2504-0!*!0!!en!*!* and timestamp 20160401193846 and revision id 11692
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/file_handling&amp;oldid=11692">http://en.wikichip.org/w/index.php?title=mirc/file_handling&amp;oldid=11692</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Ffile+handling&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Ffile+handling" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/file_handling"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/file_handling&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/file_handling" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/file_handling&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/file_handling&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/file_handling" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/file_handling" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/file_handling&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/file_handling&amp;oldid=11692" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/file_handling&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Ffile_handling" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 19 January 2015, at 12:02.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":463});
+}</script>
+	</body>
+</html>

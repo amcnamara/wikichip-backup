@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Raw Events - mIRC - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="mirc/raw events" href="/w/index.php?title=Special:ExportRDF/mirc/raw_events&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=mirc/raw_events&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=mirc/raw_events&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/mirc/raw_events" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"mirc/raw_events","wgTitle":"mirc/raw events","wgCurRevisionId":11543,"wgRevisionId":11543,"wgArticleId":16,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["mIRC"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"mirc/raw_events","wgRelevantArticleId":16,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+pre .mirc_event { color: #AA0000; } 
+pre .mirc_bracket { color: #0033cc;  } /* { } */
+pre .mirc_prefix { color: #880000; }
+pre .mirc_primaryident { color: #C00000; }
+pre .mirc_identifier { color: #cc9933; }
+pre .mirc_variable { color: #C83F00; }
+pre .mirc_command { color: #9966cc; font-weight: bold;/*color: #00820C;*/ }
+pre .mirc_control { color: #0033cc; font-weight: bold;/*color: #2200DD;*/ }
+pre .mirc_group { color: #E59C00; }
+pre .mirc_goto { color: #0D9BAC; }
+/* comments must go last to override everything else */
+pre .mirc_comment { color: #669933; font-style: italic;/*color: #888888;*/ }
+pre .mirc_comment * { color: #669933; font-style: italic;/*color: #888888;*/font-weight:normal; }
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-mirc_raw_events skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Raw Events - mIRC</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/mirc" title="mirc">mirc</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>Raw events</b> allow you to handle IRC event in their native, unmodified, format. Every message you receive from the server before mIRC processes it is called a <b>raw message</b>. And it might look a little different from the one you see after it gets parsed.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Raw_Messages"><span class="tocnumber">1</span> <span class="toctext">Raw Messages</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.2Fdebug"><span class="tocnumber">2</span> <span class="toctext">/debug</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Raw_Numeric"><span class="tocnumber">3</span> <span class="toctext">Raw Numeric</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Numeric_Raw_Event"><span class="tocnumber">4</span> <span class="toctext">Numeric Raw Event</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example:_Channels-On-Join"><span class="tocnumber">5</span> <span class="toctext">Example: Channels-On-Join</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Non-Numeric_Raw_Event"><span class="tocnumber">6</span> <span class="toctext">Non-Numeric Raw Event</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Raw_Messages">Raw Messages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=1" title="Edit section: Raw Messages">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Below is an example of a typical raw irc message that is received when a user talks in a channel: 
+</p>
+<pre>:Kevin!bncworld@I-Have.a.cool.vhost.com PRIVMSG #mIRC&#160;:I feel lucky today</pre>
+<p>What most of us would see would look a little different. In my case it looks like this: 
+</p>
+<pre>15:43 &lt;@Kevin&gt; I feel lucky today</pre>
+<p>As you can see, mIRC has processed the raw message and displayed it in a convenient manner. There are many occasions where we might want to override this behavior or even handle messages that mIRC might not natively support. In this article we will see at least two such cases.
+</p>
+<h2><span class="mw-headline" id=".2Fdebug">/debug</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=2" title="Edit section: /debug">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Before we can talk about the actual events themselves it's important that we get a better understanding on what these raw messages look like. mIRC provides a continent way to do just that with the use of the <a href="/wiki/mirc/commands/debug" title="mirc/commands/debug">/debug</a> command. The <b>/debug command</b> can be used to display all the raw messages that gets passed between you and the server. The debug command can be called using the following syntax:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/debug" title="/debug - mIRC Command" style="text-decoration: none"><span class="mirc_command">/debug</span></a> &lt;@window&gt;</span></pre>
+<p>We suggest you create a window with an editbox so that you can execute commands from within the same window.
+</p><p><b>Note</b>: The message are shown undecoded (utf8)
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/window" title="/window - mIRC Command" style="text-decoration: none"><span class="mirc_command">//window</span></a> -e @raw |<a href="http://en.wikichip.org/wiki/mirc/commands/debug" title="/debug - mIRC Command" style="text-decoration: none"><span class="mirc_command"> debug</span></a> @raw</span></pre>
+<h2><span class="mw-headline" id="Raw_Numeric">Raw Numeric</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=3" title="Edit section: Raw Numeric">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Using the debug window we have open. Let’s execute a /whois command on someone in our channel. You might see something similar to this:
+</p>
+<pre> -&gt;&#160;:irc.server.name WHOIS foo
+ &lt;-&#160;:irc.server.name 311 bar foo ~Ident name-B21D62.lolhat.com&#160;:Foo Jenkins
+ &lt;-&#160;:irc.server.name 319 bar foo&#160;:+#foobar @#kekelar&#160;%#scripting
+ &lt;-&#160;:irc.server.name 312 bar foo irc.server.name&#160;:Server Description
+ &lt;-&#160;:irc.server.name 307 bar foo&#160;:has identified for this nick
+ &lt;-&#160;:irc.server.name 335 bar foo&#160;:is a Bot on name 
+ &lt;-&#160;:irc.server.name 671 bar foo&#160;:is using a Secure Connection
+ &lt;-&#160;:irc.server.name 318 bar foo&#160;:End of /WHOIS list.</pre>
+<p>You may have noticed that following the server’s name there is a strange number: 311, 319, 312, 307... These numbers are known as <b>raw numeric</b>. Most, but not all, raw messages will have a number that we can use to uniquely identify the message. For example <b>318</b> will always mean "End of /WHOIS list." Raw <b>numeric 319</b> will always give us a list of channels the user is on. That number will prove to be invaluable in writing scripts that deal with raw message.
+</p>
+<h2><span class="mw-headline" id="Numeric_Raw_Event">Numeric Raw Event</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=4" title="Edit section: Numeric Raw Event">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The syntax for the raw event is:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> &lt;numeric&gt;:&lt;matchtext&gt;:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; code to handle the message</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p><b>Note:</b> The on raw event triggers every time a raw numeric and a pattern matched, regardless of who or what caused the event to happen. 
+</p><p>You can see how the numeric is a very important part of a raw event. The matchtext can be a wildcard pattern by which mIRC will try to match against. 
+</p><p>Recall that raw 319 is the list of channel the user is you whoised is on:
+</p>
+<pre>:irc.my-irc-network.net 319 &lt;myname&gt; &lt;nick&gt;&#160;:&lt;[mode]#channe&gt; &lt;[mode]#channe2&gt; &lt;[mode]#channe3&gt;...</pre>
+<p>Our raw event will look like this:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> 319:*:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$1" title="$1 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$1</span></a> = &lt;myname&gt;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> = &lt;nick&gt;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a> = &lt;[mode]#channel 1&gt;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$4" title="$4 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$4</span></a> = &lt;[mode]#channel 2&gt;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$5" title="$5 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$5</span></a> = &lt;[mode]#channel 3&gt;</span></span>
+<span class="code_line"><span class="mirc_comment"> &#160;; <a href="http://en.wikichip.org/wiki/mirc/identifiers/$6" title="$6 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$6</span></a> ...</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Example:_Channels-On-Join">Example: Channels-On-Join</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=5" title="Edit section: Example: Channels-On-Join">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In this example we will create a script that will message all the channels a user is on. Our example will be composed of two parts: an on join event and an on raw event. 
+</p><p>We will need to use the on join event to be able to know when the user joins a channel. Recall that the raw event will trigger whenever any matching raw message is received. To ensure our raw event only happens when we want it to we will set a variable to indicate it. 
+</p><p>The on join part:
+</p>
+<pre><span class="code_line"><span class="mirc_control">on</span> *:<span class="mirc_control">join</span>:#:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; make a variable called &quot;<span class="mirc_variable">%whois.nick&quot;</span> to the channel's name </span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; We will use this variable later on in the raw event. </span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/set" title="/set - mIRC Command" style="text-decoration: none"><span class="mirc_command">   set</span></a> <span class="mirc_variable">%whois.</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$chan" title="$chan - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$chan</span></a> </span>
+<span class="code_line"><span class="mirc_comment">  &#160;; whois the user</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/whois" title="/whois - mIRC Command" style="text-decoration: none"><span class="mirc_command">   whois</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$nick" title="$nick - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$nick</span></a></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>Recall that $2 is the user we whoised. We will need that to check if&#160;%whois.nick is set. Our code will look like this:
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> 319:*:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;;We indicated that the event should trigger on the server's numeric value of 319</span></span>
+<span class="code_line">   <span class="mirc_control">if</span> <span class="mirc_bracket">&#x28;</span><span class="mirc_variable">%whois.</span> [ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> [ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> ] ]<span class="mirc_bracket">&#x29;</span> <span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">    &#160;;In the if statement we check if we actually /whoised this user </span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/msg" title="/msg - mIRC Command" style="text-decoration: none"><span class="mirc_command">     msg</span></a> <span class="mirc_variable">%whois.</span> [ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> [ <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> ] ] [WHOIS] <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a> is on <a href="http://en.wikichip.org/wiki/mirc/identifiers/$3" title="$3 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$3</span></a>-.</span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/unset" title="/unset - mIRC Command" style="text-decoration: none"><span class="mirc_command">     unset</span></a> <span class="mirc_variable">%whois.</span> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$+" title="$+ - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$+</span></a> <a href="http://en.wikichip.org/wiki/mirc/identifiers/$2" title="$2 - mIRC Identifier" style="text-decoration: none"><span class="mirc_identifier">$2</span></a></span>
+<span class="code_line">   <span class="mirc_bracket">}</span> </span>
+<span class="code_line"> <span class="mirc_bracket">}</span></span></pre>
+<h2><span class="mw-headline" id="Non-Numeric_Raw_Event">Non-Numeric Raw Event</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit&amp;section=6" title="Edit section: Non-Numeric Raw Event">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Has we have seen, not ever raw event has a numeric value. The syntax for such events are: 
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> &lt;event&gt;:&lt;matchtext&gt;:<span class="mirc_bracket">{</span></span>
+<span class="code_line"><span class="mirc_comment">  &#160;; code to handle the message</span></span>
+<span class="code_line"><span class="mirc_bracket">}</span></span></pre>
+<p>An example of using it is for SASL authentication. Where the following events will be used (on a network like FreeNode):
+</p>
+<pre><span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> cap:* ack sasl *:<span class="mirc_bracket">{</span> <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> cap:* ls *:<span class="mirc_bracket">{</span> <span class="mirc_bracket">}</span></span>
+<span class="code_line"><a href="http://en.wikichip.org/wiki/mirc/commands/raw" title="/raw - mIRC Command" style="text-decoration: none"><span class="mirc_command">raw</span></a> authenticate:*:<span class="mirc_bracket">{</span> <span class="mirc_bracket">}</span></span></pre>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.057 seconds
+Real time usage: 0.059 seconds
+Preprocessor visited node count: 162/1000000
+Preprocessor generated node count: 804/1000000
+Post‐expand include size: 162/2097152 bytes
+Template argument size: 52/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   20.513      1 - -total
+ 72.00%   14.770      1 - Template:mIRC
+ 19.78%    4.058      1 - Template:url_parse_article
+ 19.74%    4.050      1 - Template:mirc_title
+ 16.65%    3.416      1 - Template:url_parse_anchor
+  7.77%    1.594      1 - Template:mIRC_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:16-0!*!0!!en!*!* and timestamp 20160402025416 and revision id 11543
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=mirc/raw_events&amp;oldid=11543">http://en.wikichip.org/w/index.php?title=mirc/raw_events&amp;oldid=11543</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:mIRC" title="Category:mIRC">mIRC</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fraw+events&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=mirc%2Fraw+events" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/mirc/raw_events"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:mirc/raw_events&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/mirc/raw_events" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=mirc/raw_events&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=mirc/raw_events&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-mIRC' aria-labelledby='p-mIRC-label'>
+			<h3 id='p-mIRC-label'>mIRC</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mIRC"><a href="/wiki/mirc">mIRC</a></li>
+													<li id="n-Introduction"><a href="/wiki/mirc/introduction">Introduction</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/mirc/variables">Variables</a></li>
+													<li id="n-String-Manipulation"><a href="/wiki/mirc/string_manipulation">String Manipulation</a></li>
+													<li id="n-Token-Manipulation"><a href="/wiki/mirc/token_manipulation">Token Manipulation</a></li>
+													<li id="n-Aliases"><a href="/wiki/mirc/aliases">Aliases</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Events' aria-labelledby='p-Events-label'>
+			<h3 id='p-Events-label'>Events</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-On-events"><a href="/wiki/mirc/on_event">On events</a></li>
+													<li id="n-Access-levels"><a href="/wiki/mirc/access_levels">Access levels</a></li>
+													<li id="n-Raw-Events"><a href="/wiki/mirc/raw_events">Raw Events</a></li>
+													<li id="n-Ctcp-Events"><a href="/wiki/mirc/ctcp_events">Ctcp Events</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-If-Then-Else"><a href="/wiki/mirc/conditional_statements">If Then Else</a></li>
+													<li id="n-Operators"><a href="/wiki/mirc/operators">Operators</a></li>
+													<li id="n-While-Loops"><a href="/wiki/mirc/while_loops">While Loops</a></li>
+													<li id="n-Goto-Loops"><a href="/wiki/mirc/goto_statements">Goto Loops</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-GUI_Scripting' aria-labelledby='p-GUI_Scripting-label'>
+			<h3 id='p-GUI_Scripting-label'>GUI Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Custom-Windows"><a href="/wiki/mirc/custom_windows">Custom Windows</a></li>
+													<li id="n-Picture-Windows"><a href="/wiki/mirc/picture_windows">Picture Windows</a></li>
+													<li id="n-Dialogs"><a href="/wiki/mirc/dialogs">Dialogs</a></li>
+													<li id="n-Dialog-Components"><a href="/wiki/mirc/dialog_components">Dialog Components</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Matching_Tools' aria-labelledby='p-Matching_Tools-label'>
+			<h3 id='p-Matching_Tools-label'>Matching Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wildcard"><a href="/wiki/mirc/wildcard">Wildcard</a></li>
+													<li id="n-Regex"><a href="/wiki/mirc/regex">Regex</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Data_Storage' aria-labelledby='p-Data_Storage-label'>
+			<h3 id='p-Data_Storage-label'>Data Storage</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-File-Handling"><a href="/wiki/mirc/file_handling">File Handling</a></li>
+													<li id="n-Hash-Tables"><a href="/wiki/mirc/hash_tables">Hash Tables</a></li>
+													<li id="n-INI-Files"><a href="/wiki/mirc/ini_files">INI Files</a></li>
+													<li id="n-Text-Files"><a href="/wiki/mirc/text_files">Text Files</a></li>
+													<li id="n-Playing-music"><a href="/wiki/mirc/playing_music">Playing music</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Sockets' aria-labelledby='p-Sockets-label'>
+			<h3 id='p-Sockets-label'>Sockets</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Sockets"><a href="/wiki/mirc/sockets">Sockets</a></li>
+													<li id="n-TCP-Sockets"><a href="/wiki/mirc/sockets/tcp">TCP Sockets</a></li>
+													<li id="n-UDP-Sockets"><a href="/wiki/mirc/sockets/udp">UDP Sockets</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Advanced_Scripting' aria-labelledby='p-Advanced_Scripting-label'>
+			<h3 id='p-Advanced_Scripting-label'>Advanced Scripting</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Eval-Brackets"><a href="/wiki/mirc/evaluation_brackets">Eval Brackets</a></li>
+													<li id="n-COM"><a href="/wiki/mirc/component_object_model">COM</a></li>
+													<li id="n-DLL"><a href="/wiki/mirc/dynamic-link_library">DLL</a></li>
+													<li id="n-SendMessage"><a href="/wiki/mirc/sendmessage">SendMessage</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/mirc/raw_events" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/mirc/raw_events" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=mirc/raw_events&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=mirc/raw_events&amp;oldid=11543" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=mirc/raw_events&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/mirc-2Fraw_events" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 11:28.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":333});
+}</script>
+	</body>
+</html>

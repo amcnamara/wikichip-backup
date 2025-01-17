@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Concurrency - C - WikiChip</title>
+<meta name="generator" content="MediaWiki 1.25.3" />
+<link rel="ExportRDF" type="application/rdf+xml" title="c/concurrency" href="/w/index.php?title=Special:ExportRDF/c/concurrency&amp;xmlmime=rdf" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=c/concurrency&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=c/concurrency&amp;action=edit" />
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/c/concurrency" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.geshi.language.c%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:4afaec9e01106da924d2f8e76e5f04b6 */</style>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/concurrency","wgTitle":"c/concurrency","wgCurRevisionId":11319,"wgRevisionId":11319,"wgArticleId":358,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Stubs","C programming language","Concurrency - C"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"c/concurrency","wgRelevantArticleId":358,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"sfgAutocompleteValues":[],"sfgAutocompleteOnAllChars":false,"sfgFieldProperties":[],"sfgCargoFields":[],"sfgDependentFields":[],"sfgShowOnSelect":[],"sfgScriptPath":"/w/extensions/SemanticForms","edgValues":null,"sfgEDSettings":null,"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":true},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.style","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_concurrency skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Concurrency - C</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From WikiChip</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/c" title="c">c</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><small><i>This article is about <a href="/wiki/C11" title="C11" class="mw-redirect">C11</a> thread support, not <a href="/w/index.php?title=POSIX_Threads&amp;action=edit&amp;redlink=1" class="new" title="POSIX Threads (page does not exist)">POSIX Threads</a>.</i></small>
+</p><p>The <a href="/wiki/C_programming_language" title="C programming language" class="mw-redirect">C programming language</a> introduced the semantics necessary for writing a multithreaded program starting with the <a href="/wiki/C11" title="C11" class="mw-redirect">C11</a> standard. The standard also specified a set of functions to facilitate inter‐thread communication. These features are provided via the thread library headers which can be utilized by including the <a href="/w/index.php?title=c/threads.h&amp;action=edit&amp;redlink=1" class="new" title="c/threads.h (page does not exist)">&lt;threads.h&gt;</a> and <a href="/w/index.php?title=c/stdatomic.h&amp;action=edit&amp;redlink=1" class="new" title="c/stdatomic.h (page does not exist)">&lt;stdatomic.h&gt;</a> <a href="/wiki/c/standard_library" title="c/standard library">standard headers</a>.
+</p>
+<h2><span class="mw-headline" id="Optional">Optional</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/concurrency&amp;action=edit&amp;section=1" title="Edit section: Optional">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Thread support is an optional features for implementations where support for multithreaded programs is possible. The macro <code>__STDC_NO_THREADS__</code> must be set to <code>1</code> if the implementation does not support the <a href="/w/index.php?title=c/threads.h&amp;action=edit&amp;redlink=1" class="new" title="c/threads.h (page does not exist)">&lt;threads.h&gt;</a> header.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#if (__STDC_VERSION__ &gt;= 201112L) &amp;&amp; (__STDC_NO_THREADS__&#160;!= 1)</span>
+    <span class="coMULTI">/* thread support */</span>
+<span class="co2">#endif</span></pre></div></div>
+<h2><span class="mw-headline" id="Creating_A_Thread">Creating A Thread</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=c/concurrency&amp;action=edit&amp;section=2" title="Edit section: Creating A Thread">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>One of the functions included in <a href="/w/index.php?title=c/threads.h&amp;action=edit&amp;redlink=1" class="new" title="c/threads.h (page does not exist)">&lt;threads.h&gt;</a> is <a href="/w/index.php?title=c/threads.h/thrd_create&amp;action=edit&amp;redlink=1" class="new" title="c/threads.h/thrd create (page does not exist)">thrd_create()</a>,
+</p><p><code>int thrd_create(thrd_t *thr, thrd_start_t func, void *arg);</code>
+</p><p>Which creates a new thread executing <code>func(arg)</code>. On a successful operation, the object pointed to by <code>thr</code> to the identifier of the newly created thread and <code>thrd_success</code> will be returned. Upon failure <code>thrd_error</code> or <code>thrd_nomem</code> will be returned indicating insufficient amount of memory or failure to honor the request.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.070 seconds
+Real time usage: 0.078 seconds
+Preprocessor visited node count: 186/1000000
+Preprocessor generated node count: 483/1000000
+Post‐expand include size: 511/2097152 bytes
+Template argument size: 461/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   34.205      1 - -total
+ 63.29%   21.648      6 - Template:C
+ 24.77%    8.474      6 - Template:url_parse_article
+ 14.37%    4.916      6 - Template:url_parse_anchor
+ 13.55%    4.635      1 - Template:c_title
+  5.26%    1.799      1 - Template:c_menu
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:358-0!*!0!!*!*!* and timestamp 20160402150606 and revision id 11319
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikichip.org/w/index.php?title=c/concurrency&amp;oldid=11319">http://en.wikichip.org/w/index.php?title=c/concurrency&amp;oldid=11319</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Stubs" title="Category:Stubs">Stubs</a></li><li><a href="/wiki/Category:C_programming_language" title="Category:C programming language">C programming language</a></li><li><a href="/w/index.php?title=Category:Concurrency_-_C&amp;action=edit&amp;redlink=1" class="new" title="Category:Concurrency - C (page does not exist)">Concurrency - C</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fconcurrency&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=c%2Fconcurrency" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/c/concurrency"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:c/concurrency&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/c/concurrency" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=c/concurrency&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=c/concurrency&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search WikiChip [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/WikiChip"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/WikiChip" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" title="Load a random page [x]" accesskey="x">Random page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-C' aria-labelledby='p-C-label'>
+			<h3 id='p-C-label'>C</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Introduction"><a href="/wiki/c/introduction">Introduction</a></li>
+													<li id="n-Program-structure"><a href="/wiki/c/program_structure">Program structure</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Basics' aria-labelledby='p-Basics-label'>
+			<h3 id='p-Basics-label'>Basics</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Variables"><a href="/wiki/c/variables">Variables</a></li>
+													<li id="n-Basic-I/O"><a href="/wiki/c/basic_i/o">Basic I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Math' aria-labelledby='p-Math-label'>
+			<h3 id='p-Math-label'>Math</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Basic-Arithmetics"><a href="/wiki/c/basic_arithmetics">Basic Arithmetics</a></li>
+													<li id="n-Math-functions"><a href="/wiki/c/math_functions">Math functions</a></li>
+													<li id="n-Complex-Numbers"><a href="/wiki/c/complex_numbers">Complex Numbers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Control_Structures' aria-labelledby='p-Control_Structures-label'>
+			<h3 id='p-Control_Structures-label'>Control Structures</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Conditional-statements"><a href="/wiki/c/conditional_statements">Conditional statements</a></li>
+													<li id="n-Loop-Constructs"><a href="/wiki/c/loop_constructs">Loop Constructs</a></li>
+													<li id="n-Goto-Statements"><a href="/wiki/c/goto_statements">Goto Statements</a></li>
+													<li id="n-Nonlocal-Jumps"><a href="/wiki/c/Nonlocal_jumps">Nonlocal Jumps</a></li>
+													<li id="n-Functions"><a href="/wiki/c/functions">Functions</a></li>
+													<li id="n-Error-Handling"><a href="/wiki/c/error_handling">Error Handling</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Operators' aria-labelledby='p-Operators-label'>
+			<h3 id='p-Operators-label'>Operators</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Operators"><a href="/wiki/c/operators">Operators</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Arrays_.26_Pointers' aria-labelledby='p-Arrays_.26_Pointers-label'>
+			<h3 id='p-Arrays_.26_Pointers-label'>Arrays &amp; Pointers</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Arrays"><a href="/wiki/c/arrays">Arrays</a></li>
+													<li id="n-Pointers"><a href="/wiki/c/pointers">Pointers</a></li>
+													<li id="n-Memory-management"><a href="/wiki/c/memory_management">Memory management</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Strings' aria-labelledby='p-Strings-label'>
+			<h3 id='p-Strings-label'>Strings</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Character-Handling"><a href="/wiki/c/character_handling">Character Handling</a></li>
+													<li id="n-Strings-Handling"><a href="/wiki/c/strings_handling">Strings Handling</a></li>
+													<li id="n-Wide-Strings"><a href="/wiki/c/wide_strings">Wide Strings</a></li>
+													<li id="n-Unicode"><a href="/wiki/c/unicode">Unicode</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Date_and_Time' aria-labelledby='p-Date_and_Time-label'>
+			<h3 id='p-Date_and_Time-label'>Date and Time</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Date-and-Time"><a href="/wiki/c/date_and_time">Date and Time</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Structured_Types' aria-labelledby='p-Structured_Types-label'>
+			<h3 id='p-Structured_Types-label'>Structured Types</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Structures"><a href="/wiki/c/structures">Structures</a></li>
+													<li id="n-Unions"><a href="/wiki/c/unions">Unions</a></li>
+													<li id="n-Bitfields"><a href="/wiki/c/bitfields">Bitfields</a></li>
+													<li id="n-Enums"><a href="/wiki/c/enumerated_types">Enums</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-I.2FO' aria-labelledby='p-I.2FO-label'>
+			<h3 id='p-I.2FO-label'>I/O</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Standard-Streams"><a href="/wiki/c/Standard_Streams">Standard Streams</a></li>
+													<li id="n-File-I/O"><a href="/wiki/c/file_i/o">File I/O</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Concurrency' aria-labelledby='p-Concurrency-label'>
+			<h3 id='p-Concurrency-label'>Concurrency</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Concurrency"><a href="/wiki/c/concurrency">Concurrency</a></li>
+													<li id="n-Inter‐Thread-Communication"><a href="/wiki/c/inter%E2%80%90thread_communication">Inter‐Thread Communication</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Other' aria-labelledby='p-Other-label'>
+			<h3 id='p-Other-label'>Other</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Data-Types"><a href="/wiki/c/data_types">Data Types</a></li>
+													<li id="n-Static-Assertions"><a href="/wiki/c/static_assertions">Static Assertions</a></li>
+													<li id="n-Generic-Selections"><a href="/wiki/c/generic_selections">Generic Selections</a></li>
+													<li id="n-Preprocessor"><a href="/wiki/c/preprocessor">Preprocessor</a></li>
+													<li id="n-Standard-Library"><a href="/wiki/c/standard_library">Standard Library</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/c/concurrency" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/c/concurrency" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="/w/index.php?title=c/concurrency&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=c/concurrency&amp;oldid=11319" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=c/concurrency&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-smwbrowselink"><a href="/wiki/Special:Browse/c-2Fconcurrency" rel="smw-browse">Browse properties</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 January 2015, at 07:30.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/resources/assets/licenses/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki"><img src="/w/extensions/SemanticMediaWiki/includes/../res/images/smw_button.png" alt="Powered by Semantic MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.smw.tooltips","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://en.wikichip.org/w/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":385});
+}</script>
+	</body>
+</html>

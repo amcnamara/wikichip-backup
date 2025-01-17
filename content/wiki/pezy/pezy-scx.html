@@ -1,0 +1,787 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],s=[],r=!0,a=function(e,i,n,o,s,r,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,c=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=s,this.deleteWhenComplete=r,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),c.isInitialized=!0,c.isComplete=!0,f("... func.apply: "+e);var i=c.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[c.funcName]),null!=n&&n.apply(null,this.parameters),!0===c.deleteWhenComplete&&delete t[e],!0===c.isBlock&&(f("----- F'D: "+c.name),u())}},l=function(e,i,t,n,o,s,r){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=s,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=r,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===s&&(t.defer=!0),t.onerror=function(){f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},c=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function d(e){!0!==h(e)&&0!=r&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(s))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,r,a,c,h,f,u){var m=new l(e,i,n,r,a,c,h,u);!0===f?o[e]=m:s[e]=m,t[e]=m,d(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),s[e]=n,t[e]=n,d(n)},addFunc:function(e,n,r,l,c,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var y=new a(e,n,r,l,c,f,u,p);!0===m?o[e]=y:s[e]=y,t[e]=y,d(y)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),s[e]=o,t[e]=o,d(o)},items:t,processAll:u,setallowLoad:function(e){r=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new c(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};</script>
+<script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('fads.js', '/porpoiseant/fads.js?gcb=195-3&cb=13', true, [], true, false, false, true);</script>
+<script>var __ezaps=[{"slotID":"div-gpt-ad-wikichip_org-box-3-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-3","sizes":[[300,250]]},{"slotID":"div-gpt-ad-wikichip_org-box-2-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-box-2","sizes":[[728,90]]},{"slotID":"div-gpt-ad-wikichip_org-large-mobile-banner-1-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-large-mobile-banner-1","sizes":[[300,250]]},{"slotID":"div-gpt-ad-wikichip_org-medrectangle-1-0","divID":"","slotName":"/1254144,21625046521/wikichip_org-medrectangle-1","sizes":[[580,400],[336,280],[300,250]]}];var __ezapsVideo=[];__ezapid='aa05931b-5308-4ea3-95a2-adf84f4ffde4';</script>
+<script data-ezscrex="false" async data-pagespeed-no-defer type="text/javascript" src="/edmontonalberta/calgary.js?cb=16"></script>
+<script>window.ezslots_raw=[];var __sellerid='4a5daa05a47056658433ffbf2fc33abf';var __schain_domain='';var __ez_nid ='1254144';__advertiserRule=['luckyparkclub.com','happy.luckyparkclub.com'];var ezasVars = {'cid':'2594856134','pid':'pub-1951113009523412','ssid':44};if(typeof window.ezAutoAdsSetup == 'undefined'){window.google_reactive_ads_global_state = {
+                adCount: {},
+                floatingAdsStacking: { maxZIndexListeners: [], maxZIndexRestrictions: {}, nextRestrictionId: 0 },
+                messageValidationEnabled: false,
+                reactiveTypeDisabledByPublisher: {},
+                reactiveTypeEnabledInAsfe: {},
+                sideRailAvailableSpace: [],
+                sideRailOverlappableElements: [],
+                stateForType: {},
+                tagSpecificState: {},
+                wasPlaTagProcessed: true,
+                wasReactiveAdConfigReceived: { 1: true, 2: true, 8: true },
+                wasReactiveAdVisible: {},
+                wasReactiveTagRequestSent: true,
+                description: "Can't disable auto ads programmatically on the page, so here we are!"
+            };};var __ezasAggressive=true;!function(){window.ezasvEvent=function(e,t){if(!0===e[0].isIntersecting){var i=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);window.ezoSTPixelAdd(i,"viewed",1),t.disconnect()}},window.ezaslEvent=function(e,t){if(void 0!==e[0].target.attributes["data-ad-status"]){var i=e[0].target.attributes["data-ad-status"].value,o=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);"filled"==i&&(window.ezoSTPixelAdd(o,"loaded",1),new IntersectionObserver(window.ezasvEvent,{threshold:[1]}).observe(document.getElementById(o+"-asloaded"))),"unfilled"==i&&setTimeout((function(){window.ezoAdBackFill(e)}),2e3),t.disconnect()}},window.ezoAdBackFill=function(e){var t=e[0].target,i=t.parentElement;t.style.display="none !important";var o,d=ezoGetSlotNum(i.id);if(o=void 0!==__ez.fads?__ez.fads.initslots[i.id]:__ez_fad_initslot[i.id],void 0===d&&"function"==typeof o&&(d=o(6)),void 0!==d)var n=window[d];if(void 0!==n){n.setTargeting("compid","0"),n.setTargeting("bkfl","1"),n.setTargeting("reft","t");var a=n.getTargeting("br2")[0];void 0!==window.ezoibfh&&void 0!==window.ezoibfh[a]&&(n.setTargeting("br1",a),n.setTargeting("eb_br",window.ezoibfh[a])),googletag.display(n),setTimeout((function(){googletag.pubads().refresh([n])}),500)}},window.ezoSTPixels=[];var e=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots&&window.ezslots_raw.length>0&&(window.ezoSTPixelFire(),clearInterval(e))}),250);window.ezoSTPixelAdd=function(e,t,i){window.ezoSTPixels.push({id:e,name:t,value:i}),window.ezoSTPixelFire()},window.ezoGetSlotById=function(e){var t=e.split("div-gpt-ad-")[1].split("-",3).join("-");for(var i in window.ezslots_raw)if(window.ezslots_raw[i].tap.includes(t))return window.ezslots_raw[i]},window.ezoGetSlotNum=function(e){if(void 0!==window.ezslots&&0!=window.ezslots)for(var t=0;t<window.ezslots.length;t++){var i=window[ezslots[t]];if(void 0!==i){var o=i.getSlotElementId();if(void 0!==o&&o==e)return ezslots[t]}}},window.ezoSTPixelFire=function(){if("undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots)for(;window.ezoSTPixels.length>0;){var e=window.ezoSTPixels.shift(),t=window.ezoGetSlotById(e.id);if(void 0===t){var i;if(i=void 0!==__ez.fads?__ez.fads.initslots[e.id]:__ez_fad_initslot[e.id],void 0===googletag.defineSlot)return void window.ezoSTPixels.push(e);if(i(1),void 0===(t=window.ezoGetSlotById(e.id)))return void window.ezoSTPixels.push(e)}var o=[{type:"impression",impression_id:t.eid,domain_id:window.did.toString(),unit:e.id,t_epoch:__ez.dot.getEpoch(0),ad_position:parseInt(t.ap),country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:1,data:__ez.dot.dataToStr([new __ezDotData(e.name,e.value.toString())]),is_orig:0}],d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig=0&sts="+btoa(JSON.stringify(o));__ez.dot.Fire(d)}}}();</script>
+<script>!function(){var e=setInterval((function(){var t=document.querySelectorAll('[id^="outbrain_widget_"]');0!==t.length&&(function(e){e.forEach((function(e){if(e.parentElement.hasAttribute("data-ez-name")){var t=e.parentElement.attributes["data-ez-name"].value;new IntersectionObserver((function(e,i){e[0].isIntersecting&&(n({unit:t,name:"viewed"}),i.disconnect())}),{threshold:[1]}).observe(e);var i=e.attributes["data-widget-id"].value;window.OBREvents=window.OBREvents||[],OBREvents.push({event:"widgetDataReturned",widgetId:i,func:function(){n({unit:t,name:"loaded"})}})}}))}(t),clearInterval(e))}),250),t=[],i=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData&&(o(),clearInterval(i))}),2500);function n(e){t.push(e),o()}var d="/porpoiseant/army.gif";function o(){var e,i;if(0!==t.length&&"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData)for(;t.length>0;){var n=t.shift(),o=(e=n.unit,i=n.name,[{type:"impression",impression_id:_ezim_d[e].full_id.split("/")[2],domain_id:window.did.toString(),unit:e,t_epoch:__ez.dot.getEpoch(0),ad_position:_ezim_d[e].position_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:2,data:__ez.dot.dataToStr([new __ezDotData(i,"1")]),is_orig:0}]),a=__ez.dot.getURL(d)+"?orig="+(!0===__ez.template.isOrig?1:0)+"&sts="+btoa(JSON.stringify(o));void 0!==window.ezWp&&ezWp&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("visit_uuid")&&(a+="&visit_uuid="+window.visit_uuid),__ez.dot.Fire(a)}}}();</script>
+<script>window.ezhbopt=true;</script>
+<script>window.ezpbCache=true;</script>
+<link href="//ad.doubleclick.net" rel="dns-prefetch">
+<link href="//pagead2.googlesyndication.com" rel="dns-prefetch">
+<link href="//googleads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//tpc.googlesyndication.com" rel="dns-prefetch">
+<link href="//adservice.google.com" rel="dns-prefetch">
+<link href="//secureads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//www.googletagservices.com" rel="dns-prefetch">
+<link rel='preload' as='script' href='//securepubads.g.doubleclick.net/tag/js/gpt.js'>
+<link rel='preload' as='script' href='//go.ezodn.com/hb/dall.js?cb=195-3-56' onerror="window.ezDallErr=true">
+<link rel='preload' as='script' href='/porpoiseant/fads.js?gcb=195-3&cb=13'>
+<script type="text/javascript">
+	var __banger_pmp_deals=function(){var d={17:{"DealId":17,"Floor":160},18:{"DealId":18,"Floor":25},19:{"DealId":19,"Floor":100},1428:{"DealId":1428,"Floor":25},2351:{"DealId":2351,"Floor":155},2610:{"DealId":2610,"Floor":125},2688:{"DealId":2688,"Floor":100},2693:{"DealId":2693,"Floor":50},2761:{"DealId":2761,"Floor":200},3044:{"DealId":3044,"Floor":175},3045:{"DealId":3045,"Floor":75},3052:{"DealId":3052,"Floor":20},3053:{"DealId":3053,"Floor":37},3856:{"DealId":3856,"Floor":15},4276:{"DealId":4276,"Floor":65},7:{"DealId":7,"Floor":150},8:{"DealId":8,"Floor":200},835:{"DealId":835,"Floor":200},2763:{"DealId":2763,"Floor":250},3154:{"DealId":3154,"Floor":275}};return[{"SlotName":"/1254144,21625046521/wikichip_org-medrectangle-1","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[3044],d[3045],d[3052],d[3053],d[3856],d[4276],d[7],d[8],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-2","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3856],d[4276],d[7],d[8],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-box-3","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[3044],d[3045],d[3052],d[3053],d[3856],d[4276],d[7],d[8],d[835]]},{"SlotName":"/1254144,21625046521/wikichip_org-large-mobile-banner-1","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276],d[7],d[8],d[835]]}]}();
+</script>
+<script type='text/javascript'>_ebcids=[138231308856,138231308940,138231308949,138231387842,138231421744,138231421759,138231421774,138231421783,138231421789,138231421792,138242067587,138242067590,138242067602,138242067605,138242067608,138242067614,138242229406,138242229415,138242229421,138242229430];</script>
+<script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>ezobv=232;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>"use strict";if(typeof window.ezptlog!=='undefined'&&window.ezptlog===true){window.ezPerform=window.ezPerform||{};window.ezPerform.fadsInitStarted=performance.now();}
+__ez.fads=window.__ez.fads||{cmd:[],initslots:{},kvStore:{},divs:[[],[],[],[],[],[],[]],divsd:[],fadcount:0};var ez_ad_units=[];var ezslots=[];var ezrpos=[];var ezsrqt={};var __ez_fad_haspo=false;var __ez_fad_hascp=false;if(typeof PerformanceObserver!=='undefined'&&typeof PerformanceObserver.supportedEntryTypes!=='undefined'){if(PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint')>-1){__ez_fad_haspo=true;}}
+try{var __ez_fad_po=new PerformanceObserver(function(){window.__ez_fad_hascp=true;__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_hascp=true;});});__ez_fad_po.observe({type:'largest-contentful-paint',buffered:true});}catch(e){console.error(e);}
+var __ez_fad_floatshowd=false;__ez.fads.__ez_fad_floatshow=function(){if(__ez_fad_floatshowd===true||typeof __ez_fad_floating==='undefined'){return;}
+__ez_fad_floatshowd=true;var e=document.getElementById('ezmobfooter');if(e!=null){e.classList.add('ezmobtrans');}else{var head=document.head||document.getElementsByTagName('head')[0];var style=document.createElement('style');head.appendChild(style);var css="body > #ezmobfooter{bottom:0px;visibility:visible;}";style.type='text/css';if(style.styleSheet){style.styleSheet.cssText=css;}else{style.appendChild(document.createTextNode(css));}}
+googletag.cmd.push(function(){for(var i=0;i<__ez_fad_floating.length;i++){var s=__ez.fads.initslots[__ez_fad_floating[i]](null);googletag.display(__ez_fad_floating[i]);if(typeof window.adjustHbValues==='function'){window.adjustHbValues(window[s]);}
+if(typeof window.__ezWillLoadCnx!=='undefined'&&window[s].getTargeting('al')[0]=='1039'){window.__ezsbwcmd=window.__ezsbwcmd||[];var sr=[window[s]];window.__ezsbwcmd.push(function(){if(typeof __ezcnxPlayer==='undefined'||!__ezcnxPlayer.getSize()){googletag.pubads().refresh(sr);}else{__ezcnxPlayer.once('removed',function(){googletag.pubads().refresh(sr);});}});continue;}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(x){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh(x);}else{setTimeout(function(){ezChkWfhb(x);},50);}}
+ezChkWfhb([window[s]]);}
+else{googletag.pubads().refresh([window[s]]);}}});};function __ez_fad_csnt(){return document.cookie.indexOf('ezCMPCookieConsent')!==-1||typeof __ez_conestreq==='undefined';}
+function __ez_fad_rdy(){var h=document.documentElement.scrollHeight;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(document.body!==null&&(__ez_fad_haspo===false&&h>vh||__ez_fad_hascp||document.readyState==='complete')){return true;}}
+function __ez_fad_position(id){if(__ez.fads.loaded){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.fadcount++;var did=document.getElementById(id);if(did===null){return;}
+var rect=did.getBoundingClientRect();var vs=window.scrollY||document.body.scrollTop||document.documentElement.scrollTop;var vh=vs+window.screen.height;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(rect.top>=vh){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.divs[0].push(id);__ez.fads.divsd.push(id);if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_display(id);}
+function __ez_fad_display(id){if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_gpt();if(__ez_fad_floating.indexOf(id)!==-1){setTimeout(__ez.fads.__ez_fad_floatshow,0);return;}
+googletag.cmd.push(function(){var sn=__ez.fads.initslots[id](0);if(!sn){return;}
+var s=window[sn];googletag.display(id);if(typeof window.ezasBuild==='function'){if(window.ezasBuild(s)){return;}}
+if(typeof window.adjustHbValues==='function'){window.adjustHbValues(s);}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh([s]);}
+else{setTimeout(ezChkWfhb,50);}}
+ezChkWfhb();}
+else{if(typeof window.ezptlog!=='undefined'&&window.ezptlog===true){window.ezPerform=window.ezPerform||{};window.ezPerform.fadsSlotRefreshCalled=window.ezPerform.fadsSlotRefreshCalled||[];window.ezPerform.fadsSlotRefreshCalled.push(performance.now());}
+googletag.pubads().refresh([s]);}});}
+function ezSetTargetingFromMap(slot,obj){if(typeof slot==='undefined'){return;}
+for(var key in obj){if(!obj.hasOwnProperty(key)){continue;}
+slot.setTargeting(key,obj[key]);}}
+function ezSetSlotTargeting(divid,key,value){var slot=ezGetSlotById(divid);if(slot){slot.setTargeting(key,value);}else{if(typeof __ez.fads.kvStore[divid]==='undefined'){__ez.fads.kvStore[divid]={};}
+__ez.fads.kvStore[divid][key]=value;}}
+function ezGetSlotById(id){if(typeof window.ezslots==='undefined'||window.ezslots==0){return;}
+for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var slotId=slot.getSlotElementId();if(typeof slotId!=='undefined'&&slotId==id){return slot;}}}
+function __ez_close_anchor(){googletag.cmd.push(function(slot){for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var alS=slot.getTargeting('al')[0]%1000;if(alS==5){googletag.destroySlots([slot]);}}
+if(typeof window.ezdomain!=='undefined'){var d=new Date();d.setTime(d.getTime()+(2*60*60*1000));var expires="expires="+d.toGMTString();var cookie="ez_anchor_closed=true;domain=."+ezdomain+';'+expires+"; path=/";document.cookie=cookie;}
+if(typeof(__ez_set_outstream_floor)!=='undefined'){__ez_set_outstream_floor(0);}
+var anchor=document.getElementById('ezmobfooter');if(!anchor){return;}
+anchor.innerHTML='';anchor.style.paddingTop=0;var styleElement=document.getElementById('ezoicCSS');if(!styleElement){return;}
+var cert=document.getElementById('ezoic-certification-fixed');if(cert){cert.style.bottom='15px';}
+var styles=styleElement.sheet?styleElement.sheet:styleElement.styleSheet;for(var i=0;i<styles.cssRules.length;i++){var rules=styles.cssRules[i];if(rules.selectorText==='body'&&rules.style.height==='auto'&&(rules.style.paddingTop!==''||rules.style.paddingBottom!=='')){styles.deleteRule(i);}}});}</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.isEZABL=false;window.ezmadspc=300;window.ezoViewCheck=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezDisableInitialLoad=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezogetbrkey = function(s){ var k = 'br1';var k2 = 'eb_br';if(window.ezogtk == ""){k='br1u';k2='eb_bru';}else if(window.ezogtk != "NT"){k='br1t';k2='eb_brt';} s.setTargeting('br1', s.getTargeting(k));s.setTargeting('eb_br', s.getTargeting(k2));};googletag.cmd.push(function() {ezslot_interstitial = googletag.defineOutOfPageSlot('/1254144,21625046521/wikichip_org-pixel1',googletag.enums.OutOfPageFormat.INTERSTITIAL); if(ezslot_interstitial != null) {ezslot_interstitial.addService(googletag.pubads()).setTargeting('avc', '256').setTargeting('eb_br', '76163170a8636ae5b88417f095893e08').setTargeting('br1', '400').setTargeting('ic', '1').setTargeting('ezoic', '1').setTargeting('d', '86609').setTargeting('reft', 'n').setTargeting('iid1', '6624262499764300').setTargeting('bvr', '0').setTargeting('ap', '9999').setTargeting('al', '1006').setTargeting('br2', '260').setTargeting('ga', '2497208').setTargeting('tap', 'wikichip_org-pixel1-6624262499764300').setTargeting('bra', 'mod1');}
+			googletag.pubads().enableSingleRequest();googletag.pubads().addEventListener('slotRenderEnded', function(event) { __ez.queue.addFunc("ezbanger", "ezbanger", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('impressionViewable', function(event) { __ez.queue.addFunc("ezvb", "ezvb", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotResponseReceived', function(event) { __ez.queue.addFunc("ezsr", "ezsr", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotRequested', function(e) { window.ezsrqt[e.slot.getSlotElementId()] = Date.now();});googletag.pubads().disableInitialLoad();googletag.pubads().enableLazyLoad({fetchMarginPercent: 400, renderMarginPercent: 150, mobileScaling: 2.0});googletag.enableServices();});window.ezoll = false;window.ezoadxnc = '1254144';window.ezoadhb = '400';var ezaxmns={};var ezaucmns={};
+
+		var __ez_fad_floating = [];
+		var __ez_fad_gptd = __ez_fad_gptd || false;var __ez_fad_ezpbinitd = false;var __ez_fad_pbt = setTimeout(function(){__ez_fad_pb();},5000);function __ez_fad_gpt(){if(__ez_fad_gptd == false){__ez_fad_gptd=true;!function(){var t=document.createElement("script");t.async=!0,t.type="text/javascript";var e="https:"==document.location.protocol;t.src=(e?"https:":"http:")+"//securepubads.g.doubleclick.net/tag/js/gpt.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(t,c)}();}}function __ez_fad_pb(){if(__ez_fad_ezpbinitd==false && typeof __ez_fad_ezpbinit == 'function'){__ez_fad_ezpbinitd = true;__ez_fad_ezpbinit()}};
+		
+	function __ez_init_slot(bvr, did, slotNum, defineFunc) {
+		googletag.cmd.push(function() {
+			defineFunc();
+			ezrpos[slotNum]=slotNum;
+			ezslots.push("ezslot_" + slotNum);
+			if(__ez.fads.kvStore[did] !== 'undefined') {
+				for (var name in __ez.fads.kvStore[did]) {
+					if (!__ez.fads.kvStore.hasOwnProperty(name)) {
+						ezSetSlotTargeting(did, name, __ez.fads.kvStore[did][name]);
+					}
+				}
+				__ez.fads.kvStore[did] = {};
+			}
+		});return "ezslot_" + slotNum;
+	}
+__ez.fads.initslots['div-gpt-ad-wikichip_org-medrectangle-1-0'] = function(bvr){
+				var defScript = function() {ezslot_3 = googletag.defineSlot('/1254144,21625046521/wikichip_org-medrectangle-1',[[580,400],[970,90],[234,60],[300,250],[320,50],[468,60],[120,240],[200,200],[970,250],[180,150],[125,125],[728,90],[250,250],[320,100],['fluid']],'div-gpt-ad-wikichip_org-medrectangle-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_3_raw = {'a':'1','iid1':'8424700127822113','eid':'8424700127822113','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1127','sap':'1127','a':'|0|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'399','ezosn':'3','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'4','al':'1004','compid':'0','tap':'wikichip_org-medrectangle-1-8424700127822113','eb_br':'43aa1607a0c08c74b14a9039e7b909b4','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'182','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'220','br2':'120','ezoic':'1','nmau':'0','mau':'0','stl':[83,63,120,67,51,63,66,71,0,30,64,31,901,902,903],'deal1':[20,21,22,23,24,25,26,27,815,817,899,919,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,3682,3683,3684,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,9,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_3_raw);ezSetTargetingFromMap(ezslot_3,ezslot_3_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-medrectangle-1-0',3, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-box-2-0'] = function(bvr){
+				var defScript = function() {ezslot_1 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-2',[728,90],'div-gpt-ad-wikichip_org-box-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_1_raw = {'a':'1','iid1':'7474547807764478','eid':'7474547807764478','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1138','sap':'1138','a':'|0|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'399','ezosn':'1','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'1','al':'1001','compid':'0','tap':'wikichip_org-box-2-7474547807764478','eb_br':'57914c3716312cb7e954090f0717ea25','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'182','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'260','br2':'120','ezoic':'1','nmau':'0','mau':'0','stl':[157,14,0,157,0,193,132,20,71,30,192,31,902,903,901,902,903],'deal1':[20,21,22,23,24,25,26,27,28,29,30,760,761,813,815,816,817,818,899,919,2310,2339,2526,2527,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,3682,3683,3684,3933,4184,4185,4186,4604,4605,3676,3676,774,9,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_1_raw);ezSetTargetingFromMap(ezslot_1,ezslot_1_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-box-2-0',1, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-box-3-0'] = function(bvr){
+				var defScript = function() {ezslot_0 = googletag.defineSlot('/1254144,21625046521/wikichip_org-box-3',[300,250],'div-gpt-ad-wikichip_org-box-3-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_0_raw = {'a':'1','iid1':'6925271895784009','eid':'6925271895784009','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1170','sap':'1170','a':'|0|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'399','ezosn':'0','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'2','al':'1002','compid':'0','tap':'wikichip_org-box-3-6925271895784009','eb_br':'43aa1607a0c08c74b14a9039e7b909b4','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'182','shp':'1','ftsn':'12','ftsng':'12','br1':'220','br2':'120','ezoic':'1','nmau':'0','mau':'0','stl':[37,168,0,192,0,168,196,0,192,209,187,0,901,182,901,902,903],'deal1':[20,21,22,23,24,25,26,27,28,29,30,760,761,813,815,816,817,818,819,893,899,903,917,918,919,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,3682,3683,3684,3915,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,9,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_0_raw);ezSetTargetingFromMap(ezslot_0,ezslot_0_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-box-3-0',0, defScript);
+			};__ez.fads.initslots['div-gpt-ad-wikichip_org-large-mobile-banner-1-0'] = function(bvr){
+				var defScript = function() {ezslot_2 = googletag.defineSlot('/1254144,21625046521/wikichip_org-large-mobile-banner-1',[300,250],'div-gpt-ad-wikichip_org-large-mobile-banner-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_2_raw = {'a':'1','iid1':'4208358915750625','eid':'4208358915750625','t':'134','d':'86609','t1':'134','pvc':'0','ap':'1192','sap':'1192','a':'|0|','as':'revenue','plat':'1','bra':'mod1','ic':'1','at':'mbf','adr':'399','ezosn':'2','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'722','al':'1722','compid':'0','tap':'wikichip_org-large-mobile-banner-1-4208358915750625','eb_br':'c16fac08e79a971524b1c6834f5caad3','eba':'1','ebss':[10017,10082,10061,10063,11304,11307],'asau':'5322637655','bv':'20','bvm':'0','bvr':'10','avc':'182','shp':'3','ftsn':'12','ftsng':'12','br1':'280','br2':'140','ezoic':'1','nmau':'0','mau':'0','stl':[83,193,0,157,0,193,66,20,71,30,192,31,902,903,901,902,903],'deal1':[20,21,22,23,24,25,26,27,28,29,760,761,815,816,817,818,899,919,2310,2339,2526,2527,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3919,3933,4184,4185,4186,4604,4605,3676,3676,774,9,10,11,12,13,14,15,16,3161],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_2_raw);ezSetTargetingFromMap(ezslot_2,ezslot_2_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-wikichip_org-large-mobile-banner-1-0',2, defScript);
+			};</script>
+<script type="text/javascript">(function(){function storageAvailable(type){var storage;try{storage=window[type];var x='__storage_test__';storage.setItem(x,x);storage.removeItem(x);return true;}
+catch(e){return e instanceof DOMException&&(e.code===22||e.code===1014||e.name==='QuotaExceededError'||e.name==='NS_ERROR_DOM_QUOTA_REACHED')&&(storage&&storage.length!==0);}}
+function remove_ama_config(){if(storageAvailable('localStorage')){localStorage.removeItem("google_ama_config");}}
+remove_ama_config()})()</script>
+<script type="text/javascript">var ezoicTestActive = true</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ab_test_id":"mod1","ad_cache_level":1,"ad_count_adjustment":1,"ad_lazyload_version":4,"ad_load_version":1,"ad_location_ids":"6,2,1,722,4","adx_ad_count":5,"bidder_method":1,"bidder_version":4,"city":"Montreal","country":"CA","days_since_last_visit":-1,"display_ad_count":4,"domain_id":86609,"domain_test_group":20230808,"ds_adsize_opt_id":-1,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"iab_category":"","iab_category_0":"596","is_from_recommended_pages":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"max_ads":10,"metro_code":0,"optimization_version":1,"page_ad_positions":"1006,1127,1138,1170,1192","page_view_count":0,"page_view_id":"c1e0389d-cdbf-43f6-5306-bc39dd838b07","position_selection_id":46,"postal_code":"H3A","pv_event_count":0,"response_size_orig":65566,"response_time_orig":1061,"serverid":"i-0a45ccc01e951a427","state":"QC","sub_page_ad_positions":"1006,1127,1138,1170,1192","t_epoch":1687143563,"template_id":134,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/pezy/pezy-scx","user_id":0,"word_count":1326,"worst_bad_word_level":0};var _ezim_d = {"wikichip_org-box-2":{"adsense_stat_source_id":5,"adx_ad_count":5,"adx_stat_source_id":35,"full_id":"wikichip_org-box-2/2023-06-18/7474547807764478","height":"90","position_id":1138,"sub_position_id":1138,"width":"728"},"wikichip_org-box-3":{"adsense_stat_source_id":5,"adx_ad_count":5,"adx_stat_source_id":35,"full_id":"wikichip_org-box-3/2023-06-18/6925271895784009","height":"250","position_id":1170,"sub_position_id":1170,"width":"300"},"wikichip_org-large-mobile-banner-1":{"adsense_stat_source_id":5,"adx_ad_count":5,"adx_stat_source_id":35,"full_id":"wikichip_org-large-mobile-banner-1/2023-06-18/4208358915750625","height":"250","position_id":1192,"sub_position_id":1192,"width":"300"},"wikichip_org-medrectangle-1":{"adsense_stat_source_id":5,"adx_ad_count":5,"adx_stat_source_id":35,"full_id":"wikichip_org-medrectangle-1/2023-06-18/8424700127822113","height":"400","position_id":1127,"sub_position_id":1127,"width":"580"},"wikichip_org-pixel1":{"adsense_stat_source_id":5,"adx_ad_count":5,"adx_stat_source_id":35,"full_id":"wikichip_org-pixel1/2023-06-18/6624262499764300","height":"3","position_id":1006,"sub_position_id":1006,"width":"3"}};var _ezat = {"domain_id":86609,"form_factor_id":1,"framework_id":1,"pageview_date":"2023-06-18","pageview_id":"c1e0389d-cdbf-43f6-5306-bc39dd838b07","template_id":134,"url":"https://en.wikichip.org/wiki/pezy/pezy-scx","visit_uuid":"d744c893-5dd3-4063-6a36-d9451e9aa15f"};</script><script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('banger.js', '/porpoiseant/banger.js?cb=195-3&bv=232&v=74&PageSpeed=off', true, [], true, false, false, true);</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer></script>
+
+<title>PEZY-SCx - PEZY - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"pezy/pezy-scx","wgTitle":"pezy/pezy-scx","wgCurRevisionId":90651,"wgRevisionId":90651,"wgArticleId":26203,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["all microprocessor families","supercomputing in japan"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"pezy/pezy-scx","wgRelevantArticleId":26203,"wgRequestId":"af19f8cf32bac3e06892513e","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="pezy/pezy-scx" href="/w/index.php?title=Special:ExportRDF/pezy/pezy-scx&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=pezy/pezy-scx&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=pezy/pezy-scx&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="PEZY-SCx - PEZY - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="PEZY-SCx (PEZY-SuperComputerx) is a family of many-core microprocessors designed by PEZY. Those processors power many of Japan&#39;s most efficient supercomputers."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<style id='ezoicCSS'>.ezoic-at-0{min-height:250px;margin-right:0px !important;max-width:100% !important;padding:0;line-height:0px;margin-bottom:15px !important;margin-top:15px !important;margin-left:0px !important;}
+.ezoic-ad.box-2138{margin-bottom:10px !important;display:inline-block;min-width:728px;min-height:90px;margin-top:10px !important;float:right !important;}
+.ezoic-ad.box-3170{float:none !important;min-width:300px;display:block !important;text-align:left !important;}
+.ezoic-ad.large-mobile-banner-1192{text-align:right !important;display:block !important;min-width:300px;float:right !important;}
+.ezoic-ad.medrectangle-1127{margin-left:auto !important;display:block !important;margin-right:auto !important;text-align:center !important;min-width:970px;float:none !important;}
+.ezoic-ad{display:inline-block;border:0px;}.ezoic-ad>div>iframe{margin:0px!important;padding:0px!important;}
+.ezoic-floating-bottom { display: none!important; }</style><script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/pezy/pezy-scx"><script type='text/javascript'>
+var ezoTemplate = 'pub_site';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["c1e0389d-cdbf-43f6-5306-bc39dd838b07", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+<script type="text/javascript">var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-3&cb=04-3y02-8y06-13y07-2y0b-6y0d-23y17-4y1b-5y25-3y33-4y3a-12y3b-6y59-2y64-1&cmbcb=148&sj=x04x02x06x07x0bx0dx17x1bx25x33x3ax3bx59x64', true, [], true, false, true, false);</script>
+<script type="text/javascript" defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-3&cb=03-8y0c-6y1c-5&cmbcb=148&sj=x03x0cx1c', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-pezy_pezy-scx rootpage-pezy skin-WikiChip2 action-view"><script>var ezAardvarkDetected;function ezDetectAardvark(){if(typeof __ez!=='undefined'&&typeof __ez.bit!=='undefined'){let bait=document.createElement("div");bait.className="textads banner-ads banner_ads ad-unit ad-zone ad-space adsbox";bait.style.height="1px";document.body.appendChild(bait);let baitOffsetHeight=bait.offsetHeight;if(typeof window["_ezaq"]!="undefined"){if(baitOffsetHeight){ezAardvarkDetected=false;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',false))]);}
+else{ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}
+var observer=new MutationObserver(function(e){if(e[0].removedNodes){ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}});}
+if(typeof observer!='undefined'){observer.observe(bait,{childList:true,attributes:true});}}}
+window.addEventListener('load',(e)=>{ezDetectAardvark();});</script>
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<span id="ezoic-pub-ad-placeholder-138"></span><span class="ezoic-ad ezoic-at-0 box-2 box-2138 adtester-container adtester-container-138" data-ez-name="wikichip_org-box-2"><span id="div-gpt-ad-wikichip_org-box-2-0" ezaw="728" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[728,90],'wikichip_org-box-2','ezslot_1',138,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-box-2-0');</script></span></span>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/pezy/pezy-scx">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:pezy/pezy-scx"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=pezy/pezy-scx&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=pezy%2Fpezy-scx"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/pezy/pezy-scx"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/pezy/pezy-scx"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=pezy/pezy-scx&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=pezy/pezy-scx&amp;oldid=90651"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=pezy/pezy-scx&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:pezy-2Fpezy-2Dscx"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    PEZY-SCx - PEZY    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/pezy" title="pezy">pezy</a></span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table style="border: solid 1px #e5e5ff; width: 325px; float: right; margin: 0 10px 10px 10px; text-align: left; font-size: 12px;">
+<tbody><tr>
+<td style="text-align: center; background: #CEE3F6; font-size: 16px;" colspan="2"> <b>PEZY-SCx</b>
+<div></div>
+<div></div> 
+</td></tr>
+<tr>
+<td style="text-align: center; font-size: 12px;" colspan="2">
+<div></div>
+<div></div> 
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Developer</b> </td>
+<td style="text-align:left;"> PEZY Computing
+</td></tr>
+<tr>
+<td> <b>Manufacturer</b> </td>
+<td> TSMC
+</td></tr>
+<tr>
+<td> <b>Type</b> </td>
+<td> Microprocessors
+</td></tr>
+<tr>
+<td> <b>Introduction</b> </td>
+<td> 2014 (announced)<br/>2014 (launch)
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Architecture</b> </td>
+<td> Many-core architecture
+<div></div>
+<div></div>
+<div></div>
+</td></tr>
+<tr>
+<td> <b>Process</b> </td>
+<td> <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.028&amp;#160;μm 2.8e-5&amp;#160;mm "><span class="smwtext">28 nm</span><div class="smwttcontent">0.028 μm <br/>2.8e-5 mm <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.016&amp;#160;μm 1.6e-5&amp;#160;mm "><span class="smwtext">16 nm</span><div class="smwttcontent">0.016 μm <br/>1.6e-5 mm <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.007&amp;#160;μm 7.0e-6&amp;#160;mm "><span class="smwtext">7 nm</span><div class="smwttcontent">0.007 μm <br/>7.0e-6 mm <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.005&amp;#160;μm 5.0e-6&amp;#160;mm "><span class="smwtext">5 nm</span><div class="smwttcontent">0.005 μm <br/>5.0e-6 mm <br/></div></span>
+</td></tr>
+<tr>
+<td> <b>Technology</b> </td>
+<td> CMOS
+</td></tr>
+<tr>
+<td> <b>Clock</b> </td>
+<td> 733 MHz-1,600 MHz
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</td></tr></tbody></table>
+<p><b>PEZY-SCx</b> (<b>PEZY-S</b>uper<b>C</b>omputer<b>x</b>) is a family of <a href="/wiki/many-core_microprocessor" title="many-core microprocessor">many-core microprocessors</a> designed by <a href="/wiki/PEZY" class="mw-redirect" title="PEZY">PEZY</a>. Those processors power many of <a href="/wiki/Japan" class="mw-redirect" title="Japan">Japan</a>&#39;s most efficient supercomputers.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Architecture"><span class="tocnumber">1.1</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Processing_Element_.28PE.29"><span class="tocnumber">1.1.1</span> <span class="toctext">Processing Element (PE)</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Village_.26_City"><span class="tocnumber">1.1.2</span> <span class="toctext">Village &amp; City</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Models"><span class="tocnumber">2</span> <span class="toctext">Models</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#1st_generation"><span class="tocnumber">2.1</span> <span class="toctext">1st generation</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#2nd_generation"><span class="tocnumber">2.2</span> <span class="toctext">2nd generation</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#future_generations"><span class="tocnumber">2.3</span> <span class="toctext">future generations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Summary"><span class="tocnumber">3</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Bibliography"><span class="tocnumber">5</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-170" class="ezoic-adpicker-ad"></span><span class="ezoic-ad ezoic-at-0 box-3 box-3170 adtester-container adtester-container-170" data-ez-name="wikichip_org-box-3"><span id="div-gpt-ad-wikichip_org-box-3-0" ezaw="300" ezah="250" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:250px;min-width:300px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[300,250],'wikichip_org-box-3','ezslot_0',170,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-box-3-0');</script></span></span>
+<p>PEZY-SCx is a family of high-performance, low-power many-core microprocessors designed by <a href="/wiki/PEZY" class="mw-redirect" title="PEZY">PEZY</a> for a series of supercomputer developed in <a href="/wiki/Japan" class="mw-redirect" title="Japan">Japan</a>. PEZY collaborates closely with ExaScaler, a company that provides immersion cooling systems. Together, they have developed a series of supercomputers called <a href="/wiki/ZettaScaler" class="mw-redirect" title="ZettaScaler">ZettaScaler</a>.
+</p>
+<h3><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=2" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The basic architecture of all the PEZY-SCx chips is fairly similar. At the heart is the Processing Element. Depending on the model, 1000s of those PEs are then integrated on a single <a href="/wiki/die" title="die">die</a>.
+</p><span id="ezoic-pub-ad-placeholder-160" class="ezoic-adpicker-ad"></span><p>The PEZY-SCx are designed as accelerators, that is, the a host processor (typically an <a href="/wiki/Intel" class="mw-redirect" title="Intel">Intel</a> <a href="/wiki/intel/xeon_e5" title="intel/xeon e5">Xeon E5</a>) off-loads the PEZY-SC code to execute. Those chips support OpenCL-like programming called PZCL.
+</p>
+<h4><span class="mw-headline" id="Processing_Element_.28PE.29">Processing Element (PE)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=3" title="Edit section: Processing Element (PE)">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="floatright"><a href="/wiki/File:pezy-sc_pe.svg" class="image"><img alt="pezy-sc pe.svg" src="/w/images/thumb/1/1c/pezy-sc_pe.svg/200px-pezy-sc_pe.svg.png" width="200" height="272" srcset="/w/images/thumb/1/1c/pezy-sc_pe.svg/300px-pezy-sc_pe.svg.png 1.5x, /w/images/thumb/1/1c/pezy-sc_pe.svg/400px-pezy-sc_pe.svg.png 2x"/></a></div>
+<p>The <a href="/wiki/physical_core" title="physical core">cores</a> are called the <b>processing elements</b> (<b>PE</b>). The PEs are designed to be very simple <a href="/w/index.php?title=RISC&amp;action=edit&amp;redlink=1" class="new" title="RISC (page does not exist)">RISC</a> cores that are confgured as <a href="/w/index.php?title=MIMD&amp;action=edit&amp;redlink=1" class="new" title="MIMD (page does not exist)">MIMD</a> although in principle each PE can run different workloads. Each PE is a 16-stage <a href="/w/index.php?title=in-order&amp;action=edit&amp;redlink=1" class="new" title="in-order (page does not exist)">in-order</a> <a href="/w/index.php?title=superscalar&amp;action=edit&amp;redlink=1" class="new" title="superscalar (page does not exist)">superscalar</a> capable of issuing two instructions per cycle with <a href="/w/index.php?title=out-of-order&amp;action=edit&amp;redlink=1" class="new" title="out-of-order (page does not exist)">out-of-order</a> completion whenever possible supporting 8-way fine-grain <a href="/w/index.php?title=simultaneous_multithreading&amp;action=edit&amp;redlink=1" class="new" title="simultaneous multithreading (page does not exist)">simultaneous multithreading</a>. A processing element supports 8-way SMT with dedicated register files for each thread. Threads are are interleaved each cycle with switching done to reduce <a href="/w/index.php?title=forwarding&amp;action=edit&amp;redlink=1" class="new" title="forwarding (page does not exist)">forwarding</a> and in order mitigate the lack of <a href="/w/index.php?title=branch_prediction&amp;action=edit&amp;redlink=1" class="new" title="branch prediction (page does not exist)">branch prediction</a>. Explicit switching of active threads is also done in order to hide high latency operations. 
+</p><p>The instruction set architecture implemented is a proprietary one designed by PEZY. The instruction set supports various operations such as data flashing, synchronization, acquisition of IDs, and thread switching. Each PE has an ID which is used by the code to track processes. The PEs do not maintain <a href="/w/index.php?title=cache-coherency&amp;action=edit&amp;redlink=1" class="new" title="cache-coherency (page does not exist)">cache-coherency</a> and there is no per-PE <a href="/w/index.php?title=data_cache&amp;action=edit&amp;redlink=1" class="new" title="data cache (page does not exist)">data cache</a>. Complex instructions are processed by the Special Function Units (SFU) located in each city. A fair amount of sacrifices were made in order to ensure the cores remain small enough so that a large amount of them can be packed into a small area
+</p>
+<h4><span class="mw-headline" id="Village_.26_City">Village &amp; City</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=4" title="Edit section: Village &amp; City">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>For every pair of PEs is 2 KiB of <a href="/w/index.php?title=level_1_data_cache&amp;action=edit&amp;redlink=1" class="new" title="level 1 data cache (page does not exist)">level 1 data cache</a>. Each <b>City</b> is made of 64 KiB of <a href="/w/index.php?title=L2_cache&amp;action=edit&amp;redlink=1" class="new" title="L2 cache (page does not exist)">L2 cache</a>, a number of special function units, and 4 smaller blocks called &#34;Villages&#34;. A <b>village</b> consists of four processing elements. Each city also contains a Special Function Unit (SFU) which is used to execute complex instructions.
+</p>
+<dl><dd><dl><dd><a href="/wiki/File:pezy-sc_city.svg" class="image"><img alt="pezy-sc city.svg" src="/w/images/thumb/2/27/pezy-sc_city.svg/450px-pezy-sc_city.svg.png" width="450" height="309" srcset="/w/images/thumb/2/27/pezy-sc_city.svg/675px-pezy-sc_city.svg.png 1.5x, /w/images/thumb/2/27/pezy-sc_city.svg/900px-pezy-sc_city.svg.png 2x"/></a></dd></dl></dd></dl>
+<h2><span class="mw-headline" id="Models">Models</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=5" title="Edit section: Models">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The origin of the PEZY-SCx family is the <a href="/wiki/pezy/pezy-1" title="pezy/pezy-1">PEZY-1</a>, a 512-core chip.
+</p>
+<h3><span class="mw-headline" id="1st_generation">1st generation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=6" title="Edit section: 1st generation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>Main article: <a href="/wiki/pezy/pezy-scx/pezy-sc" title="pezy/pezy-scx/pezy-sc">PEZY-SC</a></i></dd></dl>
+<p>The first series of supercomputers, <a href="/wiki/ZettaScaler#ZettaScaler-1.x" class="mw-redirect" title="ZettaScaler">ZettaScaler-1.x</a>, were based on the <a href="/wiki/pezy/pezy-sc" class="mw-redirect" title="pezy/pezy-sc">PEZY-SC</a>. The <a href="/wiki/pezy/pezy-sc" class="mw-redirect" title="pezy/pezy-sc">PEZY-SC</a> featured four &#34;Prefecture&#34;, each consisting of 16 cities for a total of 256 PEs per Prefecture along with 2 MiB of <a href="/w/index.php?title=L3_cache&amp;action=edit&amp;redlink=1" class="new" title="L3 cache (page does not exist)">L3 cache</a>. This chip had four such Prefecture units for a total of 1,024 <a href="/wiki/physical_core" title="physical core">cores</a> and 8,192 <a href="/w/index.php?title=logical_cores&amp;action=edit&amp;redlink=1" class="new" title="logical cores (page does not exist)">threads</a>. Operating at 733 MHz, this chip was capable of 3 TFLOPS (<a href="/w/index.php?title=single-precision&amp;action=edit&amp;redlink=1" class="new" title="single-precision (page does not exist)">single-precision</a>) and 1.5 TFLOPS (<a href="/w/index.php?title=double-precision&amp;action=edit&amp;redlink=1" class="new" title="double-precision (page does not exist)">double-precision</a>). A number of signal-related issues particularly relating to PCIe signal failure were addressed by PEZY with the introduction of the <a href="/wiki/pezy/pezy-scnp" class="mw-redirect" title="pezy/pezy-scnp">PEZY-SCnp</a> which made use of a new package (&#34;np&#34;). The PEZY-SCnp, while identical to the earlier model does feature slightly higher clock resulted in slightly higher peak performance. 
+</p><p><br/>
+</p>
+<dl><dd> <a href="/wiki/File:pezy-sc_main_block.svg" class="image"><img alt="pezy-sc main block.svg" src="/w/images/thumb/4/43/pezy-sc_main_block.svg/600px-pezy-sc_main_block.svg.png" width="600" height="237" srcset="/w/images/thumb/4/43/pezy-sc_main_block.svg/900px-pezy-sc_main_block.svg.png 1.5x, /w/images/thumb/4/43/pezy-sc_main_block.svg/1200px-pezy-sc_main_block.svg.png 2x"/></a></dd></dl>
+<h3><span class="mw-headline" id="2nd_generation">2nd generation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=7" title="Edit section: 2nd generation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><i>Main article: <a href="/wiki/pezy/pezy-scx/pezy-sc2" title="pezy/pezy-scx/pezy-sc2">PEZY-SC2</a></i></dd></dl>
+<p>The second series of supercomputers, <a href="/wiki/ZettaScaler#ZettaScaler-2.x" class="mw-redirect" title="ZettaScaler">ZettaScaler-2.x</a>, were based on the <a href="/wiki/pezy/pezy-sc2" class="mw-redirect" title="pezy/pezy-sc2">PEZY-SC2</a>.
+</p>
+<dl><dd> <a href="/wiki/File:pezy-sc2_main_block.svg" class="image"><img alt="pezy-sc2 main block.svg" src="/w/images/thumb/4/40/pezy-sc2_main_block.svg/600px-pezy-sc2_main_block.svg.png" width="600" height="236" srcset="/w/images/thumb/4/40/pezy-sc2_main_block.svg/900px-pezy-sc2_main_block.svg.png 1.5x, /w/images/thumb/4/40/pezy-sc2_main_block.svg/1200px-pezy-sc2_main_block.svg.png 2x"/></a></dd></dl>
+<h3><span class="mw-headline" id="future_generations">future generations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=8" title="Edit section: future generations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>PEZY has laid out future generations based on <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>&#39;s <a href="/wiki/7nm" class="mw-redirect" title="7nm">7nm</a> and <a href="/wiki/5nm" class="mw-redirect" title="5nm">5nm</a> processes.
+</p>
+<h2><span class="mw-headline" id="Summary">Summary</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=9" title="Edit section: Summary">edit</a><span class="mw-editsection-bracket">]</span></span></h2><span id="ezoic-pub-ad-placeholder-192" class="ezoic-adpicker-ad"></span><span class="ezoic-ad ezoic-at-0 large-mobile-banner-1 large-mobile-banner-1192 adtester-container adtester-container-192" data-ez-name="wikichip_org-large-mobile-banner-1"><span id="div-gpt-ad-wikichip_org-large-mobile-banner-1-0" ezaw="300" ezah="250" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:250px;min-width:300px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[300,250],'wikichip_org-large-mobile-banner-1','ezslot_2',192,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-large-mobile-banner-1-0');</script></span></span>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc4">
+<tbody><tr class="comptable-header"><th> </th><th colspan="8">List of PEZY-SCx Processors</th></tr>
+<tr class="comptable-header"><th> </th><th colspan="5">Main Features</th><th colspan="3">Performance</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Process</th><th>Launched</th><th>Cores</th><th>Threads</th><th>Die</th><th data-sort-type="number">Frequency</th><th>FLOPS (SP)</th><th>FLOPS (DP)</th></tr>
+<tr><td><a href="/wiki/pezy/pezy-scx/pezy-sc4" title="pezy/pezy-scx/pezy-sc4">PEZY-SC4</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.005&amp;#160;μm 5.0e-6&amp;#160;mm"><span class="smwtext">5 nm</span><div class="smwttcontent">0.005 μm <br/>5.0e-6 mm <br/></div></span></td><td>2020</td><td>16,384</td><td>131,072</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.147&amp;#160;in² 7.4&amp;#160;cm² 740,000,000&amp;#160;µm²"><span class="smwtext">740 mm²</span><div class="smwttcontent">1.147 in² <br/>7.4 cm² <br/>740,000,000 µm² <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.6&amp;#160;GHz 1,600,000&amp;#160;kHz"><span class="smwtext">1,600 MHz</span><div class="smwttcontent">1.6 GHz <br/>1,600,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="104,857,600,000,000&amp;#160;FLOPS 104,857,600,000&amp;#160;KFLOPS 104,857,600&amp;#160;MFLOPS 104,857.6&amp;#160;GFLOPS 0.105&amp;#160;PFLOPS"><span class="smwtext">104.858 TFLOPS</span><div class="smwttcontent">104,857,600,000,000 FLOPS <br/>104,857,600,000 KFLOPS <br/>104,857,600 MFLOPS <br/>104,857.6 GFLOPS <br/>0.105 PFLOPS <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="52,428,800,000,000&amp;#160;FLOPS 52,428,800,000&amp;#160;KFLOPS 52,428,800&amp;#160;MFLOPS 52,428.8&amp;#160;GFLOPS 0.0524&amp;#160;PFLOPS"><span class="smwtext">52.429 TFLOPS</span><div class="smwttcontent">52,428,800,000,000 FLOPS <br/>52,428,800,000 KFLOPS <br/>52,428,800 MFLOPS <br/>52,428.8 GFLOPS <br/>0.0524 PFLOPS <br/></div></span></td></tr><tr><td><a href="/wiki/pezy/pezy-scx/pezy-sc3" title="pezy/pezy-scx/pezy-sc3">PEZY-SC3</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.007&amp;#160;μm 7.0e-6&amp;#160;mm"><span class="smwtext">7 nm</span><div class="smwttcontent">0.007 μm <br/>7.0e-6 mm <br/></div></span></td><td>2019</td><td>8,192</td><td>65,536</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.085&amp;#160;in² 7&amp;#160;cm² 700,000,000&amp;#160;µm²"><span class="smwtext">700 mm²</span><div class="smwttcontent">1.085 in² <br/>7 cm² <br/>700,000,000 µm² <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1.333&amp;#160;GHz 1,333,333&amp;#160;kHz"><span class="smwtext">1,333.333 MHz</span><div class="smwttcontent">1.333 GHz <br/>1,333,333 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="43,690,666,655,744&amp;#160;FLOPS 43,690,666,655.744&amp;#160;KFLOPS 43,690,666.656&amp;#160;MFLOPS 43,690.667&amp;#160;GFLOPS 0.0437&amp;#160;PFLOPS"><span class="smwtext">43.691 TFLOPS</span><div class="smwttcontent">43,690,666,655,744 FLOPS <br/>43,690,666,655.744 KFLOPS <br/>43,690,666.656 MFLOPS <br/>43,690.667 GFLOPS <br/>0.0437 PFLOPS <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="21,845,333,327,872&amp;#160;FLOPS 21,845,333,327.872&amp;#160;KFLOPS 21,845,333.328&amp;#160;MFLOPS 21,845.333&amp;#160;GFLOPS 0.0218&amp;#160;PFLOPS"><span class="smwtext">21.845 TFLOPS</span><div class="smwttcontent">21,845,333,327,872 FLOPS <br/>21,845,333,327.872 KFLOPS <br/>21,845,333.328 MFLOPS <br/>21,845.333 GFLOPS <br/>0.0218 PFLOPS <br/></div></span></td></tr><tr><td><a href="/wiki/pezy/pezy-scx/pezy-sc2" title="pezy/pezy-scx/pezy-sc2">PEZY-SC2</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.016&amp;#160;μm 1.6e-5&amp;#160;mm"><span class="smwtext">16 nm</span><div class="smwttcontent">0.016 μm <br/>1.6e-5 mm <br/></div></span></td><td>2017</td><td>2,048</td><td>16,384</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.961&amp;#160;in² 6.2&amp;#160;cm² 620,000,000&amp;#160;µm²"><span class="smwtext">620 mm²</span><div class="smwttcontent">0.961 in² <br/>6.2 cm² <br/>620,000,000 µm² <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1&amp;#160;GHz 1,000,000&amp;#160;kHz"><span class="smwtext">1,000 MHz</span><div class="smwttcontent">1 GHz <br/>1,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192,000,000,000&amp;#160;FLOPS 8,192,000,000&amp;#160;KFLOPS 8,192,000&amp;#160;MFLOPS 8,192&amp;#160;GFLOPS 0.00819&amp;#160;PFLOPS"><span class="smwtext">8.192 TFLOPS</span><div class="smwttcontent">8,192,000,000,000 FLOPS <br/>8,192,000,000 KFLOPS <br/>8,192,000 MFLOPS <br/>8,192 GFLOPS <br/>0.00819 PFLOPS <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096,000,000,000&amp;#160;FLOPS 4,096,000,000&amp;#160;KFLOPS 4,096,000&amp;#160;MFLOPS 4,096&amp;#160;GFLOPS 0.0041&amp;#160;PFLOPS"><span class="smwtext">4.096 TFLOPS</span><div class="smwttcontent">4,096,000,000,000 FLOPS <br/>4,096,000,000 KFLOPS <br/>4,096,000 MFLOPS <br/>4,096 GFLOPS <br/>0.0041 PFLOPS <br/></div></span></td></tr><tr><td><a href="/wiki/pezy/pezy-scx/pezy-sc" title="pezy/pezy-scx/pezy-sc">PEZY-SC</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.028&amp;#160;μm 2.8e-5&amp;#160;mm"><span class="smwtext">28 nm</span><div class="smwttcontent">0.028 μm <br/>2.8e-5 mm <br/></div></span></td><td>September 2014</td><td>1,024</td><td>8,192</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.638&amp;#160;in² 4.116&amp;#160;cm² 411,600,000&amp;#160;µm²"><span class="smwtext">411.6 mm²</span><div class="smwttcontent">0.638 in² <br/>4.116 cm² <br/>411,600,000 µm² <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.733&amp;#160;GHz 733,330&amp;#160;kHz"><span class="smwtext">733.33 MHz</span><div class="smwttcontent">0.733 GHz <br/>733,330 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,003,733,331,968&amp;#160;FLOPS 3,003,733,331.968&amp;#160;KFLOPS 3,003,733.332&amp;#160;MFLOPS 3,003.733&amp;#160;GFLOPS 0.003&amp;#160;PFLOPS"><span class="smwtext">3.004 TFLOPS</span><div class="smwttcontent">3,003,733,331,968 FLOPS <br/>3,003,733,331.968 KFLOPS <br/>3,003,733.332 MFLOPS <br/>3,003.733 GFLOPS <br/>0.003 PFLOPS <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,501,866,665,984&amp;#160;FLOPS 1,501,866,665.984&amp;#160;KFLOPS 1,501,866.666&amp;#160;MFLOPS 1,501.867&amp;#160;GFLOPS 0.0015&amp;#160;PFLOPS"><span class="smwtext">1.502 TFLOPS</span><div class="smwttcontent">1,501,866,665,984 FLOPS <br/>1,501,866,665.984 KFLOPS <br/>1,501,866.666 MFLOPS <br/>1,501.867 GFLOPS <br/>0.0015 PFLOPS <br/></div></span></td></tr><tr><td><a href="/wiki/pezy/pezy-scx/pezy-scnp" title="pezy/pezy-scx/pezy-scnp">PEZY-SCnp</a></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.028&amp;#160;μm 2.8e-5&amp;#160;mm"><span class="smwtext">28 nm</span><div class="smwttcontent">0.028 μm <br/>2.8e-5 mm <br/></div></span></td><td>6 May 2016</td><td>1,024</td><td>8,192</td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.767&amp;#160;GHz 766,660&amp;#160;kHz"><span class="smwtext">766.66 MHz</span><div class="smwttcontent">0.767 GHz <br/>766,660 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="3,140,266,663,936&amp;#160;FLOPS 3,140,266,663.936&amp;#160;KFLOPS 3,140,266.664&amp;#160;MFLOPS 3,140.267&amp;#160;GFLOPS 0.00314&amp;#160;PFLOPS"><span class="smwtext">3.14 TFLOPS</span><div class="smwttcontent">3,140,266,663,936 FLOPS <br/>3,140,266,663.936 KFLOPS <br/>3,140,266.664 MFLOPS <br/>3,140.267 GFLOPS <br/>0.00314 PFLOPS <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,570,133,331,968&amp;#160;FLOPS 1,570,133,331.968&amp;#160;KFLOPS 1,570,133.332&amp;#160;MFLOPS 1,570.133&amp;#160;GFLOPS 0.00157&amp;#160;PFLOPS"><span class="smwtext">1.57 TFLOPS</span><div class="smwttcontent">1,570,133,331,968 FLOPS <br/>1,570,133,331.968 KFLOPS <br/>1,570,133.332 MFLOPS <br/>1,570.133 GFLOPS <br/>0.00157 PFLOPS <br/></div></span></td></tr>
+<tr class="comptable-header"><th>Count: 5</th></tr>
+</tbody></table>
+</div></div>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> Intel <a href="/wiki/intel/xeon_phi" title="intel/xeon phi">Xeon Phi</a></li></ul>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=pezy/pezy-scx&amp;action=edit&amp;section=11" title="Edit section: Bibliography">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li> IEEE Cool Chips XVIII Symposium 2015.</li>
+<li> JSICR HPC (2015-HPC-152) &#34;Suiren（睡蓮）による計算科学アプリケーションの性能評価&#34; (Performance evaluation of scientific applications on Suiren System)</li>
+<li> The Fifth International Symposium on Computing and Networking 2017 (CANDAR&#39;17). Keynote address.</li></ul>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:26203-0!*!0!default!!en!5!* and timestamp 20230619025923 and revision id 90651
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=pezy/pezy-scx&amp;oldid=90651">https://en.wikichip.org/w/index.php?title=pezy/pezy-scx&amp;oldid=90651</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:all_microprocessor_families" title="Category:all microprocessor families">all microprocessor families</a></li><li><a href="/wiki/Category:supercomputing_in_japan" title="Category:supercomputing in japan">supercomputing in japan</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:pezy-2Fpezy-2Dscx" title="Special:Browse/:pezy-2Fpezy-2Dscx">PEZY-SCx - PEZY</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/pezy/pezy-scx" title="Special:ExportRDF/pezy/pezy-scx">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">PEZY Computing  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/PEZY-20Computing" title="Special:SearchByProperty/:designer/PEZY-20Computing">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_announced" title="Property:first announced">first announced</a></td><td class="smwprops">2014  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20announced/2014" title="Special:SearchByProperty/:first-20announced/2014">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">2014  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/2014" title="Special:SearchByProperty/:first-20launched/2014">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">pezy/pezy-scx  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/pezy-2Fpezy-2Dscx" title="Special:SearchByProperty/:full-20page-20name/pezy-2Fpezy-2Dscx">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microprocessor family  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microprocessor-20family" title="Special:SearchByProperty/:instance-20of/microprocessor-20family">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:main_designer" title="Property:main designer">main designer</a></td><td class="smwprops">PEZY Computing  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:main-20designer/PEZY-20Computing" title="Special:SearchByProperty/:main-20designer/PEZY-20Computing">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">PEZY-SCx  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/PEZY-2DSCx" title="Special:SearchByProperty/:name/PEZY-2DSCx">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">28 nm (0.028 μm, 2.8e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/28-20nm" title="Special:SearchByProperty/:process/28-20nm">+</a></span>, 16 nm (0.016 μm, 1.6e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/16-20nm" title="Special:SearchByProperty/:process/16-20nm">+</a></span>, 7 nm (0.007 μm, 7.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span> and 5 nm (0.005 μm, 5.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/5-20nm" title="Special:SearchByProperty/:process/5-20nm">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:technology" title="Property:technology">technology</a></td><td class="smwprops">CMOS  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:technology/CMOS" title="Special:SearchByProperty/:technology/CMOS">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<span id="ezoic-pub-ad-placeholder-127"></span><span class="ezoic-ad ezoic-at-0 medrectangle-1 medrectangle-1127 adtester-container adtester-container-127" data-ez-name="wikichip_org-medrectangle-1"><span id="div-gpt-ad-wikichip_org-medrectangle-1-0" ezaw="580" ezah="400" style="position:relative;z-index:0;display:inline-block;padding:0;width:100%;max-width:1200px;margin-left:auto !important;margin-right:auto !important;min-height:250px;min-width:970px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[580,400],'wikichip_org-medrectangle-1','ezslot_3',127,'0','0'])};__ez_fad_position('div-gpt-ad-wikichip_org-medrectangle-1-0');</script></span><span style="width:580px;display:block;height:14px;margin:auto" class="reportline"><span style="text-align:center;font-size:12px !important;font-family: arial!important;float:left;line-height:normal;"><a href="https://www.ezoic.com/what-is-ezoic/" target="_blank" rel="noopener noreferrer nofollow" style="cursor:pointer"><img src="https://go.ezodn.com/utilcave_com/img/ezoic.png" alt="Ezoic" loading="lazy" style="height:12px !important; padding:2px !important; border:0px !important; cursor:pointer !important; width: 58px !important; margin:0 !important; box-sizing: content-box !important;"/></a></span><span class="ez-report-ad-button" name="?pageview_id=c1e0389d-cdbf-43f6-5306-bc39dd838b07&amp;ad_position_id=127&amp;impression_group_id=wikichip_org-medrectangle-1/2023-06-18/8424700127822113&amp;ad_size=580x400&amp;domain_id=86609&amp;url=https://en.wikichip.org/wiki/pezy/pezy-scx" style="cursor: pointer!important; font-size:12px !important;color: #a5a5a5 ;float:right;text-decoration:none !important;font-family:arial !important;line-height:normal;">report this ad</span></span></span>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 9 May 2019, at 09:33.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+ 
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":913});});</script></div>
+<!-- A:IL01 START -->
+<script type="text/javascript"> var infolinks_pid = 3234819; var infolinks_wsid = 0;</script>
+<script type="text/javascript" src="//resources.infolinks.com/js/infolinks%5Fmain.js"></script>
+<!-- A:IL01 END -->
+
+
+
+
+<!--[selectrongo:done]--><script type='text/javascript'>var __ez_rp_opts={activeLayoutTester:!1,isOn:"",showImages:"",theme:"",locations:"",title:"Related Articles on this Site",showSocial:"false",fbURL:"http://www.facebook.com/sharer.php?u=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Fpezy%2Fpezy-scx",twitterURL:"https://twitter.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Fpezy%2Fpezy-scx",gplusURL:"https://plus.google.com/share?url=https%3A%2F%2Fen.wikichip.org%2Fwiki%2Fpezy%2Fpezy-scx",contentURL:"https://en.wikichip.org/wiki/pezy/pezy-scx",swipe:"false"},__ez_rp_script=document.createElement("script");__ez_rp_script.setAttribute("async",""),__ez_rp_script.setAttribute("src","/utilcave_com/apps/js/recommended_pages.js?cb=7"),document.getElementsByTagName("head")[0].appendChild(__ez_rp_script),function(b){var b=b,c=b.document,d=b.screen;b.touchSwipeListener=function(f){var g={startX:0,endX:0},h={moveHandler:function(){},redirectHandler:function(){},endHandler:function(){},startHandler:function(){},scrollEndHandler:function(){},minLengthRatio:0.2},i=function(){return g.endX>g.startX?"prev":"next"},j=function(){var m=Math.ceil(d.width*f.minLengthRatio);return Math.abs(g.endX-g.startX)>m},l={scrollEnd:function(){var n="innerHeight"in b?b.innerHeight:c.documentElement.offsetHeight,o=c.body,p=c.documentElement,q=Math.max(o.scrollHeight,o.offsetHeight,p.clientHeight,p.scrollHeight,p.offsetHeight);windowBottom=n+b.pageYOffset,windowBottom>=q&&q>n+400&&f.scrollEndHandler()},touchStart:function(m){0<m.touches.length&&(g.startX=m.touches[0].pageX,f.startHandler(i()))},touchMove:function(m){0<m.touches.length&&(g.endX=m.touches[0].pageX,f.moveHandler(i(),j()))},touchEnd:function(m){var n=m.changedTouches||m.touches;0<n.length&&(g.endX=n[0].pageX,j()&&f.redirectHandler(i())),f.endHandler(i())}};return function(){for(var m in h)h.hasOwnProperty(m)&&(f[m]||(f[m]=h[m]))}(),c.addEventListener?{on:function(){c.addEventListener("touchstart",l.touchStart,!1),c.addEventListener("touchmove",l.touchMove,!1),c.addEventListener("touchend",l.touchEnd,!1),b.addEventListener("scroll",l.scrollEnd,!1)},off:function(){c.removeEventListener("touchstart",l.touchStart),c.removeEventListener("touchmove",l.touchMove),c.removeEventListener("touchend",l.touchEnd),b.removeEventListener("scroll",l.scrollEnd)}}:{on:function(){},off:function(){}}}}(window),function(b){var c=b.document,d=function(){var h,i,e={},f={prev:null,next:null},g={prev:null,next:null};return{init:function(){this.retrievePageSiblings();f.next&&(this.renderArrows(),this.syncUI())},syncUI:function(){var j=this;h=new b.touchSwipeListener({moveHandler:function(k,l){l?g[k]&&f[k]&&g[k].classList.add("visible"):g[k].classList.remove("visible")},scrollEndHandler:function(){},startHandler:function(){i&&clearTimeout(i),e.classList.add("visible")},endHandler:function(){g.next.classList.remove("visible"),g.prev.classList.remove("visible"),i=setTimeout(function(){e.classList.remove("visible")},1500)},redirectHandler:function(k){j[k]&&j[k]()}}),h.on()},retrievePageSiblings:function(){f.prev=c.querySelector("head > link[rel=prev]"),f.next=c.querySelector("head > link[rel=next]")},renderArrows:function(){var k=function(l){var m=c.createElement("span");m.className="icon-wrap "+l;var n=c.createElement("div"),o=c.createElement("a");return o.href="prev"===l?"javascript:window.history.go(-1);":f[l].href,o.className=l,o.appendChild(m),o.appendChild(n),o};g.next=k("next"),g.prev=k("prev"),e=function(l,m){var n=c.createElement("nav");return n.className="nav-multithumb",n.appendChild(m),n.appendChild(l),c.getElementsByTagName("body")[0].appendChild(n),n}(g.next,g.prev)},showLoadingScreen:function(){b.scrollTo(0,0);var j=c.createElement("div");j.className="spn-freezing-overlay",c.getElementsByTagName("body")[0].appendChild(j)},prev:function(){this.showLoadingScreen(),setTimeout(function(){b.location.href=b.history.go(-1)},1e3)},next:function(){f.next&&(this.showLoadingScreen(),setTimeout(function(){b.location.href=f.next.href},1e3))}}}();b.swipePageNav=d}(window);</script>
+<script>function __ez_fad_ezpbinit(){var s = document.createElement( 'script' );
+	s.setAttribute( 'src', '//go.ezodn.com/hb/dall.js?cb=195-3-56' );
+	s.onerror = function () {window.ezDallErr = true};
+	document.body.appendChild( s );}__ez.queue.addFile('/detroitchicago/kenai.js', '/detroitchicago/kenai.js?gcb=3&cb=6', false, [], true, false, true, false);var ezjsps=function(obj){return JSON.parse(JSON.stringify(obj));};var epbjs=epbjs||{};epbjs.que=epbjs.que||[];epbjs.bidderTimeout=2500;epbjs.useAdj=true;epbjs.SS={"pubmatic":10061,"rubicon":10063,"sharethrough":11309,"spotx":11304};epbjs.bidders=['pubmatic','rubicon','sharethrough','spotx'];epbjs.que.push(function(){});epbjs.bidderSettings={};epbjs.gadj=1.000000;var __enableAnalytics=false;epbjs.testFeatures=[''];
+var __s2sbidders=[];
+var __s2sinstreambidders=[];
+var __allBidders=['rubicon','pubmatic','sharethrough','spotx'];
+__ez.queue.addFile('/detroitchicago/portland.js', '/detroitchicago/portland.js?gcb=3&cb=8', true, [], true, false, true, false);__ez.queue.addFunc("epbjsRequestAdUnits", "epbjsRequestAdUnits", [[{code: 'div-gpt-ad-wikichip_org-box-3-0', mediaTypes: {banner: { sizes:[[300,250]] }}, bids: [{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_under_page_title_300x250' }},{bidder:'sharethrough',params:{pkey:'ZuLKhEvL3Xpyu8vcJZvy4GGZ'}}] },{code: 'div-gpt-ad-wikichip_org-box-2-0', mediaTypes: {banner: { sizes:[[728,90]] }}, bids: [{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_top_of_page_728x90' }},{bidder:'sharethrough',params:{pkey:'e1sI5HKO9lbvTm6UAa1WEpg9'}}] },{code: 'div-gpt-ad-wikichip_org-large-mobile-banner-1-0', mediaTypes: {banner: { sizes:[[300,250]] }}, bids: [{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'In-Content_300x250_BTF' }},{bidder:'sharethrough',params:{pkey:'ZuLKhEvL3Xpyu8vcJZvy4GGZ'}}] },{code: 'div-gpt-ad-wikichip_org-medrectangle-1-0', mediaTypes: {banner: { sizes:[[300,250],[580,400],[336,280]] }}, bids: [{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_bottom_of_page_300x250' }}] }]], false, ['/detroitchicago/portland.js'], true, true, true, true);var ez__id5pd = 'MTA9MTY3LjExNC4xMTguMjEwJjEyPU1vemlsbGElMkY1LjArJTI4V2luZG93cytOVCs2LjElM0IrcnYlM0E2MC4wJTI5K0dlY2tvJTJGMjAxMDAxMDErRmlyZWZveCUyRjYwLjA=';var ez__uIdHash = '29d3949b8d7d595dee1f862fef45a7732d86b2b009322810c3eba6cf9074be7b';var ez__sspDomain = 'en.wikichip.org';</script>
+<script async data-ezscrex="false">__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_load(0,0);__ez.fads.__ez_fad_scrollmon();});</script>
+
+		<script>setTimeout(function(){let cookieTest=getCookie("ezvignetteviewed");if(cookieTest==""){window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];googletag.cmd.push(function(){if(ezslot_interstitial==null){return;}
+googletag.display(ezslot_interstitial);googletag.pubads().refresh([ezslot_interstitial]);});}},1000);function getCookie(cname){let name=cname+"=";let ca=document.cookie.split(';');for(let i=0;i<ca.length;i++){let c=ca[i];while(c.charAt(0)==' '){c=c.substring(1);}
+if(c.indexOf(name)==0){return c.substring(name.length,c.length);}}
+return "";}</script>
+<script type="text/javascript" data-cfasync="false"></script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script><script type='text/javascript' style='display:none;' async>
+</script>
+</body></html>

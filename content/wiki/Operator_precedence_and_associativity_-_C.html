@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Operator precedence and associativity - C - WikiChip</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.3" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit" />
+<link rel="edit" title="Edit" href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit" />
+<link rel="shortcut icon" href="/w/skins/common/images/wikichip.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikichip.org/w/api.php?action=rsd" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="WikiChip Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.rtlcite%7Cmediawiki.legacy.commonPrint%2Cshared%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikichip:resourceloader:filter:minify-css:7:f94d0b6cb2fc4f2fb8588cadfb5f9b4c */</style>
+
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Operator_precedence_and_associativity_-_C","wgTitle":"Operator precedence and associativity - C","wgCurRevisionId":572,"wgArticleId":335,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["C programming language"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Operator_precedence_and_associativity_-_C","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":true,"previewDialog":false,"publish":true,"toc":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"vector-simplesearch":1,"upwiz_deflicense":"default","upwiz_def3rdparty":"default","upwiz_deflicensetype":"default","upwiz_maxsimultaneous":"default","usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"wikieditor-publish":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs460":false,"searchNs461":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: wikichip:resourceloader:filter:minify-js:7:1cef13c864315bd209b5368579a0e04a */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #0000A3; font-weight: bold;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #0057AE;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #4D8D8D; font-weight: bold;}
+.c.source-c .coMULTI {color: #669933; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #007A00;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #BF0303;}
+.c.source-c .nu0 {color: #B08000;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Operator_precedence_and_associativity_-_C skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Operator precedence and associativity - C</span></h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From WikiChip</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Operators in <a href="/wiki/C" title="C">C</a> follow strict precedence rules defined by the C standard. The table below lists C language operators in order of precedence from highest to lowest.
+</p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit&amp;section=1" title="Edit section: Operators">edit</a>]</span> <span class="mw-headline" id="Operators"> Operators </span></h2>
+<table class="wikitable sortable" style="width: 90%;">
+   <tr>
+        <th>Precedence level</th>
+        <th>Associativity</th>
+        <th>Operators</th>
+        <th>Description</th>
+        <th>Since</th>
+        <th>Type</th>
+    </tr>
+    <tr>
+        <td rowspan="7">1 (highest)</td>
+        <td rowspan="7">left to right</td>
+        <td>( )</td>
+        <td>Function call</td>
+        <td rowspan="4"><a href="/wiki/C89" title="C89">C89</a></td>
+        <td rowspan="7">Postfix operators</td>
+    </tr>
+    <tr>
+        <td>[ ]</td>
+        <td>Array subscripting</td>
+    </tr>
+    <tr>
+        <td>.</td>
+        <td>Structure and union member access</td>
+    </tr>
+    <tr>
+        <td>-&gt;</td>
+        <td>Structure and union member access (through pointer)</td>
+    </tr>
+    <tr>
+        <td>(type-name){list}</td>
+        <td>Compound literal</td>
+        <td><a href="/wiki/C99" title="C99">C99</a></td>
+    </tr>
+    <tr>
+        <td>++</td>
+        <td>Postfix increment</td>
+        <td rowspan="5"><a href="/wiki/C89" title="C89">C89</a></td>
+    </tr>
+    <tr>
+        <td>--</td>
+        <td>Postfix decrement</td>
+    </tr>
+    <tr>
+        <td rowspan="11">2</td>
+        <td rowspan="11">right to left</td>
+        <td>++</td>
+        <td>Prefix increment</td>
+        <td rowspan="10">Unary operators</td>
+    </tr>
+    <tr>
+        <td>--</td>
+        <td>Prefix decrement</td>
+    </tr>
+    <tr>
+        <td>sizeof</td>
+        <td>Size-of</td>
+    </tr>
+    <tr>
+        <td>_Alignof</td>
+        <td>Align-of</td>
+        <td><a href="/wiki/C11" title="C11">C11</a></td>
+    </tr>
+    <tr>
+        <td>+</td>
+        <td>Unary plus</td>
+        <td rowspan="38"><a href="/wiki/C89" title="C89">C89</a></td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>Unary minus</td>
+    </tr>
+    <tr>
+        <td>*</td>
+        <td>Dereference</td>
+    </tr>
+    <tr>
+        <td>!</td>
+        <td>Logical NOT</td>
+    </tr>
+    <tr>
+        <td>~</td>
+        <td>Bitwise NOT</td>
+    </tr>
+    <tr>
+        <td>&amp;</td>
+        <td>Address-of</td>
+    </tr>
+    <tr>
+        <td>(type-name)</td>
+        <td>Type cast</td>
+        <td>Cast operators</td>
+    </tr>
+    <tr>
+        <td rowspan="3">3</td>
+        <td rowspan="18">left to right</td>
+        <td>*</td>
+        <td>Multiplication</td>
+        <td rowspan="3">Multiplicative operators</td>
+    </tr>
+    <tr>
+        <td>/</td>
+        <td>Division</td>
+    </tr>
+    <tr>
+        <td>%</td>
+        <td>Modulo</td>
+    </tr>
+    <tr>
+        <td rowspan="2">4</td>
+        <td>+</td>
+        <td>Addition</td>
+        <td rowspan="2">Additive operators</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>Subtraction</td>
+    </tr>
+    <tr>
+        <td rowspan="2">5</td>
+        <td>&lt;&lt;</td>
+        <td>Bitwise left shift</td>
+        <td rowspan="2">Bitwise shift operators</td>
+    </tr>
+    <tr>
+        <td>&gt;&gt;</td>
+        <td>Bitwise right shift</td>
+    </tr>
+    <tr>
+        <td rowspan="4">6</td>
+        <td>&lt;</td>
+        <td>Less than</td>
+        <td rowspan="4">Relational operators</td>
+    </tr>
+    <tr>
+        <td>&gt;</td>
+        <td>Less than or equal to</td>
+    </tr>
+    <tr>
+        <td>&lt;=</td>
+        <td>Greater than</td>
+    </tr>
+    <tr>
+        <td>&gt;=</td>
+        <td>Greater than or equal to</td>
+    </tr>
+    <tr>
+        <td rowspan="2">7</td>
+        <td>==</td>
+        <td>Equal to</td>
+        <td rowspan="2">Equality operators</td>
+    </tr>
+    <tr>
+        <td>!=</td>
+        <td>Not equal to</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>&amp;</td>
+        <td>Bitwise AND</td>
+        <td>Bitwise AND operator</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>^</td>
+        <td>Bitwise exclusive OR</td>
+        <td>Bitwise exclusive OR operator</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>|</td>
+        <td>Bitwise inclusive OR</td>
+        <td>Bitwise inclusive OR operator</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>&amp;&amp;</td>
+        <td>Logical AND</td>
+        <td>Logical AND operator</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>||</td>
+        <td>Logical OR</td>
+        <td>Logical OR operator</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td rowspan="12">right to left</td>
+        <td>?:</td>
+        <td>Ternary conditional</td>
+        <td>Conditional operator</td>
+    </tr>
+    <tr>
+        <td rowspan="11">13</td>
+        <td>=</td>
+        <td>Assignment</td>
+        <td rowspan="11">Assignment operators</td>
+    </tr>
+    <tr>
+        <td>+=</td>
+        <td>Assignment by sum</td>
+    </tr>
+    <tr>
+        <td>-=</td>
+        <td>Assignment by difference</td>
+    </tr>
+    <tr>
+        <td>*=</td>
+        <td>Assignment by product</td>
+    </tr>
+    <tr>
+        <td>/=</td>
+        <td>Assignment by quotient</td>
+    </tr>
+    <tr>
+        <td>&lt;&lt;=</td>
+        <td>Assignment by bitwise left shift</td>
+    </tr>
+    <tr>
+        <td>&gt;&gt;=</td>
+        <td>Assignment by bitwise right shift</td>
+    </tr>
+    <tr>
+        <td>%=</td>
+        <td>Assignment by Modulo </td>
+    </tr>
+    <tr>
+        <td>&amp;=</td>
+        <td>Assignment by bitwise AND</td>
+    </tr>
+    <tr>
+        <td>^=</td>
+        <td>Assignment by bitwise exclusive OR</td>
+    </tr>
+    <tr>
+        <td>|=</td>
+        <td>Assignment by bitwise inclusive OR </td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>left to right</td>
+        <td>,</td>
+        <td>Comma</td>
+        <td>Comma operator</td>
+    </tr>
+</table>
+<h2><span class="editsection">[<a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit&amp;section=2" title="Edit section: Expressions">edit</a>]</span> <span class="mw-headline" id="Expressions"> Expressions </span></h2>
+<p>An expression is a sequence of operators, operands, object designators, or functions that specifies computation of a value. An object's stored value may only be modified once between any two sequence points. This is important to watch out for because it means the following are undefined:
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">x <span class="sy0">=</span> <span class="sy0">++</span>x <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span>
+arr<span class="br0">&#91;</span>x<span class="sy0">++</span><span class="br0">&#93;</span> <span class="sy0">=</span> x<span class="sy0">;</span>
+<span class="sy0">++</span>x <span class="sy0">=</span> <span class="sy0">++</span>x<span class="sy0">;</span></pre></div></div></span>
+<p>While allowing the following:
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">x <span class="sy0">=</span> x <span class="sy0">+</span> <span class="nu0">1</span><span class="sy0">;</span>
+arr<span class="br0">&#91;</span>x<span class="br0">&#93;</span> <span class="sy0">=</span> x<span class="sy0">;</span>
+x <span class="sy0">=</span> <span class="sy0">++</span>x<span class="sy0">;</span></pre></div></div></span>
+<p>is well defined.
+</p>
+<h2><span class="editsection">[<a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit&amp;section=3" title="Edit section: Precedence and Evaluation">edit</a>]</span> <span class="mw-headline" id="Precedence_and_Evaluation"> Precedence and Evaluation </span></h2>
+<p>Precedence are rules used to define the order of binding in a sequence of expressions where they are not explicitly specified by a pair of parentheses. For example in,
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="sy0">++</span>x<span class="sy0">+</span><span class="nu0">3</span><span class="sy0">*</span><span class="nu0">4</span></pre></div></div></span>
+<p>The table indicates that x is bound more tightly to ++ than to the + operator. Likewise, 3 is bound more tightly to * than to +. Therefore it is equivalent to:
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="sy0">++</span>x<span class="br0">&#41;</span><span class="sy0">+</span><span class="br0">&#40;</span><span class="nu0">3</span><span class="sy0">*</span><span class="nu0">4</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre></div></div></span>
+<p>or
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="br0">&#40;</span><span class="sy0">++</span>x<span class="sy0">,</span> x<span class="sy0">+</span><span class="br0">&#40;</span><span class="nu0">3</span><span class="sy0">*</span><span class="nu0">4</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre></div></div></span>
+<p>It's important to note that the actual order of evaluation is independent of precedence or associativity. In fact, the order of evaluation of subexpressions and the order in which side is evaluated is <i>unspecified</i> behavior by the C standard.
+</p><p>This means that in the following line,
+</p>
+<span class="tex2jax_ignore"><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">x <span class="sy0">=</span> f<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">+</span> f<span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span> <span class="sy0">+</span> f<span class="br0">&#40;</span><span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div></span>
+<p>The function calls f(1), f(2), and f(3) may be called in any order. You may not assume that f(1) will be called before f(2) or f(3).
+</p>
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 71/1000000
+Preprocessor generated node count: 196/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:335-0!*!0!!*!*!* and timestamp 20131223211652 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://en.wikichip.org/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;oldid=572">http://en.wikichip.org/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;oldid=572</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:C_programming_language" title="Category:C programming language">C programming language</a></li></ul></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<!-- header -->
+			<div id="mw-head">
+				
+<!-- 0 -->
+<div id="p-personal" role="navigation" class="">
+	<h3>Personal tools</h3>
+	<ul>
+<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Operator+precedence+and+associativity+-+C&amp;type=signup">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Operator+precedence+and+associativity+-+C" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>	</ul>
+</div>
+
+<!-- /0 -->
+				<div id="left-navigation">
+					
+<!-- 0 -->
+<div id="p-namespaces" role="navigation" class="vectorTabs">
+	<h3>Namespaces</h3>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Operator_precedence_and_associativity_-_C"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:Operator_precedence_and_associativity_-_C&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3><span>Variants</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+				</div>
+				<div id="right-navigation">
+					
+<!-- 0 -->
+<div id="p-views" role="navigation" class="vectorTabs">
+	<h3>Views</h3>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/Operator_precedence_and_associativity_-_C" >Read</a></span></li>
+					<li id="ca-edit"><span><a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet">
+	<h3><span>Actions</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search" role="search">
+	<h3><label for="searchInput">Search</label></h3>
+	<form action="/w/index.php" id="searchform">
+				<div id="simpleSearch">
+						<input name="search" title="Search WikiChip [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="/w/skins/vector/images/search-ltr.png?303" alt="Search" width="12" height="13" /></button>								<input type='hidden' name="title" value="Special:Search"/>
+		</div>
+	</form>
+</div>
+
+<!-- /2 -->
+				</div>
+			</div>
+			<!-- /header -->
+			<!-- panel -->
+			<div id="mw-panel">
+				<!-- logo -->
+					<div id="p-logo" role="banner"><a style="background-image: url(/w/skins/common/images/wikichip.png);" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" role="navigation" id='p-navigation'>
+	<h3>Navigation</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+			<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-randompage"><a href="http://en.wikichip.org/wiki/Special:Random?nocache=1" rel="nofollow" title="Load a random page [x]" accesskey="x">Random page</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" role="navigation" id='p-tb'>
+	<h3>Tools</h3>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Operator_precedence_and_associativity_-_C" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Operator_precedence_and_associativity_-_C" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-upload"><a href="/wiki/Special:UploadWizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+			<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li id="t-print"><a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+			<li id="t-permalink"><a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;oldid=572" title="Permanent link to this revision of the page">Permanent link</a></li>
+			<li id="t-info"><a href="/w/index.php?title=Operator_precedence_and_associativity_-_C&amp;action=info">Page information</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+			<!-- /panel -->
+		</div>
+		<!-- footer -->
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 13 December 2013, at 19:27.</li>
+											<li id="footer-info-viewcount">This page has been accessed 15 times.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="/w/skins/common/images/cc-by-sa.png" alt="Creative Commons Attribution Share Alike" width="88" height="31" /></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="/w/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","skins.vector.js"], null, true);
+}</script>
+<script src="http://en.wikichip.org/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<!-- Served in 0.086 secs. -->
+	</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html><html class="client-nojs" lang="en" dir="ltr"><head><meta charset="UTF-8"/>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}},fileLoaded:function(name,isComplete){this.name=name;this.path="";this.async=false;this.defer=false;this.isBlock=false;this.blockedBy=[];this.isInitialized=true;this.isError=false;this.isComplete=isComplete;this.proceedIfError=false;this.isTimeDelay=false;this.process=function(){};}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function markLoaded(filename){if(!filename||0===filename.length){return;}
+if(filename in items){var item=items[filename];if(item.isComplete===true){log(item.name+' '+filename+': error loaded duplicate')}else{item.isComplete=true;item.isInitialized=true;}}else{items[filename]=new obj.fileLoaded(filename,true);}
+log("Added dummyfile: "+items[filename]);}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad,markLoaded:markLoaded,};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=194-3&cb=1', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=194-3&cb=7', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=194-3&cb=3', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/rochester.js', '/detroitchicago/rochester.js?gcb=194-3&cb=10', false, ['/detroitchicago/memphis.js','/detroitchicago/minneapolis.js'], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=194-3&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=194-3&cb=3', false, [], true, false, true, false);</script>
+<script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=194-3&cb=5', false, [], true, false, true, false);</script>
+
+<title>Cortex-A55 - Microarchitectures - ARM - WikiChip</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"arm_holdings/microarchitectures/cortex-a55","wgTitle":"arm holdings/microarchitectures/cortex-a55","wgCurRevisionId":98463,"wgRevisionId":98463,"wgArticleId":18226,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["cpu microarchitectures by arm holdings","microarchitectures by arm holdings","all microarchitectures","Articles with empty sections"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"arm_holdings/microarchitectures/cortex-a55","wgRelevantArticleId":18226,"wgRequestId":"8441b996c870ac2ddffea506","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"mediatek/microarchitectures/cortex-a55","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":true},"wgPageFormsAutocompleteValues":[],"wgPageFormsAutocompleteOnAllChars":false,"wgPageFormsFieldProperties":[],"wgPageFormsCargoFields":[],"wgPageFormsDependentFields":[],"wgPageFormsGridValues":[],"wgPageFormsGridParams":[],"wgPageFormsShowOnSelect":[],"wgPageFormsScriptPath":"/w/extensions/PageForms","edgValues":null,"wgPageFormsEDSettings":null,"wgHeaderTabsTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgInternalRedirectTargetUrl":"/wiki/arm_holdings/microarchitectures/cortex-a55"});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.smw.style":"ready","ext.smw.tooltip.styles":"ready","mediawiki.skinning.interface":"ready","mediawiki.skinning.content.externallinks":"ready","skins.WikiChip2":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1glvl31",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.action.view.redirect","ext.smw.style","mediawiki.page.startup"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.smw.style%7Cext.smw.tooltip.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.WikiChip2&amp;only=styles&amp;skin=WikiChip2"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=WikiChip2"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=WikiChip2"/>
+<meta name="generator" content="MediaWiki 1.28.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="ExportRDF" type="application/rdf+xml" title="arm holdings/microarchitectures/cortex-a55" href="/w/index.php?title=Special:ExportRDF/arm_holdings/microarchitectures/cortex-a55&amp;xmlmime=rdf"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit"/>
+<link rel="edit" title="Edit" href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit"/>
+<link rel="shortcut icon" href="/w/resources/assets/wikichip.png"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="WikiChip (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikichip.org/w/api.php?action=rsd"/>
+<link rel="canonical" href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55"/>
+<meta name="twitter:site" content="@WikiChip"/>
+<meta name="twitter:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:image" content="https://en.wikichip.org/w/resources/assets/og_wikichip_logo.png"/>
+<meta property="og:title" content="Cortex-A55 - Microarchitectures - ARM - WikiChip"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="og:type" content="article"/>
+<meta property="twitter:description" content="Cortex-A55 (codename Ananke) is an ultra-high efficiency microarchitecture designed by ARM Holdings as a successor to the Cortex-A53. The Cortex-A55, which implemented the ARMv8.2 ISA, is typically found in entry-level smartphone and other embedded devices. Often A55 cores are combined with higher performance processors (e.g. based on Cortex-A75) in DynamIQ big.LITTLE configuration to achieve better energy/performance."/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript">var ezouid = "1";</script><base href="https://en.wikichip.org/wiki/mediatek/microarchitectures/cortex-a55"><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 86609;
+var ezdomain = 'wikichip.org';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"ad_load_version":0,"city":"Ashburn","country":"US","days_since_last_visit":-1,"domain_id":86609,"domain_test_group":20210308,"engaged_time_visit":0,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"metro_code":511,"page_ad_positions":"","page_view_count":0,"page_view_id":"5a540c22-996f-4751-444f-27a04d1d60b5","position_selection_id":0,"postal_code":"20149","pv_event_count":0,"response_size_orig":100113,"response_time_orig":152,"serverid":"18.212.188.137:19971","state":"VA","t_epoch":1618713840,"template_id":126,"time_on_site_visit":0,"url":"https://en.wikichip.org/wiki/mediatek/microarchitectures/cortex-a55","user_id":0,"word_count":2214,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script>
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_86609=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["5a540c22-996f-4751-444f-27a04d1d60b5", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-arm_holdings_microarchitectures_cortex-a55 rootpage-arm_holdings skin-WikiChip2 action-view">
+<div id="mw-wrapper">
+<div class="mw-body" role="main">
+<!-- wikichip-header START -->
+<div id="wikichip-header">
+            <div id="wikichip-header-logo">
+                <a href="/wiki/WikiChip"><img src="//en.wikichip.org/w/resources/assets/wikichip_logo4.svg" width="200px"/></a><br/>
+                <span id="tagline">Semiconductor &amp; Computer Engineering</span>
+            </div>
+	    <div id="wikichip-aheader">
+		<!-- Ezoic - wikichip/global/header - top_of_page -->
+		<div id="ezoic-pub-ad-placeholder-138">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-1951113009523412" data-ad-slot="1822985275" data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<!-- End Ezoic - wikichip/global/header - top_of_page -->
+            </div>
+</div>
+<!-- wikichip-header END -->
+<!-- wikichip-main-menu START -->
+<ul id="wikichip-main-menu">
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-home" aria-hidden="true"></i><span class="mob-collapse"> WikiChip <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">WikiChip</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/WikiChip">WikiChip</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/WikiChip">Home</a></li>
+                                    <li><a href="/wiki/Special:Random?nocache=1" title="Load a random page [alt-shift-x]" accesskey="x">Random Article</a></li>
+                                    <li><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent Changes</a></li>
+                                    <li><a href="/wiki/WikiChip:chip_feed">Chip Feed</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://fuse.wikichip.org/">The Fuse Coverage</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://fuse.wikichip.org/">Recent News</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/isscc/">ISSCC</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/iedm/">IEDM</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/vlsi/">VLSI</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/hot-chips/">Hot Chips</a></li>
+                                    <li><a href="https://fuse.wikichip.org/news/category/conferences/supercomputing/">SuperComputing</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Social Media</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://twitter.com/WikiChip" rel="nofollow">Twitter</a></li>
+                                    <li><a href="https://flipboard.com/@WikiChip" rel="nofollow">Flipboard</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Companies</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel">Intel</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd">AMD</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/arm_holdings">ARM</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/qualcomm">Qualcomm</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Microarchitectures</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake (Client)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake (Server)</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5><a href="https://en.wikichip.org/wiki/technology_node">Technology Nodes</a></h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/14_nm_lithography_process">14 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/10_nm_lithography_process">10 nm</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/7_nm_lithography_process">7 nm</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+	<li class="btn">
+        <a class="btnllnk">
+            <i class="fa fa-architecture" aria-hidden="true"></i><span class="mob-collapse"> Architectures <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular x86</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Client
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(client)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/kaby_lake">Kaby Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/coffee_lake">Coffee Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(client)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/skylake_(server)">Skylake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cascade_lake">Cascade Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/cooper_lake">Cooper Lake</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/ice_lake_(server)">Ice Lake</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/sunny_cove">Sunny Cove</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/willow_cove">Willow Cove</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Small Cores
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont">Goldmont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/goldmont_plus">Goldmont Plus</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/tremont">Tremont</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/intel/microarchitectures/gracemont">Gracemont</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen">Zen</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_+">Zen+</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_2">Zen 2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/microarchitectures/zen_3">Zen 3</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <span class="wikichip-main-menu-header">Popular ARM</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>ARM</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li>
+                                        Server
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/neoverse n1">Neoverse N1</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/zeus">Zeus</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Big
+                                        <ul><!--
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a72">Cortex-A72</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a73">Cortex-A73</a></li>-->
+					    <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a75">Cortex-A75</a></li>
+
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a76">Cortex-A76</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a77">Cortex-A77</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Little
+                                        <ul>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a53">Cortex-A53</a></li>
+                                            <li><a href="https://en.wikichip.org/wiki/arm_holdings/microarchitectures/cortex-a55">Cortex-A55</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/microarchitectures/vulcan">Vulcan</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m1">Exynos M1</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m2">Exynos M2</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m3">Exynos M3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/microarchitectures/m4">Exynos M4</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+	<li class="btn">
+        <a class="btnllnk"><i class="fa fa-microchip" aria-hidden="true"></i><span class="mob-collapse"> Chips <i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+
+        <div class="collapse">
+            <div>
+                <span class="wikichip-main-menu-header">Popular Families</span>
+                <hr/>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Intel</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i3">Core i3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i5">Core i5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i7">Core i7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/core_i9">Core i9</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_d">Xeon D</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_e">Xeon E</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_w">Xeon W</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_bronze">Xeon Bronze</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_silver">Xeon Silver</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_gold">Xeon Gold</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum">Xeon Platinum</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>AMD</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_3">Ryzen 3</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_5">Ryzen 5</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_7">Ryzen 7</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/ryzen_threadripper">Ryzen Threadripper</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc">EPYC</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/amd/epyc_embedded">EPYC Embedded</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;">
+                    <ul class="items">
+                        <li>
+                                <h5>Ampere</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/ampere_computing/emag">eMAG</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Apple</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/apple/ax">Ax</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Cavium</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx">ThunderX</a></li>
+                                    <li><a href="https://en.wikichip.org/wiki/cavium/thunderx2">ThunderX2</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>HiSilicon</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/hisilicon/kirin">Kirin</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>MediaTek</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/mediatek/helio">Helio</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>NXP</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">i.MX</a></li>
+                                    <li><a href="">QorIQ Layerscape</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Qualcomm</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="">Snapdragon 400</a></li>
+                                    <li><a href="">Snapdragon 600</a></li>
+                                    <li><a href="">Snapdragon 700</a></li>
+                                    <li><a href="">Snapdragon 800</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Renesas</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/renesas/r-car">R-Car</a></li>
+                                </ul>
+                        </li>
+                        <li>
+                                <h5>Samsung</h5>
+                                <ul style="list-style:none; display: flex; flex-direction: column;">
+                                    <li><a href="https://en.wikichip.org/wiki/samsung/exynos">Exynos</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</li>
+
+	<li class="input-search">
+                <form class="mw-portlet" role="search" action="/w/index.php" id="p-search">
+                        <input type="hidden" value="Special:Search" name="title"/>
+                        <input type="search" name="search" class="form-control" placeholder="chip, part #, µarch, family, etc" title="Search WikiChip [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off"/>
+                        <button type="submit" name="go" title="Go to the page by that name or part # if it exists"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+	</li>
+</ul>
+<!-- wikichip-main-menu END -->
+<!-- wikichip-body-container START -->
+<div class="wikichip-body-container">
+<!-- mw-body-content enclosure START -->
+<div id="wikichip-body-content">
+<!-- mw-body-content START -->
+<div class="mw-body-content">
+                                <div id="siteSub">From WikiChip</div>					
+<div id="article-title">
+<nav id="primary_nav_wrap">
+<ul>
+<li><a><span class="mob-collapse"><i class="fa fa-file-o" aria-hidden="true"></i></span></a><ul><li class="selected"><a href="/wiki/arm_holdings/microarchitectures/cortex-a55">Page</a></li></ul></li><li class=""><a href="/wiki/Talk:arm_holdings/microarchitectures/cortex-a55"><i class="fa fa-comments" aria-hidden="true"></i></a></li>
+
+  <li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit" title="Edit this page [alt-shift-e]" accesskey="e"><i class="fa fa-edit" aria-hidden="true"></i></a></li><li class=""><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=history"><i class="fa fa-history" aria-hidden="true"></i></a></li>
+
+            <li><a><i class="fa fa-user-circle-o" aria-hidden="true"></i></a><ul><li class="pt-anontalk pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [alt-shift-n]" accesskey="n"><i class="fa fa-users" aria-hidden="true"></i> Talk</a></li><li class="pt-anoncontribs pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [alt-shift-y]" accesskey="y"><i class="fa fa-list" aria-hidden="true"></i> Contributions</a></li><li class="pt-login pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=arm+holdings%2Fmicroarchitectures%2Fcortex-a55"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>		</ul>
+	</li>
+
+
+
+<li><a><i class="fa fa-cogs" aria-hidden="true"></i></a>
+<ul>
+<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/arm_holdings/microarchitectures/cortex-a55"><i class="fa fa-map" aria-hidden="true"></i> What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/arm_holdings/microarchitectures/cortex-a55"><i class="fa fa-list" aria-hidden="true"></i> Related changes</a></li><li id="t-print"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;printable=yes"><i class="fa fa-file-text-o" aria-hidden="true"></i> Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;oldid=98463"><i class="fa fa-link" aria-hidden="true"></i> Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=info"><i class="fa fa-info-circle" aria-hidden="true"></i> Page information</a></li><li id="t-smwbrowselink"><a href="/wiki/Special:Browse/:arm-5Fholdings-2Fmicroarchitectures-2Fcortex-2Da55"><i class="fa fa-tasks" aria-hidden="true"></i> Browse properties</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages"><i class="fa fa-certificate" aria-hidden="true"></i> Special Pages</a></li></ul>
+</li>
+<li><a><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+  <ul>
+    <li><a id="wikichip-dec-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a minus.svg" alt="Decrease Font Size" width="14"/> Decrease Size</a></li>
+    <li><a id="wikichip-inc-font"><img src="//en.wikichip.org/w/resources/assets/wikichip/a plus.svg" alt="Increase Font Size" width="14"/> Increase Size</a></li>
+    <li><a id="wikichip-std-font"><i class="fa fa-font" aria-hidden="true"></i> Normal Size</a></li>
+  </ul>
+</li>
+
+</ul></nav>
+
+    Cortex-A55 - Microarchitectures - ARM    <span id="article-indicator"><div class="mw-indicators">
+</div>
+</span>
+</div>
+
+
+                <div id="article-breadcrumbs">
+                    <span class="pull-left"><span class="subpages">&lt; <a href="/wiki/arm_holdings" title="arm holdings">arm holdings</a></span><span class="mw-redirectedfrom">(Redirected from <a href="/w/index.php?title=mediatek/microarchitectures/cortex-a55&amp;redirect=no" class="mw-redirect" title="mediatek/microarchitectures/cortex-a55">mediatek/microarchitectures/cortex-a55</a>)</span></span>
+                </div>	
+														<p></p><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="infobox"><tbody><tr><td colspan="2"><small style="float: right; font-weight: bold;"><a href="/wiki/Special:FormEdit/microarchitecture/arm_holdings/microarchitectures/cortex-a55" title="Special:FormEdit/microarchitecture/arm holdings/microarchitectures/cortex-a55"><i class="fa fa-edit"></i>Edit Values</a></small></td></tr><tr><td class="header-main" colspan="2">Cortex-A55 µarch</td></tr><tr><td class="header" colspan="2">General Info</td></tr><tr><td class="label">Arch Type</td><td class="value">CPU</td></tr><tr><td class="label">Designer</td><td class="value">ARM Holdings</td></tr><tr><td class="label">Manufacturer</td><td class="value">TSMC, Samsung, GlobalFoundries, SMIC</td></tr><tr><td class="label">Introduction</td><td class="value">May 29, 2017</td></tr><tr><td class="label">Process</td><td class="value"><a href="/wiki/16_nm_process" class="mw-redirect" title="16 nm process">16 nm</a>, <a href="/wiki/14_nm_process" class="mw-redirect" title="14 nm process">14 nm</a>, <a href="/wiki/10_nm_process" class="mw-redirect" title="10 nm process">10 nm</a>, <a href="/wiki/7_nm_process" class="mw-redirect" title="7 nm process">7 nm</a>, <a href="/wiki/12_nm_process" class="mw-redirect" title="12 nm process">12 nm</a></td></tr><tr><td class="label">Core Configs</td><td class="value"><a href="/wiki/1_cores" class="mw-redirect" title="1 cores">1</a>, <a href="/wiki/2_cores" class="mw-redirect" title="2 cores">2</a>, <a href="/wiki/3_cores" class="mw-redirect" title="3 cores">3</a>, <a href="/wiki/4_cores" class="mw-redirect" title="4 cores">4</a></td></tr><tr><td class="header" colspan="2">Pipeline</td></tr><tr><td class="label">Type</td><td class="value">In-order</td></tr><tr><td class="label">OoOE</td><td class="value">No</td></tr><tr><td class="label">Speculative</td><td class="value">Yes</td></tr><tr><td class="label">Reg Renaming</td><td class="value">No</td></tr><tr><td class="label">Stages</td><td class="value">8</td></tr><tr><td class="label">Decode</td><td class="value">2-way</td></tr><tr><td class="header" colspan="2">Instructions</td></tr><tr><td class="label">ISA</td><td class="value">ARMv8.2</td></tr><tr><td class="label">Extensions</td><td class="value">FPU, NEON, TrustZone</td></tr><tr><td class="header" colspan="2">Cache</td></tr><tr><td class="label">L1I Cache</td><td class="value">8-64 KiB/core<br/>4-way set associative</td></tr><tr><td class="label">L1D Cache</td><td class="value">8-64 KiB/core<br/>4-way set associative</td></tr><tr><td class="label">L2 Cache</td><td class="value">64-256 KiB/core<br/>4-way set associative</td></tr><tr><td class="label">L3 Cache</td><td class="value">0-4 MiB/Cluster</td></tr><tr><td class="header" colspan="2">Succession</td></tr><tr><td colspan="2"><div style="display: inline-flex;"><div style="float: left; padding-right: 10px; margin: auto 5px;"><i class="fa fa-chevron-left"></i></div><div style="float: left;"><a href="/wiki/arm_holdings/microarchitectures/cortex-a53" title="arm holdings/microarchitectures/cortex-a53">Cortex-A53</a></div></div><div style="display: inline-flex; float: right;"><div style="float: left;"><a href="/wiki/arm_holdings/microarchitectures/helios" title="arm holdings/microarchitectures/helios">Helios</a></div><div style="float: right; padding-left: 10px; margin: auto 5px;"><i class="fa fa-chevron-right"></i></div></div></td></tr></tbody></table>
+<p><b>Cortex-A55</b> (codename <b>Ananke</b>) is an ultra-high efficiency <a href="/wiki/microarchitecture" title="microarchitecture">microarchitecture</a> designed by <a href="/wiki/ARM_Holdings" class="mw-redirect" title="ARM Holdings">ARM Holdings</a> as a successor to the <a href="/wiki/arm_holdings/microarchitectures/cortex-a53" title="arm holdings/microarchitectures/cortex-a53">Cortex-A53</a>. The Cortex-A55, which implemented the <a href="/w/index.php?title=arm/armv8.2&amp;action=edit&amp;redlink=1" class="new" title="arm/armv8.2 (page does not exist)">ARMv8.2</a> ISA, is typically found in entry-level smartphone and other embedded devices. Often A55 cores are combined with higher performance processors (e.g. based on <a href="/wiki/arm_holdings/microarchitectures/cortex-a75" title="arm holdings/microarchitectures/cortex-a75">Cortex-A75</a>) in <a href="/w/index.php?title=arm_holdings/dynamiq_big.little&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/dynamiq big.little (page does not exist)">DynamIQ big.LITTLE</a> configuration to achieve better energy/performance.
+</p><p>Note that this microarchitecture is designed as a synthesizable <a href="/wiki/IP_core" class="mw-redirect" title="IP core">IP core</a> and is sold to other semiconductor companies to be implemented in their own chips.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Process_Technology"><span class="tocnumber">1</span> <span class="toctext">Process Technology</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Architecture"><span class="tocnumber">2</span> <span class="toctext">Architecture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Key_changes_from_Cortex-A53"><span class="tocnumber">2.1</span> <span class="toctext">Key changes from Cortex-A53</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Licensees"><span class="tocnumber">3</span> <span class="toctext">Licensees</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Die"><span class="tocnumber">4</span> <span class="toctext">Die</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#All_Cortex-A55_Chips"><span class="tocnumber">5</span> <span class="toctext">All Cortex-A55 Chips</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Process_Technology">Process Technology</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=1" title="Edit section: Process Technology">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cortex-A55 was primarily designed to make use of <a href="/wiki/TSMC" class="mw-redirect" title="TSMC">TSMC</a>&#39;s <a href="/wiki/16_nm_process" class="mw-redirect" title="16 nm process">16 nm process</a> with a <a href="/wiki/7_nm" class="mw-redirect" title="7 nm">7 nm</a> optimized version set for the end of 2017 or early 2018.
+</p>
+<h2><span class="mw-headline" id="Architecture">Architecture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=2" title="Edit section: Architecture">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cortex-A55 is an improved version of the A53 which introduces a number of performance enhancements as well as designed to be implemented based on <a href="/w/index.php?title=ARM_Holding&amp;action=edit&amp;redlink=1" class="new" title="ARM Holding (page does not exist)">ARM</a>&#39;s <a href="/w/index.php?title=arm_holdings/dynamiq_big.little&amp;action=edit&amp;redlink=1" class="new" title="arm holdings/dynamiq big.little (page does not exist)">DynamIQ big.LITTLE</a> design. 
+</p>
+<h3><span class="mw-headline" id="Key_changes_from_Cortex-A53">Key changes from <a href="/wiki/arm_holdings/microarchitectures/cortex-a53" title="arm holdings/microarchitectures/cortex-a53">Cortex-A53</a></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=3" title="Edit section: Key changes from Cortex-A53">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li> Higher performance (ARM claims: up to 2x mem perf, up to 15% less power from A53)</li>
+<li> Implements <a href="/w/index.php?title=ARMv8.2&amp;action=edit&amp;redlink=1" class="new" title="ARMv8.2 (page does not exist)">ARMv8.2</a> (from ARMv8.0)</li>
+<li> Designed as a cluster of <a href="/wiki/single-core" title="single-core">1</a> to <a href="/wiki/8_cores" class="mw-redirect" title="8 cores">8</a> cores
+<ul><li> Adds DynamIQ Shared Unit (DSU)</li></ul></li>
+<li> Branch predictor was re-written</li>
+<li> Memory subsystem
+<ul><li> L2
+<ul><li> L2 cache is now private to each core (from shared between all cores)</li>
+<li> Latency was cut by half</li>
+<li> Now runs at the same frequency as the core</li>
+<li> Configurable size from 64 KiB to 256 KiB</li></ul></li>
+<li> L3
+<ul><li> A new L3 cache was introduced</li>
+<li> Shared by all cores</li>
+<li> Configurable size: 0 MiB - 4 MiB</li></ul></li></ul></li>
+<li> <a href="/w/index.php?title=arm/neon&amp;action=edit&amp;redlink=1" class="new" title="arm/neon (page does not exist)">NEON</a> is improved
+<ul><li> New instructions</li>
+<li> Up to 16x 8-bit <a href="/w/index.php?title=integer&amp;action=edit&amp;redlink=1" class="new" title="integer (page does not exist)">integer</a> operations per cycle</li>
+<li> Up to 8x 16-bit <a href="/w/index.php?title=floating_point&amp;action=edit&amp;redlink=1" class="new" title="floating point (page does not exist)">floating point</a> per cycle</li></ul></li></ul>
+<h2><span class="mw-headline" id="Licensees">Licensees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=4" title="Edit section: Licensees">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Arm named the following companies as licensees.
+</p>
+<div class="wiki-ul-col3" style="display: inline-block;">
+<ul><li> <a href="/wiki/AMD" class="mw-redirect" title="AMD">AMD</a></li>
+<li> <a href="/w/index.php?title=Broadcom&amp;action=edit&amp;redlink=1" class="new" title="Broadcom (page does not exist)">Broadcom</a></li>
+<li> <a href="/wiki/HiSilicon" class="mw-redirect" title="HiSilicon">HiSilicon</a></li>
+<li> <a href="/wiki/STMicroelectronics" class="mw-redirect" title="STMicroelectronics">STMicroelectronics</a></li>
+<li> <a href="/wiki/Samsung" class="mw-redirect" title="Samsung">Samsung</a></li>
+<li> <a href="/wiki/MediaTek" class="mw-redirect" title="MediaTek">MediaTek</a></li>
+<li> <a href="/w/index.php?title=Huawei&amp;action=edit&amp;redlink=1" class="new" title="Huawei (page does not exist)">Huawei</a></li></ul>
+</div>
+<h2><span class="mw-headline" id="Die">Die</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=5" title="Edit section: Die">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="display:block;width:300px;{{{style}}}">
+<div style="border:1px solid #666666; background: #5252CC; padding: 3px;"></div>
+<table style="border-left:1px solid #666666;border-bottom:1px solid #666666;border-right:1px solid #666666; background: #FAFAFA; padding: 3px; font-size: 11px; width: 100%">
+<tbody><tr>
+<td><a href="/wiki/File:New_text_document.svg" class="image"><img alt="New text document.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/25px-New_text_document.svg.png" width="25" height="25" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/38px-New_text_document.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/New_text_document.svg/50px-New_text_document.svg.png 2x"/></a> </td>
+<td> This section is empty; you can help add the missing info by <a rel="nofollow" class="external text" href="https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit">editing this page</a>.
+</td></tr></tbody></table>
+</div>
+<h2><span class="mw-headline" id="All_Cortex-A55_Chips">All Cortex-A55 Chips</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;action=edit&amp;section=6" title="Edit section: All Cortex-A55 Chips">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="comptable-wrapper"><div class="comptable-scroller">
+<table class="comptable sortable tc18 tc19 tc20 tc21 tc22 tc23">
+<tbody><tr class="comptable-header"><th> </th><th colspan="25">List of all Cortex-A55 Chips</th></tr>
+<tr class="comptable-header"><th> </th><th colspan="10">Main processor</th><th colspan="3">IGP</th></tr>
+<tr class="comptable-header"><th class="unsortable">Model</th><th>Launched</th><th>Designer</th><th>Family</th><th>Core</th><th>C</th><th>T</th><th>L2$</th><th>L3$</th><th>Frequency</th><th>Max Mem</th><th>Designer</th><th>Name</th><th>Frequency</th></tr>
+<tr><td><a href="/wiki/mediatek/dimensity/1000" title="mediatek/dimensity/1000">1000</a></td><td>2020</td><td>MediaTek</td><td>Dimensity</td><td>Cortex-A77, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6 GHz</span><div class="smwttcontent">2,600 MHz <br/>2,600,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>Arm Holdings</td><td>Mali-G77</td><td></td></tr><tr><td><a href="/wiki/mediatek/dimensity/1000l" title="mediatek/dimensity/1000l">1000L</a></td><td>2020</td><td>MediaTek</td><td>Dimensity</td><td>Cortex-A77, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td></td><td>Arm Holdings</td><td>Mali-G77</td><td></td></tr><tr><td><a href="/wiki/mediatek/dimensity/800" title="mediatek/dimensity/800">800</a></td><td>March 2020</td><td>MediaTek</td><td>Dimensity</td><td>Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>Arm Holdings</td><td>Mali-G57</td><td></td></tr><tr><td><a href="/wiki/samsung/exynos/9810" title="samsung/exynos/9810">9810</a></td><td>25 February 2018</td><td>Samsung, ARM Holdings</td><td>Exynos</td><td>Cortex-A55, Meerkat</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="256&amp;#160;KiB 262,144&amp;#160;B 2.441406e-4&amp;#160;GiB"><span class="smwtext">0.25 MiB</span><div class="smwttcontent">256 KiB <br/>262,144 B <br/>2.441406e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="4,096&amp;#160;KiB 4,194,304&amp;#160;B 0.00391&amp;#160;GiB"><span class="smwtext">4 MiB</span><div class="smwttcontent">4,096 KiB <br/>4,194,304 B <br/>0.00391 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,900&amp;#160;MHz 2,900,000&amp;#160;kHz"><span class="smwtext">2.9 GHz</span><div class="smwttcontent">2,900 MHz <br/>2,900,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,900&amp;#160;MHz 1,900,000&amp;#160;kHz"><span class="smwtext">1.9 GHz</span><div class="smwttcontent">1,900 MHz <br/>1,900,000 kHz <br/></div></span></td><td></td><td>ARM Holdings</td><td>Mali-G72</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;GHz 600,000&amp;#160;KHz"><span class="smwtext">600 MHz</span><div class="smwttcontent">0.6 GHz <br/>600,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/samsung/exynos/9820" title="samsung/exynos/9820">9820</a></td><td>January 2019</td><td>Samsung, ARM Holdings</td><td>Exynos</td><td>Cortex-A75, Cortex-A55, Cheetah</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12,288&amp;#160;MiB 12,582,912&amp;#160;KiB 12,884,901,888&amp;#160;B 0.0117&amp;#160;TiB"><span class="smwtext">12 GiB</span><div class="smwttcontent">12,288 MiB <br/>12,582,912 KiB <br/>12,884,901,888 B <br/>0.0117 TiB <br/></div></span></td><td>ARM Holdings</td><td>Mali-G76</td><td></td></tr><tr><td><a href="/wiki/samsung/exynos/9825" title="samsung/exynos/9825">9825</a></td><td>2019</td><td>Samsung, ARM Holdings</td><td>Exynos</td><td>Cortex-A75, Cortex-A55, Cheetah</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="12,288&amp;#160;MiB 12,582,912&amp;#160;KiB 12,884,901,888&amp;#160;B 0.0117&amp;#160;TiB"><span class="smwtext">12 GiB</span><div class="smwttcontent">12,288 MiB <br/>12,582,912 KiB <br/>12,884,901,888 B <br/>0.0117 TiB <br/></div></span></td><td>ARM Holdings</td><td>Mali-G76</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;GHz 600,000&amp;#160;KHz"><span class="smwtext">600 MHz</span><div class="smwttcontent">0.6 GHz <br/>600,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/samsung/exynos/990" title="samsung/exynos/990">990</a></td><td>2020</td><td>Samsung, ARM Holdings</td><td>Exynos</td><td>Mongoose 5, Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>ARM Holdings</td><td>Mali-G77</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.8&amp;#160;GHz 800,000&amp;#160;KHz"><span class="smwtext">800 MHz</span><div class="smwttcontent">0.8 GHz <br/>800,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/mediatek/helio/g80" title="mediatek/helio/g80">G80</a></td><td>3 February 2020</td><td>MediaTek, ARM Holdings</td><td>Helio</td><td>Cortex-A75, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>ARM Holdings</td><td>Mali-G52</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.95&amp;#160;GHz 950,000&amp;#160;KHz"><span class="smwtext">950 MHz</span><div class="smwttcontent">0.95 GHz <br/>950,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/mediatek/helio/p65" title="mediatek/helio/p65">P65</a></td><td>25 June 2019</td><td>MediaTek, ARM Holdings</td><td>Helio</td><td>Cortex-A75, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>ARM Holdings</td><td>Mali-G52</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.82&amp;#160;GHz 820,000&amp;#160;KHz"><span class="smwtext">820 MHz</span><div class="smwttcontent">0.82 GHz <br/>820,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/mediatek/helio/mt6779" title="mediatek/helio/mt6779">P90</a></td><td>13 December 2018</td><td>MediaTek, ARM Holdings</td><td>Helio</td><td>Cortex-A75, Cortex-A55</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Imagination Technologies</td><td>PowerVR GM 9446</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.97&amp;#160;GHz 970,000&amp;#160;KHz"><span class="smwtext">970 MHz</span><div class="smwttcontent">0.97 GHz <br/>970,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/hisilicon/kirin/810" title="hisilicon/kirin/810">810</a></td><td>21 June 2019</td><td>HiSilicon, ARM Holdings</td><td>Kirin</td><td>Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="768&amp;#160;KiB 786,432&amp;#160;B 7.324219e-4&amp;#160;GiB"><span class="smwtext">0.75 MiB</span><div class="smwttcontent">768 KiB <br/>786,432 B <br/>7.324219e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,270&amp;#160;MHz 2,270,000&amp;#160;kHz"><span class="smwtext">2.27 GHz</span><div class="smwttcontent">2,270 MHz <br/>2,270,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,880&amp;#160;MHz 1,880,000&amp;#160;kHz"><span class="smwtext">1.88 GHz</span><div class="smwttcontent">1,880 MHz <br/>1,880,000 kHz <br/></div></span></td><td></td><td>ARM Holdings</td><td>Mali-G52</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.85&amp;#160;GHz 850,000&amp;#160;KHz"><span class="smwtext">850 MHz</span><div class="smwttcontent">0.85 GHz <br/>850,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/hisilicon/kirin/980" title="hisilicon/kirin/980">980</a></td><td>31 August 2018</td><td>HiSilicon, ARM Holdings</td><td>Kirin</td><td>Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,600&amp;#160;MHz 2,600,000&amp;#160;kHz"><span class="smwtext">2.6 GHz</span><div class="smwttcontent">2,600 MHz <br/>2,600,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,920&amp;#160;MHz 1,920,000&amp;#160;kHz"><span class="smwtext">1.92 GHz</span><div class="smwttcontent">1,920 MHz <br/>1,920,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span></td><td></td><td>ARM Holdings</td><td>Mali-G76</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.75&amp;#160;GHz 750,000&amp;#160;KHz"><span class="smwtext">750 MHz</span><div class="smwttcontent">0.75 GHz <br/>750,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/Kirin_990_4G" title="Kirin 990 4G">990 4G</a></td><td>6 September 2019</td><td>HiSilicon, ARM Holdings</td><td>Kirin</td><td>Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,860&amp;#160;MHz 2,860,000&amp;#160;kHz"><span class="smwtext">2.86 GHz</span><div class="smwttcontent">2,860 MHz <br/>2,860,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,860&amp;#160;MHz 1,860,000&amp;#160;kHz"><span class="smwtext">1.86 GHz</span><div class="smwttcontent">1,860 MHz <br/>1,860,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,088&amp;#160;MHz 2,088,000&amp;#160;kHz"><span class="smwtext">2.088 GHz</span><div class="smwttcontent">2,088 MHz <br/>2,088,000 kHz <br/></div></span></td><td></td><td>ARM Holdings</td><td>Mali-G76</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;GHz 600,000&amp;#160;KHz"><span class="smwtext">600 MHz</span><div class="smwttcontent">0.6 GHz <br/>600,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/Kirin_990" title="Kirin 990">990 5G</a></td><td>6 September 2019</td><td>HiSilicon, ARM Holdings</td><td>Kirin</td><td>Cortex-A76, Cortex-A55</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,048&amp;#160;KiB 2,097,152&amp;#160;B 0.00195&amp;#160;GiB"><span class="smwtext">2 MiB</span><div class="smwttcontent">2,048 KiB <br/>2,097,152 B <br/>0.00195 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,860&amp;#160;MHz 2,860,000&amp;#160;kHz"><span class="smwtext">2.86 GHz</span><div class="smwttcontent">2,860 MHz <br/>2,860,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,360&amp;#160;MHz 2,360,000&amp;#160;kHz"><span class="smwtext">2.36 GHz</span><div class="smwttcontent">2,360 MHz <br/>2,360,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,950&amp;#160;MHz 1,950,000&amp;#160;kHz"><span class="smwtext">1.95 GHz</span><div class="smwttcontent">1,950 MHz <br/>1,950,000 kHz <br/></div></span></td><td></td><td>ARM Holdings</td><td>Mali-G76</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.6&amp;#160;GHz 600,000&amp;#160;KHz"><span class="smwtext">600 MHz</span><div class="smwttcontent">0.6 GHz <br/>600,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_600/670" title="qualcomm/snapdragon 600/670">SDM670</a></td><td>8 August 2018</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 600</td><td>Kryo 360 Gold, Kryo 360 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 615</td><td></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_600/675" title="qualcomm/snapdragon 600/675">SDM675</a></td><td>22 October 2018</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 600</td><td>Kryo 460 Gold, Kryo 460 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="256&amp;#160;KiB 262,144&amp;#160;B 2.441406e-4&amp;#160;GiB"><span class="smwtext">0.25 MiB</span><div class="smwttcontent">256 KiB <br/>262,144 B <br/>2.441406e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="64&amp;#160;KiB 65,536&amp;#160;B 6.103516e-5&amp;#160;GiB"><span class="smwtext">0.0625 MiB</span><div class="smwttcontent">64 KiB <br/>65,536 B <br/>6.103516e-5 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,000&amp;#160;MHz 2,000,000&amp;#160;kHz"><span class="smwtext">2 GHz</span><div class="smwttcontent">2,000 MHz <br/>2,000,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 612</td><td></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_700/710" title="qualcomm/snapdragon 700/710">SDM710</a></td><td>23 May 2018</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 700</td><td>Kryo 360 Gold, Kryo 360 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 616</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;KHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_700/712" title="qualcomm/snapdragon 700/712">SDM712</a></td><td>6 February 2019</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 700</td><td>Kryo 360 Gold, Kryo 360 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 616</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.55&amp;#160;GHz 550,000&amp;#160;KHz"><span class="smwtext">550 MHz</span><div class="smwttcontent">0.55 GHz <br/>550,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_700/730" title="qualcomm/snapdragon 700/730">SDM730</a></td><td>9 April 2019</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 700</td><td>Kryo 470 Gold, Kryo 470 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 618</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;KHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_700/730g" title="qualcomm/snapdragon 700/730g">SDM730G</a></td><td>9 April 2019</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 700</td><td>Kryo 470 Gold, Kryo 470 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,200&amp;#160;MHz 2,200,000&amp;#160;kHz"><span class="smwtext">2.2 GHz</span><div class="smwttcontent">2,200 MHz <br/>2,200,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 618</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.575&amp;#160;GHz 575,000&amp;#160;KHz"><span class="smwtext">575 MHz</span><div class="smwttcontent">0.575 GHz <br/>575,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_700/720g" title="qualcomm/snapdragon 700/720g">Snapdragon 720G</a></td><td>20 January 2020</td><td>Qualcomm</td><td>Snapdragon 700</td><td>Kryo 465 Gold, Kryo 465 Silver</td><td>8</td><td>8</td><td></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,300&amp;#160;MHz 2,300,000&amp;#160;kHz"><span class="smwtext">2.3 GHz</span><div class="smwttcontent">2,300 MHz <br/>2,300,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 618</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.5&amp;#160;GHz 500,000&amp;#160;KHz"><span class="smwtext">500 MHz</span><div class="smwttcontent">0.5 GHz <br/>500,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/8cx" title="qualcomm/snapdragon 800/8cx">8cx</a></td><td>March 2019</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 800</td><td>Kryo 495 Gold, Kryo 495 Silver</td><td>8</td><td>8</td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="10,240&amp;#160;KiB 10,485,760&amp;#160;B 0.00977&amp;#160;GiB"><span class="smwtext">10 MiB</span><div class="smwttcontent">10,240 KiB <br/>10,485,760 B <br/>0.00977 GiB <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,840&amp;#160;MHz 2,840,000&amp;#160;kHz"><span class="smwtext">2.84 GHz</span><div class="smwttcontent">2,840 MHz <br/>2,840,000 kHz <br/></div></span></td><td></td><td>Qualcomm</td><td>Adreno 680 GPU</td><td></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/845" title="qualcomm/snapdragon 800/845">SDM845</a></td><td>February 2018</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 800</td><td>Kryo 385 Gold, Kryo 385 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,800&amp;#160;MHz 2,800,000&amp;#160;kHz"><span class="smwtext">2.8 GHz</span><div class="smwttcontent">2,800 MHz <br/>2,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,700&amp;#160;MHz 1,700,000&amp;#160;kHz"><span class="smwtext">1.7 GHz</span><div class="smwttcontent">1,700 MHz <br/>1,700,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 630 GPU</td><td></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/850" title="qualcomm/snapdragon 800/850">SDM850</a></td><td>5 June 2018</td><td>Qualcomm</td><td>Snapdragon 800</td><td>Kryo 385 Gold, Kryo 385 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,960&amp;#160;MHz 2,960,000&amp;#160;kHz"><span class="smwtext">2.96 GHz</span><div class="smwttcontent">2,960 MHz <br/>2,960,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="8,192&amp;#160;MiB 8,388,608&amp;#160;KiB 8,589,934,592&amp;#160;B 0.00781&amp;#160;TiB"><span class="smwtext">8 GiB</span><div class="smwttcontent">8,192 MiB <br/>8,388,608 KiB <br/>8,589,934,592 B <br/>0.00781 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 630</td><td></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/855" title="qualcomm/snapdragon 800/855">SDM855</a></td><td>March 2019</td><td>ARM Holdings, Qualcomm</td><td>Snapdragon 800</td><td>Kryo 485 Gold, Kryo 485 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="768&amp;#160;KiB 786,432&amp;#160;B 7.324219e-4&amp;#160;GiB"><span class="smwtext">0.75 MiB</span><div class="smwttcontent">768 KiB <br/>786,432 B <br/>7.324219e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,420&amp;#160;MHz 2,420,000&amp;#160;kHz"><span class="smwtext">2.42 GHz</span><div class="smwttcontent">2,420 MHz <br/>2,420,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,840&amp;#160;MHz 2,840,000&amp;#160;kHz"><span class="smwtext">2.84 GHz</span><div class="smwttcontent">2,840 MHz <br/>2,840,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 640 GPU</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;GHz 250,000&amp;#160;KHz"><span class="smwtext">250 MHz</span><div class="smwttcontent">0.25 GHz <br/>250,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/855_plus" title="qualcomm/snapdragon 800/855 plus">SDM855AC</a></td><td>March 2019</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 800</td><td>Kryo 485 Gold, Kryo 485 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,024&amp;#160;KiB 1,048,576&amp;#160;B 9.765625e-4&amp;#160;GiB"><span class="smwtext">1 MiB</span><div class="smwttcontent">1,024 KiB <br/>1,048,576 B <br/>9.765625e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="1,800&amp;#160;MHz 1,800,000&amp;#160;kHz"><span class="smwtext">1.8 GHz</span><div class="smwttcontent">1,800 MHz <br/>1,800,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,420&amp;#160;MHz 2,420,000&amp;#160;kHz"><span class="smwtext">2.42 GHz</span><div class="smwttcontent">2,420 MHz <br/>2,420,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,960&amp;#160;MHz 2,960,000&amp;#160;kHz"><span class="smwtext">2.96 GHz</span><div class="smwttcontent">2,960 MHz <br/>2,960,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 640 GPU</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;GHz 250,000&amp;#160;KHz"><span class="smwtext">250 MHz</span><div class="smwttcontent">0.25 GHz <br/>250,000 KHz <br/></div></span></td></tr><tr><td><a href="/wiki/qualcomm/snapdragon_800/865" title="qualcomm/snapdragon 800/865">SDM865</a></td><td>March 2020</td><td>Qualcomm, ARM Holdings</td><td>Snapdragon 800</td><td>Kryo 585 Gold, Kryo 585 Silver</td><td>8</td><td>8</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="512&amp;#160;KiB 524,288&amp;#160;B 4.882812e-4&amp;#160;GiB"><span class="smwtext">0.5 MiB</span><div class="smwttcontent">512 KiB <br/>524,288 B <br/>4.882812e-4 GiB <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="768&amp;#160;KiB 786,432&amp;#160;B 7.324219e-4&amp;#160;GiB"><span class="smwtext">0.75 MiB</span><div class="smwttcontent">768 KiB <br/>786,432 B <br/>7.324219e-4 GiB <br/></div></span></td><td></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,420&amp;#160;MHz 2,420,000&amp;#160;kHz"><span class="smwtext">2.42 GHz</span><div class="smwttcontent">2,420 MHz <br/>2,420,000 kHz <br/></div></span>, <span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="2,840&amp;#160;MHz 2,840,000&amp;#160;kHz"><span class="smwtext">2.84 GHz</span><div class="smwttcontent">2,840 MHz <br/>2,840,000 kHz <br/></div></span></td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="16,384&amp;#160;MiB 16,777,216&amp;#160;KiB 17,179,869,184&amp;#160;B 0.0156&amp;#160;TiB"><span class="smwtext">16 GiB</span><div class="smwttcontent">16,384 MiB <br/>16,777,216 KiB <br/>17,179,869,184 B <br/>0.0156 TiB <br/></div></span></td><td>Qualcomm</td><td>Adreno 650 GPU</td><td><span class="smw-highlighter" data-type="3" data-state="inline" data-title="Unit conversion" title="0.25&amp;#160;GHz 250,000&amp;#160;KHz"><span class="smwtext">250 MHz</span><div class="smwttcontent">0.25 GHz <br/>250,000 KHz <br/></div></span></td></tr>
+<tr class="comptable-header"><th>Count: 27</th></tr>
+</tbody></table>
+</div></div>
+
+<!-- Saved in parser cache with key wikichip:pcache:idhash:18226-0!*!0!default!!en!5!* and timestamp 20210418002834 and revision id 98463
+ -->
+</div><div class="visualClear"></div><div class="printfooter">Retrieved from &#34;<a dir="ltr" href="https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;oldid=98463">https://en.wikichip.org/w/index.php?title=arm_holdings/microarchitectures/cortex-a55&amp;oldid=98463</a>&#34;</div><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:cpu_microarchitectures_by_arm_holdings" title="Category:cpu microarchitectures by arm holdings">cpu microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:microarchitectures_by_arm_holdings" title="Category:microarchitectures by arm holdings">microarchitectures by arm holdings</a></li><li><a href="/wiki/Category:all_microarchitectures" title="Category:all microarchitectures">all microarchitectures</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="/wiki/Category:Articles_with_empty_sections" title="Category:Articles with empty sections">Articles with empty sections</a></li></ul></div></div><div id="mw-data-after-content">
+	<div class="smwfact"><div class="smwfactboxhead">Facts about &#34;<span class="swmfactboxheadbrowse"><a href="/wiki/Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fcortex-2Da55" title="Special:Browse/:arm-20holdings-2Fmicroarchitectures-2Fcortex-2Da55">Cortex-A55 - Microarchitectures - ARM</a></span>&#34;</div><div class="smwrdflink"><span class="rdflink"><a href="/wiki/Special:ExportRDF/arm_holdings/microarchitectures/cortex-a55" title="Special:ExportRDF/arm holdings/microarchitectures/cortex-a55">RDF feed</a></span></div><table class="smwfacttable" cellspacing="0" cellpadding="2"><tbody><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:codename" title="Property:codename">codename</a></td><td class="smwprops">Cortex-A55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:codename/Cortex-2DA55" title="Special:SearchByProperty/:codename/Cortex-2DA55">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:core_count" title="Property:core count">core count</a></td><td class="smwprops">1  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/1" title="Special:SearchByProperty/:core-20count/1">+</a></span>, 2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/2" title="Special:SearchByProperty/:core-20count/2">+</a></span>, 3  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/3" title="Special:SearchByProperty/:core-20count/3">+</a></span> and 4  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:core-20count/4" title="Special:SearchByProperty/:core-20count/4">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:designer" title="Property:designer">designer</a></td><td class="smwprops">ARM Holdings  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:designer/ARM-20Holdings" title="Special:SearchByProperty/:designer/ARM-20Holdings">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:first_launched" title="Property:first launched">first launched</a></td><td class="smwprops">May 29, 2017  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:first-20launched/29-20May-202017" title="Special:SearchByProperty/:first-20launched/29-20May-202017">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:full_page_name" title="Property:full page name">full page name</a></td><td class="smwprops">arm holdings/microarchitectures/cortex-a55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fcortex-2Da55" title="Special:SearchByProperty/:full-20page-20name/arm-20holdings-2Fmicroarchitectures-2Fcortex-2Da55">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:instance_of" title="Property:instance of">instance of</a></td><td class="smwprops">microarchitecture  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instance-20of/microarchitecture" title="Special:SearchByProperty/:instance-20of/microarchitecture">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:instruction_set_architecture" title="Property:instruction set architecture">instruction set architecture</a></td><td class="smwprops">ARMv8.2  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.2" title="Special:SearchByProperty/:instruction-20set-20architecture/ARMv8.2">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:manufacturer" title="Property:manufacturer">manufacturer</a></td><td class="smwprops">TSMC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/TSMC" title="Special:SearchByProperty/:manufacturer/TSMC">+</a></span>, Samsung  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/Samsung" title="Special:SearchByProperty/:manufacturer/Samsung">+</a></span>, GlobalFoundries  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/GlobalFoundries" title="Special:SearchByProperty/:manufacturer/GlobalFoundries">+</a></span> and SMIC  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:manufacturer/SMIC" title="Special:SearchByProperty/:manufacturer/SMIC">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:microarchitecture_type" title="Property:microarchitecture type">microarchitecture type</a></td><td class="smwprops">CPU  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:microarchitecture-20type/CPU" title="Special:SearchByProperty/:microarchitecture-20type/CPU">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:name" title="Property:name">name</a></td><td class="smwprops">Cortex-A55  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:name/Cortex-2DA55" title="Special:SearchByProperty/:name/Cortex-2DA55">+</a></span></td></tr><tr class="row-odd"><td class="smwpropname"><a href="/wiki/Property:pipeline_stages" title="Property:pipeline stages">pipeline stages</a></td><td class="smwprops">8  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:pipeline-20stages/8" title="Special:SearchByProperty/:pipeline-20stages/8">+</a></span></td></tr><tr class="row-even"><td class="smwpropname"><a href="/wiki/Property:process" title="Property:process">process</a></td><td class="smwprops">16 nm (0.016 μm, 1.6e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/16-20nm" title="Special:SearchByProperty/:process/16-20nm">+</a></span>, 14 nm (0.014 μm, 1.4e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/14-20nm" title="Special:SearchByProperty/:process/14-20nm">+</a></span>, 10 nm (0.01 μm, 1.0e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/10-20nm" title="Special:SearchByProperty/:process/10-20nm">+</a></span>, 7 nm (0.007 μm, 7.0e-6 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/7-20nm" title="Special:SearchByProperty/:process/7-20nm">+</a></span> and 12 nm (0.012 μm, 1.2e-5 mm)  <span class="smwsearch"><a href="/wiki/Special:SearchByProperty/:process/12-20nm" title="Special:SearchByProperty/:process/12-20nm">+</a></span></td></tr></tbody></table></div>
+
+</div>
+				</div>
+				
+</div> <!-- mw-body-content END -->
+</div> <!-- mw-body-content enclosure END -->
+</div> <!-- wikichip-body-container END -->
+<!-- wikichip-bottom START -->
+<div id="wikichip-bottom">
+    <!-- wikichip-footer-cont START -->
+    <div id="wikichip-footer-cont">
+    <!-- wikichip-afooter START -->
+        <div id="wikichip-afooter">
+                    	
+			<!-- Ezoic - wikichip/global/footer - bottom_of_page -->
+			<div id="ezoic-pub-ad-placeholder-127">
+                	        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                	        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1951113009523412" data-ad-slot="3591436790" data-ad-format="auto"></ins>
+                	        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+			<!-- End Ezoic - wikichip/global/footer - bottom_of_page -->
+
+			                            </div>
+    <!-- wikichip-afooter END -->
+    <!-- wikichip-footer START -->
+        <div id="wikichip-footer">
+
+                                <div id="footer-last-mod">
+                         This page was last modified on 28 January 2021, at 15:20.                        </div>
+                                <div id="footer-places"><ul>
+                        <li><a href="/wiki/WikiChip:Privacy_policy" title="WikiChip:Privacy policy">Privacy policy</a></li><li><a href="/wiki/WikiChip:About" title="WikiChip:About">About WikiChip</a></li><li><a href="/wiki/WikiChip:General_disclaimer" title="WikiChip:General disclaimer">Disclaimers</a></li>                        </ul></div>
+                        
+            <script type="text/javascript">var _qevents=_qevents||[];!function(){var e=document.createElement("script");e.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js",e.async=!0,e.type="text/javascript";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(),_qevents.push({qacct:"p--yWCm0k6ND34Q"});</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--yWCm0k6ND34Q.gif" border="0" height="1" width="1" /></div></noscript>
+                        
+        </div>
+    <!-- wikichip-footer END -->
+    </div>
+    <!-- wikichip-footer-cont END -->
+</div>
+<!-- wikichip-bottom START -->
+    
+    
+    
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["ext.smw.tooltips","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.headertabs","ext.headertabs.large","skins.WikiChip2.js"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":101});});</script></div>
+
+
+
+
+<script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=3&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=3&shcb=34', false, [], true, false, false, false);
+</script>
+
+<script>var _audins_dom="wikichip_org",_audins_did=86609;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=194-3");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.wikichip_org,DomainId.86609" border="0" height="1" width="1" alt="Quantcast"/></div></noscript>
+<script type="text/javascript" data-cfasync="false"></script>
+<script>__ez.queue.addFile('/tardisrocinante/vitals.js', '/tardisrocinante/vitals.js?gcb=3&cb=3', false, ['/detroitchicago/minneapolis.js'], true, false, true, false);</script></body></html>
